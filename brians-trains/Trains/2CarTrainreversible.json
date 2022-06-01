@@ -1,0 +1,107 @@
+{
+  "entities": [
+    {
+      "color": {
+        "a": 0.49803921580314636,
+        "b": 1,
+        "g": 0.49803921580314636,
+        "r": 0
+      },
+      "entity_number": 1,
+      "name": "locomotive",
+      "orientation": 0,
+      "position": {
+        "x": 0,
+        "y": -10.5
+      }
+    },
+    {
+      "entity_number": 2,
+      "inventory": null,
+      "name": "cargo-wagon",
+      "orientation": 0.5,
+      "position": {
+        "x": 0,
+        "y": -3.5
+      }
+    },
+    {
+      "entity_number": 3,
+      "inventory": null,
+      "name": "cargo-wagon",
+      "orientation": 0.5,
+      "position": {
+        "x": 0,
+        "y": 3.5
+      }
+    },
+    {
+      "color": {
+        "a": 0.49803921580314636,
+        "b": 1,
+        "g": 0.49803921580314636,
+        "r": 0
+      },
+      "entity_number": 4,
+      "name": "locomotive",
+      "orientation": 0.5,
+      "position": {
+        "x": 0,
+        "y": 10.5
+      }
+    }
+  ],
+  "icons": [
+    {
+      "index": 1,
+      "signal": {
+        "name": "locomotive",
+        "type": "item"
+      }
+    },
+    {
+      "index": 2,
+      "signal": {
+        "name": "signal-2",
+        "type": "virtual"
+      }
+    },
+    {
+      "index": 3,
+      "signal": {
+        "name": "cargo-wagon",
+        "type": "item"
+      }
+    },
+    {
+      "index": 4,
+      "signal": {
+        "name": "signal-2",
+        "type": "virtual"
+      }
+    }
+  ],
+  "item": "blueprint",
+  "label": "2-Car Train (reversible)",
+  "schedules": [
+    {
+      "locomotives": [
+        1,
+        4
+      ],
+      "schedule": [
+        {
+          "station": "LTN Depot",
+          "wait_conditions": [
+            {
+              "compare_type": "and",
+              "ticks": 300,
+              "type": "inactivity"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "version": 281479275544576
+}

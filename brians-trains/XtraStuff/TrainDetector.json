@@ -1,0 +1,168 @@
+{
+  "description": "Place this along a track to send a single pulse every time a train passes.  Connect \">\" output via green wire to power poles to pass the pulses to the rate display.  This can be connected to an existing signal though it's often best to place it immediately before the existing signal so it won't go red for some reason other than a passing train.\n\nIf measuring junction throughput, be sure to have one at every possible exit.  Don't place it at both entrances and exits as that will double-count.",
+  "entities": [
+    {
+      "connections": {
+        "1": {
+          "green": [
+            {
+              "circuit_id": 1,
+              "entity_id": 2
+            }
+          ]
+        }
+      },
+      "direction": 2,
+      "entity_number": 1,
+      "name": "rail-chain-signal",
+      "position": {
+        "x": 755.5,
+        "y": -174.5
+      }
+    },
+    {
+      "connections": {
+        "1": {
+          "green": [
+            {
+              "entity_id": 1
+            },
+            {
+              "circuit_id": 1,
+              "entity_id": 3
+            }
+          ]
+        },
+        "2": {
+          "red": [
+            {
+              "circuit_id": 1,
+              "entity_id": 3
+            }
+          ]
+        }
+      },
+      "control_behavior": {
+        "arithmetic_conditions": {
+          "first_signal": {
+            "name": "signal-red",
+            "type": "virtual"
+          },
+          "operation": "*",
+          "output_signal": {
+            "name": "signal-red",
+            "type": "virtual"
+          },
+          "second_constant": -1
+        }
+      },
+      "direction": 2,
+      "entity_number": 2,
+      "name": "arithmetic-combinator",
+      "position": {
+        "x": 757,
+        "y": -174.5
+      }
+    },
+    {
+      "connections": {
+        "1": {
+          "green": [
+            {
+              "circuit_id": 1,
+              "entity_id": 2
+            }
+          ],
+          "red": [
+            {
+              "circuit_id": 2,
+              "entity_id": 2
+            }
+          ]
+        }
+      },
+      "control_behavior": {
+        "decider_conditions": {
+          "comparator": ">",
+          "constant": 0,
+          "copy_count_from_input": false,
+          "first_signal": {
+            "name": "signal-red",
+            "type": "virtual"
+          },
+          "output_signal": {
+            "name": "locomotive",
+            "type": "item"
+          }
+        }
+      },
+      "direction": 2,
+      "entity_number": 3,
+      "name": "decider-combinator",
+      "position": {
+        "x": 759,
+        "y": -174.5
+      }
+    },
+    {
+      "direction": 2,
+      "entity_number": 4,
+      "name": "straight-rail",
+      "position": {
+        "x": 755,
+        "y": -173
+      }
+    },
+    {
+      "direction": 2,
+      "entity_number": 5,
+      "name": "straight-rail",
+      "position": {
+        "x": 757,
+        "y": -173
+      }
+    },
+    {
+      "direction": 2,
+      "entity_number": 6,
+      "name": "straight-rail",
+      "position": {
+        "x": 759,
+        "y": -173
+      }
+    }
+  ],
+  "icons": [
+    {
+      "index": 1,
+      "signal": {
+        "name": "locomotive",
+        "type": "item"
+      }
+    },
+    {
+      "index": 2,
+      "signal": {
+        "name": "signal-D",
+        "type": "virtual"
+      }
+    },
+    {
+      "index": 3,
+      "signal": {
+        "name": "signal-E",
+        "type": "virtual"
+      }
+    },
+    {
+      "index": 4,
+      "signal": {
+        "name": "signal-T",
+        "type": "virtual"
+      }
+    }
+  ],
+  "item": "blueprint",
+  "label": "Train Detector",
+  "version": 281479275544576
+}

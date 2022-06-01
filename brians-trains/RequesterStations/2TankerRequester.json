@@ -1,0 +1,944 @@
+{
+  "entities": [
+    {
+      "entity_number": 1,
+      "name": "pipe",
+      "position": {
+        "x": -474.5,
+        "y": 299.5
+      }
+    },
+    {
+      "entity_number": 2,
+      "name": "pipe",
+      "position": {
+        "x": -473.5,
+        "y": 299.5
+      }
+    },
+    {
+      "connections": {
+        "1": {
+          "green": [
+            {
+              "entity_id": 4
+            },
+            {
+              "entity_id": 21
+            }
+          ]
+        }
+      },
+      "entity_number": 3,
+      "name": "storage-tank",
+      "position": {
+        "x": -471.5,
+        "y": 300.5
+      }
+    },
+    {
+      "connections": {
+        "1": {
+          "green": [
+            {
+              "entity_id": 3
+            },
+            {
+              "entity_id": 5
+            }
+          ]
+        }
+      },
+      "direction": 2,
+      "entity_number": 4,
+      "name": "storage-tank",
+      "position": {
+        "x": -467.5,
+        "y": 300.5
+      }
+    },
+    {
+      "connections": {
+        "1": {
+          "green": [
+            {
+              "entity_id": 4
+            },
+            {
+              "entity_id": 6
+            }
+          ]
+        }
+      },
+      "entity_number": 5,
+      "name": "storage-tank",
+      "position": {
+        "x": -464.5,
+        "y": 300.5
+      }
+    },
+    {
+      "connections": {
+        "1": {
+          "green": [
+            {
+              "entity_id": 5
+            }
+          ]
+        }
+      },
+      "direction": 2,
+      "entity_number": 6,
+      "name": "storage-tank",
+      "position": {
+        "x": -460.5,
+        "y": 300.5
+      }
+    },
+    {
+      "entity_number": 7,
+      "name": "pipe",
+      "position": {
+        "x": -458.5,
+        "y": 299.5
+      }
+    },
+    {
+      "connections": {
+        "1": {
+          "red": [
+            {
+              "entity_id": 9
+            }
+          ]
+        },
+        "2": {
+          "red": [
+            {
+              "circuit_id": 1,
+              "entity_id": 16
+            }
+          ]
+        }
+      },
+      "control_behavior": {
+        "decider_conditions": {
+          "comparator": ">",
+          "constant": 0,
+          "copy_count_from_input": false,
+          "first_signal": {
+            "name": "signal-0",
+            "type": "virtual"
+          },
+          "output_signal": {
+            "name": "signal-0",
+            "type": "virtual"
+          }
+        }
+      },
+      "direction": 4,
+      "entity_number": 8,
+      "name": "decider-combinator",
+      "position": {
+        "x": -482.5,
+        "y": 302
+      }
+    },
+    {
+      "connections": {
+        "1": {
+          "green": [
+            {
+              "circuit_id": 2,
+              "entity_id": 16
+            }
+          ],
+          "red": [
+            {
+              "circuit_id": 1,
+              "entity_id": 8
+            }
+          ]
+        }
+      },
+      "entity_number": 9,
+      "name": "big-electric-pole",
+      "neighbours": [
+        11
+      ],
+      "position": {
+        "x": -481,
+        "y": 301
+      }
+    },
+    {
+      "connections": {
+        "1": {
+          "green": [
+            {
+              "entity_id": 19
+            }
+          ],
+          "red": [
+            {
+              "entity_id": 19
+            }
+          ]
+        },
+        "2": {
+          "green": [
+            {
+              "circuit_id": 1,
+              "entity_id": 16
+            }
+          ]
+        }
+      },
+      "control_behavior": {
+        "decider_conditions": {
+          "comparator": "<",
+          "constant": 0,
+          "copy_count_from_input": true,
+          "first_signal": {
+            "name": "signal-each",
+            "type": "virtual"
+          },
+          "output_signal": {
+            "name": "signal-each",
+            "type": "virtual"
+          }
+        }
+      },
+      "direction": 4,
+      "entity_number": 10,
+      "name": "decider-combinator",
+      "position": {
+        "x": -479.5,
+        "y": 301
+      }
+    },
+    {
+      "entity_number": 11,
+      "name": "medium-electric-pole",
+      "neighbours": [
+        9,
+        21
+      ],
+      "position": {
+        "x": -477.5,
+        "y": 301.5
+      }
+    },
+    {
+      "entity_number": 12,
+      "name": "pipe-to-ground",
+      "position": {
+        "x": -474.5,
+        "y": 300.5
+      }
+    },
+    {
+      "entity_number": 13,
+      "name": "pipe",
+      "position": {
+        "x": -469.5,
+        "y": 301.5
+      }
+    },
+    {
+      "entity_number": 14,
+      "name": "pipe",
+      "position": {
+        "x": -462.5,
+        "y": 301.5
+      }
+    },
+    {
+      "entity_number": 15,
+      "name": "pipe-to-ground",
+      "position": {
+        "x": -458.5,
+        "y": 300.5
+      }
+    },
+    {
+      "connections": {
+        "1": {
+          "green": [
+            {
+              "circuit_id": 2,
+              "entity_id": 10
+            }
+          ],
+          "red": [
+            {
+              "circuit_id": 2,
+              "entity_id": 8
+            }
+          ]
+        },
+        "2": {
+          "green": [
+            {
+              "entity_id": 9
+            }
+          ]
+        }
+      },
+      "control_behavior": {
+        "arithmetic_conditions": {
+          "first_signal": {
+            "name": "signal-each",
+            "type": "virtual"
+          },
+          "operation": "*",
+          "output_signal": {
+            "name": "signal-each",
+            "type": "virtual"
+          },
+          "second_signal": {
+            "name": "signal-0",
+            "type": "virtual"
+          }
+        }
+      },
+      "direction": 6,
+      "entity_number": 16,
+      "name": "arithmetic-combinator",
+      "position": {
+        "x": -481,
+        "y": 302.5
+      }
+    },
+    {
+      "direction": 6,
+      "entity_number": 17,
+      "name": "logistic-train-stop-output",
+      "position": {
+        "x": -479.5,
+        "y": 303.5
+      }
+    },
+    {
+      "color": {
+        "a": 0.49803921580314636,
+        "b": 1,
+        "g": 0.501960813999176,
+        "r": 0
+      },
+      "connections": {
+        "1": {
+          "green": [
+            {
+              "entity_id": 20
+            }
+          ]
+        }
+      },
+      "control_behavior": {
+        "read_from_train": true,
+        "train_stopped_signal": {
+          "name": "signal-T",
+          "type": "virtual"
+        }
+      },
+      "direction": 6,
+      "entity_number": 18,
+      "name": "logistic-train-stop",
+      "position": {
+        "x": -479,
+        "y": 303
+      },
+      "station": ""
+    },
+    {
+      "connections": {
+        "1": {
+          "green": [
+            {
+              "circuit_id": 1,
+              "entity_id": 10
+            },
+            {
+              "entity_id": 21
+            }
+          ],
+          "red": [
+            {
+              "circuit_id": 1,
+              "entity_id": 10
+            },
+            {
+              "entity_id": 20
+            }
+          ]
+        }
+      },
+      "control_behavior": {
+        "circuit_condition": {
+          "comparator": ">",
+          "constant": 0,
+          "first_signal": {
+            "name": "signal-anything",
+            "type": "virtual"
+          }
+        },
+        "use_colors": true
+      },
+      "entity_number": 19,
+      "name": "logistic-train-stop-input",
+      "position": {
+        "x": -479.5,
+        "y": 302.5
+      }
+    },
+    {
+      "connections": {
+        "1": {
+          "green": [
+            {
+              "entity_id": 18
+            }
+          ],
+          "red": [
+            {
+              "entity_id": 19
+            }
+          ]
+        }
+      },
+      "control_behavior": {
+        "filters": [
+          {
+            "count": 1,
+            "index": 1,
+            "signal": {
+              "name": "ltn-max-trains",
+              "type": "virtual"
+            }
+          },
+          {
+            "count": 2,
+            "index": 2,
+            "signal": {
+              "name": "ltn-min-train-length",
+              "type": "virtual"
+            }
+          },
+          {
+            "count": 4,
+            "index": 3,
+            "signal": {
+              "name": "ltn-max-train-length",
+              "type": "virtual"
+            }
+          },
+          {
+            "count": 255,
+            "index": 4,
+            "signal": {
+              "name": "ltn-network-id",
+              "type": "virtual"
+            }
+          },
+          {
+            "count": 999999,
+            "index": 5,
+            "signal": {
+              "name": "ltn-provider-threshold",
+              "type": "virtual"
+            }
+          },
+          {
+            "count": 50000,
+            "index": 6,
+            "signal": {
+              "name": "ltn-requester-threshold",
+              "type": "virtual"
+            }
+          },
+          {
+            "count": -75000,
+            "index": 7,
+            "signal": {
+              "name": "signal-X",
+              "type": "virtual"
+            }
+          }
+        ]
+      },
+      "direction": 4,
+      "entity_number": 20,
+      "name": "constant-combinator",
+      "position": {
+        "x": -477.5,
+        "y": 302.5
+      }
+    },
+    {
+      "connections": {
+        "1": {
+          "green": [
+            {
+              "entity_id": 3
+            },
+            {
+              "entity_id": 19
+            },
+            {
+              "entity_id": 42
+            }
+          ]
+        }
+      },
+      "entity_number": 21,
+      "name": "medium-electric-pole",
+      "neighbours": [
+        11,
+        24
+      ],
+      "position": {
+        "x": -472.5,
+        "y": 303.5
+      }
+    },
+    {
+      "control_behavior": {
+        "circuit_condition": {
+          "comparator": "<",
+          "constant": 0,
+          "first_signal": {
+            "name": "signal-everything",
+            "type": "virtual"
+          }
+        }
+      },
+      "entity_number": 22,
+      "name": "pump",
+      "position": {
+        "x": -470.5,
+        "y": 303
+      }
+    },
+    {
+      "control_behavior": {
+        "circuit_condition": {
+          "comparator": "<",
+          "constant": 0,
+          "first_signal": {
+            "name": "signal-everything",
+            "type": "virtual"
+          }
+        }
+      },
+      "entity_number": 23,
+      "name": "pump",
+      "position": {
+        "x": -468.5,
+        "y": 303
+      }
+    },
+    {
+      "entity_number": 24,
+      "name": "medium-electric-pole",
+      "neighbours": [
+        21,
+        27
+      ],
+      "position": {
+        "x": -465.5,
+        "y": 303.5
+      }
+    },
+    {
+      "control_behavior": {
+        "circuit_condition": {
+          "comparator": "<",
+          "constant": 0,
+          "first_signal": {
+            "name": "signal-everything",
+            "type": "virtual"
+          }
+        }
+      },
+      "entity_number": 25,
+      "name": "pump",
+      "position": {
+        "x": -463.5,
+        "y": 303
+      }
+    },
+    {
+      "control_behavior": {
+        "circuit_condition": {
+          "comparator": "<",
+          "constant": 0,
+          "first_signal": {
+            "name": "signal-everything",
+            "type": "virtual"
+          }
+        }
+      },
+      "entity_number": 26,
+      "name": "pump",
+      "position": {
+        "x": -461.5,
+        "y": 303
+      }
+    },
+    {
+      "entity_number": 27,
+      "name": "medium-electric-pole",
+      "neighbours": [
+        24
+      ],
+      "position": {
+        "x": -458.5,
+        "y": 303.5
+      }
+    },
+    {
+      "direction": 2,
+      "entity_number": 28,
+      "name": "straight-rail",
+      "position": {
+        "x": -479,
+        "y": 305
+      }
+    },
+    {
+      "direction": 2,
+      "entity_number": 29,
+      "name": "straight-rail",
+      "position": {
+        "x": -477,
+        "y": 305
+      }
+    },
+    {
+      "direction": 2,
+      "entity_number": 30,
+      "name": "straight-rail",
+      "position": {
+        "x": -475,
+        "y": 305
+      }
+    },
+    {
+      "direction": 2,
+      "entity_number": 31,
+      "name": "straight-rail",
+      "position": {
+        "x": -473,
+        "y": 305
+      }
+    },
+    {
+      "direction": 2,
+      "entity_number": 32,
+      "name": "straight-rail",
+      "position": {
+        "x": -471,
+        "y": 305
+      }
+    },
+    {
+      "direction": 2,
+      "entity_number": 33,
+      "name": "straight-rail",
+      "position": {
+        "x": -469,
+        "y": 305
+      }
+    },
+    {
+      "direction": 2,
+      "entity_number": 34,
+      "name": "straight-rail",
+      "position": {
+        "x": -467,
+        "y": 305
+      }
+    },
+    {
+      "direction": 2,
+      "entity_number": 35,
+      "name": "straight-rail",
+      "position": {
+        "x": -465,
+        "y": 305
+      }
+    },
+    {
+      "direction": 2,
+      "entity_number": 36,
+      "name": "straight-rail",
+      "position": {
+        "x": -463,
+        "y": 305
+      }
+    },
+    {
+      "direction": 2,
+      "entity_number": 37,
+      "name": "straight-rail",
+      "position": {
+        "x": -461,
+        "y": 305
+      }
+    },
+    {
+      "direction": 2,
+      "entity_number": 38,
+      "name": "straight-rail",
+      "position": {
+        "x": -459,
+        "y": 305
+      }
+    },
+    {
+      "direction": 2,
+      "entity_number": 39,
+      "name": "straight-rail",
+      "position": {
+        "x": -457,
+        "y": 305
+      }
+    },
+    {
+      "direction": 2,
+      "entity_number": 40,
+      "name": "straight-rail",
+      "position": {
+        "x": -455,
+        "y": 305
+      }
+    },
+    {
+      "direction": 2,
+      "entity_number": 41,
+      "name": "straight-rail",
+      "position": {
+        "x": -453,
+        "y": 305
+      }
+    },
+    {
+      "connections": {
+        "1": {
+          "green": [
+            {
+              "entity_id": 21
+            },
+            {
+              "entity_id": 43
+            }
+          ]
+        }
+      },
+      "direction": 2,
+      "entity_number": 42,
+      "name": "storage-tank",
+      "position": {
+        "x": -472.5,
+        "y": 308.5
+      }
+    },
+    {
+      "connections": {
+        "1": {
+          "green": [
+            {
+              "entity_id": 42
+            },
+            {
+              "entity_id": 45
+            }
+          ]
+        }
+      },
+      "entity_number": 43,
+      "name": "storage-tank",
+      "position": {
+        "x": -469.5,
+        "y": 308.5
+      }
+    },
+    {
+      "control_behavior": {
+        "circuit_condition": {
+          "comparator": "<",
+          "constant": 0,
+          "first_signal": {
+            "name": "signal-everything",
+            "type": "virtual"
+          }
+        }
+      },
+      "direction": 4,
+      "entity_number": 44,
+      "name": "pump",
+      "position": {
+        "x": -467.5,
+        "y": 307
+      }
+    },
+    {
+      "connections": {
+        "1": {
+          "green": [
+            {
+              "entity_id": 43
+            },
+            {
+              "entity_id": 46
+            }
+          ]
+        }
+      },
+      "direction": 2,
+      "entity_number": 45,
+      "name": "storage-tank",
+      "position": {
+        "x": -465.5,
+        "y": 308.5
+      }
+    },
+    {
+      "connections": {
+        "1": {
+          "green": [
+            {
+              "entity_id": 45
+            }
+          ]
+        }
+      },
+      "entity_number": 46,
+      "name": "storage-tank",
+      "position": {
+        "x": -462.5,
+        "y": 308.5
+      }
+    },
+    {
+      "control_behavior": {
+        "circuit_condition": {
+          "comparator": "<",
+          "constant": 0,
+          "first_signal": {
+            "name": "signal-everything",
+            "type": "virtual"
+          }
+        }
+      },
+      "direction": 4,
+      "entity_number": 47,
+      "name": "pump",
+      "position": {
+        "x": -460.5,
+        "y": 307
+      }
+    },
+    {
+      "direction": 4,
+      "entity_number": 48,
+      "name": "pipe-to-ground",
+      "position": {
+        "x": -474.5,
+        "y": 308.5
+      }
+    },
+    {
+      "entity_number": 49,
+      "name": "pipe",
+      "position": {
+        "x": -474.5,
+        "y": 309.5
+      }
+    },
+    {
+      "entity_number": 50,
+      "name": "pipe",
+      "position": {
+        "x": -467.5,
+        "y": 308.5
+      }
+    },
+    {
+      "entity_number": 51,
+      "name": "pipe",
+      "position": {
+        "x": -467.5,
+        "y": 309.5
+      }
+    },
+    {
+      "entity_number": 52,
+      "name": "pipe",
+      "position": {
+        "x": -460.5,
+        "y": 308.5
+      }
+    },
+    {
+      "entity_number": 53,
+      "name": "pipe",
+      "position": {
+        "x": -460.5,
+        "y": 309.5
+      }
+    },
+    {
+      "direction": 4,
+      "entity_number": 54,
+      "name": "pipe-to-ground",
+      "position": {
+        "x": -458.5,
+        "y": 308.5
+      }
+    },
+    {
+      "entity_number": 55,
+      "name": "pipe",
+      "position": {
+        "x": -459.5,
+        "y": 309.5
+      }
+    },
+    {
+      "entity_number": 56,
+      "name": "pipe",
+      "position": {
+        "x": -458.5,
+        "y": 309.5
+      }
+    }
+  ],
+  "icons": [
+    {
+      "index": 1,
+      "signal": {
+        "name": "fluid-wagon",
+        "type": "item"
+      }
+    },
+    {
+      "index": 2,
+      "signal": {
+        "name": "pipe",
+        "type": "item"
+      }
+    },
+    {
+      "index": 3,
+      "signal": {
+        "name": "signal-2",
+        "type": "virtual"
+      }
+    }
+  ],
+  "item": "blueprint",
+  "label": "2-Tanker Requester",
+  "version": 281479275544576
+}
