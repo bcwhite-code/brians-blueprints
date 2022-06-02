@@ -1,4 +1,6 @@
 #! /usr/bin/python3
+# Written by Brian White <bcwhite@pobox.com>
+# This file is covered by the CC0 license.
 
 
 import argparse

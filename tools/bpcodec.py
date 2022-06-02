@@ -1,5 +1,6 @@
 # Factorio blueprints codec.
-# Copyright (c) 2022 by Brian White <bcwhite@pobox.com>
+# Written by Brian White <bcwhite@pobox.com>
+# This file is covered by the CC0 license.
 
 
 import base64
