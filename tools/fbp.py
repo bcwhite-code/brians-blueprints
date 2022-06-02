@@ -56,7 +56,7 @@ def SplitBlueprints(dir, blueprints):
                 path = dir + '/' + name
                 metafile = path + META
                 file = open(path + '.json', 'w')
-                file.write(bpcodec.Pretty(obj))
+                file.write(bpcodec.Pretty({ type: obj }))
                 file.close()
             else:
                 metadata[type] = obj
@@ -87,9 +87,9 @@ def Split(outdir, infile):
     assert outdir, '"split" requires an "outdir"'
     assert infile, '"split" requires an "infile"'
     file = open(infile, 'r')
-    text = file.read(1<<30)  # 1GB max
+    text = file.read(1<<30)  # 1GiB max
     data = bpcodec.Decode(text)
-    print(bpcodec.Pretty(data))
+    #print(bpcodec.Pretty(data))
     assert len(data) == 1, 'infile should have only one top-level object'
     for type, book in data.items():
         assert type == 'blueprint_book', f'Blueprint is not a book (was {type}).'
@@ -112,12 +112,7 @@ def BuildBook(dir):
             data = json.load(file)
             file.close()
             #print('blueprint:', json.dumps(data))
-            if data[ITEM] == 'blueprint':
-                blueprints.append({ BLUEPRINT: data })
-            elif data[ITEM] == 'deconstruction-planner':
-                blueprints.append({ DECONSTRUCTION_PLANNER: data })
-            else:
-                assert False, f'Unsupported item type ({data[ITEM]})'
+            blueprints.append(data)
         elif os.path.isdir(path):
             data = BuildBook(path)
             #print('book:', json.dumps(data))
@@ -146,11 +141,35 @@ def BuildBook(dir):
     
 def Build(outfile, indir):
     assert outfile, '"build" requires an "outfile"'
-    assert indir, '"build" requires an "indif"'
+    assert indir, '"build" requires an "indir"'
     book = BuildBook(indir)
     #print('top-book:', json.dumps(book))
     file = open(outfile, 'w')
     file.write(bpcodec.Encode(book))
+    file.close()
+
+
+def Unpack(outfile, infile):
+    assert outfile, '"unpack" requires an "outfile"'
+    assert infile, '"unpack" requires an "infile"'
+    file = open(infile, 'r')
+    text = file.read(10<<20)  # 10MiB max
+    file.close()
+    bp = bpcodec.Decode(text)
+    file = open(outfile, 'w')
+    file.write(bpcodec.Pretty(bp))
+    file.close()
+
+
+def Pack(outfile, infile):
+    assert outfile, '"pack" requires an "outfile"'
+    assert infile, '"pack" requires an "infile"'
+    file = open(infile, 'r')
+    data = json.load(file)
+    file.close()
+    text = bpcodec.Encode(data)
+    file = open(outfile, 'w')
+    file.write(text)
     file.close()
 
 
@@ -159,11 +178,15 @@ def main():
         Split(ARGS.outdir, ARGS.infile)
     if ARGS.action == 'build':
         Build(ARGS.outfile, ARGS.indir)
+    if ARGS.action == 'unpack':
+        Unpack(ARGS.outfile, ARGS.infile)
+    if ARGS.action == 'pack':
+        Pack(ARGS.outfile, ARGS.infile)
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Factorio Blueprint Tools')
-    parser.add_argument('action', choices=['build', 'split'], help='what action to perform')
+    parser.add_argument('action', choices=['build', 'split', 'unpack', 'pack'], help='what action to perform')
     parser.add_argument('--indir', help='directory of individual blueprints to read')
     parser.add_argument('--outdir', help='directory of individual blueprints to write')
     parser.add_argument('--infile', help='blueprint file to read')

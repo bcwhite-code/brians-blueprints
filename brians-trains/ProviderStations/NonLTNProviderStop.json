@@ -1,338 +1,340 @@
 {
-  "description": "Convert an LTN station into a \"vanilla\" station.  Remove the LTN stop (if present) and overlay this circuit at the head of the station.\n\nConfigure in the \"divider\" combinator:\n1) Replace \"X\" with actual item being provided.\n2) Replace \"999K\" with the number of items in a full train.\n3) Calculate 3.5 * n (where n is the max number of trains, typically 1 + #stackers) and round up.\n4) In the iron chest nearest the head, block off all but that number of slots.",
-  "entities": [
-    {
-      "connections": {
-        "1": {
-          "green": [
-            {
-              "circuit_id": 1,
-              "entity_id": 2
-            },
-            {
-              "entity_id": 5
-            }
-          ]
-        }
-      },
-      "entity_number": 1,
-      "name": "medium-electric-pole",
-      "neighbours": [
-        8
-      ],
-      "position": {
-        "x": -33.5,
-        "y": 126.5
-      }
-    },
-    {
-      "connections": {
-        "1": {
-          "green": [
-            {
-              "entity_id": 1
-            }
-          ]
+  "blueprint": {
+    "description": "Convert an LTN station into a \"vanilla\" station.  Remove the LTN stop (if present) and overlay this circuit at the head of the station.\n\nConfigure in the \"divider\" combinator:\n1) Replace \"X\" with actual item being provided.\n2) Replace \"999K\" with the number of items in a full train.\n3) Calculate 3.5 * n (where n is the max number of trains, typically 1 + #stackers) and round up.\n4) In the iron chest nearest the head, block off all but that number of slots.",
+    "entities": [
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "circuit_id": 1,
+                "entity_id": 2
+              },
+              {
+                "entity_id": 5
+              }
+            ]
+          }
         },
-        "2": {
-          "red": [
-            {
-              "entity_id": 5
-            }
-          ]
+        "entity_number": 1,
+        "name": "medium-electric-pole",
+        "neighbours": [
+          8
+        ],
+        "position": {
+          "x": -33.5,
+          "y": 126.5
         }
       },
-      "control_behavior": {
-        "arithmetic_conditions": {
-          "first_signal": {
-            "name": "signal-X",
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "entity_id": 1
+              }
+            ]
+          },
+          "2": {
+            "red": [
+              {
+                "entity_id": 5
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "first_signal": {
+              "name": "signal-X",
+              "type": "virtual"
+            },
+            "operation": "/",
+            "output_signal": {
+              "name": "signal-L",
+              "type": "virtual"
+            },
+            "second_constant": 999999
+          }
+        },
+        "direction": 2,
+        "entity_number": 2,
+        "name": "arithmetic-combinator",
+        "position": {
+          "x": -31,
+          "y": 126.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "red": [
+              {
+                "circuit_id": 2,
+                "entity_id": 4
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "first_signal": {
+              "name": "signal-each",
+              "type": "virtual"
+            },
+            "operation": "+",
+            "output_signal": {
+              "name": "signal-each",
+              "type": "virtual"
+            },
+            "second_constant": 0
+          }
+        },
+        "direction": 6,
+        "entity_number": 3,
+        "name": "arithmetic-combinator",
+        "position": {
+          "x": -30,
+          "y": 127.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "entity_id": 5
+              }
+            ]
+          },
+          "2": {
+            "red": [
+              {
+                "circuit_id": 1,
+                "entity_id": 3
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "first_signal": {
+              "name": "signal-each",
+              "type": "virtual"
+            },
+            "operation": "*",
+            "output_signal": {
+              "name": "signal-each",
+              "type": "virtual"
+            },
+            "second_constant": -1
+          }
+        },
+        "direction": 6,
+        "entity_number": 4,
+        "name": "arithmetic-combinator",
+        "position": {
+          "x": -29,
+          "y": 126.5
+        }
+      },
+      {
+        "color": {
+          "a": 0.49803921580314636,
+          "b": 1,
+          "g": 0.49803921580314636,
+          "r": 0
+        },
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "entity_id": 1
+              },
+              {
+                "circuit_id": 1,
+                "entity_id": 4
+              },
+              {
+                "circuit_id": 1,
+                "entity_id": 6
+              }
+            ],
+            "red": [
+              {
+                "circuit_id": 2,
+                "entity_id": 2
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "circuit_condition": {
+            "comparator": ">",
+            "constant": 2000,
+            "first_signal": {
+              "name": "stone",
+              "type": "item"
+            }
+          },
+          "set_trains_limit": true,
+          "train_stopped_signal": {
+            "name": "signal-T",
             "type": "virtual"
           },
-          "operation": "/",
-          "output_signal": {
+          "trains_limit_signal": {
             "name": "signal-L",
             "type": "virtual"
-          },
-          "second_constant": 999999
-        }
-      },
-      "direction": 2,
-      "entity_number": 2,
-      "name": "arithmetic-combinator",
-      "position": {
-        "x": -31,
-        "y": 126.5
-      }
-    },
-    {
-      "connections": {
-        "1": {
-          "red": [
-            {
-              "circuit_id": 2,
-              "entity_id": 4
-            }
-          ]
-        }
-      },
-      "control_behavior": {
-        "arithmetic_conditions": {
-          "first_signal": {
-            "name": "signal-each",
-            "type": "virtual"
-          },
-          "operation": "+",
-          "output_signal": {
-            "name": "signal-each",
-            "type": "virtual"
-          },
-          "second_constant": 0
-        }
-      },
-      "direction": 6,
-      "entity_number": 3,
-      "name": "arithmetic-combinator",
-      "position": {
-        "x": -30,
-        "y": 127.5
-      }
-    },
-    {
-      "connections": {
-        "1": {
-          "green": [
-            {
-              "entity_id": 5
-            }
-          ]
-        },
-        "2": {
-          "red": [
-            {
-              "circuit_id": 1,
-              "entity_id": 3
-            }
-          ]
-        }
-      },
-      "control_behavior": {
-        "arithmetic_conditions": {
-          "first_signal": {
-            "name": "signal-each",
-            "type": "virtual"
-          },
-          "operation": "*",
-          "output_signal": {
-            "name": "signal-each",
-            "type": "virtual"
-          },
-          "second_constant": -1
-        }
-      },
-      "direction": 6,
-      "entity_number": 4,
-      "name": "arithmetic-combinator",
-      "position": {
-        "x": -29,
-        "y": 126.5
-      }
-    },
-    {
-      "color": {
-        "a": 0.49803921580314636,
-        "b": 1,
-        "g": 0.49803921580314636,
-        "r": 0
-      },
-      "connections": {
-        "1": {
-          "green": [
-            {
-              "entity_id": 1
-            },
-            {
-              "circuit_id": 1,
-              "entity_id": 4
-            },
-            {
-              "circuit_id": 1,
-              "entity_id": 6
-            }
-          ],
-          "red": [
-            {
-              "circuit_id": 2,
-              "entity_id": 2
-            }
-          ]
-        }
-      },
-      "control_behavior": {
-        "circuit_condition": {
-          "comparator": ">",
-          "constant": 2000,
-          "first_signal": {
-            "name": "stone",
-            "type": "item"
           }
         },
-        "set_trains_limit": true,
-        "train_stopped_signal": {
-          "name": "signal-T",
-          "type": "virtual"
-        },
-        "trains_limit_signal": {
-          "name": "signal-L",
-          "type": "virtual"
-        }
-      },
-      "direction": 2,
-      "entity_number": 5,
-      "name": "train-stop",
-      "position": {
-        "x": -27,
-        "y": 127
-      },
-      "station": ""
-    },
-    {
-      "connections": {
-        "1": {
-          "green": [
-            {
-              "entity_id": 5
-            }
-          ],
-          "red": [
-            {
-              "circuit_id": 2,
-              "entity_id": 7
-            }
-          ]
-        },
-        "2": {
-          "green": [
-            {
-              "entity_id": 9
-            }
-          ]
-        }
-      },
-      "control_behavior": {
-        "arithmetic_conditions": {
-          "first_signal": {
-            "name": "signal-each",
-            "type": "virtual"
-          },
-          "operation": "*",
-          "output_signal": {
-            "name": "signal-each",
-            "type": "virtual"
-          },
-          "second_signal": {
-            "name": "signal-0",
-            "type": "virtual"
-          }
-        }
-      },
-      "direction": 2,
-      "entity_number": 6,
-      "name": "arithmetic-combinator",
-      "position": {
-        "x": -25,
-        "y": 127.5
-      }
-    },
-    {
-      "connections": {
-        "1": {
-          "red": [
-            {
-              "entity_id": 9
-            }
-          ]
-        },
-        "2": {
-          "red": [
-            {
-              "circuit_id": 1,
-              "entity_id": 6
-            }
-          ]
-        }
-      },
-      "control_behavior": {
-        "decider_conditions": {
-          "comparator": ">",
-          "constant": 0,
-          "copy_count_from_input": false,
-          "first_signal": {
-            "name": "signal-0",
-            "type": "virtual"
-          },
-          "output_signal": {
-            "name": "signal-0",
-            "type": "virtual"
-          }
-        }
-      },
-      "entity_number": 7,
-      "name": "decider-combinator",
-      "position": {
-        "x": -23.5,
-        "y": 128
-      }
-    },
-    {
-      "entity_number": 8,
-      "name": "medium-electric-pole",
-      "neighbours": [
-        1,
-        9
-      ],
-      "position": {
-        "x": -28.5,
-        "y": 128.5
-      }
-    },
-    {
-      "connections": {
-        "1": {
-          "green": [
-            {
-              "circuit_id": 2,
-              "entity_id": 6
-            }
-          ],
-          "red": [
-            {
-              "circuit_id": 1,
-              "entity_id": 7
-            }
-          ]
-        }
-      },
-      "entity_number": 9,
-      "name": "big-electric-pole",
-      "neighbours": [
-        8
-      ],
-      "position": {
-        "x": -25,
-        "y": 129
-      }
-    }
-  ],
-  "icons": [
-    {
-      "index": 1,
-      "signal": {
+        "direction": 2,
+        "entity_number": 5,
         "name": "train-stop",
-        "type": "item"
+        "position": {
+          "x": -27,
+          "y": 127
+        },
+        "station": ""
+      },
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "entity_id": 5
+              }
+            ],
+            "red": [
+              {
+                "circuit_id": 2,
+                "entity_id": 7
+              }
+            ]
+          },
+          "2": {
+            "green": [
+              {
+                "entity_id": 9
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "first_signal": {
+              "name": "signal-each",
+              "type": "virtual"
+            },
+            "operation": "*",
+            "output_signal": {
+              "name": "signal-each",
+              "type": "virtual"
+            },
+            "second_signal": {
+              "name": "signal-0",
+              "type": "virtual"
+            }
+          }
+        },
+        "direction": 2,
+        "entity_number": 6,
+        "name": "arithmetic-combinator",
+        "position": {
+          "x": -25,
+          "y": 127.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "red": [
+              {
+                "entity_id": 9
+              }
+            ]
+          },
+          "2": {
+            "red": [
+              {
+                "circuit_id": 1,
+                "entity_id": 6
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "constant": 0,
+            "copy_count_from_input": false,
+            "first_signal": {
+              "name": "signal-0",
+              "type": "virtual"
+            },
+            "output_signal": {
+              "name": "signal-0",
+              "type": "virtual"
+            }
+          }
+        },
+        "entity_number": 7,
+        "name": "decider-combinator",
+        "position": {
+          "x": -23.5,
+          "y": 128
+        }
+      },
+      {
+        "entity_number": 8,
+        "name": "medium-electric-pole",
+        "neighbours": [
+          1,
+          9
+        ],
+        "position": {
+          "x": -28.5,
+          "y": 128.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "circuit_id": 2,
+                "entity_id": 6
+              }
+            ],
+            "red": [
+              {
+                "circuit_id": 1,
+                "entity_id": 7
+              }
+            ]
+          }
+        },
+        "entity_number": 9,
+        "name": "big-electric-pole",
+        "neighbours": [
+          8
+        ],
+        "position": {
+          "x": -25,
+          "y": 129
+        }
       }
-    }
-  ],
-  "item": "blueprint",
-  "label": "Non-LTN Provider Stop",
-  "version": 281479275544576
+    ],
+    "icons": [
+      {
+        "index": 1,
+        "signal": {
+          "name": "train-stop",
+          "type": "item"
+        }
+      }
+    ],
+    "item": "blueprint",
+    "label": "Non-LTN Provider Stop",
+    "version": 281479275544576
+  }
 }
