@@ -19,6 +19,8 @@ BLUEPRINT = 'blueprint'
 BLUEPRINTS = 'blueprints'
 BLUEPRINT_BOOK = 'blueprint_book'
 DECONSTRUCTION_PLANNER = 'deconstruction_planner'
+UPGRADE_PLANNER = 'upgrade_planner'
+
 ITEM = 'item'
 META = '.metadata'
 
@@ -45,12 +47,14 @@ def SplitBlueprints(dir, blueprints):
         for type, obj in bp.items():
             #print("-", type, obj)
             if type == BLUEPRINT_BOOK:
+                print('Book:', obj['label'])
                 WriteMetadata()
                 subdir = SafeName(obj['label'])
                 newdir = dir + '/' + subdir
                 metafile = newdir + META
                 SplitBook(newdir, obj)
-            elif type == BLUEPRINT or type == DECONSTRUCTION_PLANNER:
+            elif type == BLUEPRINT or type == DECONSTRUCTION_PLANNER or type == UPGRADE_PLANNER:
+                print(f"- {type}:  {obj['label']}")
                 WriteMetadata()
                 name = SafeName(obj['label'])
                 path = dir + '/' + name
@@ -100,7 +104,6 @@ def BuildBook(dir):
     blueprints = []
     #print('dir:', dir)
     for entry in os.listdir(dir):
-        #print('dir entry:', entry)
         path = dir + '/' + entry
         if entry[0] == '.':
             continue
@@ -111,11 +114,11 @@ def BuildBook(dir):
             file = open(path, 'r')
             data = json.load(file)
             file.close()
-            #print('blueprint:', json.dumps(data))
+            print(f"- blueprint: {entry}")
             blueprints.append(data)
         elif os.path.isdir(path):
+            print(f"Book: {entry}")
             data = BuildBook(path)
-            #print('book:', json.dumps(data))
             blueprints.append(data)
         else:
             assert False, f'Somehow "{path}" is neither a file nor directory.'
