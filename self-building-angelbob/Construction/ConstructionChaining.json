@@ -1,0 +1,501 @@
+{
+  "blueprint": {
+    "description": "Merge this with a Construction Site to chain them.  The Site will not even request material until its dependencies have completed.  It will tell the malls to prepare that material, however.\n\nIn the \"D*D\" combinator, change the 0 constant to be a unique power-of-2 indentifying this build (i.e. 1, 2, 4, 8, 16, 32, etc.).\n\nIn the \"&\" combinator, change the 0 constant to be the dependent build value.  If it's not dependent on anything, remove that group of three combinators.\n\nTurn it ON.",
+    "entities": [
+      {
+        "connections": {
+          "1": {
+            "red": [
+              {
+                "circuit_id": 2,
+                "entity_id": 2
+              }
+            ]
+          },
+          "2": {
+            "red": [
+              {
+                "entity_id": 9
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "first_signal": {
+              "name": "signal-D",
+              "type": "virtual"
+            },
+            "operation": "*",
+            "output_signal": {
+              "name": "signal-D",
+              "type": "virtual"
+            },
+            "second_constant": 0
+          }
+        },
+        "direction": 4,
+        "entity_number": 1,
+        "name": "arithmetic-combinator",
+        "position": {
+          "x": -71.5,
+          "y": 47
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "entity_id": 3
+              }
+            ]
+          },
+          "2": {
+            "red": [
+              {
+                "circuit_id": 1,
+                "entity_id": 1
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "constant": 0,
+            "copy_count_from_input": false,
+            "first_signal": {
+              "name": "signal-4",
+              "type": "virtual"
+            },
+            "output_signal": {
+              "name": "signal-D",
+              "type": "virtual"
+            }
+          }
+        },
+        "entity_number": 2,
+        "name": "decider-combinator",
+        "position": {
+          "x": -70.5,
+          "y": 47
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "circuit_id": 1,
+                "entity_id": 2
+              }
+            ]
+          }
+        },
+        "entity_number": 3,
+        "name": "medium-electric-pole",
+        "neighbours": [
+          9
+        ],
+        "position": {
+          "x": -68.5,
+          "y": 49.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "circuit_id": 2,
+                "entity_id": 4
+              },
+              {
+                "circuit_id": 1,
+                "entity_id": 10
+              }
+            ]
+          },
+          "2": {
+            "green": [
+              {
+                "circuit_id": 1,
+                "entity_id": 4
+              },
+              {
+                "entity_id": 6
+              }
+            ],
+            "red": [
+              {
+                "entity_id": 6
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "\u2264",
+            "constant": 0,
+            "copy_count_from_input": false,
+            "first_signal": {
+              "name": "signal-red",
+              "type": "virtual"
+            },
+            "output_signal": {
+              "name": "signal-green",
+              "type": "virtual"
+            }
+          }
+        },
+        "direction": 2,
+        "entity_number": 4,
+        "name": "decider-combinator",
+        "position": {
+          "x": -67,
+          "y": 49.5
+        }
+      },
+      {
+        "entity_number": 5,
+        "name": "small-lamp",
+        "position": {
+          "x": -68.5,
+          "y": 50.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "circuit_id": 2,
+                "entity_id": 4
+              },
+              {
+                "circuit_id": 2,
+                "entity_id": 8
+              }
+            ],
+            "red": [
+              {
+                "circuit_id": 2,
+                "entity_id": 4
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "circuit_condition": {
+            "comparator": "\u2260",
+            "constant": 0,
+            "first_signal": {
+              "name": "signal-anything",
+              "type": "virtual"
+            }
+          },
+          "use_colors": true
+        },
+        "entity_number": 6,
+        "name": "small-lamp",
+        "position": {
+          "x": -66.5,
+          "y": 50.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "red": [
+              {
+                "circuit_id": 2,
+                "entity_id": 7
+              },
+              {
+                "circuit_id": 1,
+                "entity_id": 8
+              },
+              {
+                "circuit_id": 2,
+                "entity_id": 11
+              }
+            ]
+          },
+          "2": {
+            "red": [
+              {
+                "circuit_id": 1,
+                "entity_id": 7
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "constant": 0,
+            "copy_count_from_input": false,
+            "first_signal": {
+              "name": "signal-D",
+              "type": "virtual"
+            },
+            "output_signal": {
+              "name": "signal-D",
+              "type": "virtual"
+            }
+          }
+        },
+        "direction": 6,
+        "entity_number": 7,
+        "name": "decider-combinator",
+        "position": {
+          "x": -63,
+          "y": 51.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "red": [
+              {
+                "circuit_id": 1,
+                "entity_id": 7
+              }
+            ]
+          },
+          "2": {
+            "green": [
+              {
+                "entity_id": 6
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "=",
+            "constant": 0,
+            "copy_count_from_input": false,
+            "first_signal": {
+              "name": "signal-D",
+              "type": "virtual"
+            },
+            "output_signal": {
+              "name": "signal-red",
+              "type": "virtual"
+            }
+          }
+        },
+        "direction": 6,
+        "entity_number": 8,
+        "name": "decider-combinator",
+        "position": {
+          "x": -63,
+          "y": 50.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "red": [
+              {
+                "circuit_id": 2,
+                "entity_id": 1
+              },
+              {
+                "circuit_id": 1,
+                "entity_id": 11
+              }
+            ]
+          }
+        },
+        "entity_number": 9,
+        "name": "big-electric-pole",
+        "neighbours": [
+          3,
+          15
+        ],
+        "position": {
+          "x": -71,
+          "y": 53
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "circuit_id": 1,
+                "entity_id": 4
+              }
+            ]
+          },
+          "2": {
+            "green": [
+              {
+                "entity_id": 14
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "constant": 0,
+            "copy_count_from_input": false,
+            "first_signal": {
+              "name": "signal-red",
+              "type": "virtual"
+            },
+            "output_signal": {
+              "name": "ltn-locked-slots",
+              "type": "virtual"
+            }
+          }
+        },
+        "direction": 2,
+        "entity_number": 10,
+        "name": "decider-combinator",
+        "position": {
+          "x": -69,
+          "y": 53.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "red": [
+              {
+                "entity_id": 9
+              }
+            ]
+          },
+          "2": {
+            "red": [
+              {
+                "circuit_id": 1,
+                "entity_id": 7
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "first_signal": {
+              "name": "signal-D",
+              "type": "virtual"
+            },
+            "operation": "AND",
+            "output_signal": {
+              "name": "signal-D",
+              "type": "virtual"
+            },
+            "second_constant": 0
+          }
+        },
+        "direction": 2,
+        "entity_number": 11,
+        "name": "arithmetic-combinator",
+        "position": {
+          "x": -63,
+          "y": 52.5
+        }
+      },
+      {
+        "control_behavior": {
+          "circuit_condition": {
+            "comparator": ">",
+            "constant": 0,
+            "first_signal": {
+              "name": "signal-anything",
+              "type": "virtual"
+            }
+          },
+          "use_colors": true
+        },
+        "entity_number": 12,
+        "name": "logistic-train-stop-input",
+        "position": {
+          "x": -69.5,
+          "y": 54.5
+        }
+      },
+      {
+        "direction": 6,
+        "entity_number": 13,
+        "name": "logistic-train-stop-output",
+        "position": {
+          "x": -69.5,
+          "y": 55.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "circuit_id": 2,
+                "entity_id": 10
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "circuit_condition": {
+            "comparator": "\u2264",
+            "constant": 0,
+            "first_signal": {
+              "name": "ltn-locked-slots",
+              "type": "virtual"
+            }
+          },
+          "circuit_enable_disable": true,
+          "read_from_train": true,
+          "train_stopped_signal": {
+            "name": "signal-T",
+            "type": "virtual"
+          }
+        },
+        "direction": 6,
+        "entity_number": 14,
+        "name": "logistic-train-stop",
+        "position": {
+          "x": -69,
+          "y": 55
+        },
+        "station": ""
+      },
+      {
+        "entity_number": 15,
+        "name": "medium-electric-pole",
+        "neighbours": [
+          9
+        ],
+        "position": {
+          "x": -67.5,
+          "y": 55.5
+        }
+      }
+    ],
+    "icons": [
+      {
+        "index": 1,
+        "signal": {
+          "name": "train-stop",
+          "type": "item"
+        }
+      },
+      {
+        "index": 2,
+        "signal": {
+          "name": "decider-combinator",
+          "type": "item"
+        }
+      }
+    ],
+    "item": "blueprint",
+    "label": "Construction Chaining",
+    "version": 281479275544576
+  }
+}
