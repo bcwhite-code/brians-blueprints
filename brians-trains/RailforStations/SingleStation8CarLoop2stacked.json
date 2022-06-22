@@ -12,21 +12,21 @@
         }
       },
       {
-        "direction": 2,
-        "entity_number": 2,
-        "name": "straight-rail",
-        "position": {
-          "x": 23,
-          "y": -107
-        }
-      },
-      {
         "direction": 3,
-        "entity_number": 3,
+        "entity_number": 2,
         "name": "curved-rail",
         "position": {
           "x": 26,
           "y": -106
+        }
+      },
+      {
+        "direction": 2,
+        "entity_number": 3,
+        "name": "straight-rail",
+        "position": {
+          "x": 23,
+          "y": -107
         }
       },
       {
@@ -1063,20 +1063,22 @@
       },
       {
         "control_behavior": {
-          "read_from_train": true,
-          "train_stopped_signal": {
-            "name": "signal-T",
-            "type": "virtual"
-          }
+          "circuit_condition": {
+            "comparator": ">",
+            "constant": 0,
+            "first_signal": {
+              "name": "signal-anything",
+              "type": "virtual"
+            }
+          },
+          "use_colors": true
         },
-        "direction": 4,
         "entity_number": 132,
-        "name": "logistic-train-stop",
+        "name": "logistic-train-stop-input",
         "position": {
-          "x": 9,
-          "y": -17
-        },
-        "station": ""
+          "x": 8.5,
+          "y": -16.5
+        }
       },
       {
         "direction": 4,
@@ -1089,22 +1091,20 @@
       },
       {
         "control_behavior": {
-          "circuit_condition": {
-            "comparator": ">",
-            "constant": 0,
-            "first_signal": {
-              "name": "signal-anything",
-              "type": "virtual"
-            }
-          },
-          "use_colors": true
+          "read_from_train": true,
+          "train_stopped_signal": {
+            "name": "signal-T",
+            "type": "virtual"
+          }
         },
+        "direction": 4,
         "entity_number": 134,
-        "name": "logistic-train-stop-input",
+        "name": "logistic-train-stop",
         "position": {
-          "x": 8.5,
-          "y": -16.5
-        }
+          "x": 9,
+          "y": -17
+        },
+        "station": ""
       },
       {
         "entity_number": 135,
@@ -1498,7 +1498,7 @@
       {
         "direction": 1,
         "entity_number": 179,
-        "name": "rail-signal",
+        "name": "rail-chain-signal",
         "position": {
           "x": 5.5,
           "y": -2.5
@@ -1514,21 +1514,21 @@
         }
       },
       {
-        "direction": 3,
-        "entity_number": 181,
-        "name": "rail-chain-signal",
-        "position": {
-          "x": 103.5,
-          "y": -3.5
-        }
-      },
-      {
         "direction": 7,
-        "entity_number": 182,
+        "entity_number": 181,
         "name": "curved-rail",
         "position": {
           "x": 106,
           "y": 0
+        }
+      },
+      {
+        "direction": 3,
+        "entity_number": 182,
+        "name": "rail-chain-signal",
+        "position": {
+          "x": 103.5,
+          "y": -3.5
         }
       },
       {
@@ -2063,6 +2063,6 @@
       "x": 110,
       "y": 2
     },
-    "version": 281479275544576
+    "version": 281479275610112
   }
 }
