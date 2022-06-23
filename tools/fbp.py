@@ -47,6 +47,7 @@ def SplitBlueprints(dir, blueprints):
         for type, obj in bp.items():
             #print("-", type, obj)
             if type == BLUEPRINT_BOOK:
+                assert 'label' in obj, f'Object of type "{type}" has no label.'
                 print('Book:', obj['label'])
                 WriteMetadata()
                 subdir = SafeName(obj['label'])
@@ -54,7 +55,8 @@ def SplitBlueprints(dir, blueprints):
                 metafile = newdir + META
                 SplitBook(newdir, obj)
             elif type == BLUEPRINT or type == DECONSTRUCTION_PLANNER or type == UPGRADE_PLANNER:
-                print(f"- {type}:  {obj['label']}")
+                assert 'label' in obj, f'Object of type "{type}" has no label.'
+                print(f"- {type}: {obj['label']}")
                 WriteMetadata()
                 name = SafeName(obj['label'])
                 path = dir + '/' + name
