@@ -1,0 +1,1731 @@
+{
+  "blueprint": {
+    "description": "Bots will load the parts.\n\nConnect the *red* wire from the train network to the input of the \">\" combinator.  That controls loading of the belt.",
+    "entities": [
+      {
+        "direction": 4,
+        "entity_number": 1,
+        "name": "transport-belt",
+        "position": {
+          "x": 66.5,
+          "y": 31.5
+        }
+      },
+      {
+        "direction": 4,
+        "entity_number": 2,
+        "name": "transport-belt",
+        "position": {
+          "x": 66.5,
+          "y": 30.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "circuit_id": 2,
+                "entity_id": 3
+              }
+            ],
+            "red": [
+              {
+                "circuit_id": 1,
+                "entity_id": 35
+              }
+            ]
+          },
+          "2": {
+            "green": [
+              {
+                "circuit_id": 1,
+                "entity_id": 3
+              },
+              {
+                "circuit_id": 1,
+                "entity_id": 11
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "constant": 0,
+            "copy_count_from_input": true,
+            "first_signal": {
+              "name": "signal-S",
+              "type": "virtual"
+            },
+            "output_signal": {
+              "name": "signal-S",
+              "type": "virtual"
+            }
+          }
+        },
+        "direction": 4,
+        "entity_number": 3,
+        "name": "decider-combinator",
+        "position": {
+          "x": 67.5,
+          "y": 32
+        }
+      },
+      {
+        "direction": 6,
+        "entity_number": 4,
+        "name": "transport-belt",
+        "position": {
+          "x": 67.5,
+          "y": 30.5
+        }
+      },
+      {
+        "direction": 6,
+        "entity_number": 5,
+        "name": "transport-belt",
+        "position": {
+          "x": 68.5,
+          "y": 30.5
+        }
+      },
+      {
+        "direction": 6,
+        "entity_number": 6,
+        "name": "transport-belt",
+        "position": {
+          "x": 69.5,
+          "y": 30.5
+        }
+      },
+      {
+        "direction": 6,
+        "entity_number": 7,
+        "name": "transport-belt",
+        "position": {
+          "x": 70.5,
+          "y": 30.5
+        }
+      },
+      {
+        "entity_number": 8,
+        "name": "splitter",
+        "output_priority": "left",
+        "position": {
+          "x": 71,
+          "y": 31.5
+        }
+      },
+      {
+        "direction": 4,
+        "entity_number": 9,
+        "name": "transport-belt",
+        "position": {
+          "x": 66.5,
+          "y": 33.5
+        }
+      },
+      {
+        "direction": 4,
+        "entity_number": 10,
+        "name": "transport-belt",
+        "position": {
+          "x": 66.5,
+          "y": 32.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "circuit_id": 2,
+                "entity_id": 3
+              }
+            ]
+          },
+          "2": {
+            "green": [
+              {
+                "entity_id": 21
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "first_signal": {
+              "name": "signal-S",
+              "type": "virtual"
+            },
+            "operation": "%",
+            "output_signal": {
+              "name": "signal-T",
+              "type": "virtual"
+            },
+            "second_constant": 4
+          }
+        },
+        "direction": 4,
+        "entity_number": 11,
+        "name": "arithmetic-combinator",
+        "position": {
+          "x": 67.5,
+          "y": 34
+        }
+      },
+      {
+        "direction": 2,
+        "entity_number": 12,
+        "name": "transport-belt",
+        "position": {
+          "x": 68.5,
+          "y": 33.5
+        }
+      },
+      {
+        "entity_number": 13,
+        "name": "transport-belt",
+        "position": {
+          "x": 69.5,
+          "y": 33.5
+        }
+      },
+      {
+        "direction": 2,
+        "entity_number": 14,
+        "name": "transport-belt",
+        "position": {
+          "x": 69.5,
+          "y": 32.5
+        }
+      },
+      {
+        "entity_number": 15,
+        "name": "transport-belt",
+        "position": {
+          "x": 70.5,
+          "y": 32.5
+        }
+      },
+      {
+        "entity_number": 16,
+        "name": "transport-belt",
+        "position": {
+          "x": 71.5,
+          "y": 32.5
+        }
+      },
+      {
+        "entity_number": 17,
+        "name": "splitter",
+        "output_priority": "left",
+        "position": {
+          "x": 73,
+          "y": 33.5
+        }
+      },
+      {
+        "direction": 6,
+        "entity_number": 18,
+        "name": "transport-belt",
+        "position": {
+          "x": 72.5,
+          "y": 32.5
+        }
+      },
+      {
+        "direction": 6,
+        "entity_number": 19,
+        "name": "fast-transport-belt",
+        "position": {
+          "x": 65.5,
+          "y": 35.5
+        }
+      },
+      {
+        "direction": 6,
+        "entity_number": 20,
+        "name": "fast-transport-belt",
+        "position": {
+          "x": 66.5,
+          "y": 35.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "circuit_id": 2,
+                "entity_id": 11
+              },
+              {
+                "circuit_id": 1,
+                "entity_id": 35
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "filters": [
+            {
+              "count": 1,
+              "index": 1,
+              "signal": {
+                "name": "signal-T",
+                "type": "virtual"
+              }
+            }
+          ],
+          "is_on": false
+        },
+        "direction": 4,
+        "entity_number": 21,
+        "name": "constant-combinator",
+        "position": {
+          "x": 67.5,
+          "y": 35.5
+        }
+      },
+      {
+        "direction": 4,
+        "entity_number": 22,
+        "name": "transport-belt",
+        "position": {
+          "x": 66.5,
+          "y": 34.5
+        }
+      },
+      {
+        "entity_number": 23,
+        "name": "transport-belt",
+        "position": {
+          "x": 68.5,
+          "y": 35.5
+        }
+      },
+      {
+        "entity_number": 24,
+        "name": "transport-belt",
+        "position": {
+          "x": 68.5,
+          "y": 34.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "entity_id": 32
+              },
+              {
+                "circuit_id": 1,
+                "entity_id": 52
+              }
+            ]
+          }
+        },
+        "entity_number": 25,
+        "name": "medium-electric-pole",
+        "neighbours": [
+          98
+        ],
+        "position": {
+          "x": 69.5,
+          "y": 35.5
+        }
+      },
+      {
+        "entity_number": 26,
+        "name": "splitter",
+        "output_priority": "right",
+        "position": {
+          "x": 71,
+          "y": 35.5
+        }
+      },
+      {
+        "direction": 2,
+        "entity_number": 27,
+        "name": "transport-belt",
+        "position": {
+          "x": 71.5,
+          "y": 34.5
+        }
+      },
+      {
+        "entity_number": 28,
+        "name": "transport-belt",
+        "position": {
+          "x": 72.5,
+          "y": 34.5
+        }
+      },
+      {
+        "entity_number": 29,
+        "name": "transport-belt",
+        "position": {
+          "x": 73.5,
+          "y": 34.5
+        }
+      },
+      {
+        "entity_number": 30,
+        "name": "splitter",
+        "output_priority": "left",
+        "position": {
+          "x": 75,
+          "y": 35.5
+        }
+      },
+      {
+        "direction": 6,
+        "entity_number": 31,
+        "name": "transport-belt",
+        "position": {
+          "x": 74.5,
+          "y": 34.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "entity_id": 25
+              },
+              {
+                "circuit_id": 1,
+                "entity_id": 49
+              }
+            ]
+          }
+        },
+        "entity_number": 32,
+        "name": "medium-electric-pole",
+        "neighbours": [
+          110
+        ],
+        "position": {
+          "x": 76.5,
+          "y": 35.5
+        }
+      },
+      {
+        "entity_number": 33,
+        "name": "transport-belt",
+        "position": {
+          "x": 66.5,
+          "y": 37.5
+        }
+      },
+      {
+        "entity_number": 34,
+        "name": "transport-belt",
+        "position": {
+          "x": 66.5,
+          "y": 36.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "entity_id": 21
+              }
+            ],
+            "red": [
+              {
+                "circuit_id": 1,
+                "entity_id": 3
+              }
+            ]
+          },
+          "2": {
+            "red": [
+              {
+                "circuit_id": 2,
+                "entity_id": 52
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "=",
+            "copy_count_from_input": false,
+            "first_signal": {
+              "name": "signal-T",
+              "type": "virtual"
+            },
+            "output_signal": {
+              "name": "signal-check",
+              "type": "virtual"
+            },
+            "second_signal": {
+              "name": "signal-S",
+              "type": "virtual"
+            }
+          }
+        },
+        "direction": 4,
+        "entity_number": 35,
+        "name": "decider-combinator",
+        "position": {
+          "x": 67.5,
+          "y": 37
+        }
+      },
+      {
+        "entity_number": 36,
+        "name": "transport-belt",
+        "position": {
+          "x": 68.5,
+          "y": 37.5
+        }
+      },
+      {
+        "entity_number": 37,
+        "name": "transport-belt",
+        "position": {
+          "x": 68.5,
+          "y": 36.5
+        }
+      },
+      {
+        "entity_number": 38,
+        "name": "transport-belt",
+        "position": {
+          "x": 69.5,
+          "y": 37.5
+        }
+      },
+      {
+        "entity_number": 39,
+        "name": "splitter",
+        "output_priority": "right",
+        "position": {
+          "x": 70,
+          "y": 36.5
+        }
+      },
+      {
+        "entity_number": 40,
+        "name": "transport-belt",
+        "position": {
+          "x": 70.5,
+          "y": 37.5
+        }
+      },
+      {
+        "entity_number": 41,
+        "name": "transport-belt",
+        "position": {
+          "x": 71.5,
+          "y": 37.5
+        }
+      },
+      {
+        "entity_number": 42,
+        "name": "splitter",
+        "output_priority": "left",
+        "position": {
+          "x": 72,
+          "y": 36.5
+        }
+      },
+      {
+        "entity_number": 43,
+        "name": "transport-belt",
+        "position": {
+          "x": 72.5,
+          "y": 37.5
+        }
+      },
+      {
+        "entity_number": 44,
+        "name": "transport-belt",
+        "position": {
+          "x": 73.5,
+          "y": 37.5
+        }
+      },
+      {
+        "entity_number": 45,
+        "name": "splitter",
+        "output_priority": "right",
+        "position": {
+          "x": 74,
+          "y": 36.5
+        }
+      },
+      {
+        "entity_number": 46,
+        "name": "transport-belt",
+        "position": {
+          "x": 74.5,
+          "y": 37.5
+        }
+      },
+      {
+        "entity_number": 47,
+        "name": "fast-transport-belt",
+        "position": {
+          "x": 75.5,
+          "y": 37.5
+        }
+      },
+      {
+        "entity_number": 48,
+        "name": "transport-belt",
+        "position": {
+          "x": 75.5,
+          "y": 36.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "entity_id": 32
+              }
+            ]
+          },
+          "2": {
+            "red": [
+              {
+                "entity_id": 92
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "first_signal": {
+              "name": "signal-each",
+              "type": "virtual"
+            },
+            "operation": "*",
+            "output_signal": {
+              "name": "signal-each",
+              "type": "virtual"
+            },
+            "second_constant": -100
+          }
+        },
+        "direction": 4,
+        "entity_number": 49,
+        "name": "arithmetic-combinator",
+        "position": {
+          "x": 76.5,
+          "y": 38
+        }
+      },
+      {
+        "entity_number": 50,
+        "name": "logistic-chest-requester",
+        "position": {
+          "x": 66.5,
+          "y": 39.5
+        },
+        "request_filters": [
+          {
+            "count": 500,
+            "index": 1,
+            "name": "uranium-rounds-magazine"
+          }
+        ]
+      },
+      {
+        "connections": {
+          "1": {
+            "red": [
+              {
+                "entity_id": 55
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "circuit_condition": {
+            "comparator": ">",
+            "constant": 0,
+            "first_signal": {
+              "name": "signal-check",
+              "type": "virtual"
+            }
+          }
+        },
+        "direction": 4,
+        "entity_number": 51,
+        "name": "stack-inserter",
+        "position": {
+          "x": 66.5,
+          "y": 38.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "entity_id": 25
+              },
+              {
+                "entity_id": 73
+              }
+            ]
+          },
+          "2": {
+            "red": [
+              {
+                "circuit_id": 2,
+                "entity_id": 35
+              },
+              {
+                "entity_id": 55
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "constant": 1,
+            "copy_count_from_input": true,
+            "first_signal": {
+              "name": "signal-everything",
+              "type": "virtual"
+            },
+            "output_signal": {
+              "name": "signal-check",
+              "type": "virtual"
+            }
+          }
+        },
+        "entity_number": 52,
+        "name": "decider-combinator",
+        "position": {
+          "x": 67.5,
+          "y": 39
+        }
+      },
+      {
+        "entity_number": 53,
+        "name": "logistic-chest-requester",
+        "position": {
+          "x": 68.5,
+          "y": 39.5
+        },
+        "request_filters": [
+          {
+            "count": 20,
+            "index": 1,
+            "name": "artillery-shell"
+          }
+        ]
+      },
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "entity_id": 57
+              }
+            ]
+          }
+        },
+        "entity_number": 54,
+        "name": "logistic-chest-requester",
+        "position": {
+          "x": 69.5,
+          "y": 39.5
+        },
+        "request_filters": [
+          {
+            "count": 50,
+            "index": 1,
+            "name": "gun-turret"
+          }
+        ]
+      },
+      {
+        "connections": {
+          "1": {
+            "red": [
+              {
+                "circuit_id": 2,
+                "entity_id": 52
+              },
+              {
+                "entity_id": 51
+              },
+              {
+                "entity_id": 56
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "circuit_condition": {
+            "comparator": ">",
+            "constant": 0,
+            "first_signal": {
+              "name": "signal-check",
+              "type": "virtual"
+            }
+          },
+          "circuit_mode_of_operation": 3
+        },
+        "direction": 4,
+        "entity_number": 55,
+        "name": "inserter",
+        "override_stack_size": 1,
+        "position": {
+          "x": 68.5,
+          "y": 38.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "red": [
+              {
+                "entity_id": 55
+              },
+              {
+                "entity_id": 60
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "circuit_condition": {
+            "comparator": ">",
+            "constant": 0,
+            "first_signal": {
+              "name": "signal-check",
+              "type": "virtual"
+            }
+          }
+        },
+        "direction": 4,
+        "entity_number": 56,
+        "name": "fast-inserter",
+        "override_stack_size": 1,
+        "position": {
+          "x": 69.5,
+          "y": 38.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "entity_id": 54
+              },
+              {
+                "entity_id": 58
+              }
+            ]
+          }
+        },
+        "entity_number": 57,
+        "name": "logistic-chest-requester",
+        "position": {
+          "x": 70.5,
+          "y": 39.5
+        },
+        "request_filters": [
+          {
+            "count": 50,
+            "index": 1,
+            "name": "laser-turret"
+          }
+        ]
+      },
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "entity_id": 57
+              },
+              {
+                "entity_id": 61
+              }
+            ]
+          }
+        },
+        "entity_number": 58,
+        "name": "logistic-chest-requester",
+        "position": {
+          "x": 71.5,
+          "y": 39.5
+        },
+        "request_filters": [
+          {
+            "count": 50,
+            "index": 1,
+            "name": "medium-electric-pole"
+          }
+        ]
+      },
+      {
+        "connections": {
+          "1": {
+            "red": [
+              {
+                "entity_id": 60
+              },
+              {
+                "entity_id": 63
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "circuit_condition": {
+            "comparator": ">",
+            "constant": 0,
+            "first_signal": {
+              "name": "signal-check",
+              "type": "virtual"
+            }
+          }
+        },
+        "direction": 4,
+        "entity_number": 59,
+        "name": "fast-inserter",
+        "override_stack_size": 1,
+        "position": {
+          "x": 71.5,
+          "y": 38.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "red": [
+              {
+                "entity_id": 56
+              },
+              {
+                "entity_id": 59
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "circuit_condition": {
+            "comparator": ">",
+            "constant": 0,
+            "first_signal": {
+              "name": "signal-check",
+              "type": "virtual"
+            }
+          }
+        },
+        "direction": 4,
+        "entity_number": 60,
+        "name": "fast-inserter",
+        "override_stack_size": 1,
+        "position": {
+          "x": 70.5,
+          "y": 38.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "entity_id": 58
+              },
+              {
+                "entity_id": 65
+              }
+            ]
+          }
+        },
+        "entity_number": 61,
+        "name": "logistic-chest-requester",
+        "position": {
+          "x": 72.5,
+          "y": 39.5
+        },
+        "request_filters": [
+          {
+            "count": 50,
+            "index": 1,
+            "name": "inserter"
+          }
+        ]
+      },
+      {
+        "entity_number": 62,
+        "name": "logistic-chest-requester",
+        "position": {
+          "x": 73.5,
+          "y": 39.5
+        },
+        "request_filters": [
+          {
+            "count": 100,
+            "index": 1,
+            "name": "repair-pack"
+          }
+        ]
+      },
+      {
+        "connections": {
+          "1": {
+            "red": [
+              {
+                "entity_id": 59
+              },
+              {
+                "entity_id": 64
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "circuit_condition": {
+            "comparator": ">",
+            "constant": 0,
+            "first_signal": {
+              "name": "signal-check",
+              "type": "virtual"
+            }
+          }
+        },
+        "direction": 4,
+        "entity_number": 63,
+        "name": "fast-inserter",
+        "override_stack_size": 1,
+        "position": {
+          "x": 72.5,
+          "y": 38.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "red": [
+              {
+                "entity_id": 63
+              },
+              {
+                "entity_id": 66
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "circuit_condition": {
+            "comparator": ">",
+            "constant": 0,
+            "first_signal": {
+              "name": "signal-check",
+              "type": "virtual"
+            }
+          }
+        },
+        "direction": 4,
+        "entity_number": 64,
+        "name": "fast-inserter",
+        "override_stack_size": 1,
+        "position": {
+          "x": 73.5,
+          "y": 38.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "entity_id": 61
+              },
+              {
+                "entity_id": 67
+              }
+            ]
+          }
+        },
+        "entity_number": 65,
+        "name": "logistic-chest-requester",
+        "position": {
+          "x": 74.5,
+          "y": 39.5
+        },
+        "request_filters": [
+          {
+            "count": 50,
+            "index": 1,
+            "name": "construction-robot"
+          }
+        ]
+      },
+      {
+        "connections": {
+          "1": {
+            "red": [
+              {
+                "entity_id": 64
+              },
+              {
+                "entity_id": 68
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "circuit_condition": {
+            "comparator": ">",
+            "constant": 0,
+            "first_signal": {
+              "name": "signal-check",
+              "type": "virtual"
+            }
+          }
+        },
+        "direction": 4,
+        "entity_number": 66,
+        "name": "fast-inserter",
+        "override_stack_size": 1,
+        "position": {
+          "x": 74.5,
+          "y": 38.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "entity_id": 65
+              }
+            ]
+          }
+        },
+        "entity_number": 67,
+        "name": "logistic-chest-requester",
+        "position": {
+          "x": 75.5,
+          "y": 39.5
+        },
+        "request_filters": [
+          {
+            "count": 200,
+            "index": 1,
+            "name": "stone-wall"
+          }
+        ]
+      },
+      {
+        "connections": {
+          "1": {
+            "red": [
+              {
+                "entity_id": 66
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "circuit_condition": {
+            "comparator": ">",
+            "constant": 0,
+            "first_signal": {
+              "name": "signal-check",
+              "type": "virtual"
+            }
+          }
+        },
+        "direction": 4,
+        "entity_number": 68,
+        "name": "stack-inserter",
+        "override_stack_size": 3,
+        "position": {
+          "x": 75.5,
+          "y": 38.5
+        }
+      },
+      {
+        "entity_number": 69,
+        "name": "logistic-chest-active-provider",
+        "position": {
+          "x": 76.5,
+          "y": 39.5
+        }
+      },
+      {
+        "direction": 2,
+        "entity_number": 70,
+        "name": "fast-transport-belt",
+        "position": {
+          "x": 67.5,
+          "y": 41.5
+        }
+      },
+      {
+        "entity_number": 71,
+        "name": "fast-transport-belt",
+        "position": {
+          "x": 66.5,
+          "y": 41.5
+        }
+      },
+      {
+        "direction": 4,
+        "entity_number": 72,
+        "name": "stack-inserter",
+        "position": {
+          "x": 66.5,
+          "y": 40.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "circuit_id": 1,
+                "entity_id": 52
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "filters": [
+            {
+              "count": 1,
+              "index": 1,
+              "signal": {
+                "name": "stone-wall",
+                "type": "item"
+              }
+            },
+            {
+              "count": 1,
+              "index": 2,
+              "signal": {
+                "name": "gun-turret",
+                "type": "item"
+              }
+            },
+            {
+              "count": 1,
+              "index": 3,
+              "signal": {
+                "name": "laser-turret",
+                "type": "item"
+              }
+            },
+            {
+              "count": 1,
+              "index": 4,
+              "signal": {
+                "name": "medium-electric-pole",
+                "type": "item"
+              }
+            },
+            {
+              "count": 1,
+              "index": 5,
+              "signal": {
+                "name": "inserter",
+                "type": "item"
+              }
+            },
+            {
+              "count": 0,
+              "index": 6,
+              "signal": {
+                "name": "artillery-shell",
+                "type": "item"
+              }
+            },
+            {
+              "count": 1,
+              "index": 7,
+              "signal": {
+                "name": "construction-robot",
+                "type": "item"
+              }
+            },
+            {
+              "count": 1,
+              "index": 8,
+              "signal": {
+                "name": "repair-pack",
+                "type": "item"
+              }
+            }
+          ]
+        },
+        "direction": 4,
+        "entity_number": 73,
+        "name": "constant-combinator",
+        "position": {
+          "x": 67.5,
+          "y": 40.5
+        }
+      },
+      {
+        "direction": 2,
+        "entity_number": 74,
+        "name": "transport-belt",
+        "position": {
+          "x": 68.5,
+          "y": 41.5
+        }
+      },
+      {
+        "direction": 4,
+        "entity_number": 75,
+        "filters": [
+          {
+            "index": 1,
+            "name": "artillery-shell"
+          }
+        ],
+        "name": "stack-filter-inserter",
+        "position": {
+          "x": 68.5,
+          "y": 40.5
+        }
+      },
+      {
+        "direction": 2,
+        "entity_number": 76,
+        "name": "transport-belt",
+        "position": {
+          "x": 69.5,
+          "y": 41.5
+        }
+      },
+      {
+        "direction": 4,
+        "entity_number": 77,
+        "filters": [
+          {
+            "index": 1,
+            "name": "gun-turret"
+          }
+        ],
+        "name": "stack-filter-inserter",
+        "position": {
+          "x": 69.5,
+          "y": 40.5
+        }
+      },
+      {
+        "direction": 2,
+        "entity_number": 78,
+        "name": "transport-belt",
+        "position": {
+          "x": 70.5,
+          "y": 41.5
+        }
+      },
+      {
+        "direction": 2,
+        "entity_number": 79,
+        "name": "transport-belt",
+        "position": {
+          "x": 71.5,
+          "y": 41.5
+        }
+      },
+      {
+        "direction": 4,
+        "entity_number": 80,
+        "filters": [
+          {
+            "index": 1,
+            "name": "laser-turret"
+          }
+        ],
+        "name": "stack-filter-inserter",
+        "position": {
+          "x": 70.5,
+          "y": 40.5
+        }
+      },
+      {
+        "direction": 4,
+        "entity_number": 81,
+        "filters": [
+          {
+            "index": 1,
+            "name": "medium-electric-pole"
+          }
+        ],
+        "name": "stack-filter-inserter",
+        "position": {
+          "x": 71.5,
+          "y": 40.5
+        }
+      },
+      {
+        "direction": 2,
+        "entity_number": 82,
+        "name": "transport-belt",
+        "position": {
+          "x": 72.5,
+          "y": 41.5
+        }
+      },
+      {
+        "direction": 2,
+        "entity_number": 83,
+        "name": "transport-belt",
+        "position": {
+          "x": 73.5,
+          "y": 41.5
+        }
+      },
+      {
+        "direction": 4,
+        "entity_number": 84,
+        "filters": [
+          {
+            "index": 1,
+            "name": "inserter"
+          }
+        ],
+        "name": "stack-filter-inserter",
+        "position": {
+          "x": 72.5,
+          "y": 40.5
+        }
+      },
+      {
+        "direction": 4,
+        "entity_number": 85,
+        "filters": [
+          {
+            "index": 1,
+            "name": "repair-pack"
+          }
+        ],
+        "name": "stack-filter-inserter",
+        "position": {
+          "x": 73.5,
+          "y": 40.5
+        }
+      },
+      {
+        "direction": 2,
+        "entity_number": 86,
+        "name": "transport-belt",
+        "position": {
+          "x": 74.5,
+          "y": 41.5
+        }
+      },
+      {
+        "direction": 2,
+        "entity_number": 87,
+        "name": "transport-belt",
+        "position": {
+          "x": 75.5,
+          "y": 41.5
+        }
+      },
+      {
+        "direction": 4,
+        "entity_number": 88,
+        "filters": [
+          {
+            "index": 1,
+            "name": "construction-robot"
+          }
+        ],
+        "name": "stack-filter-inserter",
+        "position": {
+          "x": 74.5,
+          "y": 40.5
+        }
+      },
+      {
+        "direction": 4,
+        "entity_number": 89,
+        "filters": [
+          {
+            "index": 1,
+            "name": "stone-wall"
+          }
+        ],
+        "name": "stack-filter-inserter",
+        "position": {
+          "x": 75.5,
+          "y": 40.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "entity_id": 92
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "circuit_contents_read_mode": 1,
+          "circuit_enable_disable": false,
+          "circuit_read_hand_contents": true
+        },
+        "direction": 2,
+        "entity_number": 90,
+        "name": "transport-belt",
+        "position": {
+          "x": 76.5,
+          "y": 41.5
+        }
+      },
+      {
+        "direction": 4,
+        "entity_number": 91,
+        "name": "transport-belt",
+        "position": {
+          "x": 77.5,
+          "y": 41.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "entity_id": 90
+              }
+            ],
+            "red": [
+              {
+                "circuit_id": 2,
+                "entity_id": 49
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "circuit_mode_of_operation": 1
+        },
+        "direction": 4,
+        "entity_number": 92,
+        "name": "filter-inserter",
+        "position": {
+          "x": 76.5,
+          "y": 40.5
+        }
+      },
+      {
+        "entity_number": 93,
+        "filter": "uranium-rounds-magazine",
+        "input_priority": "right",
+        "name": "fast-splitter",
+        "output_priority": "left",
+        "position": {
+          "x": 67,
+          "y": 42.5
+        }
+      },
+      {
+        "entity_number": 94,
+        "name": "fast-transport-belt",
+        "position": {
+          "x": 66.5,
+          "y": 43.5
+        }
+      },
+      {
+        "entity_number": 95,
+        "name": "transport-belt",
+        "position": {
+          "x": 67.5,
+          "y": 43.5
+        }
+      },
+      {
+        "direction": 6,
+        "entity_number": 96,
+        "name": "transport-belt",
+        "position": {
+          "x": 68.5,
+          "y": 43.5
+        }
+      },
+      {
+        "direction": 6,
+        "entity_number": 97,
+        "name": "transport-belt",
+        "position": {
+          "x": 69.5,
+          "y": 43.5
+        }
+      },
+      {
+        "entity_number": 98,
+        "name": "medium-electric-pole",
+        "neighbours": [
+          25,
+          110
+        ],
+        "position": {
+          "x": 69.5,
+          "y": 42.5
+        }
+      },
+      {
+        "direction": 6,
+        "entity_number": 99,
+        "name": "transport-belt",
+        "position": {
+          "x": 70.5,
+          "y": 43.5
+        }
+      },
+      {
+        "direction": 6,
+        "entity_number": 100,
+        "name": "transport-belt",
+        "position": {
+          "x": 71.5,
+          "y": 43.5
+        }
+      },
+      {
+        "direction": 4,
+        "entity_number": 101,
+        "name": "transport-belt",
+        "position": {
+          "x": 71.5,
+          "y": 42.5
+        }
+      },
+      {
+        "entity_number": 102,
+        "name": "transport-belt",
+        "position": {
+          "x": 72.5,
+          "y": 43.5
+        }
+      },
+      {
+        "direction": 6,
+        "entity_number": 103,
+        "name": "transport-belt",
+        "position": {
+          "x": 73.5,
+          "y": 43.5
+        }
+      },
+      {
+        "direction": 6,
+        "entity_number": 104,
+        "name": "transport-belt",
+        "position": {
+          "x": 72.5,
+          "y": 42.5
+        }
+      },
+      {
+        "direction": 6,
+        "entity_number": 105,
+        "name": "transport-belt",
+        "position": {
+          "x": 73.5,
+          "y": 42.5
+        }
+      },
+      {
+        "direction": 6,
+        "entity_number": 106,
+        "name": "transport-belt",
+        "position": {
+          "x": 74.5,
+          "y": 43.5
+        }
+      },
+      {
+        "direction": 6,
+        "entity_number": 107,
+        "name": "transport-belt",
+        "position": {
+          "x": 75.5,
+          "y": 43.5
+        }
+      },
+      {
+        "direction": 6,
+        "entity_number": 108,
+        "name": "transport-belt",
+        "position": {
+          "x": 76.5,
+          "y": 43.5
+        }
+      },
+      {
+        "direction": 6,
+        "entity_number": 109,
+        "name": "transport-belt",
+        "position": {
+          "x": 77.5,
+          "y": 43.5
+        }
+      },
+      {
+        "entity_number": 110,
+        "name": "medium-electric-pole",
+        "neighbours": [
+          32,
+          98
+        ],
+        "position": {
+          "x": 76.5,
+          "y": 42.5
+        }
+      },
+      {
+        "direction": 4,
+        "entity_number": 111,
+        "name": "transport-belt",
+        "position": {
+          "x": 77.5,
+          "y": 42.5
+        }
+      }
+    ],
+    "icons": [
+      {
+        "index": 1,
+        "signal": {
+          "name": "artillery-turret",
+          "type": "item"
+        }
+      },
+      {
+        "index": 2,
+        "signal": {
+          "name": "fast-inserter",
+          "type": "item"
+        }
+      }
+    ],
+    "item": "blueprint",
+    "label": "Artillery Feeder",
+    "version": 281479275610112
+  }
+}
