@@ -30,7 +30,6 @@ def SafeName(name):
 
 
 def SplitBlueprints(dir, blueprints):
-    indices = {}
     for bp in blueprints:
         metadata = {}
         metafile = None
