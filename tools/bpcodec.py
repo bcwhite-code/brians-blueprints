@@ -9,7 +9,7 @@ import zlib
 
 
 def Pretty(data):
-    return json.dumps(data, sort_keys=True, indent=2)
+    return json.dumps(data, sort_keys=True, indent=2, ensure_ascii=False)
 
 
 def Decode(text):
