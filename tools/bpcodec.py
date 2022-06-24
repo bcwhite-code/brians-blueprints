@@ -9,7 +9,7 @@ import zlib
 
 
 def Pretty(data):
-    return json.dumps(data, sort_keys=True, indent=2)
+    return json.dumps(data, sort_keys=True, indent=2, ensure_ascii=False)
 
 
 def Decode(text):
@@ -22,7 +22,7 @@ def Decode(text):
 
 
 def Encode(output):
-    data = json.dumps(output)
+    data = json.dumps(output, ensure_ascii=False)
     binary = zlib.compress(data.encode(), level=9)
     text = base64.b64encode(binary).decode()
     return '0' + text
