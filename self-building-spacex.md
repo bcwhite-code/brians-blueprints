@@ -32,7 +32,7 @@ You'll need the following blueprint books:
 
 ## Configuration:
 
-During the initial creation of the initial ("Nauvis") world:
+During the creation of the initial ("Nauvis") world:
 
 * Increase the size and richness of all ore/oil patches to maximum.
 * Change the frequency of  copper and iron to 200%
@@ -66,11 +66,11 @@ one of them (leaving space for incoming rail "stub" track placed off a siding
 of the main rail).  Then I just feed the Mall and slowly build it out by hand.
 The only things I automate outside the mall are Red Science and Yellow Belts.
 
-Mines aren't included.  Build them by hand using track from the SBF and stations from BT.
+Mines aren't included.  Build them by hand using track from the SBF and stations from BT/aux.
 
-* Mall
+* Mall: Set refinecy recipe to basic processing (output only methane) until "advanced oil processing" is researched (requires blue science).  Note: The Mall doesn't produce _everything_.  Some things will have to be hand-crafted and dumped into the logistics network via "trash slots" and others will have to be produced in space.
 * Home
-* Basic Science
+* Basic Science: Prioritize coal, stone, iron, & copper.  Research Waterfill when some black (military) science appears and add pump to produce some plastic.  Manually move some sulfur (and later: lubricant, sulfuric acid) from the Mall.
 * Iron Smelter
 * Copper Smelter
 * Starter Circuits
