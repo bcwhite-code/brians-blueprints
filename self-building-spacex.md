@@ -6,6 +6,8 @@ These cover a lot of the planetside work but the "space" aspect will generally b
  - I don't want to spoil it.
  - I don't use automated construction trains in space.
 
+Join the discussion [on Discord](https://discord.gg/eSt3Qd8D2e).
+
 You'll need the following mods:
 * [Space Exploration](https://mods.factorio.com/mod/space-exploration) (required)
 * [Merging Chests](https://mods.factorio.com/mod/WideChests) and [Unlimited](https://mods.factorio.com/mod/WideChestsUnlimited) (required)
@@ -23,7 +25,7 @@ You'll need the following blueprint books:
 
 **Import blueprint books only AFTER all mods are installed!** (Or things will be missing.)
 
-* [Space Exploration]()
+* [Space Exploration](https://github.com/bcwhite-code/brians-blueprints/releases/tag/self-building-spacex)
 * [Self-Building Factory](https://factorioprints.com/view/-MNZWdWosuqr3vtaC2hD)
 * [Brian's Trains](https://factorioprints.com/view/-LaIPNgh8f16V8EwXXpW)
 * [Brian's Trains (auxilliary)](https://factorioprints.com/view/-M5PZvxZVXEZnmg4V7Hy)
