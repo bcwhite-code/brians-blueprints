@@ -25,4 +25,4 @@ def Encode(output):
     data = json.dumps(output, ensure_ascii=False)
     binary = zlib.compress(data.encode(), level=9)
     text = base64.b64encode(binary).decode()
-    return '0' + text + '\n'
+    return f'0{text}\n'
