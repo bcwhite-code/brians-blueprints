@@ -68,9 +68,9 @@ The only things I automate outside the mall are Red Science and Yellow Belts.
 
 Mines aren't included.  Build them by hand using track from the SBF and stations from BT/aux.
 
-* Mall: Set refinecy recipe to basic processing (output only methane) until "advanced oil processing" is researched (requires blue science).  Note: The Mall doesn't produce _everything_.  Some things will have to be hand-crafted and dumped into the logistics network via "trash slots" and others will have to be produced in space.
+* Mall: Use upgrade planner to change yellow chests to wooden.  Place them.  Then reverse the upgrade and leave it pending.  Do the same with red chests.  Later, bots will put everything back in order.  Set refinecy recipe to basic processing (output only methane) until "advanced oil processing" is researched (requires blue science).  Note: The Mall doesn't produce _everything_.  Some things will have to be hand-crafted and dumped into the logistics network via "trash slots" and others will have to be produced in space.
 * Home
 * Basic Science: Prioritize coal, stone, iron, & copper.  Research Waterfill when some black (military) science appears and add pump to produce some plastic.  Manually move some sulfur (and later: lubricant, sulfuric acid) from the Mall.
-* Iron Smelter
-* Copper Smelter
-* Starter Circuits
+* Iron Smelter: Fill in only 1/2 for now.  Fill the rest when waiting for other things.
+* Copper Smelter: Same.
+* Starter Circuits: This needs blue belts to be functional but that should be coming along by the time you get here.
