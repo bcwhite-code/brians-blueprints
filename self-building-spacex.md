@@ -14,9 +14,9 @@ You'll need the following mods:
 * [Loader Redux](https://mods.factorio.com/mod/LoaderRedux) (required)
 * [Logistic Train Network](https://mods.factorio.com/mod/LogisticTrainNetwork) (required)
 * [Ghost Scanner](https://mods.factorio.com/mod/GhostScanner) (required)
-* [Noxy's Waterfill](https://mods.factorio.com/mod/Noxys_Waterfill) (required)
 * [Stack Combinator](https://mods.factorio.com/mod/stack-combinator) (required)
 * [Nanobots](https://mods.factorio.com/mod/Nanobots) (recommended)
+* [Noxy's Waterfill](https://mods.factorio.com/mod/Noxys_Waterfill) (recommended)
 * [Moar Radar](https://mods.factorio.com/mod/Moar-Radar) (suggested)
 
 Intall these using the in-game installer so that all the dependencies are also installed.
@@ -62,7 +62,7 @@ In the Mod Settings for the Player:
 
 See the [main SBF document for "The Build"](https://docs.google.com/document/d/1b7OT1-h5GWfey4rIVNbMCXX-dMkoWLmcURutqrliLYE/edit#heading=h.qqx59ll9md1) but note the following differences:
 
-* Every rail station is an "[aux](https://factorioprints.com/view/-M5PZvxZVXEZnmg4V7Hy)" station with merged chests.  Merging **must** be done **after** all chests and medium power poles are placed.  For full blocks, this is possible once phase#1 is complete (i.e. when construction is in phase#2).  From map view, run the merge tool over the _entire block_ and not just obvious rail stations.  If merging is forgotten, stations will not function but won't "fail" either.  It's safe to merge chests even after deliveries begin.
+* Every rail station is an "[aux](https://factorioprints.com/view/-M5PZvxZVXEZnmg4V7Hy)" station with merged chests.  Merging **must** be done **after** all chests and medium power poles are placed.  For full blocks, this is possible once phase#1 is complete (i.e. when construction is in phase#2).  For quarter-blocks, wait until a delivery for LTN stations happens.  From map view, run the merge tool over the _entire block_ and not just obvious rail stations.  If merging is forgotten, stations will not function but won't "fail" either.  It's safe to merge chests even after deliveries begin.
 * Quarter-block blueprints don't use the standard "Construction Site".  They use the "General Construction" version from the "Construction" sub-book of the SBF.  Just place that on the side to line up with the roboports there and turn it on as usual.  Removing it after construction is likely to remove the rail signal there, too, but there's an unconnected one just off from the track to show where it was.  Add it back and remove the unconnected one.
 
 ## Build Order
@@ -80,7 +80,7 @@ Mines aren't included.  Build them by hand using track from the SBF and stations
 * Basic Science: Build beside mall.  Prioritize coal, stone, iron, & copper.  Beyond red and green sciences, only research what you need!  Research Waterfill when some black (military) science appears and add pump to produce some plastic.  Manually move some sulfur (and later: lubricant, sulfuric acid) from the Mall.
 * Iron Smelter: Fill in only 1/2 for now.  Fill the rest when waiting for other things.
 * Copper Smelter: Same.
-* Starter Circuits: This needs blue belts to be functional but that should be coming along by the time you get here.  Add the blue belts sparingly as created to start green & red circuit production.  Processors will come later once researched and assembler-3s are available.
+* Starter Circuits: This needs blue belts to be functional but that should be coming along by the time you get here.  Add the blue belts sparingly as created to start green circuit production.  Red circuits have to wait for Plastic and processors will come later once researched and assembler-3s are available.
 * Belts: This is the first "quarter block" blueprint.  Downgrade the assemblers to #2 for now.  Just remember when restoring them to _remove_ the gear assemblers and re-place the blueprint so that the module configuration will be restored (even if not populated until later).  Blue-belt production won't start until the Refinery is built.
 
 By this time, science should be approaching construction and logistic bots.
@@ -89,3 +89,6 @@ a "Construction Supply" (from the SBF "Construction" sub-book) beside the Mall.
 You'll need to research "logistic system" which needs some yellow science and
 that needs LDS so will take some time.  Use barrels to shuttle some lubricant
 to the Basic Science input.
+
+* Refinery: This can be build with automated construction but be patient as there aren't many bots.  You can manually move the necessary parts from red chests to blue chests (_not_ the steel buffer chests) so the bots don't have to.  First product will be Lubricant; if it stops producing, manually place sulfur to station belts then flush the methane and light oil tanks.
+* Steel (electric)
