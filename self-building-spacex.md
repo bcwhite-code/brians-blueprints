@@ -73,7 +73,11 @@ one of them (leaving space for incoming rail "stub" track placed off a siding
 of the main rail).  Then I just feed the Mall and slowly build it out by hand.
 The only things I automate outside the mall are Red Science and Yellow Belts.
 
-Mines aren't included.  Build them by hand using track from the SBF and stations from BT/aux.
+Basic mines aren't included and the "Mine" block isn't suitable until later.
+Build them by hand using track from the SBF book and stations from BT/aux book,
+adding more mines as necessary.  Be sure to connect red & green wires from the
+big power pole to the rail power poles if you want to have an accurate status
+report of available resources.
 
 * Mall: Use upgrade planner to change yellow chests to wooden.  Place them.  Then reverse the upgrade and leave it pending.  Do the same with red chests.  Later, bots will put everything back in order.  Set refinecy recipe to basic processing (output only methane) until "advanced oil processing" is researched (requires blue science).  Note: The Mall doesn't produce _everything_.  Some things will have to be hand-crafted and dumped into the logistics network via "trash slots" and others will have to be produced in space.
 * Home: Build beside Mall.
@@ -92,3 +96,13 @@ to the Basic Science input.
 
 * Refinery: This can be build with automated construction but be patient as there aren't many bots.  You can manually move the necessary parts from red chests to blue chests (_not_ the steel buffer chests) so the bots don't have to.  First product will be Lubricant; if it stops producing, manually place sulfur to station belts then flush the methane and light oil tanks.
 * Steel (electric)
+* Depot Hub
+
+If you haven't created a uranium mine, now would be a good time as power is
+probably soon to become an issue.  The acid requester may need a higher
+priority to be sure it gets fulfilled ahead of less important ones.  If the
+Refinery isn't yet exporting sulfuric acid, find the pump that feeds the acid
+station and temporarily change it's condition from ">" to "<".
+
+The self-building "Mine" block can be used from here as well but it's only
+useful in a block with multiple large resources patches.
