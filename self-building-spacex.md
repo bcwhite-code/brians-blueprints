@@ -51,7 +51,7 @@ In the Mod Settings for Startup:
 
 In the Mod Settings for the Map:
 
-* LTN: Enable "Schedule circuit conditions".  The designs still work without this but will sometimes have to wait for the 2-minute timeout.
+* LTN: Set "Stop timeout" to 300.  Enable "Schedule circuit conditions".  The designs still work without this but will sometimes have to wait for the stop-timeout.
 * Ghost Scanner: Set "Update frequency" to 3600.  Set "Scan Result limit" to 0 (zero).
 
 In the Mod Settings for the Player:
@@ -94,15 +94,38 @@ You'll need to research "logistic system" which needs some yellow science and
 that needs LDS so will take some time.  Use barrels to shuttle some lubricant
 to the Basic Science input.
 
-* Refinery: This can be build with automated construction but be patient as there aren't many bots.  You can manually move the necessary parts from red chests to blue chests (_not_ the steel buffer chests) so the bots don't have to.  First product will be Lubricant; if it stops producing, manually place sulfur to station belts then flush the methane and light oil tanks.
+* Refinery: This can be built with automated construction but be patient as there aren't many bots.  You can manually move the necessary parts from red chests to blue chests (_not_ the steel buffer chests) so the bots don't have to.  First product will be Lubricant; if it stops producing, manually place sulfur to station belts then flush the methane and light oil tanks.
 * Steel (electric)
 * Depot Hub
 
 If you haven't created a uranium mine, now would be a good time as power is
 probably soon to become an issue.  The acid requester may need a higher
-priority to be sure it gets fulfilled ahead of less important ones.  If the
-Refinery isn't yet exporting sulfuric acid, find the pump that feeds the acid
-station and temporarily change it's condition from ">" to "<".
+priority to be sure it gets fulfilled ahead of less important ones.
 
 The self-building "Mine" block can be used from here as well but it's only
 useful in a block with multiple large resources patches.
+
+Start research of kovarex and nuclear power.  Re-place the Mall as research
+happens so the parts start being built.
+
+Also be sure the Starter Circuits block is fully filled out except for modules.
+
+Going forward, many of the blueprints will be "quarter blocks" that attach only
+at one of the four corners.  They build in a similar way except use the "General
+Construction" blueprint on one side and don't have phases because they don't
+have a configuration of materials.  _Do not merge chests until LTN Stations are
+delivered._ Note that removing the construction station will generally also
+remove a train signal that sits in that area.  There is an unattached
+(blinking) one just off to the side that shows where it was; remove the
+unattached one and place it on the side of the rail at the same level.  (Though
+it sounds confusing, it'll be quite obvious when the time comes.)
+
+* Kovarex/Nuclear (2.4GW)
+* Speed Modules
+* Production Modules
+
+There's a bit of a catch-22 here.  Module production needs red circuits and
+processors.  Red circuits and processors need plastic.  Plastic production is
+slow without modules.  There should be enough reserve to belt out a few hundred
+prod-3 modules for the Refinery to help move things along.  Move a bunch by
+hand if necessary.
