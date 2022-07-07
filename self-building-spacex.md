@@ -122,10 +122,14 @@ it sounds confusing, it'll be quite obvious when the time comes.)
 
 * Kovarex/Nuclear (2.4GW)
 * Speed Modules
-* Production Modules
 
 There's a bit of a catch-22 here.  Module production needs red circuits and
 processors.  Red circuits and processors need plastic.  Plastic production is
 slow without modules.  There should be enough reserve to belt out a few hundred
 prod-3 modules for the Refinery to help move things along.  Move a bunch by
 hand if necessary.
+
+* Production Modules
+
+With both module types now available, the Starter Circuits can be completed
+which will give more processors.
