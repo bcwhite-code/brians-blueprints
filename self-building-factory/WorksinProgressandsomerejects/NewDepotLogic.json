@@ -1,0 +1,325 @@
+{
+  "blueprint": {
+    "entities": [
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "entity_id": 7
+              }
+            ]
+          },
+          "2": {
+            "red": [
+              {
+                "circuit_id": 2,
+                "entity_id": 2
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "first_signal": {
+              "name": "signal-each",
+              "type": "virtual"
+            },
+            "operation": "*",
+            "output_signal": {
+              "name": "ltn-depot",
+              "type": "virtual"
+            },
+            "second_constant": -1
+          }
+        },
+        "direction": 6,
+        "entity_number": 1,
+        "name": "arithmetic-combinator",
+        "position": {
+          "x": -373,
+          "y": 250.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "red": [
+              {
+                "entity_id": 5
+              }
+            ]
+          },
+          "2": {
+            "red": [
+              {
+                "circuit_id": 2,
+                "entity_id": 1
+              },
+              {
+                "entity_id": 4
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "constant": 0,
+            "copy_count_from_input": false,
+            "first_signal": {
+              "name": "ltn-position-any-locomotive",
+              "type": "virtual"
+            },
+            "output_signal": {
+              "name": "ltn-depot",
+              "type": "virtual"
+            }
+          }
+        },
+        "direction": 6,
+        "entity_number": 2,
+        "name": "decider-combinator",
+        "position": {
+          "x": -373,
+          "y": 252.5
+        }
+      },
+      {
+        "entity_number": 3,
+        "name": "medium-electric-pole",
+        "position": {
+          "x": -372.5,
+          "y": 253.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "red": [
+              {
+                "circuit_id": 2,
+                "entity_id": 2
+              },
+              {
+                "entity_id": 6
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "filters": [
+            {
+              "count": 65535,
+              "index": 1,
+              "signal": {
+                "name": "ltn-network-id",
+                "type": "virtual"
+              }
+            }
+          ]
+        },
+        "direction": 6,
+        "entity_number": 4,
+        "name": "constant-combinator",
+        "position": {
+          "x": -373.5,
+          "y": 253.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "red": [
+              {
+                "circuit_id": 1,
+                "entity_id": 2
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "filters": [
+            {
+              "count": 9,
+              "index": 1,
+              "signal": {
+                "name": "ltn-position-any-locomotive",
+                "type": "virtual"
+              }
+            },
+            {
+              "count": 6,
+              "index": 2,
+              "signal": {
+                "name": "ltn-position-any-cargo-wagon",
+                "type": "virtual"
+              }
+            },
+            {
+              "count": 9,
+              "index": 3,
+              "signal": {
+                "name": "ltn-position-locomotive",
+                "type": "virtual"
+              }
+            },
+            {
+              "count": 6,
+              "index": 4,
+              "signal": {
+                "name": "ltn-position-cargo-wagon",
+                "type": "virtual"
+              }
+            }
+          ]
+        },
+        "direction": 4,
+        "entity_number": 5,
+        "name": "logistic-train-stop-output",
+        "position": {
+          "x": -372.5,
+          "y": 255.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "red": [
+              {
+                "entity_id": 4
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "circuit_condition": {
+            "comparator": ">",
+            "constant": 0,
+            "first_signal": {
+              "name": "signal-anything",
+              "type": "virtual"
+            }
+          },
+          "use_colors": true
+        },
+        "entity_number": 6,
+        "name": "logistic-train-stop-input",
+        "position": {
+          "x": -373.5,
+          "y": 255.5
+        }
+      },
+      {
+        "color": {
+          "a": 0.49803921580314636,
+          "b": 1,
+          "g": 0.49803921580314636,
+          "r": 0
+        },
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "circuit_id": 1,
+                "entity_id": 1
+              },
+              {
+                "entity_id": 8
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "read_from_train": true,
+          "train_stopped_signal": {
+            "name": "signal-T",
+            "type": "virtual"
+          }
+        },
+        "direction": 4,
+        "entity_number": 7,
+        "manual_trains_limit": 1,
+        "name": "logistic-train-stop",
+        "position": {
+          "x": -373,
+          "y": 255
+        },
+        "station": "LTN Depot"
+      },
+      {
+        "alert_parameters": {
+          "alert_message": "LTN Depot Train Not Empty",
+          "icon_signal_id": {
+            "name": "ltn-depot",
+            "type": "virtual"
+          },
+          "show_alert": true,
+          "show_on_map": true
+        },
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "entity_id": 7
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "circuit_condition": {
+            "comparator": ">",
+            "constant": 0,
+            "first_signal": {
+              "name": "signal-anything",
+              "type": "virtual"
+            }
+          },
+          "circuit_parameters": {
+            "instrument_id": 0,
+            "note_id": 2,
+            "signal_value_is_pitch": false
+          }
+        },
+        "entity_number": 8,
+        "name": "programmable-speaker",
+        "parameters": {
+          "allow_polyphony": true,
+          "playback_globally": false,
+          "playback_volume": 1
+        },
+        "position": {
+          "x": -373.5,
+          "y": 256.5
+        }
+      },
+      {
+        "entity_number": 9,
+        "name": "rail-signal",
+        "position": {
+          "x": -372.5,
+          "y": 256.5
+        }
+      }
+    ],
+    "icons": [
+      {
+        "index": 1,
+        "signal": {
+          "name": "logistic-train-stop",
+          "type": "item"
+        }
+      },
+      {
+        "index": 2,
+        "signal": {
+          "name": "arithmetic-combinator",
+          "type": "item"
+        }
+      }
+    ],
+    "item": "blueprint",
+    "label": "New Depot Logic",
+    "version": 281479275610112
+  }
+}
