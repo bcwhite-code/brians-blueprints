@@ -8,13 +8,14 @@ These cover a lot of the planetside work but the "space" aspect will generally b
 
 Join the discussion [on Discord](https://discord.gg/eSt3Qd8D2e).
 
-You'll need the following mods:
+You'll want the following mods:
 * [Space Exploration](https://mods.factorio.com/mod/space-exploration) (required)
-* [Merging Chests](https://mods.factorio.com/mod/WideChests) and [Unlimited](https://mods.factorio.com/mod/WideChestsUnlimited) (required)
-* [Loader Redux](https://mods.factorio.com/mod/LoaderRedux) (required)
 * [Logistic Train Network](https://mods.factorio.com/mod/LogisticTrainNetwork) (required)
+* [Loader Redux](https://mods.factorio.com/mod/LoaderRedux) (required)
+* [Merging Chests](https://mods.factorio.com/mod/WideChests) and [Unlimited](https://mods.factorio.com/mod/WideChestsUnlimited) (required)
 * [Ghost Scanner](https://mods.factorio.com/mod/GhostScanner) (required)
 * [Stack Combinator](https://mods.factorio.com/mod/stack-combinator) (required)
+* [Auto Research](https://mods.factorio.com/mod/auto-research) (recommended)
 * [Nanobots](https://mods.factorio.com/mod/Nanobots) (recommended)
 * [Noxy's Waterfill](https://mods.factorio.com/mod/Noxys_Waterfill) (recommended)
 * [Moar Radar](https://mods.factorio.com/mod/Moar-Radar) (suggested)
@@ -41,7 +42,7 @@ During the creation of the initial ("Nauvis") world:
 * Turn off pollution (less calculation == more UPS)
 * Cliffs and trees are optional.  I tend to reduce the former and keep the latter.
 
-In the Mod Settings for Startup:
+In the Mod Settings for _Startup_:
 
 * Merging Chests: Set "Mergable chest" [sic] to "Iron Chest".
 * Set "Maximum chest width", "Maximum chest height", and "Maximum chest area" all to 150.
@@ -49,12 +50,12 @@ In the Mod Settings for Startup:
 * Set "Whitelist of merged chests" to "1xN Nx1" (reduces memory consumption).
 * Waterfill: Set "Waterfillable" to "Everything".
 
-In the Mod Settings for the Map:
+In the Mod Settings for the _Map_:
 
 * LTN: Set "Stop timeout" to 300.  Enable "Schedule circuit conditions".  The designs still work without this but will sometimes have to wait for the stop-timeout.
 * Ghost Scanner: Set "Update frequency" to 3600.  Set "Scan Result limit" to 0 (zero).
 
-In the Mod Settings for the Player:
+In the Mod Settings for the _Player_:
 
 * Uncheck "Factorio Alerts".  Otherwise you'll get a lot of annoying warnings about trains with "missing cargo" and the like.  (It's intentional but the disable-warnings signal is not respected.)
 
