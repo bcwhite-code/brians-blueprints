@@ -79,7 +79,7 @@ adding more mines as necessary.  Be sure to connect red & green wires from the
 big power pole to the rail power poles if you want to have an accurate status
 report of available resources.
 
-* Mall: Use upgrade planner to change yellow chests to wooden.  Place them.  Then reverse the upgrade and leave it pending.  Do the same with red chests.  Later, bots will put everything back in order.  Set refinecy recipe to basic processing (output only methane) until "advanced oil processing" is researched (requires blue science).  Note: The Mall doesn't produce _everything_.  Some things will have to be hand-crafted and dumped into the logistics network via "trash slots" and others will have to be produced in space.
+* Mall: _Read the blueprint notes!_  Use upgrade planner to change yellow chests to wooden.  Place them.  Then reverse the upgrade and leave it pending.  Do the same with red chests.  Later, bots will put everything back in order.  Set refinecy recipe to basic processing (output only methane) until "advanced oil processing" is researched (requires blue science).  Note: The Mall doesn't produce _everything_.  Some things will have to be hand-crafted and dumped into the logistics network via "trash slots" and others will have to be produced in space.
 * Home: Build beside Mall.
 * Basic Science: Build beside mall.  Prioritize coal, stone, iron, & copper.  Beyond red and green sciences, only research what you need!  Research Waterfill when some black (military) science appears and add pump to produce some plastic.  Manually move some sulfur (and later: lubricant, sulfuric acid) from the Mall.
 * Iron Smelter: Fill in only 1/2 for now.  Fill the rest when waiting for other things.
@@ -133,3 +133,16 @@ hand if necessary.
 
 With both module types now available, the Starter Circuits can be completed
 which will give more processors.
+
+* Low-Density Structures
+
+At this point, there's enough infrastructure to launch navigation satellites
+which is very useful because it allows adjusting things at a distance.
+However, two other things are more pressing: a shortage of circuits and,
+possibly, a shortage of power due to an incoming CME.
+
+* Nuclear (10GW): Build when necessary.  This will provide enough power for the rest of the game including defense against all incoming CME.  Note that it can take a long time for the Mall to create all the parts so start it a few hours early.
+* Bricks & Glass
+* Advanced Circuits
+* Processors
+* Basic Circuits
