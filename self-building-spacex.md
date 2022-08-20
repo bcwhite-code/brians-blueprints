@@ -12,6 +12,7 @@ You'll want the following mods:
 * [Space Exploration](https://mods.factorio.com/mod/space-exploration) (required)
 * [Logistic Train Network](https://mods.factorio.com/mod/LogisticTrainNetwork) (required)
 * [Loader Redux](https://mods.factorio.com/mod/LoaderRedux) (required)
+* [Miniloader](https://mods.factorio.com/mod/miniloader) (required)
 * [Merging Chests](https://mods.factorio.com/mod/WideChests) and [Unlimited](https://mods.factorio.com/mod/WideChestsUnlimited) (required)
 * [Ghost Scanner](https://mods.factorio.com/mod/GhostScanner) (required)
 * [Stack Combinator](https://mods.factorio.com/mod/stack-combinator) (required)
@@ -20,7 +21,9 @@ You'll want the following mods:
 * [Noxy's Waterfill](https://mods.factorio.com/mod/Noxys_Waterfill) (recommended)
 * [Moar Radar](https://mods.factorio.com/mod/Moar-Radar) (suggested)
 
-Intall these using the in-game installer so that all the dependencies are also installed.
+Install these using the in-game installer so that all the dependencies are also installed.
+
+Yes, both "loader redux" and "miniloader" are required.  The former is the default loader for the train stations (being that it's by the same author an LTN) but there are a few cases where filters need to be set programatically and that is only possible with a "miniloader".
 
 You'll need the following blueprint books:
 
@@ -63,40 +66,57 @@ In the Mod Settings for the _Player_:
 
 See the [main SBF document for "The Build"](https://docs.google.com/document/d/1b7OT1-h5GWfey4rIVNbMCXX-dMkoWLmcURutqrliLYE/edit#heading=h.qqx59ll9md1) but note the following differences:
 
-* Every rail station is an "[aux](https://factorioprints.com/view/-M5PZvxZVXEZnmg4V7Hy)" station with merged chests.  Merging **must** be done **after** all chests and medium power poles are placed.  For full blocks, this is possible once phase#1 is complete (i.e. when construction is in phase#2).  For quarter-blocks, wait until a delivery for LTN stations happens.  From map view, run the merge tool over the _entire block_ and not just obvious rail stations.  If merging is forgotten, stations will not function but won't "fail" either.  It's safe to merge chests even after deliveries begin.
+* Every rail station is an "[aux](https://factorioprints.com/view/-M5PZvxZVXEZnmg4V7Hy)" station with merged chests.  Merging **must** be done **after** all chests and medium power poles are placed.  For full blocks, this is possible once phase#1 is complete (i.e. when construction is in phase#2 or later).  For quarter-blocks, wait until a delivery for LTN stations happens.  From map view, run the merge tool over the _entire block_ and not just obvious rail stations.  If merging is forgotten, stations will not function but won't "fail" either.  It's safe to merge chests even after deliveries begin.
 * Quarter-block blueprints don't use the standard "Construction Site".  They use the "General Construction" version from the "Construction" sub-book of the SBF.  Just place that on the side to line up with the roboports there and turn it on as usual.  Removing it after construction is likely to remove the rail signal there, too, but there's an unconnected one just off from the track to show where it was.  Add it back and remove the unconnected one.
 
 ## Build Order
 
-"Booting up" isn't covered but there are some blueprints in the book to help
-out.  I find it easiest to lay a rail grid ghost early and fit the Mall into
-one of them (leaving space for incoming rail "stub" track placed off a siding
-of the main rail).  Then I just feed the Mall and slowly build it out by hand.
-The only things I automate outside the mall are Red Science and Yellow Belts.
+"Booting up" isn't covered but there are some blueprints in the book
+to help out.  Place the Mall ghost before anything as it'll be taking
+most of the product from the boostrap process.
 
-Basic mines aren't included and the "Mine" block isn't suitable until later.
-Build them by hand using track from the SBF book and stations from BT/aux book,
-adding more mines as necessary.  Be sure to connect red & green wires from the
-big power pole to the rail power poles if you want to have an accurate status
-report of available resources.
+Automate whatever is useful (yellow belts and red science, perhaps)
+but also route some yellow belts of iron and copper plates to the Mall
+inputs.  These will eventually run dry but by then it can be served by
+trains.
 
-* Mall: _Read the blueprint notes!_  Use upgrade planner to change yellow chests to wooden.  Place them.  Then reverse the upgrade and leave it pending.  Do the same with red chests.  Later, bots will put everything back in order.  Set refinecy recipe to basic processing (output only methane) until "advanced oil processing" is researched (requires blue science).  Note: The Mall doesn't produce _everything_.  Some things will have to be hand-crafted and dumped into the logistics network via "trash slots" and others will have to be produced in space.
+Basic mines aren't included and the "Mine" block isn't suitable until
+later.  Build them by hand using track from the SBF book and stations
+from BT/aux book, adding more mines as necessary.  Be sure to connect
+red & green wires from the big power pole to the rail power poles if
+you want to have an accurate status report of available resources.
+
+* [Mall](#mall)
+
+That's pretty much it for now.  Nothing else is needed until it
+launches a rocket.  While waiting for all the necessary research to
+occur, lay down rail block ghosts (filling only the power poles) and
+mines for all the ore types except uranium.  It's possible to have
+provider stations be completed (including merged chests) except for
+the rail and the LTN stop long before they're needed.  Later, the
+rail, signals, etc. can be placed quickly.
+
 * Home: Build beside Mall.
-* Basic Science: Build beside mall.  Prioritize coal, stone, iron, & copper.  Beyond red and green sciences, only research what you need!  Research Waterfill when some black (military) science appears and add pump to produce some plastic.  Manually move some sulfur (and later: lubricant, sulfuric acid) from the Mall.
-* Iron Smelter: Fill in only 1/2 for now.  Fill the rest when waiting for other things.
-* Copper Smelter: Same.
-* Starter Circuits: This needs blue belts to be functional but that should be coming along by the time you get here.  Add the blue belts sparingly as created to start green circuit production.  Red circuits have to wait for Plastic and processors will come later once researched and assembler-3s are available.
-* Belts: This is the first "quarter block" blueprint.  Downgrade the assemblers to #2 for now.  Just remember when restoring them to _remove_ the gear assemblers and re-place the blueprint so that the module configuration will be restored (even if not populated until later).  Blue-belt production won't start until the Refinery is built.
-
-By this time, science should be approaching construction and logistic bots.
-Once they're being produced, connect the Mall to Home and Basic Science and fit
-a "Construction Supply" (from the SBF "Construction" sub-book) beside the Mall.
-You'll need to research "logistic system" which needs some yellow science and
-that needs LDS so will take some time.  Use barrels to shuttle some lubricant
-to the Basic Science input.
-
-* Refinery: This can be built with automated construction but be patient as there aren't many bots.  You can manually move the necessary parts from red chests to blue chests (_not_ the steel buffer chests) so the bots don't have to.  First product will be Lubricant; if it stops producing, manually place sulfur to station belts then flush the methane and light oil tanks.
+* Iron Smelter.
+* Belts: This is a "quarter block" blueprint.  _Read blueprint comment!_
+* Copper Smelter.
+* Starter Circuits: _Read blueprint comment!_
+* Basic Science: Place beside mall with factory side close.  Connect logistic networks.  Manually build out the station side.  Prioritize coal, stone, iron, & copper.
+* Refinery: Will require a second placement once waterfill is down to place pumps.  No blue-belts yet so use planner to downgrade all blue to red and **turn on** the extra config combinator to add red belts to phase#2 of the construction.  Later, when blue belts do become available, reverse this.
 * Steel (electric)
+
+Since the refinery will soon export sulfuric acid, now would be a good time to build a uranium mine.
+
+* Low-Density Structures: _Read blueprint comment!_  (It's like "Belts".)
+* Nav Sats. Provides data about the solar system and allows space travel.
+
+
+
+
+
+* Bricks & Glass.
+
+
 * Depot Hub
 
 If you haven't created a uranium mine, now would be a good time as power is
@@ -147,3 +167,54 @@ possibly, a shortage of power due to an incoming CME.
 * Advanced Circuits
 * Processors
 * Basic Circuits
+
+
+## Blocks
+
+More detail on how to create/manage some blocks is below.
+
+### Mall
+
+_Read the blueprint notes!_
+
+Use upgrade planner to change yellow chests to wooden.  Place them.
+(Nanobots are awesome!)  Then reverse the upgrade and leave it
+pending.  Do the same with red chests.  Later, bots will put
+everything back in order.
+
+Change the electric furnace to stone/steel furnace (with a
+long-handled inserter to feed it sand).  Fuel it with a chest full of
+coal.  Change it back later.
+
+Set refinecy recipe to basic processing (output only methane) until
+"advanced oil processing" is researched (requires blue science).
+
+There are inputs from outside the block for various simple materials.
+These will need to come from "bootstrap" factories around the starting
+resource patches.  Some simple blueprints are available in the
+"bootstrap" sub-book to help with this.
+
+Only merge the the chests of the stations.  Running merge on the
+entire block might catch a few side-by-side iron chests that should
+_not_ be merged.
+
+Aim research towards the "Rocket Silo" then "Construction Robotics",
+inserting anything else you need/want ahead of it.
+
+Blue and Black sciences are produced in reasonable numbers but aren't
+routed to the labs.  You'll have to move them manually.
+
+It will eventually launch a rocket with a satellite.  This unlocks
+satellite navigation, provides telemetry for "rocket" (orange)
+science, and most importantly, will reveal a "weapons cache" somewhere
+on the map.  You need to get the items from that to complete the
+Construction Supply station!
+
+The single rocket launch eventually produces 800 orange science.  Use
+them wisely.
+
+Note: The Mall doesn't produce _everything_.  Some things will have to
+be hand-crafted and dumped into the logistics network via "trash
+slots" and others will have to be produced in space.
+
+
