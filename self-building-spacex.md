@@ -102,13 +102,15 @@ rail, signals, etc. can be placed quickly.
 * Copper Smelter.
 * Starter Circuits: _Read blueprint comment!_
 * Basic Science: Place beside mall with factory side close.  Connect logistic networks.  Manually build out the station side.  Prioritize coal, stone, iron, & copper.
-* Refinery: Will require a second placement once waterfill is down to place pumps.  No blue-belts yet so use planner to downgrade all blue to red and **turn on** the extra config combinator to add red belts to phase#2 of the construction.  Later, when blue belts do become available, reverse this.
+* Refinery: Will require a second placement once waterfill is down to place pumps.  No blue-belts yet so use planner to downgrade all blue to red and **turn on** the extra config combinator to add red belts to phase#2 of the construction.  Later, when blue belts do become available, reverse this. Re-place when Coal Liquefaction eventually becomes available.
 * Steel (electric)
 
 Since the refinery will soon export sulfuric acid, now would be a good time to build a uranium mine.
 
 * Low-Density Structures: _Read blueprint comment!_  (It's like "Belts".)
 * Nav Sats. Provides data about the solar system and allows space travel.
+* Rocket Sections: _Read blueprint comment!_
+* Speed-1/2/3: This will have to be placed multiple times as research progresses.
 
 
 
@@ -142,7 +144,6 @@ unattached one and place it on the side of the rail at the same level.  (Though
 it sounds confusing, it'll be quite obvious when the time comes.)
 
 * Kovarex/Nuclear (2.4GW)
-* Speed Modules
 
 There's a bit of a catch-22 here.  Module production needs red circuits and
 processors.  Red circuits and processors need plastic.  Plastic production is
@@ -211,10 +212,10 @@ on the map.  You need to get the items from that to complete the
 Construction Supply station!
 
 The single rocket launch eventually produces 800 orange science.  Use
-them wisely.
+this to research "Advanced Electronics 2" to be able to produce
+processors then work towards the Cargo Rocket Silo.
 
 Note: The Mall doesn't produce _everything_.  Some things will have to
 be hand-crafted and dumped into the logistics network via "trash
 slots" and others will have to be produced in space.
-
 

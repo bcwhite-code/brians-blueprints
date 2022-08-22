@@ -14,7 +14,7 @@
             "red": [
               {
                 "circuit_id": 1,
-                "entity_id": 5
+                "entity_id": 6
               }
             ]
           }
@@ -38,8 +38,8 @@
         "entity_number": 1,
         "name": "decider-combinator",
         "position": {
-          "x": -134.5,
-          "y": 306
+          "x": -276.5,
+          "y": 106
         }
       },
       {
@@ -48,7 +48,7 @@
             "green": [
               {
                 "circuit_id": 2,
-                "entity_id": 5
+                "entity_id": 6
               }
             ],
             "red": [
@@ -62,11 +62,11 @@
         "entity_number": 2,
         "name": "big-electric-pole",
         "neighbours": [
-          4
+          5
         ],
         "position": {
-          "x": -133,
-          "y": 305
+          "x": -275,
+          "y": 105
         }
       },
       {
@@ -87,7 +87,7 @@
             "green": [
               {
                 "circuit_id": 1,
-                "entity_id": 5
+                "entity_id": 6
               }
             ]
           }
@@ -111,8 +111,47 @@
         "entity_number": 3,
         "name": "decider-combinator",
         "position": {
-          "x": -131.5,
-          "y": 305
+          "x": -273.5,
+          "y": 105
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "red": [
+              {
+                "entity_id": 10
+              }
+            ]
+          },
+          "2": {
+            "green": [
+              {
+                "entity_id": 13
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "first_signal": {
+              "name": "signal-each",
+              "type": "virtual"
+            },
+            "operation": "*",
+            "output_signal": {
+              "name": "signal-each",
+              "type": "virtual"
+            },
+            "second_constant": -1
+          }
+        },
+        "direction": 2,
+        "entity_number": 4,
+        "name": "arithmetic-combinator",
+        "position": {
+          "x": -270,
+          "y": 105.5
         }
       },
       {
@@ -125,10 +164,15 @@
               {
                 "entity_id": 11
               }
+            ],
+            "red": [
+              {
+                "entity_id": 7
+              }
             ]
           }
         },
-        "entity_number": 4,
+        "entity_number": 5,
         "name": "medium-electric-pole",
         "neighbours": [
           2,
@@ -136,8 +180,8 @@
           85
         ],
         "position": {
-          "x": -129.5,
-          "y": 305.5
+          "x": -271.5,
+          "y": 105.5
         }
       },
       {
@@ -182,20 +226,11 @@
           }
         },
         "direction": 6,
-        "entity_number": 5,
+        "entity_number": 6,
         "name": "arithmetic-combinator",
         "position": {
-          "x": -133,
-          "y": 306.5
-        }
-      },
-      {
-        "direction": 6,
-        "entity_number": 6,
-        "name": "logistic-train-stop-output",
-        "position": {
-          "x": -131.5,
-          "y": 307.5
+          "x": -275,
+          "y": 106.5
         }
       },
       {
@@ -207,7 +242,7 @@
                 "entity_id": 3
               },
               {
-                "entity_id": 4
+                "entity_id": 5
               }
             ],
             "red": [
@@ -216,7 +251,10 @@
                 "entity_id": 3
               },
               {
-                "entity_id": 9
+                "entity_id": 5
+              },
+              {
+                "entity_id": 10
               }
             ]
           }
@@ -235,8 +273,17 @@
         "entity_number": 7,
         "name": "logistic-train-stop-input",
         "position": {
-          "x": -131.5,
-          "y": 306.5
+          "x": -273.5,
+          "y": 106.5
+        }
+      },
+      {
+        "direction": 6,
+        "entity_number": 8,
+        "name": "logistic-train-stop-output",
+        "position": {
+          "x": -273.5,
+          "y": 107.5
         }
       },
       {
@@ -250,7 +297,7 @@
           "1": {
             "green": [
               {
-                "entity_id": 9
+                "entity_id": 10
               }
             ]
           }
@@ -263,20 +310,20 @@
           }
         },
         "direction": 6,
-        "entity_number": 8,
+        "entity_number": 9,
         "name": "logistic-train-stop",
         "position": {
-          "x": -131,
-          "y": 307
+          "x": -273,
+          "y": 107
         },
-        "station": ""
+        "station": "Searge"
       },
       {
         "connections": {
           "1": {
             "green": [
               {
-                "entity_id": 8
+                "entity_id": 9
               }
             ],
             "red": [
@@ -285,7 +332,7 @@
               },
               {
                 "circuit_id": 1,
-                "entity_id": 10
+                "entity_id": 4
               }
             ]
           }
@@ -351,50 +398,11 @@
           ]
         },
         "direction": 4,
-        "entity_number": 9,
+        "entity_number": 10,
         "name": "constant-combinator",
         "position": {
-          "x": -129.5,
-          "y": 306.5
-        }
-      },
-      {
-        "connections": {
-          "1": {
-            "red": [
-              {
-                "entity_id": 9
-              }
-            ]
-          },
-          "2": {
-            "green": [
-              {
-                "entity_id": 13
-              }
-            ]
-          }
-        },
-        "control_behavior": {
-          "arithmetic_conditions": {
-            "first_signal": {
-              "name": "signal-each",
-              "type": "virtual"
-            },
-            "operation": "*",
-            "output_signal": {
-              "name": "signal-each",
-              "type": "virtual"
-            },
-            "second_constant": -1
-          }
-        },
-        "direction": 2,
-        "entity_number": 10,
-        "name": "arithmetic-combinator",
-        "position": {
-          "x": -128,
-          "y": 306.5
+          "x": -271.5,
+          "y": 106.5
         }
       },
       {
@@ -402,7 +410,7 @@
           "1": {
             "green": [
               {
-                "entity_id": 4
+                "entity_id": 5
               },
               {
                 "entity_id": 27
@@ -421,13 +429,13 @@
         "entity_number": 11,
         "name": "medium-electric-pole",
         "neighbours": [
-          4,
+          5,
           27,
           85
         ],
         "position": {
-          "x": -124.5,
-          "y": 307.5
+          "x": -266.5,
+          "y": 107.5
         }
       },
       {
@@ -454,8 +462,8 @@
         "entity_number": 12,
         "name": "iron-chest",
         "position": {
-          "x": -122.5,
-          "y": 306.5
+          "x": -264.5,
+          "y": 106.5
         }
       },
       {
@@ -464,7 +472,7 @@
             "green": [
               {
                 "circuit_id": 2,
-                "entity_id": 10
+                "entity_id": 4
               },
               {
                 "entity_id": 14
@@ -482,8 +490,8 @@
         "entity_number": 13,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -123.5,
-          "y": 307.5
+          "x": -265.5,
+          "y": 107.5
         }
       },
       {
@@ -506,8 +514,8 @@
         "entity_number": 14,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -122.5,
-          "y": 307.5
+          "x": -264.5,
+          "y": 107.5
         }
       },
       {
@@ -528,8 +536,8 @@
         "entity_number": 15,
         "name": "iron-chest",
         "position": {
-          "x": -123.5,
-          "y": 306.5
+          "x": -265.5,
+          "y": 106.5
         }
       },
       {
@@ -556,8 +564,8 @@
         "entity_number": 16,
         "name": "iron-chest",
         "position": {
-          "x": -121.5,
-          "y": 306.5
+          "x": -263.5,
+          "y": 106.5
         }
       },
       {
@@ -584,8 +592,8 @@
         "entity_number": 17,
         "name": "iron-chest",
         "position": {
-          "x": -120.5,
-          "y": 306.5
+          "x": -262.5,
+          "y": 106.5
         }
       },
       {
@@ -608,8 +616,8 @@
         "entity_number": 18,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -121.5,
-          "y": 307.5
+          "x": -263.5,
+          "y": 107.5
         }
       },
       {
@@ -632,8 +640,8 @@
         "entity_number": 19,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -120.5,
-          "y": 307.5
+          "x": -262.5,
+          "y": 107.5
         }
       },
       {
@@ -660,8 +668,8 @@
         "entity_number": 20,
         "name": "iron-chest",
         "position": {
-          "x": -119.5,
-          "y": 306.5
+          "x": -261.5,
+          "y": 106.5
         }
       },
       {
@@ -688,8 +696,8 @@
         "entity_number": 21,
         "name": "iron-chest",
         "position": {
-          "x": -118.5,
-          "y": 306.5
+          "x": -260.5,
+          "y": 106.5
         }
       },
       {
@@ -712,8 +720,8 @@
         "entity_number": 22,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -119.5,
-          "y": 307.5
+          "x": -261.5,
+          "y": 107.5
         }
       },
       {
@@ -736,8 +744,8 @@
         "entity_number": 23,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -118.5,
-          "y": 307.5
+          "x": -260.5,
+          "y": 107.5
         }
       },
       {
@@ -764,8 +772,8 @@
         "entity_number": 24,
         "name": "iron-chest",
         "position": {
-          "x": -117.5,
-          "y": 306.5
+          "x": -259.5,
+          "y": 106.5
         }
       },
       {
@@ -792,8 +800,8 @@
         "entity_number": 25,
         "name": "iron-chest",
         "position": {
-          "x": -116.5,
-          "y": 306.5
+          "x": -258.5,
+          "y": 106.5
         }
       },
       {
@@ -816,8 +824,8 @@
         "entity_number": 26,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -116.5,
-          "y": 307.5
+          "x": -258.5,
+          "y": 107.5
         }
       },
       {
@@ -849,8 +857,8 @@
           101
         ],
         "position": {
-          "x": -117.5,
-          "y": 307.5
+          "x": -259.5,
+          "y": 107.5
         }
       },
       {
@@ -877,8 +885,8 @@
         "entity_number": 28,
         "name": "iron-chest",
         "position": {
-          "x": -114.5,
-          "y": 306.5
+          "x": -256.5,
+          "y": 106.5
         }
       },
       {
@@ -905,8 +913,8 @@
         "entity_number": 29,
         "name": "iron-chest",
         "position": {
-          "x": -115.5,
-          "y": 306.5
+          "x": -257.5,
+          "y": 106.5
         }
       },
       {
@@ -929,8 +937,8 @@
         "entity_number": 30,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -115.5,
-          "y": 307.5
+          "x": -257.5,
+          "y": 107.5
         }
       },
       {
@@ -953,8 +961,8 @@
         "entity_number": 31,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -114.5,
-          "y": 307.5
+          "x": -256.5,
+          "y": 107.5
         }
       },
       {
@@ -981,8 +989,8 @@
         "entity_number": 32,
         "name": "iron-chest",
         "position": {
-          "x": -112.5,
-          "y": 306.5
+          "x": -254.5,
+          "y": 106.5
         }
       },
       {
@@ -1009,8 +1017,8 @@
         "entity_number": 33,
         "name": "iron-chest",
         "position": {
-          "x": -113.5,
-          "y": 306.5
+          "x": -255.5,
+          "y": 106.5
         }
       },
       {
@@ -1033,8 +1041,8 @@
         "entity_number": 34,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -112.5,
-          "y": 307.5
+          "x": -254.5,
+          "y": 107.5
         }
       },
       {
@@ -1057,8 +1065,8 @@
         "entity_number": 35,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -113.5,
-          "y": 307.5
+          "x": -255.5,
+          "y": 107.5
         }
       },
       {
@@ -1096,8 +1104,8 @@
           110
         ],
         "position": {
-          "x": -110.5,
-          "y": 307.5
+          "x": -252.5,
+          "y": 107.5
         }
       },
       {
@@ -1130,8 +1138,8 @@
         "entity_number": 37,
         "name": "iron-chest",
         "position": {
-          "x": -110.5,
-          "y": 306.5
+          "x": -252.5,
+          "y": 106.5
         }
       },
       {
@@ -1158,8 +1166,8 @@
         "entity_number": 38,
         "name": "iron-chest",
         "position": {
-          "x": -111.5,
-          "y": 306.5
+          "x": -253.5,
+          "y": 106.5
         }
       },
       {
@@ -1182,8 +1190,8 @@
         "entity_number": 39,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -111.5,
-          "y": 307.5
+          "x": -253.5,
+          "y": 107.5
         }
       },
       {
@@ -1210,8 +1218,8 @@
         "entity_number": 40,
         "name": "iron-chest",
         "position": {
-          "x": -109.5,
-          "y": 306.5
+          "x": -251.5,
+          "y": 106.5
         }
       },
       {
@@ -1238,8 +1246,8 @@
         "entity_number": 41,
         "name": "iron-chest",
         "position": {
-          "x": -108.5,
-          "y": 306.5
+          "x": -250.5,
+          "y": 106.5
         }
       },
       {
@@ -1262,8 +1270,8 @@
         "entity_number": 42,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -109.5,
-          "y": 307.5
+          "x": -251.5,
+          "y": 107.5
         }
       },
       {
@@ -1286,8 +1294,8 @@
         "entity_number": 43,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -108.5,
-          "y": 307.5
+          "x": -250.5,
+          "y": 107.5
         }
       },
       {
@@ -1314,8 +1322,8 @@
         "entity_number": 44,
         "name": "iron-chest",
         "position": {
-          "x": -107.5,
-          "y": 306.5
+          "x": -249.5,
+          "y": 106.5
         }
       },
       {
@@ -1342,8 +1350,8 @@
         "entity_number": 45,
         "name": "iron-chest",
         "position": {
-          "x": -106.5,
-          "y": 306.5
+          "x": -248.5,
+          "y": 106.5
         }
       },
       {
@@ -1366,8 +1374,8 @@
         "entity_number": 46,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -106.5,
-          "y": 307.5
+          "x": -248.5,
+          "y": 107.5
         }
       },
       {
@@ -1390,8 +1398,8 @@
         "entity_number": 47,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -107.5,
-          "y": 307.5
+          "x": -249.5,
+          "y": 107.5
         }
       },
       {
@@ -1418,8 +1426,8 @@
         "entity_number": 48,
         "name": "iron-chest",
         "position": {
-          "x": -104.5,
-          "y": 306.5
+          "x": -246.5,
+          "y": 106.5
         }
       },
       {
@@ -1446,8 +1454,8 @@
         "entity_number": 49,
         "name": "iron-chest",
         "position": {
-          "x": -105.5,
-          "y": 306.5
+          "x": -247.5,
+          "y": 106.5
         }
       },
       {
@@ -1470,8 +1478,8 @@
         "entity_number": 50,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -104.5,
-          "y": 307.5
+          "x": -246.5,
+          "y": 107.5
         }
       },
       {
@@ -1494,8 +1502,8 @@
         "entity_number": 51,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -105.5,
-          "y": 307.5
+          "x": -247.5,
+          "y": 107.5
         }
       },
       {
@@ -1527,8 +1535,8 @@
           126
         ],
         "position": {
-          "x": -103.5,
-          "y": 307.5
+          "x": -245.5,
+          "y": 107.5
         }
       },
       {
@@ -1555,8 +1563,8 @@
         "entity_number": 53,
         "name": "iron-chest",
         "position": {
-          "x": -102.5,
-          "y": 306.5
+          "x": -244.5,
+          "y": 106.5
         }
       },
       {
@@ -1583,8 +1591,8 @@
         "entity_number": 54,
         "name": "iron-chest",
         "position": {
-          "x": -103.5,
-          "y": 306.5
+          "x": -245.5,
+          "y": 106.5
         }
       },
       {
@@ -1607,8 +1615,8 @@
         "entity_number": 55,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -102.5,
-          "y": 307.5
+          "x": -244.5,
+          "y": 107.5
         }
       },
       {
@@ -1635,8 +1643,8 @@
         "entity_number": 56,
         "name": "iron-chest",
         "position": {
-          "x": -101.5,
-          "y": 306.5
+          "x": -243.5,
+          "y": 106.5
         }
       },
       {
@@ -1663,8 +1671,8 @@
         "entity_number": 57,
         "name": "iron-chest",
         "position": {
-          "x": -100.5,
-          "y": 306.5
+          "x": -242.5,
+          "y": 106.5
         }
       },
       {
@@ -1687,8 +1695,8 @@
         "entity_number": 58,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -101.5,
-          "y": 307.5
+          "x": -243.5,
+          "y": 107.5
         }
       },
       {
@@ -1711,8 +1719,8 @@
         "entity_number": 59,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -100.5,
-          "y": 307.5
+          "x": -242.5,
+          "y": 107.5
         }
       },
       {
@@ -1739,8 +1747,8 @@
         "entity_number": 60,
         "name": "iron-chest",
         "position": {
-          "x": -99.5,
-          "y": 306.5
+          "x": -241.5,
+          "y": 106.5
         }
       },
       {
@@ -1767,8 +1775,8 @@
         "entity_number": 61,
         "name": "iron-chest",
         "position": {
-          "x": -98.5,
-          "y": 306.5
+          "x": -240.5,
+          "y": 106.5
         }
       },
       {
@@ -1791,8 +1799,8 @@
         "entity_number": 62,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -98.5,
-          "y": 307.5
+          "x": -240.5,
+          "y": 107.5
         }
       },
       {
@@ -1815,8 +1823,8 @@
         "entity_number": 63,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -99.5,
-          "y": 307.5
+          "x": -241.5,
+          "y": 107.5
         }
       },
       {
@@ -1841,8 +1849,8 @@
           138
         ],
         "position": {
-          "x": -96.5,
-          "y": 307.5
+          "x": -238.5,
+          "y": 107.5
         }
       },
       {
@@ -1863,8 +1871,8 @@
         "entity_number": 65,
         "name": "iron-chest",
         "position": {
-          "x": -97.5,
-          "y": 306.5
+          "x": -239.5,
+          "y": 106.5
         }
       },
       {
@@ -1884,8 +1892,8 @@
         "entity_number": 66,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -97.5,
-          "y": 307.5
+          "x": -239.5,
+          "y": 107.5
         }
       },
       {
@@ -1893,8 +1901,8 @@
         "entity_number": 67,
         "name": "straight-rail",
         "position": {
-          "x": -131,
-          "y": 309
+          "x": -273,
+          "y": 109
         }
       },
       {
@@ -1902,8 +1910,8 @@
         "entity_number": 68,
         "name": "straight-rail",
         "position": {
-          "x": -129,
-          "y": 309
+          "x": -271,
+          "y": 109
         }
       },
       {
@@ -1911,8 +1919,8 @@
         "entity_number": 69,
         "name": "straight-rail",
         "position": {
-          "x": -127,
-          "y": 309
+          "x": -269,
+          "y": 109
         }
       },
       {
@@ -1920,8 +1928,8 @@
         "entity_number": 70,
         "name": "straight-rail",
         "position": {
-          "x": -125,
-          "y": 309
+          "x": -267,
+          "y": 109
         }
       },
       {
@@ -1929,8 +1937,8 @@
         "entity_number": 71,
         "name": "straight-rail",
         "position": {
-          "x": -123,
-          "y": 309
+          "x": -265,
+          "y": 109
         }
       },
       {
@@ -1938,8 +1946,8 @@
         "entity_number": 72,
         "name": "straight-rail",
         "position": {
-          "x": -121,
-          "y": 309
+          "x": -263,
+          "y": 109
         }
       },
       {
@@ -1947,8 +1955,8 @@
         "entity_number": 73,
         "name": "straight-rail",
         "position": {
-          "x": -119,
-          "y": 309
+          "x": -261,
+          "y": 109
         }
       },
       {
@@ -1956,8 +1964,8 @@
         "entity_number": 74,
         "name": "straight-rail",
         "position": {
-          "x": -117,
-          "y": 309
+          "x": -259,
+          "y": 109
         }
       },
       {
@@ -1965,8 +1973,8 @@
         "entity_number": 75,
         "name": "straight-rail",
         "position": {
-          "x": -115,
-          "y": 309
+          "x": -257,
+          "y": 109
         }
       },
       {
@@ -1974,8 +1982,8 @@
         "entity_number": 76,
         "name": "straight-rail",
         "position": {
-          "x": -113,
-          "y": 309
+          "x": -255,
+          "y": 109
         }
       },
       {
@@ -1983,8 +1991,8 @@
         "entity_number": 77,
         "name": "straight-rail",
         "position": {
-          "x": -111,
-          "y": 309
+          "x": -253,
+          "y": 109
         }
       },
       {
@@ -1992,8 +2000,8 @@
         "entity_number": 78,
         "name": "straight-rail",
         "position": {
-          "x": -109,
-          "y": 309
+          "x": -251,
+          "y": 109
         }
       },
       {
@@ -2001,8 +2009,8 @@
         "entity_number": 79,
         "name": "straight-rail",
         "position": {
-          "x": -107,
-          "y": 309
+          "x": -249,
+          "y": 109
         }
       },
       {
@@ -2010,8 +2018,8 @@
         "entity_number": 80,
         "name": "straight-rail",
         "position": {
-          "x": -105,
-          "y": 309
+          "x": -247,
+          "y": 109
         }
       },
       {
@@ -2019,8 +2027,8 @@
         "entity_number": 81,
         "name": "straight-rail",
         "position": {
-          "x": -103,
-          "y": 309
+          "x": -245,
+          "y": 109
         }
       },
       {
@@ -2028,8 +2036,8 @@
         "entity_number": 82,
         "name": "straight-rail",
         "position": {
-          "x": -101,
-          "y": 309
+          "x": -243,
+          "y": 109
         }
       },
       {
@@ -2037,8 +2045,8 @@
         "entity_number": 83,
         "name": "straight-rail",
         "position": {
-          "x": -99,
-          "y": 309
+          "x": -241,
+          "y": 109
         }
       },
       {
@@ -2046,8 +2054,8 @@
         "entity_number": 84,
         "name": "straight-rail",
         "position": {
-          "x": -97,
-          "y": 309
+          "x": -239,
+          "y": 109
         }
       },
       {
@@ -2071,13 +2079,13 @@
         "entity_number": 85,
         "name": "medium-electric-pole",
         "neighbours": [
-          4,
+          5,
           11,
           101
         ],
         "position": {
-          "x": -124.5,
-          "y": 310.5
+          "x": -266.5,
+          "y": 110.5
         }
       },
       {
@@ -2104,8 +2112,8 @@
         "entity_number": 86,
         "name": "iron-chest",
         "position": {
-          "x": -122.5,
-          "y": 311.5
+          "x": -264.5,
+          "y": 111.5
         }
       },
       {
@@ -2127,8 +2135,8 @@
         "entity_number": 87,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -123.5,
-          "y": 310.5
+          "x": -265.5,
+          "y": 110.5
         }
       },
       {
@@ -2150,8 +2158,8 @@
         "entity_number": 88,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -122.5,
-          "y": 310.5
+          "x": -264.5,
+          "y": 110.5
         }
       },
       {
@@ -2172,8 +2180,8 @@
         "entity_number": 89,
         "name": "iron-chest",
         "position": {
-          "x": -123.5,
-          "y": 311.5
+          "x": -265.5,
+          "y": 111.5
         }
       },
       {
@@ -2200,8 +2208,8 @@
         "entity_number": 90,
         "name": "iron-chest",
         "position": {
-          "x": -120.5,
-          "y": 311.5
+          "x": -262.5,
+          "y": 111.5
         }
       },
       {
@@ -2228,8 +2236,8 @@
         "entity_number": 91,
         "name": "iron-chest",
         "position": {
-          "x": -121.5,
-          "y": 311.5
+          "x": -263.5,
+          "y": 111.5
         }
       },
       {
@@ -2251,8 +2259,8 @@
         "entity_number": 92,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -121.5,
-          "y": 310.5
+          "x": -263.5,
+          "y": 110.5
         }
       },
       {
@@ -2274,8 +2282,8 @@
         "entity_number": 93,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -120.5,
-          "y": 310.5
+          "x": -262.5,
+          "y": 110.5
         }
       },
       {
@@ -2302,8 +2310,8 @@
         "entity_number": 94,
         "name": "iron-chest",
         "position": {
-          "x": -118.5,
-          "y": 311.5
+          "x": -260.5,
+          "y": 111.5
         }
       },
       {
@@ -2330,8 +2338,8 @@
         "entity_number": 95,
         "name": "iron-chest",
         "position": {
-          "x": -119.5,
-          "y": 311.5
+          "x": -261.5,
+          "y": 111.5
         }
       },
       {
@@ -2353,8 +2361,8 @@
         "entity_number": 96,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -119.5,
-          "y": 310.5
+          "x": -261.5,
+          "y": 110.5
         }
       },
       {
@@ -2376,8 +2384,8 @@
         "entity_number": 97,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -118.5,
-          "y": 310.5
+          "x": -260.5,
+          "y": 110.5
         }
       },
       {
@@ -2404,8 +2412,8 @@
         "entity_number": 98,
         "name": "iron-chest",
         "position": {
-          "x": -117.5,
-          "y": 311.5
+          "x": -259.5,
+          "y": 111.5
         }
       },
       {
@@ -2432,8 +2440,8 @@
         "entity_number": 99,
         "name": "iron-chest",
         "position": {
-          "x": -116.5,
-          "y": 311.5
+          "x": -258.5,
+          "y": 111.5
         }
       },
       {
@@ -2455,8 +2463,8 @@
         "entity_number": 100,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -116.5,
-          "y": 310.5
+          "x": -258.5,
+          "y": 110.5
         }
       },
       {
@@ -2488,8 +2496,8 @@
           110
         ],
         "position": {
-          "x": -117.5,
-          "y": 310.5
+          "x": -259.5,
+          "y": 110.5
         }
       },
       {
@@ -2516,8 +2524,8 @@
         "entity_number": 102,
         "name": "iron-chest",
         "position": {
-          "x": -115.5,
-          "y": 311.5
+          "x": -257.5,
+          "y": 111.5
         }
       },
       {
@@ -2544,8 +2552,8 @@
         "entity_number": 103,
         "name": "iron-chest",
         "position": {
-          "x": -114.5,
-          "y": 311.5
+          "x": -256.5,
+          "y": 111.5
         }
       },
       {
@@ -2567,8 +2575,8 @@
         "entity_number": 104,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -115.5,
-          "y": 310.5
+          "x": -257.5,
+          "y": 110.5
         }
       },
       {
@@ -2590,8 +2598,8 @@
         "entity_number": 105,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -114.5,
-          "y": 310.5
+          "x": -256.5,
+          "y": 110.5
         }
       },
       {
@@ -2618,8 +2626,8 @@
         "entity_number": 106,
         "name": "iron-chest",
         "position": {
-          "x": -112.5,
-          "y": 311.5
+          "x": -254.5,
+          "y": 111.5
         }
       },
       {
@@ -2646,8 +2654,8 @@
         "entity_number": 107,
         "name": "iron-chest",
         "position": {
-          "x": -113.5,
-          "y": 311.5
+          "x": -255.5,
+          "y": 111.5
         }
       },
       {
@@ -2669,8 +2677,8 @@
         "entity_number": 108,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -113.5,
-          "y": 310.5
+          "x": -255.5,
+          "y": 110.5
         }
       },
       {
@@ -2692,8 +2700,8 @@
         "entity_number": 109,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -112.5,
-          "y": 310.5
+          "x": -254.5,
+          "y": 110.5
         }
       },
       {
@@ -2731,8 +2739,8 @@
           126
         ],
         "position": {
-          "x": -110.5,
-          "y": 310.5
+          "x": -252.5,
+          "y": 110.5
         }
       },
       {
@@ -2765,8 +2773,8 @@
         "entity_number": 111,
         "name": "iron-chest",
         "position": {
-          "x": -110.5,
-          "y": 311.5
+          "x": -252.5,
+          "y": 111.5
         }
       },
       {
@@ -2793,8 +2801,8 @@
         "entity_number": 112,
         "name": "iron-chest",
         "position": {
-          "x": -111.5,
-          "y": 311.5
+          "x": -253.5,
+          "y": 111.5
         }
       },
       {
@@ -2816,8 +2824,8 @@
         "entity_number": 113,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -111.5,
-          "y": 310.5
+          "x": -253.5,
+          "y": 110.5
         }
       },
       {
@@ -2844,8 +2852,8 @@
         "entity_number": 114,
         "name": "iron-chest",
         "position": {
-          "x": -109.5,
-          "y": 311.5
+          "x": -251.5,
+          "y": 111.5
         }
       },
       {
@@ -2872,8 +2880,8 @@
         "entity_number": 115,
         "name": "iron-chest",
         "position": {
-          "x": -108.5,
-          "y": 311.5
+          "x": -250.5,
+          "y": 111.5
         }
       },
       {
@@ -2895,8 +2903,8 @@
         "entity_number": 116,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -109.5,
-          "y": 310.5
+          "x": -251.5,
+          "y": 110.5
         }
       },
       {
@@ -2918,8 +2926,8 @@
         "entity_number": 117,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -108.5,
-          "y": 310.5
+          "x": -250.5,
+          "y": 110.5
         }
       },
       {
@@ -2946,8 +2954,8 @@
         "entity_number": 118,
         "name": "iron-chest",
         "position": {
-          "x": -106.5,
-          "y": 311.5
+          "x": -248.5,
+          "y": 111.5
         }
       },
       {
@@ -2974,8 +2982,8 @@
         "entity_number": 119,
         "name": "iron-chest",
         "position": {
-          "x": -107.5,
-          "y": 311.5
+          "x": -249.5,
+          "y": 111.5
         }
       },
       {
@@ -2997,8 +3005,8 @@
         "entity_number": 120,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -106.5,
-          "y": 310.5
+          "x": -248.5,
+          "y": 110.5
         }
       },
       {
@@ -3020,8 +3028,8 @@
         "entity_number": 121,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -107.5,
-          "y": 310.5
+          "x": -249.5,
+          "y": 110.5
         }
       },
       {
@@ -3048,8 +3056,8 @@
         "entity_number": 122,
         "name": "iron-chest",
         "position": {
-          "x": -104.5,
-          "y": 311.5
+          "x": -246.5,
+          "y": 111.5
         }
       },
       {
@@ -3076,8 +3084,8 @@
         "entity_number": 123,
         "name": "iron-chest",
         "position": {
-          "x": -105.5,
-          "y": 311.5
+          "x": -247.5,
+          "y": 111.5
         }
       },
       {
@@ -3099,8 +3107,8 @@
         "entity_number": 124,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -104.5,
-          "y": 310.5
+          "x": -246.5,
+          "y": 110.5
         }
       },
       {
@@ -3122,8 +3130,8 @@
         "entity_number": 125,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -105.5,
-          "y": 310.5
+          "x": -247.5,
+          "y": 110.5
         }
       },
       {
@@ -3155,8 +3163,8 @@
           138
         ],
         "position": {
-          "x": -103.5,
-          "y": 310.5
+          "x": -245.5,
+          "y": 110.5
         }
       },
       {
@@ -3183,8 +3191,8 @@
         "entity_number": 127,
         "name": "iron-chest",
         "position": {
-          "x": -102.5,
-          "y": 311.5
+          "x": -244.5,
+          "y": 111.5
         }
       },
       {
@@ -3211,8 +3219,8 @@
         "entity_number": 128,
         "name": "iron-chest",
         "position": {
-          "x": -103.5,
-          "y": 311.5
+          "x": -245.5,
+          "y": 111.5
         }
       },
       {
@@ -3234,8 +3242,8 @@
         "entity_number": 129,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -102.5,
-          "y": 310.5
+          "x": -244.5,
+          "y": 110.5
         }
       },
       {
@@ -3262,8 +3270,8 @@
         "entity_number": 130,
         "name": "iron-chest",
         "position": {
-          "x": -101.5,
-          "y": 311.5
+          "x": -243.5,
+          "y": 111.5
         }
       },
       {
@@ -3290,8 +3298,8 @@
         "entity_number": 131,
         "name": "iron-chest",
         "position": {
-          "x": -100.5,
-          "y": 311.5
+          "x": -242.5,
+          "y": 111.5
         }
       },
       {
@@ -3313,8 +3321,8 @@
         "entity_number": 132,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -100.5,
-          "y": 310.5
+          "x": -242.5,
+          "y": 110.5
         }
       },
       {
@@ -3336,8 +3344,8 @@
         "entity_number": 133,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -101.5,
-          "y": 310.5
+          "x": -243.5,
+          "y": 110.5
         }
       },
       {
@@ -3364,8 +3372,8 @@
         "entity_number": 134,
         "name": "iron-chest",
         "position": {
-          "x": -98.5,
-          "y": 311.5
+          "x": -240.5,
+          "y": 111.5
         }
       },
       {
@@ -3392,8 +3400,8 @@
         "entity_number": 135,
         "name": "iron-chest",
         "position": {
-          "x": -99.5,
-          "y": 311.5
+          "x": -241.5,
+          "y": 111.5
         }
       },
       {
@@ -3415,8 +3423,8 @@
         "entity_number": 136,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -98.5,
-          "y": 310.5
+          "x": -240.5,
+          "y": 110.5
         }
       },
       {
@@ -3438,8 +3446,8 @@
         "entity_number": 137,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -99.5,
-          "y": 310.5
+          "x": -241.5,
+          "y": 110.5
         }
       },
       {
@@ -3464,8 +3472,8 @@
           126
         ],
         "position": {
-          "x": -96.5,
-          "y": 310.5
+          "x": -238.5,
+          "y": 110.5
         }
       },
       {
@@ -3486,8 +3494,8 @@
         "entity_number": 139,
         "name": "iron-chest",
         "position": {
-          "x": -97.5,
-          "y": 311.5
+          "x": -239.5,
+          "y": 111.5
         }
       },
       {
@@ -3506,8 +3514,8 @@
         "entity_number": 140,
         "name": "stack-filter-inserter",
         "position": {
-          "x": -97.5,
-          "y": 310.5
+          "x": -239.5,
+          "y": 110.5
         }
       }
     ],
@@ -3536,6 +3544,6 @@
     ],
     "item": "blueprint",
     "label": "4-Car Requester",
-    "version": 281479275610112
+    "version": 281479275937792
   }
 }

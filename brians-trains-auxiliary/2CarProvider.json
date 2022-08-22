@@ -14,7 +14,7 @@
             "red": [
               {
                 "circuit_id": 1,
-                "entity_id": 4
+                "entity_id": 5
               }
             ]
           }
@@ -38,8 +38,8 @@
         "entity_number": 1,
         "name": "decider-combinator",
         "position": {
-          "x": -134.5,
-          "y": 306
+          "x": -260.5,
+          "y": 100
         }
       },
       {
@@ -48,7 +48,7 @@
             "green": [
               {
                 "circuit_id": 2,
-                "entity_id": 4
+                "entity_id": 5
               }
             ],
             "red": [
@@ -62,11 +62,56 @@
         "entity_number": 2,
         "name": "big-electric-pole",
         "neighbours": [
-          3
+          4
         ],
         "position": {
-          "x": -133,
-          "y": 305
+          "x": -259,
+          "y": 99
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "entity_id": 8
+              }
+            ],
+            "red": [
+              {
+                "circuit_id": 2,
+                "entity_id": 9
+              }
+            ]
+          },
+          "2": {
+            "green": [
+              {
+                "entity_id": 15
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "first_signal": {
+              "name": "signal-each",
+              "type": "virtual"
+            },
+            "operation": "+",
+            "output_signal": {
+              "name": "signal-each",
+              "type": "virtual"
+            },
+            "second_constant": 0
+          }
+        },
+        "direction": 2,
+        "entity_number": 3,
+        "name": "arithmetic-combinator",
+        "position": {
+          "x": -254,
+          "y": 99.5
         }
       },
       {
@@ -79,19 +124,24 @@
               {
                 "entity_id": 11
               }
+            ],
+            "red": [
+              {
+                "entity_id": 6
+              }
             ]
           }
         },
-        "entity_number": 3,
+        "entity_number": 4,
         "name": "medium-electric-pole",
         "neighbours": [
           2,
           11,
-          53
+          50
         ],
         "position": {
-          "x": -129.5,
-          "y": 305.5
+          "x": -255.5,
+          "y": 99.5
         }
       },
       {
@@ -135,30 +185,11 @@
           }
         },
         "direction": 6,
-        "entity_number": 4,
+        "entity_number": 5,
         "name": "arithmetic-combinator",
         "position": {
-          "x": -133,
-          "y": 306.5
-        }
-      },
-      {
-        "connections": {
-          "1": {
-            "red": [
-              {
-                "circuit_id": 1,
-                "entity_id": 8
-              }
-            ]
-          }
-        },
-        "direction": 6,
-        "entity_number": 5,
-        "name": "logistic-train-stop-output",
-        "position": {
-          "x": -131.5,
-          "y": 307.5
+          "x": -259,
+          "y": 100.5
         }
       },
       {
@@ -166,16 +197,19 @@
           "1": {
             "green": [
               {
-                "entity_id": 3
+                "entity_id": 4
               },
               {
                 "circuit_id": 1,
-                "entity_id": 4
+                "entity_id": 5
               }
             ],
             "red": [
               {
-                "entity_id": 9
+                "entity_id": 4
+              },
+              {
+                "entity_id": 10
               }
             ]
           }
@@ -194,8 +228,27 @@
         "entity_number": 6,
         "name": "logistic-train-stop-input",
         "position": {
-          "x": -131.5,
-          "y": 306.5
+          "x": -257.5,
+          "y": 100.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "red": [
+              {
+                "circuit_id": 1,
+                "entity_id": 9
+              }
+            ]
+          }
+        },
+        "direction": 6,
+        "entity_number": 7,
+        "name": "logistic-train-stop-output",
+        "position": {
+          "x": -257.5,
+          "y": 101.5
         }
       },
       {
@@ -210,7 +263,7 @@
             "green": [
               {
                 "circuit_id": 1,
-                "entity_id": 10
+                "entity_id": 3
               }
             ]
           }
@@ -223,20 +276,20 @@
           }
         },
         "direction": 6,
-        "entity_number": 7,
+        "entity_number": 8,
         "name": "logistic-train-stop",
         "position": {
-          "x": -131,
-          "y": 307
+          "x": -257,
+          "y": 101
         },
-        "station": ""
+        "station": "Kirsendarken"
       },
       {
         "connections": {
           "1": {
             "red": [
               {
-                "entity_id": 5
+                "entity_id": 7
               }
             ]
           },
@@ -244,7 +297,7 @@
             "red": [
               {
                 "circuit_id": 1,
-                "entity_id": 10
+                "entity_id": 3
               }
             ]
           }
@@ -264,11 +317,11 @@
           }
         },
         "direction": 2,
-        "entity_number": 8,
+        "entity_number": 9,
         "name": "arithmetic-combinator",
         "position": {
-          "x": -129,
-          "y": 307.5
+          "x": -255,
+          "y": 101.5
         }
       },
       {
@@ -326,11 +379,11 @@
           ]
         },
         "direction": 6,
-        "entity_number": 9,
+        "entity_number": 10,
         "name": "constant-combinator",
         "position": {
-          "x": -129.5,
-          "y": 306.5
+          "x": -255.5,
+          "y": 100.5
         }
       },
       {
@@ -338,58 +391,13 @@
           "1": {
             "green": [
               {
-                "entity_id": 7
-              }
-            ],
-            "red": [
-              {
-                "circuit_id": 2,
-                "entity_id": 8
-              }
-            ]
-          },
-          "2": {
-            "green": [
-              {
-                "entity_id": 15
-              }
-            ]
-          }
-        },
-        "control_behavior": {
-          "arithmetic_conditions": {
-            "first_signal": {
-              "name": "signal-each",
-              "type": "virtual"
-            },
-            "operation": "+",
-            "output_signal": {
-              "name": "signal-each",
-              "type": "virtual"
-            },
-            "second_constant": 0
-          }
-        },
-        "direction": 2,
-        "entity_number": 10,
-        "name": "arithmetic-combinator",
-        "position": {
-          "x": -128,
-          "y": 306.5
-        }
-      },
-      {
-        "connections": {
-          "1": {
-            "green": [
-              {
-                "entity_id": 3
+                "entity_id": 4
               },
               {
                 "entity_id": 27
               },
               {
-                "entity_id": 53
+                "entity_id": 50
               }
             ],
             "red": [
@@ -402,13 +410,13 @@
         "entity_number": 11,
         "name": "medium-electric-pole",
         "neighbours": [
-          3,
+          4,
           27,
-          53
+          50
         ],
         "position": {
-          "x": -124.5,
-          "y": 307.5
+          "x": -250.5,
+          "y": 101.5
         }
       },
       {
@@ -430,8 +438,8 @@
         "entity_number": 12,
         "name": "iron-chest",
         "position": {
-          "x": -123.5,
-          "y": 306.5
+          "x": -249.5,
+          "y": 100.5
         }
       },
       {
@@ -459,8 +467,8 @@
         "entity_number": 13,
         "name": "iron-chest",
         "position": {
-          "x": -122.5,
-          "y": 306.5
+          "x": -248.5,
+          "y": 100.5
         }
       },
       {
@@ -489,8 +497,8 @@
         "entity_number": 14,
         "name": "stack-inserter",
         "position": {
-          "x": -122.5,
-          "y": 307.5
+          "x": -248.5,
+          "y": 101.5
         }
       },
       {
@@ -499,13 +507,13 @@
             "green": [
               {
                 "circuit_id": 2,
-                "entity_id": 10
+                "entity_id": 3
               },
               {
                 "entity_id": 14
               },
               {
-                "entity_id": 57
+                "entity_id": 54
               }
             ]
           }
@@ -523,8 +531,8 @@
         "entity_number": 15,
         "name": "stack-inserter",
         "position": {
-          "x": -123.5,
-          "y": 307.5
+          "x": -249.5,
+          "y": 101.5
         }
       },
       {
@@ -552,8 +560,8 @@
         "entity_number": 16,
         "name": "iron-chest",
         "position": {
-          "x": -121.5,
-          "y": 306.5
+          "x": -247.5,
+          "y": 100.5
         }
       },
       {
@@ -581,8 +589,8 @@
         "entity_number": 17,
         "name": "iron-chest",
         "position": {
-          "x": -120.5,
-          "y": 306.5
+          "x": -246.5,
+          "y": 100.5
         }
       },
       {
@@ -611,8 +619,8 @@
         "entity_number": 18,
         "name": "stack-inserter",
         "position": {
-          "x": -120.5,
-          "y": 307.5
+          "x": -246.5,
+          "y": 101.5
         }
       },
       {
@@ -641,8 +649,8 @@
         "entity_number": 19,
         "name": "stack-inserter",
         "position": {
-          "x": -121.5,
-          "y": 307.5
+          "x": -247.5,
+          "y": 101.5
         }
       },
       {
@@ -670,8 +678,8 @@
         "entity_number": 20,
         "name": "iron-chest",
         "position": {
-          "x": -119.5,
-          "y": 306.5
+          "x": -245.5,
+          "y": 100.5
         }
       },
       {
@@ -699,8 +707,8 @@
         "entity_number": 21,
         "name": "iron-chest",
         "position": {
-          "x": -118.5,
-          "y": 306.5
+          "x": -244.5,
+          "y": 100.5
         }
       },
       {
@@ -729,8 +737,8 @@
         "entity_number": 22,
         "name": "stack-inserter",
         "position": {
-          "x": -118.5,
-          "y": 307.5
+          "x": -244.5,
+          "y": 101.5
         }
       },
       {
@@ -759,8 +767,8 @@
         "entity_number": 23,
         "name": "stack-inserter",
         "position": {
-          "x": -119.5,
-          "y": 307.5
+          "x": -245.5,
+          "y": 101.5
         }
       },
       {
@@ -794,8 +802,8 @@
         "entity_number": 24,
         "name": "iron-chest",
         "position": {
-          "x": -117.5,
-          "y": 306.5
+          "x": -243.5,
+          "y": 100.5
         }
       },
       {
@@ -823,8 +831,8 @@
         "entity_number": 25,
         "name": "iron-chest",
         "position": {
-          "x": -116.5,
-          "y": 306.5
+          "x": -242.5,
+          "y": 100.5
         }
       },
       {
@@ -853,8 +861,8 @@
         "entity_number": 26,
         "name": "stack-inserter",
         "position": {
-          "x": -116.5,
-          "y": 307.5
+          "x": -242.5,
+          "y": 101.5
         }
       },
       {
@@ -889,11 +897,11 @@
         "neighbours": [
           11,
           38,
-          69
+          66
         ],
         "position": {
-          "x": -117.5,
-          "y": 307.5
+          "x": -243.5,
+          "y": 101.5
         }
       },
       {
@@ -921,8 +929,8 @@
         "entity_number": 28,
         "name": "iron-chest",
         "position": {
-          "x": -115.5,
-          "y": 306.5
+          "x": -241.5,
+          "y": 100.5
         }
       },
       {
@@ -950,8 +958,8 @@
         "entity_number": 29,
         "name": "iron-chest",
         "position": {
-          "x": -114.5,
-          "y": 306.5
+          "x": -240.5,
+          "y": 100.5
         }
       },
       {
@@ -980,8 +988,8 @@
         "entity_number": 30,
         "name": "stack-inserter",
         "position": {
-          "x": -115.5,
-          "y": 307.5
+          "x": -241.5,
+          "y": 101.5
         }
       },
       {
@@ -1010,8 +1018,8 @@
         "entity_number": 31,
         "name": "stack-inserter",
         "position": {
-          "x": -114.5,
-          "y": 307.5
+          "x": -240.5,
+          "y": 101.5
         }
       },
       {
@@ -1039,8 +1047,8 @@
         "entity_number": 32,
         "name": "iron-chest",
         "position": {
-          "x": -113.5,
-          "y": 306.5
+          "x": -239.5,
+          "y": 100.5
         }
       },
       {
@@ -1068,8 +1076,8 @@
         "entity_number": 33,
         "name": "iron-chest",
         "position": {
-          "x": -112.5,
-          "y": 306.5
+          "x": -238.5,
+          "y": 100.5
         }
       },
       {
@@ -1098,8 +1106,8 @@
         "entity_number": 34,
         "name": "stack-inserter",
         "position": {
-          "x": -113.5,
-          "y": 307.5
+          "x": -239.5,
+          "y": 101.5
         }
       },
       {
@@ -1128,8 +1136,8 @@
         "entity_number": 35,
         "name": "stack-inserter",
         "position": {
-          "x": -112.5,
-          "y": 307.5
+          "x": -238.5,
+          "y": 101.5
         }
       },
       {
@@ -1151,8 +1159,8 @@
         "entity_number": 36,
         "name": "iron-chest",
         "position": {
-          "x": -111.5,
-          "y": 306.5
+          "x": -237.5,
+          "y": 100.5
         }
       },
       {
@@ -1178,8 +1186,8 @@
         "entity_number": 37,
         "name": "stack-inserter",
         "position": {
-          "x": -111.5,
-          "y": 307.5
+          "x": -237.5,
+          "y": 101.5
         }
       },
       {
@@ -1201,11 +1209,11 @@
         "name": "medium-electric-pole",
         "neighbours": [
           27,
-          79
+          76
         ],
         "position": {
-          "x": -110.5,
-          "y": 307.5
+          "x": -236.5,
+          "y": 101.5
         }
       },
       {
@@ -1213,8 +1221,8 @@
         "entity_number": 39,
         "name": "straight-rail",
         "position": {
-          "x": -131,
-          "y": 309
+          "x": -257,
+          "y": 103
         }
       },
       {
@@ -1222,8 +1230,8 @@
         "entity_number": 40,
         "name": "straight-rail",
         "position": {
-          "x": -129,
-          "y": 309
+          "x": -255,
+          "y": 103
         }
       },
       {
@@ -1231,8 +1239,8 @@
         "entity_number": 41,
         "name": "straight-rail",
         "position": {
-          "x": -127,
-          "y": 309
+          "x": -253,
+          "y": 103
         }
       },
       {
@@ -1240,8 +1248,8 @@
         "entity_number": 42,
         "name": "straight-rail",
         "position": {
-          "x": -125,
-          "y": 309
+          "x": -251,
+          "y": 103
         }
       },
       {
@@ -1249,8 +1257,8 @@
         "entity_number": 43,
         "name": "straight-rail",
         "position": {
-          "x": -123,
-          "y": 309
+          "x": -249,
+          "y": 103
         }
       },
       {
@@ -1258,8 +1266,8 @@
         "entity_number": 44,
         "name": "straight-rail",
         "position": {
-          "x": -121,
-          "y": 309
+          "x": -247,
+          "y": 103
         }
       },
       {
@@ -1267,8 +1275,8 @@
         "entity_number": 45,
         "name": "straight-rail",
         "position": {
-          "x": -119,
-          "y": 309
+          "x": -245,
+          "y": 103
         }
       },
       {
@@ -1276,8 +1284,8 @@
         "entity_number": 46,
         "name": "straight-rail",
         "position": {
-          "x": -117,
-          "y": 309
+          "x": -243,
+          "y": 103
         }
       },
       {
@@ -1285,8 +1293,8 @@
         "entity_number": 47,
         "name": "straight-rail",
         "position": {
-          "x": -115,
-          "y": 309
+          "x": -241,
+          "y": 103
         }
       },
       {
@@ -1294,8 +1302,8 @@
         "entity_number": 48,
         "name": "straight-rail",
         "position": {
-          "x": -113,
-          "y": 309
+          "x": -239,
+          "y": 103
         }
       },
       {
@@ -1303,35 +1311,8 @@
         "entity_number": 49,
         "name": "straight-rail",
         "position": {
-          "x": -111,
-          "y": 309
-        }
-      },
-      {
-        "direction": 2,
-        "entity_number": 50,
-        "name": "straight-rail",
-        "position": {
-          "x": -109,
-          "y": 309
-        }
-      },
-      {
-        "direction": 2,
-        "entity_number": 51,
-        "name": "straight-rail",
-        "position": {
-          "x": -107,
-          "y": 309
-        }
-      },
-      {
-        "direction": 2,
-        "entity_number": 52,
-        "name": "straight-rail",
-        "position": {
-          "x": -105,
-          "y": 309
+          "x": -237,
+          "y": 103
         }
       },
       {
@@ -1342,26 +1323,26 @@
                 "entity_id": 11
               },
               {
-                "entity_id": 69
+                "entity_id": 66
               }
             ],
             "red": [
               {
-                "entity_id": 69
+                "entity_id": 66
               }
             ]
           }
         },
-        "entity_number": 53,
+        "entity_number": 50,
         "name": "medium-electric-pole",
         "neighbours": [
-          3,
+          4,
           11,
-          69
+          66
         ],
         "position": {
-          "x": -124.5,
-          "y": 310.5
+          "x": -250.5,
+          "y": 104.5
         }
       },
       {
@@ -1370,27 +1351,27 @@
           "1": {
             "green": [
               {
-                "entity_id": 55
+                "entity_id": 52
               },
               {
-                "entity_id": 59
+                "entity_id": 56
               }
             ],
             "red": [
               {
-                "entity_id": 55
+                "entity_id": 52
               },
               {
-                "entity_id": 59
+                "entity_id": 56
               }
             ]
           }
         },
-        "entity_number": 54,
+        "entity_number": 51,
         "name": "iron-chest",
         "position": {
-          "x": -122.5,
-          "y": 311.5
+          "x": -248.5,
+          "y": 105.5
         }
       },
       {
@@ -1399,32 +1380,32 @@
           "1": {
             "green": [
               {
-                "entity_id": 54
+                "entity_id": 51
               }
             ],
             "red": [
               {
-                "entity_id": 54
+                "entity_id": 51
               }
             ]
           }
         },
-        "entity_number": 55,
+        "entity_number": 52,
         "name": "iron-chest",
         "position": {
-          "x": -123.5,
-          "y": 311.5
+          "x": -249.5,
+          "y": 105.5
         }
       },
       {
         "connections": {
           "1": {
             "green": [
+              {
+                "entity_id": 54
+              },
               {
                 "entity_id": 57
-              },
-              {
-                "entity_id": 60
               }
             ]
           }
@@ -1440,11 +1421,11 @@
           }
         },
         "direction": 4,
-        "entity_number": 56,
+        "entity_number": 53,
         "name": "stack-inserter",
         "position": {
-          "x": -122.5,
-          "y": 310.5
+          "x": -248.5,
+          "y": 104.5
         }
       },
       {
@@ -1455,7 +1436,96 @@
                 "entity_id": 15
               },
               {
+                "entity_id": 53
+              }
+            ]
+          }
+        },
+        "control_behavior": {
+          "circuit_condition": {
+            "comparator": "<",
+            "constant": 0,
+            "first_signal": {
+              "name": "signal-everything",
+              "type": "virtual"
+            }
+          }
+        },
+        "direction": 4,
+        "entity_number": 54,
+        "name": "stack-inserter",
+        "position": {
+          "x": -249.5,
+          "y": 104.5
+        }
+      },
+      {
+        "bar": 10,
+        "connections": {
+          "1": {
+            "green": [
+              {
                 "entity_id": 56
+              },
+              {
+                "entity_id": 60
+              }
+            ],
+            "red": [
+              {
+                "entity_id": 56
+              },
+              {
+                "entity_id": 60
+              }
+            ]
+          }
+        },
+        "entity_number": 55,
+        "name": "iron-chest",
+        "position": {
+          "x": -246.5,
+          "y": 105.5
+        }
+      },
+      {
+        "bar": 10,
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "entity_id": 51
+              },
+              {
+                "entity_id": 55
+              }
+            ],
+            "red": [
+              {
+                "entity_id": 51
+              },
+              {
+                "entity_id": 55
+              }
+            ]
+          }
+        },
+        "entity_number": 56,
+        "name": "iron-chest",
+        "position": {
+          "x": -247.5,
+          "y": 105.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "entity_id": 53
+              },
+              {
+                "entity_id": 58
               }
             ]
           }
@@ -1474,66 +1544,8 @@
         "entity_number": 57,
         "name": "stack-inserter",
         "position": {
-          "x": -123.5,
-          "y": 310.5
-        }
-      },
-      {
-        "bar": 10,
-        "connections": {
-          "1": {
-            "green": [
-              {
-                "entity_id": 59
-              },
-              {
-                "entity_id": 63
-              }
-            ],
-            "red": [
-              {
-                "entity_id": 59
-              },
-              {
-                "entity_id": 63
-              }
-            ]
-          }
-        },
-        "entity_number": 58,
-        "name": "iron-chest",
-        "position": {
-          "x": -120.5,
-          "y": 311.5
-        }
-      },
-      {
-        "bar": 10,
-        "connections": {
-          "1": {
-            "green": [
-              {
-                "entity_id": 54
-              },
-              {
-                "entity_id": 58
-              }
-            ],
-            "red": [
-              {
-                "entity_id": 54
-              },
-              {
-                "entity_id": 58
-              }
-            ]
-          }
-        },
-        "entity_number": 59,
-        "name": "iron-chest",
-        "position": {
-          "x": -121.5,
-          "y": 311.5
+          "x": -247.5,
+          "y": 104.5
         }
       },
       {
@@ -1541,7 +1553,7 @@
           "1": {
             "green": [
               {
-                "entity_id": 56
+                "entity_id": 57
               },
               {
                 "entity_id": 61
@@ -1560,14 +1572,15 @@
           }
         },
         "direction": 4,
-        "entity_number": 60,
+        "entity_number": 58,
         "name": "stack-inserter",
         "position": {
-          "x": -121.5,
-          "y": 310.5
+          "x": -246.5,
+          "y": 104.5
         }
       },
       {
+        "bar": 10,
         "connections": {
           "1": {
             "green": [
@@ -1575,7 +1588,64 @@
                 "entity_id": 60
               },
               {
-                "entity_id": 64
+                "entity_id": 63
+              }
+            ],
+            "red": [
+              {
+                "entity_id": 60
+              },
+              {
+                "entity_id": 63
+              }
+            ]
+          }
+        },
+        "entity_number": 59,
+        "name": "iron-chest",
+        "position": {
+          "x": -244.5,
+          "y": 105.5
+        }
+      },
+      {
+        "bar": 10,
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "entity_id": 55
+              },
+              {
+                "entity_id": 59
+              }
+            ],
+            "red": [
+              {
+                "entity_id": 55
+              },
+              {
+                "entity_id": 59
+              }
+            ]
+          }
+        },
+        "entity_number": 60,
+        "name": "iron-chest",
+        "position": {
+          "x": -245.5,
+          "y": 105.5
+        }
+      },
+      {
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "entity_id": 58
+              },
+              {
+                "entity_id": 62
               }
             ]
           }
@@ -1594,66 +1664,8 @@
         "entity_number": 61,
         "name": "stack-inserter",
         "position": {
-          "x": -120.5,
-          "y": 310.5
-        }
-      },
-      {
-        "bar": 10,
-        "connections": {
-          "1": {
-            "green": [
-              {
-                "entity_id": 63
-              },
-              {
-                "entity_id": 66
-              }
-            ],
-            "red": [
-              {
-                "entity_id": 63
-              },
-              {
-                "entity_id": 66
-              }
-            ]
-          }
-        },
-        "entity_number": 62,
-        "name": "iron-chest",
-        "position": {
-          "x": -118.5,
-          "y": 311.5
-        }
-      },
-      {
-        "bar": 10,
-        "connections": {
-          "1": {
-            "green": [
-              {
-                "entity_id": 58
-              },
-              {
-                "entity_id": 62
-              }
-            ],
-            "red": [
-              {
-                "entity_id": 58
-              },
-              {
-                "entity_id": 62
-              }
-            ]
-          }
-        },
-        "entity_number": 63,
-        "name": "iron-chest",
-        "position": {
-          "x": -119.5,
-          "y": 311.5
+          "x": -245.5,
+          "y": 104.5
         }
       },
       {
@@ -1680,11 +1692,75 @@
           }
         },
         "direction": 4,
-        "entity_number": 64,
+        "entity_number": 62,
         "name": "stack-inserter",
         "position": {
-          "x": -119.5,
-          "y": 310.5
+          "x": -244.5,
+          "y": 104.5
+        }
+      },
+      {
+        "bar": 0,
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "entity_id": 59
+              },
+              {
+                "entity_id": 64
+              },
+              {
+                "entity_id": 66
+              }
+            ],
+            "red": [
+              {
+                "entity_id": 59
+              },
+              {
+                "entity_id": 64
+              },
+              {
+                "entity_id": 66
+              }
+            ]
+          }
+        },
+        "entity_number": 63,
+        "name": "iron-chest",
+        "position": {
+          "x": -243.5,
+          "y": 105.5
+        }
+      },
+      {
+        "bar": 10,
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "entity_id": 63
+              },
+              {
+                "entity_id": 68
+              }
+            ],
+            "red": [
+              {
+                "entity_id": 63
+              },
+              {
+                "entity_id": 68
+              }
+            ]
+          }
+        },
+        "entity_number": 64,
+        "name": "iron-chest",
+        "position": {
+          "x": -242.5,
+          "y": 105.5
         }
       },
       {
@@ -1692,10 +1768,10 @@
           "1": {
             "green": [
               {
-                "entity_id": 64
+                "entity_id": 62
               },
               {
-                "entity_id": 68
+                "entity_id": 70
               }
             ]
           }
@@ -1714,43 +1790,47 @@
         "entity_number": 65,
         "name": "stack-inserter",
         "position": {
-          "x": -118.5,
-          "y": 310.5
+          "x": -242.5,
+          "y": 104.5
         }
       },
       {
-        "bar": 0,
         "connections": {
           "1": {
             "green": [
               {
-                "entity_id": 62
+                "entity_id": 50
               },
               {
-                "entity_id": 67
+                "entity_id": 63
               },
               {
-                "entity_id": 69
+                "entity_id": 76
               }
             ],
             "red": [
               {
-                "entity_id": 62
+                "entity_id": 50
               },
               {
-                "entity_id": 67
+                "entity_id": 63
               },
               {
-                "entity_id": 69
+                "entity_id": 76
               }
             ]
           }
         },
         "entity_number": 66,
-        "name": "iron-chest",
+        "name": "medium-electric-pole",
+        "neighbours": [
+          27,
+          50,
+          76
+        ],
         "position": {
-          "x": -117.5,
-          "y": 311.5
+          "x": -243.5,
+          "y": 104.5
         }
       },
       {
@@ -1759,7 +1839,7 @@
           "1": {
             "green": [
               {
-                "entity_id": 66
+                "entity_id": 68
               },
               {
                 "entity_id": 71
@@ -1767,7 +1847,7 @@
             ],
             "red": [
               {
-                "entity_id": 66
+                "entity_id": 68
               },
               {
                 "entity_id": 71
@@ -1778,8 +1858,37 @@
         "entity_number": 67,
         "name": "iron-chest",
         "position": {
-          "x": -116.5,
-          "y": 311.5
+          "x": -240.5,
+          "y": 105.5
+        }
+      },
+      {
+        "bar": 10,
+        "connections": {
+          "1": {
+            "green": [
+              {
+                "entity_id": 64
+              },
+              {
+                "entity_id": 67
+              }
+            ],
+            "red": [
+              {
+                "entity_id": 64
+              },
+              {
+                "entity_id": 67
+              }
+            ]
+          }
+        },
+        "entity_number": 68,
+        "name": "iron-chest",
+        "position": {
+          "x": -241.5,
+          "y": 105.5
         }
       },
       {
@@ -1787,7 +1896,7 @@
           "1": {
             "green": [
               {
-                "entity_id": 65
+                "entity_id": 70
               },
               {
                 "entity_id": 73
@@ -1806,11 +1915,11 @@
           }
         },
         "direction": 4,
-        "entity_number": 68,
+        "entity_number": 69,
         "name": "stack-inserter",
         "position": {
-          "x": -116.5,
-          "y": 310.5
+          "x": -240.5,
+          "y": 104.5
         }
       },
       {
@@ -1818,67 +1927,30 @@
           "1": {
             "green": [
               {
-                "entity_id": 53
+                "entity_id": 65
               },
               {
-                "entity_id": 66
-              },
-              {
-                "entity_id": 79
-              }
-            ],
-            "red": [
-              {
-                "entity_id": 53
-              },
-              {
-                "entity_id": 66
-              },
-              {
-                "entity_id": 79
+                "entity_id": 69
               }
             ]
           }
         },
-        "entity_number": 69,
-        "name": "medium-electric-pole",
-        "neighbours": [
-          27,
-          53,
-          79
-        ],
-        "position": {
-          "x": -117.5,
-          "y": 310.5
-        }
-      },
-      {
-        "bar": 10,
-        "connections": {
-          "1": {
-            "green": [
-              {
-                "entity_id": 71
-              },
-              {
-                "entity_id": 74
-              }
-            ],
-            "red": [
-              {
-                "entity_id": 71
-              },
-              {
-                "entity_id": 74
-              }
-            ]
+        "control_behavior": {
+          "circuit_condition": {
+            "comparator": "<",
+            "constant": 0,
+            "first_signal": {
+              "name": "signal-everything",
+              "type": "virtual"
+            }
           }
         },
+        "direction": 4,
         "entity_number": 70,
-        "name": "iron-chest",
+        "name": "stack-inserter",
         "position": {
-          "x": -114.5,
-          "y": 311.5
+          "x": -241.5,
+          "y": 104.5
         }
       },
       {
@@ -1890,7 +1962,7 @@
                 "entity_id": 67
               },
               {
-                "entity_id": 70
+                "entity_id": 74
               }
             ],
             "red": [
@@ -1898,7 +1970,7 @@
                 "entity_id": 67
               },
               {
-                "entity_id": 70
+                "entity_id": 74
               }
             ]
           }
@@ -1906,8 +1978,8 @@
         "entity_number": 71,
         "name": "iron-chest",
         "position": {
-          "x": -115.5,
-          "y": 311.5
+          "x": -239.5,
+          "y": 105.5
         }
       },
       {
@@ -1918,7 +1990,7 @@
                 "entity_id": 73
               },
               {
-                "entity_id": 76
+                "entity_id": 75
               }
             ]
           }
@@ -1937,8 +2009,8 @@
         "entity_number": 72,
         "name": "stack-inserter",
         "position": {
-          "x": -114.5,
-          "y": 310.5
+          "x": -238.5,
+          "y": 104.5
         }
       },
       {
@@ -1946,7 +2018,7 @@
           "1": {
             "green": [
               {
-                "entity_id": 68
+                "entity_id": 69
               },
               {
                 "entity_id": 72
@@ -1968,8 +2040,8 @@
         "entity_number": 73,
         "name": "stack-inserter",
         "position": {
-          "x": -115.5,
-          "y": 310.5
+          "x": -239.5,
+          "y": 104.5
         }
       },
       {
@@ -1978,7 +2050,7 @@
           "1": {
             "green": [
               {
-                "entity_id": 70
+                "entity_id": 71
               },
               {
                 "entity_id": 77
@@ -1986,7 +2058,7 @@
             ],
             "red": [
               {
-                "entity_id": 70
+                "entity_id": 71
               },
               {
                 "entity_id": 77
@@ -1997,8 +2069,8 @@
         "entity_number": 74,
         "name": "iron-chest",
         "position": {
-          "x": -113.5,
-          "y": 311.5
+          "x": -238.5,
+          "y": 105.5
         }
       },
       {
@@ -2006,10 +2078,7 @@
           "1": {
             "green": [
               {
-                "entity_id": 76
-              },
-              {
-                "entity_id": 78
+                "entity_id": 72
               }
             ]
           }
@@ -2028,8 +2097,8 @@
         "entity_number": 75,
         "name": "stack-inserter",
         "position": {
-          "x": -112.5,
-          "y": 310.5
+          "x": -237.5,
+          "y": 104.5
         }
       },
       {
@@ -2037,30 +2106,25 @@
           "1": {
             "green": [
               {
-                "entity_id": 72
-              },
+                "entity_id": 66
+              }
+            ],
+            "red": [
               {
-                "entity_id": 75
+                "entity_id": 66
               }
             ]
           }
         },
-        "control_behavior": {
-          "circuit_condition": {
-            "comparator": "<",
-            "constant": 0,
-            "first_signal": {
-              "name": "signal-everything",
-              "type": "virtual"
-            }
-          }
-        },
-        "direction": 4,
         "entity_number": 76,
-        "name": "stack-inserter",
+        "name": "medium-electric-pole",
+        "neighbours": [
+          38,
+          66
+        ],
         "position": {
-          "x": -113.5,
-          "y": 310.5
+          "x": -236.5,
+          "y": 104.5
         }
       },
       {
@@ -2070,17 +2134,11 @@
             "green": [
               {
                 "entity_id": 74
-              },
-              {
-                "entity_id": 80
               }
             ],
             "red": [
               {
                 "entity_id": 74
-              },
-              {
-                "entity_id": 80
               }
             ]
           }
@@ -2088,85 +2146,8 @@
         "entity_number": 77,
         "name": "iron-chest",
         "position": {
-          "x": -112.5,
-          "y": 311.5
-        }
-      },
-      {
-        "connections": {
-          "1": {
-            "green": [
-              {
-                "entity_id": 75
-              }
-            ]
-          }
-        },
-        "control_behavior": {
-          "circuit_condition": {
-            "comparator": "<",
-            "constant": 0,
-            "first_signal": {
-              "name": "signal-everything",
-              "type": "virtual"
-            }
-          }
-        },
-        "direction": 4,
-        "entity_number": 78,
-        "name": "stack-inserter",
-        "position": {
-          "x": -111.5,
-          "y": 310.5
-        }
-      },
-      {
-        "connections": {
-          "1": {
-            "green": [
-              {
-                "entity_id": 69
-              }
-            ],
-            "red": [
-              {
-                "entity_id": 69
-              }
-            ]
-          }
-        },
-        "entity_number": 79,
-        "name": "medium-electric-pole",
-        "neighbours": [
-          38,
-          69
-        ],
-        "position": {
-          "x": -110.5,
-          "y": 310.5
-        }
-      },
-      {
-        "bar": 10,
-        "connections": {
-          "1": {
-            "green": [
-              {
-                "entity_id": 77
-              }
-            ],
-            "red": [
-              {
-                "entity_id": 77
-              }
-            ]
-          }
-        },
-        "entity_number": 80,
-        "name": "iron-chest",
-        "position": {
-          "x": -111.5,
-          "y": 311.5
+          "x": -237.5,
+          "y": 105.5
         }
       }
     ],
@@ -2195,6 +2176,6 @@
     ],
     "item": "blueprint",
     "label": "2-Car Provider",
-    "version": 281479275610112
+    "version": 281479275937792
   }
 }
