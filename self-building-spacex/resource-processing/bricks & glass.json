@@ -169,6 +169,20 @@
         },
         "position": {"x": 204, "y": 158.5}
       },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 2,
+        "connections": {"1": {"red": [{"entity_rel": "-2,-0.5"}]}},
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "+",
+            "second_constant": 0,
+            "first_signal": {"name": "signal-S", "type": "virtual"},
+            "output_signal": {"name": "signal-S", "type": "virtual"}
+          }
+        },
+        "position": {"x": 158, "y": 222.5}
+      },
       {"name": "assembling-machine-3", "recipe": "sand-from-stone", "position": {"x": 39.5, "y": 9.5}},
       {"name": "assembling-machine-3", "recipe": "sand-from-stone", "position": {"x": 43.5, "y": 9.5}},
       {"name": "assembling-machine-3", "recipe": "sand-from-stone", "position": {"x": 47.5, "y": 9.5}},
@@ -710,7 +724,7 @@
         "connections": {
           "1": {
             "green": [{"entity_rel": "-22,0"}, {"entity_rel": "22,0"}],
-            "red": [{"entity_rel": "-22,0"}, {"entity_rel": "22,0"}]
+            "red": [{"entity_rel": "-22,0"}, {"circuit_id": 1, "entity_rel": "2,0.5"}, {"entity_rel": "22,0"}]
           }
         },
         "neighbours": ["-22,0", "18,-23", "22,0"],
@@ -754,8 +768,8 @@
         "name": "big-electric-pole",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "-26,0"}, {"entity_rel": "0,-26"}],
-            "red": [{"entity_rel": "-26,0"}, {"entity_rel": "0,-26"}]
+            "green": [{"entity_rel": "0,-26"}, {"entity_rel": "-26,0"}],
+            "red": [{"entity_rel": "0,-26"}, {"entity_rel": "-26,0"}]
           }
         },
         "neighbours": ["0,-26", "-26,0"],
@@ -851,7 +865,8 @@
             {"count": 80, "index": 15, "signal": {"name": "small-lamp", "type": "item"}},
             {"count": 1200, "index": 16, "signal": {"name": "rail", "type": "item"}},
             {"count": 29, "index": 17, "signal": {"name": "rail-signal", "type": "item"}},
-            {"count": 40, "index": 18, "signal": {"name": "rail-chain-signal", "type": "item"}}
+            {"count": 40, "index": 18, "signal": {"name": "rail-chain-signal", "type": "item"}},
+            {"count": 328, "index": 20, "signal": {"name": "iron-chest", "type": "item"}}
           ]
         },
         "position": {"x": 128.5, "y": 206.5}
@@ -867,7 +882,6 @@
             {"count": 851, "index": 3, "signal": {"name": "express-transport-belt", "type": "item"}},
             {"count": 832, "index": 4, "signal": {"name": "transport-belt", "type": "item"}},
             {"count": 480, "index": 5, "signal": {"name": "steel-furnace", "type": "item"}},
-            {"count": 328, "index": 6, "signal": {"name": "iron-chest", "type": "item"}},
             {"count": 146, "index": 7, "signal": {"name": "fast-underground-belt", "type": "item"}},
             {"count": 144, "index": 8, "signal": {"name": "stack-filter-inserter", "type": "item"}},
             {"count": 120, "index": 9, "signal": {"name": "stack-inserter", "type": "item"}},
@@ -7685,8 +7699,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,1"}, {"entity_rel": "1,0"}],
-            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "0,1"}, {"entity_rel": "1,0"}]
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": 143.5, "y": 153.5}
@@ -7765,8 +7779,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,-1"}, {"entity_rel": "1,0"}],
-            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "0,-1"}, {"entity_rel": "1,0"}]
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}, {"entity_rel": "0,-1"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}, {"entity_rel": "0,-1"}]
           }
         },
         "position": {"x": 143.5, "y": 158.5}
@@ -8799,8 +8813,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,1"}, {"entity_rel": "1,0"}],
-            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "0,1"}, {"entity_rel": "1,0"}]
+            "green": [{"entity_rel": "0,1"}, {"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "0,1"}, {"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
           }
         },
         "position": {"x": 188.5, "y": 153.5}
@@ -10472,8 +10486,8 @@
       },
       {
         "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "2,-1"}, {"entity_rel": "-5,-2"}]}},
-        "neighbours": ["-5,-2", "-5,-5", "3.5,0.5"],
+        "connections": {"1": {"green": [{"entity_rel": "-5,-2"}, {"entity_rel": "2,-1"}]}},
+        "neighbours": ["-5,-5", "-5,-2", "3.5,0.5"],
         "position": {"x": 200.5, "y": 139.5}
       },
       {
@@ -15469,14 +15483,6 @@
       {"index": 1, "signal": {"name": "stone-brick", "type": "item"}},
       {"index": 2, "signal": {"name": "glass", "type": "item"}}
     ],
-    "snap-to-grid": {"x": 110, "y": 110},
-    "tiles": [
-      {"name": "water", "position": {"x": -134, "y": -72}},
-      {"name": "water", "position": {"x": -134, "y": -71}},
-      {"name": "water", "position": {"x": -133, "y": -72}},
-      {"name": "water", "position": {"x": -133, "y": -71}},
-      {"name": "water", "position": {"x": -132, "y": -72}},
-      {"name": "water", "position": {"x": -132, "y": -71}}
-    ]
+    "snap-to-grid": {"x": 110, "y": 110}
   }
 }

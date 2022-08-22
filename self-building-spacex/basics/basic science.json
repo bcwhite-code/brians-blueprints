@@ -521,7 +521,7 @@
         "name": "arithmetic-combinator",
         "direction": 2,
         "connections": {
-          "1": {"red": [{"circuit_id": 2, "entity_rel": "-2,-1"}, {"circuit_id": 2, "entity_rel": "-2,0"}]},
+          "1": {"red": [{"circuit_id": 2, "entity_rel": "-2,0"}, {"circuit_id": 2, "entity_rel": "-2,-1"}]},
           "2": {"red": [{"circuit_id": 1, "entity_rel": "2,0"}]}
         },
         "control_behavior": {
@@ -669,6 +669,20 @@
           }
         },
         "position": {"x": 54, "y": 142.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 2,
+        "connections": {"1": {"red": [{"entity_rel": "-2,-0.5"}]}},
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "+",
+            "second_constant": 0,
+            "first_signal": {"name": "signal-S", "type": "virtual"},
+            "output_signal": {"name": "signal-S", "type": "virtual"}
+          }
+        },
+        "position": {"x": 158, "y": 222.5}
       },
       {
         "name": "assembling-machine-2",
@@ -1776,7 +1790,7 @@
         "connections": {
           "1": {
             "green": [{"entity_rel": "-22,0"}, {"entity_rel": "22,0"}],
-            "red": [{"entity_rel": "-22,0"}, {"entity_rel": "22,0"}]
+            "red": [{"entity_rel": "-22,0"}, {"circuit_id": 1, "entity_rel": "2,0.5"}, {"entity_rel": "22,0"}]
           }
         },
         "neighbours": ["-22,0", "22,0"],
@@ -1819,8 +1833,8 @@
         "name": "big-electric-pole",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "-26,0"}, {"entity_rel": "0,-26"}],
-            "red": [{"entity_rel": "-26,0"}, {"entity_rel": "0,-26"}]
+            "green": [{"entity_rel": "0,-26"}, {"entity_rel": "-26,0"}],
+            "red": [{"entity_rel": "0,-26"}, {"entity_rel": "-26,0"}]
           }
         },
         "neighbours": ["0,-26", "-26,0"],
@@ -7715,8 +7729,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}, {"entity_rel": "0,1"}],
-            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}, {"entity_rel": "0,1"}]
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,1"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "0,1"}, {"entity_rel": "1,0"}]
           }
         },
         "position": {"x": 47.5, "y": 99.5}
@@ -8960,8 +8974,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}, {"entity_rel": "0,1"}],
-            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}, {"entity_rel": "0,1"}]
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,1"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "0,1"}, {"entity_rel": "1,0"}]
           }
         },
         "position": {"x": 79.5, "y": 99.5}
@@ -9200,8 +9214,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}, {"entity_rel": "0,1"}],
-            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}, {"entity_rel": "0,1"}]
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,1"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "0,1"}, {"entity_rel": "1,0"}]
           }
         },
         "position": {"x": 79.5, "y": 113.5}
@@ -9612,8 +9626,8 @@
         "bar": 0,
         "connections": {
           "1": {
-            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,1"}, {"entity_rel": "1,0"}],
-            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "0,1"}, {"entity_rel": "1,0"}]
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": 129.5, "y": 9.5}
@@ -9700,8 +9714,8 @@
         "bar": 0,
         "connections": {
           "1": {
-            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,-1"}, {"entity_rel": "1,0"}],
-            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "0,-1"}, {"entity_rel": "1,0"}]
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}, {"entity_rel": "0,-1"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}, {"entity_rel": "0,-1"}]
           }
         },
         "position": {"x": 129.5, "y": 14.5}
@@ -12302,7 +12316,7 @@
       {
         "name": "logistic-train-stop",
         "direction": 6,
-        "station": "SirBlubbalot",
+        "station": "Basic Science/Telemetry",
         "color": {"a": 0.49803921580314636, "b": 1, "g": 0.501960813999176, "r": 0},
         "connections": {"1": {"green": [{"entity_rel": "1.5,-0.5"}]}},
         "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
