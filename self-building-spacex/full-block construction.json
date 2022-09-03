@@ -3,11 +3,11 @@
   "blueprint": {
     "item": "blueprint",
     "label": "Full-Block Construction",
-    "description": "This REQUIRES the Ghost Scanner mod:\nhttps://mods.factorio.com/mod/GhostScanner\nand it MUST be configured with \"Scan Result Liimit\" of zero (0).\n\nSince those scans are expensive and can cause jank, consider increasing the \"Update Frequency\" to 600 or even 3600.\n\nThe lamp beside the ON Switch indicates what it's doing:\ncyan = waiting for material\nyellow = building\nblue = recycling\ngreen = done\nred = turned off\n",
+    "description": "When the \"merge chests\" alert sounds, merge everything in the block and then remove mark that speaker for destruction.\n\nThe lamp beside the ON Switch indicates what it's doing:\ncyan = waiting for material\nyellow = building\nblue = recycling\ngreen = done\nred = turned off\n",
     "absolute-snapping": true,
     "shift_x": 33,
     "shift_y": 40,
-    "version": 281479275937792,
+    "version": 281479276134400,
     "entities": [
       {
         "name": "arithmetic-combinator",
@@ -296,7 +296,7 @@
         "control_behavior": {
           "arithmetic_conditions": {
             "operation": "+",
-            "second_constant": 99,
+            "second_constant": 98,
             "first_signal": {"name": "signal-each", "type": "virtual"},
             "output_signal": {"name": "signal-each", "type": "virtual"}
           }
@@ -735,7 +735,7 @@
         "direction": 2,
         "connections": {
           "1": {
-            "green": [{"circuit_id": 2, "entity_rel": "-2.5,-1.5"}, {"circuit_id": 2, "entity_rel": "0,0"}],
+            "green": [{"circuit_id": 2, "entity_rel": "0,0"}, {"circuit_id": 2, "entity_rel": "-2.5,-1.5"}],
             "red": [{"circuit_id": 2, "entity_rel": "-1.5,-1.5"}]
           },
           "2": {
@@ -780,7 +780,7 @@
         "name": "decider-combinator",
         "direction": 4,
         "connections": {
-          "1": {"green": [{"entity_rel": "0,-1.5"}, {"circuit_id": 1, "entity_rel": "1,0"}]},
+          "1": {"green": [{"circuit_id": 1, "entity_rel": "1,0"}, {"entity_rel": "2,3.5"}]},
           "2": {"green": [{"circuit_id": 1, "entity_rel": "-0.5,1.5"}]}
         },
         "control_behavior": {
@@ -1329,11 +1329,11 @@
       {
         "name": "ghost-scanner",
         "direction": 4,
-        "connections": {"1": {"green": [{"circuit_id": 1, "entity_rel": "0,1.5"}]}},
+        "connections": {"1": {"green": [{"circuit_id": 1, "entity_rel": "-2,-3.5"}]}},
         "control_behavior": {
-          "filters": [{"count": 34, "index": 1, "signal": {"name": "ghost-scanner-cell-count", "type": "virtual"}}]
+          "filters": [{"count": 2, "index": 1, "signal": {"name": "ghost-scanner-cell-count", "type": "virtual"}}]
         },
-        "position": {"x": 9.5, "y": -8.5}
+        "position": {"x": 11.5, "y": -3.5}
       },
       {
         "name": "iron-chest",
@@ -1387,7 +1387,7 @@
       },
       {
         "name": "logistic-chest-passive-provider",
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,1"}, {"entity_rel": "2,0"}]}},
         "position": {"x": 14.5, "y": -1.5}
       },
       {
@@ -1481,8 +1481,8 @@
         "connections": {
           "1": {
             "green": [
-              {"circuit_id": 1, "entity_rel": "-1,-0.5"},
               {"entity_rel": "0,-1"},
+              {"circuit_id": 1, "entity_rel": "-1,-0.5"},
               {"entity_rel": "0,1"},
               {"entity_rel": "10,0"}
             ]
@@ -1734,6 +1734,22 @@
         "parameters": {"allow_polyphony": true, "playback_globally": true, "playback_volume": 0},
         "position": {"x": -0.5, "y": -1.5}
       },
+      {
+        "name": "programmable-speaker",
+        "alert_parameters": {
+          "alert_message": "Merge Chests Here!",
+          "show_alert": true,
+          "show_on_map": true,
+          "icon_signal_id": {"name": "iron-chest", "type": "item"}
+        },
+        "connections": {"1": {"red": [{"entity_rel": "6,4"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-2", "type": "virtual"}},
+          "circuit_parameters": {"instrument_id": 0, "note_id": 4, "signal_value_is_pitch": false}
+        },
+        "parameters": {"allow_polyphony": true, "playback_globally": true, "playback_volume": 0.42749244712990936},
+        "position": {"x": 33.5, "y": -3.5}
+      },
       {"name": "radar", "position": {"x": 22.5, "y": -6.5}},
       {"name": "rail-signal", "direction": 1, "position": {"x": -27.5, "y": 9.5}},
       {"name": "rail-signal", "direction": 3, "position": {"x": 70.5, "y": 8.5}},
@@ -1792,7 +1808,7 @@
         "connections": {
           "1": {
             "green": [{"entity_rel": "-1,-1"}, {"circuit_id": 1, "entity_rel": "-1,1.5"}],
-            "red": [{"circuit_id": 1, "entity_rel": "-1,1.5"}]
+            "red": [{"entity_rel": "-6,-4"}, {"circuit_id": 1, "entity_rel": "-1,1.5"}]
           }
         },
         "control_behavior": {

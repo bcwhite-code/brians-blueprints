@@ -2,9 +2,12 @@
 
 These blueprints are for Space Exploration games using the "self building factory" (SBF) system from my [self-building-factory](https://factorioprints.com/view/-MNZWdWosuqr3vtaC2hD).
 
-These cover a lot of the planetside work but the "space" aspect will generally be omitted because:
- - I don't want to spoil it.
- - I don't use automated construction trains in space.
+These cover a lot of the planetside work but the "space" aspect will
+generally be omitted because:
+
+* I don't want to spoil it.
+* I don't use automated construction trains in space.
+* The SE author specifically asks not to provide blueprints for too much.
 
 Join the discussion [on Discord](https://discord.gg/eSt3Qd8D2e).
 
@@ -20,10 +23,15 @@ You'll want the following mods:
 * [Nanobots](https://mods.factorio.com/mod/Nanobots) (recommended)
 * [Noxy's Waterfill](https://mods.factorio.com/mod/Noxys_Waterfill) (recommended)
 * [Moar Radar](https://mods.factorio.com/mod/Moar-Radar) (suggested)
+* [Early Logistics System](https://mods.factorio.com/mod/wret-early-logi-system)  (suggested)
 
-Install these using the in-game installer so that all the dependencies are also installed.
+Install these using the in-game installer so that all the dependencies
+are also installed.
 
-Yes, both "loader redux" and "miniloader" are required.  The former is the default loader for the train stations (being that it's by the same author an LTN) but there are a few cases where filters need to be set programatically and that is only possible with a "miniloader".
+Yes, both "loader redux" and "miniloader" are required.  The former is
+the default loader for the train stations (being that it's by the same
+author an LTN) but there are a few cases where filters need to be set
+programatically and that is only possible with a "miniloader".
 
 You'll need the following blueprint books:
 
@@ -66,8 +74,9 @@ In the Mod Settings for the _Player_:
 
 See the [main SBF document for "The Build"](https://docs.google.com/document/d/1b7OT1-h5GWfey4rIVNbMCXX-dMkoWLmcURutqrliLYE/edit#heading=h.qqx59ll9md1) but note the following differences:
 
-* Every rail station is an "[aux](https://factorioprints.com/view/-M5PZvxZVXEZnmg4V7Hy)" station with merged chests.  Merging **must** be done **after** all chests and medium power poles are placed.  For full blocks, this is possible once phase#1 is complete (i.e. when construction is in phase#2 or later).  For quarter-blocks, wait until a delivery for LTN stations happens.  From map view, run the merge tool over the _entire block_ and not just obvious rail stations.  If merging is forgotten, stations will not function but won't "fail" either.  It's safe to merge chests even after deliveries begin.
-* Quarter-block blueprints don't use the standard "Construction Site".  They use the "General Construction" version from the "Construction" sub-book of the SBF.  Just place that on the side to line up with the roboports there and turn it on as usual.  Removing it after construction is likely to remove the rail signal there, too, but there's an unconnected one just off from the track to show where it was.  Add it back and remove the unconnected one.
+* Every rail station is an "[aux](https://factorioprints.com/view/-M5PZvxZVXEZnmg4V7Hy)" station with merged chests.  Merging **must** be done **after** all chests and medium power poles are placed.  Both construction stations have a speaker alert for when it is time to do this.  When it rings, apply the "merge" tool over the (quarter) block and then use the destruction planner to remove the speaker providing the alert.  Both actions can be done from the "map" view so no need to travel to the actual site.
+* Quarter-block blueprints have their own version of the Construction Site.  Note that removing the Site after construction is likely to remove a rail signal at the end but there's an unconnected one just off from the track to show where it was.  Add it back and remove the unconnected one.  This probably sounds confusing but it's quite obvious when you see it.
+
 
 ## Build Order
 
@@ -81,10 +90,13 @@ inputs.  These will eventually run dry but by then it can be served by
 trains.
 
 Basic mines aren't included and the "Mine" block isn't suitable until
-later.  Build them by hand using track from the SBF book and stations
-from BT/aux book, adding more mines as necessary.  Be sure to connect
-red & green wires from the big power pole to the rail power poles if
-you want to have an accurate status report of available resources.
+later.  Build them by hand using track from the SBF's "rail templates"
+sub-book and stations from BT/aux book, adding more mines as necessary
+throughout play.  Be sure to connect red & green wires from the big
+power pole to the rail power poles if you want to have an accurate
+status report of available resources.
+
+Start by building...
 
 * [Mall](#mall)
 
@@ -96,83 +108,307 @@ provider stations be completed (including merged chests) except for
 the rail and the LTN stop long before they're needed.  Later, the
 rail, signals, etc. can be placed quickly.
 
-* Home: Build beside Mall.
-* Iron Smelter.
+* [Home](#home): Build beside Mall.
+* Iron Smelter: Temporarily turn off combinator near Mall station that disables supply of belts.
 * Belts: This is a "quarter block" blueprint.  _Read blueprint comment!_
 * Copper Smelter.
+
+Many of the blocks include modules.  They'll run fine without them for
+now but the Construction Site will not report "finished" until all the
+modules are supplied, which will be a long time coming (on the order
+of "days").  That's okay.  Just be sure that the full-block
+construction areas don't overlap as that can lead to LTN station being
+placed too soon and wreak all kinds of havoc.  Quarter-block areas
+shouldn't have any such overlap so are safe to be adjacent.
+
 * Starter Circuits: _Read blueprint comment!_
 * Basic Science: Place beside mall with factory side close.  Connect logistic networks.  Manually build out the station side.  Prioritize coal, stone, iron, & copper.
 * Refinery: Will require a second placement once waterfill is down to place pumps.  No blue-belts yet so use planner to downgrade all blue to red and **turn on** the extra config combinator to add red belts to phase#2 of the construction.  Later, when blue belts do become available, reverse this. Re-place when Coal Liquefaction eventually becomes available.
 * Steel (electric)
+* Depot Hub: There are no requester chests so manually put fuel into the feeder chests so trains can be refueled.  (Or use the "Early Logistics System" mod to create perfectly usable requester chests for this application.)
 
 Since the refinery will soon export sulfuric acid, now would be a good time to build a uranium mine.
-
-* Low-Density Structures: _Read blueprint comment!_  (It's like "Belts".)
-* Nav Sats. Provides data about the solar system and allows space travel.
-* Rocket Sections: _Read blueprint comment!_
-* Speed-1/2/3: This will have to be placed multiple times as research progresses.
-
-
-
-
-
-* Bricks & Glass.
-
-
-* Depot Hub
-
-If you haven't created a uranium mine, now would be a good time as power is
-probably soon to become an issue.  The acid requester may need a higher
-priority to be sure it gets fulfilled ahead of less important ones.
 
 The self-building "Mine" block can be used from here as well but it's only
 useful in a block with multiple large resources patches.
 
-Start research of kovarex and nuclear power.  Re-place the Mall as research
-happens so the parts start being built.
+* Low-Density Structures: _Read blueprint comment!_  (It's like "Belts".)
+* Nav Sats. Provides data about the solar system and allows space travel.
+* Solar (128MW): (optional) The Mall should have sufficient batteries and glass to slowly fill this block.  Most useful is the accumulators as they provide a general buffer that helps the steam block adjust its output as needed.
+* Rocket Sections: _Read blueprint comment!_
+* Speed-1/2/3: This will have to be placed multiple times as research progresses.
 
-Also be sure the Starter Circuits block is fully filled out except for modules.
+At this point, Nav Sats should have produced enough telementry and
+shipped it to Basic Science to finish researching nuclear power, cargo
+rockets, and then every other non-space technology.  Re-place both the
+Nav Sats and the Rocket Sections blueprints to ensure they have the
+full assembler configuration.  Then do any downgrades to asm2 that are
+necessary.
 
-Going forward, many of the blueprints will be "quarter blocks" that attach only
-at one of the four corners.  They build in a similar way except use the "General
-Construction" blueprint on one side and don't have phases because they don't
-have a configuration of materials.  _Do not merge chests until LTN Stations are
-delivered._ Note that removing the construction station will generally also
-remove a train signal that sits in that area.  There is an unattached
-(blinking) one just off to the side that shows where it was; remove the
-unattached one and place it on the side of the rail at the same level.  (Though
-it sounds confusing, it'll be quite obvious when the time comes.)
+* Nuclear (480MW): There is no Kovarex in this block but it'll provide some power and nuclear fuel for later off-planet exploration.
 
-* Kovarex/Nuclear (2.4GW)
+The Mall has a personal cargo rocket silo that will begin to be built
+and fueled but the assemblers that create the silo and landing pad
+will need to be hand-fed some missing items until the logistics
+network is researched.
 
-There's a bit of a catch-22 here.  Module production needs red circuits and
-processors.  Red circuits and processors need plastic.  Plastic production is
-slow without modules.  There should be enough reserve to belt out a few hundred
-prod-3 modules for the Refinery to help move things along.  Move a bunch by
-hand if necessary.
+At this point, connect the belts that bring the science packs to the
+export station.  4k of each will eventually need to be brought
+manually to the cargo rocket under construction.
 
-* Production Modules
+Load the rocket by dropping a pod into it (there will be a couple in
+the Nav-Sats block) and turning on the combinators for "ORBT".  When
+everything has been fetched to the warehouse, turn on the "LOAD"
+combinator to move it to the rocket.  It's possible to switch back and
+forth between the "fetch" and "load" modes.  Just be sure, upon
+returning, to **turn off** the combinators listing the desired
+contents before swithing out of "load" mode.
 
-With both module types now available, the Starter Circuits can be completed
-which will give more processors.
+Once in orbit, there are a couple logistics chests that can be brought
+back and placed in the Mall to falicitly automatic construction of
+things instead of hand-feeding them.  Use wisely!
 
-* Low-Density Structures
+Use space science to research "Speed module 3", "Automation 3",
+"Logistics 3", "Nuclear Fuel Reprocessing", "Condenser Turbine", 
+"Production module 3", ...
 
-At this point, there's enough infrastructure to launch navigation satellites
-which is very useful because it allows adjusting things at a distance.
-However, two other things are more pressing: a shortage of circuits and,
-possibly, a shortage of power due to an incoming CME.
+Upon return to Nauvis, keep the Mall up-to-date with research and make
+sure delivery capsules are getting the needed inputs.  Some others
+will need hand-feeding (or "Early Logistics" mod requesters), too.
 
+* Bricks & Glass.
+* Heat Shields.
+* Sulfur.
+* Delivery Capsules.
+* Concrete: Preparing for War.  Or if you want to pave over the world.
+* War: Colonization of other planets will come soon, some of which have biters even if Nauvis does not.
+* Prod-1/2/3.
+
+Yellow assembers, blue belts, and speed-3 module production should be
+in full swing (prod-3 requires vulcanite, and a lot of it, which comes
+later) by this point so it's time to revert all downgrades made to
+earlier blocks.
+
+Start the cargo rocket requesting the items for "CORE" to go do mining
+on another planet.  The Mall's production of delivery capsules isn't
+enough even if delivery canon capsules have been running continuously
+since returning from orbit but the dedicated block will speed things
+up.  While that is happening...
+
+* Basic Cores (Nauvis).
+* Cryonite Cores.
+* Barrelling: There's no Construction Site for this one; it has to be built by hand, ideally near the refinery fluid outputs to minimize train travel.
+* Pyroflux Overflow.
+
+When the delivery capsules are done and everything has been loaded
+into the rocket but nuclear fuel cells, grab the necessary amount from
+the reactor block.  Switch the rocket to "load" mode and find a good
+cryonite planet/moon, ideally without any biters ("threat").  Set that
+as the destination.  When the required liquid fuel has been loaded,
+get in and launch.
+
+Build a "Core Miner (Nuclear)" on top of a convenient fissure, sending
+to the receiver in the Cryonite Cores block.  (See blueprint comment
+for details on its setup.)  Then use the landing pod to return to
+Nauvis via an "emergency burn"; it'll land some random place so be
+prepared.
+
+(If the cargo rocket still isn't ready, there are more blocks below
+that can be built while waiting.)
+
+* Cryonite Processing.
+* Efficency-1/2/3.
+* Data Substrates.
+* Rocket Fuel.
+
+With this, all the ingredients for making "utility" science packs are
+available.  However, they have to be made in space and so it involves
+another rocket configuration and some fetching of items by hand to be
+able to produce a few thousand of them.
+
+I don't provide blueprints for this, though!  Have fun with it but
+don't go overboard: A bigger science installation will come later;
+this just needs a minimal build to get through the basics. Some
+factory components necessary for this can only be manufactured in
+space so remember to take the basic building blocks as well.
+
+The 4k of "space" science is likely gone so take more building blocks
+for that along with an equal amount of the basic science packs.
+
+Research "logistics system" first so that the factory can finally use
+logistic bots to move material.
+
+Once that is running and you're back on Nauvis, start loading another
+"core" rocket, this time for vulcanite.
+
+* Vulcanite Cores.
+* Vulcanite Processing.
+
+Now find a Vulcanite planet and create a core miner there, too.
+
+The crafting of Prod-3 modules is still some time off and even longer
+before enough are producted to actually finish the myriad of
+construction sites waiting for them.  Patience.  Multiple core miner
+installations will help speed this up.
+
+* Bots.
+* [Bulk Receiver](#bulk-receiver).
+* Scrap Recycling.
+
+Back to space to create "production" science packs and start research
+with them, too, beginning with "kovarex enrichment" (1500 science!), "effect
+transmission" (75), and "coal liquefaction" (200).
+
+Back to Nauvis...  Ensure that all the "module" blocks have the full
+set of recipes.  Then:
+
+* Kovarex/Nuclear (2.4GW).
+
+The amount of cores sent by delivery canon can be enough to keep
+science research going but not enough to catch up on all the builds
+waiting for production modules.  It's time to make use of that bulk
+receiver...
+
+Add a second Vulcanite core miner but this time use the "rocket"
+delivery mechanism going to one of the bulk receiver pads.  It'll
+require the configuration of the delivery canons in the Mall to send
+the necessary fuel.  When the delivery-canon version fails, replace
+that with another rocket version.
+
+The same can be done for Cryonite if necessary but it doesn't have
+much demand outside of science and making ice in the Mall.
+
+That's the basics, though more capacity will be needed for some
+things...
+
+* Smelter (Electric).
+* Advanced Circuits.
+* Processors.
+* Basic Circuits.
+* Capsules.
 * Nuclear (10GW): Build when necessary.  This will provide enough power for the rest of the game including defense against all incoming CME.  Note that it can take a long time for the Mall to create all the parts so start it a few hours early.
-* Bricks & Glass
-* Advanced Circuits
-* Processors
-* Basic Circuits
+
+Now it's time to really colonize other planets in order to gather
+large amounts of resources in a self-sustaining way.  Start with
+Cryonite since rockets are bringing enough Vulcanite for the moment.
+
+Create a cargo-rocket config for the "Colony Home" block (there's one
+in the book) and start it loading.  Some things may need to be
+hand-crafted or fetched from other blocks.
+
+* [Off-World Supply](#off-world-supply): 
+* Recycling Pad: The pad's name doesn't get saved in the blueprint.  Change it to "Recycling" once placed.
+
+No need to wait for these to finish before proceeding as they can be
+configured via sat-nav view even if on another planet.
+
+Once the rocket is ready, choose a Cryonite world, ideally with water
+and no threat.  Go there and build the [Colony Home](#colony-home)
+block in a convienent place.
+
+Using the sat-nav view, configure the [Off-World
+Supply](#off-world-supply) for this new colony.  It'll start bringing
+in material by rocket, including the things necessary to expand the
+rail grid and build a Cryonite mine.
+
+Cryonite has stacks of only 20 but processed Cryonite rods has stacks
+of 200.  Since rocket parts and rocket fuel has to be imported, it's
+best to minimize those and that means building a local processing
+factory.
+
+While the central reactor will support mining, it can supply only
+360MW which means an additional power plant will be necessary.
+
+
+
+* Water Ice.
+
+
+It's time to go to space and build a "space mall" for all the things
+that can't be built on land.  Nauvis Orbit ("norbit") could host this
+but it's better to move to Calidus Orbit because of the greatly
+increased solar power available.
+
+No "space mall" blueprint is included in the book but there are
+blueprints to help move ingredients from Nauvis and return finished
+products to Nauvis for inclusion in the general build system.  Look
+under the following "Blocks" section for them.
 
 
 ## Blocks
 
 More detail on how to create/manage some blocks is below.
+
+### Bulk Receiver
+
+A block for receiving large amounts of cargo by rocket from other
+planets.
+
+By default, none of the pads are configured.  To set up a receiver:
+
+* Change the name of the pad.
+* Set the expected item in the constant combinator with a large value (like 1000).
+* Change the name of the LTN station.  (optional)
+
+Then tell the rocket to go to the named pad (or any pad with that
+name) when its cargo is full.
+
+### Colony Home
+
+A base of operations and material transport for colony words.
+
+Start by using the configuration combinators to load a rocket with
+everything that is needed then launch to the desired world.  Make sure
+any personal roboport is turned _off_ so bots don't start cleaning up
+the mess upon arrival.
+
+Find a good location (water beside the water provider station is very
+helpful) and lay the blueprint.  Collect solar panels, accumulators,
+power poles, roboports, and construction bots from the cargo pods then
+stand in the middle of the solar array and build it.  Once there is
+power and the beginning of a roboport network, you can transfer the
+bots to that and start moving material to a storage chest so the rest
+can be built automatically.
+
+Once there is water in the reactor, it can be started by manually
+dropping a single fuel cell into each one.
+
+If pumping water from a local source, also pump it to the reactor but
+use a local pump with the same condition as the ice-water one so it
+doesn't overfill.  Then reduce the threshold slightly for the
+ice-water in order to lower its priority.
+
+There are some add-on blueprints that merged later.  The necessary
+build items will be included in the next rocket delivery.
+
+1. Personal Train: Local version of the Nauvis Home train.
+2. More Meteor Defense: In case you're truely paranoid about a meteor getting through on a world where they spawn biters.
+
+
+### Home
+
+This basic block contains a starter depot hub, a place to build/park
+trains, some useful logic to see the state of the factory,
+communication to off-world sites, a warning system about low power,
+and an umbrella.
+
+The "fuel" station configuration combinator needs to have the desired
+fuel request amount made negative to work.  It's done this way so that
+re-placing the blueprint at a later time won't revert the request to
+something obsolete (like coal) and pollute the belts.
+
+The accumulator and speaker in one corner track power generation and
+warn if it is insufficient.  However, it needs more than the single
+accumulator to be accurate.  Typically, more get added in various
+power blocks.  Just remove these two items for now if they're a
+nuisance.
+
+Near the signal transmitter is a combinator with some constants that
+will need to be updated as the game progresses:
+
+* **C**: The number of (packed) cargo rocket sections necessary for a return trip.  This starts at 20 and can be reduced with "reusability" research.  Note that the exact number of returned rocket sections is random so give at least 10% extra.
+* **R**: Reliability (aka "safety") of the items loaded into a rocket.  This is actually a divisor for the amount of extra items required so a value of 100 will result in 1% extra.  The default is 10 for 10% extra.
+
 
 ### Mall
 
@@ -211,6 +447,11 @@ science, and most importantly, will reveal a "weapons cache" somewhere
 on the map.  You need to get the items from that to complete the
 Construction Supply station!
 
+There are a number of requester chests used.  Until that becomes
+available (in v0.5, it was available much earlier), items will have to
+moved by hand or the chests replaced with "Smol" versions from the
+"Early Logistics System" mod.
+
 The single rocket launch eventually produces 800 orange science.  Use
 this to research "Advanced Electronics 2" to be able to produce
 processors then work towards the Cargo Rocket Silo.
@@ -219,3 +460,40 @@ Note: The Mall doesn't produce _everything_.  Some things will have to
 be hand-crafted and dumped into the logistics network via "trash
 slots" and others will have to be produced in space.
 
+The Mall is not "fire and forget".  It'll need manual updates as the
+game progresses:
+
+* Re-place the blueprint with shift-click as new technologies are researched.
+* Upgrade assemblers and inserters for things that are in short supply.
+* When lubricant is brought by train, reverse the pump where it is produced locally so the resources can be used for other things.
+* Hand-feed life-support assemblers (including hand-crafting the lifesupport facilities) to create the necessary canisters.
+
+#### "Personal" Cargo Rocket
+
+The included cargo rocket allows for travel to orbit and other planets
+and is largely automated for the loading.  Apply a signal via green
+wire to the substation, put a capsule in the silo (a couple can be
+found in the nav-sats block), and it'll request everything by bots.
+When it's full (the blue chest shows no outstanding requests), turn on
+the "load" combinator to move it all to the rocket.  When that
+finishes, get in and go.
+
+There are a few combinators included that can be turned on for first
+trips to orbit and to neighboring planets for the purpose of setting
+up core mining.  The rest is left as an exercise to the player.
+
+Obviously, some things aren't produced by the Mall.  You'll have to
+find some way to bring them from where they are produced and drop them
+in the big warehouse (extras will be removed and taken away by bots).
+
+Upon returning, turn off the config combinators and the "load"
+combinator before putting another capsule in the silo.
+
+There are a few things on one side for loading capsules, barrels of
+rocket fuel, and packed cargo sections for taking the supplies
+necessary to create "return" rockets but in the beginning, it's
+easiest and cheapest to use the "emergency burn" feature of the
+capsule.
+
+
+### Off-World Supply

@@ -3,26 +3,12 @@
   "blueprint": {
     "item": "blueprint",
     "label": "Qrtr-Block Construction",
-    "description": "This works like the normal Construction Site except that it doesn't have to be programmed.  It relies exclusively on the Ghost Scanner to know what to build with logic to prevent building train stops until things like inserters, chests, tanks, and pumps have all been placed.",
+    "description": "This works like the normal Construction Site except that it doesn't have to be programmed.  It relies exclusively on the Ghost Scanner to know what to build with logic to prevent building train stops until things like inserters, chests, tanks, and pumps have all been placed.\n\nWhen the \"merge chests\" alert sounds, merge everything in the block and then remove mark that speaker for destruction.",
     "absolute-snapping": true,
     "shift_x": 53,
     "shift_y": 38,
-    "version": 281479275937792,
+    "version": 281479276134400,
     "entities": [
-      {
-        "name": "arithmetic-combinator",
-        "direction": 4,
-        "connections": {"1": {"red": [{"entity_rel": "0.5,-2"}]}},
-        "control_behavior": {
-          "arithmetic_conditions": {
-            "operation": "+",
-            "second_constant": 0,
-            "first_signal": {"name": "signal-S", "type": "virtual"},
-            "output_signal": {"name": "signal-S", "type": "virtual"}
-          }
-        },
-        "position": {"x": 1.5, "y": -47}
-      },
       {
         "name": "arithmetic-combinator",
         "direction": 6,
@@ -64,7 +50,7 @@
         "name": "arithmetic-combinator",
         "direction": 6,
         "connections": {
-          "1": {"red": [{"circuit_id": 2, "entity_rel": "2,1"}, {"circuit_id": 2, "entity_rel": "2,0"}]},
+          "1": {"red": [{"circuit_id": 2, "entity_rel": "2,0"}, {"circuit_id": 2, "entity_rel": "2,1"}]},
           "2": {"red": [{"circuit_id": 1, "entity_rel": "-2,0"}]}
         },
         "control_behavior": {
@@ -308,7 +294,7 @@
         "connections": {
           "1": {
             "green": [{"entity_rel": "0,-22"}, {"entity_rel": "0,22"}],
-            "red": [{"entity_rel": "0,-22"}, {"circuit_id": 1, "entity_rel": "-0.5,2"}, {"entity_rel": "0,22"}]
+            "red": [{"entity_rel": "0,-22"}, {"entity_rel": "0,22"}]
           }
         },
         "neighbours": ["0,-22", "0,22"],
@@ -366,11 +352,11 @@
         "name": "big-electric-pole",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "-26,0"}, {"entity_rel": "0,-14"}, {"entity_rel": "18,0"}],
-            "red": [{"entity_rel": "-26,0"}, {"entity_rel": "0,-14"}, {"entity_rel": "18,0"}]
+            "green": [{"entity_rel": "0,-14"}, {"entity_rel": "-26,0"}, {"entity_rel": "18,0"}],
+            "red": [{"entity_rel": "0,-14"}, {"entity_rel": "-26,0"}, {"entity_rel": "18,0"}]
           }
         },
-        "neighbours": ["-26,0", "0,-14", "18,0"],
+        "neighbours": ["0,-14", "-26,0", "18,0"],
         "position": {"x": 28, "y": 17}
       },
       {
@@ -1145,7 +1131,7 @@
               {"circuit_id": 1, "entity_rel": "1.5,0"},
               {"circuit_id": 1, "entity_rel": "1.5,1"}
             ],
-            "red": [{"circuit_id": 2, "entity_rel": "-3.5,1"}, {"entity_rel": "-1,1"}]
+            "red": [{"circuit_id": 2, "entity_rel": "-3.5,1"}, {"entity_rel": "-1,1"}, {"entity_rel": "4,-2"}]
           }
         },
         "control_behavior": {
@@ -1205,7 +1191,7 @@
       },
       {
         "name": "logistic-chest-passive-provider",
-        "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,1"}, {"entity_rel": "2,0"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "position": {"x": 42.5, "y": 0.5}
       },
       {
@@ -1260,7 +1246,7 @@
       },
       {
         "name": "logistic-chest-passive-provider",
-        "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,1"}, {"entity_rel": "2,0"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "position": {"x": 56.5, "y": 0.5}
       },
       {
@@ -1298,8 +1284,8 @@
         "connections": {
           "1": {
             "green": [
-              {"entity_rel": "0,-1"},
               {"circuit_id": 1, "entity_rel": "-1,-0.5"},
+              {"entity_rel": "0,-1"},
               {"entity_rel": "0,1"},
               {"entity_rel": "10,0"}
             ]
@@ -1502,6 +1488,22 @@
         "connections": {"1": {"red": [{"circuit_id": 1, "entity_rel": "-0.5,-7"}, {"entity_rel": "-7,0"}]}},
         "neighbours": ["0,-6", "-7,0"],
         "position": {"x": 64.5, "y": 5.5}
+      },
+      {
+        "name": "programmable-speaker",
+        "alert_parameters": {
+          "alert_message": "Merge Chests Here!",
+          "show_alert": true,
+          "show_on_map": true,
+          "icon_signal_id": {"name": "iron-chest", "type": "item"}
+        },
+        "connections": {"1": {"red": [{"entity_rel": "-4,2"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "logistic-train-stop", "type": "item"}},
+          "circuit_parameters": {"instrument_id": 0, "note_id": 4, "signal_value_is_pitch": false}
+        },
+        "parameters": {"allow_polyphony": true, "playback_globally": true, "playback_volume": 0.42749244712990936},
+        "position": {"x": 35.5, "y": -3.5}
       },
       {
         "name": "programmable-speaker",

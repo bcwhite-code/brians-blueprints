@@ -1,0 +1,305 @@
+{
+  "index": 0,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "Nuclear (30MW)",
+    "description": "Uses \"condenser\" turbines to reduce water use by 99% but generates only 30MW instead of 40MW.\n\nWater consumption is 140/GJ.\n\nAccumulators help handle surges.",
+    "shift_x": 223,
+    "shift_y": 96,
+    "version": 281479276134400,
+    "entities": [
+      {"name": "accumulator", "position": {"x": -1, "y": 2}},
+      {"name": "accumulator", "position": {"x": -1, "y": 4}},
+      {"name": "accumulator", "position": {"x": -1, "y": 21}},
+      {"name": "accumulator", "position": {"x": -1, "y": 23}},
+      {"name": "accumulator", "position": {"x": 0, "y": 10}},
+      {"name": "accumulator", "position": {"x": 0, "y": 12}},
+      {"name": "accumulator", "position": {"x": 4, "y": 12}},
+      {"name": "accumulator", "position": {"x": 4, "y": 14}},
+      {"name": "accumulator", "position": {"x": 11, "y": 12}},
+      {"name": "accumulator", "position": {"x": 11, "y": 14}},
+      {"name": "accumulator", "position": {"x": 15, "y": 13}},
+      {"name": "accumulator", "position": {"x": 15, "y": 15}},
+      {"name": "accumulator", "position": {"x": 16, "y": 2}},
+      {"name": "accumulator", "position": {"x": 16, "y": 4}},
+      {"name": "accumulator", "position": {"x": 16, "y": 21}},
+      {"name": "accumulator", "position": {"x": 16, "y": 23}},
+      {"name": "heat-exchanger", "position": {"x": 5.5, "y": 9}},
+      {"name": "heat-exchanger", "position": {"x": 9.5, "y": 9}},
+      {"name": "heat-exchanger", "direction": 4, "position": {"x": 5.5, "y": 16}},
+      {"name": "heat-exchanger", "direction": 4, "position": {"x": 9.5, "y": 16}},
+      {
+        "name": "inserter",
+        "direction": 6,
+        "override_stack_size": 1,
+        "connections": {"1": {"red": [{"entity_rel": "6,0"}]}},
+        "control_behavior": {
+          "circuit_condition": {
+            "comparator": ">",
+            "constant": 0,
+            "first_signal": {"name": "used-up-uranium-fuel-cell", "type": "item"}
+          }
+        },
+        "position": {"x": 4.5, "y": 10.5}
+      },
+      {
+        "name": "inserter",
+        "direction": 6,
+        "connections": {"1": {"red": [{"entity_rel": "-6,0"}, {"entity_rel": "4,0"}]}},
+        "control_behavior": {
+          "circuit_read_hand_contents": true,
+          "circuit_condition": {
+            "comparator": "<",
+            "first_signal": {"name": "steam", "type": "fluid"},
+            "second_signal": {"name": "water", "type": "fluid"}
+          }
+        },
+        "position": {"x": 10.5, "y": 10.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {"1": {"red": [{"entity_rel": "-1,-1"}]}},
+        "position": {"x": 3.5, "y": 10.5}
+      },
+      {"name": "iron-chest", "position": {"x": 11.5, "y": 10.5}},
+      {"name": "medium-electric-pole", "neighbours": ["4,8"], "position": {"x": -0.5, "y": 0.5}},
+      {"name": "medium-electric-pole", "neighbours": ["4,-8"], "position": {"x": -0.5, "y": 24.5}},
+      {"name": "medium-electric-pole", "neighbours": ["-4,8"], "position": {"x": 15.5, "y": 0.5}},
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-3,-1"}, {"entity_rel": "8,0"}, {"entity_rel": "-6,3.5"}, {"entity_rel": "0,8"}]
+          }
+        },
+        "neighbours": ["-4,-8", "8,0", "0,8"],
+        "position": {"x": 3.5, "y": 8.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-8,0"}, {"entity_rel": "3,-1"}, {"entity_rel": "3,2"}, {"entity_rel": "0,8"}]
+          }
+        },
+        "neighbours": ["-8,0", "4,-8", "0,8"],
+        "position": {"x": 11.5, "y": 8.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-8"}, {"entity_rel": "-3,1"}, {"entity_rel": "-3,-2"}, {"entity_rel": "8,0"}]
+          }
+        },
+        "neighbours": ["0,-8", "8,0", "-4,8"],
+        "position": {"x": 3.5, "y": 16.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {"1": {"green": [{"entity_rel": "-8,0"}, {"entity_rel": "0,-8"}, {"entity_rel": "3,1"}]}},
+        "neighbours": ["0,-8", "-8,0", "4,8"],
+        "position": {"x": 11.5, "y": 16.5}
+      },
+      {"name": "medium-electric-pole", "neighbours": ["-4,-8"], "position": {"x": 15.5, "y": 24.5}},
+      {"name": "nuclear-reactor", "position": {"x": 7.5, "y": 12.5}},
+      {"name": "pipe", "position": {"x": -1.5, "y": 5.5}},
+      {"name": "pipe", "position": {"x": -0.5, "y": 5.5}},
+      {"name": "pipe", "position": {"x": -2.5, "y": 13.5}},
+      {"name": "pipe", "position": {"x": -1.5, "y": 13.5}},
+      {"name": "pipe", "position": {"x": -1.5, "y": 19.5}},
+      {"name": "pipe", "position": {"x": -0.5, "y": 19.5}},
+      {"name": "pipe", "position": {"x": 0.5, "y": 0.5}},
+      {"name": "pipe", "position": {"x": 1.5, "y": 0.5}},
+      {"name": "pipe", "position": {"x": 0.5, "y": 1.5}},
+      {"name": "pipe", "position": {"x": 2.5, "y": 0.5}},
+      {"name": "pipe", "position": {"x": 3.5, "y": 0.5}},
+      {"name": "pipe", "position": {"x": 0.5, "y": 2.5}},
+      {"name": "pipe", "position": {"x": 0.5, "y": 3.5}},
+      {"name": "pipe", "position": {"x": 4.5, "y": 0.5}},
+      {"name": "pipe", "position": {"x": 5.5, "y": 0.5}},
+      {"name": "pipe", "position": {"x": 6.5, "y": 0.5}},
+      {"name": "pipe", "position": {"x": 7.5, "y": 0.5}},
+      {"name": "pipe", "position": {"x": 0.5, "y": 4.5}},
+      {"name": "pipe", "position": {"x": 0.5, "y": 5.5}},
+      {"name": "pipe", "position": {"x": 2.5, "y": 6.5}},
+      {"name": "pipe", "position": {"x": 3.5, "y": 6.5}},
+      {"name": "pipe", "position": {"x": 4.5, "y": 6.5}},
+      {"name": "pipe", "position": {"x": 5.5, "y": 6.5}},
+      {"name": "pipe", "position": {"x": 5.5, "y": 7.5}},
+      {"name": "pipe", "position": {"x": 6.5, "y": 6.5}},
+      {"name": "pipe", "position": {"x": 7.5, "y": 6.5}},
+      {"name": "pipe", "position": {"x": 8.5, "y": 0.5}},
+      {"name": "pipe", "position": {"x": 9.5, "y": 0.5}},
+      {"name": "pipe", "position": {"x": 10.5, "y": 0.5}},
+      {"name": "pipe", "position": {"x": 11.5, "y": 0.5}},
+      {"name": "pipe", "position": {"x": 12.5, "y": 0.5}},
+      {"name": "pipe", "position": {"x": 13.5, "y": 0.5}},
+      {"name": "pipe", "position": {"x": 14.5, "y": 0.5}},
+      {"name": "pipe", "position": {"x": 14.5, "y": 1.5}},
+      {"name": "pipe", "position": {"x": 14.5, "y": 2.5}},
+      {"name": "pipe", "position": {"x": 14.5, "y": 3.5}},
+      {"name": "pipe", "position": {"x": 8.5, "y": 6.5}},
+      {"name": "pipe", "position": {"x": 9.5, "y": 6.5}},
+      {"name": "pipe", "position": {"x": 9.5, "y": 7.5}},
+      {"name": "pipe", "position": {"x": 10.5, "y": 6.5}},
+      {"name": "pipe", "position": {"x": 11.5, "y": 6.5}},
+      {"name": "pipe", "position": {"x": 14.5, "y": 4.5}},
+      {"name": "pipe", "position": {"x": 14.5, "y": 5.5}},
+      {"name": "pipe", "position": {"x": 15.5, "y": 5.5}},
+      {"name": "pipe", "position": {"x": 12.5, "y": 6.5}},
+      {"name": "pipe", "position": {"x": 7.5, "y": 9.5}},
+      {"name": "pipe", "position": {"x": 7.5, "y": 15.5}},
+      {"name": "pipe", "position": {"x": 16.5, "y": 5.5}},
+      {"name": "pipe", "position": {"x": 16.5, "y": 11.5}},
+      {"name": "pipe", "position": {"x": 0.5, "y": 19.5}},
+      {"name": "pipe", "position": {"x": 2.5, "y": 18.5}},
+      {"name": "pipe", "position": {"x": 3.5, "y": 18.5}},
+      {"name": "pipe", "position": {"x": 5.5, "y": 17.5}},
+      {"name": "pipe", "position": {"x": 4.5, "y": 18.5}},
+      {"name": "pipe", "position": {"x": 5.5, "y": 18.5}},
+      {"name": "pipe", "position": {"x": 6.5, "y": 18.5}},
+      {"name": "pipe", "position": {"x": 7.5, "y": 18.5}},
+      {"name": "pipe", "position": {"x": 0.5, "y": 20.5}},
+      {"name": "pipe", "position": {"x": 0.5, "y": 21.5}},
+      {"name": "pipe", "position": {"x": 0.5, "y": 22.5}},
+      {"name": "pipe", "position": {"x": 0.5, "y": 23.5}},
+      {"name": "pipe", "position": {"x": 9.5, "y": 17.5}},
+      {"name": "pipe", "position": {"x": 8.5, "y": 18.5}},
+      {"name": "pipe", "position": {"x": 9.5, "y": 18.5}},
+      {"name": "pipe", "position": {"x": 10.5, "y": 18.5}},
+      {"name": "pipe", "position": {"x": 11.5, "y": 18.5}},
+      {"name": "pipe", "position": {"x": 12.5, "y": 18.5}},
+      {"name": "pipe", "position": {"x": 14.5, "y": 19.5}},
+      {"name": "pipe", "position": {"x": 15.5, "y": 19.5}},
+      {"name": "pipe", "position": {"x": 14.5, "y": 20.5}},
+      {"name": "pipe", "position": {"x": 14.5, "y": 21.5}},
+      {"name": "pipe", "position": {"x": 14.5, "y": 22.5}},
+      {"name": "pipe", "position": {"x": 14.5, "y": 23.5}},
+      {"name": "pipe", "position": {"x": 0.5, "y": 24.5}},
+      {"name": "pipe", "position": {"x": 1.5, "y": 24.5}},
+      {"name": "pipe", "position": {"x": 2.5, "y": 24.5}},
+      {"name": "pipe", "position": {"x": 3.5, "y": 24.5}},
+      {"name": "pipe", "position": {"x": 4.5, "y": 24.5}},
+      {"name": "pipe", "position": {"x": 5.5, "y": 24.5}},
+      {"name": "pipe", "position": {"x": 6.5, "y": 24.5}},
+      {"name": "pipe", "position": {"x": 7.5, "y": 24.5}},
+      {"name": "pipe", "position": {"x": 8.5, "y": 24.5}},
+      {"name": "pipe", "position": {"x": 9.5, "y": 24.5}},
+      {"name": "pipe", "position": {"x": 10.5, "y": 24.5}},
+      {"name": "pipe", "position": {"x": 11.5, "y": 24.5}},
+      {"name": "pipe", "position": {"x": 12.5, "y": 24.5}},
+      {"name": "pipe", "position": {"x": 13.5, "y": 24.5}},
+      {"name": "pipe", "position": {"x": 14.5, "y": 24.5}},
+      {"name": "pipe", "position": {"x": 16.5, "y": 19.5}},
+      {"name": "pipe-to-ground", "position": {"x": -1.5, "y": 6.5}},
+      {"name": "pipe-to-ground", "direction": 4, "position": {"x": -1.5, "y": 12.5}},
+      {"name": "pipe-to-ground", "position": {"x": -1.5, "y": 14.5}},
+      {"name": "pipe-to-ground", "direction": 4, "position": {"x": -1.5, "y": 18.5}},
+      {"name": "pipe-to-ground", "position": {"x": 2.5, "y": 7.5}},
+      {"name": "pipe-to-ground", "position": {"x": 12.5, "y": 7.5}},
+      {"name": "pipe-to-ground", "direction": 4, "position": {"x": 2.5, "y": 12.5}},
+      {"name": "pipe-to-ground", "position": {"x": 2.5, "y": 13.5}},
+      {"name": "pipe-to-ground", "direction": 4, "position": {"x": 12.5, "y": 12.5}},
+      {"name": "pipe-to-ground", "position": {"x": 12.5, "y": 13.5}},
+      {"name": "pipe-to-ground", "position": {"x": 16.5, "y": 6.5}},
+      {"name": "pipe-to-ground", "direction": 4, "position": {"x": 16.5, "y": 10.5}},
+      {"name": "pipe-to-ground", "position": {"x": 16.5, "y": 12.5}},
+      {"name": "pipe-to-ground", "direction": 4, "position": {"x": 2.5, "y": 17.5}},
+      {"name": "pipe-to-ground", "direction": 4, "position": {"x": 12.5, "y": 17.5}},
+      {"name": "pipe-to-ground", "direction": 4, "position": {"x": 16.5, "y": 18.5}},
+      {
+        "name": "programmable-speaker",
+        "alert_parameters": {
+          "alert_message": "Low Reactor Fuel",
+          "show_alert": true,
+          "show_on_map": true,
+          "icon_signal_id": {"name": "uranium-fuel-cell", "type": "item"}
+        },
+        "connections": {"1": {"red": [{"entity_rel": "1,1"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": "<", "constant": 10, "first_signal": {"name": "uranium-fuel-cell", "type": "item"}},
+          "circuit_parameters": {"instrument_id": 0, "note_id": 2, "signal_value_is_pitch": false}
+        },
+        "parameters": {"allow_polyphony": false, "playback_globally": false, "playback_volume": 0},
+        "position": {"x": 2.5, "y": 9.5}
+      },
+      {
+        "name": "programmable-speaker",
+        "alert_parameters": {
+          "alert_message": "Low Reactor Water",
+          "show_alert": true,
+          "show_on_map": true,
+          "icon_signal_id": {"name": "water", "type": "fluid"}
+        },
+        "connections": {"1": {"red": [{"entity_rel": "2,-6"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": "<", "constant": 5000, "first_signal": {"name": "water", "type": "fluid"}},
+          "circuit_parameters": {"instrument_id": 0, "note_id": 2, "signal_value_is_pitch": false}
+        },
+        "parameters": {"allow_polyphony": false, "playback_globally": false, "playback_volume": 0},
+        "position": {"x": 12.5, "y": 16.5}
+      },
+      {
+        "name": "pump",
+        "direction": 4,
+        "connections": {"1": {"green": [{"entity_rel": "6,-3.5"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": "<", "constant": 10000, "first_signal": {"name": "water", "type": "fluid"}}
+        },
+        "position": {"x": -2.5, "y": 12}
+      },
+      {"name": "pump", "direction": 2, "position": {"x": 3, "y": 15.5}},
+      {"name": "pump", "direction": 6, "position": {"x": 12, "y": 9.5}},
+      {"name": "se-condenser-turbine", "direction": 4, "position": {"x": 2.5, "y": 3.5}},
+      {"name": "se-condenser-turbine", "direction": 4, "position": {"x": 5.5, "y": 3.5}},
+      {"name": "se-condenser-turbine", "direction": 4, "position": {"x": 9.5, "y": 3.5}},
+      {"name": "se-condenser-turbine", "direction": 4, "position": {"x": 12.5, "y": 3.5}},
+      {"name": "se-condenser-turbine", "position": {"x": 2.5, "y": 21.5}},
+      {"name": "se-condenser-turbine", "position": {"x": 5.5, "y": 21.5}},
+      {"name": "se-condenser-turbine", "position": {"x": 9.5, "y": 21.5}},
+      {"name": "se-condenser-turbine", "position": {"x": 12.5, "y": 21.5}},
+      {
+        "name": "storage-tank",
+        "direction": 2,
+        "connections": {"1": {"green": [{"entity_rel": "3,1"}]}},
+        "position": {"x": 0.5, "y": 7.5}
+      },
+      {
+        "name": "storage-tank",
+        "connections": {"1": {"green": [{"entity_rel": "-3,1"}], "red": [{"entity_rel": "0,3"}]}},
+        "position": {"x": 14.5, "y": 7.5}
+      },
+      {
+        "name": "storage-tank",
+        "connections": {"1": {"green": [{"entity_rel": "3,2"}]}},
+        "position": {"x": 0.5, "y": 14.5}
+      },
+      {
+        "name": "storage-tank",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-3,-2"}],
+            "red": [{"entity_rel": "0,-3"}, {"entity_rel": "-4,0"}, {"entity_rel": "-2,6"}]
+          }
+        },
+        "position": {"x": 14.5, "y": 10.5}
+      },
+      {
+        "name": "storage-tank",
+        "connections": {"1": {"green": [{"entity_rel": "3,-1"}]}},
+        "position": {"x": 0.5, "y": 17.5}
+      },
+      {
+        "name": "storage-tank",
+        "direction": 2,
+        "connections": {"1": {"green": [{"entity_rel": "-3,-1"}]}},
+        "position": {"x": 14.5, "y": 17.5}
+      }
+    ],
+    "icons": [
+      {"index": 1, "signal": {"name": "nuclear-reactor", "type": "item"}},
+      {"index": 2, "signal": {"name": "se-condenser-turbine", "type": "item"}}
+    ]
+  }
+}

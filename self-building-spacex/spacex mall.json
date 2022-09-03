@@ -7,7 +7,7 @@
     "absolute-snapping": true,
     "shift_x": 53,
     "shift_y": 53,
-    "version": 281479275937792,
+    "version": 281479276134400,
     "entities": [
       {
         "name": "aai-strongbox-requester",
@@ -20,7 +20,12 @@
         "position": {"x": 153, "y": 134},
         "request_filters": [
           {"name": "construction-robot", "count": 1, "index": 1},
-          {"name": "logistic-robot", "count": 10, "index": 2}
+          {"name": "logistic-robot", "count": 10, "index": 2},
+          {"name": "se-heat-shielding", "count": 20, "index": 11},
+          {"name": "glass", "count": 100, "index": 12},
+          {"name": "copper-plate", "count": 100, "index": 13},
+          {"name": "steel-plate", "count": 100, "index": 14},
+          {"name": "plastic-bar", "count": 100, "index": 15}
         ]
       },
       {
@@ -873,6 +878,72 @@
       {
         "name": "arithmetic-combinator",
         "connections": {
+          "1": {
+            "green": [{"circuit_id": 2, "entity_rel": "1.5,1.5"}],
+            "red": [{"circuit_id": 2, "entity_rel": "0.5,-1.5"}]
+          },
+          "2": {"green": [{"entity_rel": "1.5,0"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-0", "type": "virtual"}
+          }
+        },
+        "position": {"x": 86.5, "y": 170}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 4,
+        "connections": {"1": {"red": [{"entity_rel": "-1,-1.5"}]}, "2": {"green": [{"entity_rel": "-2,4.5"}]}},
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "second_constant": -1,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 87.5, "y": 175}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 2, "entity_rel": "1.5,1.5"}],
+            "red": [{"circuit_id": 2, "entity_rel": "0.5,-1.5"}]
+          },
+          "2": {"green": [{"entity_rel": "1.5,0"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-0", "type": "virtual"}
+          }
+        },
+        "position": {"x": 98.5, "y": 170}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 4,
+        "connections": {"1": {"red": [{"entity_rel": "-1,-1.5"}]}, "2": {"green": [{"entity_rel": "-2,4.5"}]}},
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "second_constant": -1,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 99.5, "y": 175}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "connections": {
           "1": {"red": [{"circuit_id": 2, "entity_rel": "0,0"}]},
           "2": {"red": [{"circuit_id": 1, "entity_rel": "0,0"}, {"entity_rel": "1,-0.5"}]}
         },
@@ -921,7 +992,13 @@
         "direction": 6,
         "connections": {
           "1": {"red": [{"entity_rel": "-0.5,2"}]},
-          "2": {"red": [{"circuit_id": 2, "entity_rel": "-4,0"}, {"entity_rel": "0.5,2,9326"}]}
+          "2": {
+            "red": [
+              {"circuit_id": 2, "entity_rel": "-4,0"},
+              {"entity_rel": "0.5,2,9326"},
+              {"entity_rel": "0.5,2,57ea"}
+            ]
+          }
         },
         "control_behavior": {
           "arithmetic_conditions": {
@@ -1369,7 +1446,7 @@
         "recipe": "refined-concrete",
         "position": {"x": 53.5, "y": 125.5}
       },
-      {"name": "assembling-machine-2", "recipe": "nuclear-reactor", "position": {"x": 58.5, "y": 125.5}},
+      {"name": "assembling-machine-2", "recipe": "nuclear-reactor", "position": {"x": 59.5, "y": 125.5}},
       {"name": "assembling-machine-2", "recipe": "transport-belt", "position": {"x": 86.5, "y": 71.5}},
       {
         "name": "assembling-machine-2",
@@ -1457,6 +1534,12 @@
         "direction": 6,
         "recipe": "concrete",
         "position": {"x": 153.5, "y": 77.5}
+      },
+      {
+        "name": "assembling-machine-2",
+        "recipe": "sand-from-stone",
+        "items": {"speed-module-3": 2},
+        "position": {"x": 141.5, "y": 83.5}
       },
       {"name": "assembling-machine-2", "recipe": "electric-furnace", "position": {"x": 135.5, "y": 89.5}},
       {
@@ -1602,6 +1685,11 @@
       },
       {
         "name": "assembling-machine-2",
+        "recipe": "se-space-assembling-machine",
+        "position": {"x": 178.5, "y": 125.5}
+      },
+      {
+        "name": "assembling-machine-2",
         "recipe": "exoskeleton-equipment",
         "position": {"x": 185.5, "y": 121.5}
       },
@@ -1645,13 +1733,24 @@
         "recipe": "se-cargo-rocket-section-unpack",
         "position": {"x": 51.5, "y": 161.5}
       },
-      {"name": "assembling-machine-2", "recipe": "concrete", "position": {"x": 103.5, "y": 129.5}},
-      {"name": "assembling-machine-2", "recipe": "concrete", "position": {"x": 106.5, "y": 129.5}},
-      {"name": "assembling-machine-2", "recipe": "concrete", "position": {"x": 109.5, "y": 129.5}},
       {
         "name": "assembling-machine-2",
-        "recipe": "se-delivery-cannon-capsule",
-        "position": {"x": 100.5, "y": 139.5}
+        "recipe": "se-electric-boiler",
+        "position": {"x": 64.5, "y": 140.5}
+      },
+      {
+        "name": "assembling-machine-2",
+        "direction": 2,
+        "recipe": "fill-water-barrel",
+        "position": {"x": 89.5, "y": 132.5}
+      },
+      {"name": "assembling-machine-2", "recipe": "concrete", "position": {"x": 103.5, "y": 129.5}},
+      {"name": "assembling-machine-2", "recipe": "concrete", "position": {"x": 106.5, "y": 129.5}},
+      {
+        "name": "assembling-machine-2",
+        "direction": 6,
+        "recipe": "concrete",
+        "position": {"x": 110.5, "y": 129.5}
       },
       {
         "name": "assembling-machine-2",
@@ -1719,7 +1818,12 @@
         "items": {"speed-module": 2},
         "position": {"x": 142.5, "y": 140.5}
       },
-      {"name": "assembling-machine-2", "recipe": "se-canister", "position": {"x": 156.5, "y": 132.5}},
+      {"name": "assembling-machine-2", "recipe": "se-canister", "position": {"x": 156.5, "y": 133.5}},
+      {
+        "name": "assembling-machine-2",
+        "recipe": "se-recycling-facility",
+        "position": {"x": 148.5, "y": 140.5}
+      },
       {
         "name": "assembling-machine-2",
         "recipe": "se-recycling-facility",
@@ -1735,28 +1839,9 @@
       {"name": "assembling-machine-3", "recipe": "pipe", "position": {"x": 62.5, "y": 125.5}},
       {
         "name": "assembling-machine-3",
-        "recipe": "sand-from-stone",
-        "items": {"speed-module-3": 2},
-        "position": {"x": 141.5, "y": 83.5}
+        "recipe": "se-delivery-cannon-capsule",
+        "position": {"x": 100.5, "y": 139.5}
       },
-      {
-        "name": "assembling-machine-3",
-        "recipe": "se-space-assembling-machine",
-        "position": {"x": 178.5, "y": 125.5}
-      },
-      {
-        "name": "assembling-machine-3",
-        "items": {"speed-module-3": 4},
-        "position": {"x": 54.5, "y": 133.5}
-      },
-      {"name": "assembling-machine-3", "position": {"x": 58.5, "y": 133.5}},
-      {
-        "name": "assembling-machine-3",
-        "items": {"speed-module-3": 4},
-        "position": {"x": 62.5, "y": 133.5}
-      },
-      {"name": "assembling-machine-3", "position": {"x": 66.5, "y": 133.5}},
-      {"name": "assembling-machine-3", "position": {"x": 108.5, "y": 139.5}},
       {
         "name": "assembling-machine-3",
         "recipe": "se-pylon-substation",
@@ -2058,8 +2143,13 @@
             "red": [{"entity_rel": "0,-22"}, {"entity_rel": "0,22"}]
           }
         },
-        "neighbours": ["0,-22", "0,22"],
+        "neighbours": ["0,-22", "14,-10", "0,22"],
         "position": {"x": 2, "y": 90}
+      },
+      {
+        "name": "big-electric-pole",
+        "neighbours": ["-2.5,-7.5", "-2.5,8.5", "-14,10"],
+        "position": {"x": 16, "y": 80}
       },
       {
         "name": "big-electric-pole",
@@ -2069,10 +2159,9 @@
             "red": [{"entity_rel": "0,-22"}, {"entity_rel": "0,22"}]
           }
         },
-        "neighbours": ["0,-22", "14,4", "0,22"],
+        "neighbours": ["0,-22", "0,22"],
         "position": {"x": 2, "y": 112}
       },
-      {"name": "big-electric-pole", "neighbours": ["-14,-4", "-2.5,8.5"], "position": {"x": 16, "y": 116}},
       {
         "name": "big-electric-pole",
         "connections": {
@@ -2125,7 +2214,7 @@
             "red": [{"entity_rel": "-14,0"}, {"entity_rel": "14,0"}, {"circuit_id": 1, "entity_rel": "1,1.5"}]
           }
         },
-        "neighbours": ["-14,0", "0.5,-3.5", "14,0"],
+        "neighbours": ["-14,0", "0.5,-3.5", "14,0", "0.5,4.5"],
         "position": {"x": 142, "y": 54}
       },
       {
@@ -2287,12 +2376,7 @@
         "connections": {
           "1": {
             "green": [{"circuit_id": 2, "entity_rel": "-1.5,0"}, {"entity_rel": "12,0"}, {"entity_rel": "-23,5"}],
-            "red": [
-              {"circuit_id": 1, "entity_rel": "-1,-1.5"},
-              {"entity_rel": "-2.5,-6.5"},
-              {"entity_rel": "12,0"},
-              {"entity_rel": "-23,5"}
-            ]
+            "red": [{"circuit_id": 1, "entity_rel": "-1,-1.5"}, {"entity_rel": "12,0"}, {"entity_rel": "-23,5"}]
           }
         },
         "neighbours": ["-2.5,-5.5", "12,0", "-23,5", "-0.5,3.5"],
@@ -2313,12 +2397,34 @@
         "name": "big-electric-pole",
         "connections": {
           "1": {
+            "green": [{"circuit_id": 2, "entity_rel": "-1.5,0"}, {"entity_rel": "-12,0"}, {"entity_rel": "12,0"}],
+            "red": [{"circuit_id": 1, "entity_rel": "-1,-1.5"}, {"entity_rel": "-12,0"}, {"entity_rel": "12,0"}]
+          }
+        },
+        "neighbours": ["-12,0", "12,0", "-0.5,3.5"],
+        "position": {"x": 76, "y": 170}
+      },
+      {
+        "name": "big-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 2, "entity_rel": "-1.5,0"}, {"entity_rel": "-12,0"}, {"entity_rel": "12,0"}],
+            "red": [{"circuit_id": 1, "entity_rel": "-1,-1.5"}, {"entity_rel": "-12,0"}, {"entity_rel": "12,0"}]
+          }
+        },
+        "neighbours": ["-12,0", "12,0", "-0.5,3.5"],
+        "position": {"x": 88, "y": 170}
+      },
+      {
+        "name": "big-electric-pole",
+        "connections": {
+          "1": {
             "green": [{"circuit_id": 2, "entity_rel": "-1.5,0"}, {"entity_rel": "-12,0"}],
             "red": [{"circuit_id": 1, "entity_rel": "-1,-1.5"}, {"entity_rel": "-12,0"}]
           }
         },
         "neighbours": ["-12,0", "-0.5,3.5"],
-        "position": {"x": 76, "y": 170}
+        "position": {"x": 100, "y": 170}
       },
       {
         "name": "big-electric-pole",
@@ -2548,6 +2654,19 @@
       {"name": "chemical-plant", "recipe": "light-oil-cracking", "position": {"x": 168.5, "y": 91.5}},
       {
         "name": "chemical-plant",
+        "direction": 6,
+        "recipe": "se-cryonite-slush",
+        "position": {"x": 183.5, "y": 85.5}
+      },
+      {
+        "name": "chemical-plant",
+        "direction": 6,
+        "recipe": "se-cryonite-to-water-ice",
+        "items": {"speed-module-3": 3},
+        "position": {"x": 186.5, "y": 83.5}
+      },
+      {
+        "name": "chemical-plant",
         "direction": 4,
         "recipe": "battery",
         "position": {"x": 157.5, "y": 101.5}
@@ -2620,6 +2739,25 @@
           "filters": [{"count": -2147483648, "index": 1, "signal": {"name": "signal-dot", "type": "virtual"}}]
         },
         "position": {"x": 14.5, "y": 31.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 6,
+        "connections": {"1": {"green": [{"entity_rel": "-1,0"}]}},
+        "control_behavior": {
+          "filters": [
+            {"count": -2000000000, "index": 1, "signal": {"name": "transport-belt", "type": "item"}},
+            {"count": -2000000000, "index": 2, "signal": {"name": "splitter", "type": "item"}},
+            {"count": -2000000000, "index": 3, "signal": {"name": "underground-belt", "type": "item"}},
+            {"count": -2000000000, "index": 6, "signal": {"name": "express-transport-belt", "type": "item"}},
+            {"count": -2000000000, "index": 7, "signal": {"name": "express-splitter", "type": "item"}},
+            {"count": -2000000000, "index": 8, "signal": {"name": "express-underground-belt", "type": "item"}},
+            {"count": -2000000000, "index": 11, "signal": {"name": "fast-transport-belt", "type": "item"}},
+            {"count": -2000000000, "index": 12, "signal": {"name": "fast-splitter", "type": "item"}},
+            {"count": -2000000000, "index": 13, "signal": {"name": "fast-underground-belt", "type": "item"}}
+          ]
+        },
+        "position": {"x": 23.5, "y": 30.5}
       },
       {
         "name": "constant-combinator",
@@ -2775,7 +2913,7 @@
             {"count": 3, "index": 3, "signal": {"name": "ltn-max-train-length", "type": "virtual"}},
             {"count": 255, "index": 4, "signal": {"name": "ltn-network-id", "type": "virtual"}},
             {"count": 999999, "index": 5, "signal": {"name": "ltn-provider-stack-threshold", "type": "virtual"}},
-            {"count": 40, "index": 6, "signal": {"name": "ltn-requester-stack-threshold", "type": "virtual"}},
+            {"count": 20, "index": 6, "signal": {"name": "ltn-requester-stack-threshold", "type": "virtual"}},
             {"count": -5000, "index": 7, "signal": {"name": "advanced-circuit", "type": "item"}}
           ]
         },
@@ -2827,6 +2965,24 @@
       },
       {
         "name": "constant-combinator",
+        "direction": 6,
+        "connections": {"1": {"red": [{"entity_rel": "-2,-1"}]}},
+        "control_behavior": {
+          "filters": [
+            {"count": 1, "index": 1, "signal": {"name": "ltn-max-trains", "type": "virtual"}},
+            {"count": 2, "index": 2, "signal": {"name": "ltn-min-train-length", "type": "virtual"}},
+            {"count": 6, "index": 3, "signal": {"name": "ltn-max-train-length", "type": "virtual"}},
+            {"count": 10000, "index": 4, "signal": {"name": "ltn-requester-threshold", "type": "virtual"}},
+            {"count": 999999, "index": 5, "signal": {"name": "ltn-provider-threshold", "type": "virtual"}},
+            {"count": 4096, "index": 6, "signal": {"name": "ltn-network-id", "type": "virtual"}},
+            {"count": -999999, "index": 7, "signal": {"name": "burner-mining-drill", "type": "item"}},
+            {"count": 1, "index": 18, "signal": {"name": "ltn-disable-warnings", "type": "virtual"}}
+          ]
+        },
+        "position": {"x": 16.5, "y": 82.5}
+      },
+      {
+        "name": "constant-combinator",
         "control_behavior": {"filters": [{"count": 1, "index": 1, "signal": {"name": "copper-plate", "type": "item"}}]},
         "position": {"x": 30.5, "y": 85.5}
       },
@@ -2854,24 +3010,6 @@
         "name": "constant-combinator",
         "control_behavior": {"filters": [{"count": 1, "index": 1, "signal": {"name": "copper-plate", "type": "item"}}]},
         "position": {"x": 30.5, "y": 111.5}
-      },
-      {
-        "name": "constant-combinator",
-        "direction": 6,
-        "connections": {"1": {"red": [{"entity_rel": "-2,-1"}]}},
-        "control_behavior": {
-          "filters": [
-            {"count": 1, "index": 1, "signal": {"name": "ltn-max-trains", "type": "virtual"}},
-            {"count": 2, "index": 2, "signal": {"name": "ltn-min-train-length", "type": "virtual"}},
-            {"count": 6, "index": 3, "signal": {"name": "ltn-max-train-length", "type": "virtual"}},
-            {"count": 10000, "index": 4, "signal": {"name": "ltn-requester-threshold", "type": "virtual"}},
-            {"count": 999999, "index": 5, "signal": {"name": "ltn-provider-threshold", "type": "virtual"}},
-            {"count": 4096, "index": 6, "signal": {"name": "ltn-network-id", "type": "virtual"}},
-            {"count": -999999, "index": 7, "signal": {"name": "burner-mining-drill", "type": "item"}},
-            {"count": 1, "index": 18, "signal": {"name": "ltn-disable-warnings", "type": "virtual"}}
-          ]
-        },
-        "position": {"x": 16.5, "y": 118.5}
       },
       {
         "name": "constant-combinator",
@@ -3063,6 +3201,11 @@
       },
       {
         "name": "constant-combinator",
+        "control_behavior": {"filters": [{"count": 0, "index": 1, "signal": {"name": "coal", "type": "item"}}]},
+        "position": {"x": 143.5, "y": 85.5}
+      },
+      {
+        "name": "constant-combinator",
         "control_behavior": {"filters": [{"count": 1, "index": 1, "signal": {"name": "se-heat-shielding", "type": "item"}}]},
         "position": {"x": 171.5, "y": 67.5}
       },
@@ -3078,7 +3221,8 @@
             {"count": 255, "index": 4, "signal": {"name": "ltn-network-id", "type": "virtual"}},
             {"count": 999999, "index": 5, "signal": {"name": "ltn-provider-threshold", "type": "virtual"}},
             {"count": 25000, "index": 6, "signal": {"name": "ltn-requester-threshold", "type": "virtual"}},
-            {"count": -30000, "index": 7, "signal": {"name": "lubricant", "type": "fluid"}}
+            {"count": 1, "index": 7, "signal": {"name": "ltn-requester-priority", "type": "virtual"}},
+            {"count": -30000, "index": 11, "signal": {"name": "lubricant", "type": "fluid"}}
           ]
         },
         "position": {"x": 50.5, "y": 173.5}
@@ -3095,12 +3239,13 @@
         "control_behavior": {
           "filters": [
             {"count": 1, "index": 1, "signal": {"name": "ltn-max-trains", "type": "virtual"}},
-            {"count": 2, "index": 2, "signal": {"name": "ltn-min-train-length", "type": "virtual"}},
+            {"count": 3, "index": 2, "signal": {"name": "ltn-min-train-length", "type": "virtual"}},
             {"count": 3, "index": 3, "signal": {"name": "ltn-max-train-length", "type": "virtual"}},
             {"count": 255, "index": 4, "signal": {"name": "ltn-network-id", "type": "virtual"}},
             {"count": 999999, "index": 5, "signal": {"name": "ltn-provider-stack-threshold", "type": "virtual"}},
-            {"count": 20, "index": 6, "signal": {"name": "ltn-requester-stack-threshold", "type": "virtual"}},
-            {"count": -20, "index": 7, "signal": {"name": "se-cargo-rocket-section-packed", "type": "item"}}
+            {"count": 40, "index": 6, "signal": {"name": "ltn-requester-stack-threshold", "type": "virtual"}},
+            {"count": 1, "index": 7, "signal": {"name": "ltn-requester-priority", "type": "virtual"}},
+            {"count": -40, "index": 11, "signal": {"name": "se-cargo-rocket-section-packed", "type": "item"}}
           ]
         },
         "position": {"x": 62.5, "y": 173.5}
@@ -3117,10 +3262,56 @@
             {"count": 255, "index": 4, "signal": {"name": "ltn-network-id", "type": "virtual"}},
             {"count": 999999, "index": 5, "signal": {"name": "ltn-provider-threshold", "type": "virtual"}},
             {"count": 25000, "index": 6, "signal": {"name": "ltn-requester-threshold", "type": "virtual"}},
-            {"count": -60000, "index": 7, "signal": {"name": "se-liquid-rocket-fuel", "type": "fluid"}}
+            {"count": 1, "index": 7, "signal": {"name": "ltn-requester-priority", "type": "virtual"}},
+            {"count": -80000, "index": 11, "signal": {"name": "se-liquid-rocket-fuel", "type": "fluid"}}
           ]
         },
         "position": {"x": 74.5, "y": 173.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 6,
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-0.5,-1.5"}],
+            "red": [{"entity_rel": "0,-2"}, {"circuit_id": 1, "entity_rel": "1,1.5"}]
+          }
+        },
+        "control_behavior": {
+          "filters": [
+            {"count": 1, "index": 1, "signal": {"name": "ltn-max-trains", "type": "virtual"}},
+            {"count": 3, "index": 2, "signal": {"name": "ltn-min-train-length", "type": "virtual"}},
+            {"count": 3, "index": 3, "signal": {"name": "ltn-max-train-length", "type": "virtual"}},
+            {"count": 255, "index": 4, "signal": {"name": "ltn-network-id", "type": "virtual"}},
+            {"count": 999999, "index": 5, "signal": {"name": "ltn-provider-stack-threshold", "type": "virtual"}},
+            {"count": 40, "index": 6, "signal": {"name": "ltn-requester-stack-threshold", "type": "virtual"}},
+            {"count": 1, "index": 7, "signal": {"name": "ltn-requester-priority", "type": "virtual"}},
+            {"count": -2500, "index": 11, "signal": {"name": "se-delivery-cannon-capsule", "type": "item"}}
+          ]
+        },
+        "position": {"x": 86.5, "y": 173.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 6,
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-0.5,-1.5"}],
+            "red": [{"entity_rel": "0,-2"}, {"circuit_id": 1, "entity_rel": "1,1.5"}]
+          }
+        },
+        "control_behavior": {
+          "filters": [
+            {"count": 1, "index": 1, "signal": {"name": "ltn-max-trains", "type": "virtual"}},
+            {"count": 3, "index": 2, "signal": {"name": "ltn-min-train-length", "type": "virtual"}},
+            {"count": 4, "index": 3, "signal": {"name": "ltn-max-train-length", "type": "virtual"}},
+            {"count": 255, "index": 4, "signal": {"name": "ltn-network-id", "type": "virtual"}},
+            {"count": 999999, "index": 5, "signal": {"name": "ltn-provider-stack-threshold", "type": "virtual"}},
+            {"count": 80, "index": 6, "signal": {"name": "ltn-requester-stack-threshold", "type": "virtual"}},
+            {"count": -1500, "index": 7, "signal": {"name": "rocket-fuel", "type": "item"}}
+          ]
+        },
+        "position": {"x": 98.5, "y": 173.5}
       },
       {
         "name": "constant-combinator",
@@ -3325,9 +3516,17 @@
       {"name": "curved-rail", "direction": 6, "position": {"x": 17, "y": 225}},
       {"name": "curved-rail", "direction": 5, "position": {"x": 71, "y": 205}},
       {"name": "curved-rail", "direction": 4, "position": {"x": 73, "y": 205}},
+      {"name": "curved-rail", "direction": 5, "position": {"x": 83, "y": 205}},
+      {"name": "curved-rail", "direction": 4, "position": {"x": 85, "y": 205}},
+      {"name": "curved-rail", "direction": 5, "position": {"x": 95, "y": 205}},
       {"name": "curved-rail", "direction": 2, "position": {"x": 65, "y": 211}},
       {"name": "curved-rail", "direction": 7, "position": {"x": 67, "y": 211}},
+      {"name": "curved-rail", "direction": 2, "position": {"x": 77, "y": 211}},
       {"name": "curved-rail", "direction": 7, "position": {"x": 79, "y": 211}},
+      {"name": "curved-rail", "direction": 2, "position": {"x": 89, "y": 211}},
+      {"name": "curved-rail", "direction": 7, "position": {"x": 91, "y": 211}},
+      {"name": "curved-rail", "direction": 4, "position": {"x": 97, "y": 205}},
+      {"name": "curved-rail", "direction": 7, "position": {"x": 103, "y": 211}},
       {"name": "curved-rail", "direction": 4, "position": {"x": 213, "y": 191}},
       {"name": "curved-rail", "direction": 3, "position": {"x": 191, "y": 213}},
       {"name": "curved-rail", "position": {"x": 219, "y": 199}},
@@ -4120,7 +4319,7 @@
             "output_signal": {"name": "ltn-locked-slots", "type": "virtual"}
           }
         },
-        "position": {"x": 14.5, "y": 121}
+        "position": {"x": 14.5, "y": 85}
       },
       {
         "name": "decider-combinator",
@@ -4378,6 +4577,78 @@
         "name": "decider-combinator",
         "direction": 6,
         "connections": {
+          "1": {"red": [{"entity_rel": "1,1.5"}]},
+          "2": {"red": [{"circuit_id": 1, "entity_rel": "-0.5,1.5"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "constant": 0,
+            "copy_count_from_input": false,
+            "first_signal": {"name": "signal-0", "type": "virtual"},
+            "output_signal": {"name": "signal-0", "type": "virtual"}
+          }
+        },
+        "position": {"x": 87, "y": 168.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 6,
+        "connections": {
+          "1": {"green": [{"entity_rel": "-1.5,0"}], "red": [{"entity_rel": "-1.5,0"}]},
+          "2": {"green": [{"circuit_id": 1, "entity_rel": "-1.5,-1.5"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "<",
+            "constant": 0,
+            "copy_count_from_input": true,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 88, "y": 171.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 6,
+        "connections": {
+          "1": {"red": [{"entity_rel": "1,1.5"}]},
+          "2": {"red": [{"circuit_id": 1, "entity_rel": "-0.5,1.5"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "constant": 0,
+            "copy_count_from_input": false,
+            "first_signal": {"name": "signal-0", "type": "virtual"},
+            "output_signal": {"name": "signal-0", "type": "virtual"}
+          }
+        },
+        "position": {"x": 99, "y": 168.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 6,
+        "connections": {
+          "1": {"green": [{"entity_rel": "-1.5,0"}], "red": [{"entity_rel": "-1.5,0"}]},
+          "2": {"green": [{"circuit_id": 1, "entity_rel": "-1.5,-1.5"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "<",
+            "constant": 0,
+            "copy_count_from_input": true,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 100, "y": 171.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 6,
+        "connections": {
           "1": {"red": [{"circuit_id": 2, "entity_rel": "0,0"}, {"entity_rel": "5.5,6"}]},
           "2": {"red": [{"circuit_id": 1, "entity_rel": "0,0"}, {"entity_rel": "-6.5,4"}]}
         },
@@ -4442,15 +4713,13 @@
         },
         "position": {"x": 209, "y": 189.5}
       },
-      {"name": "electric-furnace", "items": {"speed-module-3": 2}, "position": {"x": 141.5, "y": 87.5}},
       {"name": "electric-furnace", "position": {"x": 127.5, "y": 139.5}},
       {"name": "electric-furnace", "position": {"x": 135.5, "y": 139.5}},
       {"name": "electric-furnace", "position": {"x": 138.5, "y": 139.5}},
-      {"name": "electric-furnace", "position": {"x": 146.5, "y": 139.5}},
       {
         "name": "fast-filter-miniloader-inserter",
         "override_stack_size": 1,
-        "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "-0.5,-2"}, {"entity_rel": "0,0,77ee"}]}},
+        "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "-0.5,-2"}, {"entity_rel": "0,0,57ea"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
         "drop_position": {"x": 0.25, "y": -0.203125},
         "pickup_position": {"x": 0, "y": 0.796875},
@@ -4459,7 +4728,7 @@
       {
         "name": "fast-filter-miniloader-inserter",
         "override_stack_size": 1,
-        "connections": {"1": {"red": [{"entity_rel": "0,0,9326"}]}},
+        "connections": {"1": {"red": [{"entity_rel": "0,0,9326"}, {"circuit_id": 2, "entity_rel": "-0.5,-2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
         "drop_position": {"x": -0.25, "y": -0.203125},
         "pickup_position": {"x": 0, "y": 0.796875},
@@ -4490,6 +4759,7 @@
       {"name": "fast-inserter", "direction": 2, "position": {"x": 40.5, "y": 118.5}},
       {"name": "fast-inserter", "direction": 4, "position": {"x": 39.5, "y": 120.5}},
       {"name": "fast-inserter", "direction": 6, "position": {"x": 37.5, "y": 125.5}},
+      {"name": "fast-inserter", "position": {"x": 40.5, "y": 123.5}},
       {"name": "fast-inserter", "direction": 2, "position": {"x": 55.5, "y": 124.5}},
       {"name": "fast-inserter", "direction": 4, "position": {"x": 62.5, "y": 127.5}},
       {"name": "fast-inserter", "position": {"x": 63.5, "y": 127.5}},
@@ -4554,7 +4824,6 @@
       {"name": "fast-inserter", "direction": 2, "position": {"x": 131.5, "y": 84.5}},
       {"name": "fast-inserter", "position": {"x": 140.5, "y": 81.5}},
       {"name": "fast-inserter", "direction": 4, "position": {"x": 141.5, "y": 81.5}},
-      {"name": "fast-inserter", "position": {"x": 141.5, "y": 85.5}},
       {"name": "fast-inserter", "direction": 2, "position": {"x": 131.5, "y": 89.5}},
       {"name": "fast-inserter", "direction": 4, "position": {"x": 148.5, "y": 92.5}},
       {"name": "fast-inserter", "direction": 6, "position": {"x": 149.5, "y": 93.5}},
@@ -4570,6 +4839,7 @@
       {"name": "fast-inserter", "direction": 6, "position": {"x": 188.5, "y": 72.5}},
       {"name": "fast-inserter", "direction": 6, "position": {"x": 188.5, "y": 78.5}},
       {"name": "fast-inserter", "direction": 6, "position": {"x": 171.5, "y": 95.5}},
+      {"name": "fast-inserter", "direction": 2, "position": {"x": 184.5, "y": 83.5}},
       {"name": "fast-inserter", "direction": 6, "position": {"x": 177.5, "y": 90.5}},
       {"name": "fast-inserter", "direction": 6, "position": {"x": 133.5, "y": 103.5}},
       {"name": "fast-inserter", "direction": 6, "position": {"x": 137.5, "y": 103.5}},
@@ -4610,6 +4880,7 @@
         },
         "position": {"x": 165.5, "y": 127.5}
       },
+      {"name": "fast-inserter", "direction": 2, "position": {"x": 167.5, "y": 127.5}},
       {"name": "fast-inserter", "position": {"x": 179.5, "y": 118.5}},
       {"name": "fast-inserter", "direction": 6, "position": {"x": 37.5, "y": 132.5}},
       {"name": "fast-inserter", "direction": 4, "position": {"x": 39.5, "y": 135.5}},
@@ -4618,13 +4889,25 @@
       {"name": "fast-inserter", "direction": 2, "position": {"x": 47.5, "y": 130.5}},
       {"name": "fast-inserter", "position": {"x": 40.5, "y": 138.5}},
       {"name": "fast-inserter", "direction": 4, "position": {"x": 40.5, "y": 142.5}},
-      {"name": "fast-inserter", "direction": 2, "position": {"x": 49.5, "y": 155.5}},
-      {"name": "fast-inserter", "direction": 2, "position": {"x": 50.5, "y": 156.5}},
+      {
+        "name": "fast-inserter",
+        "direction": 2,
+        "connections": {"1": {"red": [{"entity_rel": "0,8"}]}},
+        "control_behavior": {
+          "circuit_condition": {
+            "comparator": ">",
+            "constant": 0,
+            "first_signal": {"name": "se-liquid-rocket-fuel-barrel", "type": "item"}
+          }
+        },
+        "position": {"x": 49.5, "y": 155.5}
+      },
+      {"name": "fast-inserter", "direction": 4, "position": {"x": 50.5, "y": 156.5}},
       {
         "name": "fast-inserter",
         "direction": 2,
         "override_stack_size": 1,
-        "connections": {"1": {"green": [{"entity_rel": "9,0.5"}, {"entity_rel": "0,1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "9,0.5"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {
           "circuit_condition": {
             "comparator": "<",
@@ -4634,6 +4917,7 @@
         },
         "position": {"x": 49.5, "y": 162.5}
       },
+      {"name": "fast-inserter", "direction": 2, "position": {"x": 87.5, "y": 131.5}},
       {"name": "fast-inserter", "direction": 4, "position": {"x": 103.5, "y": 131.5}},
       {"name": "fast-inserter", "direction": 4, "position": {"x": 106.5, "y": 131.5}},
       {"name": "fast-inserter", "direction": 4, "position": {"x": 109.5, "y": 131.5}},
@@ -4642,7 +4926,6 @@
       {"name": "fast-inserter", "position": {"x": 103.5, "y": 136.5}},
       {"name": "fast-inserter", "direction": 4, "position": {"x": 101.5, "y": 141.5}},
       {"name": "fast-inserter", "direction": 4, "position": {"x": 110.5, "y": 138.5}},
-      {"name": "fast-inserter", "direction": 4, "position": {"x": 108.5, "y": 141.5}},
       {"name": "fast-inserter", "direction": 2, "position": {"x": 119.5, "y": 128.5}},
       {"name": "fast-inserter", "position": {"x": 115.5, "y": 134.5}},
       {"name": "fast-inserter", "position": {"x": 120.5, "y": 133.5}},
@@ -4667,11 +4950,9 @@
       {"name": "fast-inserter", "direction": 4, "position": {"x": 139.5, "y": 136.5}},
       {"name": "fast-inserter", "direction": 2, "position": {"x": 140.5, "y": 139.5}},
       {"name": "fast-inserter", "position": {"x": 142.5, "y": 138.5}},
-      {"name": "fast-inserter", "direction": 6, "position": {"x": 144.5, "y": 139.5}},
       {"name": "fast-inserter", "direction": 6, "position": {"x": 154.5, "y": 136.5}},
       {"name": "fast-inserter", "direction": 6, "position": {"x": 154.5, "y": 137.5}},
       {"name": "fast-inserter", "direction": 4, "position": {"x": 156.5, "y": 138.5}},
-      {"name": "fast-inserter", "direction": 6, "position": {"x": 167.5, "y": 128.5}},
       {"name": "fast-inserter", "direction": 2, "position": {"x": 165.5, "y": 135.5}},
       {
         "name": "fast-inserter",
@@ -4713,6 +4994,8 @@
       {"name": "fast-inserter", "direction": 6, "position": {"x": 193.5, "y": 172.5}},
       {"name": "fast-inserter", "direction": 6, "position": {"x": 192.5, "y": 182.5}},
       {"name": "fast-inserter", "direction": 6, "position": {"x": 192.5, "y": 188.5}},
+      {"name": "fast-loader", "type": "output", "position": {"x": 93.5, "y": 178}},
+      {"name": "fast-loader", "type": "output", "position": {"x": 98.5, "y": 178}},
       {
         "name": "fast-miniloader-inserter",
         "override_stack_size": 1,
@@ -4730,6 +5013,7 @@
       {"name": "fast-splitter", "direction": 2, "position": {"x": 53.5, "y": 44}},
       {"name": "fast-splitter", "direction": 2, "position": {"x": 79.5, "y": 64}},
       {"name": "fast-splitter", "direction": 4, "position": {"x": 75, "y": 127.5}},
+      {"name": "fast-splitter", "position": {"x": 93, "y": 174.5}},
       {"name": "fast-transport-belt", "direction": 2, "position": {"x": 54.5, "y": 43.5}},
       {"name": "fast-transport-belt", "direction": 4, "position": {"x": 55.5, "y": 43.5}},
       {"name": "fast-transport-belt", "direction": 4, "position": {"x": 55.5, "y": 44.5}},
@@ -4776,6 +5060,12 @@
       {"name": "fast-transport-belt", "direction": 2, "position": {"x": 77.5, "y": 63.5}},
       {"name": "fast-transport-belt", "direction": 2, "position": {"x": 78.5, "y": 63.5}},
       {"name": "fast-transport-belt", "direction": 4, "position": {"x": 74.5, "y": 126.5}},
+      {"name": "fast-transport-belt", "position": {"x": 92.5, "y": 175.5}},
+      {"name": "fast-transport-belt", "position": {"x": 93.5, "y": 175.5}},
+      {"name": "fast-transport-belt", "position": {"x": 92.5, "y": 176.5}},
+      {"name": "fast-transport-belt", "direction": 6, "position": {"x": 93.5, "y": 176.5}},
+      {"name": "fast-transport-belt", "direction": 6, "position": {"x": 98.5, "y": 175.5}},
+      {"name": "fast-transport-belt", "position": {"x": 98.5, "y": 176.5}},
       {"name": "fast-transport-belt", "direction": 4, "position": {"x": 209.5, "y": 150.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 214.5, "y": 150.5}},
       {
@@ -5260,6 +5550,18 @@
       },
       {
         "name": "fast-underground-belt",
+        "direction": 6,
+        "type": "output",
+        "position": {"x": 94.5, "y": 175.5}
+      },
+      {
+        "name": "fast-underground-belt",
+        "direction": 6,
+        "type": "input",
+        "position": {"x": 97.5, "y": 175.5}
+      },
+      {
+        "name": "fast-underground-belt",
         "direction": 4,
         "type": "output",
         "position": {"x": 196.5, "y": 131.5}
@@ -5290,6 +5592,13 @@
           "circuit_read_hand_contents": true,
           "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-I", "type": "virtual"}}
         },
+        "filters": [
+          {"name": "transport-belt", "index": 1},
+          {"name": "fast-transport-belt", "index": 2},
+          {"name": "express-transport-belt", "index": 3},
+          {"name": "underground-belt", "index": 4},
+          {"name": "fast-underground-belt", "index": 5}
+        ],
         "position": {"x": 14.5, "y": 45.5}
       },
       {
@@ -5309,6 +5618,11 @@
         "direction": 6,
         "filters": [{"name": "advanced-circuit", "index": 1}],
         "position": {"x": 96.5, "y": 78.5}
+      },
+      {
+        "name": "filter-inserter",
+        "filters": [{"name": "processing-unit", "index": 1}],
+        "position": {"x": 77.5, "y": 124.5}
       },
       {
         "name": "filter-inserter",
@@ -5372,12 +5686,6 @@
       },
       {
         "name": "filter-inserter",
-        "direction": 4,
-        "filters": [{"name": "processing-unit", "index": 1}],
-        "position": {"x": 112.5, "y": 129.5}
-      },
-      {
-        "name": "filter-inserter",
         "direction": 2,
         "override_stack_size": 1,
         "connections": {"1": {"green": [{"entity_rel": "0,1"}]}},
@@ -5402,7 +5710,7 @@
         "name": "filter-inserter",
         "direction": 4,
         "filters": [{"name": "se-canister", "index": 1}],
-        "position": {"x": 156.5, "y": 130.5}
+        "position": {"x": 156.5, "y": 131.5}
       },
       {
         "name": "filter-inserter",
@@ -5649,7 +5957,7 @@
       {"name": "inserter", "direction": 4, "position": {"x": 56.5, "y": 120.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 59.5, "y": 120.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 62.5, "y": 120.5}},
-      {"name": "inserter", "position": {"x": 57.5, "y": 127.5}},
+      {"name": "inserter", "position": {"x": 58.5, "y": 127.5}},
       {"name": "inserter", "position": {"x": 65.5, "y": 69.5}},
       {"name": "inserter", "position": {"x": 68.5, "y": 69.5}},
       {"name": "inserter", "position": {"x": 71.5, "y": 69.5}},
@@ -5965,7 +6273,7 @@
       {"name": "inserter", "direction": 4, "position": {"x": 71.5, "y": 120.5}},
       {
         "name": "inserter",
-        "connections": {"1": {"green": [{"entity_rel": "-9,1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "-8,1"}]}},
         "control_behavior": {
           "circuit_condition": {"comparator": "≥", "constant": 2, "first_signal": {"name": "nuclear-reactor", "type": "item"}}
         },
@@ -6034,7 +6342,6 @@
       {"name": "inserter", "direction": 2, "position": {"x": 111.5, "y": 121.5}},
       {"name": "inserter", "direction": 2, "position": {"x": 115.5, "y": 112.5}},
       {"name": "inserter", "direction": 2, "position": {"x": 115.5, "y": 115.5}},
-      {"name": "inserter", "direction": 4, "position": {"x": 118.5, "y": 113.5}},
       {"name": "inserter", "direction": 6, "position": {"x": 117.5, "y": 115.5}},
       {"name": "inserter", "direction": 2, "position": {"x": 115.5, "y": 118.5}},
       {"name": "inserter", "direction": 6, "position": {"x": 117.5, "y": 118.5}},
@@ -6076,6 +6383,7 @@
       {"name": "inserter", "direction": 4, "position": {"x": 134.5, "y": 87.5}},
       {"name": "inserter", "position": {"x": 135.5, "y": 87.5}},
       {"name": "inserter", "direction": 6, "position": {"x": 139.5, "y": 82.5}},
+      {"name": "inserter", "position": {"x": 142.5, "y": 86.5}},
       {"name": "inserter", "position": {"x": 129.5, "y": 91.5}},
       {"name": "inserter", "direction": 6, "position": {"x": 133.5, "y": 88.5}},
       {"name": "inserter", "position": {"x": 129.5, "y": 93.5}},
@@ -6092,6 +6400,7 @@
       {"name": "inserter", "direction": 6, "position": {"x": 143.5, "y": 95.5}},
       {"name": "inserter", "direction": 6, "position": {"x": 153.5, "y": 94.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 161.5, "y": 94.5}},
+      {"name": "inserter", "direction": 6, "position": {"x": 181.5, "y": 85.5}},
       {"name": "inserter", "direction": 2, "position": {"x": 177.5, "y": 94.5}},
       {"name": "inserter", "position": {"x": 178.5, "y": 95.5}},
       {"name": "inserter", "direction": 6, "position": {"x": 185.5, "y": 92.5}},
@@ -6337,38 +6646,29 @@
       {"name": "inserter", "direction": 6, "position": {"x": 41.5, "y": 136.5}},
       {"name": "inserter", "direction": 6, "position": {"x": 41.5, "y": 139.5}},
       {"name": "inserter", "direction": 2, "position": {"x": 43.5, "y": 141.5}},
-      {"name": "inserter", "direction": 4, "position": {"x": 53.5, "y": 135.5}},
-      {"name": "inserter", "position": {"x": 55.5, "y": 135.5}},
-      {"name": "inserter", "position": {"x": 57.5, "y": 135.5}},
-      {"name": "inserter", "direction": 2, "position": {"x": 60.5, "y": 133.5}},
-      {"name": "inserter", "direction": 4, "position": {"x": 61.5, "y": 135.5}},
       {
         "name": "inserter",
         "direction": 2,
         "override_stack_size": 1,
-        "connections": {
-          "1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}], "red": [{"entity_rel": "2.5,6.5"}]}
-        },
+        "connections": {"1": {"red": [{"entity_rel": "0,-8"}]}},
         "control_behavior": {
           "circuit_condition": {
-            "comparator": "<",
-            "first_signal": {"name": "se-cargo-rocket-section-packed", "type": "item"},
-            "second_signal": {"name": "signal-R", "type": "virtual"}
+            "comparator": ">",
+            "constant": 0,
+            "first_signal": {"name": "se-cargo-rocket-section-packed", "type": "item"}
           }
         },
         "position": {"x": 49.5, "y": 163.5}
       },
       {"name": "inserter", "direction": 4, "position": {"x": 51.5, "y": 163.5}},
-      {"name": "inserter", "direction": 6, "position": {"x": 64.5, "y": 133.5}},
-      {"name": "inserter", "position": {"x": 65.5, "y": 135.5}},
       {"name": "inserter", "direction": 2, "position": {"x": 79.5, "y": 131.5}},
+      {"name": "inserter", "direction": 6, "position": {"x": 66.5, "y": 139.5}},
       {"name": "inserter", "position": {"x": 93.5, "y": 130.5}},
       {"name": "inserter", "direction": 2, "position": {"x": 95.5, "y": 131.5}},
       {"name": "inserter", "direction": 6, "position": {"x": 95.5, "y": 132.5}},
       {"name": "inserter", "direction": 2, "position": {"x": 100.5, "y": 128.5}},
       {"name": "inserter", "direction": 2, "position": {"x": 102.5, "y": 137.5}},
       {"name": "inserter", "direction": 2, "position": {"x": 98.5, "y": 140.5}},
-      {"name": "inserter", "direction": 4, "position": {"x": 107.5, "y": 137.5}},
       {
         "name": "inserter",
         "direction": 6,
@@ -6533,6 +6833,7 @@
         "position": {"x": 144.5, "y": 128.5}
       },
       {"name": "inserter", "direction": 4, "position": {"x": 155.5, "y": 129.5}},
+      {"name": "inserter", "direction": 2, "position": {"x": 146.5, "y": 139.5}},
       {"name": "inserter", "direction": 2, "position": {"x": 159.5, "y": 147.5}},
       {"name": "inserter", "direction": 2, "position": {"x": 159.5, "y": 153.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 163.5, "y": 129.5}},
@@ -6638,6 +6939,7 @@
       {"name": "iron-chest", "bar": 1, "position": {"x": 95.5, "y": 71.5}},
       {"name": "iron-chest", "bar": 1, "position": {"x": 101.5, "y": 71.5}},
       {"name": "iron-chest", "position": {"x": 147.5, "y": 71.5}},
+      {"name": "iron-chest", "position": {"x": 142.5, "y": 85.5}},
       {"name": "iron-chest", "position": {"x": 163.5, "y": 79.5}},
       {"name": "iron-chest", "position": {"x": 165.5, "y": 79.5}},
       {"name": "iron-chest", "bar": 2, "position": {"x": 129.5, "y": 122.5}},
@@ -6769,6 +7071,356 @@
         "connections": {"1": {"green": [{"entity_rel": "1,0"}]}},
         "position": {"x": 114.5, "y": 140.5}
       },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "1,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "1,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "position": {"x": 81.5, "y": 179.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "-1,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "position": {"x": 86.5, "y": 179.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "position": {"x": 81.5, "y": 180.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "position": {"x": 81.5, "y": 181.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "position": {"x": 81.5, "y": 182.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "position": {"x": 81.5, "y": 183.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "position": {"x": 86.5, "y": 180.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "position": {"x": 86.5, "y": 181.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "position": {"x": 86.5, "y": 182.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "position": {"x": 86.5, "y": 183.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {"1": {"green": [{"entity_rel": "0,1"}], "red": [{"entity_rel": "0,1"}]}},
+        "position": {"x": 93.5, "y": 179.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "position": {"x": 93.5, "y": 180.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "position": {"x": 93.5, "y": 181.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "position": {"x": 93.5, "y": 182.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "position": {"x": 93.5, "y": 183.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}], "red": [{"entity_rel": "0,-1"}]}},
+        "position": {"x": 81.5, "y": 184.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}], "red": [{"entity_rel": "0,-1"}]}},
+        "position": {"x": 86.5, "y": 184.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "position": {"x": 93.5, "y": 184.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "position": {"x": 93.5, "y": 185.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "position": {"x": 93.5, "y": 186.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "position": {"x": 93.5, "y": 187.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "position": {"x": 93.5, "y": 188.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "position": {"x": 93.5, "y": 189.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "position": {"x": 93.5, "y": 190.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}], "red": [{"entity_rel": "0,-1"}]}},
+        "position": {"x": 93.5, "y": 191.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {"1": {"green": [{"entity_rel": "0,1"}], "red": [{"entity_rel": "0,1"}]}},
+        "position": {"x": 98.5, "y": 179.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "position": {"x": 98.5, "y": 180.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "position": {"x": 98.5, "y": 181.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "position": {"x": 98.5, "y": 182.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "position": {"x": 98.5, "y": 183.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "position": {"x": 98.5, "y": 184.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}, {"entity_rel": "-1,0"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}, {"entity_rel": "-1,0"}]
+          }
+        },
+        "position": {"x": 98.5, "y": 185.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "position": {"x": 98.5, "y": 186.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "position": {"x": 98.5, "y": 187.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "position": {"x": 98.5, "y": 188.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "position": {"x": 98.5, "y": 189.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "position": {"x": 98.5, "y": 190.5}
+      },
+      {
+        "name": "iron-chest",
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}], "red": [{"entity_rel": "0,-1"}]}},
+        "position": {"x": 98.5, "y": 191.5}
+      },
       {"name": "iron-chest", "position": {"x": 196.5, "y": 138.5}},
       {"name": "lab", "position": {"x": 35.5, "y": 82.5}},
       {"name": "lab", "position": {"x": 39.5, "y": 82.5}},
@@ -6813,6 +7465,8 @@
       {"name": "loader", "direction": 4, "type": "output", "position": {"x": 176.5, "y": 46}},
       {"name": "loader", "type": "output", "position": {"x": 57.5, "y": 178}},
       {"name": "loader", "type": "output", "position": {"x": 62.5, "y": 178}},
+      {"name": "loader", "type": "output", "position": {"x": 81.5, "y": 178}},
+      {"name": "loader", "type": "output", "position": {"x": 86.5, "y": 178}},
       {
         "name": "loader",
         "direction": 6,
@@ -6856,14 +7510,14 @@
         "position": {"x": 208, "y": 177.5}
       },
       {"name": "logistic-chest-active-provider", "position": {"x": 14.5, "y": 44.5}},
-      {"name": "logistic-chest-active-provider", "position": {"x": 16.5, "y": 127.5}},
-      {"name": "logistic-chest-active-provider", "position": {"x": 16.5, "y": 128.5}},
-      {"name": "logistic-chest-active-provider", "position": {"x": 16.5, "y": 134.5}},
-      {"name": "logistic-chest-active-provider", "position": {"x": 16.5, "y": 135.5}},
-      {"name": "logistic-chest-active-provider", "position": {"x": 16.5, "y": 141.5}},
-      {"name": "logistic-chest-active-provider", "position": {"x": 16.5, "y": 142.5}},
-      {"name": "logistic-chest-active-provider", "position": {"x": 16.5, "y": 148.5}},
-      {"name": "logistic-chest-active-provider", "position": {"x": 16.5, "y": 149.5}},
+      {"name": "logistic-chest-active-provider", "position": {"x": 16.5, "y": 91.5}},
+      {"name": "logistic-chest-active-provider", "position": {"x": 16.5, "y": 92.5}},
+      {"name": "logistic-chest-active-provider", "position": {"x": 16.5, "y": 98.5}},
+      {"name": "logistic-chest-active-provider", "position": {"x": 16.5, "y": 99.5}},
+      {"name": "logistic-chest-active-provider", "position": {"x": 16.5, "y": 105.5}},
+      {"name": "logistic-chest-active-provider", "position": {"x": 16.5, "y": 106.5}},
+      {"name": "logistic-chest-active-provider", "position": {"x": 16.5, "y": 112.5}},
+      {"name": "logistic-chest-active-provider", "position": {"x": 16.5, "y": 113.5}},
       {"name": "logistic-chest-active-provider", "position": {"x": 153.5, "y": 132.5}},
       {
         "name": "logistic-chest-buffer",
@@ -6928,6 +7582,8 @@
           {"name": "rail-chain-signal", "count": 90, "index": 3}
         ]
       },
+      {"name": "logistic-chest-buffer", "bar": 2, "position": {"x": 131.5, "y": 57.5}},
+      {"name": "logistic-chest-buffer", "bar": 2, "position": {"x": 149.5, "y": 63.5}},
       {"name": "logistic-chest-buffer", "bar": 2, "position": {"x": 148.5, "y": 91.5}},
       {"name": "logistic-chest-passive-provider", "bar": 2, "position": {"x": 52.5, "y": 72.5}},
       {"name": "logistic-chest-passive-provider", "bar": 1, "position": {"x": 61.5, "y": 83.5}},
@@ -6956,6 +7612,7 @@
       {"name": "logistic-chest-passive-provider", "bar": 2, "position": {"x": 89.5, "y": 104.5}},
       {"name": "logistic-chest-passive-provider", "bar": 1, "position": {"x": 94.5, "y": 110.5}},
       {"name": "logistic-chest-passive-provider", "bar": 1, "position": {"x": 75.5, "y": 120.5}},
+      {"name": "logistic-chest-passive-provider", "bar": 1, "position": {"x": 77.5, "y": 125.5}},
       {"name": "logistic-chest-passive-provider", "bar": 4, "position": {"x": 89.5, "y": 120.5}},
       {"name": "logistic-chest-passive-provider", "bar": 2, "position": {"x": 95.5, "y": 120.5}},
       {"name": "logistic-chest-passive-provider", "bar": 1, "position": {"x": 95.5, "y": 127.5}},
@@ -6968,8 +7625,7 @@
       {"name": "logistic-chest-passive-provider", "bar": 4, "position": {"x": 113.5, "y": 104.5}},
       {"name": "logistic-chest-passive-provider", "bar": 4, "position": {"x": 122.5, "y": 104.5}},
       {"name": "logistic-chest-passive-provider", "bar": 1, "position": {"x": 101.5, "y": 120.5}},
-      {"name": "logistic-chest-passive-provider", "bar": 2, "position": {"x": 118.5, "y": 112.5}},
-      {"name": "logistic-chest-passive-provider", "bar": 1, "position": {"x": 124.5, "y": 116.5}},
+      {"name": "logistic-chest-passive-provider", "bar": 2, "position": {"x": 124.5, "y": 116.5}},
       {"name": "logistic-chest-passive-provider", "bar": 1, "position": {"x": 113.5, "y": 127.5}},
       {"name": "logistic-chest-passive-provider", "bar": 1, "position": {"x": 127.5, "y": 126.5}},
       {"name": "logistic-chest-passive-provider", "bar": 10, "position": {"x": 138.5, "y": 71.5}},
@@ -7027,6 +7683,7 @@
       {"name": "logistic-chest-passive-provider", "bar": 2, "position": {"x": 189.5, "y": 72.5}},
       {"name": "logistic-chest-passive-provider", "bar": 2, "position": {"x": 189.5, "y": 78.5}},
       {"name": "logistic-chest-passive-provider", "bar": 1, "position": {"x": 161.5, "y": 93.5}},
+      {"name": "logistic-chest-passive-provider", "bar": 20, "position": {"x": 183.5, "y": 83.5}},
       {
         "name": "logistic-chest-passive-provider",
         "connections": {"1": {"green": [{"entity_rel": "8,2"}]}},
@@ -7077,7 +7734,7 @@
       {"name": "logistic-chest-passive-provider", "bar": 2, "position": {"x": 169.5, "y": 112.5}},
       {
         "name": "logistic-chest-passive-provider",
-        "bar": 40,
+        "bar": 20,
         "connections": {"1": {"green": [{"entity_rel": "1,0"}]}},
         "position": {"x": 162.5, "y": 121.5}
       },
@@ -7101,11 +7758,9 @@
       {
         "name": "logistic-chest-passive-provider",
         "bar": 8,
-        "connections": {"1": {"green": [{"entity_rel": "9,-1"}]}},
-        "position": {"x": 57.5, "y": 128.5}
+        "connections": {"1": {"green": [{"entity_rel": "8,-1"}]}},
+        "position": {"x": 58.5, "y": 128.5}
       },
-      {"name": "logistic-chest-passive-provider", "bar": 20, "position": {"x": 55.5, "y": 136.5}},
-      {"name": "logistic-chest-passive-provider", "bar": 4, "position": {"x": 57.5, "y": 136.5}},
       {
         "name": "logistic-chest-passive-provider",
         "bar": 25,
@@ -7114,13 +7769,12 @@
       },
       {"name": "logistic-chest-passive-provider", "position": {"x": 70.5, "y": 128.5}},
       {"name": "logistic-chest-passive-provider", "bar": 1, "position": {"x": 78.5, "y": 131.5}},
-      {"name": "logistic-chest-passive-provider", "bar": 2, "position": {"x": 65.5, "y": 136.5}},
+      {"name": "logistic-chest-passive-provider", "bar": 1, "position": {"x": 67.5, "y": 139.5}},
+      {"name": "logistic-chest-passive-provider", "bar": 5, "position": {"x": 86.5, "y": 131.5}},
       {"name": "logistic-chest-passive-provider", "bar": 1, "position": {"x": 96.5, "y": 132.5}},
       {"name": "logistic-chest-passive-provider", "position": {"x": 99.5, "y": 135.5}},
       {"name": "logistic-chest-passive-provider", "position": {"x": 101.5, "y": 137.5}},
       {"name": "logistic-chest-passive-provider", "position": {"x": 97.5, "y": 140.5}},
-      {"name": "logistic-chest-passive-provider", "position": {"x": 107.5, "y": 136.5}},
-      {"name": "logistic-chest-passive-provider", "bar": 1, "position": {"x": 112.5, "y": 128.5}},
       {"name": "logistic-chest-passive-provider", "bar": 1, "position": {"x": 112.5, "y": 140.5}},
       {"name": "logistic-chest-passive-provider", "bar": 1, "position": {"x": 103.5, "y": 148.5}},
       {"name": "logistic-chest-passive-provider", "bar": 1, "position": {"x": 101.5, "y": 151.5}},
@@ -7167,6 +7821,7 @@
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}]}},
         "position": {"x": 144.5, "y": 129.5}
       },
+      {"name": "logistic-chest-passive-provider", "bar": 2, "position": {"x": 145.5, "y": 139.5}},
       {"name": "logistic-chest-passive-provider", "bar": 1, "position": {"x": 155.5, "y": 140.5}},
       {"name": "logistic-chest-passive-provider", "bar": 2, "position": {"x": 158.5, "y": 147.5}},
       {"name": "logistic-chest-passive-provider", "bar": 1, "position": {"x": 158.5, "y": 153.5}},
@@ -7305,11 +7960,21 @@
       },
       {
         "name": "logistic-chest-requester",
+        "position": {"x": 180.5, "y": 85.5},
+        "request_filters": [{"name": "se-cryonite-rod", "count": 20, "index": 1}]
+      },
+      {
+        "name": "logistic-chest-requester",
         "position": {"x": 132.5, "y": 96.5},
         "request_filters": [
           {"name": "electric-engine-unit", "count": 30, "index": 1},
           {"name": "processing-unit", "count": 15, "index": 2}
         ]
+      },
+      {
+        "name": "logistic-chest-requester",
+        "position": {"x": 155.5, "y": 103.5},
+        "request_filters": [{"name": "battery", "count": 100, "index": 1}]
       },
       {
         "name": "logistic-chest-requester",
@@ -7327,6 +7992,14 @@
         "request_filters": [
           {"name": "iron-gear-wheel", "count": 100, "index": 1},
           {"name": "advanced-circuit", "count": 25, "index": 2}
+        ]
+      },
+      {
+        "name": "logistic-chest-requester",
+        "position": {"x": 38.5, "y": 128.5},
+        "request_filters": [
+          {"name": "electric-engine-unit", "count": 50, "index": 1},
+          {"name": "se-heat-shielding", "count": 50, "index": 2}
         ]
       },
       {
@@ -7354,6 +8027,11 @@
           {"name": "arithmetic-combinator", "count": 30, "index": 1},
           {"name": "repair-pack", "count": 30, "index": 2}
         ]
+      },
+      {
+        "name": "logistic-chest-requester",
+        "position": {"x": 86.5, "y": 132.5},
+        "request_filters": [{"name": "empty-barrel", "count": 100, "index": 1}]
       },
       {
         "name": "logistic-chest-requester",
@@ -7432,19 +8110,13 @@
       },
       {
         "name": "logistic-chest-requester",
-        "position": {"x": 153.5, "y": 131.5},
-        "request_filters": [
-          {"name": "se-heat-shielding", "count": 20, "index": 1},
-          {"name": "glass", "count": 100, "index": 2},
-          {"name": "copper-plate", "count": 100, "index": 3},
-          {"name": "steel-plate", "count": 100, "index": 4},
-          {"name": "plastic-bar", "count": 100, "index": 5}
-        ]
+        "position": {"x": 153.5, "y": 135.5},
+        "request_filters": [{"name": "advanced-circuit", "count": 100, "index": 1}]
       },
       {
         "name": "logistic-chest-requester",
-        "position": {"x": 153.5, "y": 135.5},
-        "request_filters": [{"name": "advanced-circuit", "count": 100, "index": 1}]
+        "position": {"x": 145.5, "y": 140.5},
+        "request_filters": [{"name": "advanced-circuit", "count": 20, "index": 1}]
       },
       {
         "name": "logistic-chest-requester",
@@ -7453,6 +8125,7 @@
       },
       {
         "name": "logistic-chest-requester",
+        "request_from_buffers": true,
         "position": {"x": 166.5, "y": 135.5},
         "request_filters": [
           {"name": "wood", "count": 1000, "index": 1},
@@ -7563,6 +8236,16 @@
         "position": {"x": 192.5, "y": 172.5},
         "request_filters": [{"name": "se-vulcanite-block", "count": 100, "index": 1}]
       },
+      {
+        "name": "logistic-chest-storage",
+        "position": {"x": 14.5, "y": 91.5},
+        "request_filters": [{"name": "se-spaceship-console-alt", "count": 0, "index": 1}]
+      },
+      {
+        "name": "logistic-chest-storage",
+        "position": {"x": 14.5, "y": 92.5},
+        "request_filters": [{"name": "se-spaceship-console-alt", "count": 0, "index": 1}]
+      },
       {"name": "logistic-chest-storage", "position": {"x": 52.5, "y": 76.5}},
       {"name": "logistic-chest-storage", "position": {"x": 53.5, "y": 76.5}},
       {"name": "logistic-chest-storage", "position": {"x": 54.5, "y": 76.5}},
@@ -7571,7 +8254,32 @@
       {"name": "logistic-chest-storage", "position": {"x": 57.5, "y": 76.5}},
       {
         "name": "logistic-chest-storage",
-        "position": {"x": 14.5, "y": 127.5},
+        "position": {"x": 14.5, "y": 98.5},
+        "request_filters": [{"name": "se-spaceship-console-alt", "count": 0, "index": 1}]
+      },
+      {
+        "name": "logistic-chest-storage",
+        "position": {"x": 14.5, "y": 99.5},
+        "request_filters": [{"name": "se-spaceship-console-alt", "count": 0, "index": 1}]
+      },
+      {
+        "name": "logistic-chest-storage",
+        "position": {"x": 14.5, "y": 105.5},
+        "request_filters": [{"name": "se-spaceship-console-alt", "count": 0, "index": 1}]
+      },
+      {
+        "name": "logistic-chest-storage",
+        "position": {"x": 14.5, "y": 106.5},
+        "request_filters": [{"name": "se-spaceship-console-alt", "count": 0, "index": 1}]
+      },
+      {
+        "name": "logistic-chest-storage",
+        "position": {"x": 14.5, "y": 112.5},
+        "request_filters": [{"name": "se-spaceship-console-alt", "count": 0, "index": 1}]
+      },
+      {
+        "name": "logistic-chest-storage",
+        "position": {"x": 14.5, "y": 113.5},
         "request_filters": [{"name": "se-spaceship-console-alt", "count": 0, "index": 1}]
       },
       {
@@ -7755,41 +8463,6 @@
       },
       {
         "name": "logistic-chest-storage",
-        "position": {"x": 14.5, "y": 128.5},
-        "request_filters": [{"name": "se-spaceship-console-alt", "count": 0, "index": 1}]
-      },
-      {
-        "name": "logistic-chest-storage",
-        "position": {"x": 14.5, "y": 134.5},
-        "request_filters": [{"name": "se-spaceship-console-alt", "count": 0, "index": 1}]
-      },
-      {
-        "name": "logistic-chest-storage",
-        "position": {"x": 14.5, "y": 135.5},
-        "request_filters": [{"name": "se-spaceship-console-alt", "count": 0, "index": 1}]
-      },
-      {
-        "name": "logistic-chest-storage",
-        "position": {"x": 14.5, "y": 141.5},
-        "request_filters": [{"name": "se-spaceship-console-alt", "count": 0, "index": 1}]
-      },
-      {
-        "name": "logistic-chest-storage",
-        "position": {"x": 14.5, "y": 142.5},
-        "request_filters": [{"name": "se-spaceship-console-alt", "count": 0, "index": 1}]
-      },
-      {
-        "name": "logistic-chest-storage",
-        "position": {"x": 14.5, "y": 148.5},
-        "request_filters": [{"name": "se-spaceship-console-alt", "count": 0, "index": 1}]
-      },
-      {
-        "name": "logistic-chest-storage",
-        "position": {"x": 14.5, "y": 149.5},
-        "request_filters": [{"name": "se-spaceship-console-alt", "count": 0, "index": 1}]
-      },
-      {
-        "name": "logistic-chest-storage",
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}]}},
         "position": {"x": 43.5, "y": 128.5},
         "request_filters": [{"name": "train-stop", "count": 0, "index": 1}]
@@ -7941,7 +8614,7 @@
           "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "ltn-locked-slots", "type": "virtual"}},
           "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
         },
-        "position": {"x": 14, "y": 118}
+        "position": {"x": 14, "y": 82}
       },
       {
         "name": "logistic-train-stop",
@@ -7989,7 +8662,7 @@
       },
       {
         "name": "logistic-train-stop",
-        "station": "Alex Xavier",
+        "station": "Mall/Rocket Sections",
         "color": {"a": 0.49803921580314636, "b": 1, "g": 0.501960813999176, "r": 0},
         "connections": {"1": {"green": [{"entity_rel": "0.5,1.5"}]}},
         "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
@@ -8002,6 +8675,22 @@
         "connections": {"1": {"green": [{"entity_rel": "0.5,1.5"}]}},
         "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
         "position": {"x": 74, "y": 172}
+      },
+      {
+        "name": "logistic-train-stop",
+        "station": "Mall/Rocket Sectionts",
+        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.501960813999176, "r": 0},
+        "connections": {"1": {"green": [{"entity_rel": "0.5,1.5"}]}},
+        "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
+        "position": {"x": 86, "y": 172}
+      },
+      {
+        "name": "logistic-train-stop",
+        "station": "Mall/Rocket Fuel",
+        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.501960813999176, "r": 0},
+        "connections": {"1": {"green": [{"entity_rel": "0.5,1.5"}]}},
+        "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
+        "position": {"x": 98, "y": 172}
       },
       {
         "name": "logistic-train-stop",
@@ -8121,7 +8810,7 @@
           "use_colors": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
         },
-        "position": {"x": 14.5, "y": 117.5}
+        "position": {"x": 14.5, "y": 81.5}
       },
       {
         "name": "logistic-train-stop-input",
@@ -8211,7 +8900,7 @@
         "name": "logistic-train-stop-input",
         "connections": {
           "1": {
-            "green": [{"circuit_id": 1, "entity_rel": "1.5,0"}, {"entity_rel": "1,2"}],
+            "green": [{"circuit_id": 1, "entity_rel": "1.5,0"}, {"entity_rel": "1,2"}, {"entity_rel": "-1,7"}],
             "red": [{"circuit_id": 1, "entity_rel": "1.5,0"}, {"entity_rel": "0,2"}, {"entity_rel": "1,2"}]
           }
         },
@@ -8220,6 +8909,34 @@
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
         },
         "position": {"x": 74.5, "y": 171.5}
+      },
+      {
+        "name": "logistic-train-stop-input",
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 1, "entity_rel": "1.5,0"}, {"entity_rel": "1,2"}],
+            "red": [{"circuit_id": 1, "entity_rel": "1.5,0"}, {"entity_rel": "0,2"}, {"entity_rel": "1,2"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
+        },
+        "position": {"x": 86.5, "y": 171.5}
+      },
+      {
+        "name": "logistic-train-stop-input",
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 1, "entity_rel": "1.5,0"}, {"entity_rel": "1,2"}],
+            "red": [{"circuit_id": 1, "entity_rel": "1.5,0"}, {"entity_rel": "0,2"}, {"entity_rel": "1,2"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
+        },
+        "position": {"x": 98.5, "y": 171.5}
       },
       {
         "name": "logistic-train-stop-input",
@@ -8246,7 +8963,7 @@
       {"name": "logistic-train-stop-output", "direction": 4, "position": {"x": 88.5, "y": 52.5}},
       {"name": "logistic-train-stop-output", "direction": 4, "position": {"x": 102.5, "y": 52.5}},
       {"name": "logistic-train-stop-output", "direction": 4, "position": {"x": 116.5, "y": 52.5}},
-      {"name": "logistic-train-stop-output", "position": {"x": 13.5, "y": 117.5}},
+      {"name": "logistic-train-stop-output", "position": {"x": 13.5, "y": 81.5}},
       {"name": "logistic-train-stop-output", "direction": 4, "position": {"x": 130.5, "y": 52.5}},
       {"name": "logistic-train-stop-output", "direction": 4, "position": {"x": 144.5, "y": 52.5}},
       {"name": "logistic-train-stop-output", "direction": 4, "position": {"x": 158.5, "y": 52.5}},
@@ -8254,6 +8971,8 @@
       {"name": "logistic-train-stop-output", "position": {"x": 49.5, "y": 171.5}},
       {"name": "logistic-train-stop-output", "position": {"x": 61.5, "y": 171.5}},
       {"name": "logistic-train-stop-output", "position": {"x": 73.5, "y": 171.5}},
+      {"name": "logistic-train-stop-output", "position": {"x": 85.5, "y": 171.5}},
+      {"name": "logistic-train-stop-output", "position": {"x": 97.5, "y": 171.5}},
       {"name": "logistic-train-stop-output", "direction": 4, "position": {"x": 210.5, "y": 186.5}},
       {"name": "long-handed-inserter", "position": {"x": 43.5, "y": 95.5}},
       {"name": "long-handed-inserter", "position": {"x": 49.5, "y": 95.5}},
@@ -8288,7 +9007,6 @@
       {"name": "long-handed-inserter", "position": {"x": 59.5, "y": 123.5}},
       {"name": "long-handed-inserter", "position": {"x": 60.5, "y": 120.5}},
       {"name": "long-handed-inserter", "position": {"x": 63.5, "y": 120.5}},
-      {"name": "long-handed-inserter", "direction": 4, "position": {"x": 58.5, "y": 127.5}},
       {"name": "long-handed-inserter", "direction": 6, "position": {"x": 78.5, "y": 72.5}},
       {"name": "long-handed-inserter", "direction": 2, "position": {"x": 71.5, "y": 82.5}},
       {"name": "long-handed-inserter", "direction": 2, "position": {"x": 76.5, "y": 82.5}},
@@ -8323,7 +9041,7 @@
       {"name": "long-handed-inserter", "position": {"x": 103.5, "y": 126.5}},
       {"name": "long-handed-inserter", "direction": 6, "position": {"x": 111.5, "y": 123.5}},
       {"name": "long-handed-inserter", "position": {"x": 107.5, "y": 126.5}},
-      {"name": "long-handed-inserter", "position": {"x": 108.5, "y": 126.5}},
+      {"name": "long-handed-inserter", "position": {"x": 110.5, "y": 126.5}},
       {"name": "long-handed-inserter", "position": {"x": 127.5, "y": 115.5}},
       {"name": "long-handed-inserter", "direction": 6, "position": {"x": 122.5, "y": 116.5}},
       {"name": "long-handed-inserter", "direction": 6, "position": {"x": 124.5, "y": 123.5}},
@@ -8338,6 +9056,7 @@
       {"name": "long-handed-inserter", "direction": 6, "position": {"x": 151.5, "y": 76.5}},
       {"name": "long-handed-inserter", "direction": 6, "position": {"x": 155.5, "y": 73.5}},
       {"name": "long-handed-inserter", "direction": 6, "position": {"x": 155.5, "y": 76.5}},
+      {"name": "long-handed-inserter", "position": {"x": 141.5, "y": 85.5}},
       {"name": "long-handed-inserter", "direction": 6, "position": {"x": 133.5, "y": 93.5}},
       {"name": "long-handed-inserter", "direction": 6, "position": {"x": 133.5, "y": 94.5}},
       {"name": "long-handed-inserter", "position": {"x": 141.5, "y": 90.5}},
@@ -8426,11 +9145,7 @@
       {"name": "long-handed-inserter", "direction": 6, "position": {"x": 41.5, "y": 133.5}},
       {"name": "long-handed-inserter", "position": {"x": 38.5, "y": 138.5}},
       {"name": "long-handed-inserter", "position": {"x": 45.5, "y": 138.5}},
-      {"name": "long-handed-inserter", "direction": 4, "position": {"x": 54.5, "y": 135.5}},
-      {"name": "long-handed-inserter", "direction": 4, "position": {"x": 58.5, "y": 135.5}},
-      {"name": "long-handed-inserter", "direction": 4, "position": {"x": 62.5, "y": 135.5}},
-      {"name": "long-handed-inserter", "position": {"x": 67.5, "y": 131.5}},
-      {"name": "long-handed-inserter", "direction": 4, "position": {"x": 66.5, "y": 135.5}},
+      {"name": "long-handed-inserter", "direction": 4, "position": {"x": 65.5, "y": 142.5}},
       {"name": "long-handed-inserter", "direction": 6, "position": {"x": 95.5, "y": 128.5}},
       {"name": "long-handed-inserter", "position": {"x": 92.5, "y": 130.5}},
       {"name": "long-handed-inserter", "direction": 6, "position": {"x": 96.5, "y": 128.5}},
@@ -8467,7 +9182,7 @@
       {"name": "long-handed-inserter", "position": {"x": 135.5, "y": 141.5}},
       {"name": "long-handed-inserter", "position": {"x": 138.5, "y": 141.5}},
       {"name": "long-handed-inserter", "position": {"x": 144.5, "y": 132.5}},
-      {"name": "long-handed-inserter", "position": {"x": 146.5, "y": 141.5}},
+      {"name": "long-handed-inserter", "position": {"x": 147.5, "y": 138.5}},
       {"name": "long-handed-inserter", "position": {"x": 155.5, "y": 138.5}},
       {"name": "long-handed-inserter", "position": {"x": 166.5, "y": 129.5}},
       {"name": "long-handed-inserter", "direction": 4, "position": {"x": 177.5, "y": 128.5}},
@@ -8505,6 +9220,7 @@
           "1": {
             "green": [
               {"circuit_id": 2, "entity_rel": "-0.5,-1"},
+              {"entity_rel": "1,0"},
               {"circuit_id": 2, "entity_rel": "-0.5,1"},
               {"circuit_id": 1, "entity_rel": "-4.5,5"},
               {"circuit_id": 1, "entity_rel": "-2,9.5"}
@@ -8888,13 +9604,21 @@
         "position": {"x": 114.5, "y": 50.5}
       },
       {"name": "medium-electric-pole", "neighbours": ["0,-7", "0,7"], "position": {"x": 13.5, "y": 65.5}},
-      {"name": "medium-electric-pole", "neighbours": ["0,-7"], "position": {"x": 13.5, "y": 72.5}},
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["0,-7", "2.5,7.5"],
+        "position": {"x": 13.5, "y": 72.5}
+      },
       {"name": "medium-electric-pole", "neighbours": ["0,-7", "7,0"], "position": {"x": 25.5, "y": 65.5}},
       {
         "name": "medium-electric-pole",
         "neighbours": ["2.5,-8.5", "0,7"],
-        "position": {"x": 13.5, "y": 124.5}
+        "position": {"x": 13.5, "y": 88.5}
       },
+      {"name": "medium-electric-pole", "neighbours": ["0,-7", "0,7"], "position": {"x": 13.5, "y": 95.5}},
+      {"name": "medium-electric-pole", "neighbours": ["0,-7", "0,7"], "position": {"x": 13.5, "y": 102.5}},
+      {"name": "medium-electric-pole", "neighbours": ["0,-7", "0,7"], "position": {"x": 13.5, "y": 109.5}},
+      {"name": "medium-electric-pole", "neighbours": ["0,-7"], "position": {"x": 13.5, "y": 116.5}},
       {"name": "medium-electric-pole", "neighbours": ["6,-1"], "position": {"x": 36.5, "y": 107.5}},
       {
         "name": "medium-electric-pole",
@@ -8908,13 +9632,13 @@
       },
       {
         "name": "medium-electric-pole",
-        "neighbours": ["0,-3", "-8,-1", "8,3", "-1,6"],
+        "neighbours": ["0,-3", "-8,-1", "-1,6"],
         "position": {"x": 52.5, "y": 123.5}
       },
       {
         "name": "medium-electric-pole",
-        "neighbours": ["-2,-6", "-8,-3", "7,-3", "6,4"],
-        "position": {"x": 60.5, "y": 126.5}
+        "neighbours": ["1,-5", "7,2", "-6,4"],
+        "position": {"x": 57.5, "y": 125.5}
       },
       {
         "name": "medium-electric-pole",
@@ -8928,8 +9652,13 @@
       },
       {
         "name": "medium-electric-pole",
-        "neighbours": ["-3,-3", "-7,3", "5,3", "-1,7"],
+        "neighbours": ["-3,-3", "5,3", "-1,7"],
         "position": {"x": 67.5, "y": 123.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["0,-7", "-7,-2", "2,3"],
+        "position": {"x": 64.5, "y": 127.5}
       },
       {
         "name": "medium-electric-pole",
@@ -8943,12 +9672,12 @@
       },
       {
         "name": "medium-electric-pole",
-        "neighbours": ["1,-7", "-3,-3", "5,0", "-8,3"],
+        "neighbours": ["1,-7", "-3,-3", "7,0", "-8,3"],
         "position": {"x": 80.5, "y": 123.5}
       },
       {
         "name": "medium-electric-pole",
-        "neighbours": ["0,-4", "5,-4", "-1,5"],
+        "neighbours": ["0,-4", "5,0", "-1,5"],
         "position": {"x": 106.5, "y": 126.5}
       },
       {
@@ -9075,7 +9804,7 @@
       {
         "name": "medium-electric-pole",
         "connections": {"1": {"green": [{"entity_rel": "2,-5"}, {"entity_rel": "1,2"}], "red": [{"entity_rel": "1,2"}]}},
-        "neighbours": ["2,-5", "5,-5", "-0.5,3.5"],
+        "neighbours": ["2,-5", "5,-5", "-0.5,3.5", "2,7"],
         "position": {"x": 128.5, "y": 50.5}
       },
       {
@@ -9084,7 +9813,17 @@
         "neighbours": ["2,-5", "5,-5", "-0.5,3.5"],
         "position": {"x": 142.5, "y": 50.5}
       },
-      {"name": "medium-electric-pole", "neighbours": ["-2.5,-4.5"], "position": {"x": 130.5, "y": 58.5}},
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-2,-7", "0,1"],
+        "position": {"x": 130.5, "y": 57.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-2.5,-4.5", "0,-1"],
+        "position": {"x": 130.5, "y": 58.5}
+      },
+      {"name": "medium-electric-pole", "neighbours": ["-0.5,-4.5"], "position": {"x": 142.5, "y": 58.5}},
       {
         "name": "medium-electric-pole",
         "connections": {"1": {"green": [{"entity_rel": "1,2"}], "red": [{"entity_rel": "1,2"}]}},
@@ -9159,12 +9898,25 @@
         "neighbours": ["-6,-1", "0,-9", "7,0"],
         "position": {"x": 172.5, "y": 75.5}
       },
-      {"name": "medium-electric-pole", "neighbours": ["-7,0", "8,0"], "position": {"x": 179.5, "y": 75.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-8,0", "7,4"], "position": {"x": 187.5, "y": 75.5}},
-      {"name": "medium-electric-pole", "neighbours": ["8,1", "-4,8"], "position": {"x": 178.5, "y": 89.5}},
       {
         "name": "medium-electric-pole",
-        "neighbours": ["-8,-1", "-5,7"],
+        "neighbours": ["-7,0", "8,0", "4,7"],
+        "position": {"x": 179.5, "y": 75.5}
+      },
+      {"name": "medium-electric-pole", "neighbours": ["-8,0", "7,4"], "position": {"x": 187.5, "y": 75.5}},
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-4,-7", "3,8"],
+        "position": {"x": 183.5, "y": 82.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-6,-4", "8,1", "-4,8"],
+        "position": {"x": 178.5, "y": 89.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-8,-1", "-3,-8", "-5,7"],
         "position": {"x": 186.5, "y": 90.5}
       },
       {
@@ -9318,24 +10070,6 @@
         "neighbours": ["-6,0", "2,6"],
         "position": {"x": 198.5, "y": 123.5}
       },
-      {"name": "medium-electric-pole", "neighbours": ["0,-7", "0,7"], "position": {"x": 13.5, "y": 131.5}},
-      {"name": "medium-electric-pole", "neighbours": ["0,-7", "0,7"], "position": {"x": 13.5, "y": 138.5}},
-      {
-        "name": "medium-electric-pole",
-        "neighbours": ["0,-7", "8,2", "0,7"],
-        "position": {"x": 13.5, "y": 145.5}
-      },
-      {"name": "medium-electric-pole", "neighbours": ["0,-7"], "position": {"x": 13.5, "y": 152.5}},
-      {
-        "name": "medium-electric-pole",
-        "neighbours": ["-8,-2", "8,3"],
-        "position": {"x": 21.5, "y": 147.5}
-      },
-      {
-        "name": "medium-electric-pole",
-        "neighbours": ["-8,-3", "8,2"],
-        "position": {"x": 29.5, "y": 150.5}
-      },
       {"name": "medium-electric-pole", "neighbours": ["0,-5", "7,0"], "position": {"x": 37.5, "y": 129.5}},
       {
         "name": "medium-electric-pole",
@@ -9347,27 +10081,22 @@
         "neighbours": ["2,-6", "-1,6"],
         "position": {"x": 42.5, "y": 135.5}
       },
-      {"name": "medium-electric-pole", "neighbours": ["1,-6"], "position": {"x": 41.5, "y": 141.5}},
       {
         "name": "medium-electric-pole",
-        "neighbours": ["1,-6", "-7,0", "5,6"],
+        "neighbours": ["1,-6", "-5,7"],
+        "position": {"x": 41.5, "y": 141.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["1,-6", "-7,0", "6,-4"],
         "position": {"x": 51.5, "y": 129.5}
       },
-      {
-        "name": "medium-electric-pole",
-        "neighbours": ["-5,-6", "7,0"],
-        "position": {"x": 56.5, "y": 135.5}
-      },
-      {
-        "name": "medium-electric-pole",
-        "neighbours": ["3,-5", "-7,0"],
-        "position": {"x": 63.5, "y": 135.5}
-      },
-      {"name": "medium-electric-pole", "neighbours": ["-8,-2"], "position": {"x": 37.5, "y": 152.5}},
+      {"name": "medium-electric-pole", "neighbours": ["4,-8", "4,4"], "position": {"x": 62.5, "y": 138.5}},
+      {"name": "medium-electric-pole", "neighbours": ["5,-7"], "position": {"x": 36.5, "y": 148.5}},
       {"name": "medium-electric-pole", "neighbours": ["-2,8"], "position": {"x": 51.5, "y": 156.5}},
       {
         "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "-5.5,-5.5"}, {"entity_rel": "0,-1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "-5.5,-5.5"}, {"entity_rel": "0,-2"}]}},
         "neighbours": ["2,-8", "8,-1", "2.5,5.5"],
         "position": {"x": 49.5, "y": 164.5}
       },
@@ -9383,7 +10112,7 @@
         "connections": {
           "1": {"green": [{"entity_rel": "-1,-2"}, {"entity_rel": "-2,5"}], "red": [{"entity_rel": "-1,-2"}]}
         },
-        "neighbours": ["0.5,-3.5", "5,0", "-5,5", "-2,5"],
+        "neighbours": ["0.5,-3.5", "-5,5", "-2,5"],
         "position": {"x": 63.5, "y": 173.5}
       },
       {
@@ -9429,10 +10158,11 @@
       },
       {
         "name": "medium-electric-pole",
-        "neighbours": ["1,-7", "-6,-4", "6,-4", "-3,5"],
+        "neighbours": ["1,-7", "-2,-3", "6,-4", "-4,8"],
         "position": {"x": 66.5, "y": 130.5}
       },
       {"name": "medium-electric-pole", "neighbours": ["9,0"], "position": {"x": 78.5, "y": 133.5}},
+      {"name": "medium-electric-pole", "neighbours": ["-4,-4"], "position": {"x": 66.5, "y": 142.5}},
       {"name": "medium-electric-pole", "neighbours": ["-9,0", "8,4"], "position": {"x": 87.5, "y": 133.5}},
       {
         "name": "medium-electric-pole",
@@ -9495,7 +10225,7 @@
         "neighbours": ["2,-8", "-7,0"],
         "position": {"x": 124.5, "y": 149.5}
       },
-      {"name": "medium-electric-pole", "neighbours": ["-5,0", "7,0"], "position": {"x": 68.5, "y": 173.5}},
+      {"name": "medium-electric-pole", "neighbours": ["7,0"], "position": {"x": 68.5, "y": 173.5}},
       {
         "name": "medium-electric-pole",
         "connections": {"1": {"green": [{"entity_rel": "-1,-2"}], "red": [{"entity_rel": "-1,-2"}]}},
@@ -9504,11 +10234,116 @@
       },
       {
         "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "-5,0"}, {"entity_rel": "3,1"}]}},
+        "connections": {
+          "1": {"green": [{"entity_rel": "-1,-2"}, {"entity_rel": "-2,5"}], "red": [{"entity_rel": "-1,-2"}]}
+        },
+        "neighbours": ["0.5,-3.5", "-5,5", "-2,5"],
+        "position": {"x": 87.5, "y": 173.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-5,0"}, {"entity_rel": "4,-3.5"}, {"entity_rel": "1,-7"}, {"entity_rel": "3,1"}]
+          }
+        },
         "neighbours": ["2,-5", "0,7"],
         "position": {"x": 73.5, "y": 178.5}
       },
       {"name": "medium-electric-pole", "neighbours": ["0,-7"], "position": {"x": 73.5, "y": 185.5}},
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "3,0"}, {"entity_rel": "-1,1"}, {"entity_rel": "0,7"}],
+            "red": [{"entity_rel": "-1,1"}, {"entity_rel": "0,7"}]
+          }
+        },
+        "neighbours": ["5,-5", "3,0", "0,7"],
+        "position": {"x": 82.5, "y": 178.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "2,-5"}, {"entity_rel": "-3,0"}, {"entity_rel": "1,1"}, {"entity_rel": "0,7"}],
+            "red": [{"entity_rel": "1,1"}, {"entity_rel": "0,7"}]
+          }
+        },
+        "neighbours": ["2,-5", "-3,0", "0,7"],
+        "position": {"x": 85.5, "y": 178.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {"1": {"green": [{"entity_rel": "3,0"}, {"entity_rel": "0,7"}], "red": [{"entity_rel": "0,7"}]}},
+        "neighbours": ["5,-5", "3,0", "0,7"],
+        "position": {"x": 94.5, "y": 178.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {"1": {"green": [{"entity_rel": "0,-7"}], "red": [{"entity_rel": "0,-7"}]}},
+        "neighbours": ["0,-7", "3,0"],
+        "position": {"x": 82.5, "y": 185.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {"1": {"green": [{"entity_rel": "0,-7"}], "red": [{"entity_rel": "0,-7"}]}},
+        "neighbours": ["0,-7", "-3,0"],
+        "position": {"x": 85.5, "y": 185.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-7"}, {"entity_rel": "-1,0"}, {"entity_rel": "0,7"}],
+            "red": [{"entity_rel": "0,-7"}, {"entity_rel": "-1,0"}, {"entity_rel": "0,7"}]
+          }
+        },
+        "neighbours": ["0,-7", "3,0", "0,7"],
+        "position": {"x": 94.5, "y": 185.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {"green": [{"entity_rel": "-1,-2"}, {"entity_rel": "-2,5"}], "red": [{"entity_rel": "-1,-2"}]}
+        },
+        "neighbours": ["0.5,-3.5", "-5,5", "-2,5"],
+        "position": {"x": 99.5, "y": 173.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "2,-5"}, {"entity_rel": "-3,0"}, {"entity_rel": "0,7"}],
+            "red": [{"entity_rel": "0,7"}]
+          }
+        },
+        "neighbours": ["2,-5", "-3,0", "0,7"],
+        "position": {"x": 97.5, "y": 178.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-7"}, {"entity_rel": "1,0"}, {"entity_rel": "0,7"}],
+            "red": [{"entity_rel": "0,-7"}, {"entity_rel": "1,0"}, {"entity_rel": "0,7"}]
+          }
+        },
+        "neighbours": ["0,-7", "-3,0", "0,7"],
+        "position": {"x": 97.5, "y": 185.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {"1": {"green": [{"entity_rel": "0,-7"}], "red": [{"entity_rel": "0,-7"}]}},
+        "neighbours": ["0,-7", "3,0"],
+        "position": {"x": 94.5, "y": 192.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {"1": {"green": [{"entity_rel": "0,-7"}], "red": [{"entity_rel": "0,-7"}]}},
+        "neighbours": ["0,-7", "-3,0"],
+        "position": {"x": 97.5, "y": 192.5}
+      },
       {
         "name": "medium-electric-pole",
         "neighbours": ["2,-5", "5,-5", "5,0", "-3,8"],
@@ -9539,8 +10374,21 @@
         "neighbours": ["3,-6", "0,5"],
         "position": {"x": 154.5, "y": 133.5}
       },
-      {"name": "medium-electric-pole", "neighbours": ["-5,0"], "position": {"x": 145.5, "y": 141.5}},
-      {"name": "medium-electric-pole", "neighbours": ["0,-5"], "position": {"x": 154.5, "y": 138.5}},
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-5,0", "5,0"],
+        "position": {"x": 145.5, "y": 141.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["4,-3", "-5,0"],
+        "position": {"x": 150.5, "y": 141.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["0,-5", "-4,3"],
+        "position": {"x": 154.5, "y": 138.5}
+      },
       {"name": "medium-electric-pole", "neighbours": ["7,0"], "position": {"x": 157.5, "y": 155.5}},
       {"name": "medium-electric-pole", "neighbours": ["0,-8"], "position": {"x": 166.5, "y": 134.5}},
       {
@@ -9925,14 +10773,14 @@
       {"name": "pipe", "position": {"x": 83.5, "y": 127.5}},
       {"name": "pipe", "position": {"x": 84.5, "y": 127.5}},
       {"name": "pipe", "position": {"x": 85.5, "y": 127.5}},
+      {"name": "pipe", "position": {"x": 87.5, "y": 126.5}},
       {"name": "pipe", "position": {"x": 86.5, "y": 127.5}},
       {"name": "pipe", "position": {"x": 87.5, "y": 127.5}},
-      {"name": "pipe", "position": {"x": 88.5, "y": 127.5}},
-      {"name": "pipe", "position": {"x": 89.5, "y": 127.5}},
-      {"name": "pipe", "position": {"x": 90.5, "y": 127.5}},
-      {"name": "pipe", "position": {"x": 91.5, "y": 127.5}},
+      {"name": "pipe", "position": {"x": 88.5, "y": 126.5}},
+      {"name": "pipe", "position": {"x": 89.5, "y": 126.5}},
+      {"name": "pipe", "position": {"x": 90.5, "y": 126.5}},
+      {"name": "pipe", "position": {"x": 91.5, "y": 126.5}},
       {"name": "pipe", "position": {"x": 92.5, "y": 126.5}},
-      {"name": "pipe", "position": {"x": 92.5, "y": 127.5}},
       {"name": "pipe", "position": {"x": 96.5, "y": 99.5}},
       {"name": "pipe", "position": {"x": 108.5, "y": 99.5}},
       {"name": "pipe", "position": {"x": 103.5, "y": 127.5}},
@@ -9942,7 +10790,6 @@
       {"name": "pipe", "position": {"x": 106.5, "y": 127.5}},
       {"name": "pipe", "position": {"x": 107.5, "y": 127.5}},
       {"name": "pipe", "position": {"x": 108.5, "y": 127.5}},
-      {"name": "pipe", "position": {"x": 109.5, "y": 127.5}},
       {"name": "pipe", "position": {"x": 153.5, "y": 32.5}},
       {"name": "pipe", "position": {"x": 153.5, "y": 33.5}},
       {"name": "pipe", "position": {"x": 153.5, "y": 34.5}},
@@ -10031,6 +10878,10 @@
       {"name": "pipe", "position": {"x": 168.5, "y": 81.5}},
       {"name": "pipe", "position": {"x": 168.5, "y": 82.5}},
       {"name": "pipe", "position": {"x": 168.5, "y": 83.5}},
+      {"name": "pipe", "position": {"x": 168.5, "y": 84.5}},
+      {"name": "pipe", "position": {"x": 168.5, "y": 85.5}},
+      {"name": "pipe", "position": {"x": 168.5, "y": 86.5}},
+      {"name": "pipe", "position": {"x": 171.5, "y": 86.5}},
       {"name": "pipe", "position": {"x": 160.5, "y": 91.5}},
       {"name": "pipe", "position": {"x": 162.5, "y": 90.5}},
       {"name": "pipe", "position": {"x": 162.5, "y": 91.5}},
@@ -10061,6 +10912,8 @@
       {"name": "pipe", "position": {"x": 167.5, "y": 103.5}},
       {"name": "pipe", "position": {"x": 168.5, "y": 103.5}},
       {"name": "pipe", "position": {"x": 169.5, "y": 103.5}},
+      {"name": "pipe", "position": {"x": 170.5, "y": 103.5}},
+      {"name": "pipe", "position": {"x": 171.5, "y": 103.5}},
       {"name": "pipe", "position": {"x": 167.5, "y": 111.5}},
       {"name": "pipe", "position": {"x": 189.5, "y": 98.5}},
       {"name": "pipe", "position": {"x": 190.5, "y": 98.5}},
@@ -10083,8 +10936,6 @@
       {"name": "pipe", "position": {"x": 58.5, "y": 131.5}},
       {"name": "pipe", "position": {"x": 59.5, "y": 131.5}},
       {"name": "pipe", "position": {"x": 60.5, "y": 131.5}},
-      {"name": "pipe", "position": {"x": 61.5, "y": 131.5}},
-      {"name": "pipe", "position": {"x": 62.5, "y": 131.5}},
       {"name": "pipe", "position": {"x": 63.5, "y": 131.5}},
       {"name": "pipe", "position": {"x": 53.5, "y": 152.5}},
       {"name": "pipe", "position": {"x": 53.5, "y": 158.5}},
@@ -10110,10 +10961,13 @@
       {"name": "pipe", "position": {"x": 64.5, "y": 131.5}},
       {"name": "pipe", "position": {"x": 65.5, "y": 131.5}},
       {"name": "pipe", "position": {"x": 66.5, "y": 131.5}},
+      {"name": "pipe", "position": {"x": 91.5, "y": 132.5}},
       {"name": "pipe", "position": {"x": 77.5, "y": 149.5}},
       {"name": "pipe", "position": {"x": 77.5, "y": 150.5}},
       {"name": "pipe", "position": {"x": 77.5, "y": 151.5}},
       {"name": "pipe", "position": {"x": 64.5, "y": 152.5}},
+      {"name": "pipe", "position": {"x": 108.5, "y": 128.5}},
+      {"name": "pipe", "position": {"x": 108.5, "y": 129.5}},
       {"name": "pipe", "position": {"x": 107.5, "y": 150.5}},
       {"name": "pipe", "position": {"x": 107.5, "y": 151.5}},
       {"name": "pipe", "position": {"x": 107.5, "y": 152.5}},
@@ -10190,6 +11044,7 @@
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 84.5, "y": 119.5}},
       {"name": "pipe-to-ground", "position": {"x": 84.5, "y": 120.5}},
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 84.5, "y": 126.5}},
+      {"name": "pipe-to-ground", "position": {"x": 91.5, "y": 127.5}},
       {"name": "pipe-to-ground", "direction": 6, "position": {"x": 93.5, "y": 126.5}},
       {"name": "pipe-to-ground", "direction": 6, "position": {"x": 97.5, "y": 99.5}},
       {"name": "pipe-to-ground", "direction": 2, "position": {"x": 107.5, "y": 99.5}},
@@ -10265,7 +11120,10 @@
       {"name": "pipe-to-ground", "direction": 2, "position": {"x": 161.5, "y": 86.5}},
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 164.5, "y": 87.5}},
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 166.5, "y": 86.5}},
-      {"name": "pipe-to-ground", "position": {"x": 168.5, "y": 84.5}},
+      {"name": "pipe-to-ground", "direction": 6, "position": {"x": 169.5, "y": 82.5}},
+      {"name": "pipe-to-ground", "position": {"x": 168.5, "y": 87.5}},
+      {"name": "pipe-to-ground", "position": {"x": 171.5, "y": 87.5}},
+      {"name": "pipe-to-ground", "direction": 6, "position": {"x": 172.5, "y": 86.5}},
       {"name": "pipe-to-ground", "direction": 6, "position": {"x": 162.5, "y": 89.5}},
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 163.5, "y": 89.5}},
       {"name": "pipe-to-ground", "direction": 2, "position": {"x": 161.5, "y": 90.5}},
@@ -10277,9 +11135,15 @@
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 160.5, "y": 93.5}},
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 164.5, "y": 94.5}},
       {"name": "pipe-to-ground", "direction": 2, "position": {"x": 168.5, "y": 89.5}},
+      {"name": "pipe-to-ground", "direction": 4, "position": {"x": 171.5, "y": 89.5}},
+      {"name": "pipe-to-ground", "position": {"x": 171.5, "y": 90.5}},
       {"name": "pipe-to-ground", "direction": 2, "position": {"x": 170.5, "y": 91.5}},
       {"name": "pipe-to-ground", "direction": 6, "position": {"x": 171.5, "y": 91.5}},
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 168.5, "y": 94.5}},
+      {"name": "pipe-to-ground", "direction": 2, "position": {"x": 176.5, "y": 82.5}},
+      {"name": "pipe-to-ground", "direction": 6, "position": {"x": 177.5, "y": 82.5}},
+      {"name": "pipe-to-ground", "direction": 2, "position": {"x": 181.5, "y": 86.5}},
+      {"name": "pipe-to-ground", "direction": 2, "position": {"x": 184.5, "y": 82.5}},
       {"name": "pipe-to-ground", "direction": 2, "position": {"x": 179.5, "y": 91.5}},
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 155.5, "y": 100.5}},
       {"name": "pipe-to-ground", "position": {"x": 155.5, "y": 101.5}},
@@ -10289,6 +11153,9 @@
       {"name": "pipe-to-ground", "position": {"x": 155.5, "y": 112.5}},
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 166.5, "y": 98.5}},
       {"name": "pipe-to-ground", "direction": 2, "position": {"x": 162.5, "y": 103.5}},
+      {"name": "pipe-to-ground", "direction": 4, "position": {"x": 171.5, "y": 98.5}},
+      {"name": "pipe-to-ground", "position": {"x": 171.5, "y": 99.5}},
+      {"name": "pipe-to-ground", "direction": 4, "position": {"x": 171.5, "y": 102.5}},
       {"name": "pipe-to-ground", "direction": 2, "position": {"x": 166.5, "y": 111.5}},
       {"name": "pipe-to-ground", "position": {"x": 167.5, "y": 112.5}},
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 167.5, "y": 121.5}},
@@ -10304,6 +11171,10 @@
       {"name": "pipe-to-ground", "direction": 2, "position": {"x": 40.5, "y": 131.5}},
       {"name": "pipe-to-ground", "direction": 6, "position": {"x": 41.5, "y": 131.5}},
       {"name": "pipe-to-ground", "direction": 2, "position": {"x": 51.5, "y": 131.5}},
+      {"name": "pipe-to-ground", "position": {"x": 53.5, "y": 132.5}},
+      {"name": "pipe-to-ground", "direction": 4, "position": {"x": 53.5, "y": 141.5}},
+      {"name": "pipe-to-ground", "position": {"x": 53.5, "y": 142.5}},
+      {"name": "pipe-to-ground", "direction": 4, "position": {"x": 53.5, "y": 151.5}},
       {"name": "pipe-to-ground", "position": {"x": 53.5, "y": 153.5}},
       {"name": "pipe-to-ground", "direction": 6, "position": {"x": 54.5, "y": 152.5}},
       {"name": "pipe-to-ground", "direction": 2, "position": {"x": 63.5, "y": 152.5}},
@@ -10317,9 +11188,8 @@
       {"name": "pipe-to-ground", "direction": 6, "position": {"x": 44.5, "y": 185.5}},
       {"name": "pipe-to-ground", "direction": 2, "position": {"x": 52.5, "y": 176.5}},
       {"name": "pipe-to-ground", "direction": 2, "position": {"x": 52.5, "y": 185.5}},
-      {"name": "pipe-to-ground", "position": {"x": 64.5, "y": 132.5}},
-      {"name": "pipe-to-ground", "direction": 4, "position": {"x": 64.5, "y": 141.5}},
       {"name": "pipe-to-ground", "position": {"x": 64.5, "y": 142.5}},
+      {"name": "pipe-to-ground", "direction": 4, "position": {"x": 91.5, "y": 131.5}},
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 64.5, "y": 151.5}},
       {"name": "pipe-to-ground", "direction": 6, "position": {"x": 78.5, "y": 149.5}},
       {"name": "pipe-to-ground", "direction": 6, "position": {"x": 65.5, "y": 152.5}},
@@ -10440,7 +11310,19 @@
       {"name": "pump", "direction": 2, "position": {"x": 50, "y": 180.5}},
       {"name": "pump", "direction": 2, "position": {"x": 50, "y": 182.5}},
       {"name": "pump", "position": {"x": 67.5, "y": 175}},
-      {"name": "pump", "direction": 4, "position": {"x": 77.5, "y": 175}},
+      {
+        "name": "pump",
+        "direction": 4,
+        "connections": {"1": {"green": [{"entity_rel": "-4,3.5"}]}},
+        "control_behavior": {
+          "circuit_condition": {
+            "comparator": "<",
+            "constant": 50000,
+            "first_signal": {"name": "se-liquid-rocket-fuel", "type": "fluid"}
+          }
+        },
+        "position": {"x": 77.5, "y": 175}
+      },
       {"name": "pump", "direction": 6, "position": {"x": 70, "y": 183.5}},
       {"name": "pump", "direction": 2, "position": {"x": 74, "y": 180.5}},
       {"name": "pump", "direction": 2, "position": {"x": 74, "y": 182.5}},
@@ -10473,6 +11355,8 @@
       {"name": "rail-chain-signal", "direction": 1, "position": {"x": 26.5, "y": 216.5}},
       {"name": "rail-chain-signal", "direction": 6, "position": {"x": 1.5, "y": 235.5}},
       {"name": "rail-chain-signal", "direction": 6, "position": {"x": 21.5, "y": 225.5}},
+      {"name": "rail-chain-signal", "direction": 2, "position": {"x": 84.5, "y": 210.5}},
+      {"name": "rail-chain-signal", "direction": 2, "position": {"x": 96.5, "y": 210.5}},
       {"name": "rail-chain-signal", "direction": 7, "position": {"x": 216.5, "y": 197.5}},
       {"name": "rail-chain-signal", "position": {"x": 218.5, "y": 203.5}},
       {"name": "rail-chain-signal", "direction": 2, "position": {"x": 202.5, "y": 218.5}},
@@ -10507,8 +11391,9 @@
       {"name": "rail-signal", "direction": 7, "position": {"x": 113.5, "y": 16.5}},
       {"name": "rail-signal", "direction": 5, "position": {"x": 122.5, "y": 16.5}},
       {"name": "rail-signal", "direction": 7, "position": {"x": 127.5, "y": 16.5}},
+      {"name": "rail-signal", "direction": 4, "position": {"x": 13.5, "y": 80.5}},
       {"name": "rail-signal", "direction": 4, "position": {"x": 5.5, "y": 111.5}},
-      {"name": "rail-signal", "direction": 4, "position": {"x": 13.5, "y": 115.5}},
+      {"name": "rail-signal", "direction": 4, "position": {"x": 13.5, "y": 125.5}},
       {"name": "rail-signal", "direction": 6, "position": {"x": 131.5, "y": 13.5}},
       {"name": "rail-signal", "direction": 6, "position": {"x": 145.5, "y": 13.5}},
       {"name": "rail-signal", "direction": 6, "position": {"x": 159.5, "y": 13.5}},
@@ -10537,7 +11422,11 @@
       {"name": "rail-signal", "direction": 3, "position": {"x": 64.5, "y": 207.5}},
       {"name": "rail-signal", "direction": 1, "position": {"x": 67.5, "y": 207.5}},
       {"name": "rail-signal", "direction": 3, "position": {"x": 76.5, "y": 207.5}},
+      {"name": "rail-signal", "direction": 1, "position": {"x": 79.5, "y": 207.5}},
+      {"name": "rail-signal", "direction": 3, "position": {"x": 88.5, "y": 207.5}},
+      {"name": "rail-signal", "direction": 1, "position": {"x": 91.5, "y": 207.5}},
       {"name": "rail-signal", "direction": 2, "position": {"x": 72.5, "y": 210.5}},
+      {"name": "rail-signal", "direction": 3, "position": {"x": 100.5, "y": 207.5}},
       {"name": "rail-signal", "direction": 2, "position": {"x": 111.5, "y": 218.5}},
       {"name": "rail-signal", "direction": 6, "position": {"x": 112.5, "y": 225.5}},
       {"name": "rail-signal", "position": {"x": 210.5, "y": 144.5}},
@@ -10884,7 +11773,7 @@
       },
       {
         "name": "small-electric-pole",
-        "neighbours": ["0,-5", "-6,0", "6,0", "2,6"],
+        "neighbours": ["0,-5", "-6,0", "6,0", "-1,5"],
         "position": {"x": 58.5, "y": 120.5}
       },
       {"name": "small-electric-pole", "neighbours": ["-3,0", "3,0"], "position": {"x": 66.5, "y": 69.5}},
@@ -11209,7 +12098,7 @@
       {"name": "small-electric-pole", "neighbours": ["7,0", "0,5"], "position": {"x": 70.5, "y": 115.5}},
       {
         "name": "small-electric-pole",
-        "neighbours": ["0,-5", "-6,0", "6,0", "3,3"],
+        "neighbours": ["0,-5", "-6,0", "6,0", "3,3", "0,7"],
         "position": {"x": 64.5, "y": 120.5}
       },
       {
@@ -11229,7 +12118,7 @@
       },
       {
         "name": "small-electric-pole",
-        "neighbours": ["0,-6", "-6,-3", "3,3", "-2,4"],
+        "neighbours": ["0,-6", "-6,-3", "3,3"],
         "position": {"x": 87.5, "y": 119.5}
       },
       {
@@ -11242,14 +12131,10 @@
         "neighbours": ["-6,-4", "0,-4", "6,0", "-3,5", "3,5"],
         "position": {"x": 93.5, "y": 117.5}
       },
+      {"name": "small-electric-pole", "neighbours": ["3,-1", "-7,0"], "position": {"x": 87.5, "y": 123.5}},
       {
         "name": "small-electric-pole",
-        "neighbours": ["2,-4", "-5,0", "5,-1"],
-        "position": {"x": 85.5, "y": 123.5}
-      },
-      {
-        "name": "small-electric-pole",
-        "neighbours": ["3,-5", "-3,-3", "-5,1", "6,4"],
+        "neighbours": ["3,-5", "-3,-3", "-3,1", "6,4"],
         "position": {"x": 90.5, "y": 122.5}
       },
       {
@@ -11377,8 +12262,13 @@
       },
       {
         "name": "small-electric-pole",
-        "neighbours": ["0,-6", "-5,0", "4,0", "-5,4"],
+        "neighbours": ["0,-6", "-5,0", "4,0", "0,4"],
         "position": {"x": 111.5, "y": 122.5}
+      },
+      {
+        "name": "small-electric-pole",
+        "neighbours": ["0,-4", "-5,0", "4,0"],
+        "position": {"x": 111.5, "y": 126.5}
       },
       {
         "name": "small-electric-pole",
@@ -11402,7 +12292,7 @@
       },
       {
         "name": "small-electric-pole",
-        "neighbours": ["0,-4", "3,3", "-5,5"],
+        "neighbours": ["0,-4", "-4,0", "3,3", "-5,5"],
         "position": {"x": 115.5, "y": 126.5}
       },
       {
@@ -11508,6 +12398,7 @@
       {"name": "small-electric-pole", "neighbours": ["-4,-1", "6,2"], "position": {"x": 153.5, "y": 95.5}},
       {"name": "small-electric-pole", "neighbours": ["6,1", "-2,6"], "position": {"x": 166.5, "y": 74.5}},
       {"name": "small-electric-pole", "neighbours": ["2,-6", "-7,1"], "position": {"x": 164.5, "y": 80.5}},
+      {"name": "small-electric-pole", "neighbours": ["6,4", "-1,7"], "position": {"x": 172.5, "y": 85.5}},
       {
         "name": "small-electric-pole",
         "connections": {"1": {"green": [{"entity_rel": "-1.5,-5"}, {"entity_rel": "2,6"}]}},
@@ -11526,7 +12417,11 @@
         "neighbours": ["4,-2", "-4,0", "-4,5"],
         "position": {"x": 167.5, "y": 94.5}
       },
-      {"name": "small-electric-pole", "neighbours": ["-4,2", "3,5"], "position": {"x": 171.5, "y": 92.5}},
+      {
+        "name": "small-electric-pole",
+        "neighbours": ["1,-7", "-4,2", "3,5"],
+        "position": {"x": 171.5, "y": 92.5}
+      },
       {
         "name": "small-electric-pole",
         "neighbours": ["2,-4", "-4,-2", "3,3"],
@@ -11685,7 +12580,7 @@
       },
       {
         "name": "small-electric-pole",
-        "neighbours": ["1,-5", "-5,-2", "5,0", "-3,4"],
+        "neighbours": ["-5,-2", "1,-5", "5,0", "-3,4"],
         "position": {"x": 105.5, "y": 131.5}
       },
       {
@@ -11901,13 +12796,16 @@
       {"name": "splitter", "direction": 4, "position": {"x": 171, "y": 111.5}},
       {"name": "splitter", "direction": 2, "position": {"x": 179.5, "y": 122}},
       {"name": "splitter", "direction": 4, "position": {"x": 37, "y": 130.5}},
+      {"name": "splitter", "direction": 6, "position": {"x": 62.5, "y": 131}},
       {"name": "splitter", "output_priority": "right", "position": {"x": 57, "y": 174.5}},
       {"name": "splitter", "direction": 6, "position": {"x": 111.5, "y": 142}},
+      {"name": "splitter", "direction": 6, "position": {"x": 113.5, "y": 130}},
       {"name": "splitter", "direction": 6, "position": {"x": 115.5, "y": 130}},
       {"name": "splitter", "direction": 2, "position": {"x": 116.5, "y": 133}},
       {"name": "splitter", "direction": 6, "position": {"x": 122.5, "y": 128}},
       {"name": "splitter", "direction": 6, "position": {"x": 124.5, "y": 129}},
       {"name": "splitter", "direction": 4, "position": {"x": 125, "y": 136.5}},
+      {"name": "splitter", "position": {"x": 81, "y": 174.5}},
       {"name": "splitter", "direction": 2, "position": {"x": 147.5, "y": 129}},
       {
         "name": "splitter",
@@ -13757,6 +14655,302 @@
       {
         "name": "stack-filter-inserter",
         "direction": 2,
+        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "3,0"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-delivery-cannon-capsule", "index": 1}],
+        "position": {"x": 82.5, "y": 179.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 6,
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 2, "entity_rel": "2,-4.5"}, {"entity_rel": "0,1"}, {"entity_rel": "-3,0"}]
+          }
+        },
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-delivery-cannon-capsule", "index": 1}],
+        "position": {"x": 85.5, "y": 179.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 2,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-delivery-cannon-capsule", "index": 1}],
+        "position": {"x": 82.5, "y": 180.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 2,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-delivery-cannon-capsule", "index": 1}],
+        "position": {"x": 82.5, "y": 181.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 2,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-delivery-cannon-capsule", "index": 1}],
+        "position": {"x": 82.5, "y": 182.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 2,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-delivery-cannon-capsule", "index": 1}],
+        "position": {"x": 82.5, "y": 183.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 6,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-delivery-cannon-capsule", "index": 1}],
+        "position": {"x": 85.5, "y": 180.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 6,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-delivery-cannon-capsule", "index": 1}],
+        "position": {"x": 85.5, "y": 181.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 6,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-delivery-cannon-capsule", "index": 1}],
+        "position": {"x": 85.5, "y": 182.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 6,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-delivery-cannon-capsule", "index": 1}],
+        "position": {"x": 85.5, "y": 183.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 2,
+        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "3,0"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
+        "position": {"x": 94.5, "y": 179.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 2,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
+        "position": {"x": 94.5, "y": 180.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 2,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
+        "position": {"x": 94.5, "y": 181.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 2,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
+        "position": {"x": 94.5, "y": 182.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 2,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
+        "position": {"x": 94.5, "y": 183.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 2,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-delivery-cannon-capsule", "index": 1}],
+        "position": {"x": 82.5, "y": 184.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 6,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-delivery-cannon-capsule", "index": 1}],
+        "position": {"x": 85.5, "y": 184.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 2,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
+        "position": {"x": 94.5, "y": 184.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 2,
+        "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
+        "position": {"x": 94.5, "y": 186.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 2,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
+        "position": {"x": 94.5, "y": 187.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 2,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
+        "position": {"x": 94.5, "y": 188.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 2,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
+        "position": {"x": 94.5, "y": 189.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 2,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
+        "position": {"x": 94.5, "y": 190.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 2,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
+        "position": {"x": 94.5, "y": 191.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 6,
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 2, "entity_rel": "2,-4.5"}, {"entity_rel": "-3,0"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
+        "position": {"x": 97.5, "y": 179.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 6,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
+        "position": {"x": 97.5, "y": 180.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 6,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
+        "position": {"x": 97.5, "y": 181.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 6,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
+        "position": {"x": 97.5, "y": 182.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 6,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
+        "position": {"x": 97.5, "y": 183.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 6,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
+        "position": {"x": 97.5, "y": 184.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 6,
+        "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
+        "position": {"x": 97.5, "y": 186.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 6,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
+        "position": {"x": 97.5, "y": 187.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 6,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
+        "position": {"x": 97.5, "y": 188.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 6,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
+        "position": {"x": 97.5, "y": 189.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 6,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
+        "position": {"x": 97.5, "y": 190.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 6,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
+        "position": {"x": 97.5, "y": 191.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
         "position": {"x": 210.5, "y": 152.5}
@@ -14120,18 +15314,36 @@
         "control_behavior": {"circuit_mode_of_operation": 3, "circuit_read_hand_contents": true},
         "position": {"x": 15.5, "y": 49.5}
       },
+      {"name": "stack-inserter", "direction": 6, "position": {"x": 13.5, "y": 91.5}},
+      {"name": "stack-inserter", "direction": 6, "position": {"x": 15.5, "y": 91.5}},
+      {"name": "stack-inserter", "direction": 6, "position": {"x": 13.5, "y": 92.5}},
+      {"name": "stack-inserter", "direction": 6, "position": {"x": 15.5, "y": 92.5}},
       {"name": "stack-inserter", "direction": 4, "position": {"x": 52.5, "y": 73.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 13.5, "y": 127.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 15.5, "y": 127.5}},
+      {"name": "stack-inserter", "direction": 6, "position": {"x": 13.5, "y": 98.5}},
+      {"name": "stack-inserter", "direction": 6, "position": {"x": 13.5, "y": 99.5}},
+      {"name": "stack-inserter", "direction": 6, "position": {"x": 15.5, "y": 98.5}},
+      {"name": "stack-inserter", "direction": 6, "position": {"x": 15.5, "y": 99.5}},
+      {"name": "stack-inserter", "direction": 6, "position": {"x": 13.5, "y": 105.5}},
+      {"name": "stack-inserter", "direction": 6, "position": {"x": 15.5, "y": 105.5}},
+      {"name": "stack-inserter", "direction": 6, "position": {"x": 13.5, "y": 106.5}},
+      {"name": "stack-inserter", "direction": 6, "position": {"x": 15.5, "y": 106.5}},
+      {"name": "stack-inserter", "direction": 6, "position": {"x": 13.5, "y": 112.5}},
+      {"name": "stack-inserter", "direction": 6, "position": {"x": 13.5, "y": 113.5}},
+      {"name": "stack-inserter", "direction": 6, "position": {"x": 15.5, "y": 112.5}},
+      {"name": "stack-inserter", "direction": 6, "position": {"x": 15.5, "y": 113.5}},
       {"name": "stack-inserter", "direction": 2, "position": {"x": 56.5, "y": 109.5}},
       {"name": "stack-inserter", "direction": 6, "position": {"x": 58.5, "y": 109.5}},
       {"name": "stack-inserter", "direction": 6, "position": {"x": 39.5, "y": 115.5}},
+      {"name": "stack-inserter", "direction": 4, "position": {"x": 38.5, "y": 127.5}},
+      {"name": "stack-inserter", "direction": 6, "position": {"x": 57.5, "y": 124.5}},
       {"name": "stack-inserter", "direction": 4, "position": {"x": 59.5, "y": 127.5}},
       {"name": "stack-inserter", "direction": 6, "position": {"x": 89.5, "y": 111.5}},
       {"name": "stack-inserter", "direction": 2, "position": {"x": 93.5, "y": 111.5}},
       {"name": "stack-inserter", "direction": 4, "position": {"x": 67.5, "y": 127.5}},
       {"name": "stack-inserter", "direction": 2, "position": {"x": 72.5, "y": 125.5}},
       {"name": "stack-inserter", "direction": 4, "position": {"x": 129.5, "y": 57.5}},
+      {"name": "stack-inserter", "direction": 4, "position": {"x": 131.5, "y": 58.5}},
+      {"name": "stack-inserter", "position": {"x": 149.5, "y": 62.5}},
       {"name": "stack-inserter", "direction": 4, "position": {"x": 153.5, "y": 60.5}},
       {"name": "stack-inserter", "direction": 2, "position": {"x": 152.5, "y": 61.5}},
       {"name": "stack-inserter", "direction": 2, "position": {"x": 137.5, "y": 75.5}},
@@ -14210,12 +15422,12 @@
         "position": {"x": 186.5, "y": 93.5}
       },
       {"name": "stack-inserter", "direction": 2, "position": {"x": 131.5, "y": 96.5}},
+      {"name": "stack-inserter", "direction": 2, "position": {"x": 154.5, "y": 103.5}},
       {"name": "stack-inserter", "direction": 2, "position": {"x": 151.5, "y": 109.5}},
       {"name": "stack-inserter", "direction": 2, "position": {"x": 146.5, "y": 126.5}},
       {"name": "stack-inserter", "direction": 6, "position": {"x": 166.5, "y": 108.5}},
       {"name": "stack-inserter", "direction": 4, "position": {"x": 183.5, "y": 111.5}},
       {"name": "stack-inserter", "direction": 4, "position": {"x": 187.5, "y": 111.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 167.5, "y": 127.5}},
       {"name": "stack-inserter", "direction": 6, "position": {"x": 183.5, "y": 121.5}},
       {"name": "stack-inserter", "direction": 2, "position": {"x": 187.5, "y": 122.5}},
       {"name": "stack-inserter", "direction": 4, "position": {"x": 190.5, "y": 123.5}},
@@ -14224,28 +15436,18 @@
       {"name": "stack-inserter", "direction": 2, "position": {"x": 193.5, "y": 121.5}},
       {"name": "stack-inserter", "direction": 6, "position": {"x": 195.5, "y": 121.5}},
       {"name": "stack-inserter", "position": {"x": 197.5, "y": 125.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 13.5, "y": 128.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 15.5, "y": 128.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 13.5, "y": 134.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 13.5, "y": 135.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 15.5, "y": 134.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 15.5, "y": 135.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 13.5, "y": 141.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 15.5, "y": 141.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 13.5, "y": 142.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 15.5, "y": 142.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 13.5, "y": 148.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 13.5, "y": 149.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 15.5, "y": 148.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 15.5, "y": 149.5}},
       {"name": "stack-inserter", "direction": 6, "position": {"x": 43.5, "y": 130.5}},
       {"name": "stack-inserter", "position": {"x": 42.5, "y": 133.5}},
       {"name": "stack-inserter", "direction": 6, "position": {"x": 43.5, "y": 134.5}},
       {"name": "stack-inserter", "direction": 6, "position": {"x": 45.5, "y": 134.5}},
       {"name": "stack-inserter", "position": {"x": 44.5, "y": 138.5}},
       {"name": "stack-inserter", "direction": 2, "position": {"x": 41.5, "y": 140.5}},
+      {"name": "stack-inserter", "direction": 6, "position": {"x": 62.5, "y": 139.5}},
+      {"name": "stack-inserter", "direction": 4, "position": {"x": 63.5, "y": 142.5}},
       {"name": "stack-inserter", "direction": 2, "position": {"x": 53.5, "y": 157.5}},
       {"name": "stack-inserter", "direction": 6, "position": {"x": 79.5, "y": 132.5}},
+      {"name": "stack-inserter", "position": {"x": 64.5, "y": 138.5}},
+      {"name": "stack-inserter", "direction": 6, "position": {"x": 87.5, "y": 132.5}},
       {"name": "stack-inserter", "direction": 4, "position": {"x": 99.5, "y": 136.5}},
       {"name": "stack-inserter", "direction": 6, "position": {"x": 98.5, "y": 138.5}},
       {"name": "stack-inserter", "direction": 2, "position": {"x": 100.5, "y": 137.5}},
@@ -14279,8 +15481,12 @@
       {"name": "stack-inserter", "direction": 2, "position": {"x": 134.5, "y": 134.5}},
       {"name": "stack-inserter", "direction": 6, "position": {"x": 136.5, "y": 134.5}},
       {"name": "stack-inserter", "direction": 6, "position": {"x": 141.5, "y": 134.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 154.5, "y": 131.5}},
+      {"name": "stack-inserter", "direction": 6, "position": {"x": 154.5, "y": 134.5}},
       {"name": "stack-inserter", "direction": 6, "position": {"x": 154.5, "y": 135.5}},
+      {"name": "stack-inserter", "position": {"x": 148.5, "y": 138.5}},
+      {"name": "stack-inserter", "direction": 6, "position": {"x": 146.5, "y": 140.5}},
+      {"name": "stack-inserter", "direction": 2, "position": {"x": 150.5, "y": 140.5}},
+      {"name": "stack-inserter", "direction": 6, "position": {"x": 167.5, "y": 128.5}},
       {"name": "stack-inserter", "direction": 4, "position": {"x": 185.5, "y": 129.5}},
       {"name": "stack-inserter", "direction": 4, "position": {"x": 191.5, "y": 129.5}},
       {"name": "stack-inserter", "direction": 2, "position": {"x": 163.5, "y": 147.5}},
@@ -14344,6 +15550,7 @@
       {"name": "stack-inserter", "direction": 4, "position": {"x": 194.5, "y": 190.5}},
       {"name": "steel-chest", "position": {"x": 50.5, "y": 155.5}},
       {"name": "steel-chest", "position": {"x": 99.5, "y": 137.5}},
+      {"name": "steel-furnace", "position": {"x": 142, "y": 88}},
       {"name": "stone-furnace", "position": {"x": 125, "y": 29}},
       {"name": "stone-furnace", "position": {"x": 125, "y": 31}},
       {"name": "stone-furnace", "position": {"x": 125, "y": 33}},
@@ -15339,6 +16546,8 @@
       {"name": "straight-rail", "position": {"x": 60, "y": 190}},
       {"name": "straight-rail", "position": {"x": 72, "y": 172}},
       {"name": "straight-rail", "position": {"x": 72, "y": 174}},
+      {"name": "straight-rail", "position": {"x": 84, "y": 172}},
+      {"name": "straight-rail", "position": {"x": 84, "y": 174}},
       {"name": "straight-rail", "position": {"x": 72, "y": 176}},
       {"name": "straight-rail", "position": {"x": 72, "y": 178}},
       {"name": "straight-rail", "position": {"x": 72, "y": 180}},
@@ -15347,6 +16556,24 @@
       {"name": "straight-rail", "position": {"x": 72, "y": 186}},
       {"name": "straight-rail", "position": {"x": 72, "y": 188}},
       {"name": "straight-rail", "position": {"x": 72, "y": 190}},
+      {"name": "straight-rail", "position": {"x": 84, "y": 176}},
+      {"name": "straight-rail", "position": {"x": 84, "y": 178}},
+      {"name": "straight-rail", "position": {"x": 84, "y": 180}},
+      {"name": "straight-rail", "position": {"x": 84, "y": 182}},
+      {"name": "straight-rail", "position": {"x": 84, "y": 184}},
+      {"name": "straight-rail", "position": {"x": 84, "y": 186}},
+      {"name": "straight-rail", "position": {"x": 84, "y": 188}},
+      {"name": "straight-rail", "position": {"x": 84, "y": 190}},
+      {"name": "straight-rail", "position": {"x": 96, "y": 172}},
+      {"name": "straight-rail", "position": {"x": 96, "y": 174}},
+      {"name": "straight-rail", "position": {"x": 96, "y": 176}},
+      {"name": "straight-rail", "position": {"x": 96, "y": 178}},
+      {"name": "straight-rail", "position": {"x": 96, "y": 180}},
+      {"name": "straight-rail", "position": {"x": 96, "y": 182}},
+      {"name": "straight-rail", "position": {"x": 96, "y": 184}},
+      {"name": "straight-rail", "position": {"x": 96, "y": 186}},
+      {"name": "straight-rail", "position": {"x": 96, "y": 188}},
+      {"name": "straight-rail", "position": {"x": 96, "y": 190}},
       {"name": "straight-rail", "position": {"x": 0, "y": 192}},
       {"name": "straight-rail", "position": {"x": 0, "y": 194}},
       {"name": "straight-rail", "position": {"x": 4, "y": 192}},
@@ -15450,6 +16677,11 @@
       {"name": "straight-rail", "position": {"x": 72, "y": 196}},
       {"name": "straight-rail", "position": {"x": 72, "y": 198}},
       {"name": "straight-rail", "position": {"x": 72, "y": 200}},
+      {"name": "straight-rail", "position": {"x": 84, "y": 192}},
+      {"name": "straight-rail", "position": {"x": 84, "y": 194}},
+      {"name": "straight-rail", "position": {"x": 84, "y": 196}},
+      {"name": "straight-rail", "position": {"x": 84, "y": 198}},
+      {"name": "straight-rail", "position": {"x": 84, "y": 200}},
       {"name": "straight-rail", "direction": 5, "position": {"x": 64, "y": 208}},
       {"name": "straight-rail", "direction": 3, "position": {"x": 68, "y": 208}},
       {"name": "straight-rail", "direction": 2, "position": {"x": 64, "y": 212}},
@@ -15469,10 +16701,13 @@
       {"name": "straight-rail", "direction": 2, "position": {"x": 74, "y": 220}},
       {"name": "straight-rail", "direction": 2, "position": {"x": 76, "y": 220}},
       {"name": "straight-rail", "direction": 2, "position": {"x": 78, "y": 220}},
+      {"name": "straight-rail", "direction": 3, "position": {"x": 80, "y": 208}},
       {"name": "straight-rail", "direction": 2, "position": {"x": 80, "y": 212}},
       {"name": "straight-rail", "direction": 2, "position": {"x": 82, "y": 212}},
       {"name": "straight-rail", "direction": 2, "position": {"x": 84, "y": 212}},
       {"name": "straight-rail", "direction": 2, "position": {"x": 86, "y": 212}},
+      {"name": "straight-rail", "direction": 5, "position": {"x": 88, "y": 208}},
+      {"name": "straight-rail", "direction": 3, "position": {"x": 92, "y": 208}},
       {"name": "straight-rail", "direction": 2, "position": {"x": 88, "y": 212}},
       {"name": "straight-rail", "direction": 2, "position": {"x": 90, "y": 212}},
       {"name": "straight-rail", "direction": 2, "position": {"x": 92, "y": 212}},
@@ -15485,6 +16720,12 @@
       {"name": "straight-rail", "direction": 2, "position": {"x": 90, "y": 220}},
       {"name": "straight-rail", "direction": 2, "position": {"x": 92, "y": 220}},
       {"name": "straight-rail", "direction": 2, "position": {"x": 94, "y": 220}},
+      {"name": "straight-rail", "position": {"x": 96, "y": 192}},
+      {"name": "straight-rail", "position": {"x": 96, "y": 194}},
+      {"name": "straight-rail", "position": {"x": 96, "y": 196}},
+      {"name": "straight-rail", "position": {"x": 96, "y": 198}},
+      {"name": "straight-rail", "position": {"x": 96, "y": 200}},
+      {"name": "straight-rail", "direction": 5, "position": {"x": 100, "y": 208}},
       {"name": "straight-rail", "direction": 2, "position": {"x": 96, "y": 212}},
       {"name": "straight-rail", "direction": 2, "position": {"x": 98, "y": 212}},
       {"name": "straight-rail", "direction": 2, "position": {"x": 100, "y": 212}},
@@ -15857,7 +17098,7 @@
           "circuit_contents_read_mode": 0,
           "circuit_enable_disable": true,
           "circuit_read_hand_contents": false,
-          "circuit_condition": {"comparator": "<", "constant": 5000, "first_signal": {"name": "iron-gear-wheel", "type": "item"}}
+          "circuit_condition": {"comparator": "<", "constant": 15000, "first_signal": {"name": "iron-gear-wheel", "type": "item"}}
         },
         "position": {"x": 57.5, "y": 26.5}
       },
@@ -16934,6 +18175,8 @@
       {"name": "transport-belt", "direction": 6, "position": {"x": 41.5, "y": 121.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 42.5, "y": 121.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 43.5, "y": 121.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 40.5, "y": 122.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 41.5, "y": 122.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 42.5, "y": 122.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 43.5, "y": 122.5}},
       {"name": "transport-belt", "position": {"x": 43.5, "y": 123.5}},
@@ -17933,11 +19176,13 @@
       {"name": "transport-belt", "direction": 2, "position": {"x": 100.5, "y": 127.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 101.5, "y": 127.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 107.5, "y": 120.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 107.5, "y": 123.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 108.5, "y": 121.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 109.5, "y": 121.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 110.5, "y": 120.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 110.5, "y": 121.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 109.5, "y": 122.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 108.5, "y": 123.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 110.5, "y": 122.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 110.5, "y": 123.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 104.5, "y": 124.5}},
@@ -17945,15 +19190,16 @@
       {"name": "transport-belt", "direction": 2, "position": {"x": 104.5, "y": 125.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 105.5, "y": 125.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 106.5, "y": 124.5}},
-      {"name": "transport-belt", "direction": 6, "position": {"x": 107.5, "y": 124.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 106.5, "y": 125.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 107.5, "y": 125.5}},
-      {"name": "transport-belt", "direction": 6, "position": {"x": 108.5, "y": 124.5}},
-      {"name": "transport-belt", "direction": 6, "position": {"x": 109.5, "y": 124.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 108.5, "y": 125.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 109.5, "y": 125.5}},
+      {"name": "transport-belt", "position": {"x": 108.5, "y": 124.5}},
+      {"name": "transport-belt", "position": {"x": 108.5, "y": 125.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 110.5, "y": 124.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 110.5, "y": 125.5}},
+      {"name": "transport-belt", "position": {"x": 108.5, "y": 126.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 109.5, "y": 126.5}},
+      {"name": "transport-belt", "position": {"x": 109.5, "y": 127.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 110.5, "y": 127.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 111.5, "y": 127.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 116.5, "y": 112.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 116.5, "y": 113.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 119.5, "y": 112.5}},
@@ -17985,6 +19231,7 @@
       {"name": "transport-belt", "direction": 4, "position": {"x": 116.5, "y": 121.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 116.5, "y": 122.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 116.5, "y": 123.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 112.5, "y": 127.5}},
       {"name": "transport-belt", "position": {"x": 114.5, "y": 127.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 116.5, "y": 124.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 117.5, "y": 124.5}},
@@ -19062,8 +20309,6 @@
       {"name": "transport-belt", "direction": 2, "position": {"x": 45.5, "y": 136.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 44.5, "y": 137.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 45.5, "y": 137.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 46.5, "y": 137.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 47.5, "y": 137.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 40.5, "y": 143.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 41.5, "y": 143.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 42.5, "y": 143.5}},
@@ -19098,17 +20343,12 @@
       {"name": "transport-belt", "direction": 4, "position": {"x": 63.5, "y": 129.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 60.5, "y": 130.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 61.5, "y": 130.5}},
-      {"name": "transport-belt", "direction": 6, "position": {"x": 62.5, "y": 130.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 61.5, "y": 131.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 63.5, "y": 130.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 48.5, "y": 137.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 49.5, "y": 137.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 50.5, "y": 137.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 51.5, "y": 137.5}},
-      {"name": "transport-belt", "direction": 6, "position": {"x": 53.5, "y": 136.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 52.5, "y": 137.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 53.5, "y": 137.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 54.5, "y": 137.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 55.5, "y": 137.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 61.5, "y": 132.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 61.5, "y": 133.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 61.5, "y": 134.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 61.5, "y": 135.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 48.5, "y": 143.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 49.5, "y": 143.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 50.5, "y": 143.5}},
@@ -19117,17 +20357,10 @@
       {"name": "transport-belt", "direction": 6, "position": {"x": 53.5, "y": 143.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 54.5, "y": 143.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 55.5, "y": 143.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 56.5, "y": 137.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 57.5, "y": 137.5}},
-      {"name": "transport-belt", "direction": 6, "position": {"x": 59.5, "y": 136.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 58.5, "y": 137.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 59.5, "y": 137.5}},
-      {"name": "transport-belt", "direction": 6, "position": {"x": 60.5, "y": 136.5}},
-      {"name": "transport-belt", "direction": 6, "position": {"x": 61.5, "y": 136.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 60.5, "y": 137.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 61.5, "y": 137.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 62.5, "y": 137.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 63.5, "y": 137.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 61.5, "y": 136.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 61.5, "y": 137.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 61.5, "y": 138.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 61.5, "y": 139.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 56.5, "y": 143.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 57.5, "y": 143.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 58.5, "y": 143.5}},
@@ -19200,14 +20433,14 @@
       {"name": "transport-belt", "direction": 4, "position": {"x": 75.5, "y": 133.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 75.5, "y": 134.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 75.5, "y": 135.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 64.5, "y": 137.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 65.5, "y": 137.5}},
-      {"name": "transport-belt", "direction": 6, "position": {"x": 67.5, "y": 136.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 66.5, "y": 137.5}},
-      {"name": "transport-belt", "direction": 6, "position": {"x": 68.5, "y": 136.5}},
-      {"name": "transport-belt", "direction": 6, "position": {"x": 69.5, "y": 136.5}},
-      {"name": "transport-belt", "direction": 6, "position": {"x": 70.5, "y": 136.5}},
-      {"name": "transport-belt", "direction": 6, "position": {"x": 71.5, "y": 136.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 64.5, "y": 137.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 65.5, "y": 137.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 66.5, "y": 137.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 67.5, "y": 137.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 68.5, "y": 137.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 69.5, "y": 137.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 70.5, "y": 137.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 71.5, "y": 137.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 64.5, "y": 143.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 65.5, "y": 143.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 66.5, "y": 143.5}},
@@ -19216,9 +20449,11 @@
       {"name": "transport-belt", "direction": 6, "position": {"x": 69.5, "y": 143.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 70.5, "y": 143.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 71.5, "y": 143.5}},
-      {"name": "transport-belt", "direction": 6, "position": {"x": 72.5, "y": 136.5}},
-      {"name": "transport-belt", "direction": 6, "position": {"x": 73.5, "y": 136.5}},
-      {"name": "transport-belt", "direction": 6, "position": {"x": 74.5, "y": 136.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 72.5, "y": 137.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 73.5, "y": 137.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 75.5, "y": 136.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 74.5, "y": 137.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 75.5, "y": 137.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 72.5, "y": 143.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 73.5, "y": 143.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 75.5, "y": 142.5}},
@@ -19226,8 +20461,12 @@
       {"name": "transport-belt", "direction": 6, "position": {"x": 75.5, "y": 143.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 76.5, "y": 142.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 77.5, "y": 142.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 76.5, "y": 143.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 77.5, "y": 143.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 78.5, "y": 142.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 79.5, "y": 142.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 78.5, "y": 143.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 79.5, "y": 143.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 80.5, "y": 128.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 81.5, "y": 128.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 80.5, "y": 129.5}},
@@ -19259,20 +20498,48 @@
       {"name": "transport-belt", "direction": 6, "position": {"x": 94.5, "y": 129.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 80.5, "y": 142.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 81.5, "y": 142.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 80.5, "y": 143.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 81.5, "y": 143.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 82.5, "y": 142.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 83.5, "y": 142.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 82.5, "y": 143.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 83.5, "y": 143.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 84.5, "y": 142.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 85.5, "y": 142.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 84.5, "y": 143.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 85.5, "y": 143.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 86.5, "y": 142.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 87.5, "y": 142.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 86.5, "y": 143.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 87.5, "y": 143.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 88.5, "y": 142.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 89.5, "y": 142.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 88.5, "y": 143.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 89.5, "y": 143.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 90.5, "y": 142.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 91.5, "y": 142.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 90.5, "y": 143.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 91.5, "y": 143.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 92.5, "y": 142.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 93.5, "y": 142.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 92.5, "y": 143.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 93.5, "y": 143.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 94.5, "y": 142.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 95.5, "y": 142.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 94.5, "y": 143.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 95.5, "y": 143.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 65.5, "y": 144.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 66.5, "y": 144.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 67.5, "y": 144.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 68.5, "y": 144.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 69.5, "y": 144.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 70.5, "y": 144.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 71.5, "y": 144.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 72.5, "y": 144.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 73.5, "y": 144.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 74.5, "y": 144.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 75.5, "y": 144.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 76.5, "y": 144.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 96.5, "y": 130.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 97.5, "y": 130.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 98.5, "y": 130.5}},
@@ -19308,8 +20575,12 @@
       {"name": "transport-belt", "direction": 4, "position": {"x": 96.5, "y": 140.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 96.5, "y": 142.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 97.5, "y": 142.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 96.5, "y": 143.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 97.5, "y": 143.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 98.5, "y": 142.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 99.5, "y": 142.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 98.5, "y": 143.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 99.5, "y": 143.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 100.5, "y": 142.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 101.5, "y": 142.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 100.5, "y": 143.5}},
@@ -19337,7 +20608,6 @@
       {"name": "transport-belt", "direction": 6, "position": {"x": 111.5, "y": 143.5}},
       {"name": "transport-belt", "position": {"x": 114.5, "y": 128.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 112.5, "y": 130.5}},
-      {"name": "transport-belt", "direction": 6, "position": {"x": 113.5, "y": 130.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 114.5, "y": 130.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 115.5, "y": 131.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 116.5, "y": 130.5}},
@@ -19442,6 +20712,12 @@
       {"name": "transport-belt", "direction": 6, "position": {"x": 126.5, "y": 144.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 127.5, "y": 144.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 120.5, "y": 148.5}},
+      {"name": "transport-belt", "position": {"x": 80.5, "y": 175.5}},
+      {"name": "transport-belt", "position": {"x": 81.5, "y": 175.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 86.5, "y": 175.5}},
+      {"name": "transport-belt", "position": {"x": 80.5, "y": 176.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 81.5, "y": 176.5}},
+      {"name": "transport-belt", "position": {"x": 86.5, "y": 176.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 128.5, "y": 129.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 129.5, "y": 129.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 130.5, "y": 129.5}},
@@ -19518,15 +20794,10 @@
       {"name": "transport-belt", "direction": 6, "position": {"x": 138.5, "y": 142.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 139.5, "y": 142.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 138.5, "y": 143.5}},
-      {"name": "transport-belt", "direction": 6, "position": {"x": 139.5, "y": 143.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 140.5, "y": 142.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 141.5, "y": 142.5}},
-      {"name": "transport-belt", "direction": 6, "position": {"x": 140.5, "y": 143.5}},
-      {"name": "transport-belt", "direction": 6, "position": {"x": 141.5, "y": 143.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 142.5, "y": 142.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 143.5, "y": 142.5}},
-      {"name": "transport-belt", "direction": 6, "position": {"x": 142.5, "y": 143.5}},
-      {"name": "transport-belt", "direction": 6, "position": {"x": 143.5, "y": 143.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 145.5, "y": 128.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 145.5, "y": 129.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 144.5, "y": 130.5}},
@@ -19545,6 +20816,7 @@
       {"name": "transport-belt", "direction": 6, "position": {"x": 154.5, "y": 130.5}},
       {"name": "transport-belt", "position": {"x": 156.5, "y": 128.5}},
       {"name": "transport-belt", "position": {"x": 156.5, "y": 129.5}},
+      {"name": "transport-belt", "position": {"x": 156.5, "y": 130.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 158.5, "y": 130.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 145.5, "y": 136.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 144.5, "y": 137.5}},
@@ -19561,11 +20833,8 @@
       {"name": "transport-belt", "direction": 4, "position": {"x": 151.5, "y": 139.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 144.5, "y": 142.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 145.5, "y": 142.5}},
-      {"name": "transport-belt", "direction": 6, "position": {"x": 144.5, "y": 143.5}},
-      {"name": "transport-belt", "direction": 6, "position": {"x": 145.5, "y": 143.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 146.5, "y": 142.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 147.5, "y": 142.5}},
-      {"name": "transport-belt", "direction": 6, "position": {"x": 146.5, "y": 143.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 151.5, "y": 140.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 151.5, "y": 141.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 148.5, "y": 142.5}},
@@ -20441,12 +21710,16 @@
       {"name": "underground-belt", "direction": 6, "type": "input", "position": {"x": 83.5, "y": 121.5}},
       {"name": "underground-belt", "direction": 6, "type": "input", "position": {"x": 83.5, "y": 123.5}},
       {"name": "underground-belt", "direction": 6, "type": "output", "position": {"x": 84.5, "y": 121.5}},
+      {"name": "underground-belt", "direction": 6, "type": "output", "position": {"x": 85.5, "y": 123.5}},
       {"name": "underground-belt", "direction": 6, "type": "input", "position": {"x": 89.5, "y": 121.5}},
       {"name": "underground-belt", "direction": 6, "type": "output", "position": {"x": 90.5, "y": 121.5}},
+      {"name": "underground-belt", "direction": 6, "type": "input", "position": {"x": 89.5, "y": 123.5}},
+      {"name": "underground-belt", "direction": 6, "type": "output", "position": {"x": 90.5, "y": 123.5}},
       {"name": "underground-belt", "direction": 4, "type": "input", "position": {"x": 94.5, "y": 120.5}},
       {"name": "underground-belt", "direction": 6, "type": "input", "position": {"x": 95.5, "y": 121.5}},
       {"name": "underground-belt", "direction": 4, "type": "output", "position": {"x": 94.5, "y": 122.5}},
       {"name": "underground-belt", "direction": 4, "type": "input", "position": {"x": 94.5, "y": 123.5}},
+      {"name": "underground-belt", "direction": 6, "type": "input", "position": {"x": 95.5, "y": 123.5}},
       {"name": "underground-belt", "direction": 4, "type": "output", "position": {"x": 94.5, "y": 126.5}},
       {"name": "underground-belt", "direction": 2, "type": "input", "position": {"x": 96.5, "y": 97.5}},
       {"name": "underground-belt", "direction": 2, "type": "output", "position": {"x": 101.5, "y": 97.5}},
@@ -20488,14 +21761,22 @@
       {"name": "underground-belt", "direction": 2, "type": "output", "position": {"x": 126.5, "y": 110.5}},
       {"name": "underground-belt", "direction": 4, "type": "input", "position": {"x": 100.5, "y": 119.5}},
       {"name": "underground-belt", "direction": 6, "type": "output", "position": {"x": 96.5, "y": 121.5}},
+      {"name": "underground-belt", "direction": 6, "type": "output", "position": {"x": 96.5, "y": 123.5}},
       {"name": "underground-belt", "direction": 6, "type": "input", "position": {"x": 101.5, "y": 121.5}},
       {"name": "underground-belt", "direction": 6, "type": "output", "position": {"x": 102.5, "y": 121.5}},
       {"name": "underground-belt", "direction": 4, "type": "output", "position": {"x": 100.5, "y": 122.5}},
       {"name": "underground-belt", "direction": 4, "type": "input", "position": {"x": 100.5, "y": 123.5}},
+      {"name": "underground-belt", "direction": 6, "type": "input", "position": {"x": 101.5, "y": 123.5}},
+      {"name": "underground-belt", "direction": 6, "type": "output", "position": {"x": 102.5, "y": 123.5}},
       {"name": "underground-belt", "direction": 4, "type": "output", "position": {"x": 100.5, "y": 126.5}},
       {"name": "underground-belt", "direction": 4, "type": "output", "position": {"x": 102.5, "y": 126.5}},
       {"name": "underground-belt", "direction": 6, "type": "input", "position": {"x": 107.5, "y": 121.5}},
+      {"name": "underground-belt", "direction": 6, "type": "input", "position": {"x": 106.5, "y": 123.5}},
       {"name": "underground-belt", "direction": 4, "type": "input", "position": {"x": 109.5, "y": 123.5}},
+      {"name": "underground-belt", "direction": 6, "type": "output", "position": {"x": 107.5, "y": 124.5}},
+      {"name": "underground-belt", "direction": 2, "type": "input", "position": {"x": 107.5, "y": 125.5}},
+      {"name": "underground-belt", "direction": 6, "type": "input", "position": {"x": 109.5, "y": 124.5}},
+      {"name": "underground-belt", "direction": 2, "type": "output", "position": {"x": 109.5, "y": 125.5}},
       {"name": "underground-belt", "direction": 2, "type": "input", "position": {"x": 111.5, "y": 125.5}},
       {"name": "underground-belt", "direction": 4, "type": "input", "position": {"x": 121.5, "y": 112.5}},
       {"name": "underground-belt", "direction": 2, "type": "input", "position": {"x": 123.5, "y": 113.5}},
@@ -20760,9 +22041,6 @@
       {"name": "underground-belt", "direction": 6, "type": "input", "position": {"x": 59.5, "y": 128.5}},
       {"name": "underground-belt", "direction": 6, "type": "output", "position": {"x": 62.5, "y": 128.5}},
       {"name": "underground-belt", "direction": 6, "type": "output", "position": {"x": 62.5, "y": 129.5}},
-      {"name": "underground-belt", "direction": 6, "type": "output", "position": {"x": 54.5, "y": 136.5}},
-      {"name": "underground-belt", "direction": 6, "type": "input", "position": {"x": 58.5, "y": 136.5}},
-      {"name": "underground-belt", "direction": 6, "type": "output", "position": {"x": 62.5, "y": 136.5}},
       {"name": "underground-belt", "direction": 6, "type": "output", "position": {"x": 58.5, "y": 175.5}},
       {"name": "underground-belt", "direction": 6, "type": "input", "position": {"x": 61.5, "y": 175.5}},
       {"name": "underground-belt", "direction": 6, "type": "input", "position": {"x": 64.5, "y": 128.5}},
@@ -20776,13 +22054,13 @@
       {"name": "underground-belt", "direction": 4, "type": "input", "position": {"x": 75.5, "y": 128.5}},
       {"name": "underground-belt", "direction": 4, "type": "output", "position": {"x": 76.5, "y": 130.5}},
       {"name": "underground-belt", "direction": 4, "type": "output", "position": {"x": 75.5, "y": 132.5}},
-      {"name": "underground-belt", "direction": 6, "type": "input", "position": {"x": 66.5, "y": 136.5}},
-      {"name": "underground-belt", "direction": 6, "type": "output", "position": {"x": 75.5, "y": 136.5}},
       {"name": "underground-belt", "direction": 2, "type": "input", "position": {"x": 93.5, "y": 128.5}},
       {"name": "underground-belt", "direction": 4, "type": "input", "position": {"x": 96.5, "y": 131.5}},
       {"name": "underground-belt", "direction": 4, "type": "output", "position": {"x": 96.5, "y": 136.5}},
       {"name": "underground-belt", "direction": 4, "type": "input", "position": {"x": 96.5, "y": 141.5}},
       {"name": "underground-belt", "type": "output", "position": {"x": 110.5, "y": 141.5}},
+      {"name": "underground-belt", "type": "output", "position": {"x": 112.5, "y": 128.5}},
+      {"name": "underground-belt", "type": "input", "position": {"x": 112.5, "y": 129.5}},
       {"name": "underground-belt", "type": "output", "position": {"x": 114.5, "y": 129.5}},
       {"name": "underground-belt", "direction": 4, "type": "input", "position": {"x": 112.5, "y": 131.5}},
       {"name": "underground-belt", "direction": 6, "type": "output", "position": {"x": 118.5, "y": 130.5}},
@@ -20816,6 +22094,8 @@
       {"name": "underground-belt", "direction": 6, "type": "output", "position": {"x": 115.5, "y": 144.5}},
       {"name": "underground-belt", "direction": 4, "type": "input", "position": {"x": 114.5, "y": 146.5}},
       {"name": "underground-belt", "direction": 6, "type": "input", "position": {"x": 117.5, "y": 144.5}},
+      {"name": "underground-belt", "direction": 6, "type": "output", "position": {"x": 82.5, "y": 175.5}},
+      {"name": "underground-belt", "direction": 6, "type": "input", "position": {"x": 85.5, "y": 175.5}},
       {"name": "underground-belt", "direction": 4, "type": "output", "position": {"x": 128.5, "y": 128.5}},
       {"name": "underground-belt", "direction": 2, "type": "input", "position": {"x": 131.5, "y": 129.5}},
       {"name": "underground-belt", "direction": 2, "type": "output", "position": {"x": 129.5, "y": 131.5}},
