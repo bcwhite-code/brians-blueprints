@@ -279,12 +279,17 @@ receiver...
 
 Add a second Vulcanite core miner but this time use the "rocket"
 delivery mechanism going to one of the bulk receiver pads.  It'll
-require the configuration of the delivery canons in the Mall to send
-the necessary fuel.  When the delivery-canon version fails, replace
-that with another rocket version.
+require the configuration of a pair of delivery canons in the Mall to
+send the necessary fuel.  When the delivery-canon version fails,
+replace that with another rocket version.
 
 The same can be done for Cryonite if necessary but it doesn't have
 much demand outside of science and making ice in the Mall.
+
+Note that the delivery cannon pair will only send 500 capsules before
+stopping since there is no direct feedback as to when the receiver is
+full.  When it's necessary to send more (there will be a speaker
+alert), toggle the "RESET" combinator to start the count again.
 
 That's the basics, though more capacity will be needed for some
 things...
@@ -369,6 +374,7 @@ On Nauvis, you'll want...
 
 * Off-World Supply.
 * Bulk Launch System: (optional) For receiving large quantities of raw materials.  These can be brought by the off-world supply rocket but if a lot is needed, there is no beating dedicated rockets.
+
 
 
 ## Blocks
