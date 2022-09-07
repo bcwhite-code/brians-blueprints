@@ -14,6 +14,7 @@ Join the discussion [on Discord](https://discord.gg/eSt3Qd8D2e).
 You'll want the following mods:
 * [Space Exploration](https://mods.factorio.com/mod/space-exploration) (required)
 * [Logistic Train Network](https://mods.factorio.com/mod/LogisticTrainNetwork) (required)
+* [LTN Content Reader](https://mods.factorio.com/mod/LTN_Content_Reader) (required)
 * [Loader Redux](https://mods.factorio.com/mod/LoaderRedux) (required)
 * [Miniloader](https://mods.factorio.com/mod/miniloader) (required)
 * [Merging Chests](https://mods.factorio.com/mod/WideChests) and [Unlimited](https://mods.factorio.com/mod/WideChestsUnlimited) (required)
@@ -33,14 +34,18 @@ the default loader for the train stations (being that it's by the same
 author an LTN) but there are a few cases where filters need to be set
 programatically and that is only possible with a "miniloader".
 
+The "waterfill" mod was a requirement in my original designs (though
+only for Nauvis) but I've been working on removing it.  There may
+still be some blueprints here and there that still have it.
+
 You'll need the following blueprint books:
 
 **Import blueprint books only AFTER all mods are installed!** (Or things will be missing.)
 
-* [Space Exploration](https://github.com/bcwhite-code/brians-blueprints/releases/tag/self-building-spacex)
-* [Self-Building Factory](https://factorioprints.com/view/-MNZWdWosuqr3vtaC2hD)
-* [Brian's Trains](https://factorioprints.com/view/-LaIPNgh8f16V8EwXXpW)
-* [Brian's Trains (auxilliary)](https://factorioprints.com/view/-M5PZvxZVXEZnmg4V7Hy)
+* [Space Exploration](https://github.com/bcwhite-code/brians-blueprints/releases/tag/self-building-spacex): Most builds will come from this book.
+* [Self-Building Factory](https://factorioprints.com/view/-MNZWdWosuqr3vtaC2hD): Needed for general rail grid and station track from the "Rail Templates" sub-book.
+* [Brian's Trains (auxilliary)](https://factorioprints.com/view/-M5PZvxZVXEZnmg4V7Hy): Needed for train stations when manually building mines.
+* [Brian's Trains](https://factorioprints.com/view/-LaIPNgh8f16V8EwXXpW): Needed for fluid train stations when manually building oil fields and for building new trains.
 
 ## Configuration
 
@@ -59,6 +64,7 @@ In the Mod Settings for _Startup_:
 * Set "Maximum chest width", "Maximum chest height", and "Maximum chest area" all to 150.
 * Set "Inventory size limit" to 1000.
 * Set "Whitelist of merged chests" to "1xN Nx1" (reduces memory consumption).
+* Stack Combinator: Set the "Maximum signal capacity" to 1000.
 * Waterfill: Set "Waterfillable" to "Everything".
 
 In the Mod Settings for the _Map_:
@@ -122,12 +128,14 @@ placed too soon and wreak all kinds of havoc.  Quarter-block areas
 shouldn't have any such overlap so are safe to be adjacent.
 
 * Starter Circuits: _Read blueprint comment!_
+* Water.
 * Basic Science: Place beside mall with factory side close.  Connect logistic networks.  Manually build out the station side.  Prioritize coal, stone, iron, & copper.
 * Refinery: Will require a second placement once waterfill is down to place pumps.  No blue-belts yet so use planner to downgrade all blue to red and **turn on** the extra config combinator to add red belts to phase#2 of the construction.  Later, when blue belts do become available, reverse this. Re-place when Coal Liquefaction eventually becomes available.
 * Steel (electric)
 * Depot Hub: There are no requester chests so manually put fuel into the feeder chests so trains can be refueled.  (Or use the "Early Logistics System" mod to create perfectly usable requester chests for this application.)
 
-Since the refinery will soon export sulfuric acid, now would be a good time to build a uranium mine.
+Since the refinery will soon export sulfuric acid, now would be a good
+time to build a uranium mine.
 
 The self-building "Mine" block can be used from here as well but it's only
 useful in a block with multiple large resources patches.
@@ -216,7 +224,7 @@ prepared.
 (If the cargo rocket still isn't ready, there are more blocks below
 that can be built while waiting.)
 
-* Cryonite Processing.
+* Cryonite: Set the provide threshold for rods to 10 stacks because of the limited input ore.
 * Efficency-1/2/3.
 * Data Substrates.
 * Rocket Fuel.
@@ -242,7 +250,7 @@ Once that is running and you're back on Nauvis, start loading another
 "core" rocket, this time for vulcanite.
 
 * Vulcanite Cores.
-* Vulcanite Processing.
+* Vulcanite: Set the provide threshold for cubes to 10 stacks because of the limited input ore.
 
 Now find a Vulcanite planet and create a core miner there, too.
 
@@ -285,8 +293,7 @@ things...
 * Advanced Circuits.
 * Processors.
 * Basic Circuits.
-* Capsules.
-* Nuclear (10GW): Build when necessary.  This will provide enough power for the rest of the game including defense against all incoming CME.  Note that it can take a long time for the Mall to create all the parts so start it a few hours early.
+a* Capsules.
 
 Now it's time to really colonize other planets in order to gather
 large amounts of resources in a self-sustaining way.  Start with
@@ -303,8 +310,13 @@ No need to wait for these to finish before proceeding as they can be
 configured via sat-nav view even if on another planet.
 
 Once the rocket is ready, choose a Cryonite world, ideally with water
-and no threat.  Go there and build the [Colony Home](#colony-home)
-block in a convienent place.
+and no threat.  Using satellite view, be sure you can actually find a
+good ore patch -- sometimes they won't be present!  Go there and build
+the [Colony Home](#colony-home) block in a convienent place.
+
+Build a mine for Cryonite ore.  Two efficiency-1 modules per large
+miner will reduce power consumption by 80% which is a big help in a
+power-starved colony.
 
 Using the sat-nav view, configure the [Off-World
 Supply](#off-world-supply) for this new colony.  It'll start bringing
@@ -316,23 +328,47 @@ of 200.  Since rocket parts and rocket fuel has to be imported, it's
 best to minimize those and that means building a local processing
 factory.
 
-While the central reactor will support mining, it can supply only
-360MW which means an additional power plant will be necessary.
+On Nauvis, configure two more pads of the Bulk Receiver for Cryonite
+Rods and Glass.
 
+On the new planet, build the following.  Note that construction is
+done the same as on Nauvis.  The Home block will forward the request
+and the Off-World Supply will fulfill it, though somewhat slower than
+a Nauvis build.
 
+* Cryonite.
+* Bulk Launch System: Add a second rocket silo according to blueprint instructions.  Configure for Cryonite Rods and Glass with destinations in the Bulk Receiver.  Ensure everything, including fuel, can reach the second silo!
+
+The home block's reactor will support all this but, in the future,
+another power source will be required to add more Cryonite processing
+blocks (which will feed the existing bulk launcher).
+
+Once all is running smoothly, head back to Nauvis.  Use either a
+capsule's "emergency burn" or the personal cargo rocket.
 
 * Water Ice.
 
+Now repeat all that but on a Vulcanite world!
 
-It's time to go to space and build a "space mall" for all the things
+Instead of "bulk" heavy oil replacing sulfuric acid, it'll need
+petroleum gas **and** sulfur.  For the latter, add a sulfur filter to
+the two loaders off the red warehouses and to the requester chest
+feeding the same belt (for cleaning up after crashed rockets).
+
+Nauvis will now be well supplied with both Cryonite and Vulcanite so
+it's time to go to space and build a "space mall" for all the things
 that can't be built on land.  Nauvis Orbit ("norbit") could host this
 but it's better to move to Calidus Orbit because of the greatly
 increased solar power available.
 
 No "space mall" blueprint is included in the book but there are
 blueprints to help move ingredients from Nauvis and return finished
-products to Nauvis for inclusion in the general build system.  Look
-under the following "Blocks" section for them.
+products to Nauvis for inclusion in the general build system.
+
+On Nauvis, you'll want...
+
+* Off-World Supply.
+* Bulk Launch System: (optional) For receiving large quantities of raw materials.  These can be brought by the off-world supply rocket but if a lot is needed, there is no beating dedicated rockets.
 
 
 ## Blocks
@@ -360,7 +396,8 @@ A base of operations and material transport for colony words.
 Start by using the configuration combinators to load a rocket with
 everything that is needed then launch to the desired world.  Make sure
 any personal roboport is turned _off_ so bots don't start cleaning up
-the mess upon arrival.
+the mess upon arrival.  Also turn off "personal logistics and
+auto-trash" so that bots don't replenish you instead of building.
 
 Find a good location (water beside the water provider station is very
 helpful) and lay the blueprint.  Collect solar panels, accumulators,
@@ -378,11 +415,44 @@ use a local pump with the same condition as the ice-water one so it
 doesn't overfill.  Then reduce the threshold slightly for the
 ice-water in order to lower its priority.
 
+Fix some defaults:
+
+* Change landing pad beside red warehouse chests to "(world) Home", substituting the name of the world.
+* Change the landing pad beside the green warehouse chest to "-Personal-".
+* Change the recycling rocket beside the plain warehouse chest to have a destination of Nauvis/Recycling and to "launch when cargo full".
+* Change the channel of the transmitter near the reactor to "(world)/Cannons".
+* Change the channel of the transmitter near the landing pads to "(world)/Home".
+* Merge chests (only once all chests and power poles have been placed).
+* Set the trains to "automatic" and put some rocket fuel in the back engines of the two reversible ones.
+
+Now finish configuring the [Off-World Supply](#off-world-supply).
+
 There are some add-on blueprints that merged later.  The necessary
 build items will be included in the next rocket delivery.
 
 1. Personal Train: Local version of the Nauvis Home train.
 2. More Meteor Defense: In case you're truely paranoid about a meteor getting through on a world where they spawn biters.
+3. Solar Support: Applied to the power switch between the reactor and the main grid, it'll disconnect whenever an outside solar field is supplying significant power even at night.
+
+There are two bulk provider stations, one fluid and one item.
+
+The fluid one is configured to fetch and provide sulfulic acid
+(typically for mining purpores) if it's needed anywhere.  This can be
+changed to any other fluid simply by changing the type everywhere
+around the station.
+
+Later on, if it's necessary to bring it material in significant
+quantities, they can be configured in the "bulk" combinator.  Set the
+filters in the blue loaders from the red warehouse chests to match and
+all this will be made available via a rail provider station.
+
+The personal rocket allows flying around with a full load of cargo,
+making it available via logistics, and the re-loading a new rocket for
+the next destination.  Enable it by setting the blue logistics chest
+feeding the assembler with a request for 20 _packed_ cargo rocket
+sections.  Then drop a capsule into the silo whenever you're ready to
+leave; doing so will move all the items from the buffer warehouse into
+the new rocket.
 
 
 ### Home
@@ -406,7 +476,7 @@ nuisance.
 Near the signal transmitter is a combinator with some constants that
 will need to be updated as the game progresses:
 
-* **C**: The number of (packed) cargo rocket sections necessary for a return trip.  This starts at 20 and can be reduced with "reusability" research.  Note that the exact number of returned rocket sections is random so give at least 10% extra.
+* **C**: The number of (packed) cargo rocket sections necessary for a return trip.  This starts at 18 and can be reduced with "reusability" research.  Note that the exact number of returned rocket sections is random so give at least 10% extra.
 * **R**: Reliability (aka "safety") of the items loaded into a rocket.  This is actually a divisor for the amount of extra items required so a value of 100 will result in 1% extra.  The default is 10 for 10% extra.
 
 
@@ -419,9 +489,7 @@ Use upgrade planner to change yellow chests to wooden.  Place them.
 pending.  Do the same with red chests.  Later, bots will put
 everything back in order.
 
-Change the electric furnace to stone/steel furnace (with a
-long-handled inserter to feed it sand).  Fuel it with a chest full of
-coal.  Change it back later.
+The stone/steel furnace has a chest for coal.  Manually fill this.
 
 Set refinecy recipe to basic processing (output only methane) until
 "advanced oil processing" is researched (requires blue science).
@@ -467,6 +535,7 @@ game progresses:
 * Upgrade assemblers and inserters for things that are in short supply.
 * When lubricant is brought by train, reverse the pump where it is produced locally so the resources can be used for other things.
 * Hand-feed life-support assemblers (including hand-crafting the lifesupport facilities) to create the necessary canisters.
+* Change the furnace creating glass to an electric one.  The long-handled inserter can become a stack-inserter.
 
 #### "Personal" Cargo Rocket
 
@@ -497,3 +566,27 @@ capsule.
 
 
 ### Off-World Supply
+
+A system for delivering supplies to places off-world.
+
+Once built and there is a [Colony Home](#colony-home) waiting for
+supplies, configure this block:
+
+* Change the name of the 3 LTN stations to replace "(world)" with the actual world name.
+* Change the channel of the dish near the delivery cannons to "(world)/Cannons".
+* Change the channel of the dish near the rocket silo to "(world)/Home".
+* Change the destination of the ice cannon to be the receiver chest next to the reactor and turn it on.
+* Change the destination of the two rocket fuel cannons to be the receiver chest besider the station and turn them on.
+* Change the destination of the rocket silo to be "(world)/Home" with a launch trigger of "launch on green signal or when cargo full".
+e
+
+This can also be used for "non home" bases such as in space.  Any
+landing pad will do.  Signaling works like this:
+
+* green wire: General request.  Everything here will be loaded "best effort" into the rocket.  Smaller requests may be deferred so as to not request too many trains.
+* red wire: Required items and control.  If items are sent this way, they will be prioritized in the request and the rocket will launch as soon as all the required items are loaded.  The requirement **must not be greater than** the general request (i.e. green wire) or it will never be fulfilled.
+
+The following signals on the red wire will affect the launch:
+
+* red X: Don't launch unless full, regardless of the "required items" request.
+* F: The allowed number of _empty_ slots that still counts as a "full" rocket.  (It's "F" because it is added to the rocket's natural "F" and compared to 500.)

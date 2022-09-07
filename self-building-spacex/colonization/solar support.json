@@ -1,0 +1,124 @@
+{
+  "index": 4,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "Solar Support",
+    "shift_x": -63,
+    "shift_y": 1125,
+    "version": 281479276134400,
+    "entities": [
+      {
+        "name": "accumulator",
+        "connections": {"1": {"green": [{"circuit_id": 1, "entity_rel": "1.5,2"}]}},
+        "control_behavior": {"output_signal": {"name": "signal-A", "type": "virtual"}},
+        "position": {"x": 0, "y": 2}
+      },
+      {
+        "name": "big-electric-pole",
+        "connections": {"1": {"red": [{"circuit_id": 1, "entity_rel": "-5,2.5"}]}},
+        "position": {"x": 8, "y": 4}
+      },
+      {
+        "name": "decider-combinator",
+        "connections": {
+          "1": {"green": [{"entity_rel": "-1.5,-2"}], "red": [{"circuit_id": 2, "entity_rel": "0,3"}]},
+          "2": {"red": [{"entity_rel": "1.5,0"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "constant": 1,
+            "copy_count_from_input": true,
+            "first_signal": {"name": "signal-A", "type": "virtual"},
+            "output_signal": {"name": "signal-S", "type": "virtual"}
+          }
+        },
+        "position": {"x": 1.5, "y": 4}
+      },
+      {
+        "name": "decider-combinator",
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 2, "entity_rel": "0,0"}],
+            "red": [{"circuit_id": 2, "entity_rel": "1.5,0.5"}]
+          },
+          "2": {
+            "green": [{"circuit_id": 1, "entity_rel": "0,0"}],
+            "red": [{"circuit_id": 1, "entity_rel": "0,-3"}]
+          }
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "copy_count_from_input": false,
+            "first_signal": {"name": "signal-S", "type": "virtual"},
+            "output_signal": {"name": "signal-S", "type": "virtual"},
+            "second_signal": {"name": "signal-R", "type": "virtual"}
+          }
+        },
+        "position": {"x": 1.5, "y": 7}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 6,
+        "connections": {
+          "1": {"red": [{"entity_rel": "5,-2.5"}, {"circuit_id": 1, "entity_rel": "0,1"}]},
+          "2": {"red": [{"circuit_id": 2, "entity_rel": "0,1"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "constant": 90,
+            "copy_count_from_input": false,
+            "first_signal": {"name": "signal-A", "type": "virtual"},
+            "output_signal": {"name": "signal-R", "type": "virtual"}
+          }
+        },
+        "position": {"x": 3, "y": 6.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 6,
+        "connections": {
+          "1": {"red": [{"circuit_id": 1, "entity_rel": "0,-1"}]},
+          "2": {"red": [{"circuit_id": 1, "entity_rel": "-1.5,-0.5"}, {"circuit_id": 2, "entity_rel": "0,-1"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "<",
+            "constant": 60,
+            "copy_count_from_input": false,
+            "first_signal": {"name": "signal-A", "type": "virtual"},
+            "output_signal": {"name": "signal-S", "type": "virtual"}
+          }
+        },
+        "position": {"x": 3, "y": 7.5}
+      },
+      {
+        "name": "power-switch",
+        "switch_state": false,
+        "connections": {
+          "1": {"red": [{"circuit_id": 2, "entity_rel": "-1.5,0"}]},
+          "Cu0": [{"entity_rel": "-3,-4", "wire_id": 0}],
+          "Cu1": [{"entity_rel": "5,0", "wire_id": 0}]
+        },
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-S", "type": "virtual"}}
+        },
+        "position": {"x": 3, "y": 4}
+      },
+      {"name": "small-lamp", "position": {"x": 7.5, "y": 2.5}},
+      {"name": "small-lamp", "position": {"x": 8.5, "y": 5.5}},
+      {"name": "straight-rail", "position": {"x": 6, "y": 0}},
+      {"name": "straight-rail", "position": {"x": 6, "y": 2}},
+      {"name": "straight-rail", "position": {"x": 6, "y": 4}},
+      {"name": "straight-rail", "position": {"x": 6, "y": 6}},
+      {"name": "straight-rail", "position": {"x": 6, "y": 8}},
+      {"name": "substation", "position": {"x": 0, "y": 0}}
+    ],
+    "icons": [
+      {"index": 1, "signal": {"name": "se-space-solar-panel", "type": "item"}},
+      {"index": 2, "signal": {"name": "power-switch", "type": "item"}}
+    ]
+  }
+}
