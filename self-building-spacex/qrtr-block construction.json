@@ -29,7 +29,7 @@
         "name": "arithmetic-combinator",
         "direction": 4,
         "connections": {
-          "1": {"green": [{"entity_rel": "2,0.5"}, {"circuit_id": 1, "entity_rel": "2,2"}]},
+          "1": {"green": [{"circuit_id": 1, "entity_rel": "2,2"}, {"entity_rel": "2,0.5"}]},
           "2": {"red": [{"circuit_id": 1, "entity_rel": "0,2"}]}
         },
         "control_behavior": {
@@ -46,7 +46,7 @@
         "name": "arithmetic-combinator",
         "direction": 4,
         "connections": {
-          "1": {"red": [{"entity_rel": "0,-1.5"}, {"circuit_id": 1, "entity_rel": "1,2"}]},
+          "1": {"red": [{"circuit_id": 1, "entity_rel": "1,2"}, {"entity_rel": "0,-1.5"}]},
           "2": {"red": [{"circuit_id": 1, "entity_rel": "-1,2"}]}
         },
         "control_behavior": {
@@ -137,7 +137,7 @@
           "1": {"red": [{"circuit_id": 2, "entity_rel": "0,-2"}]},
           "2": {
             "green": [{"circuit_id": 2, "entity_rel": "-1,0"}],
-            "red": [{"circuit_id": 2, "entity_rel": "-1,0"}, {"circuit_id": 1, "entity_rel": "1,0"}]
+            "red": [{"circuit_id": 1, "entity_rel": "1,0"}, {"circuit_id": 2, "entity_rel": "-1,0"}]
           }
         },
         "control_behavior": {
@@ -186,7 +186,7 @@
         "direction": 6,
         "connections": {
           "1": {"green": [{"entity_rel": "0.5,-1"}]},
-          "2": {"red": [{"circuit_id": 2, "entity_rel": "2,0"}, {"circuit_id": 1, "entity_rel": "-1.5,1.5"}]}
+          "2": {"red": [{"circuit_id": 1, "entity_rel": "-1.5,1.5"}, {"circuit_id": 2, "entity_rel": "2,0"}]}
         },
         "control_behavior": {
           "arithmetic_conditions": {
@@ -203,7 +203,7 @@
         "direction": 6,
         "connections": {
           "1": {"green": [{"entity_rel": "0.5,-1"}]},
-          "2": {"red": [{"circuit_id": 2, "entity_rel": "-2,0"}, {"circuit_id": 1, "entity_rel": "1.5,2.5"}]}
+          "2": {"red": [{"circuit_id": 1, "entity_rel": "1.5,2.5"}, {"circuit_id": 2, "entity_rel": "-2,0"}]}
         },
         "control_behavior": {
           "arithmetic_conditions": {
@@ -236,7 +236,7 @@
         "name": "arithmetic-combinator",
         "direction": 4,
         "connections": {
-          "1": {"green": [{"entity_rel": "-5,-1.5"}, {"circuit_id": 1, "entity_rel": "0,7"}]},
+          "1": {"green": [{"circuit_id": 1, "entity_rel": "0,7"}, {"entity_rel": "-5,-1.5"}]},
           "2": {"green": [{"circuit_id": 1, "entity_rel": "0,2"}]}
         },
         "control_behavior": {
@@ -254,10 +254,10 @@
         "direction": 6,
         "connections": {
           "1": {
-            "green": [{"circuit_id": 2, "entity_rel": "0.5,-1.5"}, {"circuit_id": 1, "entity_rel": "0,1"}],
+            "green": [{"circuit_id": 1, "entity_rel": "0,1"}, {"circuit_id": 2, "entity_rel": "0.5,-1.5"}],
             "red": [{"circuit_id": 2, "entity_rel": "-2,0"}]
           },
-          "2": {"green": [{"entity_rel": "-2,-1.5"}, {"circuit_id": 2, "entity_rel": "0,1"}]}
+          "2": {"green": [{"circuit_id": 2, "entity_rel": "0,1"}, {"entity_rel": "-2,-1.5"}]}
         },
         "control_behavior": {
           "arithmetic_conditions": {
@@ -338,11 +338,11 @@
         "name": "big-electric-pole",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "14,0"}, {"circuit_id": 2, "entity_rel": "2,1.5"}],
+            "green": [{"circuit_id": 2, "entity_rel": "2,1.5"}, {"entity_rel": "14,0"}],
             "red": [
+              {"circuit_id": 1, "entity_rel": "0,1.5"},
               {"circuit_id": 2, "entity_rel": "-1.5,-1"},
-              {"entity_rel": "14,0"},
-              {"circuit_id": 1, "entity_rel": "0,1.5"}
+              {"entity_rel": "14,0"}
             ]
           }
         },
@@ -567,7 +567,7 @@
         "connections": {
           "1": {
             "green": [{"circuit_id": 2, "entity_rel": "1,0"}],
-            "red": [{"entity_rel": "2,-0.5"}, {"entity_rel": "1,1.5"}]
+            "red": [{"entity_rel": "1,1.5"}, {"entity_rel": "2,-0.5"}]
           },
           "2": {"green": [{"circuit_id": 1, "entity_rel": "0,2"}], "red": [{"entity_rel": "3,-0.5"}]}
         },
@@ -709,7 +709,7 @@
         "name": "decider-combinator",
         "direction": 2,
         "connections": {
-          "1": {"red": [{"circuit_id": 2, "entity_rel": "0,0"}, {"circuit_id": 2, "entity_rel": "-0.5,1.5"}]},
+          "1": {"red": [{"circuit_id": 2, "entity_rel": "-0.5,1.5"}, {"circuit_id": 2, "entity_rel": "0,0"}]},
           "2": {"red": [{"circuit_id": 1, "entity_rel": "0,0"}, {"entity_rel": "4.5,-1"}]}
         },
         "control_behavior": {
@@ -728,7 +728,7 @@
         "direction": 2,
         "connections": {
           "1": {"red": [{"circuit_id": 1, "entity_rel": "0,1"}]},
-          "2": {"red": [{"circuit_id": 2, "entity_rel": "0,1"}, {"circuit_id": 1, "entity_rel": "2.5,1.5"}]}
+          "2": {"red": [{"circuit_id": 1, "entity_rel": "2.5,1.5"}, {"circuit_id": 2, "entity_rel": "0,1"}]}
         },
         "control_behavior": {
           "decider_conditions": {
@@ -748,9 +748,9 @@
           "2": {
             "red": [
               {"circuit_id": 1, "entity_rel": "0,0"},
+              {"circuit_id": 1, "entity_rel": "0.5,-1.5"},
               {"circuit_id": 2, "entity_rel": "-1,1"},
-              {"circuit_id": 2, "entity_rel": "-1.5,-0.5"},
-              {"circuit_id": 1, "entity_rel": "0.5,-1.5"}
+              {"circuit_id": 2, "entity_rel": "-1.5,-0.5"}
             ]
           }
         },
@@ -788,7 +788,7 @@
         "direction": 4,
         "connections": {
           "1": {
-            "green": [{"circuit_id": 2, "entity_rel": "0,-2"}, {"circuit_id": 1, "entity_rel": "-1,2"}],
+            "green": [{"circuit_id": 1, "entity_rel": "-1,2"}, {"circuit_id": 2, "entity_rel": "0,-2"}],
             "red": [{"circuit_id": 1, "entity_rel": "0.5,1.5"}, {"entity_rel": "-3,2.5"}]
           },
           "2": {"green": [{"circuit_id": 2, "entity_rel": "1,0"}]}
@@ -897,7 +897,7 @@
       {
         "name": "decider-combinator",
         "connections": {
-          "1": {"red": [{"entity_rel": "-3,-0.5"}, {"circuit_id": 1, "entity_rel": "1,2"}]},
+          "1": {"red": [{"circuit_id": 1, "entity_rel": "1,2"}, {"entity_rel": "-3,-0.5"}]},
           "2": {"green": [{"entity_rel": "-3,-0.5"}, {"entity_rel": "1.5,0"}]}
         },
         "control_behavior": {
@@ -936,7 +936,7 @@
         "name": "decider-combinator",
         "direction": 2,
         "connections": {
-          "1": {"red": [{"entity_rel": "0,-1.5"}, {"circuit_id": 1, "entity_rel": "0,1"}]},
+          "1": {"red": [{"circuit_id": 1, "entity_rel": "0,1"}, {"entity_rel": "0,-1.5"}]},
           "2": {"red": [{"circuit_id": 1, "entity_rel": "2,0"}]}
         },
         "control_behavior": {
@@ -1157,10 +1157,10 @@
           "1": {
             "green": [
               {"circuit_id": 1, "entity_rel": "-2,-0.5"},
-              {"circuit_id": 1, "entity_rel": "1,-1.5"},
-              {"circuit_id": 1, "entity_rel": "0,-1.5"}
+              {"circuit_id": 1, "entity_rel": "0,-1.5"},
+              {"circuit_id": 1, "entity_rel": "1,-1.5"}
             ],
-            "red": [{"entity_rel": "-2,-4"}, {"entity_rel": "1,1"}, {"circuit_id": 2, "entity_rel": "1,3.5"}]
+            "red": [{"circuit_id": 2, "entity_rel": "1,3.5"}, {"entity_rel": "-2,-4"}, {"entity_rel": "1,1"}]
           }
         },
         "control_behavior": {
@@ -1205,7 +1205,7 @@
       },
       {
         "name": "iron-chest",
-        "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"circuit_id": 1, "entity_rel": "1,7.5"}]}},
+        "connections": {"1": {"green": [{"circuit_id": 1, "entity_rel": "1,7.5"}, {"entity_rel": "0,-2"}]}},
         "position": {"x": 4.5, "y": -28.5}
       },
       {
@@ -1215,7 +1215,7 @@
       },
       {
         "name": "logistic-chest-passive-provider",
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}, {"entity_rel": "2,0"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}, {"entity_rel": "2,0"}]}},
         "position": {"x": 0.5, "y": -48.5}
       },
       {
@@ -1225,7 +1225,7 @@
       },
       {
         "name": "logistic-chest-passive-provider",
-        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "1,0"}, {"entity_rel": "0,2"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}, {"entity_rel": "1,0"}]}},
         "position": {"x": 0.5, "y": -46.5}
       },
       {
@@ -1235,7 +1235,7 @@
       },
       {
         "name": "logistic-chest-passive-provider",
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-2"}, {"entity_rel": "1,0"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}, {"entity_rel": "1,0"}]}},
         "position": {"x": 0.5, "y": -44.5}
       },
       {
@@ -1245,7 +1245,7 @@
       },
       {
         "name": "logistic-chest-passive-provider",
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}, {"entity_rel": "2,0"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}, {"entity_rel": "2,0"}]}},
         "position": {"x": 0.5, "y": -42.5}
       },
       {
@@ -1260,12 +1260,12 @@
       },
       {
         "name": "logistic-chest-passive-provider",
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-4"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-4"}, {"entity_rel": "0,1"}]}},
         "position": {"x": 0.5, "y": -36.5}
       },
       {
         "name": "logistic-chest-passive-provider",
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}, {"entity_rel": "2,0"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}, {"entity_rel": "2,0"}]}},
         "position": {"x": 0.5, "y": -34.5}
       },
       {
@@ -1275,7 +1275,7 @@
       },
       {
         "name": "logistic-chest-passive-provider",
-        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "1,0"}, {"entity_rel": "0,2"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}, {"entity_rel": "1,0"}]}},
         "position": {"x": 0.5, "y": -32.5}
       },
       {
@@ -1285,7 +1285,7 @@
       },
       {
         "name": "logistic-chest-passive-provider",
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-2"}, {"entity_rel": "1,0"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}, {"entity_rel": "1,0"}]}},
         "position": {"x": 0.5, "y": -30.5}
       },
       {
@@ -1310,7 +1310,7 @@
       },
       {
         "name": "logistic-chest-storage",
-        "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}, {"entity_rel": "0,10"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,10"}, {"entity_rel": "1,0"}]}},
         "position": {"x": 2.5, "y": -50.5}
       },
       {
@@ -1323,7 +1323,7 @@
         "name": "logistic-chest-storage",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,-10"}, {"entity_rel": "1,0"}, {"entity_rel": "0,4"}]
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,-10"}, {"entity_rel": "0,4"}, {"entity_rel": "1,0"}]
           }
         },
         "position": {"x": 2.5, "y": -40.5}
@@ -1340,7 +1340,7 @@
         "name": "logistic-chest-storage",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,-4"}, {"entity_rel": "1,0"}, {"entity_rel": "0,10"}]
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,-4"}, {"entity_rel": "0,10"}, {"entity_rel": "1,0"}]
           }
         },
         "position": {"x": 2.5, "y": -36.5}
@@ -1357,8 +1357,8 @@
         "connections": {
           "1": {
             "green": [
-              {"entity_rel": "-1,0"},
               {"circuit_id": 1, "entity_rel": "-0.5,1"},
+              {"entity_rel": "-1,0"},
               {"entity_rel": "0,-10"},
               {"entity_rel": "1,0"}
             ]
@@ -1383,7 +1383,7 @@
           "r": 0.9333333373069763
         },
         "connections": {
-          "1": {"green": [{"circuit_id": 2, "entity_rel": "-1.5,0"}, {"circuit_id": 2, "entity_rel": "-1,-1.5"}]}
+          "1": {"green": [{"circuit_id": 2, "entity_rel": "-1,-1.5"}, {"circuit_id": 2, "entity_rel": "-1.5,0"}]}
         },
         "control_behavior": {
           "circuit_enable_disable": true,
@@ -1462,7 +1462,7 @@
         "name": "medium-electric-pole",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,-7"}, {"circuit_id": 1, "entity_rel": "5,1.5"}],
+            "green": [{"circuit_id": 1, "entity_rel": "5,1.5"}, {"entity_rel": "0,-7"}],
             "red": [{"entity_rel": "0,-7"}, {"entity_rel": "0,6"}]
           }
         },
@@ -1485,7 +1485,7 @@
         "name": "medium-electric-pole",
         "connections": {
           "1": {
-            "red": [{"entity_rel": "0,-7"}, {"entity_rel": "0,-1"}, {"entity_rel": "0,1"}, {"entity_rel": "0,7"}]
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,-7"}, {"entity_rel": "0,1"}, {"entity_rel": "0,7"}]
           }
         },
         "neighbours": ["-6,0", "0,-7", "0,7"],
@@ -1501,7 +1501,7 @@
         "name": "medium-electric-pole",
         "connections": {
           "1": {
-            "red": [{"entity_rel": "0,-7"}, {"entity_rel": "0,-1"}, {"entity_rel": "0,1"}, {"entity_rel": "0,7"}]
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,-7"}, {"entity_rel": "0,1"}, {"entity_rel": "0,7"}]
           }
         },
         "neighbours": ["-6,0", "0,-7", "0,7"],
@@ -1511,7 +1511,7 @@
         "name": "medium-electric-pole",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,-4"}, {"circuit_id": 1, "entity_rel": "-4,7.5"}],
+            "green": [{"circuit_id": 1, "entity_rel": "-4,7.5"}, {"entity_rel": "0,-4"}],
             "red": [{"circuit_id": 2, "entity_rel": "-4.5,1"}, {"entity_rel": "0,-7"}]
           }
         },
@@ -1629,10 +1629,10 @@
             "green": [{"circuit_id": 2, "entity_rel": "3,0.5"}, {"entity_rel": "0,3"}],
             "red": [
               {"circuit_id": 1, "entity_rel": "-0.5,1"},
-              {"entity_rel": "0,-1"},
               {"circuit_id": 1, "entity_rel": "1.5,-3"},
               {"circuit_id": 1, "entity_rel": "3,-2.5"},
-              {"circuit_id": 1, "entity_rel": "3,0.5"}
+              {"circuit_id": 1, "entity_rel": "3,0.5"},
+              {"entity_rel": "0,-1"}
             ]
           }
         },
@@ -1725,7 +1725,7 @@
         "connections": {
           "1": {
             "green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,2"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-2"}]
+            "red": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]
           }
         },
         "control_behavior": {
@@ -1875,7 +1875,7 @@
         "connections": {
           "1": {
             "green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,2"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-2"}]
+            "red": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]
           }
         },
         "control_behavior": {
@@ -1956,7 +1956,7 @@
         "connections": {
           "1": {
             "green": [{"entity_rel": "-1,0"}],
-            "red": [{"entity_rel": "-2,0"}, {"entity_rel": "0,1"}, {"entity_rel": "0,-2"}]
+            "red": [{"entity_rel": "-2,0"}, {"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]
           }
         },
         "control_behavior": {

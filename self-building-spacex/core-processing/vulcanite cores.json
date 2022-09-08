@@ -170,7 +170,7 @@
         "name": "arithmetic-combinator",
         "direction": 6,
         "connections": {
-          "1": {"green": [{"circuit_id": 1, "entity_rel": "2,0"}, {"circuit_id": 1, "entity_rel": "-2,2"}]},
+          "1": {"green": [{"circuit_id": 1, "entity_rel": "-2,2"}, {"circuit_id": 1, "entity_rel": "2,0"}]},
           "2": {"red": [{"circuit_id": 1, "entity_rel": "-2,0"}]}
         },
         "control_behavior": {
@@ -187,7 +187,7 @@
         "name": "arithmetic-combinator",
         "direction": 6,
         "connections": {
-          "1": {"red": [{"circuit_id": 2, "entity_rel": "2,-1"}, {"circuit_id": 1, "entity_rel": "-2,1"}]},
+          "1": {"red": [{"circuit_id": 1, "entity_rel": "-2,1"}, {"circuit_id": 2, "entity_rel": "2,-1"}]},
           "2": {"red": [{"circuit_id": 1, "entity_rel": "-2,-1"}]}
         },
         "control_behavior": {
@@ -255,7 +255,7 @@
         "name": "arithmetic-combinator",
         "direction": 2,
         "connections": {
-          "1": {"red": [{"entity_rel": "-4.5,0"}, {"circuit_id": 2, "entity_rel": "-2,0"}]},
+          "1": {"red": [{"circuit_id": 2, "entity_rel": "-2,0"}, {"entity_rel": "-4.5,0"}]},
           "2": {"green": [{"circuit_id": 1, "entity_rel": "-1,3"}]}
         },
         "control_behavior": {
@@ -361,8 +361,8 @@
         "name": "big-electric-pole",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "8,-2"}, {"circuit_id": 2, "entity_rel": "1.5,0"}],
-            "red": [{"entity_rel": "8,-2"}, {"circuit_id": 1, "entity_rel": "1,1.5"}]
+            "green": [{"circuit_id": 2, "entity_rel": "1.5,0"}, {"entity_rel": "8,-2"}],
+            "red": [{"circuit_id": 1, "entity_rel": "1,1.5"}, {"entity_rel": "8,-2"}]
           }
         },
         "neighbours": ["8,-2", "0.5,-3.5"],
@@ -376,13 +376,13 @@
       },
       {
         "name": "big-electric-pole",
-        "connections": {"1": {"red": [{"entity_rel": "29,-5"}, {"circuit_id": 2, "entity_rel": "-1.5,0"}]}},
+        "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "-1.5,0"}, {"entity_rel": "29,-5"}]}},
         "neighbours": ["29,-5", "-2.5,7.5"],
         "position": {"x": 43, "y": 13}
       },
       {
         "name": "big-electric-pole",
-        "connections": {"1": {"red": [{"entity_rel": "30,0"}, {"entity_rel": "-29,5"}]}},
+        "connections": {"1": {"red": [{"entity_rel": "-29,5"}, {"entity_rel": "30,0"}]}},
         "neighbours": ["30,0", "-29,5"],
         "position": {"x": 72, "y": 8}
       },
@@ -418,7 +418,7 @@
         "name": "big-electric-pole",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "-8,2"}, {"circuit_id": 2, "entity_rel": "0,1.5"}, {"entity_rel": "8,14"}],
+            "green": [{"circuit_id": 2, "entity_rel": "0,1.5"}, {"entity_rel": "-8,2"}, {"entity_rel": "8,14"}],
             "red": [{"circuit_id": 1, "entity_rel": "-1.5,1"}, {"entity_rel": "-8,2"}, {"entity_rel": "8,14"}]
           }
         },
@@ -431,8 +431,8 @@
           "1": {
             "green": [{"circuit_id": 2, "entity_rel": "0,1.5"}, {"entity_rel": "8,14"}],
             "red": [
-              {"circuit_id": 2, "entity_rel": "4,-2.5"},
               {"circuit_id": 1, "entity_rel": "-1.5,1"},
+              {"circuit_id": 2, "entity_rel": "4,-2.5"},
               {"entity_rel": "8,14"}
             ]
           }
@@ -790,10 +790,10 @@
         "name": "decider-combinator",
         "direction": 4,
         "connections": {
-          "1": {"red": [{"entity_rel": "0,-3.5"}, {"circuit_id": 1, "entity_rel": "1,0"}]},
+          "1": {"red": [{"circuit_id": 1, "entity_rel": "1,0"}, {"entity_rel": "0,-3.5"}]},
           "2": {
             "green": [{"circuit_id": 2, "entity_rel": "1,0"}],
-            "red": [{"circuit_id": 2, "entity_rel": "1,0"}, {"circuit_id": 1, "entity_rel": "1.5,1.5"}]
+            "red": [{"circuit_id": 1, "entity_rel": "1.5,1.5"}, {"circuit_id": 2, "entity_rel": "1,0"}]
           }
         },
         "control_behavior": {
@@ -833,7 +833,7 @@
         "direction": 4,
         "connections": {
           "1": {"red": [{"circuit_id": 1, "entity_rel": "-1,0"}]},
-          "2": {"red": [{"circuit_id": 2, "entity_rel": "-1,0"}, {"circuit_id": 1, "entity_rel": "1.5,-0.5"}]}
+          "2": {"red": [{"circuit_id": 1, "entity_rel": "1.5,-0.5"}, {"circuit_id": 2, "entity_rel": "-1,0"}]}
         },
         "control_behavior": {
           "decider_conditions": {
@@ -852,8 +852,8 @@
         "connections": {
           "1": {
             "green": [
-              {"circuit_id": 2, "entity_rel": "-2,0"},
               {"circuit_id": 1, "entity_rel": "0,-1"},
+              {"circuit_id": 2, "entity_rel": "-2,0"},
               {"entity_rel": "2.5,-1"}
             ]
           },
@@ -1472,8 +1472,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": -0.5, "y": 17.5}
@@ -1532,8 +1532,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": -0.5, "y": 23.5}
@@ -1552,8 +1552,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": -0.5, "y": 25.5}
@@ -1572,8 +1572,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": -0.5, "y": 27.5}
@@ -1592,8 +1592,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": -0.5, "y": 29.5}
@@ -1612,8 +1612,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": -0.5, "y": 31.5}
@@ -1632,8 +1632,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": -0.5, "y": 33.5}
@@ -1652,8 +1652,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": -0.5, "y": 35.5}
@@ -1672,8 +1672,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": -0.5, "y": 37.5}
@@ -1712,8 +1712,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": -0.5, "y": 41.5}
@@ -1772,8 +1772,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": -0.5, "y": 47.5}
@@ -1832,8 +1832,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": -0.5, "y": 53.5}
@@ -1852,8 +1852,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": -0.5, "y": 55.5}
@@ -1912,8 +1912,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": -0.5, "y": 61.5}
@@ -1932,8 +1932,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": -0.5, "y": 63.5}
@@ -1952,8 +1952,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": -0.5, "y": 65.5}
@@ -2062,8 +2062,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": 4.5, "y": 15.5}
@@ -2082,8 +2082,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": 4.5, "y": 17.5}
@@ -2102,8 +2102,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": 4.5, "y": 19.5}
@@ -2122,8 +2122,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": 4.5, "y": 21.5}
@@ -2142,8 +2142,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": 4.5, "y": 23.5}
@@ -2162,8 +2162,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": 4.5, "y": 25.5}
@@ -2182,8 +2182,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": 4.5, "y": 27.5}
@@ -2202,8 +2202,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": 4.5, "y": 29.5}
@@ -2302,8 +2302,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": 4.5, "y": 39.5}
@@ -2322,8 +2322,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": 4.5, "y": 41.5}
@@ -2342,8 +2342,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": 4.5, "y": 43.5}
@@ -2362,8 +2362,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}, {"entity_rel": "-1,2"}],
-            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}, {"entity_rel": "-1,2"}]
+            "green": [{"entity_rel": "-1,2"}, {"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "-1,2"}, {"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": 4.5, "y": 45.5}
@@ -2382,8 +2382,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": 4.5, "y": 47.5}
@@ -2402,8 +2402,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": 4.5, "y": 49.5}
@@ -2442,8 +2442,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": 4.5, "y": 53.5}
@@ -2462,8 +2462,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": 4.5, "y": 55.5}
@@ -2482,8 +2482,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": 4.5, "y": 57.5}
@@ -2522,8 +2522,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": 4.5, "y": 61.5}
@@ -2542,8 +2542,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": 4.5, "y": 63.5}
@@ -2602,8 +2602,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": 4.5, "y": 69.5}
@@ -2787,8 +2787,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,1"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "0,1"}, {"entity_rel": "1,0"}]
           }
         },
         "position": {"x": 28.5, "y": 83.5}
@@ -2947,8 +2947,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
-            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,-1"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "0,-1"}, {"entity_rel": "1,0"}]
           }
         },
         "position": {"x": 28.5, "y": 88.5}
@@ -3217,7 +3217,7 @@
       {
         "name": "logistic-train-stop-input",
         "connections": {
-          "1": {"red": [{"entity_rel": "0,-1"}, {"circuit_id": 2, "entity_rel": "1.5,-1"}, {"entity_rel": "2,0"}]}
+          "1": {"red": [{"circuit_id": 2, "entity_rel": "1.5,-1"}, {"entity_rel": "0,-1"}, {"entity_rel": "2,0"}]}
         },
         "control_behavior": {
           "use_colors": true,
@@ -3229,7 +3229,7 @@
         "name": "logistic-train-stop-input",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "2,-1"}, {"circuit_id": 1, "entity_rel": "-1.5,0"}, {"entity_rel": "7,1"}],
+            "green": [{"circuit_id": 1, "entity_rel": "-1.5,0"}, {"entity_rel": "2,-1"}, {"entity_rel": "7,1"}],
             "red": [{"entity_rel": "2,-1"}, {"entity_rel": "2,0"}]
           }
         },
@@ -3246,8 +3246,8 @@
         "connections": {
           "1": {
             "red": [
-              {"circuit_id": 1, "entity_rel": "4.5,0"},
               {"circuit_id": 1, "entity_rel": "0,3.5"},
+              {"circuit_id": 1, "entity_rel": "4.5,0"},
               {"entity_rel": "0,5"}
             ]
           }
@@ -3262,7 +3262,7 @@
       },
       {
         "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "2,-5"}, {"entity_rel": "1,2"}], "red": [{"entity_rel": "1,2"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "1,2"}, {"entity_rel": "2,-5"}], "red": [{"entity_rel": "1,2"}]}},
         "neighbours": ["2,-5", "5,-5", "-0.5,3.5"],
         "position": {"x": -1.5, "y": 80.5}
       },
@@ -3330,7 +3330,7 @@
       },
       {
         "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "-7,-5"}, {"entity_rel": "8,0"}, {"entity_rel": "-6,6"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "-6,6"}, {"entity_rel": "-7,-5"}, {"entity_rel": "8,0"}]}},
         "neighbours": ["-7,-5", "8,0", "-6,6"],
         "position": {"x": 27.5, "y": 29.5}
       },
@@ -3353,7 +3353,7 @@
       },
       {
         "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "7,-5"}, {"entity_rel": "-8,0"}, {"entity_rel": "6,6"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "-8,0"}, {"entity_rel": "6,6"}, {"entity_rel": "7,-5"}]}},
         "neighbours": ["7,-5", "-8,0", "6,6"],
         "position": {"x": 52.5, "y": 29.5}
       },
@@ -3422,8 +3422,8 @@
         "name": "medium-electric-pole",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "1,-2"}, {"entity_rel": "0,-7"}, {"entity_rel": "0,7"}],
-            "red": [{"entity_rel": "1,-2"}, {"entity_rel": "0,-7"}, {"entity_rel": "0,7"}]
+            "green": [{"entity_rel": "0,-7"}, {"entity_rel": "0,7"}, {"entity_rel": "1,-2"}],
+            "red": [{"entity_rel": "0,-7"}, {"entity_rel": "0,7"}, {"entity_rel": "1,-2"}]
           }
         },
         "neighbours": ["-3,0", "0,-7", "0,7"],
@@ -3431,7 +3431,7 @@
       },
       {
         "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "6,-6"}, {"entity_rel": "-5,4"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "-5,4"}, {"entity_rel": "6,-6"}]}},
         "neighbours": ["6,-6", "-5,4"],
         "position": {"x": 21.5, "y": 35.5}
       },
@@ -3440,11 +3440,11 @@
         "connections": {
           "1": {
             "green": [
-              {"entity_rel": "5,-4"},
               {"entity_rel": "-1,-2"},
               {"entity_rel": "-2,2"},
+              {"entity_rel": "0,7"},
               {"entity_rel": "3,3"},
-              {"entity_rel": "0,7"}
+              {"entity_rel": "5,-4"}
             ]
           }
         },
@@ -3457,10 +3457,10 @@
         "connections": {
           "1": {
             "green": [
-              {"entity_rel": "0,-7"},
-              {"entity_rel": "-2,-2"},
-              {"entity_rel": "3,-3"},
               {"entity_rel": "-1,2"},
+              {"entity_rel": "-2,-2"},
+              {"entity_rel": "0,-7"},
+              {"entity_rel": "3,-3"},
               {"entity_rel": "5,4"}
             ]
           }
@@ -3526,7 +3526,7 @@
       },
       {
         "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "-6,-6"}, {"entity_rel": "8,0"}, {"entity_rel": "-7,5"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "-6,-6"}, {"entity_rel": "-7,5"}, {"entity_rel": "8,0"}]}},
         "neighbours": ["-6,-6", "8,0", "-7,5"],
         "position": {"x": 27.5, "y": 56.5}
       },
@@ -3542,11 +3542,11 @@
         "connections": {
           "1": {
             "green": [
-              {"entity_rel": "-5,-4"},
-              {"entity_rel": "1,-2"},
               {"entity_rel": "-3,3"},
-              {"entity_rel": "2,2"},
-              {"entity_rel": "0,7"}
+              {"entity_rel": "-5,-4"},
+              {"entity_rel": "0,7"},
+              {"entity_rel": "1,-2"},
+              {"entity_rel": "2,2"}
             ]
           }
         },
@@ -3559,11 +3559,11 @@
         "connections": {
           "1": {
             "green": [
-              {"entity_rel": "0,-7"},
               {"entity_rel": "-3,-3"},
-              {"entity_rel": "2,-2"},
+              {"entity_rel": "-5,4"},
+              {"entity_rel": "0,-7"},
               {"entity_rel": "1,2"},
-              {"entity_rel": "-5,4"}
+              {"entity_rel": "2,-2"}
             ]
           }
         },
@@ -3584,13 +3584,13 @@
       },
       {
         "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "5,-4"}, {"entity_rel": "-6,6"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "-6,6"}, {"entity_rel": "5,-4"}]}},
         "neighbours": ["5,-4", "-6,6"],
         "position": {"x": 58.5, "y": 50.5}
       },
       {
         "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "6,-6"}, {"entity_rel": "-8,0"}, {"entity_rel": "7,5"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "-8,0"}, {"entity_rel": "6,-6"}, {"entity_rel": "7,5"}]}},
         "neighbours": ["6,-6", "-8,0", "7,5"],
         "position": {"x": 52.5, "y": 56.5}
       },
@@ -3629,7 +3629,7 @@
         "name": "medium-electric-pole",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,-7"}, {"entity_rel": "3,0"}, {"entity_rel": "-2,5"}],
+            "green": [{"entity_rel": "-2,5"}, {"entity_rel": "0,-7"}, {"entity_rel": "3,0"}],
             "red": [{"entity_rel": "0,-7"}]
           }
         },
@@ -3661,8 +3661,8 @@
             "green": [
               {"circuit_id": 1, "entity_rel": "0.5,-3"},
               {"entity_rel": "-5,-1"},
-              {"entity_rel": "7,0"},
-              {"entity_rel": "0,3"}
+              {"entity_rel": "0,3"},
+              {"entity_rel": "7,0"}
             ],
             "red": [{"entity_rel": "7,0"}]
           }
@@ -3773,9 +3773,9 @@
           "1": {
             "green": [
               {"circuit_id": 1, "entity_rel": "-4.5,-4"},
-              {"entity_rel": "1,-3"},
               {"entity_rel": "-7,-1"},
-              {"entity_rel": "0,5"}
+              {"entity_rel": "0,5"},
+              {"entity_rel": "1,-3"}
             ]
           }
         },
@@ -4181,7 +4181,7 @@
       {
         "name": "stack-filter-inserter",
         "direction": 2,
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
         "filters": [{"name": "se-core-fragment-se-vulcanite", "index": 1}],
         "position": {"x": 0.5, "y": 15.5}
@@ -4197,7 +4197,7 @@
       {
         "name": "stack-filter-inserter",
         "direction": 6,
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
         "filters": [{"name": "se-core-fragment-se-vulcanite", "index": 1}],
         "position": {"x": 3.5, "y": 15.5}
@@ -4213,7 +4213,7 @@
       {
         "name": "stack-filter-inserter",
         "direction": 2,
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
         "filters": [{"name": "se-core-fragment-se-vulcanite", "index": 1}],
         "position": {"x": 0.5, "y": 17.5}
@@ -4229,7 +4229,7 @@
       {
         "name": "stack-filter-inserter",
         "direction": 6,
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
         "filters": [{"name": "se-core-fragment-se-vulcanite", "index": 1}],
         "position": {"x": 3.5, "y": 17.5}
@@ -4261,7 +4261,7 @@
       {
         "name": "stack-filter-inserter",
         "direction": 2,
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
         "filters": [{"name": "se-core-fragment-se-vulcanite", "index": 1}],
         "position": {"x": 0.5, "y": 21.5}
@@ -4277,7 +4277,7 @@
       {
         "name": "stack-filter-inserter",
         "direction": 6,
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
         "filters": [{"name": "se-core-fragment-se-vulcanite", "index": 1}],
         "position": {"x": 3.5, "y": 21.5}
@@ -4293,7 +4293,7 @@
       {
         "name": "stack-filter-inserter",
         "direction": 2,
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
         "filters": [{"name": "se-core-fragment-se-vulcanite", "index": 1}],
         "position": {"x": 0.5, "y": 23.5}
@@ -4309,7 +4309,7 @@
       {
         "name": "stack-filter-inserter",
         "direction": 6,
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
         "filters": [{"name": "se-core-fragment-se-vulcanite", "index": 1}],
         "position": {"x": 3.5, "y": 23.5}
@@ -4349,7 +4349,7 @@
       {
         "name": "stack-filter-inserter",
         "direction": 2,
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-2"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
         "filters": [{"name": "se-core-fragment-se-vulcanite", "index": 1}],
         "position": {"x": 0.5, "y": 27.5}
@@ -4357,7 +4357,7 @@
       {
         "name": "stack-filter-inserter",
         "direction": 6,
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-2"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
         "filters": [{"name": "se-core-fragment-se-vulcanite", "index": 1}],
         "position": {"x": 3.5, "y": 27.5}
@@ -4373,7 +4373,7 @@
       {
         "name": "stack-filter-inserter",
         "direction": 2,
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
         "filters": [{"name": "se-core-fragment-se-vulcanite", "index": 1}],
         "position": {"x": 0.5, "y": 29.5}
@@ -4389,7 +4389,7 @@
       {
         "name": "stack-filter-inserter",
         "direction": 6,
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
         "filters": [{"name": "se-core-fragment-se-vulcanite", "index": 1}],
         "position": {"x": 3.5, "y": 29.5}
@@ -4405,7 +4405,7 @@
       {
         "name": "stack-filter-inserter",
         "direction": 2,
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
         "filters": [{"name": "se-core-fragment-se-vulcanite", "index": 1}],
         "position": {"x": 0.5, "y": 31.5}
@@ -4421,7 +4421,7 @@
       {
         "name": "stack-filter-inserter",
         "direction": 6,
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
         "filters": [{"name": "se-core-fragment-se-vulcanite", "index": 1}],
         "position": {"x": 3.5, "y": 31.5}
@@ -4453,7 +4453,7 @@
       {
         "name": "stack-filter-inserter",
         "direction": 2,
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
         "filters": [{"name": "se-core-fragment-se-vulcanite", "index": 1}],
         "position": {"x": 0.5, "y": 35.5}
@@ -4485,7 +4485,7 @@
       {
         "name": "stack-filter-inserter",
         "direction": 2,
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
         "filters": [{"name": "se-core-fragment-se-vulcanite", "index": 1}],
         "position": {"x": 0.5, "y": 37.5}
@@ -4501,7 +4501,7 @@
       {
         "name": "stack-filter-inserter",
         "direction": 6,
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
         "filters": [{"name": "se-core-fragment-se-vulcanite", "index": 1}],
         "position": {"x": 3.5, "y": 37.5}
@@ -4549,7 +4549,7 @@
       {
         "name": "stack-filter-inserter",
         "direction": 2,
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
         "filters": [{"name": "se-core-fragment-se-vulcanite", "index": 1}],
         "position": {"x": 0.5, "y": 49.5}
@@ -4565,7 +4565,7 @@
       {
         "name": "stack-filter-inserter",
         "direction": 6,
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
         "filters": [{"name": "se-core-fragment-se-vulcanite", "index": 1}],
         "position": {"x": 3.5, "y": 49.5}
@@ -4597,7 +4597,7 @@
       {
         "name": "stack-filter-inserter",
         "direction": 6,
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
         "filters": [{"name": "se-core-fragment-se-vulcanite", "index": 1}],
         "position": {"x": 3.5, "y": 51.5}
@@ -4637,7 +4637,7 @@
       {
         "name": "stack-filter-inserter",
         "direction": 2,
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-2"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
         "filters": [{"name": "se-core-fragment-se-vulcanite", "index": 1}],
         "position": {"x": 0.5, "y": 55.5}
@@ -4645,7 +4645,7 @@
       {
         "name": "stack-filter-inserter",
         "direction": 6,
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-2"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
         "filters": [{"name": "se-core-fragment-se-vulcanite", "index": 1}],
         "position": {"x": 3.5, "y": 55.5}
@@ -4661,7 +4661,7 @@
       {
         "name": "stack-filter-inserter",
         "direction": 2,
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
         "filters": [{"name": "se-core-fragment-se-vulcanite", "index": 1}],
         "position": {"x": 0.5, "y": 57.5}
@@ -4677,7 +4677,7 @@
       {
         "name": "stack-filter-inserter",
         "direction": 6,
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
         "filters": [{"name": "se-core-fragment-se-vulcanite", "index": 1}],
         "position": {"x": 3.5, "y": 57.5}
@@ -4741,7 +4741,7 @@
       {
         "name": "stack-filter-inserter",
         "direction": 2,
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
         "filters": [{"name": "se-core-fragment-se-vulcanite", "index": 1}],
         "position": {"x": 0.5, "y": 63.5}
@@ -4911,7 +4911,7 @@
         "direction": 2,
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "3,0"}, {"circuit_id": 2, "entity_rel": "-2,4.5"}]
+            "green": [{"circuit_id": 2, "entity_rel": "-2,4.5"}, {"entity_rel": "0,-1"}, {"entity_rel": "3,0"}]
           }
         },
         "control_behavior": {"circuit_mode_of_operation": 1},
@@ -4943,7 +4943,7 @@
         "override_stack_size": 1,
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,-3"}, {"circuit_id": 1, "entity_rel": "-2.5,1"}, {"entity_rel": "7,0"}]
+            "green": [{"circuit_id": 1, "entity_rel": "-2.5,1"}, {"entity_rel": "0,-3"}, {"entity_rel": "7,0"}]
           }
         },
         "control_behavior": {
@@ -4966,7 +4966,7 @@
       },
       {
         "name": "stack-filter-inserter",
-        "connections": {"1": {"green": [{"entity_rel": "1,0"}, {"entity_rel": "0,3"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,3"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {
           "circuit_mode_of_operation": 1,
           "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}},
@@ -5000,7 +5000,7 @@
         "override_stack_size": 7,
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,-3"}, {"circuit_id": 2, "entity_rel": "-3.5,0"}, {"entity_rel": "7,0"}]
+            "green": [{"circuit_id": 2, "entity_rel": "-3.5,0"}, {"entity_rel": "0,-3"}, {"entity_rel": "7,0"}]
           }
         },
         "control_behavior": {
@@ -5016,8 +5016,8 @@
         "connections": {
           "1": {
             "green": [
-              {"entity_rel": "0,-3"},
               {"circuit_id": 2, "entity_rel": "-4.5,1"},
+              {"entity_rel": "0,-3"},
               {"entity_rel": "1,0"},
               {"entity_rel": "7,0"}
             ]
@@ -5099,7 +5099,7 @@
         "name": "stack-filter-inserter",
         "direction": 4,
         "override_stack_size": 1,
-        "connections": {"1": {"green": [{"entity_rel": "0,-3"}, {"entity_rel": "-7,0"}, {"entity_rel": "7,0"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "-7,0"}, {"entity_rel": "0,-3"}, {"entity_rel": "7,0"}]}},
         "control_behavior": {
           "circuit_mode_of_operation": 1,
           "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}},
@@ -5111,7 +5111,7 @@
         "name": "stack-filter-inserter",
         "direction": 4,
         "override_stack_size": 7,
-        "connections": {"1": {"green": [{"entity_rel": "0,-3"}, {"entity_rel": "-7,0"}, {"entity_rel": "7,0"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "-7,0"}, {"entity_rel": "0,-3"}, {"entity_rel": "7,0"}]}},
         "control_behavior": {
           "circuit_mode_of_operation": 1,
           "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}},
@@ -5121,7 +5121,7 @@
       },
       {
         "name": "stack-filter-inserter",
-        "connections": {"1": {"green": [{"entity_rel": "1,0"}, {"entity_rel": "0,3"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,3"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {
           "circuit_mode_of_operation": 1,
           "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}},
@@ -5164,7 +5164,7 @@
         "direction": 4,
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,-3"}, {"entity_rel": "-7,0"}, {"entity_rel": "1,0"}, {"entity_rel": "7,0"}]
+            "green": [{"entity_rel": "-7,0"}, {"entity_rel": "0,-3"}, {"entity_rel": "1,0"}, {"entity_rel": "7,0"}]
           }
         },
         "control_behavior": {
@@ -5231,7 +5231,7 @@
       },
       {
         "name": "stack-filter-inserter",
-        "connections": {"1": {"green": [{"entity_rel": "1,0"}, {"entity_rel": "0,3"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,3"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {
           "circuit_mode_of_operation": 1,
           "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}},
@@ -5243,7 +5243,7 @@
         "name": "stack-filter-inserter",
         "direction": 4,
         "override_stack_size": 1,
-        "connections": {"1": {"green": [{"entity_rel": "0,-3"}, {"entity_rel": "-7,0"}, {"entity_rel": "7,0"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "-7,0"}, {"entity_rel": "0,-3"}, {"entity_rel": "7,0"}]}},
         "control_behavior": {
           "circuit_mode_of_operation": 1,
           "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}},
@@ -5255,7 +5255,7 @@
         "name": "stack-filter-inserter",
         "direction": 4,
         "override_stack_size": 7,
-        "connections": {"1": {"green": [{"entity_rel": "0,-3"}, {"entity_rel": "-7,0"}, {"entity_rel": "7,0"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "-7,0"}, {"entity_rel": "0,-3"}, {"entity_rel": "7,0"}]}},
         "control_behavior": {
           "circuit_mode_of_operation": 1,
           "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}},
@@ -5268,7 +5268,7 @@
         "direction": 4,
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,-3"}, {"entity_rel": "-7,0"}, {"entity_rel": "1,0"}, {"entity_rel": "7,0"}]
+            "green": [{"entity_rel": "-7,0"}, {"entity_rel": "0,-3"}, {"entity_rel": "1,0"}, {"entity_rel": "7,0"}]
           }
         },
         "control_behavior": {
@@ -5365,7 +5365,7 @@
       },
       {
         "name": "stack-filter-inserter",
-        "connections": {"1": {"green": [{"entity_rel": "1,0"}, {"entity_rel": "0,3"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,3"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {
           "circuit_mode_of_operation": 1,
           "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}},
@@ -5387,7 +5387,7 @@
         "name": "stack-filter-inserter",
         "direction": 4,
         "override_stack_size": 1,
-        "connections": {"1": {"green": [{"entity_rel": "0,-3"}, {"entity_rel": "-7,0"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "-7,0"}, {"entity_rel": "0,-3"}]}},
         "control_behavior": {
           "circuit_mode_of_operation": 1,
           "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}},
@@ -5399,7 +5399,7 @@
         "name": "stack-filter-inserter",
         "direction": 4,
         "override_stack_size": 7,
-        "connections": {"1": {"green": [{"entity_rel": "0,-3"}, {"entity_rel": "-7,0"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "-7,0"}, {"entity_rel": "0,-3"}]}},
         "control_behavior": {
           "circuit_mode_of_operation": 1,
           "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}},
@@ -5410,7 +5410,7 @@
       {
         "name": "stack-filter-inserter",
         "direction": 4,
-        "connections": {"1": {"green": [{"entity_rel": "0,-3"}, {"entity_rel": "-7,0"}, {"entity_rel": "1,0"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "-7,0"}, {"entity_rel": "0,-3"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {
           "circuit_mode_of_operation": 1,
           "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}},
@@ -5489,7 +5489,7 @@
       {"name": "stack-inserter", "position": {"x": 64.5, "y": 49.5}},
       {
         "name": "storage-tank",
-        "connections": {"1": {"green": [{"entity_rel": "4,0"}, {"entity_rel": "-1,3"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "-1,3"}, {"entity_rel": "4,0"}]}},
         "position": {"x": 59.5, "y": 81.5}
       },
       {
@@ -6045,7 +6045,7 @@
       {
         "name": "transport-belt",
         "direction": 2,
-        "connections": {"1": {"green": [{"entity_rel": "2,-2"}, {"entity_rel": "0,1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "0,1"}, {"entity_rel": "2,-2"}]}},
         "control_behavior": {
           "circuit_contents_read_mode": 1,
           "circuit_enable_disable": false,
@@ -6369,7 +6369,7 @@
       {
         "name": "transport-belt",
         "direction": 6,
-        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "-2,2"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "-2,2"}, {"entity_rel": "0,-1"}]}},
         "control_behavior": {
           "circuit_contents_read_mode": 1,
           "circuit_enable_disable": false,

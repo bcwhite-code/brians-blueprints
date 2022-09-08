@@ -222,7 +222,7 @@
         "name": "arithmetic-combinator",
         "direction": 2,
         "connections": {
-          "1": {"green": [{"entity_rel": "-3,2.5"}, {"circuit_id": 1, "entity_rel": "2,2"}]},
+          "1": {"green": [{"circuit_id": 1, "entity_rel": "2,2"}, {"entity_rel": "-3,2.5"}]},
           "2": {"red": [{"circuit_id": 1, "entity_rel": "2,0"}]}
         },
         "control_behavior": {
@@ -276,7 +276,7 @@
         "name": "arithmetic-combinator",
         "direction": 2,
         "connections": {
-          "1": {"red": [{"circuit_id": 2, "entity_rel": "-1,2"}, {"circuit_id": 1, "entity_rel": "2,1"}]},
+          "1": {"red": [{"circuit_id": 1, "entity_rel": "2,1"}, {"circuit_id": 2, "entity_rel": "-1,2"}]},
           "2": {"red": [{"circuit_id": 1, "entity_rel": "2,-1"}]}
         },
         "control_behavior": {
@@ -407,8 +407,8 @@
         "name": "big-electric-pole",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,-22"}, {"circuit_id": 2, "entity_rel": "1.5,0"}],
-            "red": [{"entity_rel": "0,-22"}, {"circuit_id": 1, "entity_rel": "1,1.5"}]
+            "green": [{"circuit_id": 2, "entity_rel": "1.5,0"}, {"entity_rel": "0,-22"}],
+            "red": [{"circuit_id": 1, "entity_rel": "1,1.5"}, {"entity_rel": "0,-22"}]
           }
         },
         "neighbours": ["8,-2", "0.5,-3.5", "0,-22"],
@@ -441,7 +441,7 @@
         "connections": {
           "1": {
             "green": [{"entity_rel": "-22,0"}, {"entity_rel": "22,0"}],
-            "red": [{"entity_rel": "-22,0"}, {"circuit_id": 1, "entity_rel": "2,0.5"}, {"entity_rel": "22,0"}]
+            "red": [{"circuit_id": 1, "entity_rel": "2,0.5"}, {"entity_rel": "-22,0"}, {"entity_rel": "22,0"}]
           }
         },
         "neighbours": ["-22,0", "22,0"],
@@ -539,7 +539,7 @@
         "connections": {
           "1": {
             "green": [{"entity_rel": "-1.5,0.5"}],
-            "red": [{"entity_rel": "-2,0"}, {"circuit_id": 1, "entity_rel": "0.5,1"}]
+            "red": [{"circuit_id": 1, "entity_rel": "0.5,1"}, {"entity_rel": "-2,0"}]
           }
         },
         "control_behavior": {
@@ -880,8 +880,8 @@
         "name": "express-transport-belt",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "-3.5,-7.5"}, {"entity_rel": "-1,0"}, {"circuit_id": 1, "entity_rel": "1,0.5"}],
-            "red": [{"entity_rel": "-1,0"}, {"circuit_id": 2, "entity_rel": "1,0.5"}]
+            "green": [{"circuit_id": 1, "entity_rel": "1,0.5"}, {"entity_rel": "-1,0"}, {"entity_rel": "-3.5,-7.5"}],
+            "red": [{"circuit_id": 2, "entity_rel": "1,0.5"}, {"entity_rel": "-1,0"}]
           }
         },
         "control_behavior": {
@@ -917,7 +917,7 @@
       {"name": "fast-inserter", "direction": 4, "position": {"x": 12.5, "y": 68.5}},
       {
         "name": "fast-inserter",
-        "connections": {"1": {"green": [{"entity_rel": "4.5,5.5"}, {"entity_rel": "-1,1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "-1,1"}, {"entity_rel": "4.5,5.5"}]}},
         "control_behavior": {
           "circuit_condition": {
             "comparator": "<",
@@ -980,8 +980,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": 6.5, "y": 71.5}
@@ -990,7 +990,7 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}, {"entity_rel": "-1,3"}],
+            "green": [{"entity_rel": "-1,3"}, {"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
             "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
@@ -1000,8 +1000,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}],
-            "red": [{"entity_rel": "0,1"}, {"entity_rel": "0,-1"}]
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
           }
         },
         "position": {"x": 6.5, "y": 73.5}
@@ -1451,8 +1451,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "-2,1"}, {"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
-            "red": [{"entity_rel": "-2,1"}, {"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "-2,1"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "-2,1"}, {"entity_rel": "1,0"}]
           }
         },
         "position": {"x": 46.5, "y": 83.5}
@@ -1611,8 +1611,8 @@
         "name": "iron-chest",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "-2,-1"}, {"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
-            "red": [{"entity_rel": "-2,-1"}, {"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "-2,-1"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "-2,-1"}, {"entity_rel": "1,0"}]
           }
         },
         "position": {"x": 46.5, "y": 88.5}
@@ -2313,7 +2313,7 @@
       {"name": "medium-electric-pole", "neighbours": ["0,-7", "0,7"], "position": {"x": 2.5, "y": 22.5}},
       {
         "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "-3,-1"}, {"entity_rel": "5,0"}, {"entity_rel": "-1,7"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "-1,7"}, {"entity_rel": "-3,-1"}, {"entity_rel": "5,0"}]}},
         "neighbours": ["0,-7", "-2,5"],
         "position": {"x": 2.5, "y": 29.5}
       },
@@ -2340,7 +2340,7 @@
       },
       {
         "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "3,0"}, {"entity_rel": "-2,5"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "-2,5"}, {"entity_rel": "3,0"}]}},
         "neighbours": ["3,0", "-2,5", "5.5,6.5"],
         "position": {"x": 2.5, "y": 75.5}
       },
@@ -2353,7 +2353,7 @@
       {
         "name": "medium-electric-pole",
         "connections": {
-          "1": {"red": [{"circuit_id": 2, "entity_rel": "-1.5,0"}, {"entity_rel": "6,0"}, {"entity_rel": "-7,2"}]}
+          "1": {"red": [{"circuit_id": 2, "entity_rel": "-1.5,0"}, {"entity_rel": "-7,2"}, {"entity_rel": "6,0"}]}
         },
         "neighbours": ["6,0", "-7,2"],
         "position": {"x": 18.5, "y": 65.5}
@@ -2372,7 +2372,7 @@
       },
       {
         "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "2,-5"}, {"entity_rel": "1,2"}], "red": [{"entity_rel": "1,2"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "1,2"}, {"entity_rel": "2,-5"}], "red": [{"entity_rel": "1,2"}]}},
         "neighbours": ["2,-5", "5,-5", "-0.5,3.5"],
         "position": {"x": 0.5, "y": 80.5}
       },
@@ -2386,7 +2386,7 @@
         "name": "medium-electric-pole",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "-5,-2"}, {"entity_rel": "7,0"}, {"entity_rel": "0,3"}],
+            "green": [{"entity_rel": "-5,-2"}, {"entity_rel": "0,3"}, {"entity_rel": "7,0"}],
             "red": [{"entity_rel": "7,0"}]
           }
         },
@@ -2753,7 +2753,7 @@
       {
         "name": "stack-filter-inserter",
         "direction": 6,
-        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"circuit_id": 2, "entity_rel": "-5,0.5"}]}},
+        "connections": {"1": {"green": [{"circuit_id": 2, "entity_rel": "-5,0.5"}, {"entity_rel": "0,-1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
         "position": {"x": 5.5, "y": 74.5}
       },
@@ -2762,7 +2762,7 @@
         "direction": 4,
         "connections": {
           "1": {
-            "green": [{"entity_rel": "1,0"}, {"circuit_id": 2, "entity_rel": "-2.5,-4"}, {"entity_rel": "0,3"}]
+            "green": [{"circuit_id": 2, "entity_rel": "-2.5,-4"}, {"entity_rel": "0,3"}, {"entity_rel": "1,0"}]
           }
         },
         "control_behavior": {"circuit_mode_of_operation": 1},
@@ -3427,7 +3427,7 @@
       },
       {
         "name": "storage-tank",
-        "connections": {"1": {"green": [{"entity_rel": "0,-3"}, {"entity_rel": "-5,0"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "-5,0"}, {"entity_rel": "0,-3"}]}},
         "position": {"x": 7.5, "y": 29.5}
       },
       {"name": "straight-rail", "position": {"x": 102, "y": -12}},
