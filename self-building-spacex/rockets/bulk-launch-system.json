@@ -536,12 +536,7 @@
       {
         "name": "constant-combinator",
         "direction": 4,
-        "connections": {
-          "1": {
-            "green": [{"entity_rel": "-1.5,0.5"}],
-            "red": [{"circuit_id": 1, "entity_rel": "0.5,1"}, {"entity_rel": "-2,0"}]
-          }
-        },
+        "connections": {"1": {"red": [{"circuit_id": 1, "entity_rel": "0.5,1"}, {"entity_rel": "-2,0"}]}},
         "control_behavior": {
           "filters": [
             {"count": 2, "index": 1, "signal": {"name": "ltn-max-trains", "type": "virtual"}},
@@ -916,18 +911,6 @@
       {"name": "fast-inserter", "direction": 6, "position": {"x": 11.5, "y": 69.5}},
       {"name": "fast-inserter", "direction": 4, "position": {"x": 12.5, "y": 68.5}},
       {
-        "name": "fast-inserter",
-        "connections": {"1": {"green": [{"entity_rel": "-1,1"}, {"entity_rel": "4.5,5.5"}]}},
-        "control_behavior": {
-          "circuit_condition": {
-            "comparator": "<",
-            "constant": 100,
-            "first_signal": {"name": "se-cargo-rocket-section", "type": "item"}
-          }
-        },
-        "position": {"x": 18.5, "y": 67.5}
-      },
-      {
         "name": "filter-inserter",
         "direction": 4,
         "override_stack_size": 1,
@@ -942,13 +925,25 @@
       {
         "name": "filter-inserter",
         "override_stack_size": 1,
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}]}},
         "control_behavior": {
           "circuit_read_hand_contents": true,
           "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "se-space-capsule", "type": "item"}}
         },
         "filters": [{"name": "se-space-capsule", "index": 1}],
         "position": {"x": 16.5, "y": 67.5}
+      },
+      {
+        "name": "filter-inserter",
+        "connections": {"1": {"green": [{"entity_rel": "-1,1"}, {"entity_rel": "4.5,5.5"}]}},
+        "control_behavior": {
+          "circuit_condition": {
+            "comparator": "<",
+            "constant": 100,
+            "first_signal": {"name": "se-cargo-rocket-section", "type": "item"}
+          }
+        },
+        "filters": [{"name": "se-cargo-rocket-section", "index": 1}],
+        "position": {"x": 18.5, "y": 67.5}
       },
       {
         "name": "inserter",
@@ -1011,12 +1006,7 @@
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}], "red": [{"entity_rel": "0,-1"}]}},
         "position": {"x": 6.5, "y": 74.5}
       },
-      {
-        "name": "iron-chest",
-        "bar": 1,
-        "connections": {"1": {"green": [{"entity_rel": "0,-1"}]}},
-        "position": {"x": 16.5, "y": 68.5}
-      },
+      {"name": "iron-chest", "bar": 1, "position": {"x": 16.5, "y": 68.5}},
       {
         "name": "iron-chest",
         "connections": {"1": {"green": [{"entity_rel": "1,0"}], "red": [{"entity_rel": "1,0"}]}},
@@ -2260,7 +2250,7 @@
         "direction": 6,
         "station": "Bulk Launch",
         "color": {"a": 0.49803921580314636, "b": 1, "g": 0.501960813999176, "r": 0},
-        "connections": {"1": {"green": [{"circuit_id": 1, "entity_rel": "3,-2.5"}, {"entity_rel": "1.5,-0.5"}]}},
+        "connections": {"1": {"green": [{"circuit_id": 1, "entity_rel": "3,-2.5"}]}},
         "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
         "position": {"x": 10, "y": 84}
       },

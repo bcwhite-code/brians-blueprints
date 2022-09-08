@@ -2575,6 +2575,19 @@
         "position": {"x": 139, "y": 203.5}
       },
       {
+        "name": "arithmetic-combinator",
+        "connections": {"1": {"red": [{"entity_rel": "5,6.5"}]}, "2": {"red": [{"circuit_id": 1, "entity_rel": "-1,0"}]}},
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "+",
+            "second_constant": 0,
+            "first_signal": {"name": "signal-S", "type": "virtual"},
+            "output_signal": {"name": "signal-S", "type": "virtual"}
+          }
+        },
+        "position": {"x": 145.5, "y": 199}
+      },
+      {
         "name": "assembling-machine-3",
         "recipe": "se-cargo-rocket-section-unpack",
         "items": {"effectivity-module": 2},
@@ -3173,7 +3186,7 @@
       },
       {
         "name": "big-electric-pole",
-        "connections": {"1": {"red": [{"entity_rel": "-2,-4"}, {"entity_rel": "0,11"}]}},
+        "connections": {"1": {"red": [{"entity_rel": "-2,-4"}, {"entity_rel": "-5.5,-5.5"}, {"entity_rel": "0,11"}]}},
         "neighbours": ["0,11"],
         "position": {"x": 156, "y": 211}
       },
@@ -6761,16 +6774,22 @@
         "name": "decider-combinator",
         "direction": 4,
         "connections": {
-          "1": {"green": [{"entity_rel": "-2,0.5"}, {"entity_rel": "0,-2.5"}]},
-          "2": {"red": [{"entity_rel": "4,3.5"}, {"entity_rel": "6,-4.5"}]}
+          "1": {
+            "green": [{"circuit_id": 2, "entity_rel": "0,0"}, {"entity_rel": "-2,0.5"}, {"entity_rel": "0,-2.5"}],
+            "red": [{"circuit_id": 2, "entity_rel": "1,0"}]
+          },
+          "2": {
+            "green": [{"circuit_id": 1, "entity_rel": "0,0"}],
+            "red": [{"entity_rel": "4,3.5"}, {"entity_rel": "6,-4.5"}]
+          }
         },
         "control_behavior": {
           "decider_conditions": {
-            "comparator": "<",
-            "constant": 300,
-            "copy_count_from_input": false,
+            "comparator": "=",
+            "constant": 0,
+            "copy_count_from_input": true,
             "first_signal": {"name": "rocket-fuel", "type": "item"},
-            "output_signal": {"name": "rocket-fuel", "type": "item"}
+            "output_signal": {"name": "signal-S", "type": "virtual"}
           }
         },
         "position": {"x": 144.5, "y": 199}
@@ -7846,72 +7865,84 @@
         "name": "locomotive",
         "orientation": 0,
         "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "items": {"rocket-fuel": 1},
         "position": {"x": 90, "y": 25}
       },
       {
         "name": "locomotive",
         "orientation": 0,
         "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "items": {"rocket-fuel": 1},
         "position": {"x": 98, "y": 25}
       },
       {
         "name": "locomotive",
         "orientation": 0,
         "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "items": {"rocket-fuel": 1},
         "position": {"x": 106, "y": 25}
       },
       {
         "name": "locomotive",
         "orientation": 0,
         "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "items": {"rocket-fuel": 1},
         "position": {"x": 120, "y": 25}
       },
       {
         "name": "locomotive",
         "orientation": 0,
         "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "items": {"rocket-fuel": 1},
         "position": {"x": 90, "y": 60}
       },
       {
         "name": "locomotive",
         "orientation": 0.5,
         "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "items": {"rocket-fuel": 2},
         "position": {"x": 106, "y": 46}
       },
       {
         "name": "locomotive",
         "orientation": 0,
         "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "items": {"rocket-fuel": 1},
         "position": {"x": 120, "y": 60}
       },
       {
         "name": "locomotive",
         "orientation": 0,
         "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "items": {"rocket-fuel": 1},
         "position": {"x": 90, "y": 95}
       },
       {
         "name": "locomotive",
         "orientation": 0,
         "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "items": {"rocket-fuel": 1},
         "position": {"x": 128, "y": 25}
       },
       {
         "name": "locomotive",
         "orientation": 0,
         "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "items": {"rocket-fuel": 1},
         "position": {"x": 136, "y": 25}
       },
       {
         "name": "locomotive",
         "orientation": 0.5,
         "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "items": {"rocket-fuel": 2},
         "position": {"x": 136, "y": 46}
       },
       {
         "name": "locomotive",
         "orientation": 0,
         "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "items": {"rocket-fuel": 1},
         "position": {"x": 128, "y": 60}
       },
       {"name": "logistic-chest-active-provider", "position": {"x": 47.5, "y": 156.5}},
@@ -8655,7 +8686,9 @@
             {"count": -500, "index": 4, "signal": {"name": "repair-pack", "type": "item"}},
             {"count": -300000, "index": 5, "signal": {"name": "se-liquid-rocket-fuel", "type": "fluid"}},
             {"count": -90, "index": 6, "signal": {"name": "se-space-capsule", "type": "item"}},
-            {"count": -120, "index": 7, "signal": {"name": "se-cargo-rocket-section-packed", "type": "item"}}
+            {"count": -170, "index": 7, "signal": {"name": "se-cargo-rocket-section-packed", "type": "item"}},
+            {"count": -2500, "index": 8, "signal": {"name": "se-delivery-cannon-capsule", "type": "item"}},
+            {"count": -1500, "index": 9, "signal": {"name": "rocket-fuel", "type": "item"}}
           ]
         },
         "position": {"x": 112.5, "y": 154.5}
@@ -9779,7 +9812,11 @@
         "neighbours": ["-9,0", "9,0"],
         "position": {"x": 159.5, "y": 194.5}
       },
-      {"name": "medium-electric-pole", "position": {"x": 150.5, "y": 205.5}},
+      {
+        "name": "medium-electric-pole",
+        "connections": {"1": {"red": [{"circuit_id": 1, "entity_rel": "-5,-6.5"}, {"entity_rel": "5.5,5.5"}]}},
+        "position": {"x": 150.5, "y": 205.5}
+      },
       {
         "name": "medium-electric-pole",
         "connections": {"1": {"red": [{"entity_rel": "-9,0"}, {"entity_rel": "8,3"}]}},
@@ -10652,7 +10689,7 @@
         },
         "connections": {"1": {"green": [{"circuit_id": 1, "entity_rel": "2,-0.5"}]}},
         "control_behavior": {
-          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "rocket-fuel", "type": "item"}},
+          "circuit_condition": {"comparator": ">", "constant": 60, "first_signal": {"name": "signal-S", "type": "virtual"}},
           "circuit_parameters": {"instrument_id": 0, "note_id": 2, "signal_value_is_pitch": false}
         },
         "parameters": {"allow_polyphony": true, "playback_globally": true, "playback_volume": 0},

@@ -17,7 +17,7 @@ You'll want the following mods:
 * [LTN Content Reader](https://mods.factorio.com/mod/LTN_Content_Reader) (required)
 * [Loader Redux](https://mods.factorio.com/mod/LoaderRedux) (required)
 * [Miniloader](https://mods.factorio.com/mod/miniloader) (required)
-* [Merging Chests](https://mods.factorio.com/mod/WideChests) and [Unlimited](https://mods.factorio.com/mod/WideChestsUnlimited) (required)
+* [Merging Chests](https://mods.factorio.com/mod/WideChests) and [Unlimited](https://mods.factorio.com/mod/WideChestsUnlimited) (both required)
 * [Ghost Scanner](https://mods.factorio.com/mod/GhostScanner) (required)
 * [Stack Combinator](https://mods.factorio.com/mod/stack-combinator) (required)
 * [Auto Research](https://mods.factorio.com/mod/auto-research) (recommended)
@@ -36,7 +36,7 @@ programatically and that is only possible with a "miniloader".
 
 The "waterfill" mod was a requirement in my original designs (though
 only for Nauvis) but I've been working on removing it.  There may
-still be some blueprints here and there that still have it.
+still be some blueprints here and there that still use it.
 
 You'll need the following blueprint books:
 
@@ -375,6 +375,16 @@ On Nauvis, you'll want...
 * Off-World Supply.
 * Bulk Launch System: (optional) For receiving large quantities of raw materials.  These can be brought by the off-world supply rocket but if a lot is needed, there is no beating dedicated rockets.
 
+One of the biggest difficulties is that scaffolding can no longer be
+made on the planet surface which means transporting 5x as many stacks
+of material to space to produce the same amount, and you'll need a lot
+of it (like tens of thousands of scaffolding).
+
+In this same space will be the main science factory, so keep that in mind.
+
+Personally, I don't use trains or city blocks in space because
+everything is planned to produce specific outputs but it can be done
+that way.
 
 
 ## Blocks
