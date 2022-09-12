@@ -1,0 +1,185 @@
+{
+  "index": 11,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "Personal Rocket",
+    "shift_x": -175,
+    "shift_y": -26,
+    "version": 281479276134400,
+    "entities": [
+      {"name": "aai-warehouse-buffer", "position": {"x": 5, "y": 3}},
+      {
+        "name": "decider-combinator",
+        "direction": 6,
+        "connections": {"1": {"green": [{"entity_rel": "-4,-5.5"}]}, "2": {"red": [{"entity_rel": "-2.5,0"}]}},
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "constant": 0,
+            "copy_count_from_input": false,
+            "first_signal": {"name": "se-space-capsule", "type": "item"},
+            "output_signal": {"name": "signal-check", "type": "virtual"}
+          }
+        },
+        "position": {"x": 9, "y": -0.5}
+      },
+      {
+        "name": "fast-inserter",
+        "direction": 2,
+        "override_stack_size": 1,
+        "connections": {"1": {"green": [{"entity_rel": "-5.5,3.5"}, {"entity_rel": "2,2"}]}},
+        "control_behavior": {
+          "circuit_condition": {
+            "comparator": "<",
+            "constant": 100,
+            "first_signal": {"name": "se-cargo-rocket-section", "type": "item"}
+          }
+        },
+        "position": {"x": 10.5, "y": -9.5}
+      },
+      {"name": "fast-inserter", "direction": 4, "position": {"x": 12.5, "y": -4.5}},
+      {
+        "name": "filter-inserter",
+        "direction": 4,
+        "filters": [
+          {"name": "se-cargo-rocket-section-packed", "index": 1},
+          {"name": "se-cargo-rocket-section", "index": 2},
+          {"name": "se-liquid-rocket-fuel-barrel", "index": 3}
+        ],
+        "position": {"x": 7.5, "y": -0.5}
+      },
+      {
+        "name": "filter-inserter",
+        "direction": 6,
+        "filters": [{"name": "se-liquid-rocket-fuel-barrel", "index": 1}],
+        "position": {"x": 10.5, "y": -5.5}
+      },
+      {"name": "inserter", "direction": 6, "position": {"x": 10.5, "y": -10.5}},
+      {
+        "name": "inserter",
+        "direction": 4,
+        "connections": {"1": {"green": [{"entity_rel": "-2,-2"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "se-space-capsule", "type": "item"}}
+        },
+        "position": {"x": 12.5, "y": -7.5}
+      },
+      {"name": "logistic-chest-active-provider", "position": {"x": 12.5, "y": -5.5}},
+      {
+        "name": "logistic-chest-requester",
+        "position": {"x": 11.5, "y": -6.5},
+        "request_filters": [{"name": "se-used-lifesupport-canister", "count": 500, "index": 1}]
+      },
+      {
+        "name": "logistic-chest-requester",
+        "request_from_buffers": true,
+        "position": {"x": 11.5, "y": -5.5},
+        "request_filters": [{"name": "se-liquid-rocket-fuel-barrel", "count": 100, "index": 1}]
+      },
+      {
+        "name": "logistic-chest-requester",
+        "request_from_buffers": true,
+        "position": {"x": 12.5, "y": -6.5},
+        "request_filters": [{"name": "se-cargo-rocket-section-packed", "count": 20, "index": 1}]
+      },
+      {"name": "medium-electric-pole", "neighbours": ["2,8"], "position": {"x": -0.5, "y": -8.5}},
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-2,-8", "7,1", "0,7"],
+        "position": {"x": 1.5, "y": -0.5}
+      },
+      {"name": "medium-electric-pole", "neighbours": ["-2,8"], "position": {"x": 10.5, "y": -7.5}},
+      {"name": "medium-electric-pole", "neighbours": ["0,-7", "7,0"], "position": {"x": 1.5, "y": 6.5}},
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["2,-8", "-7,-1", "0,6"],
+        "position": {"x": 8.5, "y": 0.5}
+      },
+      {"name": "medium-electric-pole", "neighbours": ["0,-6", "-7,0"], "position": {"x": 8.5, "y": 6.5}},
+      {"name": "se-rocket-landing-pad", "position": {"x": 5.5, "y": 11.5}},
+      {
+        "name": "se-rocket-launch-pad",
+        "connections": {"1": {"green": [{"circuit_id": 1, "entity_rel": "4,5.5"}, {"entity_rel": "5.5,-3.5"}]}},
+        "position": {"x": 5, "y": -6}
+      },
+      {
+        "name": "se-space-assembling-machine",
+        "recipe": "se-cargo-rocket-section-unpack",
+        "position": {"x": 12.5, "y": -9.5}
+      },
+      {
+        "name": "se-space-assembling-machine",
+        "direction": 2,
+        "recipe": "empty-se-liquid-rocket-fuel-barrel",
+        "position": {"x": 11.5, "y": -2.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 4,
+        "filter_mode": "blacklist",
+        "connections": {"1": {"red": [{"entity_rel": "1,0"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "filters": [{"name": "se-space-capsule", "index": 1}],
+        "position": {"x": 2.5, "y": -0.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 4,
+        "filter_mode": "blacklist",
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "filters": [{"name": "se-space-capsule", "index": 1}],
+        "position": {"x": 3.5, "y": -0.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 4,
+        "filter_mode": "blacklist",
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "filters": [{"name": "se-space-capsule", "index": 1}],
+        "position": {"x": 4.5, "y": -0.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 4,
+        "filter_mode": "blacklist",
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "filters": [{"name": "se-space-capsule", "index": 1}],
+        "position": {"x": 5.5, "y": -0.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 4,
+        "filter_mode": "blacklist",
+        "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "2.5,0"}, {"entity_rel": "-1,0"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "filters": [{"name": "se-space-capsule", "index": 1}],
+        "position": {"x": 6.5, "y": -0.5}
+      },
+      {"name": "stack-inserter", "direction": 2, "position": {"x": 10.5, "y": -6.5}},
+      {"name": "stack-inserter", "position": {"x": 11.5, "y": -4.5}},
+      {"name": "stack-inserter", "direction": 4, "position": {"x": 2.5, "y": 6.5}},
+      {"name": "stack-inserter", "direction": 4, "position": {"x": 3.5, "y": 6.5}},
+      {"name": "stack-inserter", "direction": 4, "position": {"x": 4.5, "y": 6.5}},
+      {"name": "stack-inserter", "direction": 4, "position": {"x": 5.5, "y": 6.5}},
+      {"name": "stack-inserter", "direction": 4, "position": {"x": 6.5, "y": 6.5}},
+      {"name": "stack-inserter", "direction": 4, "position": {"x": 7.5, "y": 6.5}}
+    ],
+    "icons": [
+      {"index": 1, "signal": {"name": "se-thruster-suit", "type": "item"}},
+      {"index": 2, "signal": {"name": "se-rocket-landing-pad", "type": "item"}}
+    ]
+  }
+}

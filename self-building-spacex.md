@@ -114,18 +114,19 @@ provider stations be completed (including merged chests) except for
 the rail and the LTN stop long before they're needed.  Later, the
 rail, signals, etc. can be placed quickly.
 
-* [Home](#home): Build beside Mall.
+* [Home](#home): Build beside Mall with personal train being directly adjacent.
 * Iron Smelter: Temporarily turn off combinator near Mall station that disables supply of belts.
 * Belts: This is a "quarter block" blueprint.  _Read blueprint comment!_
 * Copper Smelter.
 
 Many of the blocks include modules.  They'll run fine without them for
 now but the Construction Site will not report "finished" until all the
-modules are supplied, which will be a long time coming (on the order
+modules are supplied... which will be a long time coming (on the order
 of "days").  That's okay.  Just be sure that the full-block
 construction areas don't overlap as that can lead to LTN station being
 placed too soon and wreak all kinds of havoc.  Quarter-block areas
-shouldn't have any such overlap so are safe to be adjacent.
+shouldn't have any such overlap so are safe to be adjacent within a
+block.
 
 * Starter Circuits: _Read blueprint comment!_
 * Water.
@@ -205,7 +206,7 @@ up.  While that is happening...
 
 * Basic Cores (Nauvis).
 * Cryonite Cores.
-* Barrelling: There's no Construction Site for this one; it has to be built by hand, ideally near the refinery fluid outputs to minimize train travel.
+* Barrelling: There's no Construction Site for this one; it has to be built by hand, ideally near the refinery fluid outputs to minimize train travel.  If not using waterfill, will need water pumped in.
 * Pyroflux Overflow.
 
 When the delivery capsules are done and everything has been loaded
@@ -215,7 +216,7 @@ cryonite planet/moon, ideally without any biters ("threat").  Set that
 as the destination.  When the required liquid fuel has been loaded,
 get in and launch.
 
-Build a "Core Miner (Nuclear)" on top of a convenient fissure, sending
+Build a "Core Miner (cannon)" on top of a convenient fissure, sending
 to the receiver in the Cryonite Cores block.  (See blueprint comment
 for details on its setup.)  Then use the landing pod to return to
 Nauvis via an "emergency burn"; it'll land some random place so be
@@ -234,11 +235,12 @@ available.  However, they have to be made in space and so it involves
 another rocket configuration and some fetching of items by hand to be
 able to produce a few thousand of them.
 
-I don't provide blueprints for this, though!  Have fun with it but
-don't go overboard: A bigger science installation will come later;
-this just needs a minimal build to get through the basics. Some
-factory components necessary for this can only be manufactured in
-space so remember to take the basic building blocks as well.
+I don't provide blueprints for crafting this scienc pack, though!
+Have fun with it but don't go overboard: A bigger science installation
+will come later; this just needs a minimal build to get through the
+basics. Some factory components necessary for this can only be
+manufactured in space so remember to take the basic building blocks on
+the rocket or personal inventory as well.
 
 The 4k of "space" science is likely gone so take more building blocks
 for that along with an equal amount of the basic science packs.
@@ -256,8 +258,7 @@ Now find a Vulcanite planet and create a core miner there, too.
 
 The crafting of Prod-3 modules is still some time off and even longer
 before enough are producted to actually finish the myriad of
-construction sites waiting for them.  Patience.  Multiple core miner
-installations will help speed this up.
+construction sites waiting for them.  Patience.
 
 * Bots.
 * [Bulk Receiver](#bulk-receiver).
@@ -280,16 +281,17 @@ receiver...
 Add a second Vulcanite core miner but this time use the "rocket"
 delivery mechanism going to one of the bulk receiver pads.  It'll
 require the configuration of a pair of delivery canons in the Mall to
-send the necessary fuel.  When the delivery-canon version fails,
+send the necessary fuel.  When the delivery-canon version runs dry,
 replace that with another rocket version.
 
 The same can be done for Cryonite if necessary but it doesn't have
 much demand outside of science and making ice in the Mall.
 
-Note that the delivery cannon pair will only send 500 capsules before
-stopping since there is no direct feedback as to when the receiver is
-full.  When it's necessary to send more (there will be a speaker
-alert), toggle the "RESET" combinator to start the count again.
+Note that the delivery cannon pair for rocket-fuel will only send 500
+capsules before stopping since there is no direct feedback as to when
+the receiver is full.  When it's necessary to send more (there will be
+a speaker alert), toggle the "RESET" combinator to start the count
+again.
 
 That's the basics, though more capacity will be needed for some
 things...
@@ -298,7 +300,7 @@ things...
 * Advanced Circuits.
 * Processors.
 * Basic Circuits.
-a* Capsules.
+* Capsules.
 
 Now it's time to really colonize other planets in order to gather
 large amounts of resources in a self-sustaining way.  Start with
@@ -316,22 +318,23 @@ configured via sat-nav view even if on another planet.
 
 Once the rocket is ready, choose a Cryonite world, ideally with water
 and no threat.  Using satellite view, be sure you can actually find a
-good ore patch -- sometimes they won't be present!  Go there and build
-the [Colony Home](#colony-home) block in a convienent place.
-
-Build a mine for Cryonite ore.  Two efficiency-1 modules per large
-miner will reduce power consumption by 80% which is a big help in a
-power-starved colony.
+good ore patch -- sometimes they won't be close or even common!  Go
+there and build the [Colony Home](#colony-home) block in a convienent
+place.
 
 Using the sat-nav view, configure the [Off-World
 Supply](#off-world-supply) for this new colony.  It'll start bringing
 in material by rocket, including the things necessary to expand the
 rail grid and build a Cryonite mine.
 
+Build a mine for Cryonite ore.  Two efficiency-1 modules per large
+miner will reduce power consumption by 80% which is a big help in a
+power-starved colony.
+
 Cryonite has stacks of only 20 but processed Cryonite rods has stacks
 of 200.  Since rocket parts and rocket fuel has to be imported, it's
-best to minimize those and that means building a local processing
-factory.
+best to be as dense as possible and that means building a local
+processing factory.
 
 On Nauvis, configure two more pads of the Bulk Receiver for Cryonite
 Rods and Glass.
@@ -344,9 +347,12 @@ a Nauvis build.
 * Cryonite.
 * Bulk Launch System: Add a second rocket silo according to blueprint instructions.  Configure for Cryonite Rods and Glass with destinations in the Bulk Receiver.  Ensure everything, including fuel, can reach the second silo!
 
-The home block's reactor will support all this but, in the future,
-another power source will be required to add more Cryonite processing
-blocks (which will feed the existing bulk launcher).
+The home block's reactor will support all this as long as the miners
+have efficiency modules.
+
+The sulfuric acid "bulk" supply will need to be changed to heavy oil.
+Just change every instance of the fluid and barrels around the head of
+the station to be the new type.
 
 Once all is running smoothly, head back to Nauvis.  Use either a
 capsule's "emergency burn" or the personal cargo rocket.
@@ -378,7 +384,7 @@ On Nauvis, you'll want...
 One of the biggest difficulties is that scaffolding can no longer be
 made on the planet surface which means transporting 5x as many stacks
 of material to space to produce the same amount, and you'll need a lot
-of it (like tens of thousands of scaffolding).
+(like tens of thousands) of scaffolding.
 
 In this same space will be the main science factory, so keep that in mind.
 
@@ -495,6 +501,10 @@ will need to be updated as the game progresses:
 * **C**: The number of (packed) cargo rocket sections necessary for a return trip.  This starts at 18 and can be reduced with "reusability" research.  Note that the exact number of returned rocket sections is random so give at least 10% extra.
 * **R**: Reliability (aka "safety") of the items loaded into a rocket.  This is actually a divisor for the amount of extra items required so a value of 100 will result in 1% extra.  The default is 10 for 10% extra.
 
+There is a "personal train" that auto-loads with the things necessary
+to expand the factory just by driving around and replenishing the
+personal roboport with items from the train.  But honestly, jetpacks
+and long-reach to replenish directly from the Mall is easier.
 
 ### Mall
 
@@ -527,9 +537,9 @@ routed to the labs.  You'll have to move them manually.
 
 It will eventually launch a rocket with a satellite.  This unlocks
 satellite navigation, provides telemetry for "rocket" (orange)
-science, and most importantly, will reveal a "weapons cache" somewhere
-on the map.  You need to get the items from that to complete the
-Construction Supply station!
+science, and most importantly, reveals a "weapons cache" somewhere on
+the map.  **You need to get the items from that to complete the
+Construction Supply station!**
 
 There are a number of requester chests used.  Until that becomes
 available (in v0.5, it was available much earlier), items will have to

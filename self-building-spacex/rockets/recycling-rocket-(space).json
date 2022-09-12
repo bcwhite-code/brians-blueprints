@@ -1,0 +1,479 @@
+{
+  "index": 17,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "Recycling Rocket (space)",
+    "shift_x": -40,
+    "shift_y": 469,
+    "version": 281479276134400,
+    "entities": [
+      {"name": "aai-warehouse", "position": {"x": -4, "y": 8}},
+      {
+        "name": "decider-combinator",
+        "direction": 6,
+        "connections": {
+          "1": {"green": [{"entity_rel": "0.5,-2"}, {"entity_rel": "6,-5.5"}]},
+          "2": {"red": [{"entity_rel": "0.5,-3"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "=",
+            "constant": 0,
+            "copy_count_from_input": true,
+            "first_signal": {"name": "se-cargo-rocket", "type": "virtual"},
+            "output_signal": {"name": "signal-F", "type": "virtual"}
+          }
+        },
+        "position": {"x": -1, "y": 13.5}
+      },
+      {"name": "fast-inserter", "direction": 4, "position": {"x": -15.5, "y": -0.5}},
+      {"name": "fast-inserter", "direction": 2, "position": {"x": -9.5, "y": -1.5}},
+      {"name": "fast-inserter", "position": {"x": -15.5, "y": 1.5}},
+      {"name": "fast-inserter", "direction": 4, "position": {"x": -11.5, "y": 4.5}},
+      {
+        "name": "fast-inserter",
+        "direction": 6,
+        "override_stack_size": 1,
+        "connections": {"1": {"green": [{"entity_rel": "-4,-2"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {
+          "circuit_condition": {
+            "comparator": "<",
+            "constant": 100,
+            "first_signal": {"name": "se-cargo-rocket-section", "type": "item"}
+          }
+        },
+        "position": {"x": -0.5, "y": 4.5}
+      },
+      {"name": "fast-inserter", "direction": 4, "position": {"x": -13.5, "y": 12.5}},
+      {"name": "fast-inserter", "position": {"x": -11.5, "y": 13.5}},
+      {
+        "name": "filter-inserter",
+        "connections": {"1": {"green": [{"entity_rel": "-2,-9"}]}},
+        "control_behavior": {
+          "circuit_mode_of_operation": 3,
+          "circuit_condition": {
+            "comparator": "<",
+            "constant": 30,
+            "first_signal": {"name": "se-cargo-rocket-section", "type": "item"}
+          }
+        },
+        "filters": [{"name": "se-cargo-rocket-section-packed", "index": 1}],
+        "position": {"x": 0.5, "y": 13.5}
+      },
+      {"name": "inserter", "position": {"x": -13.5, "y": 4.5}},
+      {
+        "name": "inserter",
+        "direction": 2,
+        "connections": {"1": {"green": [{"entity_rel": "4.5,-4.5"}]}},
+        "control_behavior": {
+          "circuit_condition": {
+            "comparator": "<",
+            "constant": 30,
+            "first_signal": {"name": "se-cargo-rocket-section", "type": "item"}
+          }
+        },
+        "position": {"x": -12.5, "y": 14.5}
+      },
+      {"name": "inserter", "direction": 4, "position": {"x": -2.5, "y": 11.5}},
+      {
+        "name": "inserter",
+        "direction": 6,
+        "connections": {"1": {"green": [{"circuit_id": 1, "entity_rel": "-0.5,2"}, {"entity_rel": "0,-1"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "se-space-capsule", "type": "item"}}
+        },
+        "position": {"x": -0.5, "y": 11.5}
+      },
+      {"name": "inserter", "direction": 6, "position": {"x": -5.5, "y": 12.5}},
+      {
+        "name": "inserter",
+        "direction": 6,
+        "connections": {"1": {"green": [{"entity_rel": "-1,0"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 40, "first_signal": {"name": "se-space-capsule", "type": "item"}}
+        },
+        "position": {"x": -3.5, "y": 12.5}
+      },
+      {"name": "logistic-chest-buffer", "bar": 20, "position": {"x": -10.5, "y": -1.5}},
+      {
+        "name": "logistic-chest-buffer",
+        "position": {"x": -11.5, "y": 14.5},
+        "request_filters": [{"name": "se-cargo-rocket-section-packed", "count": 20, "index": 1}]
+      },
+      {"name": "logistic-chest-buffer", "position": {"x": -1.5, "y": 12.5}},
+      {
+        "name": "logistic-chest-requester",
+        "request_from_buffers": true,
+        "position": {"x": -10.5, "y": -0.5},
+        "request_filters": [{"name": "empty-barrel", "count": 2000, "index": 1}]
+      },
+      {
+        "name": "logistic-chest-requester",
+        "request_from_buffers": true,
+        "position": {"x": -15.5, "y": 0.5},
+        "request_filters": [{"name": "rocket-fuel", "count": 100, "index": 1}]
+      },
+      {
+        "name": "logistic-chest-requester",
+        "request_from_buffers": true,
+        "connections": {"1": {"green": [{"entity_rel": "-0.5,-2"}]}},
+        "position": {"x": -5.5, "y": 2.5},
+        "request_filters": [{"name": "se-liquid-rocket-fuel-barrel", "count": 200, "index": 1}]
+      },
+      {
+        "name": "logistic-chest-requester",
+        "bar": 5,
+        "request_from_buffers": true,
+        "position": {"x": -1.5, "y": 11.5},
+        "request_filters": [{"name": "se-space-capsule", "count": 2, "index": 1}]
+      },
+      {
+        "name": "logistic-chest-storage",
+        "connections": {"1": {"green": [{"entity_rel": "1,0"}]}},
+        "position": {"x": -4.5, "y": 12.5},
+        "request_filters": [{"name": "se-space-capsule", "count": 0, "index": 1}]
+      },
+      {"name": "long-handed-inserter", "position": {"x": -5.5, "y": 3.5}},
+      {
+        "name": "long-handed-inserter",
+        "direction": 6,
+        "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "2,0"}]}},
+        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_mode_of_operation": 3, "circuit_read_hand_contents": true},
+        "position": {"x": -3.5, "y": 4.5}
+      },
+      {"name": "long-handed-inserter", "direction": 6, "position": {"x": -3.5, "y": 11.5}},
+      {"name": "medium-electric-pole", "neighbours": ["3,6"], "position": {"x": -12.5, "y": -0.5}},
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-3,-6", "5,-4", "1.5,4.5"],
+        "position": {"x": -9.5, "y": 5.5}
+      },
+      {"name": "medium-electric-pole", "neighbours": ["-5,4"], "position": {"x": -4.5, "y": 1.5}},
+      {
+        "name": "pump",
+        "direction": 2,
+        "connections": {"1": {"green": [{"entity_rel": "0.5,2"}]}},
+        "control_behavior": {
+          "circuit_condition": {
+            "comparator": "=",
+            "constant": 0,
+            "first_signal": {"name": "se-liquid-rocket-fuel-barrel", "type": "item"}
+          }
+        },
+        "position": {"x": -6, "y": 0.5}
+      },
+      {
+        "name": "se-fuel-refinery-spaced",
+        "direction": 4,
+        "recipe": "se-liquid-rocket-fuel",
+        "items": {"effectivity-module": 2},
+        "position": {"x": -16.5, "y": -3.5}
+      },
+      {
+        "name": "se-fuel-refinery-spaced",
+        "recipe": "se-liquid-rocket-fuel",
+        "items": {"effectivity-module": 2},
+        "position": {"x": -16.5, "y": 4.5}
+      },
+      {
+        "name": "se-rocket-launch-pad",
+        "connections": {"1": {"green": [{"circuit_id": 1, "entity_rel": "-6,5.5"}]}},
+        "position": {"x": 5, "y": 8}
+      },
+      {
+        "name": "se-space-assembling-machine",
+        "direction": 4,
+        "recipe": "fill-se-liquid-rocket-fuel-barrel",
+        "items": {"effectivity-module": 2},
+        "position": {"x": -7.5, "y": -1.5}
+      },
+      {
+        "name": "se-space-assembling-machine",
+        "recipe": "se-cargo-rocket-section-pack",
+        "items": {"effectivity-module": 2},
+        "position": {"x": -12.5, "y": 2.5}
+      },
+      {
+        "name": "se-space-assembling-machine",
+        "direction": 6,
+        "recipe": "empty-se-liquid-rocket-fuel-barrel",
+        "items": {"effectivity-module": 2},
+        "position": {"x": -2.5, "y": 2.5}
+      },
+      {
+        "name": "se-space-assembling-machine",
+        "recipe": "se-cargo-rocket-section-unpack",
+        "items": {"effectivity-module": 2},
+        "position": {"x": -14.5, "y": 14.5}
+      },
+      {"name": "se-space-pipe", "position": {"x": -14.5, "y": -0.5}},
+      {"name": "se-space-pipe", "position": {"x": -14.5, "y": 0.5}},
+      {"name": "se-space-pipe", "position": {"x": -14.5, "y": 1.5}},
+      {"name": "se-space-pipe", "position": {"x": -13.5, "y": 0.5}},
+      {"name": "se-space-pipe", "position": {"x": -12.5, "y": 0.5}},
+      {"name": "se-space-pipe", "position": {"x": -11.5, "y": 0.5}},
+      {"name": "se-space-pipe", "position": {"x": -10.5, "y": 0.5}},
+      {"name": "se-space-pipe", "position": {"x": -9.5, "y": 0.5}},
+      {"name": "se-space-pipe", "position": {"x": -8.5, "y": 0.5}},
+      {"name": "se-space-pipe", "position": {"x": -7.5, "y": 0.5}},
+      {"name": "se-space-pipe", "position": {"x": -4.5, "y": 0.5}},
+      {"name": "se-space-pipe", "position": {"x": -3.5, "y": 0.5}},
+      {"name": "se-space-pipe", "position": {"x": -2.5, "y": 0.5}},
+      {"name": "se-space-pipe", "position": {"x": -1.5, "y": 0.5}},
+      {"name": "se-space-pipe", "position": {"x": -0.5, "y": 0.5}},
+      {"name": "se-space-pipe", "position": {"x": -0.5, "y": 1.5}},
+      {"name": "se-space-pipe", "position": {"x": -0.5, "y": 2.5}},
+      {"name": "se-space-pipe", "position": {"x": 0.5, "y": 2.5}},
+      {"name": "se-space-pipe", "position": {"x": 1.5, "y": 2.5}},
+      {"name": "se-space-splitter", "direction": 2, "position": {"x": -16.5, "y": 9}},
+      {"name": "se-space-splitter", "output_priority": "right", "position": {"x": -11, "y": 6.5}},
+      {
+        "name": "se-space-splitter",
+        "direction": 2,
+        "filter": "se-cargo-rocket-section-packed",
+        "output_priority": "right",
+        "position": {"x": -12.5, "y": 9}
+      },
+      {
+        "name": "se-space-splitter",
+        "direction": 2,
+        "filter": "se-cargo-rocket-section",
+        "output_priority": "left",
+        "position": {"x": -11.5, "y": 8}
+      },
+      {
+        "name": "se-space-splitter",
+        "direction": 2,
+        "filter": "se-space-capsule",
+        "output_priority": "right",
+        "position": {"x": -10.5, "y": 9}
+      },
+      {
+        "name": "se-space-splitter",
+        "direction": 2,
+        "filter": "se-liquid-rocket-fuel-barrel",
+        "output_priority": "left",
+        "position": {"x": -9.5, "y": 8}
+      },
+      {
+        "name": "se-space-splitter",
+        "direction": 4,
+        "output_priority": "left",
+        "position": {"x": -12, "y": 10.5}
+      },
+      {
+        "name": "se-space-splitter",
+        "direction": 2,
+        "output_priority": "left",
+        "position": {"x": -6.5, "y": 12}
+      },
+      {"name": "se-space-transport-belt", "direction": 2, "position": {"x": -18.5, "y": 8.5}},
+      {"name": "se-space-transport-belt", "direction": 2, "position": {"x": -18.5, "y": 9.5}},
+      {"name": "se-space-transport-belt", "direction": 2, "position": {"x": -17.5, "y": 8.5}},
+      {"name": "se-space-transport-belt", "direction": 2, "position": {"x": -17.5, "y": 9.5}},
+      {"name": "se-space-transport-belt", "direction": 2, "position": {"x": -8.5, "y": 2.5}},
+      {"name": "se-space-transport-belt", "direction": 4, "position": {"x": -13.5, "y": 5.5}},
+      {"name": "se-space-transport-belt", "direction": 2, "position": {"x": -15.5, "y": 7.5}},
+      {"name": "se-space-transport-belt", "direction": 4, "position": {"x": -14.5, "y": 7.5}},
+      {"name": "se-space-transport-belt", "direction": 2, "position": {"x": -13.5, "y": 6.5}},
+      {"name": "se-space-transport-belt", "direction": 4, "position": {"x": -12.5, "y": 6.5}},
+      {"name": "se-space-transport-belt", "direction": 2, "position": {"x": -12.5, "y": 7.5}},
+      {"name": "se-space-transport-belt", "direction": 2, "position": {"x": -10.5, "y": 4.5}},
+      {"name": "se-space-transport-belt", "position": {"x": -11.5, "y": 5.5}},
+      {
+        "name": "se-space-transport-belt",
+        "control_behavior": {
+          "circuit_contents_read_mode": 1,
+          "circuit_enable_disable": false,
+          "circuit_read_hand_contents": true
+        },
+        "position": {"x": -10.5, "y": 5.5}
+      },
+      {"name": "se-space-transport-belt", "direction": 2, "position": {"x": -9.5, "y": 4.5}},
+      {"name": "se-space-transport-belt", "direction": 2, "position": {"x": -8.5, "y": 4.5}},
+      {"name": "se-space-transport-belt", "position": {"x": -10.5, "y": 7.5}},
+      {"name": "se-space-transport-belt", "position": {"x": -8.5, "y": 6.5}},
+      {"name": "se-space-transport-belt", "position": {"x": -8.5, "y": 7.5}},
+      {"name": "se-space-transport-belt", "direction": 2, "position": {"x": -7.5, "y": 1.5}},
+      {"name": "se-space-transport-belt", "direction": 2, "position": {"x": -6.5, "y": 1.5}},
+      {"name": "se-space-transport-belt", "direction": 2, "position": {"x": -5.5, "y": 1.5}},
+      {"name": "se-space-transport-belt", "position": {"x": -7.5, "y": 2.5}},
+      {"name": "se-space-transport-belt", "direction": 2, "position": {"x": -7.5, "y": 4.5}},
+      {"name": "se-space-transport-belt", "position": {"x": -15.5, "y": 8.5}},
+      {"name": "se-space-transport-belt", "direction": 2, "position": {"x": -14.5, "y": 8.5}},
+      {"name": "se-space-transport-belt", "direction": 2, "position": {"x": -15.5, "y": 9.5}},
+      {"name": "se-space-transport-belt", "position": {"x": -14.5, "y": 9.5}},
+      {"name": "se-space-transport-belt", "direction": 2, "position": {"x": -13.5, "y": 8.5}},
+      {"name": "se-space-transport-belt", "position": {"x": -13.5, "y": 11.5}},
+      {"name": "se-space-transport-belt", "direction": 6, "position": {"x": -12.5, "y": 11.5}},
+      {"name": "se-space-transport-belt", "direction": 4, "position": {"x": -11.5, "y": 9.5}},
+      {"name": "se-space-transport-belt", "direction": 2, "position": {"x": -8.5, "y": 8.5}},
+      {"name": "se-space-transport-belt", "direction": 4, "position": {"x": -9.5, "y": 9.5}},
+      {"name": "se-space-transport-belt", "direction": 4, "position": {"x": -11.5, "y": 11.5}},
+      {"name": "se-space-transport-belt", "direction": 4, "position": {"x": -9.5, "y": 10.5}},
+      {"name": "se-space-transport-belt", "direction": 2, "position": {"x": -9.5, "y": 11.5}},
+      {"name": "se-space-transport-belt", "direction": 2, "position": {"x": -8.5, "y": 11.5}},
+      {"name": "se-space-transport-belt", "direction": 4, "position": {"x": -11.5, "y": 12.5}},
+      {"name": "se-space-transport-belt", "direction": 6, "position": {"x": -10.5, "y": 12.5}},
+      {"name": "se-space-transport-belt", "position": {"x": -10.5, "y": 13.5}},
+      {"name": "se-space-transport-belt", "position": {"x": -10.5, "y": 14.5}},
+      {"name": "se-space-transport-belt", "direction": 6, "position": {"x": -9.5, "y": 14.5}},
+      {"name": "se-space-transport-belt", "direction": 6, "position": {"x": -8.5, "y": 14.5}},
+      {"name": "se-space-transport-belt", "direction": 2, "position": {"x": -7.5, "y": 11.5}},
+      {"name": "se-space-transport-belt", "direction": 2, "position": {"x": -5.5, "y": 11.5}},
+      {"name": "se-space-transport-belt", "direction": 6, "position": {"x": -7.5, "y": 14.5}},
+      {"name": "se-space-transport-belt", "direction": 6, "position": {"x": -6.5, "y": 14.5}},
+      {"name": "se-space-transport-belt", "direction": 6, "position": {"x": -5.5, "y": 14.5}},
+      {"name": "se-space-transport-belt", "direction": 6, "position": {"x": -4.5, "y": 14.5}},
+      {"name": "se-space-transport-belt", "position": {"x": -2.5, "y": 12.5}},
+      {"name": "se-space-transport-belt", "direction": 6, "position": {"x": -3.5, "y": 14.5}},
+      {"name": "se-space-transport-belt", "direction": 6, "position": {"x": -2.5, "y": 14.5}},
+      {"name": "se-space-transport-belt", "direction": 6, "position": {"x": -1.5, "y": 14.5}},
+      {"name": "se-space-transport-belt", "direction": 6, "position": {"x": -0.5, "y": 14.5}},
+      {"name": "se-space-transport-belt", "direction": 6, "position": {"x": 0.5, "y": 14.5}},
+      {"name": "se-space-underground-belt", "type": "output", "position": {"x": -8.5, "y": 3.5}},
+      {"name": "se-space-underground-belt", "type": "output", "position": {"x": -13.5, "y": 7.5}},
+      {"name": "se-space-underground-belt", "type": "input", "position": {"x": -8.5, "y": 5.5}},
+      {"name": "se-space-underground-belt", "type": "input", "position": {"x": -13.5, "y": 10.5}},
+      {
+        "name": "space-miniloader-inserter",
+        "direction": 6,
+        "override_stack_size": 1,
+        "drop_position": {"x": 1.203125, "y": 0.25},
+        "pickup_position": {"x": -0.19921875, "y": 0},
+        "position": {"x": -7.5, "y": 8.5}
+      },
+      {
+        "name": "space-miniloader-inserter",
+        "direction": 6,
+        "override_stack_size": 1,
+        "drop_position": {"x": 1.203125, "y": -0.25},
+        "pickup_position": {"x": -0.19921875, "y": 0},
+        "position": {"x": -7.5, "y": 8.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 2,
+        "filters": [{"name": "empty-barrel", "index": 1}],
+        "position": {"x": -0.5, "y": 12.5}
+      },
+      {"name": "stack-inserter", "direction": 6, "position": {"x": -9.5, "y": -0.5}},
+      {"name": "stack-inserter", "direction": 6, "position": {"x": -6.5, "y": 2.5}},
+      {
+        "name": "stack-inserter",
+        "direction": 6,
+        "connections": {"1": {"green": [{"entity_rel": "4,2"}]}},
+        "control_behavior": {
+          "circuit_condition": {
+            "comparator": "=",
+            "constant": 0,
+            "first_signal": {"name": "se-liquid-rocket-fuel-barrel", "type": "item"}
+          }
+        },
+        "position": {"x": -4.5, "y": 2.5}
+      },
+      {"name": "stack-inserter", "direction": 2, "position": {"x": -0.5, "y": 3.5}},
+      {"name": "stack-inserter", "direction": 6, "position": {"x": -6.5, "y": 4.5}},
+      {"name": "stack-inserter", "position": {"x": -2.5, "y": 4.5}},
+      {
+        "name": "stack-inserter",
+        "direction": 6,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}], "red": [{"entity_rel": "0,1"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": "<", "constant": 800, "first_signal": {"name": "signal-F", "type": "virtual"}}
+        },
+        "position": {"x": -0.5, "y": 5.5}
+      },
+      {
+        "name": "stack-inserter",
+        "direction": 6,
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "circuit_condition": {"comparator": "<", "constant": 800, "first_signal": {"name": "signal-F", "type": "virtual"}}
+        },
+        "position": {"x": -0.5, "y": 6.5}
+      },
+      {
+        "name": "stack-inserter",
+        "direction": 6,
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "circuit_condition": {"comparator": "<", "constant": 800, "first_signal": {"name": "signal-F", "type": "virtual"}}
+        },
+        "position": {"x": -0.5, "y": 7.5}
+      },
+      {
+        "name": "stack-inserter",
+        "direction": 6,
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "circuit_condition": {"comparator": "<", "constant": 800, "first_signal": {"name": "signal-F", "type": "virtual"}}
+        },
+        "position": {"x": -0.5, "y": 8.5}
+      },
+      {
+        "name": "stack-inserter",
+        "direction": 6,
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "circuit_condition": {"comparator": "<", "constant": 800, "first_signal": {"name": "signal-F", "type": "virtual"}}
+        },
+        "position": {"x": -0.5, "y": 9.5}
+      },
+      {
+        "name": "stack-inserter",
+        "direction": 6,
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"circuit_id": 2, "entity_rel": "-0.5,3"}, {"entity_rel": "0,-1"}]
+          }
+        },
+        "control_behavior": {
+          "circuit_condition": {"comparator": "<", "constant": 800, "first_signal": {"name": "signal-F", "type": "virtual"}}
+        },
+        "position": {"x": -0.5, "y": 10.5}
+      },
+      {
+        "name": "steel-chest",
+        "connections": {"1": {"green": [{"entity_rel": "-2.5,5.5"}, {"entity_rel": "2,0"}]}},
+        "position": {"x": -5.5, "y": 4.5}
+      },
+      {
+        "name": "steel-chest",
+        "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "2,9"}]}},
+        "position": {"x": -1.5, "y": 4.5}
+      },
+      {
+        "name": "substation",
+        "connections": {"1": {"green": [{"entity_rel": "-4.5,4.5"}, {"entity_rel": "2.5,-5.5"}]}},
+        "neighbours": ["-1.5,-4.5"],
+        "position": {"x": -8, "y": 10}
+      }
+    ],
+    "icons": [
+      {"index": 1, "signal": {"name": "se-recycling-facility", "type": "item"}},
+      {"index": 2, "signal": {"name": "se-rocket-launch-pad", "type": "item"}}
+    ]
+  }
+}
