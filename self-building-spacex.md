@@ -64,7 +64,7 @@ In the Mod Settings for _Startup_:
 * Set "Maximum chest width", "Maximum chest height", and "Maximum chest area" all to 150.
 * Set "Inventory size limit" to 1000.
 * Set "Whitelist of merged chests" to "1xN Nx1" (reduces memory consumption).
-* Stack Combinator: Set the "Maximum signal capacity" to 1000.
+* Stack Combinator: Set the "Maximum signal capacity" to 100.
 * Waterfill: Set "Waterfillable" to "Everything".
 
 In the Mod Settings for the _Map_:
