@@ -2576,7 +2576,7 @@
       },
       {
         "name": "arithmetic-combinator",
-        "connections": {"1": {"red": [{"entity_rel": "5,6.5"}]}, "2": {"red": [{"circuit_id": 1, "entity_rel": "-1,0"}]}},
+        "connections": {"1": {"red": [{"entity_rel": "5,6.5"}]}, "2": {"red": [{"circuit_id": 1, "entity_rel": "-2,0"}]}},
         "control_behavior": {
           "arithmetic_conditions": {
             "operation": "+",
@@ -6736,6 +6736,31 @@
       },
       {
         "name": "decider-combinator",
+        "direction": 4,
+        "connections": {
+          "1": {
+            "green": [
+              {"circuit_id": 1, "entity_rel": "1,0"},
+              {"circuit_id": 2, "entity_rel": "0,0"},
+              {"entity_rel": "1,-2.5"}
+            ],
+            "red": [{"circuit_id": 2, "entity_rel": "2,0"}]
+          },
+          "2": {"green": [{"circuit_id": 1, "entity_rel": "0,0"}, {"entity_rel": "-1,0.5"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "=",
+            "constant": 0,
+            "copy_count_from_input": true,
+            "first_signal": {"name": "rocket-fuel", "type": "item"},
+            "output_signal": {"name": "signal-S", "type": "virtual"}
+          }
+        },
+        "position": {"x": 143.5, "y": 199}
+      },
+      {
+        "name": "decider-combinator",
         "direction": 2,
         "connections": {
           "1": {"red": [{"entity_rel": "-1,-1.5"}]},
@@ -6774,22 +6799,16 @@
         "name": "decider-combinator",
         "direction": 4,
         "connections": {
-          "1": {
-            "green": [{"circuit_id": 2, "entity_rel": "0,0"}, {"entity_rel": "-2,0.5"}, {"entity_rel": "0,-2.5"}],
-            "red": [{"circuit_id": 2, "entity_rel": "1,0"}]
-          },
-          "2": {
-            "green": [{"circuit_id": 1, "entity_rel": "0,0"}],
-            "red": [{"entity_rel": "4,3.5"}, {"entity_rel": "6,-4.5"}]
-          }
+          "1": {"green": [{"circuit_id": 1, "entity_rel": "-1,0"}]},
+          "2": {"red": [{"entity_rel": "4,3.5"}, {"entity_rel": "6,-4.5"}]}
         },
         "control_behavior": {
           "decider_conditions": {
-            "comparator": "=",
-            "constant": 0,
-            "copy_count_from_input": true,
+            "comparator": "<",
+            "constant": 100,
+            "copy_count_from_input": false,
             "first_signal": {"name": "rocket-fuel", "type": "item"},
-            "output_signal": {"name": "signal-S", "type": "virtual"}
+            "output_signal": {"name": "rocket-fuel", "type": "item"}
           }
         },
         "position": {"x": 144.5, "y": 199}
@@ -8681,14 +8700,9 @@
         "control_behavior": {
           "filters": [
             {"count": 255, "index": 1, "signal": {"name": "ltn-network-id", "type": "virtual"}},
-            {"count": -19000, "index": 2, "signal": {"name": "empty-barrel", "type": "item"}},
-            {"count": -200, "index": 3, "signal": {"name": "construction-robot", "type": "item"}},
-            {"count": -500, "index": 4, "signal": {"name": "repair-pack", "type": "item"}},
-            {"count": -300000, "index": 5, "signal": {"name": "se-liquid-rocket-fuel", "type": "fluid"}},
-            {"count": -90, "index": 6, "signal": {"name": "se-space-capsule", "type": "item"}},
-            {"count": -170, "index": 7, "signal": {"name": "se-cargo-rocket-section-packed", "type": "item"}},
-            {"count": -2500, "index": 8, "signal": {"name": "se-delivery-cannon-capsule", "type": "item"}},
-            {"count": -1500, "index": 9, "signal": {"name": "rocket-fuel", "type": "item"}}
+            {"count": -150000, "index": 2, "signal": {"name": "se-liquid-rocket-fuel", "type": "fluid"}},
+            {"count": -45, "index": 3, "signal": {"name": "se-space-capsule", "type": "item"}},
+            {"count": -60, "index": 4, "signal": {"name": "se-cargo-rocket-section-packed", "type": "item"}}
           ]
         },
         "position": {"x": 112.5, "y": 154.5}
@@ -10687,7 +10701,7 @@
           "show_on_map": true,
           "icon_signal_id": {"name": "rocket-fuel", "type": "item"}
         },
-        "connections": {"1": {"green": [{"circuit_id": 1, "entity_rel": "2,-0.5"}]}},
+        "connections": {"1": {"green": [{"circuit_id": 2, "entity_rel": "1,-0.5"}]}},
         "control_behavior": {
           "circuit_condition": {"comparator": ">", "constant": 60, "first_signal": {"name": "signal-S", "type": "virtual"}},
           "circuit_parameters": {"instrument_id": 0, "note_id": 2, "signal_value_is_pitch": false}
@@ -11105,7 +11119,7 @@
       {"name": "se-condenser-turbine", "direction": 4, "position": {"x": 208.5, "y": 193.5}},
       {
         "name": "se-delivery-cannon-chest",
-        "connections": {"1": {"green": [{"circuit_id": 1, "entity_rel": "0,2.5"}]}},
+        "connections": {"1": {"green": [{"circuit_id": 1, "entity_rel": "-1,2.5"}]}},
         "position": {"x": 144.5, "y": 196.5}
       },
       {

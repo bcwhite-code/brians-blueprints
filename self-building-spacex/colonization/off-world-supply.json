@@ -353,7 +353,10 @@
       {
         "name": "arithmetic-combinator",
         "direction": 6,
-        "connections": {"1": {"red": [{"entity_rel": "0,-1.5"}]}, "2": {"red": [{"circuit_id": 1, "entity_rel": "-2,0"}]}},
+        "connections": {
+          "1": {"red": [{"entity_rel": "0,-1.5"}]},
+          "2": {"red": [{"circuit_id": 1, "entity_rel": "-2,0"}, {"entity_rel": "1.5,6"}]}
+        },
         "control_behavior": {
           "arithmetic_conditions": {
             "operation": "+",
@@ -423,6 +426,40 @@
           }
         },
         "position": {"x": 49, "y": 57.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 6,
+        "connections": {
+          "1": {"red": [{"circuit_id": 2, "entity_rel": "0,-2"}]},
+          "2": {"green": [{"circuit_id": 1, "entity_rel": "0,1"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "+",
+            "second_constant": 0,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-dot", "type": "virtual"}
+          }
+        },
+        "position": {"x": 49, "y": 61.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 6,
+        "connections": {
+          "1": {"green": [{"circuit_id": 2, "entity_rel": "0,-1"}]},
+          "2": {"red": [{"circuit_id": 1, "entity_rel": "0,-2"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "first_signal": {"name": "signal-S", "type": "virtual"},
+            "output_signal": {"name": "signal-S", "type": "virtual"},
+            "second_signal": {"name": "signal-dot", "type": "virtual"}
+          }
+        },
+        "position": {"x": 49, "y": 62.5}
       },
       {
         "name": "arithmetic-combinator",
@@ -2041,11 +2078,7 @@
         "connections": {
           "1": {
             "green": [{"circuit_id": 1, "entity_rel": "-4,0"}],
-            "red": [
-              {"circuit_id": 2, "entity_rel": "0,0"},
-              {"circuit_id": 2, "entity_rel": "2,0"},
-              {"circuit_id": 2, "entity_rel": "2.5,8.5"}
-            ]
+            "red": [{"circuit_id": 2, "entity_rel": "0,0"}, {"circuit_id": 2, "entity_rel": "2,0"}]
           },
           "2": {"red": [{"circuit_id": 1, "entity_rel": "-2,0"}, {"circuit_id": 1, "entity_rel": "0,0"}]}
         },
@@ -2194,7 +2227,7 @@
         "connections": {
           "1": {
             "green": [{"circuit_id": 2, "entity_rel": "2,-2"}],
-            "red": [{"circuit_id": 1, "entity_rel": "0,-2"}]
+            "red": [{"circuit_id": 1, "entity_rel": "0,-2"}, {"circuit_id": 1, "entity_rel": "4,0"}]
           },
           "2": {"green": [{"circuit_id": 1, "entity_rel": "-2,0"}]}
         },
@@ -2214,10 +2247,16 @@
         "direction": 6,
         "connections": {
           "1": {
-            "green": [{"circuit_id": 1, "entity_rel": "0,-1"}],
+            "green": [{"circuit_id": 1, "entity_rel": "0,-1"}, {"circuit_id": 1, "entity_rel": "0,2"}],
             "red": [{"circuit_id": 2, "entity_rel": "0,0"}, {"circuit_id": 2, "entity_rel": "2,0"}]
           },
-          "2": {"red": [{"circuit_id": 1, "entity_rel": "-4,0"}, {"circuit_id": 1, "entity_rel": "0,0"}]}
+          "2": {
+            "red": [
+              {"circuit_id": 1, "entity_rel": "-4,0"},
+              {"circuit_id": 1, "entity_rel": "0,0"},
+              {"circuit_id": 2, "entity_rel": "0,2"}
+            ]
+          }
         },
         "control_behavior": {
           "decider_conditions": {
@@ -2229,6 +2268,27 @@
           }
         },
         "position": {"x": 47, "y": 58.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 6,
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 1, "entity_rel": "0,-2"}],
+            "red": [{"circuit_id": 2, "entity_rel": "2,0"}]
+          },
+          "2": {"red": [{"circuit_id": 2, "entity_rel": "0,-2"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "copy_count_from_input": false,
+            "first_signal": {"name": "signal-S", "type": "virtual"},
+            "output_signal": {"name": "signal-green", "type": "virtual"},
+            "second_signal": {"name": "signal-E", "type": "virtual"}
+          }
+        },
+        "position": {"x": 47, "y": 60.5}
       },
       {
         "name": "decider-combinator",
@@ -2274,7 +2334,7 @@
             "green": [{"circuit_id": 1, "entity_rel": "-2.5,1.5"}],
             "red": [{"circuit_id": 2, "entity_rel": "0,-2"}]
           },
-          "2": {"red": [{"circuit_id": 1, "entity_rel": "-2.5,-8.5"}, {"circuit_id": 2, "entity_rel": "-0.5,2.5"}]}
+          "2": {"red": [{"circuit_id": 1, "entity_rel": "-0.5,4.5"}]}
         },
         "control_behavior": {
           "decider_conditions": {
@@ -2295,7 +2355,7 @@
             "green": [{"circuit_id": 1, "entity_rel": "0,-1"}],
             "red": [{"circuit_id": 2, "entity_rel": "0,-1"}]
           },
-          "2": {"red": [{"circuit_id": 1, "entity_rel": "-2,0"}, {"circuit_id": 2, "entity_rel": "0.5,-2.5"}]}
+          "2": {"red": [{"circuit_id": 1, "entity_rel": "-2,0"}, {"entity_rel": "1.5,-5"}]}
         },
         "control_behavior": {
           "decider_conditions": {
@@ -2307,6 +2367,48 @@
           }
         },
         "position": {"x": 49, "y": 58.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 6,
+        "connections": {
+          "1": {"red": [{"circuit_id": 1, "entity_rel": "-4,0"}]},
+          "2": {"green": [{"circuit_id": 1, "entity_rel": "0,1"}], "red": [{"circuit_id": 1, "entity_rel": "0,2"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "constant": 0,
+            "copy_count_from_input": false,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 49, "y": 59.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 6,
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 2, "entity_rel": "0,-1"}, {"circuit_id": 2, "entity_rel": "0,0"}],
+            "red": [{"circuit_id": 2, "entity_rel": "0,2"}, {"circuit_id": 2, "entity_rel": "0.5,-4.5"}]
+          },
+          "2": {
+            "green": [{"circuit_id": 1, "entity_rel": "0,0"}],
+            "red": [{"circuit_id": 1, "entity_rel": "-2,0"}]
+          }
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "constant": 0,
+            "copy_count_from_input": true,
+            "first_signal": {"name": "signal-green", "type": "virtual"},
+            "output_signal": {"name": "signal-S", "type": "virtual"}
+          }
+        },
+        "position": {"x": 49, "y": 60.5}
       },
       {
         "name": "decider-combinator",
@@ -2393,7 +2495,7 @@
         "control_behavior": {
           "decider_conditions": {
             "comparator": "<",
-            "constant": 0,
+            "constant": -5,
             "copy_count_from_input": false,
             "first_signal": {"name": "signal-each", "type": "virtual"},
             "output_signal": {"name": "signal-each", "type": "virtual"}
@@ -4696,6 +4798,13 @@
         "connections": {"1": {"green": [{"entity_rel": "6,-8"}], "red": [{"entity_rel": "6,-8"}]}},
         "neighbours": ["2.5,-2.5", "-7,0"],
         "position": {"x": 38.5, "y": 60.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {"red": [{"circuit_id": 2, "entity_rel": "-1.5,-6"}, {"circuit_id": 2, "entity_rel": "-1.5,5"}]}
+        },
+        "position": {"x": 50.5, "y": 53.5}
       },
       {"name": "medium-electric-pole", "neighbours": ["-3.5,-2.5"], "position": {"x": 76.5, "y": 36.5}},
       {"name": "medium-electric-pole", "position": {"x": 76.5, "y": 58.5}},

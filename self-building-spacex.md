@@ -384,9 +384,11 @@ On Nauvis, you'll want...
 One of the biggest difficulties is that scaffolding can no longer be
 made on the planet surface which means transporting 5x as many stacks
 of material to space to produce the same amount, and you'll need a lot
-(like tens of thousands) of scaffolding.
+(like tens of thousands) of scaffolding just for the space mall.
 
-In this same space will be the main science factory, so keep that in mind.
+In this same space will be the main science factory, so keep that in
+mind as it'll probably need *hundreds* of thousands of scaffolding to
+complete.
 
 Personally, I don't use trains or city blocks in space because
 everything is planned to produce specific outputs but it can be done
@@ -439,7 +441,7 @@ ice-water in order to lower its priority.
 
 Fix some defaults:
 
-* Change landing pad beside red warehouse chests to "(world) Home", substituting the name of the world.
+* Change landing pad beside red warehouse chests to "(world)/Home", substituting the name of the world.
 * Change the landing pad beside the green warehouse chest to "-Personal-".
 * Change the recycling rocket beside the plain warehouse chest to have a destination of Nauvis/Recycling and to "launch when cargo full".
 * Change the channel of the transmitter near the reactor to "(world)/Cannons".
