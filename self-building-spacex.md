@@ -350,7 +350,7 @@ a Nauvis build.
 The home block's reactor will support all this as long as the miners
 have efficiency modules.
 
-The sulfuric acid "bulk" supply will need to be changed to heavy oil.
+The petroleum gas "bulk" supply will need to be changed to heavy oil.
 Just change every instance of the fluid and barrels around the head of
 the station to be the new type.
 
@@ -361,10 +361,12 @@ capsule's "emergency burn" or the personal cargo rocket.
 
 Now repeat all that but on a Vulcanite world!
 
-Instead of "bulk" heavy oil replacing sulfuric acid, it'll need
-petroleum gas **and** sulfur.  For the latter, add a sulfur filter to
-the two loaders off the red warehouses and to the requester chest
-feeding the same belt (for cleaning up after crashed rockets).
+Instead of "bulk" heavy oil replacing petroleum gas, that stays but
+sulfur needs to be added.  To do this, add a sulfur filter to the two
+loaders off the red warehouses and to the requester chest feeding the
+same belt (for cleaning up after crashed rockets).  Also add a third
+rocket silo that transports enriched vulcanite to yet another pad in
+the bulk receiver.
 
 Nauvis will now be well supplied with both Cryonite and Vulcanite so
 it's time to go to space and build a "space mall" for all the things
@@ -386,13 +388,30 @@ made on the planet surface which means transporting 5x as many stacks
 of material to space to produce the same amount, and you'll need a lot
 (like tens of thousands) of scaffolding just for the space mall.
 
-In this same space will be the main science factory, so keep that in
+In this same space will be the main science factory so keep that in
 mind as it'll probably need *hundreds* of thousands of scaffolding to
 complete.
 
 Personally, I don't use trains or city blocks in space because
 everything is planned to produce specific outputs but it can be done
 that way.
+
+At this point, it's probably best to return to Nauvis and beef up the
+production there.
+
+When ready, return to Calidus orbit and start building a real science
+factory.  It'll likely require having a large amount of many resources
+transported by bulk rocket with another bringing in the rest using an
+Off-World Supply.  My personal factory has 12 bulk landing pads.
+
+Other planets will have to be colonized to get Iridite, Holminite,
+Beryl, and Vitamilange, either processed locally or shipped raw for
+processing on Nauvis.  The Vulcanite and Cryonite words might need one
+or two more processing blocks there, too (with added power to boot).
+
+There are no blueprints for the processing of these new raw resources
+-- they're part of the challenge that is Space Exploration.
+
 
 
 ## Blocks
@@ -458,17 +477,21 @@ build items will be included in the next rocket delivery.
 2. More Meteor Defense: In case you're truely paranoid about a meteor getting through on a world where they spawn biters.
 3. Solar Support: Applied to the power switch between the reactor and the main grid, it'll disconnect whenever an outside solar field is supplying significant power even at night.
 
-There are two bulk provider stations, one fluid and one item.
+There are three bulk provider stations: two fluid and one item.
 
-The fluid one is configured to fetch and provide sulfulic acid
-(typically for mining purpores) if it's needed anywhere.  This can be
-changed to any other fluid simply by changing the type everywhere
-around the station.
+One fluid is configured to fetch and provide sulfulic acid (typically
+for mining purpores).  The other is set for Petroleum Gas but this can
+be changed to any other fluid simply by changing the type everywhere
+around the station.  Neither will fetch barrels of the set type until
+there is an LTN requester for that fluid somewhere on the planet.
 
 Later on, if it's necessary to bring it material in significant
 quantities, they can be configured in the "bulk" combinator.  Set the
 filters in the blue loaders from the red warehouse chests to match and
-all this will be made available via a rail provider station.
+all this will be made available via a rail provider station.  (Don't
+remove the existing filter item -- burner miners -- because if the
+loader becomes "unfiltered" then everything will get sent to the
+station.)
 
 The personal rocket allows flying around with a full load of cargo,
 making it available via logistics, and the re-loading a new rocket for
