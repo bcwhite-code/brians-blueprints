@@ -635,7 +635,7 @@ This can also be used for "non home" bases such as in space.  Any
 landing pad will do.  Signaling works like this:
 
 * green wire: General request.  Everything here will be loaded "best effort" into the rocket.  Smaller requests may be deferred so as to not request too many trains.
-* red wire: Required items and control.  If items are sent this way, they will be prioritized in the request and the rocket will launch as soon as all the required items are loaded.  The requirement **must not be greater than** the general request (i.e. green wire) or it will never be fulfilled.
+* red wire: Required items and control.  If items are sent this way, they will be prioritized in the request and the rocket will launch soon aftero all the required items are loaded.  The requirement **must not be greater than** the general request (i.e. green wire) or it will never be fulfilled.
 
 The following signals on the red wire will affect the launch:
 

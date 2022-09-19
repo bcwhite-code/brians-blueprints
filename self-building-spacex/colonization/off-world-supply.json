@@ -318,6 +318,19 @@
       },
       {
         "name": "arithmetic-combinator",
+        "connections": {"1": {"green": [{"entity_rel": "1,1.5"}]}, "2": {"red": [{"entity_rel": "4.5,-6"}]}},
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "+",
+            "second_constant": 0,
+            "first_signal": {"name": "signal-green", "type": "virtual"},
+            "output_signal": {"name": "signal-green", "type": "virtual"}
+          }
+        },
+        "position": {"x": 30.5, "y": 59}
+      },
+      {
+        "name": "arithmetic-combinator",
         "direction": 4,
         "connections": {
           "1": {"red": [{"circuit_id": 1, "entity_rel": "-1,2"}, {"circuit_id": 2, "entity_rel": "-2,-3"}]},
@@ -448,7 +461,7 @@
         "name": "arithmetic-combinator",
         "direction": 6,
         "connections": {
-          "1": {"green": [{"circuit_id": 2, "entity_rel": "0,-1"}]},
+          "1": {"green": [{"circuit_id": 2, "entity_rel": "0,-1"}], "red": [{"entity_rel": "-3,4.5"}]},
           "2": {"red": [{"circuit_id": 1, "entity_rel": "0,-2"}]}
         },
         "control_behavior": {
@@ -1625,7 +1638,16 @@
       },
       {
         "name": "big-electric-pole",
-        "connections": {"1": {"red": [{"entity_rel": "-6.5,-3.5"}, {"entity_rel": "0,16"}, {"entity_rel": "3,-21"}]}},
+        "connections": {
+          "1": {
+            "red": [
+              {"circuit_id": 1, "entity_rel": "3,-4.5"},
+              {"entity_rel": "-6.5,-3.5"},
+              {"entity_rel": "0,16"},
+              {"entity_rel": "3,-21"}
+            ]
+          }
+        },
         "neighbours": ["-2.5,4.5"],
         "position": {"x": 46, "y": 67}
       },
@@ -2495,7 +2517,7 @@
         "control_behavior": {
           "decider_conditions": {
             "comparator": "<",
-            "constant": -5,
+            "constant": 0,
             "copy_count_from_input": false,
             "first_signal": {"name": "signal-each", "type": "virtual"},
             "output_signal": {"name": "signal-each", "type": "virtual"}
@@ -4485,98 +4507,100 @@
         "control_behavior": {
           "filters": [
             {"count": 255, "index": 1, "signal": {"name": "ltn-network-id", "type": "virtual"}},
-            {"count": 500000, "index": 2, "signal": {"name": "sulfuric-acid", "type": "fluid"}},
-            {"count": 500000, "index": 3, "signal": {"name": "lubricant", "type": "fluid"}},
-            {"count": 20000, "index": 4, "signal": {"name": "rocket-fuel", "type": "item"}},
-            {"count": 50000, "index": 5, "signal": {"name": "se-heat-shielding", "type": "item"}},
-            {"count": 100000, "index": 6, "signal": {"name": "motor", "type": "item"}},
-            {"count": 100000, "index": 7, "signal": {"name": "engine-unit", "type": "item"}},
-            {"count": 100000, "index": 8, "signal": {"name": "electric-motor", "type": "item"}},
-            {"count": 100000, "index": 9, "signal": {"name": "electric-engine-unit", "type": "item"}},
-            {"count": 400000, "index": 10, "signal": {"name": "battery", "type": "item"}},
-            {"count": 400000, "index": 11, "signal": {"name": "electronic-circuit", "type": "item"}},
-            {"count": 400000, "index": 12, "signal": {"name": "advanced-circuit", "type": "item"}},
-            {"count": 200000, "index": 13, "signal": {"name": "processing-unit", "type": "item"}},
-            {"count": 100000, "index": 14, "signal": {"name": "low-density-structure", "type": "item"}},
-            {"count": 200000, "index": 15, "signal": {"name": "plastic-bar", "type": "item"}},
-            {"count": 200000, "index": 16, "signal": {"name": "glass", "type": "item"}},
-            {"count": 200000, "index": 17, "signal": {"name": "stone-tablet", "type": "item"}},
-            {"count": 200000, "index": 18, "signal": {"name": "iron-plate", "type": "item"}},
-            {"count": 200000, "index": 19, "signal": {"name": "steel-plate", "type": "item"}},
-            {"count": 200000, "index": 20, "signal": {"name": "copper-plate", "type": "item"}},
-            {"count": 200000, "index": 21, "signal": {"name": "se-beryllium-ingot", "type": "item"}},
-            {"count": 400000, "index": 22, "signal": {"name": "se-beryllium-plate", "type": "item"}},
-            {"count": 100000, "index": 23, "signal": {"name": "se-holmium-ingot", "type": "item"}},
-            {"count": 200000, "index": 24, "signal": {"name": "se-holmium-plate", "type": "item"}},
-            {"count": 40000, "index": 25, "signal": {"name": "se-iridium-ingot", "type": "item"}},
-            {"count": 80000, "index": 26, "signal": {"name": "se-iridium-plate", "type": "item"}},
-            {"count": 200000, "index": 27, "signal": {"name": "se-vitamelange", "type": "item"}},
-            {"count": 20000, "index": 28, "signal": {"name": "se-naquium-ingot", "type": "item"}},
-            {"count": 40000, "index": 29, "signal": {"name": "se-naquium-plate", "type": "item"}},
-            {"count": 100000, "index": 30, "signal": {"name": "stone-brick", "type": "item"}},
-            {"count": 100000, "index": 31, "signal": {"name": "concrete", "type": "item"}},
-            {"count": 400000, "index": 32, "signal": {"name": "se-water-ice", "type": "item"}},
-            {"count": 200000, "index": 33, "signal": {"name": "raw-fish", "type": "item"}},
-            {"count": 200000, "index": 34, "signal": {"name": "se-core-fragment-omni", "type": "item"}},
-            {"count": 200000, "index": 35, "signal": {"name": "se-core-fragment-coal", "type": "item"}},
-            {"count": 200000, "index": 36, "signal": {"name": "wood", "type": "item"}},
-            {"count": 100000, "index": 37, "signal": {"name": "coal", "type": "item"}},
-            {"count": 400000, "index": 38, "signal": {"name": "se-methane-ice", "type": "item"}},
-            {"count": 200000, "index": 39, "signal": {"name": "se-core-fragment-crude-oil", "type": "item"}},
-            {"count": 200000, "index": 40, "signal": {"name": "se-core-fragment-stone", "type": "item"}},
-            {"count": 100000, "index": 41, "signal": {"name": "stone", "type": "item"}},
-            {"count": 400000, "index": 42, "signal": {"name": "sand", "type": "item"}},
-            {"count": 200000, "index": 43, "signal": {"name": "se-core-fragment-iron-ore", "type": "item"}},
-            {"count": 100000, "index": 44, "signal": {"name": "iron-ore", "type": "item"}},
-            {"count": 200000, "index": 45, "signal": {"name": "se-core-fragment-copper-ore", "type": "item"}},
-            {"count": 100000, "index": 46, "signal": {"name": "copper-ore", "type": "item"}},
-            {"count": 200000, "index": 47, "signal": {"name": "se-core-fragment-uranium-ore", "type": "item"}},
-            {"count": 100000, "index": 48, "signal": {"name": "uranium-ore", "type": "item"}},
-            {"count": 200000, "index": 49, "signal": {"name": "se-core-fragment-se-vulcanite", "type": "item"}},
-            {"count": 150000, "index": 50, "signal": {"name": "se-vulcanite", "type": "item"}},
-            {"count": 50000, "index": 51, "signal": {"name": "se-vulcanite-crushed", "type": "item"}},
-            {"count": 200000, "index": 52, "signal": {"name": "se-core-fragment-se-cryonite", "type": "item"}},
-            {"count": 200000, "index": 53, "signal": {"name": "se-cryonite", "type": "item"}},
+            {"count": 500000, "index": 2, "signal": {"name": "petroleum-gas", "type": "fluid"}},
+            {"count": 500000, "index": 3, "signal": {"name": "sulfuric-acid", "type": "fluid"}},
+            {"count": 500000, "index": 4, "signal": {"name": "lubricant", "type": "fluid"}},
+            {"count": 20000, "index": 5, "signal": {"name": "rocket-fuel", "type": "item"}},
+            {"count": 50000, "index": 6, "signal": {"name": "se-heat-shielding", "type": "item"}},
+            {"count": 100000, "index": 7, "signal": {"name": "motor", "type": "item"}},
+            {"count": 100000, "index": 8, "signal": {"name": "engine-unit", "type": "item"}},
+            {"count": 100000, "index": 9, "signal": {"name": "electric-motor", "type": "item"}},
+            {"count": 100000, "index": 10, "signal": {"name": "electric-engine-unit", "type": "item"}},
+            {"count": 400000, "index": 11, "signal": {"name": "battery", "type": "item"}},
+            {"count": 400000, "index": 12, "signal": {"name": "electronic-circuit", "type": "item"}},
+            {"count": 400000, "index": 13, "signal": {"name": "advanced-circuit", "type": "item"}},
+            {"count": 200000, "index": 14, "signal": {"name": "processing-unit", "type": "item"}},
+            {"count": 100000, "index": 15, "signal": {"name": "low-density-structure", "type": "item"}},
+            {"count": 200000, "index": 16, "signal": {"name": "plastic-bar", "type": "item"}},
+            {"count": 200000, "index": 17, "signal": {"name": "glass", "type": "item"}},
+            {"count": 200000, "index": 18, "signal": {"name": "stone-tablet", "type": "item"}},
+            {"count": 200000, "index": 19, "signal": {"name": "iron-plate", "type": "item"}},
+            {"count": 200000, "index": 20, "signal": {"name": "steel-plate", "type": "item"}},
+            {"count": 200000, "index": 21, "signal": {"name": "copper-plate", "type": "item"}},
+            {"count": 200000, "index": 22, "signal": {"name": "se-beryllium-ingot", "type": "item"}},
+            {"count": 400000, "index": 23, "signal": {"name": "se-beryllium-plate", "type": "item"}},
+            {"count": 100000, "index": 24, "signal": {"name": "se-holmium-ingot", "type": "item"}},
+            {"count": 200000, "index": 25, "signal": {"name": "se-holmium-plate", "type": "item"}},
+            {"count": 40000, "index": 26, "signal": {"name": "se-iridium-ingot", "type": "item"}},
+            {"count": 80000, "index": 27, "signal": {"name": "se-iridium-plate", "type": "item"}},
+            {"count": 200000, "index": 28, "signal": {"name": "se-vitamelange", "type": "item"}},
+            {"count": 20000, "index": 29, "signal": {"name": "se-naquium-ingot", "type": "item"}},
+            {"count": 40000, "index": 30, "signal": {"name": "se-naquium-plate", "type": "item"}},
+            {"count": 100000, "index": 31, "signal": {"name": "stone-brick", "type": "item"}},
+            {"count": 100000, "index": 32, "signal": {"name": "concrete", "type": "item"}},
+            {"count": 400000, "index": 33, "signal": {"name": "se-water-ice", "type": "item"}},
+            {"count": 200000, "index": 34, "signal": {"name": "raw-fish", "type": "item"}},
+            {"count": 200000, "index": 35, "signal": {"name": "se-core-fragment-omni", "type": "item"}},
+            {"count": 200000, "index": 36, "signal": {"name": "se-core-fragment-coal", "type": "item"}},
+            {"count": 200000, "index": 37, "signal": {"name": "wood", "type": "item"}},
+            {"count": 100000, "index": 38, "signal": {"name": "coal", "type": "item"}},
+            {"count": 400000, "index": 39, "signal": {"name": "se-methane-ice", "type": "item"}},
+            {"count": 200000, "index": 40, "signal": {"name": "se-core-fragment-crude-oil", "type": "item"}},
+            {"count": 200000, "index": 41, "signal": {"name": "se-core-fragment-stone", "type": "item"}},
+            {"count": 100000, "index": 42, "signal": {"name": "stone", "type": "item"}},
+            {"count": 400000, "index": 43, "signal": {"name": "sand", "type": "item"}},
+            {"count": 200000, "index": 44, "signal": {"name": "se-core-fragment-iron-ore", "type": "item"}},
+            {"count": 100000, "index": 45, "signal": {"name": "iron-ore", "type": "item"}},
+            {"count": 200000, "index": 46, "signal": {"name": "se-core-fragment-copper-ore", "type": "item"}},
+            {"count": 100000, "index": 47, "signal": {"name": "copper-ore", "type": "item"}},
+            {"count": 200000, "index": 48, "signal": {"name": "se-core-fragment-uranium-ore", "type": "item"}},
+            {"count": 100000, "index": 49, "signal": {"name": "uranium-ore", "type": "item"}},
+            {"count": 200000, "index": 50, "signal": {"name": "se-core-fragment-se-vulcanite", "type": "item"}},
+            {"count": 150000, "index": 51, "signal": {"name": "se-vulcanite", "type": "item"}},
+            {"count": 50000, "index": 52, "signal": {"name": "se-vulcanite-crushed", "type": "item"}},
+            {"count": 200000, "index": 53, "signal": {"name": "se-core-fragment-se-cryonite", "type": "item"}},
+            {"count": 200000, "index": 54, "signal": {"name": "se-cryonite", "type": "item"}},
             {
               "count": 200000,
-              "index": 54,
+              "index": 55,
               "signal": {"name": "se-core-fragment-se-beryllium-ore", "type": "item"}
             },
-            {"count": 300000, "index": 55, "signal": {"name": "se-beryllium-ore", "type": "item"}},
-            {"count": 100000, "index": 56, "signal": {"name": "se-beryllium-sulfate", "type": "item"}},
-            {"count": 100000, "index": 57, "signal": {"name": "se-beryllium-powder", "type": "item"}},
+            {"count": 300000, "index": 56, "signal": {"name": "se-beryllium-ore", "type": "item"}},
+            {"count": 100000, "index": 57, "signal": {"name": "se-beryllium-sulfate", "type": "item"}},
+            {"count": 100000, "index": 58, "signal": {"name": "se-beryllium-powder", "type": "item"}},
             {
               "count": 200000,
-              "index": 58,
+              "index": 59,
               "signal": {"name": "se-core-fragment-se-holmium-ore", "type": "item"}
             },
-            {"count": 100000, "index": 59, "signal": {"name": "se-holmium-ore", "type": "item"}},
-            {"count": 50000, "index": 60, "signal": {"name": "se-holmium-ore-crushed", "type": "item"}},
-            {"count": 50000, "index": 61, "signal": {"name": "se-holmium-powder", "type": "item"}},
+            {"count": 100000, "index": 60, "signal": {"name": "se-holmium-ore", "type": "item"}},
+            {"count": 50000, "index": 61, "signal": {"name": "se-holmium-ore-crushed", "type": "item"}},
+            {"count": 50000, "index": 62, "signal": {"name": "se-holmium-powder", "type": "item"}},
             {
               "count": 200000,
-              "index": 62,
+              "index": 63,
               "signal": {"name": "se-core-fragment-se-iridium-ore", "type": "item"}
             },
-            {"count": 40000, "index": 63, "signal": {"name": "se-iridium-ore", "type": "item"}},
-            {"count": 40000, "index": 64, "signal": {"name": "se-iridium-ore-crushed", "type": "item"}},
-            {"count": 30000, "index": 65, "signal": {"name": "se-iridium-powder", "type": "item"}},
+            {"count": 40000, "index": 64, "signal": {"name": "se-iridium-ore", "type": "item"}},
+            {"count": 40000, "index": 65, "signal": {"name": "se-iridium-ore-crushed", "type": "item"}},
+            {"count": 30000, "index": 66, "signal": {"name": "se-iridium-powder", "type": "item"}},
             {
               "count": 200000,
-              "index": 66,
+              "index": 67,
               "signal": {"name": "se-core-fragment-se-vitamelange", "type": "item"}
             },
-            {"count": 50000, "index": 67, "signal": {"name": "se-vitamelange-nugget", "type": "item"}},
-            {"count": 100000, "index": 68, "signal": {"name": "se-vitamelange-spice", "type": "item"}},
-            {"count": 30000, "index": 69, "signal": {"name": "se-naquium-ore", "type": "item"}},
-            {"count": 10000, "index": 70, "signal": {"name": "se-naquium-ore-crushed", "type": "item"}},
-            {"count": 10000, "index": 71, "signal": {"name": "se-naquium-powder", "type": "item"}},
-            {"count": 50000, "index": 72, "signal": {"name": "sulfur", "type": "item"}},
-            {"count": 50000, "index": 73, "signal": {"name": "solid-fuel", "type": "item"}},
-            {"count": 100000, "index": 74, "signal": {"name": "se-vulcanite-block", "type": "item"}},
-            {"count": 100000, "index": 75, "signal": {"name": "se-cryonite-rod", "type": "item"}},
-            {"count": 500000, "index": 76, "signal": {"name": "water", "type": "fluid"}},
-            {"count": 500000, "index": 77, "signal": {"name": "crude-oil", "type": "fluid"}}
+            {"count": 50000, "index": 68, "signal": {"name": "se-vitamelange-nugget", "type": "item"}},
+            {"count": 100000, "index": 69, "signal": {"name": "se-vitamelange-spice", "type": "item"}},
+            {"count": 30000, "index": 70, "signal": {"name": "se-naquium-ore", "type": "item"}},
+            {"count": 10000, "index": 71, "signal": {"name": "se-naquium-ore-crushed", "type": "item"}},
+            {"count": 10000, "index": 72, "signal": {"name": "se-naquium-powder", "type": "item"}},
+            {"count": 50000, "index": 73, "signal": {"name": "sulfur", "type": "item"}},
+            {"count": 50000, "index": 74, "signal": {"name": "solid-fuel", "type": "item"}},
+            {"count": 50000, "index": 75, "signal": {"name": "se-vulcanite-enriched", "type": "item"}},
+            {"count": 100000, "index": 76, "signal": {"name": "se-vulcanite-block", "type": "item"}},
+            {"count": 100000, "index": 77, "signal": {"name": "se-cryonite-rod", "type": "item"}},
+            {"count": 500000, "index": 78, "signal": {"name": "water", "type": "fluid"}},
+            {"count": 500000, "index": 79, "signal": {"name": "crude-oil", "type": "fluid"}}
           ]
         },
         "position": {"x": 22.5, "y": 58.5}
@@ -4786,7 +4810,7 @@
         "name": "medium-electric-pole",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,7"}, {"entity_rel": "3.5,-7.5"}],
+            "green": [{"circuit_id": 1, "entity_rel": "-1,-1.5"}, {"entity_rel": "0,7"}],
             "red": [{"entity_rel": "0,7"}, {"entity_rel": "1,-2,fa63"}]
           }
         },
@@ -5206,11 +5230,10 @@
             "green": [
               {"circuit_id": 1, "entity_rel": "10,4.5"},
               {"circuit_id": 1, "entity_rel": "8,-5.5"},
-              {"entity_rel": "-3.5,7.5"},
               {"entity_rel": "-5.5,-2.5"},
               {"entity_rel": "2.5,5.5"}
             ],
-            "red": [{"circuit_id": 2, "entity_rel": "8,4.5"}]
+            "red": [{"circuit_id": 2, "entity_rel": "-4.5,6"}, {"circuit_id": 2, "entity_rel": "8,4.5"}]
           }
         },
         "position": {"x": 35, "y": 53}
