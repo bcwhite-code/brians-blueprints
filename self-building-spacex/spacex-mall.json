@@ -387,7 +387,7 @@
         "name": "arithmetic-combinator",
         "direction": 4,
         "connections": {
-          "1": {"green": [{"entity_rel": "2,-9.5"}]},
+          "1": {"green": [{"circuit_id": 2, "entity_rel": "1.5,-6.5"}]},
           "2": {"red": [{"circuit_id": 1, "entity_rel": "-4.5,4.5"}]}
         },
         "control_behavior": {
@@ -1141,13 +1141,7 @@
         "direction": 6,
         "connections": {
           "1": {"red": [{"entity_rel": "-0.5,2"}]},
-          "2": {
-            "red": [
-              {"circuit_id": 2, "entity_rel": "-4,0"},
-              {"entity_rel": "0.5,2,9a25"},
-              {"entity_rel": "0.5,2,bb1d"}
-            ]
-          }
+          "2": {"red": [{"circuit_id": 2, "entity_rel": "-4,0"}, {"entity_rel": "0.5,2,bb1d"}]}
         },
         "control_behavior": {
           "arithmetic_conditions": {
@@ -2506,7 +2500,7 @@
             "red": [{"circuit_id": 1, "entity_rel": "0.5,-10"}, {"entity_rel": "-27,3"}, {"entity_rel": "23,-5"}]
           }
         },
-        "neighbours": ["23,-5", "-27,3"],
+        "neighbours": ["23,-5", "8,-12", "-27,3"],
         "position": {"x": 29, "y": 175}
       },
       {
@@ -2892,25 +2886,6 @@
       {
         "name": "constant-combinator",
         "direction": 6,
-        "connections": {"1": {"green": [{"entity_rel": "-1,0"}]}},
-        "control_behavior": {
-          "filters": [
-            {"count": -2000000000, "index": 1, "signal": {"name": "transport-belt", "type": "item"}},
-            {"count": -2000000000, "index": 2, "signal": {"name": "splitter", "type": "item"}},
-            {"count": -2000000000, "index": 3, "signal": {"name": "underground-belt", "type": "item"}},
-            {"count": -2000000000, "index": 6, "signal": {"name": "express-transport-belt", "type": "item"}},
-            {"count": -2000000000, "index": 7, "signal": {"name": "express-splitter", "type": "item"}},
-            {"count": -2000000000, "index": 8, "signal": {"name": "express-underground-belt", "type": "item"}},
-            {"count": -2000000000, "index": 11, "signal": {"name": "fast-transport-belt", "type": "item"}},
-            {"count": -2000000000, "index": 12, "signal": {"name": "fast-splitter", "type": "item"}},
-            {"count": -2000000000, "index": 13, "signal": {"name": "fast-underground-belt", "type": "item"}}
-          ]
-        },
-        "position": {"x": 23.5, "y": 30.5}
-      },
-      {
-        "name": "constant-combinator",
-        "direction": 6,
         "connections": {"1": {"red": [{"entity_rel": "2.5,-0.5"}]}},
         "control_behavior": {"filters": [{"count": 1, "index": 1, "signal": {"name": "signal-M", "type": "virtual"}}]},
         "position": {"x": 13.5, "y": 36.5}
@@ -2958,6 +2933,25 @@
           ]
         },
         "position": {"x": 19.5, "y": 35.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 6,
+        "connections": {"1": {"red": [{"circuit_id": 1, "entity_rel": "-1.5,0"}]}},
+        "control_behavior": {
+          "filters": [
+            {"count": -2000000000, "index": 1, "signal": {"name": "transport-belt", "type": "item"}},
+            {"count": -2000000000, "index": 2, "signal": {"name": "splitter", "type": "item"}},
+            {"count": -2000000000, "index": 3, "signal": {"name": "underground-belt", "type": "item"}},
+            {"count": -2000000000, "index": 6, "signal": {"name": "express-transport-belt", "type": "item"}},
+            {"count": -2000000000, "index": 7, "signal": {"name": "express-splitter", "type": "item"}},
+            {"count": -2000000000, "index": 8, "signal": {"name": "express-underground-belt", "type": "item"}},
+            {"count": -2000000000, "index": 11, "signal": {"name": "fast-transport-belt", "type": "item"}},
+            {"count": -2000000000, "index": 12, "signal": {"name": "fast-splitter", "type": "item"}},
+            {"count": -2000000000, "index": 13, "signal": {"name": "fast-underground-belt", "type": "item"}}
+          ]
+        },
+        "position": {"x": 23.5, "y": 33.5}
       },
       {
         "name": "constant-combinator",
@@ -4187,7 +4181,11 @@
         "direction": 2,
         "connections": {
           "1": {
-            "green": [{"circuit_id": 1, "entity_rel": "0,2"}, {"entity_rel": "1.5,0"}, {"entity_rel": "4.5,-5"}],
+            "green": [
+              {"circuit_id": 1, "entity_rel": "0,2"},
+              {"circuit_id": 2, "entity_rel": "4,-2"},
+              {"entity_rel": "1.5,0"}
+            ],
             "red": [{"circuit_id": 2, "entity_rel": "0,1"}]
           },
           "2": {"green": [{"circuit_id": 2, "entity_rel": "0,1"}], "red": [{"circuit_id": 2, "entity_rel": "3,0"}]}
@@ -4202,6 +4200,24 @@
           }
         },
         "position": {"x": 18, "y": 35.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 6,
+        "connections": {
+          "1": {"green": [{"entity_rel": "0.5,-3"}], "red": [{"entity_rel": "1.5,0"}]},
+          "2": {"green": [{"circuit_id": 1, "entity_rel": "-1.5,6.5"}, {"circuit_id": 1, "entity_rel": "-4,2"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "constant": 0,
+            "copy_count_from_input": true,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 22, "y": 33.5}
       },
       {
         "name": "decider-combinator",
@@ -5379,7 +5395,7 @@
       {
         "name": "fast-filter-miniloader-inserter",
         "override_stack_size": 1,
-        "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "-0.5,-2"}, {"entity_rel": "0,0,bb1d"}]}},
+        "connections": {"1": {"red": [{"entity_rel": "0,0,bb1d"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
         "drop_position": {"x": -0.25, "y": -0.203125},
         "pickup_position": {"x": 0, "y": 0.796875},
@@ -6287,6 +6303,7 @@
       {
         "name": "filter-inserter",
         "direction": 4,
+        "override_stack_size": 1,
         "connections": {
           "1": {
             "green": [{"circuit_id": 1, "entity_rel": "-1,-2.5"}],
@@ -6298,13 +6315,6 @@
           "circuit_read_hand_contents": true,
           "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-I", "type": "virtual"}}
         },
-        "filters": [
-          {"name": "transport-belt", "index": 1},
-          {"name": "fast-transport-belt", "index": 2},
-          {"name": "express-transport-belt", "index": 3},
-          {"name": "underground-belt", "index": 4},
-          {"name": "fast-underground-belt", "index": 5}
-        ],
         "position": {"x": 14.5, "y": 45.5}
       },
       {
@@ -9939,7 +9949,7 @@
         "connections": {
           "1": {
             "green": [{"circuit_id": 1, "entity_rel": "1.5,0"}, {"entity_rel": "1.5,5.5"}],
-            "red": [{"entity_rel": "1.5,5.5"}, {"entity_rel": "8,0"}]
+            "red": [{"entity_rel": "1.5,5.5"}]
           }
         },
         "neighbours": ["8,0", "1.5,5.5", "1,7"],
@@ -9950,13 +9960,10 @@
         "connections": {
           "1": {
             "green": [
-              {"circuit_id": 1, "entity_rel": "-2,9.5"},
-              {"circuit_id": 1, "entity_rel": "-4.5,5"},
+              {"circuit_id": 1, "entity_rel": "-0.5,3"},
               {"circuit_id": 2, "entity_rel": "-0.5,-1"},
-              {"circuit_id": 2, "entity_rel": "-0.5,1"},
-              {"entity_rel": "1,0"}
-            ],
-            "red": [{"entity_rel": "-8,0"}]
+              {"circuit_id": 2, "entity_rel": "-0.5,1"}
+            ]
           }
         },
         "neighbours": ["-8,0", "-2,8"],
@@ -10006,7 +10013,7 @@
       {
         "name": "medium-electric-pole",
         "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "-2.5,-2"}]}},
-        "neighbours": ["2,-8", "-4.5,-2.5", "-5,-1", "0,6"],
+        "neighbours": ["-5,-1", "-4.5,-2.5", "2,-8", "0,6"],
         "position": {"x": 20.5, "y": 38.5}
       },
       {
@@ -13621,7 +13628,10 @@
       {
         "name": "stack-combinator",
         "direction": 4,
-        "connections": {"2": {"green": [{"circuit_id": 1, "entity_rel": "1,0"}]}},
+        "connections": {
+          "1": {"red": [{"entity_rel": "-4.5,-2"}]},
+          "2": {"green": [{"circuit_id": 1, "entity_rel": "1,0"}]}
+        },
         "control_behavior": {
           "arithmetic_conditions": {
             "operation": "OR",
@@ -18022,11 +18032,12 @@
             "red": [
               {"circuit_id": 1, "entity_rel": "1.5,0"},
               {"circuit_id": 1, "entity_rel": "2,-9.5"},
+              {"circuit_id": 1, "entity_rel": "4.5,2"},
               {"circuit_id": 2, "entity_rel": "-1.5,0"}
             ]
           }
         },
-        "neighbours": ["15,7"],
+        "neighbours": ["15,7", "-8,12"],
         "position": {"x": 37, "y": 163}
       },
       {"name": "transport-belt", "direction": 4, "position": {"x": 40.5, "y": 6.5}},
