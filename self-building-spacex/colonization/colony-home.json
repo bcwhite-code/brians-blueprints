@@ -1,5 +1,4 @@
 {
-  "index": 0,
   "blueprint": {
     "item": "blueprint",
     "label": "Colony Home",
@@ -16,7 +15,7 @@
       },
       {
         "name": "aai-signal-sender",
-        "connections": {"1": {"green": [{"entity_rel": "1,6"}], "red": [{"entity_rel": "-2,3"}, {"entity_rel": "1,6"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "1,6"}], "red": [{"entity_rel": "-3,2"}, {"entity_rel": "1,6"}]}},
         "control_behavior": {"read_logistics": false},
         "position": {"x": 42.5, "y": 164.5}
       },
@@ -34,8 +33,8 @@
       },
       {"name": "aai-warehouse", "position": {"x": 158, "y": 182}},
       {"name": "aai-warehouse-buffer", "position": {"x": 37, "y": 196}},
-      {"name": "aai-warehouse-passive-provider", "position": {"x": 74, "y": 141}},
-      {"name": "aai-warehouse-passive-provider", "position": {"x": 80, "y": 141}},
+      {"name": "aai-warehouse-passive-provider", "position": {"x": 47, "y": 152}},
+      {"name": "aai-warehouse-passive-provider", "position": {"x": 53, "y": 152}},
       {"name": "aai-warehouse-storage", "position": {"x": 63, "y": 139}},
       {"name": "aai-warehouse-storage", "position": {"x": 63, "y": 145}},
       {"name": "accumulator", "position": {"x": 20, "y": 19}},
@@ -1141,7 +1140,7 @@
       {
         "name": "arithmetic-combinator",
         "direction": 6,
-        "connections": {"1": {"green": [{"entity_rel": "7.5,-3"}]}, "2": {"green": [{"entity_rel": "-3.5,1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "7.5,0"}]}, "2": {"green": [{"entity_rel": "-3.5,0"}]}},
         "control_behavior": {
           "arithmetic_conditions": {
             "operation": "+",
@@ -1150,7 +1149,7 @@
             "output_signal": {"name": "signal-each", "type": "virtual"}
           }
         },
-        "position": {"x": 78, "y": 157.5}
+        "position": {"x": 79, "y": 149.5}
       },
       {
         "name": "arithmetic-combinator",
@@ -2868,7 +2867,7 @@
       {
         "name": "big-electric-pole",
         "connections": {"1": {"red": [{"entity_rel": "0,-30"}, {"entity_rel": "1,2"}]}},
-        "neighbours": ["0,-30", "-4.5,7.5"],
+        "neighbours": ["0,-30"],
         "position": {"x": 65, "y": 91}
       },
       {
@@ -3056,7 +3055,7 @@
             "red": [{"circuit_id": 1, "entity_rel": "1,1.5"}, {"entity_rel": "-16,0"}, {"entity_rel": "14,0"}]
           }
         },
-        "neighbours": ["0.5,-3.5", "-16,0", "14,0", "5.5,2.5"],
+        "neighbours": ["-16,0", "0.5,-3.5", "14,0", "5.5,2.5"],
         "position": {"x": 100, "y": 158}
       },
       {
@@ -3067,7 +3066,7 @@
             "red": [{"circuit_id": 1, "entity_rel": "1,1.5"}, {"entity_rel": "-14,0"}, {"entity_rel": "0,16"}]
           }
         },
-        "neighbours": ["0.5,-3.5", "-14,0", "5.5,2.5", "0,16"],
+        "neighbours": ["-14,0", "0.5,-3.5", "5.5,2.5", "0,16"],
         "position": {"x": 114, "y": 158}
       },
       {
@@ -3212,7 +3211,7 @@
             ]
           }
         },
-        "neighbours": ["0.5,-3.5", "0,-30", "-14,0"],
+        "neighbours": ["0,-30", "-14,0", "0.5,-3.5"],
         "position": {"x": 114, "y": 204}
       },
       {
@@ -3816,7 +3815,7 @@
       },
       {
         "name": "constant-combinator",
-        "connections": {"1": {"red": [{"entity_rel": "2,-3"}]}},
+        "connections": {"1": {"red": [{"entity_rel": "3,-2"}]}},
         "control_behavior": {
           "filters": [
             {"count": -50000, "index": 1, "signal": {"name": "speed-module-3", "type": "item"}},
@@ -3827,7 +3826,7 @@
             {"count": -50000, "index": 13, "signal": {"name": "ammo-nano-constructors", "type": "item"}}
           ]
         },
-        "position": {"x": 40.5, "y": 167.5}
+        "position": {"x": 39.5, "y": 166.5}
       },
       {
         "name": "constant-combinator",
@@ -7392,13 +7391,13 @@
         "name": "express-loader",
         "type": "output",
         "filters": [{"name": "burner-mining-drill", "index": 5}],
-        "position": {"x": 76.5, "y": 137}
+        "position": {"x": 49.5, "y": 148}
       },
       {
         "name": "express-loader",
         "type": "output",
         "filters": [{"name": "burner-mining-drill", "index": 5}],
-        "position": {"x": 77.5, "y": 137}
+        "position": {"x": 50.5, "y": 148}
       },
       {"name": "express-loader", "direction": 4, "type": "input", "position": {"x": 85.5, "y": 135}},
       {"name": "express-loader", "direction": 4, "type": "input", "position": {"x": 90.5, "y": 135}},
@@ -7432,18 +7431,74 @@
         "output_priority": "left",
         "position": {"x": 152.5, "y": 182}
       },
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 57.5, "y": 132.5}},
+      {"name": "express-transport-belt", "position": {"x": 57.5, "y": 133.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 58.5, "y": 132.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 59.5, "y": 132.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 58.5, "y": 133.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 59.5, "y": 133.5}},
+      {"name": "express-transport-belt", "position": {"x": 57.5, "y": 134.5}},
+      {"name": "express-transport-belt", "position": {"x": 57.5, "y": 135.5}},
+      {"name": "express-transport-belt", "position": {"x": 58.5, "y": 134.5}},
+      {"name": "express-transport-belt", "position": {"x": 58.5, "y": 135.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 60.5, "y": 132.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 61.5, "y": 132.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 60.5, "y": 133.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 61.5, "y": 133.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 62.5, "y": 132.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 62.5, "y": 133.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 49.5, "y": 143.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 50.5, "y": 143.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 51.5, "y": 143.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 52.5, "y": 143.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 53.5, "y": 143.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 54.5, "y": 143.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 55.5, "y": 143.5}},
+      {"name": "express-transport-belt", "position": {"x": 57.5, "y": 136.5}},
+      {"name": "express-transport-belt", "position": {"x": 57.5, "y": 137.5}},
+      {"name": "express-transport-belt", "position": {"x": 58.5, "y": 136.5}},
+      {"name": "express-transport-belt", "position": {"x": 58.5, "y": 137.5}},
+      {"name": "express-transport-belt", "position": {"x": 57.5, "y": 138.5}},
+      {"name": "express-transport-belt", "position": {"x": 57.5, "y": 139.5}},
+      {"name": "express-transport-belt", "position": {"x": 58.5, "y": 138.5}},
+      {"name": "express-transport-belt", "position": {"x": 58.5, "y": 139.5}},
+      {"name": "express-transport-belt", "position": {"x": 57.5, "y": 140.5}},
+      {"name": "express-transport-belt", "position": {"x": 57.5, "y": 141.5}},
+      {"name": "express-transport-belt", "position": {"x": 58.5, "y": 140.5}},
+      {"name": "express-transport-belt", "position": {"x": 58.5, "y": 141.5}},
+      {"name": "express-transport-belt", "position": {"x": 57.5, "y": 142.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 56.5, "y": 143.5}},
+      {"name": "express-transport-belt", "position": {"x": 57.5, "y": 143.5}},
+      {"name": "express-transport-belt", "position": {"x": 58.5, "y": 142.5}},
+      {"name": "express-transport-belt", "position": {"x": 58.5, "y": 143.5}},
+      {"name": "express-transport-belt", "position": {"x": 49.5, "y": 144.5}},
+      {"name": "express-transport-belt", "position": {"x": 49.5, "y": 145.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 50.5, "y": 144.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 51.5, "y": 144.5}},
+      {"name": "express-transport-belt", "position": {"x": 50.5, "y": 145.5}},
+      {"name": "express-transport-belt", "position": {"x": 49.5, "y": 146.5}},
+      {"name": "express-transport-belt", "position": {"x": 50.5, "y": 146.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 52.5, "y": 144.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 53.5, "y": 144.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 54.5, "y": 144.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 55.5, "y": 144.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 56.5, "y": 144.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 57.5, "y": 144.5}},
+      {"name": "express-transport-belt", "position": {"x": 58.5, "y": 144.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 73.5, "y": 132.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 73.5, "y": 133.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 74.5, "y": 132.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 75.5, "y": 132.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 74.5, "y": 133.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 75.5, "y": 133.5}},
       {"name": "express-transport-belt", "direction": 2, "position": {"x": 76.5, "y": 132.5}},
       {"name": "express-transport-belt", "direction": 2, "position": {"x": 77.5, "y": 132.5}},
-      {"name": "express-transport-belt", "position": {"x": 76.5, "y": 133.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 76.5, "y": 133.5}},
       {"name": "express-transport-belt", "direction": 2, "position": {"x": 77.5, "y": 133.5}},
       {"name": "express-transport-belt", "direction": 2, "position": {"x": 78.5, "y": 132.5}},
       {"name": "express-transport-belt", "direction": 2, "position": {"x": 79.5, "y": 132.5}},
       {"name": "express-transport-belt", "direction": 2, "position": {"x": 78.5, "y": 133.5}},
       {"name": "express-transport-belt", "direction": 2, "position": {"x": 79.5, "y": 133.5}},
-      {"name": "express-transport-belt", "position": {"x": 76.5, "y": 134.5}},
-      {"name": "express-transport-belt", "position": {"x": 77.5, "y": 134.5}},
-      {"name": "express-transport-belt", "position": {"x": 76.5, "y": 135.5}},
-      {"name": "express-transport-belt", "position": {"x": 77.5, "y": 135.5}},
       {"name": "express-transport-belt", "direction": 2, "position": {"x": 80.5, "y": 132.5}},
       {"name": "express-transport-belt", "direction": 2, "position": {"x": 81.5, "y": 132.5}},
       {"name": "express-transport-belt", "direction": 2, "position": {"x": 80.5, "y": 133.5}},
@@ -7458,6 +7513,30 @@
       {"name": "express-transport-belt", "direction": 4, "position": {"x": 90.5, "y": 133.5}},
       {"name": "express-transport-belt", "direction": 2, "position": {"x": 147.5, "y": 182.5}},
       {"name": "express-transport-belt", "direction": 2, "position": {"x": 148.5, "y": 182.5}},
+      {
+        "name": "express-underground-belt",
+        "direction": 2,
+        "type": "input",
+        "position": {"x": 63.5, "y": 132.5}
+      },
+      {
+        "name": "express-underground-belt",
+        "direction": 2,
+        "type": "input",
+        "position": {"x": 63.5, "y": 133.5}
+      },
+      {
+        "name": "express-underground-belt",
+        "direction": 2,
+        "type": "output",
+        "position": {"x": 72.5, "y": 132.5}
+      },
+      {
+        "name": "express-underground-belt",
+        "direction": 2,
+        "type": "output",
+        "position": {"x": 72.5, "y": 133.5}
+      },
       {
         "name": "express-underground-belt",
         "direction": 2,
@@ -8478,37 +8557,13 @@
         "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
         "position": {"x": 128, "y": 95}
       },
+      {"name": "logistic-chest-active-provider", "position": {"x": 47.5, "y": 156.5}},
+      {"name": "logistic-chest-active-provider", "position": {"x": 48.5, "y": 156.5}},
+      {"name": "logistic-chest-active-provider", "position": {"x": 49.5, "y": 156.5}},
+      {"name": "logistic-chest-active-provider", "position": {"x": 50.5, "y": 156.5}},
+      {"name": "logistic-chest-active-provider", "position": {"x": 51.5, "y": 156.5}},
+      {"name": "logistic-chest-active-provider", "position": {"x": 52.5, "y": 156.5}},
       {"name": "logistic-chest-active-provider", "position": {"x": 44.5, "y": 187.5}},
-      {
-        "name": "logistic-chest-active-provider",
-        "connections": {"1": {"green": [{"entity_rel": "1,0"}]}},
-        "position": {"x": 74.5, "y": 145.5}
-      },
-      {
-        "name": "logistic-chest-active-provider",
-        "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
-        "position": {"x": 75.5, "y": 145.5}
-      },
-      {
-        "name": "logistic-chest-active-provider",
-        "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
-        "position": {"x": 76.5, "y": 145.5}
-      },
-      {
-        "name": "logistic-chest-active-provider",
-        "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
-        "position": {"x": 77.5, "y": 145.5}
-      },
-      {
-        "name": "logistic-chest-active-provider",
-        "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
-        "position": {"x": 78.5, "y": 145.5}
-      },
-      {
-        "name": "logistic-chest-active-provider",
-        "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
-        "position": {"x": 79.5, "y": 145.5}
-      },
       {"name": "logistic-chest-active-provider", "position": {"x": 105.5, "y": 152.5}},
       {"name": "logistic-chest-active-provider", "position": {"x": 119.5, "y": 152.5}},
       {"name": "logistic-chest-active-provider", "position": {"x": 83.5, "y": 170.5}},
@@ -8688,6 +8743,11 @@
       },
       {
         "name": "logistic-chest-requester",
+        "position": {"x": 55.5, "y": 146.5},
+        "request_filters": [{"name": "burner-mining-drill", "count": 500, "index": 10}]
+      },
+      {
+        "name": "logistic-chest-requester",
         "position": {"x": 58.5, "y": 154.5},
         "request_filters": [{"name": "logistic-robot", "count": 10, "index": 1}]
       },
@@ -8712,16 +8772,6 @@
         "request_from_buffers": true,
         "position": {"x": 44.5, "y": 186.5},
         "request_filters": [{"name": "se-cargo-rocket-section-packed", "count": 20, "index": 1}]
-      },
-      {
-        "name": "logistic-chest-requester",
-        "position": {"x": 75.5, "y": 136.5},
-        "request_filters": [{"name": "burner-mining-drill", "count": 500, "index": 10}]
-      },
-      {
-        "name": "logistic-chest-requester",
-        "position": {"x": 78.5, "y": 136.5},
-        "request_filters": [{"name": "burner-mining-drill", "count": 500, "index": 10}]
       },
       {
         "name": "logistic-chest-requester",
@@ -8897,12 +8947,12 @@
       },
       {
         "name": "logistic-chest-storage",
-        "position": {"x": 73.5, "y": 136.5},
+        "position": {"x": 47.5, "y": 147.5},
         "request_filters": [{"name": "rocket-fuel", "count": 0, "index": 1}]
       },
       {
         "name": "logistic-chest-storage",
-        "position": {"x": 80.5, "y": 136.5},
+        "position": {"x": 52.5, "y": 147.5},
         "request_filters": [{"name": "rocket-fuel", "count": 0, "index": 1}]
       },
       {
@@ -9468,7 +9518,7 @@
       {"name": "medium-electric-pole", "neighbours": ["0,-7", "4,0"], "position": {"x": 91.5, "y": 30.5}},
       {
         "name": "medium-electric-pole",
-        "neighbours": ["-4,0", "0,-7", "4,0"],
+        "neighbours": ["0,-7", "-4,0", "4,0"],
         "position": {"x": 95.5, "y": 30.5}
       },
       {
@@ -9502,12 +9552,12 @@
       },
       {
         "name": "medium-electric-pole",
-        "neighbours": ["-4,0", "0,-7", "4,0"],
+        "neighbours": ["0,-7", "-4,0", "4,0"],
         "position": {"x": 103.5, "y": 30.5}
       },
       {
         "name": "medium-electric-pole",
-        "neighbours": ["-4,0", "0,-7", "7,0"],
+        "neighbours": ["0,-7", "-4,0", "7,0"],
         "position": {"x": 107.5, "y": 30.5}
       },
       {
@@ -9539,46 +9589,93 @@
       },
       {
         "name": "medium-electric-pole",
-        "neighbours": ["-7,0", "0,-7", "4,0"],
+        "neighbours": ["0,-7", "-7,0", "4,0"],
         "position": {"x": 121.5, "y": 30.5}
       },
       {
         "name": "medium-electric-pole",
-        "neighbours": ["-4,0", "0,-7", "4,0"],
+        "neighbours": ["0,-7", "-4,0", "4,0"],
         "position": {"x": 125.5, "y": 30.5}
       },
-      {"name": "medium-electric-pole", "neighbours": ["4,0"], "position": {"x": 91.5, "y": 61.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 95.5, "y": 61.5}},
+      {"name": "medium-electric-pole", "neighbours": ["4,0", "8,0"], "position": {"x": 91.5, "y": 61.5}},
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-4,0", "4,0", "8,0"],
+        "position": {"x": 95.5, "y": 61.5}
+      },
       {"name": "medium-electric-pole", "neighbours": ["0,-9", "0,9"], "position": {"x": 114.5, "y": 39.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 99.5, "y": 61.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 103.5, "y": 61.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "7,0"], "position": {"x": 107.5, "y": 61.5}},
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-8,0", "-4,0", "4,0", "8,0"],
+        "position": {"x": 99.5, "y": 61.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-8,0", "-4,0", "4,0"],
+        "position": {"x": 103.5, "y": 61.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-8,0", "-4,0", "7,0"],
+        "position": {"x": 107.5, "y": 61.5}
+      },
       {"name": "medium-electric-pole", "neighbours": ["0,-9", "0,9"], "position": {"x": 114.5, "y": 48.5}},
       {"name": "medium-electric-pole", "neighbours": ["0,-9", "0,4"], "position": {"x": 114.5, "y": 57.5}},
       {
         "name": "medium-electric-pole",
-        "neighbours": ["0,-4", "-7,0", "7,0", "0,8"],
+        "neighbours": ["-7,0", "0,-4", "7,0", "0,8"],
         "position": {"x": 114.5, "y": 61.5}
       },
-      {"name": "medium-electric-pole", "neighbours": ["-7,0", "4,0"], "position": {"x": 121.5, "y": 61.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 125.5, "y": 61.5}},
-      {"name": "medium-electric-pole", "neighbours": ["4.5,-7.5"], "position": {"x": 60.5, "y": 98.5}},
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-7,0", "4,0", "8,0"],
+        "position": {"x": 121.5, "y": 61.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-4,0", "4,0", "8,0"],
+        "position": {"x": 125.5, "y": 61.5}
+      },
       {"name": "medium-electric-pole", "position": {"x": 70.5, "y": 95.5}},
       {"name": "medium-electric-pole", "neighbours": ["0,-8", "0,9"], "position": {"x": 114.5, "y": 69.5}},
       {"name": "medium-electric-pole", "neighbours": ["0,-9", "0,9"], "position": {"x": 114.5, "y": 78.5}},
       {"name": "medium-electric-pole", "neighbours": ["0,-9", "0,9"], "position": {"x": 114.5, "y": 87.5}},
-      {"name": "medium-electric-pole", "neighbours": ["4,0"], "position": {"x": 91.5, "y": 96.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 95.5, "y": 96.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 99.5, "y": 96.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 103.5, "y": 96.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "7,0"], "position": {"x": 107.5, "y": 96.5}},
+      {"name": "medium-electric-pole", "neighbours": ["4,0", "8,0"], "position": {"x": 91.5, "y": 96.5}},
       {
         "name": "medium-electric-pole",
-        "neighbours": ["-7,0", "0,-9", "7,0"],
+        "neighbours": ["-4,0", "4,0", "8,0"],
+        "position": {"x": 95.5, "y": 96.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-8,0", "-4,0", "4,0", "8,0"],
+        "position": {"x": 99.5, "y": 96.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-8,0", "-4,0", "4,0"],
+        "position": {"x": 103.5, "y": 96.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-8,0", "-4,0", "7,0"],
+        "position": {"x": 107.5, "y": 96.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["0,-9", "-7,0", "7,0"],
         "position": {"x": 114.5, "y": 96.5}
       },
-      {"name": "medium-electric-pole", "neighbours": ["-7,0", "4,0"], "position": {"x": 121.5, "y": 96.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 125.5, "y": 96.5}},
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-7,0", "4,0", "8,0"],
+        "position": {"x": 121.5, "y": 96.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-4,0", "4,0", "8,0"],
+        "position": {"x": 125.5, "y": 96.5}
+      },
       {
         "name": "medium-electric-pole",
         "neighbours": ["8,-2", "-4,8"],
@@ -9597,7 +9694,7 @@
         "connections": {
           "1": {"green": [{"circuit_id": 2, "entity_rel": "0.5,5"}, {"entity_rel": "-4,0"}, {"entity_rel": "4,0"}]}
         },
-        "neighbours": ["-4,0", "6.5,-3.5", "4,0", "0,7"],
+        "neighbours": ["6.5,-3.5", "-4,0", "4,0", "0,7"],
         "position": {"x": 133.5, "y": 23.5}
       },
       {
@@ -9621,23 +9718,47 @@
       },
       {
         "name": "medium-electric-pole",
-        "neighbours": ["-4,0", "0,-7", "4,0"],
+        "neighbours": ["0,-7", "-4,0", "4,0"],
         "position": {"x": 133.5, "y": 30.5}
       },
       {
         "name": "medium-electric-pole",
-        "neighbours": ["-4,0", "0,-7"],
+        "neighbours": ["0,-7", "-4,0"],
         "position": {"x": 137.5, "y": 30.5}
       },
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 129.5, "y": 61.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 133.5, "y": 61.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0"], "position": {"x": 137.5, "y": 61.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 129.5, "y": 96.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 133.5, "y": 96.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "2,6"], "position": {"x": 137.5, "y": 96.5}},
       {
         "name": "medium-electric-pole",
-        "neighbours": ["-2,-6", "0,6"],
+        "neighbours": ["-8,0", "-4,0", "4,0", "8,0"],
+        "position": {"x": 129.5, "y": 61.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-8,0", "-4,0", "4,0"],
+        "position": {"x": 133.5, "y": 61.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-8,0", "-4,0"],
+        "position": {"x": 137.5, "y": 61.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-8,0", "-4,0", "4,0", "8,0"],
+        "position": {"x": 129.5, "y": 96.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-8,0", "-4,0", "4,0", "6,6"],
+        "position": {"x": 133.5, "y": 96.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-8,0", "-4,0", "2,6"],
+        "position": {"x": 137.5, "y": 96.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-6,-6", "-2,-6", "0,6"],
         "position": {"x": 139.5, "y": 102.5}
       },
       {
@@ -9652,7 +9773,7 @@
       },
       {
         "name": "medium-electric-pole",
-        "neighbours": ["-6,1", "0,-9", "8,-2"],
+        "neighbours": ["0,-9", "-6,1", "8,-2"],
         "position": {"x": 139.5, "y": 117.5}
       },
       {
@@ -9696,10 +9817,21 @@
         "position": {"x": 165.5, "y": 125.5}
       },
       {"name": "medium-electric-pole", "neighbours": ["-6,-4"], "position": {"x": 180.5, "y": 119.5}},
+      {"name": "medium-electric-pole", "neighbours": ["7,0"], "position": {"x": 46.5, "y": 157.5}},
       {
         "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "0,7"}, {"entity_rel": "7,2"}]}},
-        "neighbours": ["-4.5,-7.5", "0,7"],
+        "neighbours": ["-5.5,-1.5", "2,7"],
+        "position": {"x": 57.5, "y": 147.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-7,0", "6,-3", "2,8"],
+        "position": {"x": 53.5, "y": 157.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {"1": {"green": [{"entity_rel": "0,7"}, {"entity_rel": "7,-5"}]}},
+        "neighbours": ["-2,-7", "-6,3", "0,7"],
         "position": {"x": 59.5, "y": 154.5}
       },
       {
@@ -9755,7 +9887,7 @@
             "red": [{"entity_rel": "-8,0"}, {"entity_rel": "4,0"}]
           }
         },
-        "neighbours": ["0,-7", "-8,0", "4,0", "0,5"],
+        "neighbours": ["-8,0", "0,-7", "4,0", "0,5"],
         "position": {"x": 16.5, "y": 183.5}
       },
       {
@@ -9787,7 +9919,7 @@
             "red": [{"entity_rel": "-8,0"}]
           }
         },
-        "neighbours": ["0,-5", "-8,0"],
+        "neighbours": ["-8,0", "0,-5"],
         "position": {"x": 16.5, "y": 188.5}
       },
       {
@@ -9795,7 +9927,7 @@
         "neighbours": ["-5,-1", "2,8"],
         "position": {"x": 31.5, "y": 184.5}
       },
-      {"name": "medium-electric-pole", "position": {"x": 38.5, "y": 165.5}},
+      {"name": "medium-electric-pole", "position": {"x": 38.5, "y": 167.5}},
       {
         "name": "medium-electric-pole",
         "connections": {
@@ -9809,7 +9941,11 @@
       },
       {
         "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"circuit_id": 1, "entity_rel": "1,0.5"}, {"entity_rel": "7,-2"}]}},
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 1, "entity_rel": "1,0.5"}, {"entity_rel": "2,-5"}, {"entity_rel": "7,-2"}]
+          }
+        },
         "neighbours": ["7,-2", "7,5", "0,8"],
         "position": {"x": 48.5, "y": 167.5}
       },
@@ -9821,7 +9957,7 @@
             "red": [{"entity_rel": "4.5,-0.5"}]
           }
         },
-        "neighbours": ["-7,2", "4,3", "8,2", "0,7"],
+        "neighbours": ["-2,-8", "-7,2", "4,3", "8,2", "0,7"],
         "position": {"x": 55.5, "y": 165.5}
       },
       {
@@ -9853,7 +9989,7 @@
             ]
           }
         },
-        "neighbours": ["0,-8", "7,-3", "-5,-5", "0,8"],
+        "neighbours": ["-5,-5", "0,-8", "7,-3", "0,8"],
         "position": {"x": 48.5, "y": 175.5}
       },
       {
@@ -9868,7 +10004,7 @@
             ]
           }
         },
-        "neighbours": ["4,-4", "-7,-5", "0,-7", "-7,3"],
+        "neighbours": ["-7,-5", "0,-7", "4,-4", "-7,3"],
         "position": {"x": 55.5, "y": 172.5}
       },
       {
@@ -9879,7 +10015,7 @@
             "red": [{"entity_rel": "-4,4"}, {"entity_rel": "4,-1"}]
           }
         },
-        "neighbours": ["0,-7", "-4,-3", "-4,4", "0,9"],
+        "neighbours": ["-4,-3", "0,-7", "-4,4", "0,9"],
         "position": {"x": 59.5, "y": 168.5}
       },
       {
@@ -9950,7 +10086,7 @@
       {
         "name": "medium-electric-pole",
         "connections": {"1": {"green": [{"entity_rel": "0,7"}], "red": [{"entity_rel": "0,7"}]}},
-        "neighbours": ["-7.5,-0.5", "3,0", "0,7"],
+        "neighbours": ["3,0", "0,7"],
         "position": {"x": 86.5, "y": 135.5}
       },
       {
@@ -9981,31 +10117,26 @@
         "neighbours": ["0,-7", "-3,0", "0,7"],
         "position": {"x": 89.5, "y": 142.5}
       },
-      {"name": "medium-electric-pole", "neighbours": ["7,-3", "0,7"], "position": {"x": 66.5, "y": 149.5}},
-      {"name": "medium-electric-pole", "neighbours": ["7,0", "-7,3"], "position": {"x": 73.5, "y": 146.5}},
       {
         "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "-7,-2"}, {"entity_rel": "8,2"}]}},
-        "neighbours": ["0,-7", "8,2", "0,7"],
-        "position": {"x": 66.5, "y": 156.5}
+        "connections": {"1": {"green": [{"entity_rel": "-7,5"}, {"entity_rel": "9,0"}]}},
+        "neighbours": ["9,0", "0,7"],
+        "position": {"x": 66.5, "y": 149.5}
       },
       {
         "name": "medium-electric-pole",
-        "connections": {
-          "1": {
-            "green": [{"circuit_id": 2, "entity_rel": "3.5,-1"}, {"entity_rel": "-8,-2"}, {"entity_rel": "3,-7"}]
-          }
-        },
-        "neighbours": ["-8,-2"],
-        "position": {"x": 74.5, "y": 158.5}
+        "connections": {"1": {"green": [{"circuit_id": 2, "entity_rel": "3.5,0"}, {"entity_rel": "-9,0"}]}},
+        "neighbours": ["-9,0"],
+        "position": {"x": 75.5, "y": 149.5}
       },
-      {"name": "medium-electric-pole", "neighbours": ["-7,0", "6,3"], "position": {"x": 80.5, "y": 146.5}},
+      {"name": "medium-electric-pole", "neighbours": ["0,-7", "0,7"], "position": {"x": 66.5, "y": 156.5}},
       {
         "name": "medium-electric-pole",
         "connections": {
           "1": {
             "green": [
               {"circuit_id": 1, "entity_rel": "-3,-0.5"},
+              {"circuit_id": 1, "entity_rel": "-7.5,0"},
               {"entity_rel": "-1,5"},
               {"entity_rel": "0,-7"},
               {"entity_rel": "3,0"}
@@ -10013,7 +10144,7 @@
             "red": [{"entity_rel": "0,-7"}]
           }
         },
-        "neighbours": ["0,-7", "-6,-3", "3,0", "-1,5"],
+        "neighbours": ["0,-7", "3,0", "-1,5"],
         "position": {"x": 86.5, "y": 149.5}
       },
       {
@@ -10026,11 +10157,7 @@
         "name": "medium-electric-pole",
         "connections": {
           "1": {
-            "green": [
-              {"circuit_id": 1, "entity_rel": "-7.5,3"},
-              {"circuit_id": 1, "entity_rel": "0,3.5"},
-              {"entity_rel": "1,-5"}
-            ],
+            "green": [{"circuit_id": 1, "entity_rel": "0,3.5"}, {"entity_rel": "1,-5"}],
             "red": [{"entity_rel": "0,2"}]
           }
         },
@@ -10103,7 +10230,7 @@
       {
         "name": "medium-electric-pole",
         "connections": {"1": {"green": [{"entity_rel": "1,2"}]}},
-        "neighbours": ["2,-5", "-8,0", "6,0", "-0.5,3.5"],
+        "neighbours": ["-8,0", "2,-5", "6,0", "-0.5,3.5"],
         "position": {"x": 114.5, "y": 154.5}
       },
       {
@@ -10176,7 +10303,7 @@
             "red": [{"circuit_id": 2, "entity_rel": "0,4.5"}, {"entity_rel": "0,-2"}]
           }
         },
-        "neighbours": ["0,-7", "-7,0", "-2,7", "-2.5,8.5"],
+        "neighbours": ["-7,0", "0,-7", "-2,7", "-2.5,8.5"],
         "position": {"x": 66.5, "y": 177.5}
       },
       {
@@ -10193,7 +10320,7 @@
             "red": [{"entity_rel": "-1.5,-5.5"}, {"entity_rel": "-8,0"}, {"entity_rel": "0,5"}]
           }
         },
-        "neighbours": ["-1,-7", "-1.5,-5.5", "-8,0", "0,5"],
+        "neighbours": ["-1.5,-5.5", "-8,0", "-1,-7", "0,5"],
         "position": {"x": 65.5, "y": 191.5}
       },
       {"name": "medium-electric-pole", "neighbours": ["0,-7", "0,7"], "position": {"x": 86.5, "y": 181.5}},
@@ -10217,7 +10344,7 @@
             "red": [{"circuit_id": 2, "entity_rel": "1,-1.5"}, {"entity_rel": "-3,7"}]
           }
         },
-        "neighbours": ["1,-6", "-5.5,-2.5", "-3,7"],
+        "neighbours": ["-5.5,-2.5", "1,-6", "-3,7"],
         "position": {"x": 105.5, "y": 160.5}
       },
       {
@@ -10250,7 +10377,7 @@
             "red": [{"circuit_id": 2, "entity_rel": "1,-1.5"}, {"entity_rel": "0,7"}]
           }
         },
-        "neighbours": ["1,-6", "-5.5,-2.5", "0,7"],
+        "neighbours": ["-5.5,-2.5", "1,-6", "0,7"],
         "position": {"x": 119.5, "y": 160.5}
       },
       {
@@ -10373,12 +10500,12 @@
       {"name": "medium-electric-pole", "neighbours": ["0,-7", "7,0"], "position": {"x": 33.5, "y": 199.5}},
       {
         "name": "medium-electric-pole",
-        "neighbours": ["-7,-1", "2,-8", "0,6"],
+        "neighbours": ["2,-8", "-7,-1", "0,6"],
         "position": {"x": 40.5, "y": 193.5}
       },
       {
         "name": "medium-electric-pole",
-        "neighbours": ["0,-6", "-7,0"],
+        "neighbours": ["-7,0", "0,-6"],
         "position": {"x": 40.5, "y": 199.5}
       },
       {
@@ -10438,7 +10565,7 @@
       {
         "name": "medium-electric-pole",
         "connections": {"1": {"green": [{"entity_rel": "1,2"}]}},
-        "neighbours": ["2,-5", "-7,0", "-0.5,3.5"],
+        "neighbours": ["-7,0", "2,-5", "-0.5,3.5"],
         "position": {"x": 114.5, "y": 200.5}
       },
       {"name": "medium-electric-pole", "neighbours": ["5.5,3.5"], "position": {"x": 124.5, "y": 200.5}},
@@ -10700,7 +10827,7 @@
       {
         "name": "medium-electric-pole",
         "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "4.5,0"}, {"entity_rel": "-6,-4"}]}},
-        "neighbours": ["8,-2", "-6,-4"],
+        "neighbours": ["-6,-4", "8,-2"],
         "position": {"x": 189.5, "y": 206.5}
       },
       {"name": "medium-electric-pole", "neighbours": ["-8,2"], "position": {"x": 197.5, "y": 204.5}},
@@ -11331,7 +11458,7 @@
         "connections": {
           "1": {"red": [{"entity_rel": "-4,-2"}]},
           "Cu0": [{"entity_rel": "-4,-2", "wire_id": 0}],
-          "Cu1": [{"entity_rel": "4.5,-0.5", "wire_id": 0}]
+          "Cu1": [{"entity_rel": "4.5,1.5", "wire_id": 0}]
         },
         "control_behavior": {
           "circuit_condition": {"comparator": ">", "constant": 7, "first_signal": {"name": "signal-A", "type": "virtual"}}
@@ -12015,7 +12142,6 @@
       {"name": "rail-signal", "direction": 2, "position": {"x": 194.5, "y": 218.5}},
       {"name": "rail-signal", "direction": 4, "position": {"x": 225.5, "y": 194.5}},
       {"name": "roboport", "position": {"x": 115, "y": 46}},
-      {"name": "roboport", "position": {"x": 58, "y": 101}},
       {"name": "roboport", "position": {"x": 115, "y": 81}},
       {"name": "roboport", "position": {"x": 142, "y": 118}},
       {"name": "roboport", "position": {"x": 185, "y": 121}},
@@ -12158,8 +12284,8 @@
       {"name": "se-meteor-defence-container", "position": {"x": 172.5, "y": 156.5}},
       {
         "name": "se-rocket-landing-pad",
-        "connections": {"1": {"green": [{"entity_rel": "-3,-5"}, {"entity_rel": "-3,7"}]}},
-        "position": {"x": 77.5, "y": 151.5}
+        "connections": {"1": {"green": [{"entity_rel": "-2,5"}]}},
+        "position": {"x": 50.5, "y": 162.5}
       },
       {"name": "se-rocket-landing-pad", "position": {"x": 37.5, "y": 204.5}},
       {
@@ -12623,13 +12749,13 @@
         "name": "stack-filter-inserter",
         "direction": 4,
         "filters": [{"name": "rocket-fuel", "index": 1}],
-        "position": {"x": 73.5, "y": 137.5}
+        "position": {"x": 47.5, "y": 148.5}
       },
       {
         "name": "stack-filter-inserter",
         "direction": 4,
         "filters": [{"name": "rocket-fuel", "index": 1}],
-        "position": {"x": 80.5, "y": 137.5}
+        "position": {"x": 52.5, "y": 148.5}
       },
       {
         "name": "stack-filter-inserter",
@@ -13489,76 +13615,75 @@
         "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 142.5, "y": 195.5}
       },
-      {"name": "stack-inserter", "direction": 2, "position": {"x": 42.5, "y": 186.5}},
-      {"name": "stack-inserter", "position": {"x": 43.5, "y": 188.5}},
-      {"name": "stack-inserter", "position": {"x": 75.5, "y": 137.5}},
-      {"name": "stack-inserter", "position": {"x": 78.5, "y": 137.5}},
-      {"name": "stack-inserter", "direction": 4, "position": {"x": 74.5, "y": 144.5}},
-      {"name": "stack-inserter", "direction": 4, "position": {"x": 75.5, "y": 144.5}},
-      {
-        "name": "stack-inserter",
-        "direction": 4,
-        "connections": {"1": {"green": [{"entity_rel": "1,0"}, {"entity_rel": "3,5"}]}},
-        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_mode_of_operation": 3, "circuit_read_hand_contents": true},
-        "position": {"x": 74.5, "y": 146.5}
-      },
-      {
-        "name": "stack-inserter",
-        "direction": 4,
-        "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
-        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_mode_of_operation": 3, "circuit_read_hand_contents": true},
-        "position": {"x": 75.5, "y": 146.5}
-      },
-      {"name": "stack-inserter", "direction": 4, "position": {"x": 76.5, "y": 144.5}},
+      {"name": "stack-inserter", "direction": 4, "position": {"x": 47.5, "y": 155.5}},
       {
         "name": "stack-inserter",
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_hand_read_mode": 1, "circuit_mode_of_operation": 3, "circuit_read_hand_contents": true},
-        "position": {"x": 77.5, "y": 144.5}
+        "position": {"x": 47.5, "y": 157.5}
+      },
+      {"name": "stack-inserter", "direction": 4, "position": {"x": 55.5, "y": 145.5}},
+      {"name": "stack-inserter", "direction": 4, "position": {"x": 48.5, "y": 155.5}},
+      {"name": "stack-inserter", "direction": 4, "position": {"x": 49.5, "y": 155.5}},
+      {
+        "name": "stack-inserter",
+        "direction": 4,
+        "connections": {"1": {"green": [{"entity_rel": "1,0"}]}},
+        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_mode_of_operation": 3, "circuit_read_hand_contents": true},
+        "position": {"x": 50.5, "y": 155.5}
       },
       {
         "name": "stack-inserter",
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_hand_read_mode": 1, "circuit_mode_of_operation": 3, "circuit_read_hand_contents": true},
-        "position": {"x": 78.5, "y": 144.5}
+        "position": {"x": 51.5, "y": 155.5}
       },
       {
         "name": "stack-inserter",
         "direction": 4,
-        "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_hand_read_mode": 1, "circuit_mode_of_operation": 3, "circuit_read_hand_contents": true},
-        "position": {"x": 79.5, "y": 144.5}
-      },
-      {
-        "name": "stack-inserter",
-        "direction": 4,
-        "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
-        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_mode_of_operation": 3, "circuit_read_hand_contents": true},
-        "position": {"x": 76.5, "y": 146.5}
+        "position": {"x": 52.5, "y": 155.5}
       },
       {
         "name": "stack-inserter",
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_hand_read_mode": 1, "circuit_mode_of_operation": 3, "circuit_read_hand_contents": true},
-        "position": {"x": 77.5, "y": 146.5}
+        "position": {"x": 48.5, "y": 157.5}
       },
       {
         "name": "stack-inserter",
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_hand_read_mode": 1, "circuit_mode_of_operation": 3, "circuit_read_hand_contents": true},
-        "position": {"x": 78.5, "y": 146.5}
+        "position": {"x": 49.5, "y": 157.5}
       },
       {
         "name": "stack-inserter",
         "direction": 4,
-        "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,-1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_hand_read_mode": 1, "circuit_mode_of_operation": 3, "circuit_read_hand_contents": true},
-        "position": {"x": 79.5, "y": 146.5}
+        "position": {"x": 50.5, "y": 157.5}
       },
+      {
+        "name": "stack-inserter",
+        "direction": 4,
+        "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_mode_of_operation": 3, "circuit_read_hand_contents": true},
+        "position": {"x": 51.5, "y": 157.5}
+      },
+      {
+        "name": "stack-inserter",
+        "direction": 4,
+        "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,-2"}]}},
+        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_mode_of_operation": 3, "circuit_read_hand_contents": true},
+        "position": {"x": 52.5, "y": 157.5}
+      },
+      {"name": "stack-inserter", "direction": 2, "position": {"x": 42.5, "y": 186.5}},
+      {"name": "stack-inserter", "position": {"x": 43.5, "y": 188.5}},
       {"name": "stack-inserter", "direction": 2, "position": {"x": 106.5, "y": 152.5}},
       {
         "name": "stack-inserter",
@@ -15814,17 +15939,17 @@
       {"name": "substation", "neighbours": ["-18,0", "0,18"], "position": {"x": 46, "y": 24}},
       {"name": "substation", "neighbours": ["0,-18", "18,0", "0,18"], "position": {"x": 28, "y": 42}},
       {"name": "substation", "neighbours": ["0,-18", "18,0", "0,18"], "position": {"x": 28, "y": 60}},
-      {"name": "substation", "neighbours": ["-18,0", "0,-18", "0,18"], "position": {"x": 46, "y": 42}},
-      {"name": "substation", "neighbours": ["0,-18", "-18,0", "0,18"], "position": {"x": 46, "y": 60}},
+      {"name": "substation", "neighbours": ["0,-18", "-18,0", "0,18"], "position": {"x": 46, "y": 42}},
+      {"name": "substation", "neighbours": ["-18,0", "0,-18", "0,18"], "position": {"x": 46, "y": 60}},
       {
         "name": "substation",
         "neighbours": ["0,-18", "18,0", "-12,12", "0,18"],
         "position": {"x": 28, "y": 78}
       },
-      {"name": "substation", "neighbours": ["-18,0", "0,-18", "0,18"], "position": {"x": 46, "y": 78}},
+      {"name": "substation", "neighbours": ["0,-18", "-18,0", "0,18"], "position": {"x": 46, "y": 78}},
       {
         "name": "substation",
-        "neighbours": ["0,-18", "-12,-6", "18,0", "0,18"],
+        "neighbours": ["-12,-6", "0,-18", "18,0", "0,18"],
         "position": {"x": 28, "y": 96}
       },
       {"name": "substation", "neighbours": ["0,-18", "18,0", "0,18"], "position": {"x": 28, "y": 114}},
@@ -15837,9 +15962,8 @@
       {"name": "substation", "neighbours": ["-15,-9", "0,18"], "position": {"x": 214, "y": 100}},
       {"name": "substation", "neighbours": ["0,-18", "0,18"], "position": {"x": 214, "y": 118}},
       {"name": "substation", "neighbours": ["0,-18", "18,0"], "position": {"x": 28, "y": 132}},
-      {"name": "substation", "neighbours": ["-18,0", "0,-18", "9,15"], "position": {"x": 46, "y": 132}},
-      {"name": "substation", "neighbours": ["-9,-15", "4.5,7.5"], "position": {"x": 55, "y": 147}},
-      {"name": "substation", "neighbours": ["7.5,0.5"], "position": {"x": 79, "y": 135}},
+      {"name": "substation", "neighbours": ["0,-18", "-18,0", "6,14"], "position": {"x": 46, "y": 132}},
+      {"name": "substation", "neighbours": ["-6,-14", "5.5,1.5"], "position": {"x": 52, "y": 146}},
       {"name": "substation", "neighbours": ["0,-18", "8,5", "8,15"], "position": {"x": 186, "y": 136}},
       {"name": "substation", "neighbours": ["8,-15", "8,-5", "0,18"], "position": {"x": 186, "y": 156}},
       {
@@ -15857,7 +15981,7 @@
       {
         "name": "substation",
         "connections": {"1": {"green": [{"entity_rel": "-2.5,-0.5"}, {"entity_rel": "-3.5,-0.5"}, {"entity_rel": "0,10"}]}},
-        "neighbours": ["8,-5", "-12,0", "-12,10", "0,10", "8,15"],
+        "neighbours": ["-12,0", "8,-5", "-12,10", "0,10", "8,15"],
         "position": {"x": 206, "y": 141}
       },
       {"name": "substation", "neighbours": ["0,-18", "-8,5", "-8,15"], "position": {"x": 214, "y": 136}},
@@ -15878,7 +16002,7 @@
             ]
           }
         },
-        "neighbours": ["8,-15", "-12,-10", "0,-10", "-12,0", "8,5"],
+        "neighbours": ["-12,-10", "0,-10", "8,-15", "-12,0", "8,5"],
         "position": {"x": 206, "y": 151}
       },
       {"name": "substation", "neighbours": ["-8,-15", "-8,-5", "0,18"], "position": {"x": 214, "y": 156}},
@@ -16011,5 +16135,6 @@
       }
     ],
     "snap-to-grid": {"x": 110, "y": 110}
-  }
+  },
+  "index": 0
 }
