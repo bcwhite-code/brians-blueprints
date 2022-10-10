@@ -466,6 +466,7 @@ ice-water in order to lower its priority.
 
 Fix some defaults:
 
+* Change the signal receiver to moniter the channel "Nauvis/Home".
 * Change landing pad beside red warehouse chests to "(world)/Home", substituting the name of the world.
 * Change the landing pad beside the green warehouse chest to "-Personal-".
 * Change the recycling rocket beside the plain warehouse chest to have a destination of Nauvis/Recycling and to "launch on cargo full".
@@ -525,6 +526,8 @@ warn if it is insufficient.  However, it needs more than the single
 accumulator to be accurate.  Typically, more get added in various
 power blocks.  Just remove these two items for now if they're a
 nuisance.
+
+When the signal transmitter gets build **change its name** to "Nauvis/Home".
 
 Near the signal transmitter is a combinator with some constants that
 will need to be updated as the game progresses:

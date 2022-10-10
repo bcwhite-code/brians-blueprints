@@ -3,7 +3,7 @@
   "blueprint": {
     "item": "blueprint",
     "label": "Nuclear (10GW)",
-    "description": "This comes from\nhttps://factorioprints.com/view/-MJURcCFL-9L_cbihLys\nwith no changes (as it's my own blueprint).\n\nNoxy's Waterfill Required!\n(I may create a landfill-only version if people really want it)\n\nPower switch is OFF by default though it's okay to turn it on after a clean lay-down of the blueprint.\n\nThere will be a steel chest with three reactors at the construction site.  These need to be manually placed over the three roboports down the reactor row once construction is complete.",
+    "description": "This comes from\nhttps://factorioprints.com/view/-MJURcCFL-9L_cbihLys\nwith no changes (as it's my own blueprint).\n\nNoxy's Waterfill Required!\n(I may create a landfill-only version if people really want it)\n\nPower switch is OFF by default though it's okay to turn it on after a clean lay-down of the blueprint.\n\nThere will be a requester chest with three reactors at the construction site.  These need to be manually placed over the three roboports down the reactor row once construction is complete.",
     "absolute-snapping": true,
     "shift_x": -167,
     "shift_y": -167,
@@ -1053,6 +1053,7 @@
           "filters": [
             {"count": 22, "index": 1, "signal": {"name": "roboport", "type": "item"}},
             {"count": 200, "index": 2, "signal": {"name": "construction-robot", "type": "item"}},
+            {"count": 1, "index": 3, "signal": {"name": "filter-inserter", "type": "item"}},
             {"count": 10, "index": 8, "signal": {"name": "medium-electric-pole", "type": "item"}},
             {"count": 100, "index": 9, "signal": {"name": "big-electric-pole", "type": "item"}},
             {"count": 383, "index": 10, "signal": {"name": "substation", "type": "item"}},
@@ -1064,7 +1065,7 @@
             {"count": 1000, "index": 16, "signal": {"name": "rail", "type": "item"}},
             {"count": 27, "index": 17, "signal": {"name": "rail-signal", "type": "item"}},
             {"count": 44, "index": 18, "signal": {"name": "rail-chain-signal", "type": "item"}},
-            {"count": 1, "index": 19, "signal": {"name": "steel-chest", "type": "item"}},
+            {"count": 1, "index": 19, "signal": {"name": "logistic-chest-requester", "type": "item"}},
             {"count": 24, "index": 20, "signal": {"name": "iron-chest", "type": "item"}}
           ]
         },
@@ -2854,11 +2855,11 @@
       },
       {
         "name": "filter-inserter",
-        "direction": 2,
+        "direction": 6,
         "override_stack_size": 1,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}]}},
         "control_behavior": {
-          "circuit_condition": {"comparator": "<", "constant": 3, "first_signal": {"name": "nuclear-reactor", "type": "item"}}
+          "circuit_condition": {"comparator": ">", "constant": 3, "first_signal": {"name": "nuclear-reactor", "type": "item"}}
         },
         "filters": [{"name": "nuclear-reactor", "index": 1}],
         "position": {"x": 204.5, "y": 123.5}
@@ -8199,6 +8200,12 @@
       {"name": "loader", "type": "output", "position": {"x": 214.5, "y": 300}},
       {"name": "loader", "direction": 4, "type": "input", "position": {"x": 209.5, "y": 324}},
       {"name": "loader", "direction": 4, "type": "input", "position": {"x": 214.5, "y": 324}},
+      {
+        "name": "logistic-chest-requester",
+        "connections": {"1": {"green": [{"entity_rel": "1,0"}]}},
+        "position": {"x": 203.5, "y": 123.5},
+        "request_filters": [{"name": "nuclear-reactor", "count": 3, "index": 1}]
+      },
       {
         "name": "logistic-train-stop",
         "direction": 4,
@@ -17306,11 +17313,6 @@
       {"name": "steam-turbine", "position": {"x": 181.5, "y": 407.5}},
       {"name": "steam-turbine", "position": {"x": 186.5, "y": 401.5}},
       {"name": "steam-turbine", "position": {"x": 185.5, "y": 407.5}},
-      {
-        "name": "steel-chest",
-        "connections": {"1": {"green": [{"entity_rel": "1,0"}]}},
-        "position": {"x": 203.5, "y": 123.5}
-      },
       {"name": "storage-tank", "position": {"x": 21.5, "y": 139.5}},
       {"name": "storage-tank", "direction": 2, "position": {"x": 21.5, "y": 142.5}},
       {"name": "storage-tank", "position": {"x": 24.5, "y": 139.5}},
