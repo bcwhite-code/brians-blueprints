@@ -7,7 +7,7 @@
     "absolute-snapping": true,
     "shift_x": 53,
     "shift_y": 53,
-    "version": 281479276199938,
+    "version": 281479276265473,
     "entities": [
       {
         "name": "aai-strongbox-requester",
@@ -1527,7 +1527,7 @@
         "recipe": "aai-signal-receiver",
         "position": {"x": 170.5, "y": 117.5}
       },
-      {"name": "assembling-machine-1", "recipe": "stack-combinator", "position": {"x": 81.5, "y": 131.5}},
+      {"name": "assembling-machine-1", "recipe": "stack-combinator", "position": {"x": 81.5, "y": 132.5}},
       {"name": "assembling-machine-1", "recipe": "power-switch", "position": {"x": 93.5, "y": 132.5}},
       {
         "name": "assembling-machine-1",
@@ -1989,6 +1989,7 @@
       },
       {"name": "assembling-machine-2", "recipe": "speed-module", "position": {"x": 199.5, "y": 139.5}},
       {"name": "assembling-machine-3", "recipe": "pipe", "position": {"x": 62.5, "y": 125.5}},
+      {"name": "assembling-machine-3", "recipe": "se-space-elevator", "position": {"x": 66.5, "y": 134.5}},
       {
         "name": "assembling-machine-3",
         "recipe": "se-delivery-cannon-capsule",
@@ -3166,7 +3167,7 @@
       {
         "name": "constant-combinator",
         "control_behavior": {"filters": [{"count": 1, "index": 1, "signal": {"name": "lubricant", "type": "fluid"}}]},
-        "position": {"x": 30.5, "y": 117.5}
+        "position": {"x": 33.5, "y": 117.5}
       },
       {
         "name": "constant-combinator",
@@ -7412,6 +7413,7 @@
       },
       {"name": "inserter", "direction": 6, "position": {"x": 59.5, "y": 157.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 51.5, "y": 163.5}},
+      {"name": "inserter", "direction": 2, "position": {"x": 64.5, "y": 135.5}},
       {"name": "inserter", "direction": 2, "position": {"x": 79.5, "y": 131.5}},
       {"name": "inserter", "direction": 6, "position": {"x": 66.5, "y": 139.5}},
       {"name": "inserter", "position": {"x": 93.5, "y": 130.5}},
@@ -7629,7 +7631,9 @@
       {"name": "inserter", "position": {"x": 181.5, "y": 168.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 180.5, "y": 170.5}},
       {"name": "inserter", "position": {"x": 184.5, "y": 168.5}},
+      {"name": "inserter", "position": {"x": 185.5, "y": 168.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 184.5, "y": 170.5}},
+      {"name": "inserter", "direction": 4, "position": {"x": 185.5, "y": 170.5}},
       {"name": "inserter", "position": {"x": 189.5, "y": 168.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 189.5, "y": 170.5}},
       {"name": "inserter", "position": {"x": 174.5, "y": 184.5}},
@@ -8382,7 +8386,7 @@
       {"name": "logistic-chest-passive-provider", "bar": 1, "position": {"x": 127.5, "y": 126.5}},
       {"name": "logistic-chest-passive-provider", "bar": 10, "position": {"x": 138.5, "y": 71.5}},
       {"name": "logistic-chest-passive-provider", "bar": 2, "position": {"x": 128.5, "y": 75.5}},
-      {"name": "logistic-chest-passive-provider", "bar": 2, "position": {"x": 132.5, "y": 75.5}},
+      {"name": "logistic-chest-passive-provider", "position": {"x": 132.5, "y": 75.5}},
       {"name": "logistic-chest-passive-provider", "bar": 2, "position": {"x": 132.5, "y": 78.5}},
       {"name": "logistic-chest-passive-provider", "bar": 1, "position": {"x": 140.5, "y": 74.5}},
       {"name": "logistic-chest-passive-provider", "bar": 10, "position": {"x": 142.5, "y": 74.5}},
@@ -8596,6 +8600,7 @@
         "position": {"x": 180.5, "y": 169.5}
       },
       {"name": "logistic-chest-passive-provider", "bar": 4, "position": {"x": 181.5, "y": 169.5}},
+      {"name": "logistic-chest-passive-provider", "bar": 5, "position": {"x": 185.5, "y": 169.5}},
       {"name": "logistic-chest-passive-provider", "position": {"x": 174.5, "y": 185.5}},
       {"name": "logistic-chest-passive-provider", "bar": 10, "position": {"x": 178.5, "y": 187.5}},
       {"name": "logistic-chest-passive-provider", "bar": 10, "position": {"x": 184.5, "y": 187.5}},
@@ -8755,6 +8760,12 @@
       },
       {
         "name": "logistic-chest-requester",
+        "request_from_buffers": true,
+        "position": {"x": 200.5, "y": 127.5},
+        "request_filters": [{"name": "se-holmium-cable", "count": 50, "index": 1}]
+      },
+      {
+        "name": "logistic-chest-requester",
         "position": {"x": 38.5, "y": 128.5},
         "request_filters": [
           {"name": "electric-engine-unit", "count": 50, "index": 1},
@@ -8772,6 +8783,18 @@
         "request_filters": [
           {"name": "processing-unit", "count": 120, "index": 1},
           {"name": "electric-furnace", "count": 30, "index": 2}
+        ]
+      },
+      {
+        "name": "logistic-chest-requester",
+        "position": {"x": 63.5, "y": 133.5},
+        "request_filters": [
+          {"name": "se-holmium-cable", "count": 50, "index": 1},
+          {"name": "processing-unit", "count": 50, "index": 2},
+          {"name": "se-heavy-girder", "count": 50, "index": 3},
+          {"name": "se-heavy-bearing", "count": 10, "index": 4},
+          {"name": "se-aeroframe-pole", "count": 200, "index": 5},
+          {"name": "refined-concrete", "count": 100, "index": 6}
         ]
       },
       {
@@ -9268,6 +9291,12 @@
         "connections": {"1": {"green": [{"entity_rel": "1,0"}]}},
         "position": {"x": 42.5, "y": 132.5},
         "request_filters": [{"name": "steam-turbine", "count": 0, "index": 1}]
+      },
+      {
+        "name": "logistic-chest-storage",
+        "connections": {"1": {"green": [{"entity_rel": "1,-2"}]}},
+        "position": {"x": 63.5, "y": 135.5},
+        "request_filters": [{"name": "se-space-elevator", "count": 0, "index": 1}]
       },
       {
         "name": "logistic-chest-storage",
@@ -11519,11 +11548,6 @@
         "items": {"speed-module": 3},
         "position": {"x": 153.5, "y": 87.5}
       },
-      {"name": "pipe", "position": {"x": 29.5, "y": 116.5}},
-      {"name": "pipe", "position": {"x": 30.5, "y": 116.5}},
-      {"name": "pipe", "position": {"x": 31.5, "y": 116.5}},
-      {"name": "pipe", "position": {"x": 32.5, "y": 116.5}},
-      {"name": "pipe", "position": {"x": 33.5, "y": 116.5}},
       {"name": "pipe", "position": {"x": 34.5, "y": 116.5}},
       {"name": "pipe", "position": {"x": 34.5, "y": 117.5}},
       {"name": "pipe", "position": {"x": 34.5, "y": 118.5}},
@@ -16461,6 +16485,7 @@
       {"name": "stack-inserter", "direction": 2, "position": {"x": 193.5, "y": 121.5}},
       {"name": "stack-inserter", "direction": 6, "position": {"x": 195.5, "y": 121.5}},
       {"name": "stack-inserter", "position": {"x": 197.5, "y": 125.5}},
+      {"name": "stack-inserter", "direction": 2, "position": {"x": 199.5, "y": 127.5}},
       {"name": "stack-inserter", "direction": 6, "position": {"x": 43.5, "y": 130.5}},
       {"name": "stack-inserter", "position": {"x": 42.5, "y": 133.5}},
       {"name": "stack-inserter", "direction": 6, "position": {"x": 43.5, "y": 134.5}},
@@ -16506,6 +16531,15 @@
       },
       {"name": "stack-inserter", "direction": 2, "position": {"x": 53.5, "y": 157.5}},
       {"name": "stack-inserter", "direction": 2, "position": {"x": 57.5, "y": 154.5}},
+      {
+        "name": "stack-inserter",
+        "direction": 6,
+        "connections": {"1": {"green": [{"entity_rel": "-1,2"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "se-space-elevator", "type": "item"}}
+        },
+        "position": {"x": 64.5, "y": 133.5}
+      },
       {"name": "stack-inserter", "direction": 6, "position": {"x": 79.5, "y": 132.5}},
       {"name": "stack-inserter", "position": {"x": 64.5, "y": 138.5}},
       {"name": "stack-inserter", "direction": 6, "position": {"x": 87.5, "y": 132.5}},

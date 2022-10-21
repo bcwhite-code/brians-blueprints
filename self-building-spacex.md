@@ -49,15 +49,6 @@ You'll need the following blueprint books:
 
 ## Configuration
 
-During the creation of the initial ("Nauvis") world:
-
-* Increase the size and richness of all ore/oil patches to maximum.
-* Change the frequency of  copper and iron to 200%
-* Reduce the amount of water, set it to the minimum, or turn it off completely (uncheck).
-* Turn off all enemies.  Unless you want to manage that manually.
-* Turn off pollution (less calculation == more UPS)
-* Cliffs and trees are optional.  I tend to reduce the former and keep the latter.
-
 In the Mod Settings for _Startup_:
 
 * Merging Chests: Set "Mergable chest" [sic] to "Iron Chest".
@@ -71,10 +62,20 @@ In the Mod Settings for the _Map_:
 
 * LTN: Set "Stop timeout" to 300.  Enable "Schedule circuit conditions".  The designs still work without this but will sometimes have to wait for the stop-timeout.
 * Ghost Scanner: Set "Update frequency" to 1800.  Set "Scan Result limit" to 0 (zero).
+* Stack Combinator: Set "Signal update delay" to 20.
 
 In the Mod Settings for the _Player_:
 
 * Uncheck "Factorio Alerts".  Otherwise you'll get a lot of annoying warnings about trains with "missing cargo" and the like.  (It's intentional but the disable-warnings signal is not respected.)
+
+During the creation of the initial ("Nauvis") world:
+
+* Increase the size and richness of all ore/oil patches to maximum.
+* Change the frequency of  copper and iron to 200%
+* Reduce the amount of water, set it to the minimum, or turn it off completely (uncheck).
+* Turn off all enemies.  Unless you want to manage that manually.
+* Turn off pollution (less calculation == more UPS)
+* Cliffs and trees are optional.  I tend to reduce the former and keep the latter.
 
 ## How to Build
 
@@ -650,3 +651,58 @@ The following signals on the red wire will affect the launch:
 
 * red X: Don't launch unless full, regardless of the "required items" request.
 * F: The allowed number of _empty_ slots that still counts as a "full" rocket.  (It's "F" because it is added to the rocket's natural "F" and compared to 500.)
+
+
+### Space Launch System
+
+**Read the blueprint comment!** There is a companion "SLS Orbit"
+blueprint, read that blueprint comment as well.
+
+Because of the way trains enter and exit the block, it is best built
+on the east side of the base.
+
+This block supports three different things:
+
+#### Orbital Rocket Launches
+
+This moves  items into orbit for launching via rocket to the final
+destination with about 40k to 50k _less_ rocket fuel, effectively
+halving most launch costs in that regard.
+
+To configure an item, place it in the constant combinator for the
+given rocket with a value of 1.  Then set the rocket to for the
+desired delivery, typically "any station with the name" so it can
+provide to anywhere.  Set it to "launch when cargo full".
+
+If 14 rockets isn't enough, allow longer merged chests and extend it.
+
+The calculation for incoming deliveries uses two stack-combinators
+which are relatively expensive.  You can replace these with arithmetic
+combinators doing multiply and divide by the stack size of the item
+being requested.  _Don't get it wrong!_  The default implementation
+aims for error-free configuration rather than ultimate efficiency.
+
+#### Ship Fluid Supply
+
+This moves up to 3 fluids into orbit for transport via ship (since
+rockets can't carry liquids).  One of these fluids is rocket fuel; the
+other two can be anything so long as they're supply 8-tanker trains.
+Water is a likely candidate for one of them.
+
+To transport a fluid it, add it to the #1 or #2 combinators found near
+the head of the orbital fluid station.
+
+#### Receiving Items from Ships
+
+Receves items from ships and transports them to the ground, thus
+avoiding the need for rocket engines to leave the planet surface.
+
+To use this, simply have docked ships dump their contents into the big
+warehouses at the bottom of the orbital station.  Copy/paste as many
+of these as necessary; up to 25 will fit below the long merged chest,
+though more than 3 per item type won't make train loading go any
+faster.  No configuration is necessary but don't receive something
+this way that is also being delivered to the rockets.
+
+If 25 warehouses isn't enough, allow longer merged chests and extend
+it.

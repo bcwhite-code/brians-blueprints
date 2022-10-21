@@ -6,7 +6,7 @@
     "absolute-snapping": true,
     "shift_x": -31,
     "shift_y": -43,
-    "version": 281479276199938,
+    "version": 281479276265473,
     "entities": [
       {
         "name": "arithmetic-combinator",
@@ -1114,7 +1114,8 @@
             {"count": 255, "index": 4, "signal": {"name": "ltn-network-id", "type": "virtual"}},
             {"count": 999999, "index": 5, "signal": {"name": "ltn-provider-threshold", "type": "virtual"}},
             {"count": 50000, "index": 6, "signal": {"name": "ltn-requester-threshold", "type": "virtual"}},
-            {"count": -1, "index": 7, "signal": {"name": "ltn-requester-priority", "type": "virtual"}}
+            {"count": -1, "index": 7, "signal": {"name": "ltn-requester-priority", "type": "virtual"}},
+            {"count": -60000, "index": 11, "signal": {"name": "se-methane-gas", "type": "fluid"}}
           ]
         },
         "position": {"x": 37.5, "y": -2.5}
@@ -2395,6 +2396,8 @@
       {"name": "loader", "direction": 4, "type": "input", "position": {"x": 7.5, "y": 84}},
       {"name": "loader", "direction": 4, "type": "input", "position": {"x": 23.5, "y": 84}},
       {"name": "loader", "direction": 4, "type": "input", "position": {"x": 24.5, "y": 84}},
+      {"name": "loader", "direction": 4, "type": "input", "position": {"x": 25.5, "y": 84}},
+      {"name": "loader", "direction": 4, "type": "input", "position": {"x": 26.5, "y": 84}},
       {"name": "loader", "direction": 4, "type": "input", "position": {"x": 30.5, "y": 84}},
       {
         "name": "logistic-train-stop",
@@ -2408,7 +2411,7 @@
       {
         "name": "logistic-train-stop",
         "direction": 6,
-        "station": "Barrelling/Spare",
+        "station": "Barrelling/Methane Gas",
         "color": {"a": 0.49803921580314636, "b": 1, "g": 0.501960813999176, "r": 0},
         "connections": {"1": {"green": [{"entity_rel": "1.5,-0.5"}]}},
         "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
@@ -5350,7 +5353,12 @@
         "control_behavior": {
           "circuit_contents_read_mode": 0,
           "circuit_enable_disable": true,
-          "circuit_read_hand_contents": false
+          "circuit_read_hand_contents": false,
+          "circuit_condition": {
+            "comparator": "<",
+            "constant": 950,
+            "first_signal": {"name": "se-methane-gas-barrel", "type": "item"}
+          }
         },
         "position": {"x": 23.5, "y": 82.5}
       },
