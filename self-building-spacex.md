@@ -389,6 +389,7 @@ On Nauvis, you'll want...
 
 * Off-World Supply.
 * Bulk Launch System: For receiving large quantities of raw materials.  These can be brought by the off-world supply rocket but if a lot is needed, there is no beating dedicated rockets.
+* Wood Recycling.
 
 One of the biggest difficulties is that scaffolding can no longer be
 made on the planet surface which means transporting 5x as many stacks

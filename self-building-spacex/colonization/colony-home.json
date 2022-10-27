@@ -749,7 +749,7 @@
           "1": {"green": [{"entity_rel": "-1,-0.5"}]},
           "2": {
             "green": [{"circuit_id": 1, "entity_rel": "-1.5,2.5"}],
-            "red": [{"circuit_id": 1, "entity_rel": "-0.5,8.5"}]
+            "red": [{"circuit_id": 1, "entity_rel": "0.5,8.5"}]
           }
         },
         "control_behavior": {
@@ -785,7 +785,10 @@
       {
         "name": "arithmetic-combinator",
         "direction": 6,
-        "connections": {"1": {"red": [{"entity_rel": "2.5,-2"}]}, "2": {"red": [{"entity_rel": "-4.5,1"}]}},
+        "connections": {
+          "1": {"red": [{"circuit_id": 2, "entity_rel": "-3,2"}, {"entity_rel": "2.5,-2"}]},
+          "2": {"red": [{"entity_rel": "-4.5,1"}]}
+        },
         "control_behavior": {
           "arithmetic_conditions": {
             "operation": "/",
@@ -1721,7 +1724,7 @@
         "control_behavior": {
           "arithmetic_conditions": {
             "operation": "/",
-            "second_constant": 50,
+            "second_constant": 40,
             "first_signal": {"name": "se-liquid-rocket-fuel", "type": "fluid"},
             "output_signal": {"name": "se-liquid-rocket-fuel-barrel", "type": "item"}
           }
@@ -1733,7 +1736,7 @@
         "connections": {"1": {"green": [{"entity_rel": "0,3.5"}]}, "2": {"red": [{"circuit_id": 1, "entity_rel": "-1,0"}]}},
         "control_behavior": {
           "arithmetic_conditions": {
-            "first_constant": 100000,
+            "first_constant": 200000,
             "operation": "-",
             "output_signal": {"name": "se-liquid-rocket-fuel", "type": "fluid"},
             "second_signal": {"name": "se-liquid-rocket-fuel", "type": "fluid"}
@@ -2867,7 +2870,7 @@
       },
       {
         "name": "big-electric-pole",
-        "connections": {"1": {"red": [{"entity_rel": "0,-30"}, {"entity_rel": "1,2"}]}},
+        "connections": {"1": {"red": [{"entity_rel": "0,-30"}]}},
         "neighbours": ["-4.5,7.5", "0,-30"],
         "position": {"x": 65, "y": 91}
       },
@@ -5726,10 +5729,10 @@
       },
       {
         "name": "decider-combinator",
-        "direction": 6,
+        "direction": 2,
         "connections": {
-          "1": {"red": [{"circuit_id": 2, "entity_rel": "0.5,-8.5"}, {"entity_rel": "-0.5,7"}]},
-          "2": {"red": [{"entity_rel": "-0.5,-1"}]}
+          "1": {"red": [{"circuit_id": 2, "entity_rel": "-0.5,-8.5"}, {"entity_rel": "-1.5,7"}]},
+          "2": {"red": [{"circuit_id": 1, "entity_rel": "3,-2"}]}
         },
         "control_behavior": {
           "decider_conditions": {
@@ -5740,7 +5743,7 @@
             "output_signal": {"name": "signal-each", "type": "virtual"}
           }
         },
-        "position": {"x": 49, "y": 176.5}
+        "position": {"x": 50, "y": 176.5}
       },
       {
         "name": "decider-combinator",
@@ -6603,7 +6606,7 @@
         "control_behavior": {
           "decider_conditions": {
             "comparator": "≤",
-            "constant": 60000,
+            "constant": 100000,
             "copy_count_from_input": true,
             "first_signal": {"name": "water", "type": "fluid"},
             "output_signal": {"name": "water-barrel", "type": "item"}
@@ -6637,7 +6640,7 @@
         "control_behavior": {
           "decider_conditions": {
             "comparator": "≤",
-            "constant": 60000,
+            "constant": 100000,
             "copy_count_from_input": true,
             "first_signal": {"name": "se-liquid-rocket-fuel", "type": "fluid"},
             "output_signal": {"name": "se-liquid-rocket-fuel-barrel", "type": "item"}
@@ -8765,8 +8768,9 @@
       },
       {
         "name": "logistic-chest-requester",
+        "request_from_buffers": true,
         "position": {"x": 119.5, "y": 174.5},
-        "request_filters": [{"name": "rocket-fuel", "count": 20, "index": 1}]
+        "request_filters": [{"name": "rocket-fuel", "count": 200, "index": 1}]
       },
       {
         "name": "logistic-chest-requester",
@@ -9455,28 +9459,14 @@
         "name": "ltn-requester-reader",
         "direction": 6,
         "connections": {"1": {"red": [{"circuit_id": 1, "entity_rel": "0.5,-1"}]}},
-        "control_behavior": {
-          "filters": [
-            {"count": 255, "index": 1, "signal": {"name": "ltn-network-id", "type": "virtual"}},
-            {"count": -150000, "index": 2, "signal": {"name": "se-liquid-rocket-fuel", "type": "fluid"}},
-            {"count": -45, "index": 3, "signal": {"name": "se-space-capsule", "type": "item"}},
-            {"count": -60, "index": 4, "signal": {"name": "se-cargo-rocket-section-packed", "type": "item"}}
-          ]
-        },
+        "control_behavior": {"filters": [{"count": 255, "index": 1, "signal": {"name": "ltn-network-id", "type": "virtual"}}]},
         "position": {"x": 98.5, "y": 154.5}
       },
       {
         "name": "ltn-requester-reader",
         "direction": 6,
         "connections": {"1": {"red": [{"circuit_id": 1, "entity_rel": "0.5,-1"}]}},
-        "control_behavior": {
-          "filters": [
-            {"count": 255, "index": 1, "signal": {"name": "ltn-network-id", "type": "virtual"}},
-            {"count": -150000, "index": 2, "signal": {"name": "se-liquid-rocket-fuel", "type": "fluid"}},
-            {"count": -45, "index": 3, "signal": {"name": "se-space-capsule", "type": "item"}},
-            {"count": -60, "index": 4, "signal": {"name": "se-cargo-rocket-section-packed", "type": "item"}}
-          ]
-        },
+        "control_behavior": {"filters": [{"count": 255, "index": 1, "signal": {"name": "ltn-network-id", "type": "virtual"}}]},
         "position": {"x": 112.5, "y": 154.5}
       },
       {
@@ -9874,11 +9864,7 @@
         "connections": {
           "1": {
             "green": [{"circuit_id": 1, "entity_rel": "-0.5,-5"}, {"entity_rel": "0,8"}, {"entity_rel": "7,-3"}],
-            "red": [
-              {"circuit_id": 2, "entity_rel": "0.5,1"},
-              {"circuit_id": 2, "entity_rel": "4.5,-1"},
-              {"entity_rel": "-5,-5"}
-            ]
+            "red": [{"circuit_id": 2, "entity_rel": "4.5,-1"}, {"entity_rel": "-5,-5"}]
           }
         },
         "neighbours": ["-5,-5", "0,-8", "0,8", "7,-3"],
@@ -9930,7 +9916,7 @@
         "connections": {
           "1": {
             "green": [{"entity_rel": "0,-8"}, {"entity_rel": "3,7"}],
-            "red": [{"circuit_id": 1, "entity_rel": "0.5,-7"}, {"entity_rel": "3,7"}]
+            "red": [{"circuit_id": 1, "entity_rel": "1.5,-7"}, {"entity_rel": "3,7"}]
           }
         },
         "neighbours": ["-6,2", "0,-8", "3,7"],
@@ -11343,11 +11329,7 @@
       {
         "name": "power-switch",
         "switch_state": false,
-        "connections": {
-          "1": {"red": [{"entity_rel": "-1,-2"}]},
-          "Cu0": [{"entity_rel": "-1,-2", "wire_id": 0}],
-          "Cu1": [{"entity_rel": "4.5,2.5", "wire_id": 0}]
-        },
+        "connections": {"Cu0": [{"entity_rel": "-1,-2", "wire_id": 0}], "Cu1": [{"entity_rel": "4.5,2.5", "wire_id": 0}]},
         "control_behavior": {
           "circuit_condition": {"comparator": ">", "constant": 50, "first_signal": {"name": "signal-A", "type": "virtual"}}
         },
@@ -11852,7 +11834,7 @@
         "control_behavior": {
           "circuit_condition": {
             "comparator": "<",
-            "constant": 150000,
+            "constant": 200000,
             "first_signal": {"name": "se-liquid-rocket-fuel", "type": "fluid"}
           }
         },
@@ -13650,7 +13632,7 @@
         "control_behavior": {
           "circuit_condition": {
             "comparator": "<",
-            "constant": 75000,
+            "constant": 110000,
             "first_signal": {"name": "se-liquid-rocket-fuel", "type": "fluid"}
           }
         },
