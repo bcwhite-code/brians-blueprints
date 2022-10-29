@@ -1,0 +1,193 @@
+{
+  "index": 0,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "Construction Chaining",
+    "description": "Merge this with a Construction Site to chain them.  The Site will not even request material until its dependencies have completed.  It will tell the malls to prepare that material, however.\n\nIn the \"D*D\" combinator, change the 0 constant to be a unique power-of-2 indentifying this build (i.e. 1, 2, 4, 8, 16, 32, etc.).\n\nIn the \"&\" combinator, change the 0 constant to be the dependent build value.  If it's not dependent on anything, remove that group of three combinators.\n\nTurn it ON.",
+    "shift_x": -357,
+    "shift_y": 14,
+    "version": 281479275806721,
+    "entities": [
+      {
+        "name": "arithmetic-combinator",
+        "direction": 6,
+        "connections": {"1": {"red": [{"entity_rel": "8,-0.5"}]}, "2": {"red": [{"circuit_id": 1, "entity_rel": "0,1"}]}},
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "AND",
+            "second_constant": 0,
+            "first_signal": {"name": "signal-D", "type": "virtual"},
+            "output_signal": {"name": "signal-D", "type": "virtual"}
+          }
+        },
+        "position": {"x": 0, "y": 3.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "-1,0"}]}, "2": {"red": [{"entity_rel": "-0.5,-6"}]}},
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "second_constant": 0,
+            "first_signal": {"name": "signal-D", "type": "virtual"},
+            "output_signal": {"name": "signal-D", "type": "virtual"}
+          }
+        },
+        "position": {"x": 8.5, "y": 9}
+      },
+      {
+        "name": "big-electric-pole",
+        "connections": {
+          "1": {"red": [{"circuit_id": 1, "entity_rel": "-8,0.5"}, {"circuit_id": 2, "entity_rel": "0.5,6"}]}
+        },
+        "neighbours": ["-2.5,3.5", "-3.5,-2.5"],
+        "position": {"x": 8, "y": 3}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 6,
+        "connections": {
+          "1": {"green": [{"circuit_id": 1, "entity_rel": "-2,4"}]},
+          "2": {"green": [{"entity_rel": "0,-1.5"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "constant": 0,
+            "copy_count_from_input": false,
+            "first_signal": {"name": "signal-red", "type": "virtual"},
+            "output_signal": {"name": "ltn-locked-slots", "type": "virtual"}
+          }
+        },
+        "position": {"x": 6, "y": 2.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 2,
+        "connections": {
+          "1": {
+            "red": [
+              {"circuit_id": 1, "entity_rel": "0,1"},
+              {"circuit_id": 2, "entity_rel": "0,-1"},
+              {"circuit_id": 2, "entity_rel": "0,0"}
+            ]
+          },
+          "2": {"red": [{"circuit_id": 1, "entity_rel": "0,0"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "constant": 0,
+            "copy_count_from_input": false,
+            "first_signal": {"name": "signal-D", "type": "virtual"},
+            "output_signal": {"name": "signal-D", "type": "virtual"}
+          }
+        },
+        "position": {"x": 0, "y": 4.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 2,
+        "connections": {"1": {"red": [{"circuit_id": 1, "entity_rel": "0,-1"}]}, "2": {"green": [{"entity_rel": "3.5,0"}]}},
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "=",
+            "constant": 0,
+            "copy_count_from_input": false,
+            "first_signal": {"name": "signal-D", "type": "virtual"},
+            "output_signal": {"name": "signal-red", "type": "virtual"}
+          }
+        },
+        "position": {"x": 0, "y": 5.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 6,
+        "connections": {
+          "1": {"green": [{"circuit_id": 1, "entity_rel": "2,-4"}, {"circuit_id": 2, "entity_rel": "0,0"}]},
+          "2": {
+            "green": [{"circuit_id": 1, "entity_rel": "0,0"}, {"entity_rel": "-0.5,-1"}],
+            "red": [{"entity_rel": "-0.5,-1"}]
+          }
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "≤",
+            "constant": 0,
+            "copy_count_from_input": false,
+            "first_signal": {"name": "signal-red", "type": "virtual"},
+            "output_signal": {"name": "signal-green", "type": "virtual"}
+          }
+        },
+        "position": {"x": 4, "y": 6.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 4,
+        "connections": {
+          "1": {"green": [{"entity_rel": "-2,-2.5"}]},
+          "2": {"red": [{"circuit_id": 1, "entity_rel": "1,0"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "constant": 0,
+            "copy_count_from_input": false,
+            "first_signal": {"name": "signal-4", "type": "virtual"},
+            "output_signal": {"name": "signal-D", "type": "virtual"}
+          }
+        },
+        "position": {"x": 7.5, "y": 9}
+      },
+      {
+        "name": "logistic-train-stop",
+        "direction": 2,
+        "station": "",
+        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.501960813999176, "r": 0},
+        "connections": {"1": {"green": [{"circuit_id": 2, "entity_rel": "0,1.5"}]}},
+        "control_behavior": {
+          "circuit_enable_disable": true,
+          "read_from_train": true,
+          "circuit_condition": {"comparator": "≤", "constant": 0, "first_signal": {"name": "ltn-locked-slots", "type": "virtual"}},
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+        },
+        "position": {"x": 6, "y": 1}
+      },
+      {
+        "name": "logistic-train-stop-input",
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
+        },
+        "position": {"x": 6.5, "y": 1.5}
+      },
+      {"name": "logistic-train-stop-output", "direction": 2, "position": {"x": 6.5, "y": 0.5}},
+      {"name": "medium-electric-pole", "neighbours": ["3.5,2.5"], "position": {"x": 4.5, "y": 0.5}},
+      {
+        "name": "medium-electric-pole",
+        "connections": {"1": {"green": [{"circuit_id": 1, "entity_rel": "2,2.5"}]}},
+        "neighbours": ["2.5,-3.5"],
+        "position": {"x": 5.5, "y": 6.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 2, "entity_rel": "-3.5,0"}, {"circuit_id": 2, "entity_rel": "0.5,1"}],
+            "red": [{"circuit_id": 2, "entity_rel": "0.5,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "≠", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
+        },
+        "position": {"x": 3.5, "y": 5.5}
+      },
+      {"name": "small-lamp", "position": {"x": 5.5, "y": 5.5}}
+    ],
+    "icons": [
+      {"index": 1, "signal": {"name": "train-stop", "type": "item"}},
+      {"index": 2, "signal": {"name": "decider-combinator", "type": "item"}}
+    ]
+  }
+}

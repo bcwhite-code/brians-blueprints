@@ -1,139 +1,61 @@
 {
+  "index": 6,
   "blueprint": {
+    "item": "blueprint",
+    "label": "Multiplexer",
     "description": "Change the numbers in the two comibators to select channel (1 through 9, channel 0 is used to report train station supply).  There are three places to change the channel across both combinators.\n\nConnect large power pole red and green to train network.\n\nFeed green wire to arithmetic combinator input.  It'll appear on the train network when the channel indicator appears on the red wire.",
+    "shift_x": -109,
+    "shift_y": 121,
+    "version": 281479275806721,
     "entities": [
       {
+        "name": "arithmetic-combinator",
         "connections": {
-          "1": {
-            "green": [
-              {
-                "circuit_id": 2,
-                "entity_id": 2
-              }
-            ],
-            "red": [
-              {
-                "circuit_id": 1,
-                "entity_id": 3
-              }
-            ]
-          }
-        },
-        "entity_number": 1,
-        "name": "big-electric-pole",
-        "position": {
-          "x": -109,
-          "y": 121
-        }
-      },
-      {
-        "connections": {
-          "1": {
-            "green": [
-              {
-                "circuit_id": 2,
-                "entity_id": 3
-              }
-            ]
-          },
-          "2": {
-            "green": [
-              {
-                "entity_id": 1
-              }
-            ]
-          }
+          "1": {"green": [{"circuit_id": 2, "entity_rel": "1,0"}]},
+          "2": {"green": [{"entity_rel": "0.5,-2"}]}
         },
         "control_behavior": {
           "arithmetic_conditions": {
-            "first_signal": {
-              "name": "signal-each",
-              "type": "virtual"
-            },
             "operation": "*",
-            "output_signal": {
-              "name": "signal-each",
-              "type": "virtual"
-            },
-            "second_signal": {
-              "name": "signal-9",
-              "type": "virtual"
-            }
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-9", "type": "virtual"}
           }
         },
-        "entity_number": 2,
-        "name": "arithmetic-combinator",
-        "position": {
-          "x": -109.5,
-          "y": 123
-        }
+        "position": {"x": -0.5, "y": 2}
       },
       {
+        "name": "big-electric-pole",
         "connections": {
           "1": {
-            "red": [
-              {
-                "entity_id": 1
-              }
-            ]
-          },
-          "2": {
-            "green": [
-              {
-                "circuit_id": 1,
-                "entity_id": 2
-              }
-            ]
+            "green": [{"circuit_id": 2, "entity_rel": "-0.5,2"}],
+            "red": [{"circuit_id": 1, "entity_rel": "0.5,2"}]
           }
+        },
+        "position": {"x": 0, "y": 0}
+      },
+      {
+        "name": "decider-combinator",
+        "connections": {
+          "1": {"red": [{"entity_rel": "-0.5,-2"}]},
+          "2": {"green": [{"circuit_id": 1, "entity_rel": "-1,0"}]}
         },
         "control_behavior": {
           "decider_conditions": {
             "comparator": ">",
             "constant": 0,
             "copy_count_from_input": false,
-            "first_signal": {
-              "name": "signal-9",
-              "type": "virtual"
-            },
-            "output_signal": {
-              "name": "signal-9",
-              "type": "virtual"
-            }
+            "first_signal": {"name": "signal-9", "type": "virtual"},
+            "output_signal": {"name": "signal-9", "type": "virtual"}
           }
         },
-        "entity_number": 3,
-        "name": "decider-combinator",
-        "position": {
-          "x": -108.5,
-          "y": 123
-        }
+        "position": {"x": 0.5, "y": 2}
       }
     ],
     "icons": [
-      {
-        "index": 1,
-        "signal": {
-          "name": "signal-M",
-          "type": "virtual"
-        }
-      },
-      {
-        "index": 2,
-        "signal": {
-          "name": "signal-U",
-          "type": "virtual"
-        }
-      },
-      {
-        "index": 3,
-        "signal": {
-          "name": "signal-X",
-          "type": "virtual"
-        }
-      }
-    ],
-    "item": "blueprint",
-    "label": "Multiplexer",
-    "version": 281479275806721
+      {"index": 1, "signal": {"name": "signal-M", "type": "virtual"}},
+      {"index": 2, "signal": {"name": "signal-U", "type": "virtual"}},
+      {"index": 3, "signal": {"name": "signal-X", "type": "virtual"}}
+    ]
   }
 }

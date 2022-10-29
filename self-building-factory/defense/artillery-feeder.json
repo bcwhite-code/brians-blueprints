@@ -1,0 +1,432 @@
+{
+  "index": 2,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "Artillery Feeder",
+    "description": "Bots will load the parts.\n\nConnect the *red* wire from the train network to the input of the \">\" combinator.  That controls loading of the belt.",
+    "shift_x": 66,
+    "shift_y": 30,
+    "version": 281479275806721,
+    "entities": [
+      {
+        "name": "arithmetic-combinator",
+        "direction": 4,
+        "connections": {
+          "1": {"green": [{"circuit_id": 2, "entity_rel": "0,-2"}]},
+          "2": {"green": [{"entity_rel": "0,1.5"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "%",
+            "second_constant": 4,
+            "first_signal": {"name": "signal-S", "type": "virtual"},
+            "output_signal": {"name": "signal-T", "type": "virtual"}
+          }
+        },
+        "position": {"x": 1.5, "y": 4}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 4,
+        "connections": {"1": {"green": [{"entity_rel": "0,-2.5"}]}, "2": {"red": [{"entity_rel": "0,2.5"}]}},
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "second_constant": -100,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 10.5, "y": 8}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 4,
+        "connections": {
+          "1": {"green": [{"circuit_id": 1, "entity_rel": "0,1.5"}, {"circuit_id": 2, "entity_rel": "0,-1.5"}]}
+        },
+        "control_behavior": {
+          "is_on": false,
+          "filters": [{"count": 1, "index": 1, "signal": {"name": "signal-T", "type": "virtual"}}]
+        },
+        "position": {"x": 1.5, "y": 5.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 4,
+        "connections": {"1": {"green": [{"circuit_id": 1, "entity_rel": "0,-1.5"}]}},
+        "control_behavior": {
+          "filters": [
+            {"count": 1, "index": 1, "signal": {"name": "stone-wall", "type": "item"}},
+            {"count": 1, "index": 2, "signal": {"name": "gun-turret", "type": "item"}},
+            {"count": 1, "index": 3, "signal": {"name": "laser-turret", "type": "item"}},
+            {"count": 1, "index": 4, "signal": {"name": "medium-electric-pole", "type": "item"}},
+            {"count": 1, "index": 5, "signal": {"name": "inserter", "type": "item"}},
+            {"count": 0, "index": 6, "signal": {"name": "artillery-shell", "type": "item"}},
+            {"count": 1, "index": 7, "signal": {"name": "construction-robot", "type": "item"}},
+            {"count": 1, "index": 8, "signal": {"name": "repair-pack", "type": "item"}}
+          ]
+        },
+        "position": {"x": 1.5, "y": 10.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 4,
+        "connections": {
+          "1": {"green": [{"circuit_id": 2, "entity_rel": "0,0"}], "red": [{"circuit_id": 1, "entity_rel": "0,5"}]},
+          "2": {"green": [{"circuit_id": 1, "entity_rel": "0,0"}, {"circuit_id": 1, "entity_rel": "0,2"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "constant": 0,
+            "copy_count_from_input": true,
+            "first_signal": {"name": "signal-S", "type": "virtual"},
+            "output_signal": {"name": "signal-S", "type": "virtual"}
+          }
+        },
+        "position": {"x": 1.5, "y": 2}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 4,
+        "connections": {
+          "1": {"green": [{"entity_rel": "0,-1.5"}], "red": [{"circuit_id": 1, "entity_rel": "0,-5"}]},
+          "2": {"red": [{"circuit_id": 2, "entity_rel": "0,2"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "=",
+            "copy_count_from_input": false,
+            "first_signal": {"name": "signal-T", "type": "virtual"},
+            "output_signal": {"name": "signal-check", "type": "virtual"},
+            "second_signal": {"name": "signal-S", "type": "virtual"}
+          }
+        },
+        "position": {"x": 1.5, "y": 7}
+      },
+      {
+        "name": "decider-combinator",
+        "connections": {
+          "1": {"green": [{"entity_rel": "0,1.5"}, {"entity_rel": "2,-3.5"}]},
+          "2": {"red": [{"circuit_id": 2, "entity_rel": "0,-2"}, {"entity_rel": "1,-0.5"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "constant": 1,
+            "copy_count_from_input": true,
+            "first_signal": {"name": "signal-everything", "type": "virtual"},
+            "output_signal": {"name": "signal-check", "type": "virtual"}
+          }
+        },
+        "position": {"x": 1.5, "y": 9}
+      },
+      {
+        "name": "fast-inserter",
+        "direction": 4,
+        "override_stack_size": 1,
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "position": {"x": 3.5, "y": 8.5}
+      },
+      {
+        "name": "fast-inserter",
+        "direction": 4,
+        "override_stack_size": 1,
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "position": {"x": 4.5, "y": 8.5}
+      },
+      {
+        "name": "fast-inserter",
+        "direction": 4,
+        "override_stack_size": 1,
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "position": {"x": 5.5, "y": 8.5}
+      },
+      {
+        "name": "fast-inserter",
+        "direction": 4,
+        "override_stack_size": 1,
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "position": {"x": 6.5, "y": 8.5}
+      },
+      {
+        "name": "fast-inserter",
+        "direction": 4,
+        "override_stack_size": 1,
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "position": {"x": 7.5, "y": 8.5}
+      },
+      {
+        "name": "fast-inserter",
+        "direction": 4,
+        "override_stack_size": 1,
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "position": {"x": 8.5, "y": 8.5}
+      },
+      {
+        "name": "fast-splitter",
+        "filter": "uranium-rounds-magazine",
+        "input_priority": "right",
+        "output_priority": "left",
+        "position": {"x": 1, "y": 12.5}
+      },
+      {"name": "fast-transport-belt", "direction": 6, "position": {"x": -0.5, "y": 5.5}},
+      {"name": "fast-transport-belt", "direction": 6, "position": {"x": 0.5, "y": 5.5}},
+      {"name": "fast-transport-belt", "position": {"x": 9.5, "y": 7.5}},
+      {"name": "fast-transport-belt", "position": {"x": 0.5, "y": 11.5}},
+      {"name": "fast-transport-belt", "direction": 2, "position": {"x": 1.5, "y": 11.5}},
+      {"name": "fast-transport-belt", "position": {"x": 0.5, "y": 13.5}},
+      {
+        "name": "filter-inserter",
+        "direction": 4,
+        "connections": {"1": {"green": [{"entity_rel": "0,1"}], "red": [{"circuit_id": 2, "entity_rel": "0,-2.5"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "position": {"x": 10.5, "y": 10.5}
+      },
+      {
+        "name": "inserter",
+        "direction": 4,
+        "override_stack_size": 1,
+        "connections": {
+          "1": {"red": [{"circuit_id": 2, "entity_rel": "-1,0.5"}, {"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}
+        },
+        "control_behavior": {
+          "circuit_mode_of_operation": 3,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "position": {"x": 2.5, "y": 8.5}
+      },
+      {"name": "logistic-chest-active-provider", "position": {"x": 10.5, "y": 9.5}},
+      {
+        "name": "logistic-chest-requester",
+        "position": {"x": 0.5, "y": 9.5},
+        "request_filters": [{"name": "uranium-rounds-magazine", "count": 500, "index": 1}]
+      },
+      {
+        "name": "logistic-chest-requester",
+        "position": {"x": 2.5, "y": 9.5},
+        "request_filters": [{"name": "artillery-shell", "count": 20, "index": 1}]
+      },
+      {
+        "name": "logistic-chest-requester",
+        "connections": {"1": {"green": [{"entity_rel": "1,0"}]}},
+        "position": {"x": 3.5, "y": 9.5},
+        "request_filters": [{"name": "gun-turret", "count": 50, "index": 1}]
+      },
+      {
+        "name": "logistic-chest-requester",
+        "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
+        "position": {"x": 4.5, "y": 9.5},
+        "request_filters": [{"name": "laser-turret", "count": 50, "index": 1}]
+      },
+      {
+        "name": "logistic-chest-requester",
+        "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
+        "position": {"x": 5.5, "y": 9.5},
+        "request_filters": [{"name": "medium-electric-pole", "count": 50, "index": 1}]
+      },
+      {
+        "name": "logistic-chest-requester",
+        "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
+        "position": {"x": 6.5, "y": 9.5},
+        "request_filters": [{"name": "inserter", "count": 50, "index": 1}]
+      },
+      {
+        "name": "logistic-chest-requester",
+        "position": {"x": 7.5, "y": 9.5},
+        "request_filters": [{"name": "repair-pack", "count": 100, "index": 1}]
+      },
+      {
+        "name": "logistic-chest-requester",
+        "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
+        "position": {"x": 8.5, "y": 9.5},
+        "request_filters": [{"name": "construction-robot", "count": 50, "index": 1}]
+      },
+      {
+        "name": "logistic-chest-requester",
+        "connections": {"1": {"green": [{"entity_rel": "-1,0"}]}},
+        "position": {"x": 9.5, "y": 9.5},
+        "request_filters": [{"name": "stone-wall", "count": 200, "index": 1}]
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {"1": {"green": [{"circuit_id": 1, "entity_rel": "-2,3.5"}, {"entity_rel": "7,0"}]}},
+        "neighbours": ["0,7"],
+        "position": {"x": 3.5, "y": 5.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {"1": {"green": [{"circuit_id": 1, "entity_rel": "0,2.5"}, {"entity_rel": "-7,0"}]}},
+        "neighbours": ["0,7"],
+        "position": {"x": 10.5, "y": 5.5}
+      },
+      {"name": "medium-electric-pole", "neighbours": ["0,-7", "7,0"], "position": {"x": 3.5, "y": 12.5}},
+      {"name": "medium-electric-pole", "neighbours": ["-7,0", "0,-7"], "position": {"x": 10.5, "y": 12.5}},
+      {"name": "splitter", "output_priority": "left", "position": {"x": 5, "y": 1.5}},
+      {"name": "splitter", "output_priority": "left", "position": {"x": 7, "y": 3.5}},
+      {"name": "splitter", "output_priority": "right", "position": {"x": 5, "y": 5.5}},
+      {"name": "splitter", "output_priority": "right", "position": {"x": 4, "y": 6.5}},
+      {"name": "splitter", "output_priority": "left", "position": {"x": 6, "y": 6.5}},
+      {"name": "splitter", "output_priority": "left", "position": {"x": 9, "y": 5.5}},
+      {"name": "splitter", "output_priority": "right", "position": {"x": 8, "y": 6.5}},
+      {
+        "name": "stack-filter-inserter",
+        "direction": 4,
+        "filters": [{"name": "artillery-shell", "index": 1}],
+        "position": {"x": 2.5, "y": 10.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 4,
+        "filters": [{"name": "gun-turret", "index": 1}],
+        "position": {"x": 3.5, "y": 10.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 4,
+        "filters": [{"name": "laser-turret", "index": 1}],
+        "position": {"x": 4.5, "y": 10.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 4,
+        "filters": [{"name": "medium-electric-pole", "index": 1}],
+        "position": {"x": 5.5, "y": 10.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 4,
+        "filters": [{"name": "inserter", "index": 1}],
+        "position": {"x": 6.5, "y": 10.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 4,
+        "filters": [{"name": "repair-pack", "index": 1}],
+        "position": {"x": 7.5, "y": 10.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 4,
+        "filters": [{"name": "construction-robot", "index": 1}],
+        "position": {"x": 8.5, "y": 10.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 4,
+        "filters": [{"name": "stone-wall", "index": 1}],
+        "position": {"x": 9.5, "y": 10.5}
+      },
+      {
+        "name": "stack-inserter",
+        "direction": 4,
+        "connections": {"1": {"red": [{"entity_rel": "2,0"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "position": {"x": 0.5, "y": 8.5}
+      },
+      {"name": "stack-inserter", "direction": 4, "position": {"x": 0.5, "y": 10.5}},
+      {
+        "name": "stack-inserter",
+        "direction": 4,
+        "override_stack_size": 3,
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "position": {"x": 9.5, "y": 8.5}
+      },
+      {"name": "transport-belt", "direction": 4, "position": {"x": 0.5, "y": 0.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 1.5, "y": 0.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 0.5, "y": 1.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 2.5, "y": 0.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 3.5, "y": 0.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 0.5, "y": 2.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 0.5, "y": 3.5}},
+      {"name": "transport-belt", "direction": 2, "position": {"x": 3.5, "y": 2.5}},
+      {"name": "transport-belt", "direction": 2, "position": {"x": 2.5, "y": 3.5}},
+      {"name": "transport-belt", "position": {"x": 3.5, "y": 3.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 4.5, "y": 0.5}},
+      {"name": "transport-belt", "position": {"x": 4.5, "y": 2.5}},
+      {"name": "transport-belt", "position": {"x": 5.5, "y": 2.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 6.5, "y": 2.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 0.5, "y": 4.5}},
+      {"name": "transport-belt", "position": {"x": 2.5, "y": 4.5}},
+      {"name": "transport-belt", "position": {"x": 2.5, "y": 5.5}},
+      {"name": "transport-belt", "position": {"x": 0.5, "y": 6.5}},
+      {"name": "transport-belt", "position": {"x": 0.5, "y": 7.5}},
+      {"name": "transport-belt", "position": {"x": 2.5, "y": 6.5}},
+      {"name": "transport-belt", "position": {"x": 2.5, "y": 7.5}},
+      {"name": "transport-belt", "position": {"x": 3.5, "y": 7.5}},
+      {"name": "transport-belt", "direction": 2, "position": {"x": 5.5, "y": 4.5}},
+      {"name": "transport-belt", "position": {"x": 6.5, "y": 4.5}},
+      {"name": "transport-belt", "position": {"x": 7.5, "y": 4.5}},
+      {"name": "transport-belt", "position": {"x": 4.5, "y": 7.5}},
+      {"name": "transport-belt", "position": {"x": 5.5, "y": 7.5}},
+      {"name": "transport-belt", "position": {"x": 6.5, "y": 7.5}},
+      {"name": "transport-belt", "position": {"x": 7.5, "y": 7.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 8.5, "y": 4.5}},
+      {"name": "transport-belt", "position": {"x": 9.5, "y": 6.5}},
+      {"name": "transport-belt", "position": {"x": 8.5, "y": 7.5}},
+      {"name": "transport-belt", "direction": 2, "position": {"x": 2.5, "y": 11.5}},
+      {"name": "transport-belt", "direction": 2, "position": {"x": 3.5, "y": 11.5}},
+      {"name": "transport-belt", "direction": 2, "position": {"x": 4.5, "y": 11.5}},
+      {"name": "transport-belt", "direction": 2, "position": {"x": 5.5, "y": 11.5}},
+      {"name": "transport-belt", "direction": 2, "position": {"x": 6.5, "y": 11.5}},
+      {"name": "transport-belt", "direction": 2, "position": {"x": 7.5, "y": 11.5}},
+      {"name": "transport-belt", "position": {"x": 1.5, "y": 13.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 2.5, "y": 13.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 3.5, "y": 13.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 5.5, "y": 12.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 4.5, "y": 13.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 5.5, "y": 13.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 6.5, "y": 12.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 7.5, "y": 12.5}},
+      {"name": "transport-belt", "position": {"x": 6.5, "y": 13.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 7.5, "y": 13.5}},
+      {"name": "transport-belt", "direction": 2, "position": {"x": 8.5, "y": 11.5}},
+      {"name": "transport-belt", "direction": 2, "position": {"x": 9.5, "y": 11.5}},
+      {
+        "name": "transport-belt",
+        "direction": 2,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}]}},
+        "control_behavior": {
+          "circuit_contents_read_mode": 1,
+          "circuit_enable_disable": false,
+          "circuit_read_hand_contents": true
+        },
+        "position": {"x": 10.5, "y": 11.5}
+      },
+      {"name": "transport-belt", "direction": 4, "position": {"x": 11.5, "y": 11.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 8.5, "y": 13.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 9.5, "y": 13.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 11.5, "y": 12.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 10.5, "y": 13.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 11.5, "y": 13.5}}
+    ],
+    "icons": [
+      {"index": 1, "signal": {"name": "artillery-turret", "type": "item"}},
+      {"index": 2, "signal": {"name": "fast-inserter", "type": "item"}}
+    ]
+  }
+}
