@@ -1,0 +1,349 @@
+{
+  "index": 0,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "Ship Scheduling (v1.1)",
+    "description": "Combinators set destination and docking information for six \"G\" (go) points #0-5.  Add \"C=-1\" signal to \"continue\" through without docking (allows going A to B via F as a waypoint).\n\nThe \"<\" combinator has a constant with the number of stops in the schedule.\n\nLaunch by sending signal on red to substation or use top-right combinator for manual launch (be sure to turn it off after).  Schedule advances only on the rising edge of that signal.",
+    "shift_x": 96,
+    "shift_y": -232,
+    "version": 281479276265473,
+    "entities": [
+      {
+        "name": "arithmetic-combinator",
+        "direction": 4,
+        "connections": {
+          "1": {"red": [{"circuit_id": 1, "entity_rel": "-1,0"}, {"entity_rel": "1,0.5"}]},
+          "2": {"green": [{"circuit_id": 1, "entity_rel": "-1,0"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "second_constant": -10,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 7.5, "y": 0}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 2,
+        "connections": {"1": {"red": [{"circuit_id": 1, "entity_rel": "1.5,0"}]}},
+        "control_behavior": {
+          "filters": [
+            {"count": 3, "index": 1, "signal": {"name": "se-star", "type": "virtual"}},
+            {"count": 2, "index": 2, "signal": {"name": "se-anchor-using-right-clamp", "type": "virtual"}},
+            {"count": 42, "index": 3, "signal": {"name": "se-anchor-to-left-clamp", "type": "virtual"}}
+          ]
+        },
+        "position": {"x": 0.5, "y": 2.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 2,
+        "connections": {"1": {"red": [{"circuit_id": 1, "entity_rel": "1.5,0"}]}},
+        "control_behavior": {
+          "filters": [
+            {"count": 1, "index": 1, "signal": {"name": "se-anomaly", "type": "virtual"}},
+            {"count": -1, "index": 10, "signal": {"name": "signal-C", "type": "virtual"}}
+          ]
+        },
+        "position": {"x": 0.5, "y": 3.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 2,
+        "connections": {"1": {"red": [{"circuit_id": 1, "entity_rel": "1.5,0"}]}},
+        "control_behavior": {
+          "filters": [
+            {"count": 1, "index": 1, "signal": {"name": "se-anomaly", "type": "virtual"}},
+            {"count": -1, "index": 10, "signal": {"name": "signal-C", "type": "virtual"}}
+          ]
+        },
+        "position": {"x": 0.5, "y": 4.5}
+      },
+      {
+        "name": "constant-combinator",
+        "connections": {"1": {"red": [{"circuit_id": 1, "entity_rel": "-1,-0.5"}]}},
+        "control_behavior": {
+          "is_on": false,
+          "filters": [{"count": 1, "index": 1, "signal": {"name": "se-spaceship-launch", "type": "virtual"}}]
+        },
+        "position": {"x": 8.5, "y": 0.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 6,
+        "connections": {"1": {"red": [{"circuit_id": 1, "entity_rel": "-1.5,0"}]}},
+        "control_behavior": {
+          "filters": [
+            {"count": 5, "index": 1, "signal": {"name": "se-planet-orbit", "type": "virtual"}},
+            {"count": 2, "index": 2, "signal": {"name": "se-anchor-using-right-clamp", "type": "virtual"}},
+            {"count": 42, "index": 3, "signal": {"name": "se-anchor-to-left-clamp", "type": "virtual"}}
+          ]
+        },
+        "position": {"x": 9.5, "y": 2.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 6,
+        "connections": {"1": {"red": [{"circuit_id": 1, "entity_rel": "-1.5,0"}]}},
+        "control_behavior": {
+          "filters": [
+            {"count": 1093, "index": 1, "signal": {"name": "se-asteroid-field", "type": "virtual"}},
+            {"count": 2, "index": 2, "signal": {"name": "se-anchor-using-right-clamp", "type": "virtual"}},
+            {"count": 2, "index": 3, "signal": {"name": "se-anchor-to-left-clamp", "type": "virtual"}}
+          ]
+        },
+        "position": {"x": 9.5, "y": 3.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 6,
+        "connections": {"1": {"red": [{"circuit_id": 1, "entity_rel": "-1.5,0"}]}},
+        "position": {"x": 9.5, "y": 4.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 4,
+        "connections": {
+          "1": {"green": [{"circuit_id": 1, "entity_rel": "1,0"}], "red": [{"circuit_id": 2, "entity_rel": "1,0"}]},
+          "2": {"red": [{"circuit_id": 1, "entity_rel": "1,0"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "=",
+            "constant": -1,
+            "copy_count_from_input": true,
+            "first_signal": {"name": "signal-distance", "type": "virtual"},
+            "output_signal": {"name": "se-spaceship-launch", "type": "virtual"}
+          }
+        },
+        "position": {"x": 1.5, "y": 0}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 4,
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 1, "entity_rel": "-1,0"}, {"entity_rel": "2.5,0"}],
+            "red": [{"circuit_id": 2, "entity_rel": "-1,0"}, {"entity_rel": "2.5,0"}]
+          },
+          "2": {"red": [{"circuit_id": 1, "entity_rel": "-1,0"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "=",
+            "constant": -1,
+            "copy_count_from_input": false,
+            "first_signal": {"name": "signal-C", "type": "virtual"},
+            "output_signal": {"name": "se-spaceship-launch", "type": "virtual"}
+          }
+        },
+        "position": {"x": 2.5, "y": 0}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 4,
+        "connections": {
+          "1": {"red": [{"circuit_id": 2, "entity_rel": "0,0"}, {"circuit_id": 2, "entity_rel": "3,0"}]},
+          "2": {
+            "green": [{"circuit_id": 1, "entity_rel": "-1.5,2.5"}, {"circuit_id": 1, "entity_rel": "4.5,2.5"}],
+            "red": [{"circuit_id": 1, "entity_rel": "0,0"}]
+          }
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "<",
+            "constant": 5,
+            "copy_count_from_input": true,
+            "first_signal": {"name": "signal-G", "type": "virtual"},
+            "output_signal": {"name": "signal-G", "type": "virtual"}
+          }
+        },
+        "position": {"x": 3.5, "y": 0}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 2,
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 1, "entity_rel": "0,1"}, {"circuit_id": 2, "entity_rel": "1.5,-2.5"}],
+            "red": [{"entity_rel": "-1.5,0"}]
+          },
+          "2": {"red": [{"circuit_id": 2, "entity_rel": "0,1"}, {"entity_rel": "3,0.5"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "=",
+            "constant": 0,
+            "copy_count_from_input": true,
+            "first_signal": {"name": "signal-G", "type": "virtual"},
+            "output_signal": {"name": "signal-everything", "type": "virtual"}
+          }
+        },
+        "position": {"x": 2, "y": 2.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 2,
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 1, "entity_rel": "0,-1"}, {"circuit_id": 1, "entity_rel": "0,1"}],
+            "red": [{"entity_rel": "-1.5,0"}]
+          },
+          "2": {"red": [{"circuit_id": 2, "entity_rel": "0,-1"}, {"circuit_id": 2, "entity_rel": "0,1"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "=",
+            "constant": 2,
+            "copy_count_from_input": true,
+            "first_signal": {"name": "signal-G", "type": "virtual"},
+            "output_signal": {"name": "signal-everything", "type": "virtual"}
+          }
+        },
+        "position": {"x": 2, "y": 3.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 4,
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 2, "entity_rel": "1,0"}],
+            "red": [{"circuit_id": 1, "entity_rel": "1,0"}, {"entity_rel": "-1.5,0"}]
+          },
+          "2": {"red": [{"circuit_id": 1, "entity_rel": "-3,0"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "constant": 0,
+            "copy_count_from_input": false,
+            "first_signal": {"name": "se-spaceship-launch", "type": "virtual"},
+            "output_signal": {"name": "signal-G", "type": "virtual"}
+          }
+        },
+        "position": {"x": 6.5, "y": 0}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 2,
+        "connections": {
+          "1": {"green": [{"circuit_id": 1, "entity_rel": "0,-1"}], "red": [{"entity_rel": "-1.5,0"}]},
+          "2": {"red": [{"circuit_id": 2, "entity_rel": "0,-1"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "=",
+            "constant": 4,
+            "copy_count_from_input": true,
+            "first_signal": {"name": "signal-G", "type": "virtual"},
+            "output_signal": {"name": "signal-everything", "type": "virtual"}
+          }
+        },
+        "position": {"x": 2, "y": 4.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 6,
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 1, "entity_rel": "0,1"}, {"circuit_id": 2, "entity_rel": "-4.5,-2.5"}],
+            "red": [{"entity_rel": "1.5,0"}]
+          },
+          "2": {"red": [{"circuit_id": 2, "entity_rel": "0,1"}, {"entity_rel": "-3,-2.5"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "=",
+            "constant": 1,
+            "copy_count_from_input": true,
+            "first_signal": {"name": "signal-G", "type": "virtual"},
+            "output_signal": {"name": "signal-everything", "type": "virtual"}
+          }
+        },
+        "position": {"x": 8, "y": 2.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 6,
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 1, "entity_rel": "0,-1"}, {"circuit_id": 1, "entity_rel": "0,1"}],
+            "red": [{"entity_rel": "1.5,0"}]
+          },
+          "2": {"red": [{"circuit_id": 2, "entity_rel": "0,-1"}, {"circuit_id": 2, "entity_rel": "0,1"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "=",
+            "constant": 3,
+            "copy_count_from_input": true,
+            "first_signal": {"name": "signal-G", "type": "virtual"},
+            "output_signal": {"name": "signal-everything", "type": "virtual"}
+          }
+        },
+        "position": {"x": 8, "y": 3.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 6,
+        "connections": {
+          "1": {"green": [{"circuit_id": 1, "entity_rel": "0,-1"}], "red": [{"entity_rel": "1.5,0"}]},
+          "2": {"red": [{"circuit_id": 2, "entity_rel": "0,-1"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "=",
+            "constant": 5,
+            "copy_count_from_input": true,
+            "first_signal": {"name": "signal-G", "type": "virtual"},
+            "output_signal": {"name": "signal-everything", "type": "virtual"}
+          }
+        },
+        "position": {"x": 8, "y": 4.5}
+      },
+      {
+        "name": "se-spaceship-console",
+        "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "-3,-0.5"}, {"entity_rel": "0,-3"}]}},
+        "control_behavior": {"output_signal": {"type": "item"}},
+        "position": {"x": 5, "y": 3}
+      },
+      {
+        "name": "se-spaceship-console-output",
+        "connections": {"1": {"green": [{"entity_rel": "-1.5,-2"}]}},
+        "control_behavior": {
+          "filters": [
+            {"count": 41, "index": 1, "signal": {"name": "se-spaceship-console", "type": "item"}},
+            {"count": -2, "index": 2, "signal": {"name": "signal-speed", "type": "virtual"}},
+            {"count": 178251, "index": 3, "signal": {"name": "signal-distance", "type": "virtual"}},
+            {"count": 3, "index": 4, "signal": {"name": "se-star", "type": "virtual"}},
+            {"count": 100, "index": 5, "signal": {"name": "signal-D", "type": "virtual"}},
+            {"count": 311, "index": 6, "signal": {"name": "signal-A", "type": "virtual"}}
+          ]
+        },
+        "position": {"x": 6.5, "y": 2}
+      },
+      {
+        "name": "substation",
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 1, "entity_rel": "-2.5,0"}, {"entity_rel": "1.5,2"}],
+            "red": [
+              {"circuit_id": 1, "entity_rel": "-2.5,0"},
+              {"circuit_id": 1, "entity_rel": "1.5,0"},
+              {"circuit_id": 2, "entity_rel": "3,2.5"},
+              {"entity_rel": "0,3"}
+            ]
+          }
+        },
+        "position": {"x": 5, "y": 0}
+      }
+    ],
+    "icons": [
+      {"index": 1, "signal": {"name": "se-spaceship-console", "type": "item"}},
+      {"index": 2, "signal": {"name": "decider-combinator", "type": "item"}}
+    ]
+  }
+}
