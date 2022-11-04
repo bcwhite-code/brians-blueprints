@@ -3,7 +3,7 @@
   "blueprint": {
     "item": "blueprint",
     "label": "Mine",
-    "description": "Can mine all SE resources except Iridite and Naquitite.\n\nHowever, unless there are multiple resources within a block, it's often better to hand-craft a mine and use a basic BT/aux 8-car provider.",
+    "description": "Can mine all SE resources except Iridite and Naquitite.\n\nHowever, unless there are multiple resources within a block, it's usually better to hand-craft a mine and use a basic BT/aux 8-car provider.",
     "absolute-snapping": true,
     "shift_x": -167,
     "shift_y": -167,
@@ -45,7 +45,10 @@
         "name": "arithmetic-combinator",
         "direction": 4,
         "connections": {
-          "1": {"green": [{"entity_rel": "0,-1.5"}], "red": [{"circuit_id": 2, "entity_rel": "-0.5,1.5"}]},
+          "1": {
+            "green": [{"entity_rel": "0,-3.5"}, {"entity_rel": "1,3.5"}],
+            "red": [{"circuit_id": 2, "entity_rel": "-0.5,1.5"}]
+          },
           "2": {"green": [{"entity_rel": "-1.5,0"}]}
         },
         "control_behavior": {
@@ -5525,12 +5528,7 @@
       },
       {
         "name": "logistic-train-stop-input",
-        "connections": {
-          "1": {
-            "green": [{"circuit_id": 1, "entity_rel": "0,1.5"}, {"entity_rel": "-3,5"}],
-            "red": [{"entity_rel": "-1,-2"}]
-          }
-        },
+        "connections": {"1": {"green": [{"entity_rel": "-3,5"}], "red": [{"entity_rel": "-1,-2"}]}},
         "control_behavior": {
           "use_colors": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
@@ -10036,7 +10034,7 @@
         "name": "medium-electric-pole",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "1,-5"}, {"entity_rel": "1,7"}],
+            "green": [{"circuit_id": 1, "entity_rel": "0,3.5"}, {"entity_rel": "1,-5"}],
             "red": [{"entity_rel": "-3,7"}, {"entity_rel": "1,-5"}]
           }
         },
@@ -10045,7 +10043,9 @@
       },
       {
         "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"circuit_id": 1, "entity_rel": "-1.5,2"}, {"entity_rel": "-1,-7"}]}},
+        "connections": {
+          "1": {"green": [{"circuit_id": 1, "entity_rel": "-1,-3.5"}, {"circuit_id": 1, "entity_rel": "-1.5,2"}]}
+        },
         "position": {"x": 210.5, "y": 191.5}
       },
       {
