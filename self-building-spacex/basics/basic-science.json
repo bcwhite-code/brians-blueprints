@@ -7,7 +7,7 @@
     "absolute-snapping": true,
     "shift_x": 53,
     "shift_y": 53,
-    "version": 281479276265473,
+    "version": 281479276331008,
     "entities": [
       {
         "name": "arithmetic-combinator",
@@ -504,7 +504,7 @@
         "name": "arithmetic-combinator",
         "direction": 2,
         "connections": {
-          "1": {"green": [{"entity_rel": "-3.5,0"}], "red": [{"circuit_id": 2, "entity_rel": "1.5,0.5"}]},
+          "1": {"green": [{"entity_rel": "-1.5,0"}], "red": [{"circuit_id": 2, "entity_rel": "1.5,0.5"}]},
           "2": {"green": [{"entity_rel": "0,1.5"}]}
         },
         "control_behavior": {
@@ -2217,15 +2217,14 @@
       {
         "name": "constant-combinator",
         "direction": 2,
+        "connections": {"1": {"red": [{"entity_rel": "0,-1"}]}},
         "control_behavior": {
           "filters": [
             {"count": 2, "index": 1, "signal": {"name": "ltn-max-trains", "type": "virtual"}},
             {"count": 2, "index": 2, "signal": {"name": "ltn-min-train-length", "type": "virtual"}},
             {"count": 6, "index": 3, "signal": {"name": "ltn-max-train-length", "type": "virtual"}},
             {"count": 255, "index": 4, "signal": {"name": "ltn-network-id", "type": "virtual"}},
-            {"count": 1, "index": 5, "signal": {"name": "ltn-requester-stack-threshold", "type": "virtual"}},
-            {"count": 1, "index": 6, "signal": {"name": "ltn-provider-threshold", "type": "virtual"}},
-            {"count": 9, "index": 11, "signal": {"name": "ltn-provider-priority", "type": "virtual"}}
+            {"count": 1, "index": 6, "signal": {"name": "ltn-provider-stack-threshold", "type": "virtual"}}
           ]
         },
         "position": {"x": 150.5, "y": 15.5}
@@ -12614,6 +12613,12 @@
       },
       {
         "name": "logistic-train-stop-input",
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 1, "entity_rel": "1.5,0"}, {"entity_rel": "-2,0"}],
+            "red": [{"entity_rel": "-2,0"}, {"entity_rel": "0,1"}]
+          }
+        },
         "control_behavior": {
           "use_colors": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
@@ -13863,7 +13868,7 @@
       {"name": "medium-electric-pole", "neighbours": ["-3,4"], "position": {"x": 151.5, "y": 10.5}},
       {
         "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"circuit_id": 1, "entity_rel": "3.5,0"}, {"entity_rel": "-5,-1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "-5,-1"}, {"entity_rel": "2,0"}], "red": [{"entity_rel": "2,0"}]}},
         "neighbours": ["-5,-1", "-5,-4", "3,-4", "3.5,1.5"],
         "position": {"x": 148.5, "y": 14.5}
       },

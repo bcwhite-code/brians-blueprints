@@ -15,6 +15,7 @@ You'll want the following mods:
 * [Space Exploration](https://mods.factorio.com/mod/space-exploration) (required)
 * [Logistic Train Network](https://mods.factorio.com/mod/LogisticTrainNetwork) (required)
 * [LTN Content Reader](https://mods.factorio.com/mod/LTN_Content_Reader) (required)
+* [Space Exploration LTN integration](https://mods.factorio.com/mod/se-ltn-glue) (required for space elevator)
 * [Loader Redux](https://mods.factorio.com/mod/LoaderRedux) (required)
 * [Miniloader](https://mods.factorio.com/mod/miniloader) (required)
 * [Merging Chests](https://mods.factorio.com/mod/WideChests) and [Unlimited](https://mods.factorio.com/mod/WideChestsUnlimited) (both required)
@@ -352,7 +353,7 @@ and the Off-World Supply will fulfill it, though somewhat slower than
 a Nauvis build.
 
 * Cryonite.
-* Bulk Launch System: Add a second rocket silo according to blueprint instructions.  Configure for Cryonite Rods and Glass with destinations in the Bulk Receiver.  Ensure everything, including fuel, can reach the second silo!
+* Bulk Launch System: Add a second rocket silo according to blueprint instructions.  Configure for Cryonite Rods and Glass with destinations in the Bulk Receiver.  Ensure everything, including fuel, can reach the second silo!  Since Cryonite processing has a 1-car train for glass, the min-length of trains needs to be reduced from 6 to 2.
 
 The home block's reactor will support all this as long as the miners
 have efficiency modules.
@@ -577,6 +578,10 @@ science, and most importantly, reveals a "weapons cache" somewhere on
 the map.  **You need to get the items from that to complete the
 Construction Supply station!**
 
+If you don't catch the notice about the weapons cache when it happens,
+you can find a link to in under the "exploration journal" in the
+InformaTron ("i" key).
+
 There are a number of requester chests used.  Until that becomes
 available (in v0.5, it was available much earlier), items will have to
 moved by hand or the chests replaced with "Smol" versions from the
@@ -657,14 +662,17 @@ The following signals on the red wire will affect the launch:
 ### Space Launch System
 
 **Read the blueprint comment!** There is a companion "SLS Orbit"
-blueprint, read that blueprint comment as well.
+blueprint; read that blueprint comment as well.
 
-Because of the way trains enter and exit the block, it is best built
-on the east side of the base.
+LTN in orbit will be effectively disabled when the elevator cable is
+not fully finished.  It does this by detecting (crudely) if power is
+available and changing the LTN ID# if not.  These "disabled" requests
+will appear as LTN errors saying that something is not "found in
+networks 0x100".  Once power is restored, delivers will resume.
 
 This block supports three different things:
 
-#### Orbital Rocket Launches
+* Orbital Rocket Launches
 
 This moves  items into orbit for launching via rocket to the final
 destination with about 40k to 50k _less_ rocket fuel, effectively
@@ -677,13 +685,15 @@ provide to anywhere.  Set it to "launch when cargo full".
 
 If 14 rockets isn't enough, allow longer merged chests and extend it.
 
-The calculation for incoming deliveries uses two stack-combinators
-which are relatively expensive.  You can replace these with arithmetic
-combinators doing multiply and divide by the stack size of the item
-being requested.  _Don't get it wrong!_  The default implementation
-aims for error-free configuration rather than ultimate efficiency.
+* Local Deliveries
 
-#### Ship Fluid Supply
+At the top of the "items" station is a large warehouse with a
+combinator beside it.  Put an item (with value=1) in the combinator
+and that item will be fetched and stored in the chest, keeping it
+somewhere between 180 and 500 stacks.  This chest and its loaders can
+be duplicated across to have up to 10 different items available.
+
+* Ship Fluid Supply
 
 This moves up to 3 fluids into orbit for transport via ship (since
 rockets can't carry liquids).  One of these fluids is rocket fuel; the
@@ -693,7 +703,7 @@ Water is a likely candidate for one of them.
 To transport a fluid it, add it to the #1 or #2 combinators found near
 the head of the orbital fluid station.
 
-#### Receiving Items from Ships
+* Receiving Items from Ships
 
 Receves items from ships and transports them to the ground, thus
 avoiding the need for rocket engines to leave the planet surface.
@@ -702,8 +712,8 @@ To use this, simply have docked ships dump their contents into the big
 warehouses at the bottom of the orbital station.  Copy/paste as many
 of these as necessary; up to 25 will fit below the long merged chest,
 though more than 3 per item type won't make train loading go any
-faster.  No configuration is necessary but don't receive something
-this way that is also being delivered to the rockets.
+faster.  No configuration is necessary.
 
-If 25 warehouses isn't enough, allow longer merged chests and extend
-it.
+There are six 8-car trains in the space depot hub for handling these
+requests.  Smaller trains can be added if necessary.  **Don't set them
+to "automatic" until fuel has been delivered!**
