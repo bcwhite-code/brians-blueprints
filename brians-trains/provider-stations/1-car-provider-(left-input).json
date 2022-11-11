@@ -3,9 +3,9 @@
   "blueprint": {
     "item": "blueprint",
     "label": "1-Car Provider (left input)",
-    "shift_x": -70,
-    "shift_y": -387,
-    "version": 281479275610112,
+    "shift_x": -280,
+    "shift_y": -699,
+    "version": 281479276396544,
     "entities": [
       {
         "name": "arithmetic-combinator",
@@ -92,7 +92,8 @@
             {"count": 2, "index": 2, "signal": {"name": "ltn-min-train-length", "type": "virtual"}},
             {"count": 3, "index": 3, "signal": {"name": "ltn-max-train-length", "type": "virtual"}},
             {"count": 255, "index": 4, "signal": {"name": "ltn-network-id", "type": "virtual"}},
-            {"count": 40, "index": 6, "signal": {"name": "ltn-provider-stack-threshold", "type": "virtual"}}
+            {"count": 40, "index": 6, "signal": {"name": "ltn-provider-stack-threshold", "type": "virtual"}},
+            {"count": 0, "index": 7, "signal": {"name": "ltn-provider-priority", "type": "virtual"}}
           ]
         },
         "position": {"x": -5.5, "y": 1.5}
@@ -300,8 +301,12 @@
         "name": "logistic-train-stop-input",
         "connections": {
           "1": {
-            "green": [{"circuit_id": 1, "entity_rel": "-1.5,0"}, {"circuit_id": 1, "entity_rel": "6,-0.5"}],
-            "red": [{"entity_rel": "2,0"}]
+            "green": [
+              {"circuit_id": 1, "entity_rel": "-1.5,0"},
+              {"circuit_id": 1, "entity_rel": "6,-0.5"},
+              {"entity_rel": "2,-1"}
+            ],
+            "red": [{"entity_rel": "2,-1"}, {"entity_rel": "2,0"}]
           }
         },
         "control_behavior": {
@@ -318,6 +323,7 @@
       },
       {
         "name": "medium-electric-pole",
+        "connections": {"1": {"green": [{"entity_rel": "-2,1"}], "red": [{"entity_rel": "-2,1"}]}},
         "neighbours": ["-3.5,-0.5", "5,2"],
         "position": {"x": -5.5, "y": 0.5}
       },
@@ -445,9 +451,6 @@
       {"name": "straight-rail", "direction": 2, "position": {"x": 3, "y": 4}},
       {"name": "straight-rail", "direction": 2, "position": {"x": 5, "y": 4}},
       {"name": "straight-rail", "direction": 2, "position": {"x": 7, "y": 4}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 9, "y": 4}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 11, "y": 4}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 13, "y": 4}},
       {"name": "transport-belt", "direction": 2, "position": {"x": -0.5, "y": -0.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 0.5, "y": -0.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 1.5, "y": -0.5}},
