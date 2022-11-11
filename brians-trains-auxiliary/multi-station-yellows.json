@@ -1,0 +1,101 @@
+{
+  "index": 31,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "Multi-Station Yellows",
+    "description": "Used to unload multi-station onto three full yellow belts.  Each lane is independent.  Place at the tail of the station.\n\nNote that loaders, both \"mini\" and \"redux\" support unload filters so those are likely a better choice.",
+    "shift_x": 158,
+    "shift_y": 171,
+    "version": 281479275937792,
+    "entities": [
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 1.5, "y": 2.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 1.5, "y": 3.5}},
+      {"name": "express-transport-belt", "position": {"x": 2.5, "y": 2.5}},
+      {"name": "express-transport-belt", "position": {"x": 2.5, "y": 3.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 1.5, "y": 4.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 1.5, "y": 5.5}},
+      {"name": "express-transport-belt", "position": {"x": 2.5, "y": 5.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 1.5, "y": 6.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 1.5, "y": 7.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 2.5, "y": 6.5}},
+      {"name": "express-transport-belt", "direction": 2, "position": {"x": 2.5, "y": 7.5}},
+      {
+        "name": "medium-electric-pole",
+        "connections": {"1": {"green": [{"entity_rel": "0,7"}], "red": [{"entity_rel": "0,7"}]}},
+        "neighbours": ["0,7"],
+        "position": {"x": -1.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {"1": {"green": [{"entity_rel": "0,-7"}], "red": [{"entity_rel": "0,-7"}]}},
+        "neighbours": ["0,-7"],
+        "position": {"x": -1.5, "y": 8.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 6,
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}}
+        },
+        "position": {"x": 0.5, "y": 2.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 6,
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}}
+        },
+        "position": {"x": 0.5, "y": 3.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 6,
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}}
+        },
+        "position": {"x": 0.5, "y": 4.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 6,
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}}
+        },
+        "position": {"x": 0.5, "y": 5.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 6,
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}}
+        },
+        "position": {"x": 0.5, "y": 6.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "direction": 6,
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}}
+        },
+        "position": {"x": 0.5, "y": 7.5}
+      },
+      {"name": "transport-belt", "position": {"x": 1.5, "y": 0.5}},
+      {"name": "transport-belt", "position": {"x": 1.5, "y": 1.5}},
+      {"name": "transport-belt", "position": {"x": 3.5, "y": 0.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 2.5, "y": 1.5}},
+      {"name": "transport-belt", "position": {"x": 3.5, "y": 1.5}},
+      {"name": "transport-belt", "position": {"x": 3.5, "y": 2.5}},
+      {"name": "transport-belt", "position": {"x": 3.5, "y": 3.5}},
+      {"name": "transport-belt", "position": {"x": 3.5, "y": 4.5}},
+      {"name": "transport-belt", "position": {"x": 3.5, "y": 5.5}},
+      {"name": "transport-belt", "position": {"x": 3.5, "y": 6.5}},
+      {"name": "transport-belt", "position": {"x": 3.5, "y": 7.5}},
+      {"name": "underground-belt", "type": "output", "position": {"x": 2.5, "y": 0.5}},
+      {"name": "underground-belt", "type": "input", "position": {"x": 2.5, "y": 4.5}}
+    ],
+    "icons": [
+      {"index": 1, "signal": {"name": "transport-belt", "type": "item"}},
+      {"index": 2, "signal": {"name": "stack-filter-inserter", "type": "item"}}
+    ]
+  }
+}

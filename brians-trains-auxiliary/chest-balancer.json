@@ -1,0 +1,170 @@
+{
+  "index": 35,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "Chest Balancer",
+    "description": "Place at the end of a provider station to keep the two sides balanced.  This is essential for  a multi-provider station where unbalanced loading could cause a stuck inserter and thus incorrect material dropped in the next train to arrive.",
+    "shift_x": 0,
+    "shift_y": -3,
+    "version": 281479275937792,
+    "entities": [
+      {
+        "name": "arithmetic-combinator",
+        "direction": 4,
+        "connections": {
+          "1": {"red": [{"circuit_id": 1, "entity_rel": "1,0"}]},
+          "2": {"green": [{"circuit_id": 1, "entity_rel": "0.5,1.5"}, {"circuit_id": 2, "entity_rel": "1,0"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "+",
+            "second_constant": 50,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-L", "type": "virtual"}
+          }
+        },
+        "position": {"x": -2.5, "y": 0}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 4,
+        "connections": {
+          "1": {"red": [{"circuit_id": 1, "entity_rel": "-1,0"}, {"entity_rel": "3,2.5"}]},
+          "2": {"green": [{"circuit_id": 2, "entity_rel": "-1,0"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "+",
+            "second_constant": 0,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-B", "type": "virtual"}
+          }
+        },
+        "position": {"x": -1.5, "y": 0}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "connections": {
+          "1": {"red": [{"circuit_id": 1, "entity_rel": "1,0"}]},
+          "2": {"green": [{"circuit_id": 1, "entity_rel": "-0.5,-1.5"}, {"circuit_id": 2, "entity_rel": "1,0"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "+",
+            "second_constant": 50,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-K", "type": "virtual"}
+          }
+        },
+        "position": {"x": -1.5, "y": 8}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "connections": {
+          "1": {"red": [{"circuit_id": 1, "entity_rel": "-1,0"}, {"entity_rel": "2,-2.5"}]},
+          "2": {"green": [{"circuit_id": 2, "entity_rel": "-1,0"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "+",
+            "second_constant": 0,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-A", "type": "virtual"}
+          }
+        },
+        "position": {"x": -0.5, "y": 8}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 2,
+        "connections": {
+          "1": {"green": [{"circuit_id": 1, "entity_rel": "0,5"}, {"circuit_id": 2, "entity_rel": "-0.5,-1.5"}]},
+          "2": {"red": [{"entity_rel": "4.5,-1"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "copy_count_from_input": false,
+            "first_signal": {"name": "signal-B", "type": "virtual"},
+            "output_signal": {"name": "signal-check", "type": "virtual"},
+            "second_signal": {"name": "signal-K", "type": "virtual"}
+          }
+        },
+        "position": {"x": -2, "y": 1.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 2,
+        "connections": {
+          "1": {"green": [{"circuit_id": 1, "entity_rel": "0,-5"}, {"circuit_id": 2, "entity_rel": "0.5,1.5"}]},
+          "2": {"red": [{"entity_rel": "4.5,1"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "copy_count_from_input": false,
+            "first_signal": {"name": "signal-A", "type": "virtual"},
+            "output_signal": {"name": "signal-check", "type": "virtual"},
+            "second_signal": {"name": "signal-L", "type": "virtual"}
+          }
+        },
+        "position": {"x": -2, "y": 6.5}
+      },
+      {"name": "fast-inserter", "direction": 6, "position": {"x": 1.5, "y": 1.5}},
+      {
+        "name": "fast-inserter",
+        "direction": 4,
+        "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "-4.5,1"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "position": {"x": 2.5, "y": 0.5}
+      },
+      {"name": "fast-inserter", "direction": 6, "position": {"x": 1.5, "y": 6.5}},
+      {
+        "name": "fast-inserter",
+        "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "-4.5,-1"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "position": {"x": 2.5, "y": 7.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {"1": {"green": [{"entity_rel": "0,3"}], "red": [{"circuit_id": 1, "entity_rel": "-3,-2.5"}]}},
+        "neighbours": ["0,3"],
+        "position": {"x": 1.5, "y": 2.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {"1": {"green": [{"entity_rel": "0,-3"}], "red": [{"circuit_id": 1, "entity_rel": "-2,2.5"}]}},
+        "neighbours": ["0,-3"],
+        "position": {"x": 1.5, "y": 5.5}
+      },
+      {"name": "straight-rail", "direction": 2, "position": {"x": -3, "y": 4}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -1, "y": 4}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 1, "y": 4}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 3, "y": 4}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": -0.5, "y": -0.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 0.5, "y": -0.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 1.5, "y": -0.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 2.5, "y": -0.5}},
+      {"name": "transport-belt", "direction": 2, "position": {"x": -0.5, "y": 6.5}},
+      {"name": "transport-belt", "position": {"x": 0.5, "y": 1.5}},
+      {"name": "transport-belt", "direction": 2, "position": {"x": 0.5, "y": 6.5}},
+      {"name": "transport-belt", "position": {"x": 0.5, "y": 8.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 1.5, "y": 8.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 2.5, "y": 8.5}},
+      {"name": "underground-belt", "direction": 4, "type": "input", "position": {"x": -0.5, "y": 0.5}},
+      {"name": "underground-belt", "direction": 4, "type": "output", "position": {"x": -0.5, "y": 5.5}},
+      {"name": "underground-belt", "type": "output", "position": {"x": 0.5, "y": 2.5}},
+      {"name": "underground-belt", "type": "input", "position": {"x": 0.5, "y": 7.5}}
+    ],
+    "icons": [
+      {"index": 1, "signal": {"name": "steel-chest", "type": "item"}},
+      {"index": 2, "signal": {"name": "steel-chest", "type": "item"}},
+      {"index": 3, "signal": {"name": "signal-E", "type": "virtual"}},
+      {"index": 4, "signal": {"name": "signal-Q", "type": "virtual"}}
+    ]
+  }
+}

@@ -1,0 +1,225 @@
+{
+  "index": 2,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "Construction Site Deliveries",
+    "description": "Place near construction site.  Materials will arrive here, be unloaded, and given to bots.\n\nIf site is huge, place several of these around it with green wire connected to the track network.  Trains will deliver to the one least busy.\n\nWhen done, ride the train here, turn the inserters around, and add them beside the yellow/blue chests.  This will load everything into the train.\n\nManually destruct the remaining items and ride the train back to base. The station there will unload the extras.",
+    "shift_x": 1107,
+    "shift_y": 277,
+    "version": 281479275610112,
+    "entities": [
+      {
+        "name": "arithmetic-combinator",
+        "direction": 4,
+        "connections": {
+          "1": {"green": [{"entity_rel": "-2,-0.5"}]},
+          "2": {"green": [{"entity_rel": "3,-1.5"}], "red": [{"circuit_id": 2, "entity_rel": "4,0"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "+",
+            "second_constant": 0,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-M", "type": "virtual"}
+          }
+        },
+        "position": {"x": 20.5, "y": 3}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "connections": {
+          "1": {"green": [{"entity_rel": "-1,-1.5"}, {"entity_rel": "1,-0.5"}]},
+          "2": {"red": [{"circuit_id": 1, "entity_rel": "2,0"}, {"circuit_id": 2, "entity_rel": "-4,0"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "/",
+            "first_signal": {"name": "signal-M", "type": "virtual"},
+            "output_signal": {"name": "signal-N", "type": "virtual"},
+            "second_signal": {"name": "signal-S", "type": "virtual"}
+          }
+        },
+        "position": {"x": 24.5, "y": 3}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 4,
+        "connections": {"1": {"green": [{"circuit_id": 1, "entity_rel": "-1,0.5"}]}},
+        "control_behavior": {"filters": [{"count": 1, "index": 1, "signal": {"name": "signal-S", "type": "virtual"}}]},
+        "position": {"x": 25.5, "y": 2.5}
+      },
+      {
+        "name": "decider-combinator",
+        "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "-2,0"}]}, "2": {"red": [{"entity_rel": "3.5,-1"}]}},
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "≤",
+            "copy_count_from_input": false,
+            "first_signal": {"name": "signal-M", "type": "virtual"},
+            "output_signal": {"name": "signal-check", "type": "virtual"},
+            "second_signal": {"name": "signal-N", "type": "virtual"}
+          }
+        },
+        "position": {"x": 26.5, "y": 3}
+      },
+      {"name": "fast-inserter", "position": {"x": 0.5, "y": 3.5}},
+      {"name": "fast-inserter", "position": {"x": 1.5, "y": 3.5}},
+      {"name": "fast-inserter", "position": {"x": 3.5, "y": 3.5}},
+      {"name": "fast-inserter", "position": {"x": 8.5, "y": 3.5}},
+      {"name": "fast-inserter", "position": {"x": 10.5, "y": 3.5}},
+      {"name": "fast-inserter", "position": {"x": 15.5, "y": 3.5}},
+      {"name": "fast-inserter", "position": {"x": 17.5, "y": 3.5}},
+      {"name": "fast-inserter", "position": {"x": 18.5, "y": 3.5}},
+      {
+        "name": "logistic-chest-passive-provider",
+        "connections": {"1": {"green": [{"entity_rel": "1,0"}]}},
+        "position": {"x": 0.5, "y": 2.5}
+      },
+      {
+        "name": "logistic-chest-passive-provider",
+        "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
+        "position": {"x": 1.5, "y": 2.5}
+      },
+      {
+        "name": "logistic-chest-passive-provider",
+        "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "5,0"}]}},
+        "position": {"x": 3.5, "y": 2.5}
+      },
+      {
+        "name": "logistic-chest-passive-provider",
+        "connections": {"1": {"green": [{"entity_rel": "-5,0"}, {"entity_rel": "2,0"}]}},
+        "position": {"x": 8.5, "y": 2.5}
+      },
+      {
+        "name": "logistic-chest-passive-provider",
+        "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "5,0"}]}},
+        "position": {"x": 10.5, "y": 2.5}
+      },
+      {
+        "name": "logistic-chest-passive-provider",
+        "connections": {"1": {"green": [{"entity_rel": "-5,0"}, {"entity_rel": "2,0"}]}},
+        "position": {"x": 15.5, "y": 2.5}
+      },
+      {
+        "name": "logistic-chest-passive-provider",
+        "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
+        "position": {"x": 17.5, "y": 2.5}
+      },
+      {
+        "name": "logistic-chest-passive-provider",
+        "connections": {"1": {"green": [{"circuit_id": 1, "entity_rel": "2,0.5"}, {"entity_rel": "-1,0"}]}},
+        "position": {"x": 18.5, "y": 2.5}
+      },
+      {
+        "name": "logistic-chest-requester",
+        "position": {"x": 22.5, "y": 2.5},
+        "request_filters": [
+          {"name": "wood", "count": 10000, "index": 1},
+          {"name": "coal", "count": 5000, "index": 2},
+          {"name": "stone", "count": 5000, "index": 3},
+          {"name": "iron-ore", "count": 5000, "index": 4},
+          {"name": "copper-ore", "count": 5000, "index": 5},
+          {"name": "uranium-ore", "count": 5000, "index": 6}
+        ]
+      },
+      {"name": "logistic-chest-storage", "position": {"x": -3.5, "y": 2.5}},
+      {"name": "logistic-chest-storage", "position": {"x": -2.5, "y": 2.5}},
+      {"name": "logistic-chest-storage", "position": {"x": 4.5, "y": 2.5}},
+      {"name": "logistic-chest-storage", "position": {"x": 7.5, "y": 2.5}},
+      {"name": "logistic-chest-storage", "position": {"x": 11.5, "y": 2.5}},
+      {"name": "logistic-chest-storage", "position": {"x": 14.5, "y": 2.5}},
+      {"name": "logistic-chest-storage", "position": {"x": 21.5, "y": 2.5}},
+      {
+        "name": "medium-electric-pole",
+        "connections": {"1": {"green": [{"entity_rel": "7,0"}]}},
+        "neighbours": ["7,0"],
+        "position": {"x": -4.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {"1": {"green": [{"entity_rel": "-7,0"}, {"entity_rel": "7,0"}]}},
+        "neighbours": ["-7,0", "7,0"],
+        "position": {"x": 2.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {"1": {"green": [{"entity_rel": "-7,0"}, {"entity_rel": "7,0"}]}},
+        "neighbours": ["-7,0", "7,0"],
+        "position": {"x": 9.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {"1": {"green": [{"entity_rel": "-7,0"}, {"entity_rel": "7,0"}]}},
+        "neighbours": ["-7,0", "7,0"],
+        "position": {"x": 16.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [
+              {"circuit_id": 1, "entity_rel": "1,1.5"},
+              {"circuit_id": 2, "entity_rel": "-3,1.5"},
+              {"entity_rel": "-7,0"}
+            ]
+          }
+        },
+        "neighbours": ["-7,0"],
+        "position": {"x": 23.5, "y": 1.5}
+      },
+      {"name": "roboport", "position": {"x": 2, "y": 6}},
+      {"name": "roboport", "position": {"x": 10, "y": 6}},
+      {"name": "roboport", "position": {"x": 17, "y": 6}},
+      {"name": "stack-inserter", "position": {"x": 0.5, "y": 1.5}},
+      {"name": "stack-inserter", "position": {"x": 1.5, "y": 1.5}},
+      {"name": "stack-inserter", "position": {"x": 3.5, "y": 1.5}},
+      {"name": "stack-inserter", "position": {"x": 8.5, "y": 1.5}},
+      {"name": "stack-inserter", "position": {"x": 10.5, "y": 1.5}},
+      {"name": "stack-inserter", "position": {"x": 15.5, "y": 1.5}},
+      {"name": "stack-inserter", "position": {"x": 17.5, "y": 1.5}},
+      {"name": "stack-inserter", "position": {"x": 18.5, "y": 1.5}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -6, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -4, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -2, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 0, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 2, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 4, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 6, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 8, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 10, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 12, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 14, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 16, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 18, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 20, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 22, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 24, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 26, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 28, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 30, "y": 0}},
+      {
+        "name": "train-stop",
+        "direction": 2,
+        "station": "Construction Site",
+        "color": {
+          "a": 0.49803921580314636,
+          "b": 0.007843137718737125,
+          "g": 0.8235294222831726,
+          "r": 0.9411764740943909
+        },
+        "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "-3.5,1"}]}},
+        "control_behavior": {
+          "circuit_enable_disable": true,
+          "send_to_train": false,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}},
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+        },
+        "position": {"x": 30, "y": 2}
+      }
+    ],
+    "icons": [
+      {"index": 1, "signal": {"name": "train-stop", "type": "item"}},
+      {"index": 2, "signal": {"name": "logistic-chest-passive-provider", "type": "item"}}
+    ]
+  }
+}

@@ -1,0 +1,3725 @@
+{
+  "index": 3,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "Train Rate Display",
+    "description": "Connections via Power Pole:\n  green: train detector outputs\n  red: enable (checkmark=1)\n\nOnce enabled, lights will blink blue until 10 trains have passed.  After 10 trains, the clock will start, indicated by the yellow \"second hand\" moving around the outside..  After 10 minutes, the center ligts will go white to indicate a stable display.\n\nAs trains pass, the rate is updated in real time.  In addtion, the lights are color-coded:\n  green: 30+ tpm\n  cyan: 25-30 tpm\n  red: 0-25 tpm\n",
+    "shift_x": 747,
+    "shift_y": -198,
+    "version": 281479275610112,
+    "entities": [
+      {
+        "name": "arithmetic-combinator",
+        "direction": 6,
+        "connections": {
+          "1": {"green": [{"circuit_id": 1, "entity_rel": "4,0"}]},
+          "2": {"green": [{"entity_rel": "-2.5,0"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "%",
+            "second_constant": 60,
+            "first_signal": {"name": "signal-C", "type": "virtual"},
+            "output_signal": {"name": "signal-S", "type": "virtual"}
+          }
+        },
+        "position": {"x": 6, "y": 14.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 6,
+        "connections": {
+          "1": {"red": [{"circuit_id": 1, "entity_rel": "0,2"}]},
+          "2": {"green": [{"entity_rel": "-5.5,-5"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "/",
+            "second_constant": 10,
+            "first_signal": {"name": "signal-A", "type": "virtual"},
+            "output_signal": {"name": "signal-A", "type": "virtual"}
+          }
+        },
+        "position": {"x": 12, "y": 12.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 6,
+        "connections": {
+          "1": {"green": [{"circuit_id": 2, "entity_rel": "0,1"}, {"entity_rel": "5.5,1"}]},
+          "2": {"green": [{"entity_rel": "-5.5,-6"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "<<",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-A", "type": "virtual"}
+          }
+        },
+        "position": {"x": 12, "y": 13.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 6,
+        "connections": {
+          "1": {"red": [{"circuit_id": 1, "entity_rel": "0,2"}]},
+          "2": {"green": [{"entity_rel": "-3.5,-5"}], "red": [{"circuit_id": 1, "entity_rel": "-2,2"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "/",
+            "second_constant": 10,
+            "first_signal": {"name": "signal-A", "type": "virtual"},
+            "output_signal": {"name": "signal-A", "type": "virtual"}
+          }
+        },
+        "position": {"x": 14, "y": 12.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 6,
+        "connections": {
+          "1": {"green": [{"circuit_id": 2, "entity_rel": "0,1"}, {"entity_rel": "3.5,0"}]},
+          "2": {"green": [{"entity_rel": "-3.5,-6"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "<<",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-A", "type": "virtual"}
+          }
+        },
+        "position": {"x": 14, "y": 13.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 6,
+        "connections": {
+          "1": {"red": [{"circuit_id": 1, "entity_rel": "0,-2"}, {"circuit_id": 2, "entity_rel": "2,-2"}]},
+          "2": {"green": [{"circuit_id": 1, "entity_rel": "0,-1"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "%",
+            "second_constant": 10,
+            "first_signal": {"name": "signal-A", "type": "virtual"},
+            "output_signal": {"name": "signal-A", "type": "virtual"}
+          }
+        },
+        "position": {"x": 12, "y": 14.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 6,
+        "connections": {
+          "1": {"red": [{"circuit_id": 1, "entity_rel": "0,-2"}, {"circuit_id": 2, "entity_rel": "2,-2"}]},
+          "2": {"green": [{"circuit_id": 1, "entity_rel": "0,-1"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "%",
+            "second_constant": 10,
+            "first_signal": {"name": "signal-A", "type": "virtual"},
+            "output_signal": {"name": "signal-A", "type": "virtual"}
+          }
+        },
+        "position": {"x": 14, "y": 14.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 6,
+        "connections": {
+          "1": {"red": [{"circuit_id": 1, "entity_rel": "0,2"}]},
+          "2": {"red": [{"circuit_id": 1, "entity_rel": "-2,2"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "/",
+            "second_constant": 10,
+            "first_signal": {"name": "signal-A", "type": "virtual"},
+            "output_signal": {"name": "signal-A", "type": "virtual"}
+          }
+        },
+        "position": {"x": 16, "y": 12.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 6,
+        "connections": {
+          "1": {"green": [{"circuit_id": 2, "entity_rel": "0,1"}, {"entity_rel": "1.5,-1"}]},
+          "2": {"green": [{"entity_rel": "-0.5,-6"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "<<",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-A", "type": "virtual"}
+          }
+        },
+        "position": {"x": 16, "y": 13.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 6,
+        "connections": {
+          "1": {"red": [{"circuit_id": 1, "entity_rel": "0,-2"}, {"circuit_id": 2, "entity_rel": "-8,-1"}]},
+          "2": {"green": [{"circuit_id": 1, "entity_rel": "0,-1"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "%",
+            "second_constant": 10,
+            "first_signal": {"name": "signal-A", "type": "virtual"},
+            "output_signal": {"name": "signal-A", "type": "virtual"}
+          }
+        },
+        "position": {"x": 16, "y": 14.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-2.5,6"}],
+            "red": [{"circuit_id": 2, "entity_rel": "0,0"}, {"circuit_id": 2, "entity_rel": "4,2"}]
+          },
+          "2": {"green": [{"circuit_id": 1, "entity_rel": "1,0"}], "red": [{"circuit_id": 1, "entity_rel": "0,0"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "first_signal": {"name": "locomotive", "type": "item"},
+            "output_signal": {"name": "locomotive", "type": "item"},
+            "second_signal": {"name": "signal-check", "type": "virtual"}
+          }
+        },
+        "position": {"x": 6.5, "y": 17}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 4,
+        "connections": {
+          "1": {"green": [{"circuit_id": 2, "entity_rel": "-1,0"}]},
+          "2": {"green": [{"circuit_id": 1, "entity_rel": "1,0"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "second_constant": 600,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 7.5, "y": 17}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 2,
+        "connections": {
+          "1": {"green": [{"entity_rel": "-3,3.5"}], "red": [{"entity_rel": "-3,3.5"}]},
+          "2": {"red": [{"circuit_id": 1, "entity_rel": "2,0"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "second_constant": 1,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 7, "y": 19.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "connections": {
+          "1": {"green": [{"circuit_id": 2, "entity_rel": "-1,0"}]},
+          "2": {"red": [{"circuit_id": 1, "entity_rel": "2,0"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "+",
+            "second_constant": 300,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 8.5, "y": 17}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 2, "entity_rel": "2,0"}],
+            "red": [{"circuit_id": 2, "entity_rel": "-2,0"}]
+          },
+          "2": {"green": [{"circuit_id": 1, "entity_rel": "-2.5,-3.5"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "/",
+            "first_signal": {"name": "locomotive", "type": "item"},
+            "output_signal": {"name": "locomotive", "type": "item"},
+            "second_signal": {"name": "signal-C", "type": "virtual"}
+          }
+        },
+        "position": {"x": 10.5, "y": 17}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 2,
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 2, "entity_rel": "0,0"}],
+            "red": [{"circuit_id": 2, "entity_rel": "-2,0"}]
+          },
+          "2": {"green": [{"circuit_id": 1, "entity_rel": "0,0"}, {"circuit_id": 1, "entity_rel": "1.5,-0.5"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "first_signal": {"name": "locomotive", "type": "item"},
+            "output_signal": {"name": "locomotive", "type": "item"},
+            "second_signal": {"name": "signal-check", "type": "virtual"}
+          }
+        },
+        "position": {"x": 9, "y": 19.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 2, "entity_rel": "0,0"}, {"circuit_id": 2, "entity_rel": "1,0"}],
+            "red": [{"circuit_id": 1, "entity_rel": "2,0"}]
+          },
+          "2": {
+            "green": [
+              {"circuit_id": 1, "entity_rel": "-2,0"},
+              {"circuit_id": 1, "entity_rel": "-2.5,-2.5"},
+              {"circuit_id": 1, "entity_rel": "0,0"}
+            ]
+          }
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "first_signal": {"name": "signal-C", "type": "virtual"},
+            "output_signal": {"name": "signal-C", "type": "virtual"},
+            "second_signal": {"name": "signal-check", "type": "virtual"}
+          }
+        },
+        "position": {"x": 12.5, "y": 17}
+      },
+      {
+        "name": "big-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 1, "entity_rel": "2.5,-6"}, {"circuit_id": 1, "entity_rel": "3,-3.5"}],
+            "red": [{"circuit_id": 1, "entity_rel": "3,-3.5"}]
+          }
+        },
+        "neighbours": ["-5,-17", "6,-10"],
+        "position": {"x": 4, "y": 23}
+      },
+      {
+        "name": "constant-combinator",
+        "connections": {"1": {"green": [{"entity_rel": "0,1"}]}},
+        "control_behavior": {"filters": [{"count": 1, "index": 1, "signal": {"name": "signal-yellow", "type": "virtual"}}]},
+        "position": {"x": 11.5, "y": 6.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 2,
+        "connections": {"1": {"green": [{"circuit_id": 2, "entity_rel": "2.5,0"}, {"entity_rel": "-1,-3"}]}},
+        "control_behavior": {"filters": [{"count": 1, "index": 1, "signal": {"name": "signal-yellow", "type": "virtual"}}]},
+        "position": {"x": 3.5, "y": 14.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 2,
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 2, "entity_rel": "0,-1.5"}],
+            "red": [{"circuit_id": 1, "entity_rel": "3.5,0"}]
+          }
+        },
+        "control_behavior": {
+          "filters": [
+            {"count": 1, "index": 1, "signal": {"name": "signal-cyan", "type": "virtual"}},
+            {"count": 1, "index": 2, "signal": {"name": "signal-S", "type": "virtual"}}
+          ]
+        },
+        "position": {"x": 4.5, "y": 14.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 4,
+        "connections": {"1": {"green": [{"circuit_id": 1, "entity_rel": "-1.5,1"}]}},
+        "control_behavior": {
+          "filters": [
+            {"count": -1077936128, "index": 1, "signal": {"name": "signal-0", "type": "virtual"}},
+            {"count": -138412032, "index": 2, "signal": {"name": "signal-1", "type": "virtual"}},
+            {"count": -1900019712, "index": 3, "signal": {"name": "signal-2", "type": "virtual"}},
+            {"count": 1073741824, "index": 4, "signal": {"name": "signal-3", "type": "virtual"}},
+            {"count": -1178599424, "index": 5, "signal": {"name": "signal-4", "type": "virtual"}},
+            {"count": -1094713344, "index": 6, "signal": {"name": "signal-5", "type": "virtual"}},
+            {"count": 2143289344, "index": 7, "signal": {"name": "signal-6", "type": "virtual"}},
+            {"count": -1551892480, "index": 8, "signal": {"name": "signal-7", "type": "virtual"}},
+            {"count": -1631584256, "index": 9, "signal": {"name": "signal-8", "type": "virtual"}},
+            {"count": -1212153856, "index": 10, "signal": {"name": "signal-9", "type": "virtual"}},
+            {"count": -155189248, "index": 11, "signal": {"name": "signal-A", "type": "virtual"}}
+          ]
+        },
+        "position": {"x": 17.5, "y": 12.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 4,
+        "connections": {"1": {"green": [{"circuit_id": 1, "entity_rel": "-3.5,0"}]}},
+        "control_behavior": {
+          "filters": [
+            {"count": -1077936128, "index": 1, "signal": {"name": "signal-0", "type": "virtual"}},
+            {"count": -138412032, "index": 2, "signal": {"name": "signal-1", "type": "virtual"}},
+            {"count": -1900019712, "index": 3, "signal": {"name": "signal-2", "type": "virtual"}},
+            {"count": 1073741824, "index": 4, "signal": {"name": "signal-3", "type": "virtual"}},
+            {"count": -1178599424, "index": 5, "signal": {"name": "signal-4", "type": "virtual"}},
+            {"count": -1094713344, "index": 6, "signal": {"name": "signal-5", "type": "virtual"}},
+            {"count": 2143289344, "index": 7, "signal": {"name": "signal-6", "type": "virtual"}},
+            {"count": -1551892480, "index": 8, "signal": {"name": "signal-7", "type": "virtual"}},
+            {"count": -1631584256, "index": 9, "signal": {"name": "signal-8", "type": "virtual"}},
+            {"count": -1212153856, "index": 10, "signal": {"name": "signal-9", "type": "virtual"}},
+            {"count": -155189248, "index": 11, "signal": {"name": "signal-A", "type": "virtual"}}
+          ]
+        },
+        "position": {"x": 17.5, "y": 13.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 4,
+        "connections": {"1": {"green": [{"circuit_id": 1, "entity_rel": "-5.5,-1"}]}},
+        "control_behavior": {
+          "filters": [
+            {"count": -1077936128, "index": 1, "signal": {"name": "signal-0", "type": "virtual"}},
+            {"count": -138412032, "index": 2, "signal": {"name": "signal-1", "type": "virtual"}},
+            {"count": -1900019712, "index": 3, "signal": {"name": "signal-2", "type": "virtual"}},
+            {"count": 1073741824, "index": 4, "signal": {"name": "signal-3", "type": "virtual"}},
+            {"count": -1178599424, "index": 5, "signal": {"name": "signal-4", "type": "virtual"}},
+            {"count": -1094713344, "index": 6, "signal": {"name": "signal-5", "type": "virtual"}},
+            {"count": 2143289344, "index": 7, "signal": {"name": "signal-6", "type": "virtual"}},
+            {"count": -1551892480, "index": 8, "signal": {"name": "signal-7", "type": "virtual"}},
+            {"count": -1631584256, "index": 9, "signal": {"name": "signal-8", "type": "virtual"}},
+            {"count": -1212153856, "index": 10, "signal": {"name": "signal-9", "type": "virtual"}},
+            {"count": -155189248, "index": 11, "signal": {"name": "signal-A", "type": "virtual"}}
+          ]
+        },
+        "position": {"x": 17.5, "y": 14.5}
+      },
+      {
+        "name": "decider-combinator",
+        "connections": {
+          "1": {"green": [{"circuit_id": 1, "entity_rel": "1,0"}]},
+          "2": {"green": [{"circuit_id": 2, "entity_rel": "1,0"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "constant": 300,
+            "copy_count_from_input": false,
+            "first_signal": {"name": "signal-A", "type": "virtual"},
+            "output_signal": {"name": "signal-green", "type": "virtual"}
+          }
+        },
+        "position": {"x": 3.5, "y": 13}
+      },
+      {
+        "name": "decider-combinator",
+        "connections": {
+          "1": {"green": [{"circuit_id": 1, "entity_rel": "-1,0"}, {"circuit_id": 2, "entity_rel": "3.5,0.5"}]},
+          "2": {
+            "green": [{"circuit_id": 2, "entity_rel": "-1,0"}, {"entity_rel": "0,-3.5"}, {"entity_rel": "0,1.5"}]
+          }
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "<",
+            "constant": 250,
+            "copy_count_from_input": false,
+            "first_signal": {"name": "signal-A", "type": "virtual"},
+            "output_signal": {"name": "signal-red", "type": "virtual"}
+          }
+        },
+        "position": {"x": 4.5, "y": 13}
+      },
+      {
+        "name": "decider-combinator",
+        "connections": {
+          "1": {"red": [{"circuit_id": 2, "entity_rel": "2.5,1.5"}]},
+          "2": {"green": [{"circuit_id": 1, "entity_rel": "1,0"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "<",
+            "constant": 20,
+            "copy_count_from_input": false,
+            "first_signal": {"name": "signal-S", "type": "virtual"},
+            "output_signal": {"name": "signal-blue", "type": "virtual"}
+          }
+        },
+        "position": {"x": 5.5, "y": 13}
+      },
+      {
+        "name": "decider-combinator",
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 2, "entity_rel": "-1,0"}],
+            "red": [{"circuit_id": 2, "entity_rel": "1.5,0.5"}]
+          },
+          "2": {"green": [{"entity_rel": "0,-2.5"}], "red": [{"entity_rel": "0,-2.5"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "≤",
+            "constant": 15,
+            "copy_count_from_input": true,
+            "first_signal": {"name": "signal-A", "type": "virtual"},
+            "output_signal": {"name": "signal-blue", "type": "virtual"}
+          }
+        },
+        "position": {"x": 6.5, "y": 13}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 2,
+        "connections": {
+          "1": {"green": [{"circuit_id": 2, "entity_rel": "2.5,3.5"}]},
+          "2": {
+            "green": [{"circuit_id": 1, "entity_rel": "-3.5,-0.5"}, {"entity_rel": "0.5,-4"}, {"entity_rel": "2,-0.5"}],
+            "red": [{"circuit_id": 1, "entity_rel": "-1.5,-0.5"}, {"circuit_id": 1, "entity_rel": "8,1"}]
+          }
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "constant": 0,
+            "copy_count_from_input": true,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-A", "type": "virtual"}
+          }
+        },
+        "position": {"x": 8, "y": 13.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 2,
+        "connections": {
+          "1": {"green": [{"circuit_id": 2, "entity_rel": "0,0"}], "red": [{"entity_rel": "-3.5,0"}]},
+          "2": {
+            "green": [{"circuit_id": 1, "entity_rel": "0,0"}],
+            "red": [{"circuit_id": 1, "entity_rel": "-2.5,-1.5"}]
+          }
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "<",
+            "constant": 60,
+            "copy_count_from_input": true,
+            "first_signal": {"name": "signal-S", "type": "virtual"},
+            "output_signal": {"name": "signal-S", "type": "virtual"}
+          }
+        },
+        "position": {"x": 8, "y": 14.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 2,
+        "connections": {
+          "1": {"green": [{"circuit_id": 1, "entity_rel": "-4,0"}, {"circuit_id": 2, "entity_rel": "2.5,2.5"}]},
+          "2": {"red": [{"entity_rel": "-3.5,-4"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "constant": 600,
+            "copy_count_from_input": false,
+            "first_signal": {"name": "signal-C", "type": "virtual"},
+            "output_signal": {"name": "signal-white", "type": "virtual"}
+          }
+        },
+        "position": {"x": 10, "y": 14.5}
+      },
+      {
+        "name": "decider-combinator",
+        "connections": {
+          "1": {"green": [{"circuit_id": 2, "entity_rel": "-1.5,0.5"}]},
+          "2": {"red": [{"circuit_id": 1, "entity_rel": "-4,-2"}, {"circuit_id": 1, "entity_rel": "4,-2"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "constant": 10,
+            "copy_count_from_input": false,
+            "first_signal": {"name": "locomotive", "type": "item"},
+            "output_signal": {"name": "signal-check", "type": "virtual"}
+          }
+        },
+        "position": {"x": 10.5, "y": 19}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 4,
+        "connections": {
+          "1": {"green": [{"circuit_id": 2, "entity_rel": "1,0"}]},
+          "2": {"green": [{"circuit_id": 1, "entity_rel": "-1,0"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "=",
+            "constant": 1,
+            "copy_count_from_input": false,
+            "first_signal": {"name": "signal-check", "type": "virtual"},
+            "output_signal": {"name": "signal-C", "type": "virtual"}
+          }
+        },
+        "position": {"x": 13.5, "y": 17}
+      },
+      {
+        "name": "decider-combinator",
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 2, "entity_rel": "0,0"}],
+            "red": [{"circuit_id": 1, "entity_rel": "-2,0"}, {"circuit_id": 2, "entity_rel": "-4,2"}]
+          },
+          "2": {"green": [{"circuit_id": 1, "entity_rel": "-1,0"}, {"circuit_id": 1, "entity_rel": "0,0"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "<",
+            "constant": 60,
+            "copy_count_from_input": true,
+            "first_signal": {"name": "signal-check", "type": "virtual"},
+            "output_signal": {"name": "signal-check", "type": "virtual"}
+          }
+        },
+        "position": {"x": 14.5, "y": 17}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,1"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "0,1"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 51, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 0.5, "y": -0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 52, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 1.5, "y": -0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 53, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 2.5, "y": -0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 54, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 3.5, "y": -0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 55, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 4.5, "y": -0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 56, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 5.5, "y": -0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 57, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 6.5, "y": -0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 58, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 7.5, "y": -0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 59, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 8.5, "y": -0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 9.5, "y": -0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 10.5, "y": -0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 1, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 11.5, "y": -0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 2, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 12.5, "y": -0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 3, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 13.5, "y": -0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 4, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 14.5, "y": -0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 5, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 15.5, "y": -0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 6, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 16.5, "y": -0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 7, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 17.5, "y": -0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 8, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 18.5, "y": -0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 9, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 19.5, "y": -0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 50, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 0.5, "y": 0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,1"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "0,1"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 1.5, "y": 0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 49, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 0.5, "y": 1.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 1.5, "y": 1.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 2.5, "y": 0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 3.5, "y": 0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,1"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "0,1"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 90, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 2.5, "y": 1.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 84, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 3.5, "y": 1.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 48, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 0.5, "y": 2.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 1.5, "y": 2.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 47, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 0.5, "y": 3.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 1.5, "y": 3.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 90, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 2.5, "y": 2.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 90, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 2.5, "y": 3.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 4.5, "y": 0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 5.5, "y": 0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 78, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 4.5, "y": 1.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 72, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 5.5, "y": 1.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 6.5, "y": 0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 7.5, "y": 0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 66, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 6.5, "y": 1.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 60, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 7.5, "y": 1.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {"1": {"green": [{"entity_rel": "0,1"}], "red": [{"entity_rel": "0,1"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-0", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 4.5, "y": 3.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "0,1"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-1", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 5.5, "y": 3.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "0,1"}, {"entity_rel": "2,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-0", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 6.5, "y": 3.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 46, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 0.5, "y": 4.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 1.5, "y": 4.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 45, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 0.5, "y": 5.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 1.5, "y": 5.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 90, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 2.5, "y": 4.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 90, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 2.5, "y": 5.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 44, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 0.5, "y": 6.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 1.5, "y": 6.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 43, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 0.5, "y": 7.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 1.5, "y": 7.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 90, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 2.5, "y": 6.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 90, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 2.5, "y": 7.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-2", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 4.5, "y": 4.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-3", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 5.5, "y": 4.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-5", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 4.5, "y": 5.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-6", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 5.5, "y": 5.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-4", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 6.5, "y": 4.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-5", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 6.5, "y": 5.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-7", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 4.5, "y": 6.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-3", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 5.5, "y": 6.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "1,0"}], "red": [{"entity_rel": "0,-1"}]}},
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-9", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 4.5, "y": 7.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,-1"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "0,-1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 5.5, "y": 7.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-8", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 6.5, "y": 6.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [
+              {"circuit_id": 2, "entity_rel": "5.5,5"},
+              {"circuit_id": 2, "entity_rel": "5.5,6"},
+              {"entity_rel": "-1,0"},
+              {"entity_rel": "0,-1"}
+            ],
+            "red": [{"entity_rel": "0,-1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-5", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 6.5, "y": 7.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 8.5, "y": 0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 9.5, "y": 0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 54, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 8.5, "y": 1.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 48, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 9.5, "y": 1.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 10.5, "y": 0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 11.5, "y": 0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 42, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 10.5, "y": 1.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 60, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 11.5, "y": 1.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "-2,0"}, {"entity_rel": "0,1"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-0", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 8.5, "y": 3.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "0,1"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-1", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 9.5, "y": 3.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "0,1"}, {"entity_rel": "3,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-0", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 10.5, "y": 3.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 12.5, "y": 0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 13.5, "y": 0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 36, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 12.5, "y": 1.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 30, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 13.5, "y": 1.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 14.5, "y": 0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 15.5, "y": 0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 24, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 14.5, "y": 1.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 18, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 15.5, "y": 1.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "-3,0"}, {"entity_rel": "0,1"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-0", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 13.5, "y": 3.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "0,1"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-1", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 14.5, "y": 3.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {"1": {"green": [{"entity_rel": "0,1"}], "red": [{"entity_rel": "-1,0"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-0", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 15.5, "y": 3.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-2", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 8.5, "y": 4.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-3", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 9.5, "y": 4.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-5", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 8.5, "y": 5.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-6", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 9.5, "y": 5.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-4", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 10.5, "y": 4.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-5", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 10.5, "y": 5.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-7", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 8.5, "y": 6.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-3", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 9.5, "y": 6.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "1,0"}], "red": [{"entity_rel": "0,-1"}]}},
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-9", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 8.5, "y": 7.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,-1"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "0,-1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 9.5, "y": 7.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-8", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 10.5, "y": 6.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [
+              {"circuit_id": 2, "entity_rel": "3.5,5"},
+              {"circuit_id": 2, "entity_rel": "3.5,6"},
+              {"entity_rel": "-1,0"},
+              {"entity_rel": "0,-1"}
+            ],
+            "red": [{"entity_rel": "0,-1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-5", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 10.5, "y": 7.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}]}},
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
+        },
+        "position": {"x": 11.5, "y": 7.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-2", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 13.5, "y": 4.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-5", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 13.5, "y": 5.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-3", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 14.5, "y": 4.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-4", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 15.5, "y": 4.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-6", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 14.5, "y": 5.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-5", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 15.5, "y": 5.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-7", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 13.5, "y": 6.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "1,0"}], "red": [{"entity_rel": "0,-1"}]}},
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-9", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 13.5, "y": 7.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-3", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 14.5, "y": 6.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-8", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 15.5, "y": 6.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,-1"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "0,-1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 14.5, "y": 7.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 2, "entity_rel": "0.5,6"}, {"entity_rel": "-1,0"}, {"entity_rel": "0,-1"}],
+            "red": [{"entity_rel": "0,-1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-5", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 15.5, "y": 7.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 42, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 0.5, "y": 8.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 1.5, "y": 8.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 41, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 0.5, "y": 9.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 1.5, "y": 9.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 90, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 2.5, "y": 8.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 90, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 2.5, "y": 9.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 90, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 3.5, "y": 9.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 40, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 0.5, "y": 10.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 1.5, "y": 10.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 39, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 0.5, "y": 11.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 38, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 1.5, "y": 11.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 2.5, "y": 10.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 3.5, "y": 10.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}, {"entity_rel": "1,3"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 37, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 2.5, "y": 11.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 36, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 3.5, "y": 11.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 2, "entity_rel": "0,3.5"}, {"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 84, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 4.5, "y": 9.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 78, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 5.5, "y": 9.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 72, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 6.5, "y": 9.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 66, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 7.5, "y": 9.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 4.5, "y": 10.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 5.5, "y": 10.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 35, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 4.5, "y": 11.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 34, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 5.5, "y": 11.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 2, "entity_rel": "0,2.5"}, {"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [
+              {"circuit_id": 2, "entity_rel": "0,2.5"},
+              {"circuit_id": 2, "entity_rel": "3.5,4"},
+              {"entity_rel": "-1,0"},
+              {"entity_rel": "1,0"}
+            ]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 6.5, "y": 10.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 7.5, "y": 10.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 33, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 6.5, "y": 11.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 32, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 7.5, "y": 11.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 2, "entity_rel": "-0.5,4"}, {"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 60, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 8.5, "y": 9.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 54, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 9.5, "y": 9.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 48, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 10.5, "y": 9.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 42, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 11.5, "y": 9.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 8.5, "y": 10.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 9.5, "y": 10.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 31, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 8.5, "y": 11.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 30, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 9.5, "y": 11.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 10.5, "y": 10.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 11.5, "y": 10.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 30, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 10.5, "y": 11.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 29, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 11.5, "y": 11.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 36, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 12.5, "y": 9.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 30, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 13.5, "y": 9.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 24, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 14.5, "y": 9.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 18, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 15.5, "y": 9.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 12.5, "y": 10.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 13.5, "y": 10.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 28, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 12.5, "y": 11.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 27, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 13.5, "y": 11.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 14.5, "y": 10.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 15.5, "y": 10.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 26, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 14.5, "y": 11.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 25, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 15.5, "y": 11.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 16.5, "y": 0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 17.5, "y": 0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 12, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 16.5, "y": 1.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 6, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 17.5, "y": 1.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 18.5, "y": 0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 10, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 19.5, "y": 0.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 18.5, "y": 1.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 11, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 19.5, "y": 1.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 6, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 17.5, "y": 2.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 6, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 17.5, "y": 3.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 18.5, "y": 2.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 12, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 19.5, "y": 2.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 18.5, "y": 3.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 13, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 19.5, "y": 3.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 6, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 17.5, "y": 4.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 6, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 17.5, "y": 5.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 18.5, "y": 4.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 14, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 19.5, "y": 4.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 18.5, "y": 5.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 15, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 19.5, "y": 5.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 6, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 17.5, "y": 6.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 6, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 17.5, "y": 7.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 18.5, "y": 6.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 16, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 19.5, "y": 6.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 18.5, "y": 7.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 17, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 19.5, "y": 7.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 6, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 17.5, "y": 8.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 12, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 16.5, "y": 9.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,-1"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "0,-1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 6, "first_signal": {"name": "signal-A", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 17.5, "y": 9.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 18.5, "y": 8.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 18, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 19.5, "y": 8.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 18.5, "y": 9.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 19, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 19.5, "y": 9.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 16.5, "y": 10.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 17.5, "y": 10.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 24, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 16.5, "y": 11.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 23, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 17.5, "y": 11.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,-1"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "0,-1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 18.5, "y": 10.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}],
+            "red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 20, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 19.5, "y": 10.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 22, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 18.5, "y": 11.5}
+      },
+      {
+        "name": "small-lamp",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,-1"}],
+            "red": [{"entity_rel": "-1,0"}, {"entity_rel": "0,-1"}]
+          }
+        },
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": "=", "constant": 21, "first_signal": {"name": "signal-S", "type": "virtual"}},
+          "logistic_condition": {"comparator": ">", "constant": 0}
+        },
+        "position": {"x": 19.5, "y": 11.5}
+      },
+      {"name": "substation", "neighbours": ["-11,8", "0,15", "11,8"], "position": {"x": 10, "y": -2}},
+      {"name": "substation", "neighbours": ["11,-8", "5,17"], "position": {"x": -1, "y": 6}},
+      {
+        "name": "substation",
+        "connections": {"1": {"green": [{"circuit_id": 2, "entity_rel": "-2,0.5"}]}},
+        "neighbours": ["-6,10", "0,-15"],
+        "position": {"x": 10, "y": 13}
+      },
+      {"name": "substation", "neighbours": ["-11,-8"], "position": {"x": 21, "y": 6}}
+    ],
+    "icons": [
+      {"index": 1, "signal": {"name": "locomotive", "type": "item"}},
+      {"index": 2, "signal": {"name": "signal-R", "type": "virtual"}},
+      {"index": 3, "signal": {"name": "signal-A", "type": "virtual"}},
+      {"index": 4, "signal": {"name": "signal-T", "type": "virtual"}}
+    ]
+  }
+}
