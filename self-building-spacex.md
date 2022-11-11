@@ -371,10 +371,10 @@ Now repeat all that but on a Vulcanite world!
 
 Instead of "bulk" heavy oil replacing petroleum gas, that stays but
 sulfur needs to be added.  To do this, add a sulfur filter to the two
-loaders off the red warehouses **and to the requester chest** feeding the
-same belt (for cleaning up after crashed rockets).  Also add a third
-rocket silo that transports enriched vulcanite to yet another pad in
-the bulk receiver.
+blue loaders off the red warehouses and the two red loaders off the
+yellow warehouses (for cleaning up after crashed rockets).  Also add a
+third rocket silo that transports enriched vulcanite to yet another
+pad in the bulk receiver.
 
 Nauvis will now be well supplied with both Cryonite and Vulcanite so
 it's time to go to space and build a "space mall" for all the things
@@ -496,12 +496,12 @@ around the station.  Neither will fetch barrels of the set type until
 there is an LTN requester for that fluid somewhere on the planet.
 
 Later on, if it's necessary to bring it material in significant
-quantities, they can be configured in the "bulk" combinator.  Set the
-filters in the blue loaders from the red warehouse chests to match and
-all this will be made available via a rail provider station.  (Don't
-remove the existing filter item -- burner miners -- because if the
-loader becomes "unfiltered" then everything will get sent to the
-station.)
+quantities, they can be configured in the "bulk" combinator (it
+actually says "bulk" next to it).  Set the filters in the blue loaders
+from the red warehouse chests to match and all this will be made
+available via a rail provider station.  (Don't remove the existing
+filter item -- burner miners -- because if the loader becomes
+"unfiltered" then everything will get sent to the station.)
 
 The personal rocket allows flying around with a full load of cargo,
 making it available via logistics, and the re-loading a new rocket for
