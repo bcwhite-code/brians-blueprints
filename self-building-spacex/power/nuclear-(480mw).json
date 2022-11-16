@@ -2349,7 +2349,10 @@
         "parameters": {"allow_polyphony": true, "playback_globally": true, "playback_volume": 0},
         "position": {"x": 20.5, "y": 38.5}
       },
+      {"name": "rail-chain-signal", "position": {"x": 93.5, "y": -5.5}},
+      {"name": "rail-chain-signal", "direction": 1, "position": {"x": 91.5, "y": -0.5}},
       {"name": "rail-chain-signal", "direction": 1, "position": {"x": -8.5, "y": 97.5}},
+      {"name": "rail-chain-signal", "direction": 2, "position": {"x": -6.5, "y": 99.5}},
       {"name": "rail-chain-signal", "position": {"x": 93.5, "y": 84.5}},
       {"name": "rail-chain-signal", "direction": 4, "position": {"x": 100.5, "y": 83.5}},
       {"name": "rail-chain-signal", "direction": 2, "position": {"x": 97.5, "y": 89.5}},
@@ -2358,8 +2361,7 @@
       {"name": "rail-chain-signal", "position": {"x": 83.5, "y": 102.5}},
       {"name": "rail-chain-signal", "direction": 4, "position": {"x": 110.5, "y": 103.5}},
       {"name": "rail-chain-signal", "direction": 6, "position": {"x": 96.5, "y": 116.5}},
-      {"name": "rail-signal", "direction": 1, "position": {"x": 91.5, "y": -0.5}},
-      {"name": "rail-signal", "direction": 6, "position": {"x": -12.5, "y": 106.5}},
+      {"name": "rail-signal", "position": {"x": 93.5, "y": 2.5}},
       {"name": "rail-signal", "position": {"x": 85.5, "y": 39.5}},
       {"name": "rail-signal", "position": {"x": 89.5, "y": 39.5}},
       {"name": "rail-signal", "direction": 2, "position": {"x": 1.5, "y": 91.5}},
@@ -2368,7 +2370,18 @@
       {"name": "rail-signal", "direction": 4, "position": {"x": 100.5, "y": 75.5}},
       {"name": "rail-signal", "direction": 2, "position": {"x": 69.5, "y": 99.5}},
       {"name": "roboport", "position": {"x": 40, "y": 48}},
-      {"name": "roboport", "position": {"x": 71, "y": 44}},
+      {
+        "name": "roboport",
+        "control_behavior": {
+          "read_logistics": false,
+          "read_robot_stats": true,
+          "available_construction_output_signal": {"type": "item"},
+          "available_logistic_output_signal": {"type": "item"},
+          "total_construction_output_signal": {"name": "construction-robot", "type": "item"},
+          "total_logistic_output_signal": {"name": "logistic-robot", "type": "item"}
+        },
+        "position": {"x": 71, "y": 44}
+      },
       {
         "name": "roboport",
         "control_behavior": {"read_logistics": false, "read_robot_stats": true},

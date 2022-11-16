@@ -2697,7 +2697,12 @@
         "position": {"x": 6, "y": 24.5}
       },
       {"name": "pump", "direction": 4, "position": {"x": 8.5, "y": 33}},
+      {"name": "rail-chain-signal", "direction": 2, "position": {"x": 88.5, "y": -1.5}},
+      {"name": "rail-chain-signal", "position": {"x": 100.5, "y": -12.5}},
+      {"name": "rail-chain-signal", "direction": 1, "position": {"x": 98.5, "y": -7.5}},
       {"name": "rail-chain-signal", "direction": 1, "position": {"x": -1.5, "y": 90.5}},
+      {"name": "rail-chain-signal", "position": {"x": 92.5, "y": 3.5}},
+      {"name": "rail-chain-signal", "direction": 2, "position": {"x": 0.5, "y": 92.5}},
       {"name": "rail-chain-signal", "direction": 2, "position": {"x": 84.5, "y": 92.5}},
       {"name": "rail-chain-signal", "position": {"x": 90.5, "y": 95.5}},
       {"name": "rail-chain-signal", "position": {"x": 100.5, "y": 77.5}},
@@ -2708,18 +2713,26 @@
       {"name": "rail-chain-signal", "direction": 4, "position": {"x": 117.5, "y": 96.5}},
       {"name": "rail-signal", "direction": 2, "position": {"x": 16.5, "y": -1.5}},
       {"name": "rail-signal", "direction": 2, "position": {"x": 59.5, "y": -1.5}},
-      {"name": "rail-signal", "direction": 2, "position": {"x": 89.5, "y": -1.5}},
-      {"name": "rail-signal", "direction": 1, "position": {"x": 98.5, "y": -7.5}},
-      {"name": "rail-signal", "direction": 6, "position": {"x": -5.5, "y": 99.5}},
+      {"name": "rail-signal", "position": {"x": 100.5, "y": -4.5}},
       {"name": "rail-signal", "position": {"x": 2.5, "y": 38.5}},
-      {"name": "rail-signal", "position": {"x": 92.5, "y": 2.5}},
       {"name": "rail-signal", "position": {"x": 2.5, "y": 83.5}},
       {"name": "rail-signal", "direction": 2, "position": {"x": 8.5, "y": 84.5}},
-      {"name": "rail-signal", "position": {"x": 92.5, "y": 75.5}},
       {"name": "rail-signal", "direction": 2, "position": {"x": 76.5, "y": 92.5}},
+      {"name": "rail-signal", "direction": 1, "position": {"x": 89.5, "y": 81.5}},
       {"name": "rail-signal", "direction": 4, "position": {"x": 107.5, "y": 68.5}},
       {"name": "roboport", "position": {"x": 48, "y": 41}},
-      {"name": "roboport", "position": {"x": 78, "y": 37}},
+      {
+        "name": "roboport",
+        "control_behavior": {
+          "read_logistics": false,
+          "read_robot_stats": true,
+          "available_construction_output_signal": {"type": "item"},
+          "available_logistic_output_signal": {"type": "item"},
+          "total_construction_output_signal": {"name": "construction-robot", "type": "item"},
+          "total_logistic_output_signal": {"name": "logistic-robot", "type": "item"}
+        },
+        "position": {"x": 78, "y": 37}
+      },
       {
         "name": "roboport",
         "control_behavior": {"read_logistics": false, "read_robot_stats": true},
@@ -2728,6 +2741,7 @@
       {
         "name": "se-rocket-launch-pad",
         "connections": {"1": {"green": [{"entity_rel": "-4.5,-5.5"}, {"entity_rel": "3.5,7.5"}]}},
+        "filters": [{"name": "se-cargo-rocket-section", "index": 499}, {"name": "se-space-capsule", "index": 500}],
         "position": {"x": 23, "y": 73}
       },
       {"name": "small-lamp", "position": {"x": 104.5, "y": -12.5}},
