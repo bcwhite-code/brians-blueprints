@@ -708,11 +708,9 @@ the head of the orbital fluid station.
 Receves items from ships and transports them to the ground, thus
 avoiding the need for rocket engines to leave the planet surface.
 
-To use this, simply have docked ships dump their contents into the big
-warehouses at the bottom of the orbital station.  Copy/paste as many
-of these as necessary; up to 25 will fit below the long merged chest,
-though more than 3 per item type won't make train loading go any
-faster.  No configuration is necessary.
+There is room for up to 12 LTN provider stations; just duplicate the
+one there to align with the other big power poles.  Each should
+provide a different type of item.
 
 There are six 8-car trains in the space depot hub for handling these
 requests.  Smaller trains can be added if necessary.  **Don't set them
