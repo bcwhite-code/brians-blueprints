@@ -489,11 +489,12 @@ build items will be included in the next rocket delivery.
 
 There are three bulk provider stations: two fluid and one item.
 
-One fluid is configured to fetch and provide sulfulic acid (typically
+One fluid is configured to fetch and provide Sulfulic Acid (typically
 for mining purpores).  The other is set for Petroleum Gas but this can
 be changed to any other fluid simply by changing the type everywhere
 around the station.  Neither will fetch barrels of the set type until
-there is an LTN requester for that fluid somewhere on the planet.
+the constant combinator with the "W" setting is turned on; this
+prevents fetching those fluids enless they're actually needed.
 
 Later on, if it's necessary to bring it material in significant
 quantities, they can be configured in the "bulk" combinator (it
@@ -554,7 +555,7 @@ everything back in order.
 
 The stone/steel furnace has a chest for coal.  Manually fill this.
 
-Set refinecy recipe to basic processing (output only methane) until
+Set refinecy recipe to basic processing (output only petroleum gas) until
 "advanced oil processing" is researched (requires blue science).
 
 There are inputs from outside the block for various simple materials.
@@ -645,12 +646,11 @@ supplies, configure this block:
 * Change the destination of the ice cannon to be the receiver chest next to the reactor and turn it on.
 * Change the destination of the two rocket fuel cannons to be the receiver chest besider the station and turn them on.
 * Change the destination of the rocket silo to be "(world)/Home" with a launch trigger of "launch on green signal or when cargo full".
-e
 
 This can also be used for "non home" bases such as in space.  Any
 landing pad will do.  Signaling works like this:
 
-* green wire: General request.  Everything here will be loaded "best effort" into the rocket.  Smaller requests may be deferred so as to not request too many trains.
+* green wire: General request.  Everything here will be loaded "best effort" into the rocket.  Smaller requests may be deferred so as to not request too many trains.  Include the receiving pad's contents in the local availability so that everything is counted from the moment the rocket lands.
 * red wire: Required items and control.  If items are sent this way, they will be prioritized in the request and the rocket will launch soon aftero all the required items are loaded.  The requirement **must not be greater than** the general request (i.e. green wire) or it will never be fulfilled.
 
 The following signals on the red wire will affect the launch:
