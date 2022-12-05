@@ -206,11 +206,12 @@ in full swing by this point so it's time to revert all downgrades made to
 earlier blocks.  Prod-3 requires vulcanite, and a lot of it, which comes
 later.
 
-Start the cargo rocket requesting the items for "CORE" to go do mining
-on another planet.  The Mall's production of delivery capsules isn't
-enough even if delivery canon capsules have been running continuously
-since returning from orbit but the dedicated block will speed things
-up.  While that is happening...
+Start the cargo rocket requesting the items for delivery canon core mining
+(shown as a core miner, delivery canon, and "8H") to go do mining on another
+planet; it has enough supplies to run for about eight hours.  The Mall's
+production of delivery capsules isn't enough even if delivery canon capsules
+have been running continuously since returning from orbit but the dedicated
+block will speed things up.  While that is happening...
 
 * Basic Cores (Nauvis).
 * Cryonite Cores.
