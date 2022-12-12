@@ -659,6 +659,15 @@ The following signals on the red wire will affect the launch:
 * red X: Don't launch unless full, regardless of the "required items" request.
 * F: The allowed number of _empty_ slots that still counts as a "full" rocket.  (It's "F" because it is added to the rocket's natural "F" and compared to 500.)
 
+When the rocket launches depends upon the contents of the two
+wires. If it is a green-only request, the rocket will launch when
+full.  If there is a request on the red wire _and it is completely
+fulfilled_ then the rocket will launch "soon".  Because rocket
+launches are expensive, "soon" gives some time to collect other green
+requests in the process of being fulfilled.  The exact time of "soon"
+depends upon the number of distinct red items and how full the rocket
+is.
+
 
 ### Space Launch System
 
