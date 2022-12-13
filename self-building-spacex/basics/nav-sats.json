@@ -735,12 +735,7 @@
         "neighbours": ["13,-5", "3.5,1.5", "8,14"],
         "position": {"x": 3, "y": 53}
       },
-      {
-        "name": "big-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "-4.5,7.5"}, {"entity_rel": "0,-5"}]}},
-        "neighbours": ["-13,5"],
-        "position": {"x": 16, "y": 48}
-      },
+      {"name": "big-electric-pole", "neighbours": ["-0.5,-6.5", "-13,5"], "position": {"x": 16, "y": 48}},
       {
         "name": "big-electric-pole",
         "connections": {
@@ -1958,7 +1953,11 @@
       },
       {"name": "medium-electric-pole", "neighbours": ["5,0"], "position": {"x": 5.5, "y": 41.5}},
       {"name": "medium-electric-pole", "neighbours": ["-5,0", "5,0"], "position": {"x": 10.5, "y": 41.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-5,0", "6,-2"], "position": {"x": 15.5, "y": 41.5}},
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-5,0", "0.5,6.5", "6,-2"],
+        "position": {"x": 15.5, "y": 41.5}
+      },
       {"name": "medium-electric-pole", "neighbours": ["-6,2", "0,-8"], "position": {"x": 21.5, "y": 39.5}},
       {
         "name": "medium-electric-pole",
@@ -1984,7 +1983,7 @@
             "green": [
               {"circuit_id": 1, "entity_rel": "-1.5,-5"},
               {"entity_rel": "-5,-1"},
-              {"entity_rel": "4.5,-7.5"},
+              {"entity_rel": "3,-5"},
               {"entity_rel": "7,0"}
             ],
             "red": [{"entity_rel": "7,0"}]
@@ -2175,23 +2174,6 @@
         "connections": {"1": {"green": [{"entity_rel": "-7,0"}], "red": [{"entity_rel": "-7,0"}]}},
         "neighbours": ["-7,0", "0,-3"],
         "position": {"x": 69.5, "y": 58.5}
-      },
-      {
-        "name": "power-switch",
-        "switch_state": false,
-        "connections": {
-          "1": {"green": [{"entity_rel": "0,5"}]},
-          "Cu0": [{"entity_rel": "0,5", "wire_id": 0}],
-          "Cu1": [{"entity_rel": "-0.5,-1.5", "wire_id": 0}]
-        },
-        "control_behavior": {
-          "circuit_condition": {
-            "comparator": "<",
-            "constant": 8000,
-            "first_signal": {"name": "se-satellite-telemetry", "type": "item"}
-          }
-        },
-        "position": {"x": 16, "y": 43}
       },
       {"name": "rail-chain-signal", "position": {"x": 95.5, "y": -41.5}},
       {"name": "rail-chain-signal", "direction": 1, "position": {"x": 93.5, "y": -36.5}},
@@ -4016,6 +3998,7 @@
       {
         "name": "transport-belt",
         "direction": 4,
+        "connections": {"1": {"green": [{"entity_rel": "-3,5"}]}},
         "control_behavior": {
           "circuit_contents_read_mode": 0,
           "circuit_enable_disable": true,

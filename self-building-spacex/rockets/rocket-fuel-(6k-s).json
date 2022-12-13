@@ -727,6 +727,12 @@
       },
       {
         "name": "big-electric-pole",
+        "connections": {"1": {"green": [{"entity_rel": "0,22"}], "red": [{"entity_rel": "0,22"}]}},
+        "neighbours": ["0,22"],
+        "position": {"x": 102, "y": -14}
+      },
+      {
+        "name": "big-electric-pole",
         "connections": {
           "1": {
             "green": [{"entity_rel": "-4,25"}, {"entity_rel": "15,-11"}],
@@ -777,8 +783,13 @@
       },
       {
         "name": "big-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "0,22"}], "red": [{"entity_rel": "0,22"}]}},
-        "neighbours": ["0,22"],
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-22"}, {"entity_rel": "0,22"}],
+            "red": [{"entity_rel": "0,-22"}, {"entity_rel": "0,22"}]
+          }
+        },
+        "neighbours": ["0,-22", "0,22"],
         "position": {"x": 102, "y": 8}
       },
       {
@@ -2538,16 +2549,17 @@
       },
       {
         "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "-2.5,6.5"}, {"entity_rel": "0,-9"}]}},
-        "neighbours": ["0,-9"],
+        "connections": {"1": {"green": [{"entity_rel": "0,-9"}]}},
+        "neighbours": ["-3,7", "0,-9"],
         "position": {"x": 19.5, "y": 12.5}
       },
       {
         "name": "medium-electric-pole",
-        "neighbours": ["-6,1", "0,9", "8,1"],
+        "neighbours": ["-6,1", "0,9", "1,-8", "8,1"],
         "position": {"x": 15.5, "y": 27.5}
       },
       {"name": "medium-electric-pole", "neighbours": ["6,-1"], "position": {"x": 9.5, "y": 28.5}},
+      {"name": "medium-electric-pole", "neighbours": ["-1,8", "3,-7"], "position": {"x": 16.5, "y": 19.5}},
       {
         "name": "medium-electric-pole",
         "neighbours": ["-8,-1", "8,-1"],
@@ -2653,7 +2665,7 @@
       },
       {"name": "medium-electric-pole", "neighbours": ["-9,0", "5,-7"], "position": {"x": 73.5, "y": 43.5}},
       {"name": "medium-electric-pole", "neighbours": ["0,-8", "0,7"], "position": {"x": 64.5, "y": 51.5}},
-      {"name": "medium-electric-pole", "neighbours": ["0,-7"], "position": {"x": 64.5, "y": 58.5}},
+      {"name": "medium-electric-pole", "neighbours": ["0,-7", "0,7"], "position": {"x": 64.5, "y": 58.5}},
       {"name": "medium-electric-pole", "position": {"x": 78.5, "y": 58.5}},
       {
         "name": "medium-electric-pole",
@@ -2794,11 +2806,16 @@
       },
       {"name": "medium-electric-pole", "neighbours": ["-5,-1", "0,5"], "position": {"x": 38.5, "y": 67.5}},
       {"name": "medium-electric-pole", "neighbours": ["0,-6", "5,0"], "position": {"x": 33.5, "y": 72.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-5,0", "0,-5"], "position": {"x": 38.5, "y": 72.5}},
       {
         "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "-4,5"}, {"entity_rel": "1.5,-10.5"}]}},
-        "neighbours": ["3,5"],
+        "neighbours": ["-5,0", "0,-5", "0,6"],
+        "position": {"x": 38.5, "y": 72.5}
+      },
+      {"name": "medium-electric-pole", "neighbours": ["-3,6", "0,-6"], "position": {"x": 38.5, "y": 78.5}},
+      {
+        "name": "medium-electric-pole",
+        "connections": {"1": {"green": [{"entity_rel": "-4,5"}]}},
+        "neighbours": ["2,-7", "3,5"],
         "position": {"x": 62.5, "y": 79.5}
       },
       {
@@ -2809,7 +2826,7 @@
             "red": [{"entity_rel": "-7,0"}, {"entity_rel": "7,0"}]
           }
         },
-        "neighbours": ["-7,0", "0,3", "7,0"],
+        "neighbours": ["-7,0", "0,3", "3,-6", "7,0"],
         "position": {"x": 35.5, "y": 84.5}
       },
       {
@@ -2825,9 +2842,7 @@
       },
       {
         "name": "medium-electric-pole",
-        "connections": {
-          "1": {"green": [{"entity_rel": "-1.5,-8.5"}, {"entity_rel": "-7,0"}], "red": [{"entity_rel": "-7,0"}]}
-        },
+        "connections": {"1": {"green": [{"entity_rel": "-7,0"}], "red": [{"entity_rel": "-7,0"}]}},
         "neighbours": ["-7,0", "0,3"],
         "position": {"x": 42.5, "y": 84.5}
       },
@@ -2853,6 +2868,8 @@
         "neighbours": ["-5,-2", "7,0"],
         "position": {"x": 58.5, "y": 84.5}
       },
+      {"name": "medium-electric-pole", "neighbours": ["0,-7", "0,7"], "position": {"x": 64.5, "y": 65.5}},
+      {"name": "medium-electric-pole", "neighbours": ["-2,7", "0,-7"], "position": {"x": 64.5, "y": 72.5}},
       {"name": "medium-electric-pole", "neighbours": ["-1,5"], "position": {"x": 73.5, "y": 79.5}},
       {
         "name": "medium-electric-pole",
@@ -3265,57 +3282,6 @@
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 67.5, "y": 87.5}},
       {"name": "pipe-to-ground", "position": {"x": 72.5, "y": 81.5}},
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 72.5, "y": 89.5}},
-      {
-        "name": "power-switch",
-        "switch_state": false,
-        "connections": {
-          "1": {"green": [{"entity_rel": "2.5,-6.5"}]},
-          "Cu0": [{"entity_rel": "-1.5,8.5", "wire_id": 0}],
-          "Cu1": [{"entity_rel": "2.5,-6.5", "wire_id": 0}]
-        },
-        "control_behavior": {
-          "circuit_condition": {
-            "comparator": "<",
-            "constant": 380000,
-            "first_signal": {"name": "se-liquid-rocket-fuel", "type": "fluid"}
-          }
-        },
-        "position": {"x": 17, "y": 19}
-      },
-      {
-        "name": "power-switch",
-        "switch_state": false,
-        "connections": {
-          "1": {"green": [{"entity_rel": "1.5,8.5"}]},
-          "Cu0": [{"entity_rel": "1.5,8.5", "wire_id": 0}],
-          "Cu1": [{"entity_rel": "-2.5,-3.5", "wire_id": 0}]
-        },
-        "control_behavior": {
-          "circuit_condition": {
-            "comparator": "<",
-            "constant": 3200,
-            "first_signal": {"name": "se-liquid-rocket-fuel-barrel", "type": "item"}
-          }
-        },
-        "position": {"x": 41, "y": 76}
-      },
-      {
-        "name": "power-switch",
-        "switch_state": false,
-        "connections": {
-          "1": {"green": [{"entity_rel": "-1.5,10.5"}]},
-          "Cu0": [{"entity_rel": "-1.5,10.5", "wire_id": 0}],
-          "Cu1": [{"entity_rel": "0.5,-10.5", "wire_id": 0}]
-        },
-        "control_behavior": {
-          "circuit_condition": {
-            "comparator": "<",
-            "constant": 190000,
-            "first_signal": {"name": "se-liquid-rocket-fuel", "type": "fluid"}
-          }
-        },
-        "position": {"x": 64, "y": 69}
-      },
       {
         "name": "pump",
         "direction": 4,
@@ -3883,6 +3849,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 0.5, "y": 48.5}
       },
       {
@@ -3890,6 +3857,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 0.5, "y": 49.5}
       },
       {
@@ -3897,6 +3865,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 3.5, "y": 48.5}
       },
       {
@@ -3904,6 +3873,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 3.5, "y": 49.5}
       },
       {
@@ -3911,6 +3881,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 0.5, "y": 50.5}
       },
       {
@@ -3918,6 +3889,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 0.5, "y": 51.5}
       },
       {
@@ -3925,6 +3897,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 3.5, "y": 50.5}
       },
       {
@@ -3932,6 +3905,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 3.5, "y": 51.5}
       },
       {
@@ -3939,6 +3913,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 0.5, "y": 52.5}
       },
       {
@@ -3946,6 +3921,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 0.5, "y": 53.5}
       },
       {
@@ -3953,6 +3929,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 3.5, "y": 52.5}
       },
       {
@@ -3960,6 +3937,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 3.5, "y": 53.5}
       },
       {
@@ -3967,6 +3945,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 0.5, "y": 55.5}
       },
       {
@@ -3974,6 +3953,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 3.5, "y": 55.5}
       },
       {
@@ -3981,6 +3961,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 0.5, "y": 56.5}
       },
       {
@@ -3988,6 +3969,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 0.5, "y": 57.5}
       },
       {
@@ -3995,6 +3977,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 3.5, "y": 56.5}
       },
       {
@@ -4002,6 +3985,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 3.5, "y": 57.5}
       },
       {
@@ -4009,6 +3993,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 0.5, "y": 58.5}
       },
       {
@@ -4016,6 +4001,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 0.5, "y": 59.5}
       },
       {
@@ -4023,6 +4009,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 3.5, "y": 58.5}
       },
       {
@@ -4030,6 +4017,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 3.5, "y": 59.5}
       },
       {
@@ -4037,6 +4025,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 0.5, "y": 60.5}
       },
       {
@@ -4044,6 +4033,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 3.5, "y": 60.5}
       },
       {
@@ -4051,6 +4041,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 0.5, "y": 62.5}
       },
       {
@@ -4058,6 +4049,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 0.5, "y": 63.5}
       },
       {
@@ -4065,6 +4057,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 3.5, "y": 62.5}
       },
       {
@@ -4072,6 +4065,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 3.5, "y": 63.5}
       },
       {
@@ -4079,6 +4073,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 0.5, "y": 64.5}
       },
       {
@@ -4086,6 +4081,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 0.5, "y": 65.5}
       },
       {
@@ -4093,6 +4089,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 3.5, "y": 64.5}
       },
       {
@@ -4100,6 +4097,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 3.5, "y": 65.5}
       },
       {
@@ -4107,6 +4105,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 0.5, "y": 66.5}
       },
       {
@@ -4114,6 +4113,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 0.5, "y": 67.5}
       },
       {
@@ -4121,6 +4121,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 3.5, "y": 66.5}
       },
       {
@@ -4128,6 +4129,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 3.5, "y": 67.5}
       },
       {
@@ -4135,6 +4137,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 0.5, "y": 69.5}
       },
       {
@@ -4142,6 +4145,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 3.5, "y": 69.5}
       },
       {
@@ -4149,6 +4153,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 0.5, "y": 70.5}
       },
       {
@@ -4156,6 +4161,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 0.5, "y": 71.5}
       },
       {
@@ -4163,6 +4169,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 3.5, "y": 70.5}
       },
       {
@@ -4170,6 +4177,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 3.5, "y": 71.5}
       },
       {
@@ -4177,6 +4185,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 0.5, "y": 72.5}
       },
       {
@@ -4184,6 +4193,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 0.5, "y": 73.5}
       },
       {
@@ -4191,6 +4201,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 3.5, "y": 72.5}
       },
       {
@@ -4198,6 +4209,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 3.5, "y": 73.5}
       },
       {
@@ -4207,6 +4219,7 @@
           "1": {"green": [{"circuit_id": 2, "entity_rel": "0,5.5"}, {"entity_rel": "0,-1"}, {"entity_rel": "3,0"}]}
         },
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 0.5, "y": 74.5}
       },
       {
@@ -4214,6 +4227,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "-3,0"}, {"entity_rel": "0,-1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "rocket-fuel", "index": 1}],
         "position": {"x": 3.5, "y": 74.5}
       },
       {

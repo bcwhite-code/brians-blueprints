@@ -718,6 +718,17 @@
         "name": "big-electric-pole",
         "connections": {"1": {"green": [{"entity_rel": "0,22"}], "red": [{"entity_rel": "0,22"}]}},
         "neighbours": ["0,22"],
+        "position": {"x": 84, "y": -85}
+      },
+      {
+        "name": "big-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-22"}, {"entity_rel": "0,22"}],
+            "red": [{"entity_rel": "0,-22"}, {"entity_rel": "0,22"}]
+          }
+        },
+        "neighbours": ["0,-22", "0,22"],
         "position": {"x": 84, "y": -63}
       },
       {
@@ -1280,7 +1291,7 @@
         "name": "decider-combinator",
         "connections": {
           "1": {"green": [{"entity_rel": "-3,2.5"}], "red": [{"entity_rel": "0,1.5"}]},
-          "2": {"green": [{"entity_rel": "1.5,-5"}]}
+          "2": {"green": [{"entity_rel": "3,-7.5"}]}
         },
         "control_behavior": {
           "decider_conditions": {
@@ -1326,9 +1337,15 @@
       {"name": "fast-underground-belt", "type": "input", "position": {"x": 17.5, "y": 18.5}},
       {"name": "fast-underground-belt", "type": "input", "position": {"x": 21.5, "y": 18.5}},
       {"name": "inserter", "position": {"x": 8.5, "y": -9.5}},
+      {"name": "inserter", "position": {"x": 9.5, "y": -9.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 8.5, "y": -7.5}},
+      {"name": "inserter", "direction": 4, "position": {"x": 9.5, "y": -7.5}},
+      {"name": "inserter", "position": {"x": 34.5, "y": -9.5}},
       {"name": "inserter", "position": {"x": 35.5, "y": -9.5}},
+      {"name": "inserter", "direction": 4, "position": {"x": 34.5, "y": -7.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 35.5, "y": -7.5}},
+      {"name": "iron-chest", "bar": 2, "position": {"x": 9.5, "y": -8.5}},
+      {"name": "iron-chest", "bar": 2, "position": {"x": 34.5, "y": -8.5}},
       {"name": "iron-chest", "position": {"x": -2.5, "y": 12.5}},
       {"name": "iron-chest", "position": {"x": -1.5, "y": 12.5}},
       {"name": "iron-chest", "position": {"x": -0.5, "y": 12.5}},
@@ -1605,7 +1622,7 @@
         "name": "medium-electric-pole",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "-1,4"}, {"entity_rel": "-5.5,6.5"}, {"entity_rel": "0,-6"}, {"entity_rel": "7,0"}],
+            "green": [{"entity_rel": "-1,4"}, {"entity_rel": "0,-6"}, {"entity_rel": "7,0"}],
             "red": [{"entity_rel": "0,-6"}]
           }
         },
@@ -1841,19 +1858,6 @@
         "connections": {"1": {"green": [{"entity_rel": "-7,0"}], "red": [{"entity_rel": "-7,0"}]}},
         "neighbours": ["-7,0", "0,-3"],
         "position": {"x": 24.5, "y": 16.5}
-      },
-      {
-        "name": "power-switch",
-        "switch_state": false,
-        "connections": {
-          "1": {"green": [{"circuit_id": 2, "entity_rel": "-1.5,5"}, {"entity_rel": "5.5,-6.5"}]},
-          "Cu0": [{"entity_rel": "-4.5,7.5", "wire_id": 0}],
-          "Cu1": [{"entity_rel": "5.5,-6.5", "wire_id": 0}]
-        },
-        "control_behavior": {
-          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
-        },
-        "position": {"x": 2, "y": -1}
       },
       {"name": "rail-chain-signal", "position": {"x": 80.5, "y": -83.5}},
       {"name": "rail-chain-signal", "direction": 1, "position": {"x": 78.5, "y": -78.5}},
@@ -2938,7 +2942,7 @@
       {
         "name": "transport-belt",
         "direction": 4,
-        "connections": {"1": {"green": [{"entity_rel": "1,0"}]}},
+        "connections": {"1": {"green": [{"circuit_id": 2, "entity_rel": "-3,7.5"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {
           "circuit_contents_read_mode": 0,
           "circuit_enable_disable": true,

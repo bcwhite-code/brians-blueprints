@@ -1713,9 +1713,6 @@
         "neighbours": ["-3.5,-0.5", "5,2", "5,5"],
         "position": {"x": -30.5, "y": -0.5}
       },
-      {"name": "medium-electric-pole", "neighbours": ["-6,6", "9,0"], "position": {"x": 11.5, "y": -64.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-9,0", "9,0"], "position": {"x": 20.5, "y": -64.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-9,0"], "position": {"x": 29.5, "y": -64.5}},
       {"name": "medium-electric-pole", "neighbours": ["7,1"], "position": {"x": 43.5, "y": -80.5}},
       {
         "name": "medium-electric-pole",
@@ -1725,23 +1722,11 @@
       {"name": "medium-electric-pole", "neighbours": ["0,-7", "0,7"], "position": {"x": 50.5, "y": -72.5}},
       {
         "name": "medium-electric-pole",
-        "connections": {
-          "1": {
-            "green": [{"entity_rel": "-1,7"}, {"entity_rel": "-3,-1"}, {"entity_rel": "-7,3"}, {"entity_rel": "5,0"}]
-          }
-        },
+        "connections": {"1": {"green": [{"entity_rel": "-1,7"}, {"entity_rel": "-3,-1"}, {"entity_rel": "5,0"}]}},
         "neighbours": ["-2,5", "0,-7"],
         "position": {"x": 50.5, "y": -65.5}
       },
-      {"name": "medium-electric-pole", "neighbours": ["0,9", "6,-6"], "position": {"x": 5.5, "y": -58.5}},
-      {"name": "medium-electric-pole", "neighbours": ["0,-9", "0,9"], "position": {"x": 5.5, "y": -49.5}},
-      {"name": "medium-electric-pole", "neighbours": ["0,-9", "0,9"], "position": {"x": 5.5, "y": -40.5}},
-      {
-        "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "-5.5,-5.5"}, {"entity_rel": "7,-3"}]}},
-        "neighbours": ["5,2"],
-        "position": {"x": 43.5, "y": -62.5}
-      },
+      {"name": "medium-electric-pole", "neighbours": ["5,2"], "position": {"x": 43.5, "y": -62.5}},
       {
         "name": "medium-electric-pole",
         "connections": {"1": {"green": [{"entity_rel": "1,2"}], "red": [{"entity_rel": "1,2"}]}},
@@ -1749,11 +1734,16 @@
         "position": {"x": 48.5, "y": -60.5}
       },
       {"name": "medium-electric-pole", "neighbours": ["-5.5,1.5"], "position": {"x": 38.5, "y": -46.5}},
-      {"name": "medium-electric-pole", "neighbours": ["0,-9", "0,9"], "position": {"x": 5.5, "y": -31.5}},
+      {"name": "medium-electric-pole", "neighbours": ["0,8"], "position": {"x": 5.5, "y": -29.5}},
       {
         "name": "medium-electric-pole",
-        "neighbours": ["-0.5,8.5", "0,-9"],
-        "position": {"x": 5.5, "y": -22.5}
+        "neighbours": ["-0.5,7.5", "0,-8"],
+        "position": {"x": 5.5, "y": -21.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-0.5,-8.5", "-3,7"],
+        "position": {"x": 5.5, "y": -5.5}
       },
       {"name": "medium-electric-pole", "position": {"x": 38.5, "y": -24.5}},
       {
@@ -1847,7 +1837,7 @@
             "red": [{"entity_rel": "-7,0"}, {"entity_rel": "2,-1"}, {"entity_rel": "7,0"}]
           }
         },
-        "neighbours": ["-7,0", "0,3", "7,0"],
+        "neighbours": ["-7,0", "0,3", "3,-7", "7,0"],
         "position": {"x": 2.5, "y": 1.5}
       },
       {
@@ -2037,19 +2027,14 @@
       {"name": "pipe-to-ground", "position": {"x": 10.5, "y": -13.5}},
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 10.5, "y": -10.5}},
       {
-        "name": "power-switch",
-        "switch_state": false,
-        "connections": {
-          "1": {"green": [{"entity_rel": "5.5,5.5"}]},
-          "Cu0": [{"entity_rel": "-8.5,3.5", "wire_id": 0}],
-          "Cu1": [{"entity_rel": "5.5,5.5", "wire_id": 0}]
-        },
+        "name": "pump",
+        "direction": 2,
+        "connections": {"1": {"green": [{"entity_rel": "2.5,2"}]}},
         "control_behavior": {
           "circuit_condition": {"comparator": "<", "constant": 110000, "first_signal": {"name": "se-methane-gas", "type": "fluid"}}
         },
-        "position": {"x": 38, "y": -68}
+        "position": {"x": 45, "y": -79.5}
       },
-      {"name": "pump", "direction": 2, "position": {"x": 45, "y": -79.5}},
       {
         "name": "pump",
         "direction": 2,
@@ -2104,7 +2089,15 @@
         },
         "position": {"x": 50, "y": -67.5}
       },
-      {"name": "pump", "direction": 2, "position": {"x": 45, "y": -63.5}},
+      {
+        "name": "pump",
+        "direction": 2,
+        "connections": {"1": {"green": [{"entity_rel": "2.5,-3"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": "<", "constant": 110000, "first_signal": {"name": "se-methane-gas", "type": "fluid"}}
+        },
+        "position": {"x": 45, "y": -63.5}
+      },
       {"name": "pump", "position": {"x": 2.5, "y": -29}},
       {"name": "pump", "position": {"x": 8.5, "y": -29}},
       {"name": "rail-chain-signal", "position": {"x": 58.5, "y": -95.5}},
@@ -2170,12 +2163,14 @@
           }
         },
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -24.5, "y": 1.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "0,-3"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -24.5, "y": 4.5}
       },
       {
@@ -2183,6 +2178,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -23.5, "y": 1.5}
       },
       {
@@ -2190,6 +2186,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -22.5, "y": 1.5}
       },
       {
@@ -2197,6 +2194,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -21.5, "y": 1.5}
       },
       {
@@ -2204,6 +2202,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -20.5, "y": 1.5}
       },
       {
@@ -2211,6 +2210,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -19.5, "y": 1.5}
       },
       {
@@ -2218,6 +2218,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -17.5, "y": 1.5}
       },
       {
@@ -2225,48 +2226,56 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -16.5, "y": 1.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -23.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -22.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -21.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -20.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -19.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -17.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -16.5, "y": 4.5}
       },
       {
@@ -2274,6 +2283,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -15.5, "y": 1.5}
       },
       {
@@ -2281,6 +2291,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -14.5, "y": 1.5}
       },
       {
@@ -2288,6 +2299,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -13.5, "y": 1.5}
       },
       {
@@ -2295,6 +2307,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -12.5, "y": 1.5}
       },
       {
@@ -2302,6 +2315,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -10.5, "y": 1.5}
       },
       {
@@ -2309,6 +2323,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -9.5, "y": 1.5}
       },
       {
@@ -2316,48 +2331,56 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -8.5, "y": 1.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -15.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -14.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -13.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -12.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -10.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -9.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -8.5, "y": 4.5}
       },
       {
@@ -2365,6 +2388,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -7.5, "y": 1.5}
       },
       {
@@ -2372,6 +2396,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -6.5, "y": 1.5}
       },
       {
@@ -2379,6 +2404,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -5.5, "y": 1.5}
       },
       {
@@ -2386,6 +2412,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -3.5, "y": 1.5}
       },
       {
@@ -2393,6 +2420,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -2.5, "y": 1.5}
       },
       {
@@ -2400,6 +2428,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -1.5, "y": 1.5}
       },
       {
@@ -2407,48 +2436,56 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -0.5, "y": 1.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -7.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -6.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -5.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -3.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -2.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -1.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": -0.5, "y": 4.5}
       },
       {
@@ -2456,6 +2493,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 0.5, "y": 1.5}
       },
       {
@@ -2463,18 +2501,21 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "9,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 1.5, "y": 1.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 0.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "9,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 1.5, "y": 4.5}
       },
       {
@@ -2482,6 +2523,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-9,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 10.5, "y": 1.5}
       },
       {
@@ -2489,6 +2531,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 11.5, "y": 1.5}
       },
       {
@@ -2496,6 +2539,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 12.5, "y": 1.5}
       },
       {
@@ -2503,6 +2547,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 13.5, "y": 1.5}
       },
       {
@@ -2510,6 +2555,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 14.5, "y": 1.5}
       },
       {
@@ -2517,42 +2563,49 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 15.5, "y": 1.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-9,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 10.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 11.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 12.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 13.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 14.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 15.5, "y": 4.5}
       },
       {
@@ -2560,6 +2613,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 17.5, "y": 1.5}
       },
       {
@@ -2567,6 +2621,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 18.5, "y": 1.5}
       },
       {
@@ -2574,6 +2629,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 19.5, "y": 1.5}
       },
       {
@@ -2581,6 +2637,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 20.5, "y": 1.5}
       },
       {
@@ -2588,6 +2645,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 21.5, "y": 1.5}
       },
       {
@@ -2595,42 +2653,49 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 22.5, "y": 1.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 17.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 18.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 19.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 20.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 21.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 22.5, "y": 4.5}
       },
       {
@@ -2638,6 +2703,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 24.5, "y": 1.5}
       },
       {
@@ -2645,6 +2711,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 25.5, "y": 1.5}
       },
       {
@@ -2652,6 +2719,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 26.5, "y": 1.5}
       },
       {
@@ -2659,6 +2727,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 27.5, "y": 1.5}
       },
       {
@@ -2666,6 +2735,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 28.5, "y": 1.5}
       },
       {
@@ -2673,6 +2743,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 29.5, "y": 1.5}
       },
       {
@@ -2680,48 +2751,56 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 31.5, "y": 1.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 24.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 25.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 26.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 27.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 28.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 29.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 31.5, "y": 4.5}
       },
       {
@@ -2729,6 +2808,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 32.5, "y": 1.5}
       },
       {
@@ -2736,6 +2816,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 33.5, "y": 1.5}
       },
       {
@@ -2743,6 +2824,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 34.5, "y": 1.5}
       },
       {
@@ -2750,6 +2832,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 35.5, "y": 1.5}
       },
       {
@@ -2757,36 +2840,42 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 36.5, "y": 1.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 32.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 33.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 34.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 35.5, "y": 4.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "se-methane-ice", "index": 1}],
         "position": {"x": 36.5, "y": 4.5}
       },
       {"name": "stack-inserter", "direction": 6, "position": {"x": 0.5, "y": -17.5}},
@@ -2799,7 +2888,7 @@
       {"name": "stack-inserter", "direction": 2, "position": {"x": 10.5, "y": -7.5}},
       {
         "name": "storage-tank",
-        "connections": {"1": {"green": [{"entity_rel": "0,4"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "-2.5,-2"}, {"entity_rel": "0,4"}]}},
         "position": {"x": 47.5, "y": -77.5}
       },
       {
@@ -2816,7 +2905,7 @@
       {
         "name": "storage-tank",
         "direction": 2,
-        "connections": {"1": {"green": [{"entity_rel": "0,-4"}, {"entity_rel": "3,1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "-2.5,3"}, {"entity_rel": "0,-4"}, {"entity_rel": "3,1"}]}},
         "position": {"x": 47.5, "y": -66.5}
       },
       {
@@ -3121,7 +3210,7 @@
       {"name": "straight-rail", "direction": 1, "position": {"x": 70, "y": 5}},
       {"name": "straight-rail", "position": {"x": 74, "y": 13}},
       {"name": "straight-rail", "direction": 3, "position": {"x": 70, "y": 21}},
-      {"name": "substation", "neighbours": ["0.5,-8.5"], "position": {"x": 5, "y": -14}}
+      {"name": "substation", "neighbours": ["0.5,-7.5", "0.5,8.5"], "position": {"x": 5, "y": -14}}
     ],
     "icons": [{"index": 1, "signal": {"name": "se-methane-gas", "type": "fluid"}}],
     "snap-to-grid": {"x": 110, "y": 110}

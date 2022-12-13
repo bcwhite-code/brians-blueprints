@@ -1424,7 +1424,6 @@
       {"name": "fast-inserter", "direction": 4, "position": {"x": 55.5, "y": 21.5}},
       {"name": "fast-inserter", "direction": 4, "position": {"x": 58.5, "y": 21.5}},
       {"name": "fast-inserter", "direction": 4, "position": {"x": 62.5, "y": 21.5}},
-      {"name": "fast-inserter", "position": {"x": 30.5, "y": 47.5}},
       {"name": "fast-inserter", "position": {"x": 65.5, "y": 1.5}},
       {"name": "fast-inserter", "position": {"x": 69.5, "y": 1.5}},
       {"name": "fast-inserter", "position": {"x": 64.5, "y": 7.5}},
@@ -2047,7 +2046,11 @@
         "neighbours": ["-1,-7", "-5,0", "5,0"],
         "position": {"x": 19.5, "y": 26.5}
       },
-      {"name": "medium-electric-pole", "neighbours": ["-5,0", "1,-7"], "position": {"x": 24.5, "y": 26.5}},
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-5,0", "0,8", "1,-7"],
+        "position": {"x": 24.5, "y": 26.5}
+      },
       {"name": "medium-electric-pole", "neighbours": ["8,2"], "position": {"x": 38.5, "y": 1.5}},
       {
         "name": "medium-electric-pole",
@@ -2084,7 +2087,11 @@
         "neighbours": ["0,-8", "1,8", "7,0"],
         "position": {"x": 46.5, "y": 18.5}
       },
-      {"name": "medium-electric-pole", "neighbours": ["-1,-8", "5,0"], "position": {"x": 47.5, "y": 26.5}},
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-1,-8", "0,8", "5,0"],
+        "position": {"x": 47.5, "y": 26.5}
+      },
       {
         "name": "medium-electric-pole",
         "neighbours": ["-1,8", "-7,0", "0,-8", "7,0"],
@@ -2102,11 +2109,12 @@
       },
       {"name": "medium-electric-pole", "neighbours": ["-5,0", "3,-8"], "position": {"x": 57.5, "y": 26.5}},
       {"name": "medium-electric-pole", "neighbours": ["-3.5,3.5"], "position": {"x": 14.5, "y": 43.5}},
+      {"name": "medium-electric-pole", "neighbours": ["-1,7", "0,-8"], "position": {"x": 24.5, "y": 34.5}},
       {
         "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "-3,8"}, {"entity_rel": "1.5,-6.5"}]}},
-        "neighbours": ["-3,8"],
-        "position": {"x": 22.5, "y": 41.5}
+        "connections": {"1": {"green": [{"entity_rel": "-4,8"}, {"entity_rel": "6,-8"}]}},
+        "neighbours": ["-4,8", "1,-7"],
+        "position": {"x": 23.5, "y": 41.5}
       },
       {
         "name": "medium-electric-pole",
@@ -2132,13 +2140,13 @@
             "green": [
               {"circuit_id": 1, "entity_rel": "-1.5,-5"},
               {"entity_rel": "-5,-1"},
-              {"entity_rel": "3,-8"},
+              {"entity_rel": "4,-8"},
               {"entity_rel": "7,0"}
             ],
             "red": [{"entity_rel": "7,0"}]
           }
         },
-        "neighbours": ["-5,-1", "-8.5,-2.5", "0,3", "3,-8", "7,0"],
+        "neighbours": ["-5,-1", "-8.5,-2.5", "0,3", "4,-8", "7,0"],
         "position": {"x": 19.5, "y": 49.5}
       },
       {
@@ -2178,10 +2186,11 @@
         "neighbours": ["-7,0", "0,-3", "7,0"],
         "position": {"x": 26.5, "y": 52.5}
       },
+      {"name": "medium-electric-pole", "neighbours": ["0,-8", "0,7"], "position": {"x": 47.5, "y": 34.5}},
       {
         "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "0,8"}, {"entity_rel": "0.5,-6.5"}]}},
-        "neighbours": ["0,8"],
+        "connections": {"1": {"green": [{"entity_rel": "0,8"}]}},
+        "neighbours": ["0,-7", "0,8"],
         "position": {"x": 47.5, "y": 41.5}
       },
       {
@@ -2242,16 +2251,16 @@
       },
       {
         "name": "medium-electric-pole",
-        "neighbours": ["-7,0", "0,7", "8,-2"],
+        "neighbours": ["-7,0", "0,7", "9,0"],
         "position": {"x": 67.5, "y": 3.5}
       },
-      {"name": "medium-electric-pole", "neighbours": ["-8,2", "8,0"], "position": {"x": 75.5, "y": 1.5}},
+      {"name": "medium-electric-pole", "neighbours": ["-9,0", "7,-2"], "position": {"x": 76.5, "y": 3.5}},
       {
         "name": "medium-electric-pole",
         "neighbours": ["-7,0", "0,-7", "0,8"],
         "position": {"x": 67.5, "y": 10.5}
       },
-      {"name": "medium-electric-pole", "neighbours": ["-8,0"], "position": {"x": 83.5, "y": 1.5}},
+      {"name": "medium-electric-pole", "neighbours": ["-7,2"], "position": {"x": 83.5, "y": 1.5}},
       {"name": "medium-electric-pole", "neighbours": ["-7,0", "0,-8"], "position": {"x": 67.5, "y": 18.5}},
       {"name": "medium-electric-pole", "position": {"x": 83.5, "y": 23.5}},
       {"name": "pipe", "position": {"x": 91.5, "y": -31.5}},
@@ -2349,40 +2358,6 @@
       {"name": "pipe-to-ground", "direction": 6, "position": {"x": 71.5, "y": 11.5}},
       {"name": "pipe-to-ground", "direction": 2, "position": {"x": 73.5, "y": 11.5}},
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 74.5, "y": 10.5}},
-      {
-        "name": "power-switch",
-        "switch_state": false,
-        "connections": {
-          "1": {"green": [{"entity_rel": "-1.5,6.5"}]},
-          "Cu0": [{"entity_rel": "0.5,-8.5", "wire_id": 0}],
-          "Cu1": [{"entity_rel": "-1.5,6.5", "wire_id": 0}]
-        },
-        "control_behavior": {
-          "circuit_condition": {
-            "comparator": "<",
-            "constant": 4000,
-            "first_signal": {"name": "se-delivery-cannon-capsule", "type": "item"}
-          }
-        },
-        "position": {"x": 24, "y": 35}
-      },
-      {
-        "name": "power-switch",
-        "switch_state": false,
-        "connections": {
-          "1": {"green": [{"entity_rel": "-0.5,6.5"}]},
-          "Cu0": [{"entity_rel": "-0.5,-8.5", "wire_id": 0}],
-          "Cu1": [{"entity_rel": "-0.5,6.5", "wire_id": 0}]
-        },
-        "control_behavior": {
-          "circuit_condition": {
-            "comparator": "<",
-            "constant": 6000,
-            "first_signal": {"name": "se-delivery-cannon-capsule", "type": "item"}
-          }
-        },
-        "position": {"x": 48, "y": 35}
-      },
       {
         "name": "pump",
         "direction": 6,
@@ -2945,6 +2920,7 @@
       {"name": "stack-inserter", "position": {"x": 49.5, "y": 28.5}},
       {"name": "stack-inserter", "position": {"x": 55.5, "y": 28.5}},
       {"name": "stack-inserter", "position": {"x": 59.5, "y": 28.5}},
+      {"name": "stack-inserter", "position": {"x": 30.5, "y": 47.5}},
       {
         "name": "storage-tank",
         "connections": {"1": {"green": [{"entity_rel": "0,4"}]}},
@@ -3691,9 +3667,39 @@
       {"name": "transport-belt", "direction": 2, "position": {"x": 58.5, "y": 30.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 59.5, "y": 30.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 60.5, "y": 30.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 29.5, "y": 33.5}},
+      {
+        "name": "transport-belt",
+        "direction": 2,
+        "connections": {"1": {"green": [{"entity_rel": "-6,8"}, {"entity_rel": "2,0"}]}},
+        "control_behavior": {
+          "circuit_contents_read_mode": 0,
+          "circuit_enable_disable": true,
+          "circuit_read_hand_contents": false,
+          "circuit_condition": {
+            "comparator": "<",
+            "constant": 4000,
+            "first_signal": {"name": "se-delivery-cannon-capsule", "type": "item"}
+          }
+        },
+        "position": {"x": 29.5, "y": 33.5}
+      },
       {"name": "transport-belt", "direction": 4, "position": {"x": 30.5, "y": 33.5}},
-      {"name": "transport-belt", "direction": 6, "position": {"x": 31.5, "y": 33.5}},
+      {
+        "name": "transport-belt",
+        "direction": 6,
+        "connections": {"1": {"green": [{"entity_rel": "-2,0"}]}},
+        "control_behavior": {
+          "circuit_contents_read_mode": 0,
+          "circuit_enable_disable": true,
+          "circuit_read_hand_contents": false,
+          "circuit_condition": {
+            "comparator": "<",
+            "constant": 6000,
+            "first_signal": {"name": "se-delivery-cannon-capsule", "type": "item"}
+          }
+        },
+        "position": {"x": 31.5, "y": 33.5}
+      },
       {"name": "transport-belt", "direction": 4, "position": {"x": 30.5, "y": 34.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 30.5, "y": 35.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 30.5, "y": 36.5}},

@@ -575,6 +575,12 @@
       },
       {
         "name": "big-electric-pole",
+        "connections": {"1": {"green": [{"entity_rel": "0,22"}], "red": [{"entity_rel": "0,22"}]}},
+        "neighbours": ["0,22"],
+        "position": {"x": 95, "y": -8}
+      },
+      {
+        "name": "big-electric-pole",
         "connections": {
           "1": {
             "green": [{"circuit_id": 2, "entity_rel": "0,1.5"}, {"entity_rel": "8,14"}],
@@ -592,8 +598,13 @@
       },
       {
         "name": "big-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "0,22"}], "red": [{"entity_rel": "0,22"}]}},
-        "neighbours": ["0,22"],
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-22"}, {"entity_rel": "0,22"}],
+            "red": [{"entity_rel": "0,-22"}, {"entity_rel": "0,22"}]
+          }
+        },
+        "neighbours": ["0,-22", "0,22"],
         "position": {"x": 95, "y": 14}
       },
       {
@@ -1724,14 +1735,23 @@
       },
       {"name": "medium-electric-pole", "neighbours": ["-8,0"], "position": {"x": 71.5, "y": 42.5}},
       {"name": "medium-electric-pole", "neighbours": ["0,-7", "8,0"], "position": {"x": 0.5, "y": 70.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-8,0", "2,-7"], "position": {"x": 8.5, "y": 70.5}},
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-1,7", "-8,0", "2,-7"],
+        "position": {"x": 8.5, "y": 70.5}
+      },
+      {"name": "medium-electric-pole", "neighbours": ["-5,7", "1,-7"], "position": {"x": 7.5, "y": 77.5}},
       {"name": "medium-electric-pole", "neighbours": ["0,-7", "7,0"], "position": {"x": 18.5, "y": 70.5}},
       {
         "name": "medium-electric-pole",
         "neighbours": ["-7,0", "0,-7", "8,0"],
         "position": {"x": 25.5, "y": 70.5}
       },
-      {"name": "medium-electric-pole", "neighbours": ["-3.5,3.5"], "position": {"x": 2.5, "y": 84.5}},
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-3.5,3.5", "5,-7"],
+        "position": {"x": 2.5, "y": 84.5}
+      },
       {
         "name": "medium-electric-pole",
         "connections": {
@@ -1799,26 +1819,20 @@
       },
       {
         "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "0,8"}, {"entity_rel": "0.5,-9.5"}]}},
-        "neighbours": ["0,5"],
-        "position": {"x": 21.5, "y": 85.5}
-      },
-      {
-        "name": "medium-electric-pole",
         "connections": {
           "1": {
             "green": [{"entity_rel": "-7,0"}, {"entity_rel": "0,-1"}, {"entity_rel": "7,0"}],
             "red": [{"entity_rel": "-7,0"}, {"entity_rel": "7,0"}]
           }
         },
-        "neighbours": ["-7,0", "0,-5", "0,3", "7,0"],
+        "neighbours": ["-7,0", "0,3", "7,0"],
         "position": {"x": 21.5, "y": 90.5}
       },
       {
         "name": "medium-electric-pole",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "-7,0"}, {"entity_rel": "0,-8"}, {"entity_rel": "0,1"}, {"entity_rel": "7,0"}],
+            "green": [{"entity_rel": "-7,0"}, {"entity_rel": "0,1"}, {"entity_rel": "7,0"}],
             "red": [{"entity_rel": "-7,0"}, {"entity_rel": "7,0"}]
           }
         },
@@ -2158,19 +2172,6 @@
       {"name": "pipe-to-ground", "position": {"x": 58.5, "y": 87.5}},
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 49.5, "y": 95.5}},
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 58.5, "y": 95.5}},
-      {
-        "name": "power-switch",
-        "switch_state": false,
-        "connections": {
-          "1": {"green": [{"entity_rel": "-0.5,9.5"}]},
-          "Cu0": [{"entity_rel": "-0.5,9.5", "wire_id": 0}],
-          "Cu1": [{"entity_rel": "3.5,-5.5", "wire_id": 0}]
-        },
-        "control_behavior": {
-          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "se-scrap", "type": "item"}}
-        },
-        "position": {"x": 22, "y": 76}
-      },
       {"name": "pump", "direction": 2, "position": {"x": 48, "y": 84.5}},
       {
         "name": "pump",

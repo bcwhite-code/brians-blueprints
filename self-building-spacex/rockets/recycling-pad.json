@@ -1142,7 +1142,7 @@
         "neighbours": ["-29,-2", "0,-22", "0,22"],
         "position": {"x": 222, "y": 90}
       },
-      {"name": "big-electric-pole", "neighbours": ["0,-24", "0,26"], "position": {"x": 193, "y": 112}},
+      {"name": "big-electric-pole", "neighbours": ["0,-24", "0,24"], "position": {"x": 193, "y": 112}},
       {
         "name": "big-electric-pole",
         "connections": {
@@ -1302,7 +1302,7 @@
         "neighbours": ["-16,-12", "-6.5,5.5", "28,1"],
         "position": {"x": 165, "y": 183}
       },
-      {"name": "big-electric-pole", "neighbours": ["-1,23", "0,-26"], "position": {"x": 193, "y": 138}},
+      {"name": "big-electric-pole", "neighbours": ["-1,25", "0,-24"], "position": {"x": 193, "y": 136}},
       {
         "name": "big-electric-pole",
         "connections": {
@@ -1317,7 +1317,7 @@
       {
         "name": "big-electric-pole",
         "connections": {"1": {"green": [{"entity_rel": "14,-6"}], "red": [{"entity_rel": "14,-6"}]}},
-        "neighbours": ["0.5,-3.5", "14,-6"],
+        "neighbours": ["-5.5,-1.5", "0.5,-3.5", "14,-6"],
         "position": {"x": 208, "y": 140}
       },
       {
@@ -1331,7 +1331,7 @@
         "neighbours": ["0,-22", "0,22"],
         "position": {"x": 222, "y": 156}
       },
-      {"name": "big-electric-pole", "neighbours": ["1,-23", "1,23"], "position": {"x": 192, "y": 161}},
+      {"name": "big-electric-pole", "neighbours": ["1,-25", "1,23"], "position": {"x": 192, "y": 161}},
       {"name": "big-electric-pole", "neighbours": ["-1,-23", "-28,-1"], "position": {"x": 193, "y": 184}},
       {
         "name": "big-electric-pole",
@@ -1553,7 +1553,7 @@
             {"count": 51, "index": 11, "signal": {"name": "arithmetic-combinator", "type": "item"}},
             {"count": 21, "index": 12, "signal": {"name": "decider-combinator", "type": "item"}},
             {"count": 21, "index": 13, "signal": {"name": "constant-combinator", "type": "item"}},
-            {"count": 1, "index": 14, "signal": {"name": "power-switch", "type": "item"}},
+            {"count": 0, "index": 14, "signal": {"name": "power-switch", "type": "item"}},
             {"count": 80, "index": 15, "signal": {"name": "small-lamp", "type": "item"}},
             {"count": 1200, "index": 16, "signal": {"name": "rail", "type": "item"}},
             {"count": 26, "index": 17, "signal": {"name": "rail-signal", "type": "item"}},
@@ -5579,7 +5579,7 @@
       {
         "name": "express-transport-belt",
         "direction": 4,
-        "connections": {"1": {"green": [{"entity_rel": "-3,-1"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "-1,-1"}]}},
         "control_behavior": {
           "circuit_contents_read_mode": 1,
           "circuit_enable_disable": false,
@@ -8186,6 +8186,11 @@
       },
       {
         "name": "medium-electric-pole",
+        "neighbours": ["0,8", "5.5,1.5"],
+        "position": {"x": 202.5, "y": 138.5}
+      },
+      {
+        "name": "medium-electric-pole",
         "connections": {
           "1": {
             "green": [
@@ -8218,10 +8223,12 @@
         "neighbours": ["-0.5,3.5", "2,-5", "5,-5"],
         "position": {"x": 208.5, "y": 136.5}
       },
+      {"name": "medium-electric-pole", "neighbours": ["8,0"], "position": {"x": 194.5, "y": 146.5}},
       {
         "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "1.5,-8.5"}, {"entity_rel": "3,1"}]}},
-        "position": {"x": 200.5, "y": 146.5}
+        "connections": {"1": {"green": [{"entity_rel": "1,1"}]}},
+        "neighbours": ["-8,0", "0,-8"],
+        "position": {"x": 202.5, "y": 146.5}
       },
       {
         "name": "medium-electric-pole",
@@ -8390,19 +8397,6 @@
         "connections": {"1": {"green": [{"entity_rel": "-7,0"}], "red": [{"entity_rel": "-7,0"}]}},
         "neighbours": ["-7,0", "0,-3"],
         "position": {"x": 185.5, "y": 213.5}
-      },
-      {
-        "name": "power-switch",
-        "switch_state": false,
-        "connections": {
-          "1": {"green": [{"entity_rel": "-1.5,8.5"}]},
-          "Cu0": [{"entity_rel": "-1.5,8.5", "wire_id": 0}],
-          "Cu1": [{"entity_rel": "6,2", "wire_id": 0}]
-        },
-        "control_behavior": {
-          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
-        },
-        "position": {"x": 202, "y": 138}
       },
       {
         "name": "programmable-speaker",
@@ -9338,6 +9332,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 210.5, "y": 104.5}
       },
       {
@@ -9345,6 +9340,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 210.5, "y": 105.5}
       },
       {
@@ -9352,6 +9348,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 210.5, "y": 106.5}
       },
       {
@@ -9359,6 +9356,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 210.5, "y": 107.5}
       },
       {
@@ -9366,6 +9364,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 213.5, "y": 104.5}
       },
       {
@@ -9373,6 +9372,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 213.5, "y": 105.5}
       },
       {
@@ -9380,6 +9380,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 213.5, "y": 106.5}
       },
       {
@@ -9387,6 +9388,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 213.5, "y": 107.5}
       },
       {
@@ -9394,6 +9396,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 210.5, "y": 108.5}
       },
       {
@@ -9401,6 +9404,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 210.5, "y": 109.5}
       },
       {
@@ -9408,6 +9412,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 210.5, "y": 111.5}
       },
       {
@@ -9415,6 +9420,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 213.5, "y": 108.5}
       },
       {
@@ -9422,6 +9428,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 213.5, "y": 109.5}
       },
       {
@@ -9429,6 +9436,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 213.5, "y": 111.5}
       },
       {
@@ -9436,6 +9444,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 210.5, "y": 112.5}
       },
       {
@@ -9443,6 +9452,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 210.5, "y": 113.5}
       },
       {
@@ -9450,6 +9460,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 210.5, "y": 114.5}
       },
       {
@@ -9457,6 +9468,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 210.5, "y": 115.5}
       },
       {
@@ -9464,6 +9476,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 213.5, "y": 112.5}
       },
       {
@@ -9471,6 +9484,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 213.5, "y": 113.5}
       },
       {
@@ -9478,6 +9492,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 213.5, "y": 114.5}
       },
       {
@@ -9485,6 +9500,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 213.5, "y": 115.5}
       },
       {
@@ -9492,6 +9508,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 210.5, "y": 116.5}
       },
       {
@@ -9499,6 +9516,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 210.5, "y": 118.5}
       },
       {
@@ -9506,6 +9524,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 210.5, "y": 119.5}
       },
       {
@@ -9513,6 +9532,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 213.5, "y": 116.5}
       },
       {
@@ -9520,6 +9540,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 213.5, "y": 118.5}
       },
       {
@@ -9527,6 +9548,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 213.5, "y": 119.5}
       },
       {
@@ -9534,6 +9556,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 210.5, "y": 120.5}
       },
       {
@@ -9541,6 +9564,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 210.5, "y": 121.5}
       },
       {
@@ -9548,6 +9572,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 210.5, "y": 122.5}
       },
       {
@@ -9555,6 +9580,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 210.5, "y": 123.5}
       },
       {
@@ -9562,6 +9588,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 213.5, "y": 120.5}
       },
       {
@@ -9569,6 +9596,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 213.5, "y": 121.5}
       },
       {
@@ -9576,6 +9604,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 213.5, "y": 122.5}
       },
       {
@@ -9583,6 +9612,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 213.5, "y": 123.5}
       },
       {
@@ -9590,6 +9620,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 210.5, "y": 125.5}
       },
       {
@@ -9597,6 +9628,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 210.5, "y": 126.5}
       },
       {
@@ -9604,6 +9636,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 210.5, "y": 127.5}
       },
       {
@@ -9611,6 +9644,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 213.5, "y": 125.5}
       },
       {
@@ -9618,6 +9652,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 213.5, "y": 126.5}
       },
       {
@@ -9625,6 +9660,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 213.5, "y": 127.5}
       },
       {
@@ -9632,6 +9668,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 210.5, "y": 128.5}
       },
       {
@@ -9639,6 +9676,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 210.5, "y": 129.5}
       },
       {
@@ -9650,6 +9688,7 @@
           }
         },
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 210.5, "y": 130.5}
       },
       {
@@ -9657,6 +9696,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 213.5, "y": 128.5}
       },
       {
@@ -9664,6 +9704,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 213.5, "y": 129.5}
       },
       {
@@ -9671,6 +9712,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "-3,0"}, {"entity_rel": "0,-1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "empty-barrel", "index": 1}],
         "position": {"x": 213.5, "y": 130.5}
       },
       {

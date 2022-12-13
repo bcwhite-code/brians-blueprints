@@ -921,6 +921,17 @@
         "name": "big-electric-pole",
         "connections": {"1": {"green": [{"entity_rel": "0,22"}], "red": [{"entity_rel": "0,22"}]}},
         "neighbours": ["0,22"],
+        "position": {"x": 106, "y": -34}
+      },
+      {
+        "name": "big-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-22"}, {"entity_rel": "0,22"}],
+            "red": [{"entity_rel": "0,-22"}, {"entity_rel": "0,22"}]
+          }
+        },
+        "neighbours": ["0,-22", "0,22"],
         "position": {"x": 106, "y": -12}
       },
       {
@@ -929,6 +940,7 @@
         "neighbours": ["22,0"],
         "position": {"x": -4, "y": 76}
       },
+      {"name": "big-electric-pole", "neighbours": ["-12,15", "4,-7"], "position": {"x": 22, "y": 47}},
       {
         "name": "big-electric-pole",
         "connections": {
@@ -937,9 +949,10 @@
             "red": [{"circuit_id": 1, "entity_rel": "-1.5,1"}, {"entity_rel": "8,14"}]
           }
         },
-        "neighbours": ["3.5,1.5", "8,14"],
+        "neighbours": ["12,-15", "3.5,1.5", "8,14"],
         "position": {"x": 10, "y": 62}
       },
+      {"name": "big-electric-pole", "neighbours": ["-4,-9", "7,27"], "position": {"x": 55, "y": 49}},
       {
         "name": "big-electric-pole",
         "connections": {
@@ -1003,7 +1016,7 @@
             "red": [{"entity_rel": "-22,0"}, {"entity_rel": "18,0"}]
           }
         },
-        "neighbours": ["-22,0", "18,0"],
+        "neighbours": ["-22,0", "-7,-27", "18,0"],
         "position": {"x": 62, "y": 76}
       },
       {
@@ -1282,7 +1295,7 @@
         "position": {"x": 18.5, "y": 70}
       },
       {"name": "fast-loader", "direction": 4, "type": "input", "position": {"x": 32.5, "y": 62}},
-      {"name": "fast-loader", "direction": 4, "type": "input", "position": {"x": 33.5, "y": 62}},
+      {"name": "fast-loader", "type": "output", "position": {"x": 33.5, "y": 62}},
       {
         "name": "fast-loader",
         "direction": 4,
@@ -2072,14 +2085,13 @@
       {
         "name": "fast-transport-belt",
         "direction": 4,
-        "connections": {"1": {"green": [{"entity_rel": "1,0"}]}},
         "control_behavior": {
           "circuit_contents_read_mode": 0,
           "circuit_enable_disable": true,
           "circuit_read_hand_contents": false,
           "circuit_condition": {
             "comparator": "<",
-            "constant": 32000,
+            "constant": 16000,
             "first_signal": {"name": "se-data-storage-substrate", "type": "item"}
           }
         },
@@ -2088,7 +2100,6 @@
       {
         "name": "fast-transport-belt",
         "direction": 4,
-        "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "-1,5"}]}},
         "control_behavior": {
           "circuit_contents_read_mode": 0,
           "circuit_enable_disable": true,
@@ -2117,8 +2128,37 @@
       {"name": "fast-transport-belt", "position": {"x": 37.5, "y": 59.5}},
       {"name": "fast-transport-belt", "direction": 2, "position": {"x": 38.5, "y": 58.5}},
       {"name": "fast-transport-belt", "direction": 2, "position": {"x": 39.5, "y": 58.5}},
-      {"name": "fast-transport-belt", "direction": 4, "position": {"x": 32.5, "y": 60.5}},
-      {"name": "fast-transport-belt", "direction": 4, "position": {"x": 33.5, "y": 60.5}},
+      {
+        "name": "fast-transport-belt",
+        "direction": 4,
+        "connections": {"1": {"green": [{"entity_rel": "0,4"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {
+          "circuit_contents_read_mode": 0,
+          "circuit_enable_disable": true,
+          "circuit_read_hand_contents": false,
+          "circuit_condition": {
+            "comparator": "<",
+            "constant": 16000,
+            "first_signal": {"name": "se-data-storage-substrate", "type": "item"}
+          }
+        },
+        "position": {"x": 32.5, "y": 60.5}
+      },
+      {
+        "name": "fast-transport-belt",
+        "connections": {"1": {"green": [{"entity_rel": "-1,0"}]}},
+        "control_behavior": {
+          "circuit_contents_read_mode": 0,
+          "circuit_enable_disable": true,
+          "circuit_read_hand_contents": false,
+          "circuit_condition": {
+            "comparator": "<",
+            "constant": 32000,
+            "first_signal": {"name": "se-data-storage-substrate", "type": "item"}
+          }
+        },
+        "position": {"x": 33.5, "y": 60.5}
+      },
       {"name": "fast-transport-belt", "position": {"x": 35.5, "y": 60.5}},
       {"name": "fast-transport-belt", "position": {"x": 35.5, "y": 61.5}},
       {"name": "fast-transport-belt", "position": {"x": 36.5, "y": 60.5}},
@@ -2813,7 +2853,7 @@
       {"name": "long-handed-inserter", "direction": 4, "position": {"x": 74.5, "y": 40.5}},
       {
         "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "4,6"}, {"entity_rel": "5.5,-9.5"}]}},
+        "connections": {"1": {"green": [{"entity_rel": "4,6"}]}},
         "neighbours": ["4,6"],
         "position": {"x": 14.5, "y": 58.5}
       },
@@ -2827,12 +2867,6 @@
         },
         "neighbours": ["-2,4", "-3.5,-1.5", "5,1", "5,4"],
         "position": {"x": 13.5, "y": 63.5}
-      },
-      {
-        "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "-1,7"}, {"entity_rel": "2.5,-8.5"}]}},
-        "neighbours": ["-1,7"],
-        "position": {"x": 47.5, "y": 57.5}
       },
       {
         "name": "medium-electric-pole",
@@ -2904,7 +2938,7 @@
         "name": "medium-electric-pole",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "-7,0"}, {"entity_rel": "0,-1"}, {"entity_rel": "1,-5"}, {"entity_rel": "7,0"}],
+            "green": [{"entity_rel": "-7,0"}, {"entity_rel": "0,-1"}, {"entity_rel": "0,-4"}, {"entity_rel": "7,0"}],
             "red": [{"entity_rel": "-7,0"}, {"entity_rel": "7,0"}]
           }
         },
@@ -2946,8 +2980,8 @@
       },
       {
         "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "-7,0"}, {"entity_rel": "1,-7"}], "red": [{"entity_rel": "-7,0"}]}},
-        "neighbours": ["-7,0", "0,3", "1,-7"],
+        "connections": {"1": {"green": [{"entity_rel": "-7,0"}], "red": [{"entity_rel": "-7,0"}]}},
+        "neighbours": ["-7,0", "0,3"],
         "position": {"x": 46.5, "y": 64.5}
       },
       {
@@ -2955,40 +2989,6 @@
         "connections": {"1": {"green": [{"entity_rel": "-7,0"}], "red": [{"entity_rel": "-7,0"}]}},
         "neighbours": ["-7,0", "0,-3"],
         "position": {"x": 46.5, "y": 67.5}
-      },
-      {
-        "name": "power-switch",
-        "switch_state": false,
-        "connections": {
-          "1": {"green": [{"entity_rel": "-5.5,9.5"}]},
-          "Cu0": [{"entity_rel": "-5.5,9.5", "wire_id": 0}],
-          "Cu1": [{"entity_rel": "6,-9", "wire_id": 0}]
-        },
-        "control_behavior": {
-          "circuit_condition": {
-            "comparator": "<",
-            "constant": 16000,
-            "first_signal": {"name": "se-data-storage-substrate", "type": "item"}
-          }
-        },
-        "position": {"x": 20, "y": 49}
-      },
-      {
-        "name": "power-switch",
-        "switch_state": false,
-        "connections": {
-          "1": {"green": [{"entity_rel": "-2.5,8.5"}]},
-          "Cu0": [{"entity_rel": "1,-9", "wire_id": 0}],
-          "Cu1": [{"entity_rel": "-2.5,8.5", "wire_id": 0}]
-        },
-        "control_behavior": {
-          "circuit_condition": {
-            "comparator": "<",
-            "constant": 32000,
-            "first_signal": {"name": "se-data-storage-substrate", "type": "item"}
-          }
-        },
-        "position": {"x": 50, "y": 49}
       },
       {"name": "rail-chain-signal", "position": {"x": 102.5, "y": -32.5}},
       {"name": "rail-chain-signal", "direction": 1, "position": {"x": 100.5, "y": -27.5}},
@@ -3812,8 +3812,8 @@
       {"name": "substation", "neighbours": ["0,-13", "3,12"], "position": {"x": 48, "y": 15}},
       {"name": "substation", "neighbours": ["-3,-12", "0,13", "17,0"], "position": {"x": 51, "y": 27}},
       {"name": "substation", "neighbours": ["5,-13"], "position": {"x": 4, "y": 40}},
-      {"name": "substation", "neighbours": ["0,-13"], "position": {"x": 26, "y": 40}},
-      {"name": "substation", "neighbours": ["0,-13"], "position": {"x": 51, "y": 40}},
+      {"name": "substation", "neighbours": ["-4,7", "0,-13"], "position": {"x": 26, "y": 40}},
+      {"name": "substation", "neighbours": ["0,-13", "4,9"], "position": {"x": 51, "y": 40}},
       {"name": "substation", "neighbours": ["-17,0", "5,13"], "position": {"x": 65, "y": 2}},
       {"name": "substation", "neighbours": ["-2,12", "-5,-13", "7.5,3.5"], "position": {"x": 70, "y": 15}},
       {"name": "substation", "neighbours": ["-17,0", "2,-12", "5,13"], "position": {"x": 68, "y": 27}},

@@ -777,8 +777,30 @@
       {"name": "express-transport-belt", "direction": 4, "position": {"x": 33.5, "y": 83.5}},
       {"name": "express-transport-belt", "direction": 6, "position": {"x": 34.5, "y": 82.5}},
       {"name": "express-transport-belt", "position": {"x": 34.5, "y": 83.5}},
-      {"name": "express-transport-belt", "direction": 4, "position": {"x": 32.5, "y": 84.5}},
-      {"name": "express-transport-belt", "direction": 4, "position": {"x": 33.5, "y": 84.5}},
+      {
+        "name": "express-transport-belt",
+        "direction": 4,
+        "connections": {"1": {"green": [{"entity_rel": "1,0"}]}},
+        "control_behavior": {
+          "circuit_contents_read_mode": 0,
+          "circuit_enable_disable": true,
+          "circuit_read_hand_contents": false,
+          "circuit_condition": {"comparator": "<", "constant": 24000, "first_signal": {"name": "sulfur", "type": "item"}}
+        },
+        "position": {"x": 32.5, "y": 84.5}
+      },
+      {
+        "name": "express-transport-belt",
+        "direction": 4,
+        "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "-1,6"}]}},
+        "control_behavior": {
+          "circuit_contents_read_mode": 0,
+          "circuit_enable_disable": true,
+          "circuit_read_hand_contents": false,
+          "circuit_condition": {"comparator": "<", "constant": 24000, "first_signal": {"name": "sulfur", "type": "item"}}
+        },
+        "position": {"x": 33.5, "y": 84.5}
+      },
       {
         "name": "express-transport-belt",
         "direction": 4,
@@ -1536,7 +1558,11 @@
       },
       {"name": "medium-electric-pole", "neighbours": ["0,-7", "0,7"], "position": {"x": 4.5, "y": 32.5}},
       {"name": "medium-electric-pole", "neighbours": ["0,-7", "0,7"], "position": {"x": 4.5, "y": 39.5}},
-      {"name": "medium-electric-pole", "neighbours": ["0,-7", "0,9"], "position": {"x": 12.5, "y": 37.5}},
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["0,-7", "0,9", "4,3"],
+        "position": {"x": 12.5, "y": 37.5}
+      },
       {
         "name": "medium-electric-pole",
         "connections": {"1": {"green": [{"entity_rel": "-3,-1"}, {"entity_rel": "0,7"}, {"entity_rel": "5,0"}]}},
@@ -1553,7 +1579,11 @@
         "neighbours": ["-2,-8", "-2,6", "6,-4"],
         "position": {"x": 18.5, "y": 34.5}
       },
-      {"name": "medium-electric-pole", "neighbours": ["2,-6", "8,1"], "position": {"x": 16.5, "y": 40.5}},
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-4,-3", "2,-6", "8,1"],
+        "position": {"x": 16.5, "y": 40.5}
+      },
       {"name": "medium-electric-pole", "neighbours": ["-6,1"], "position": {"x": 18.5, "y": 45.5}},
       {"name": "medium-electric-pole", "neighbours": ["-8,-1", "8,0"], "position": {"x": 24.5, "y": 41.5}},
       {
@@ -1687,7 +1717,7 @@
       },
       {
         "name": "medium-electric-pole",
-        "neighbours": ["-2,-4", "6,-4"],
+        "neighbours": ["-1,8", "-2,-4", "6,-4"],
         "position": {"x": 45.5, "y": 64.5}
       },
       {
@@ -1695,7 +1725,11 @@
         "neighbours": ["-1,6", "-7,-1", "8,3"],
         "position": {"x": 36.5, "y": 76.5}
       },
-      {"name": "medium-electric-pole", "neighbours": ["0,7", "8,0"], "position": {"x": 44.5, "y": 72.5}},
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["0,7", "1,-8", "8,0"],
+        "position": {"x": 44.5, "y": 72.5}
+      },
       {
         "name": "medium-electric-pole",
         "neighbours": ["-8,-3", "0,-7", "0,7"],
@@ -1724,7 +1758,7 @@
         "name": "medium-electric-pole",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "-1.5,-2.5"}, {"entity_rel": "-7,0"}, {"entity_rel": "0,-1"}, {"entity_rel": "7,0"}],
+            "green": [{"entity_rel": "-7,0"}, {"entity_rel": "0,-1"}, {"entity_rel": "1,-6"}, {"entity_rel": "7,0"}],
             "red": [{"entity_rel": "-7,0"}, {"entity_rel": "0,-1"}, {"entity_rel": "7,0"}]
           }
         },
@@ -1782,8 +1816,16 @@
         "neighbours": ["-4,-7", "-8,0", "8,0"],
         "position": {"x": 60.5, "y": 86.5}
       },
-      {"name": "medium-electric-pole", "neighbours": ["-2,-4"], "position": {"x": 69.5, "y": 64.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-8,0", "0,7"], "position": {"x": 68.5, "y": 72.5}},
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-1,8", "-2,-4"],
+        "position": {"x": 69.5, "y": 64.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-8,0", "0,7", "1,-8"],
+        "position": {"x": 68.5, "y": 72.5}
+      },
       {"name": "medium-electric-pole", "neighbours": ["0,-7", "0,7"], "position": {"x": 68.5, "y": 79.5}},
       {"name": "medium-electric-pole", "position": {"x": 82.5, "y": 64.5}},
       {"name": "medium-electric-pole", "neighbours": ["-8,0", "0,-7"], "position": {"x": 68.5, "y": 86.5}},
@@ -3234,32 +3276,6 @@
       {"name": "pipe-to-ground", "direction": 6, "position": {"x": 70.5, "y": 82.5}},
       {"name": "pipe-to-ground", "direction": 6, "position": {"x": 72.5, "y": 81.5}},
       {
-        "name": "power-switch",
-        "switch_state": false,
-        "connections": {
-          "1": {"green": [{"entity_rel": "2.5,-5.5"}]},
-          "Cu0": [{"entity_rel": "-3.5,1.5", "wire_id": 0}],
-          "Cu1": [{"entity_rel": "0.5,-4.5", "wire_id": 0}]
-        },
-        "control_behavior": {
-          "circuit_condition": {"comparator": "<", "constant": 24000, "first_signal": {"name": "petroleum-gas", "type": "fluid"}}
-        },
-        "position": {"x": 16, "y": 45}
-      },
-      {
-        "name": "power-switch",
-        "switch_state": false,
-        "connections": {
-          "1": {"green": [{"entity_rel": "1.5,2.5"}]},
-          "Cu0": [{"entity_rel": "4.5,-5.5", "wire_id": 0}],
-          "Cu1": [{"entity_rel": "1.5,2.5", "wire_id": 0}]
-        },
-        "control_behavior": {
-          "circuit_condition": {"comparator": "<", "constant": 24000, "first_signal": {"name": "sulfur", "type": "item"}}
-        },
-        "position": {"x": 31, "y": 88}
-      },
-      {
         "name": "pump",
         "control_behavior": {
           "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}}
@@ -4313,11 +4329,7 @@
         "connections": {"1": {"green": [{"entity_rel": "-5,0"}, {"entity_rel": "0,-3"}]}},
         "position": {"x": 9.5, "y": 46.5}
       },
-      {
-        "name": "storage-tank",
-        "connections": {"1": {"green": [{"entity_rel": "-2.5,5.5"}]}},
-        "position": {"x": 18.5, "y": 39.5}
-      },
+      {"name": "storage-tank", "position": {"x": 18.5, "y": 39.5}},
       {"name": "storage-tank", "direction": 2, "position": {"x": 22.5, "y": 41.5}},
       {
         "name": "storage-tank",

@@ -985,6 +985,12 @@
       {"name": "beacon", "items": {"speed-module-3": 8}, "position": {"x": 66.5, "y": 64.5}},
       {
         "name": "big-electric-pole",
+        "connections": {"1": {"green": [{"entity_rel": "0,22"}], "red": [{"entity_rel": "0,22"}]}},
+        "neighbours": ["0,22"],
+        "position": {"x": 102, "y": -14}
+      },
+      {
+        "name": "big-electric-pole",
         "connections": {
           "1": {
             "green": [{"circuit_id": 2, "entity_rel": "1.5,0"}, {"entity_rel": "8,-2"}],
@@ -1002,8 +1008,13 @@
       },
       {
         "name": "big-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "0,22"}], "red": [{"entity_rel": "0,22"}]}},
-        "neighbours": ["0,22"],
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-22"}, {"entity_rel": "0,22"}],
+            "red": [{"entity_rel": "0,-22"}, {"entity_rel": "0,22"}]
+          }
+        },
+        "neighbours": ["0,-22", "0,22"],
         "position": {"x": 102, "y": 8}
       },
       {
@@ -1036,7 +1047,7 @@
             "red": [{"circuit_id": 1, "entity_rel": "-1.5,1"}, {"entity_rel": "-8,2"}, {"entity_rel": "8,14"}]
           }
         },
-        "neighbours": ["-8,2", "3.5,0.5", "8,14"],
+        "neighbours": ["-8,2", "3.5,0.5", "5.5,-6.5", "8,14"],
         "position": {"x": 6, "y": 82}
       },
       {
@@ -2293,7 +2304,7 @@
         "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 71.5, "y": 90}
       },
-      {"name": "fast-splitter", "direction": 6, "position": {"x": 5.5, "y": 10}},
+      {"name": "fast-splitter", "direction": 6, "position": {"x": 7.5, "y": 10}},
       {"name": "fast-splitter", "direction": 6, "position": {"x": 7.5, "y": 14}},
       {"name": "fast-splitter", "direction": 2, "position": {"x": 17.5, "y": 80}},
       {"name": "fast-splitter", "direction": 6, "position": {"x": 19.5, "y": 80}},
@@ -2317,17 +2328,47 @@
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": -2.5, "y": 13.5}},
       {"name": "fast-transport-belt", "direction": 2, "position": {"x": -3.5, "y": 14.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 4.5, "y": 9.5}},
+      {"name": "fast-transport-belt", "direction": 6, "position": {"x": 5.5, "y": 9.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 6.5, "y": 9.5}},
-      {"name": "fast-transport-belt", "direction": 6, "position": {"x": 7.5, "y": 9.5}},
       {"name": "fast-transport-belt", "direction": 4, "position": {"x": 4.5, "y": 10.5}},
+      {"name": "fast-transport-belt", "direction": 6, "position": {"x": 5.5, "y": 10.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 6.5, "y": 10.5}},
-      {"name": "fast-transport-belt", "direction": 6, "position": {"x": 7.5, "y": 10.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 6.5, "y": 13.5}},
-      {"name": "fast-transport-belt", "direction": 6, "position": {"x": 8.5, "y": 9.5}},
+      {
+        "name": "fast-transport-belt",
+        "direction": 6,
+        "connections": {"1": {"green": [{"entity_rel": "0,1"}]}},
+        "control_behavior": {
+          "circuit_contents_read_mode": 0,
+          "circuit_enable_disable": true,
+          "circuit_read_hand_contents": false,
+          "circuit_condition": {
+            "comparator": "<",
+            "constant": 12800,
+            "first_signal": {"name": "se-material-testing-pack", "type": "item"}
+          }
+        },
+        "position": {"x": 8.5, "y": 9.5}
+      },
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 9.5, "y": 9.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 10.5, "y": 9.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 11.5, "y": 9.5}},
-      {"name": "fast-transport-belt", "direction": 6, "position": {"x": 8.5, "y": 10.5}},
+      {
+        "name": "fast-transport-belt",
+        "direction": 6,
+        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,3"}]}},
+        "control_behavior": {
+          "circuit_contents_read_mode": 0,
+          "circuit_enable_disable": true,
+          "circuit_read_hand_contents": false,
+          "circuit_condition": {
+            "comparator": "<",
+            "constant": 9600,
+            "first_signal": {"name": "se-material-testing-pack", "type": "item"}
+          }
+        },
+        "position": {"x": 8.5, "y": 10.5}
+      },
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 9.5, "y": 10.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 10.5, "y": 10.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 11.5, "y": 10.5}},
@@ -2339,11 +2380,41 @@
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 13.5, "y": 10.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 14.5, "y": 10.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 15.5, "y": 10.5}},
-      {"name": "fast-transport-belt", "direction": 6, "position": {"x": 8.5, "y": 13.5}},
+      {
+        "name": "fast-transport-belt",
+        "direction": 6,
+        "connections": {"1": {"green": [{"entity_rel": "0,-3"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {
+          "circuit_contents_read_mode": 0,
+          "circuit_enable_disable": true,
+          "circuit_read_hand_contents": false,
+          "circuit_condition": {
+            "comparator": "<",
+            "constant": 6400,
+            "first_signal": {"name": "se-material-testing-pack", "type": "item"}
+          }
+        },
+        "position": {"x": 8.5, "y": 13.5}
+      },
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 9.5, "y": 13.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 10.5, "y": 13.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 11.5, "y": 13.5}},
-      {"name": "fast-transport-belt", "direction": 6, "position": {"x": 8.5, "y": 14.5}},
+      {
+        "name": "fast-transport-belt",
+        "direction": 6,
+        "connections": {"1": {"green": [{"entity_rel": "-5,5"}, {"entity_rel": "0,-1"}]}},
+        "control_behavior": {
+          "circuit_contents_read_mode": 0,
+          "circuit_enable_disable": true,
+          "circuit_read_hand_contents": false,
+          "circuit_condition": {
+            "comparator": "<",
+            "constant": 3200,
+            "first_signal": {"name": "se-material-testing-pack", "type": "item"}
+          }
+        },
+        "position": {"x": 8.5, "y": 14.5}
+      },
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 9.5, "y": 14.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 10.5, "y": 14.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 11.5, "y": 14.5}},
@@ -5718,8 +5789,16 @@
         "position": {"x": 3.5, "y": 12.5}
       },
       {"name": "medium-electric-pole", "neighbours": ["0,7", "8,0"], "position": {"x": 11.5, "y": 15.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-8,0", "0,7"], "position": {"x": 19.5, "y": 15.5}},
-      {"name": "medium-electric-pole", "neighbours": ["0,7", "8,0"], "position": {"x": 27.5, "y": 15.5}},
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-8,0", "0,7", "8,0"],
+        "position": {"x": 19.5, "y": 15.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-8,0", "0,7", "8,0"],
+        "position": {"x": 27.5, "y": 15.5}
+      },
       {
         "name": "medium-electric-pole",
         "connections": {
@@ -5735,7 +5814,7 @@
         "name": "medium-electric-pole",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "0,-7"}, {"entity_rel": "0,7"}],
+            "green": [{"entity_rel": "0,-7"}, {"entity_rel": "0,7"}, {"entity_rel": "5,-5"}],
             "red": [{"entity_rel": "0,-7"}, {"entity_rel": "0,7"}]
           }
         },
@@ -5796,8 +5875,16 @@
       },
       {"name": "medium-electric-pole", "neighbours": ["-8,0", "0,7"], "position": {"x": 35.5, "y": 15.5}},
       {"name": "medium-electric-pole", "neighbours": ["0,7", "8,0"], "position": {"x": 46.5, "y": 15.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-8,0", "0,7"], "position": {"x": 54.5, "y": 15.5}},
-      {"name": "medium-electric-pole", "neighbours": ["0,7", "8,0"], "position": {"x": 62.5, "y": 15.5}},
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-8,0", "0,7", "8,0"],
+        "position": {"x": 54.5, "y": 15.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-8,0", "0,7", "8,0"],
+        "position": {"x": 62.5, "y": 15.5}
+      },
       {
         "name": "medium-electric-pole",
         "neighbours": ["-8,0", "0,-7", "0,7"],
@@ -6149,7 +6236,11 @@
         "neighbours": ["0,-7", "0,7", "8,0"],
         "position": {"x": 11.5, "y": 64.5}
       },
-      {"name": "medium-electric-pole", "neighbours": ["0,-7", "8,0"], "position": {"x": 11.5, "y": 71.5}},
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["0,-7", "0,4", "8,0"],
+        "position": {"x": 11.5, "y": 71.5}
+      },
       {
         "name": "medium-electric-pole",
         "connections": {
@@ -6163,44 +6254,34 @@
       },
       {
         "name": "medium-electric-pole",
-        "connections": {
-          "1": {
-            "green": [{"entity_rel": "-3,0"}, {"entity_rel": "0,-7"}, {"entity_rel": "7,0"}],
-            "red": [{"entity_rel": "0,-7"}]
-          }
-        },
-        "neighbours": ["-3,0", "-5,5", "0,-7", "7,0"],
+        "connections": {"1": {"green": [{"entity_rel": "-3,0"}, {"entity_rel": "0,-7"}], "red": [{"entity_rel": "0,-7"}]}},
+        "neighbours": ["-3,0", "-5,5", "0,-7"],
         "position": {"x": 3.5, "y": 75.5}
       },
       {
         "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "-7,0"}, {"entity_rel": "9,0"}]}},
-        "neighbours": ["-7,0", "9,0"],
-        "position": {"x": 10.5, "y": 75.5}
+        "neighbours": ["-5.5,6.5", "0,-4"],
+        "position": {"x": 11.5, "y": 75.5}
       },
       {
         "name": "medium-electric-pole",
         "neighbours": ["-8,0", "0,-7", "0,7"],
         "position": {"x": 19.5, "y": 64.5}
       },
-      {"name": "medium-electric-pole", "neighbours": ["-8,0", "0,-7"], "position": {"x": 19.5, "y": 71.5}},
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-8,0", "0,-7", "8,0"],
+        "position": {"x": 19.5, "y": 71.5}
+      },
       {
         "name": "medium-electric-pole",
         "neighbours": ["0,-7", "0,7", "8,0"],
         "position": {"x": 27.5, "y": 64.5}
       },
-      {"name": "medium-electric-pole", "neighbours": ["0,-7", "8,0"], "position": {"x": 27.5, "y": 71.5}},
       {
         "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "-4.5,-1.5"}, {"entity_rel": "-9,0"}, {"entity_rel": "8,1"}]}},
-        "neighbours": ["-9,0", "8,1"],
-        "position": {"x": 19.5, "y": 75.5}
-      },
-      {
-        "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "-8,-1"}, {"entity_rel": "3.5,-1.5"}, {"entity_rel": "9,0"}]}},
-        "neighbours": ["-8,-1", "9,0"],
-        "position": {"x": 27.5, "y": 76.5}
+        "neighbours": ["-8,0", "0,-7", "8,0"],
+        "position": {"x": 27.5, "y": 71.5}
       },
       {
         "name": "medium-electric-pole",
@@ -6274,48 +6355,41 @@
         "neighbours": ["-8,0", "0,-7", "0,7"],
         "position": {"x": 35.5, "y": 64.5}
       },
-      {"name": "medium-electric-pole", "neighbours": ["-8,0", "0,-7"], "position": {"x": 35.5, "y": 71.5}},
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-8,0", "0,-7", "6,0"],
+        "position": {"x": 35.5, "y": 71.5}
+      },
       {
         "name": "medium-electric-pole",
         "neighbours": ["0,-7", "0,7", "8,0"],
         "position": {"x": 46.5, "y": 64.5}
       },
-      {"name": "medium-electric-pole", "neighbours": ["0,-7", "8,0"], "position": {"x": 46.5, "y": 71.5}},
+      {"name": "medium-electric-pole", "neighbours": ["-6,0", "5,0"], "position": {"x": 41.5, "y": 71.5}},
       {
         "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]}},
-        "neighbours": ["-9,0", "9,0"],
-        "position": {"x": 36.5, "y": 76.5}
-      },
-      {
-        "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "-9,0"}, {"entity_rel": "8,-1"}]}},
-        "neighbours": ["-9,0", "8,-1"],
-        "position": {"x": 45.5, "y": 76.5}
+        "neighbours": ["-5,0", "0,-7", "8,0"],
+        "position": {"x": 46.5, "y": 71.5}
       },
       {
         "name": "medium-electric-pole",
         "neighbours": ["-8,0", "0,-7", "0,7"],
         "position": {"x": 54.5, "y": 64.5}
       },
-      {"name": "medium-electric-pole", "neighbours": ["-8,0", "0,-7"], "position": {"x": 54.5, "y": 71.5}},
+      {
+        "name": "medium-electric-pole",
+        "neighbours": ["-8,0", "0,-7", "8,0"],
+        "position": {"x": 54.5, "y": 71.5}
+      },
       {
         "name": "medium-electric-pole",
         "neighbours": ["0,-7", "0,7", "8,0"],
         "position": {"x": 62.5, "y": 64.5}
       },
-      {"name": "medium-electric-pole", "neighbours": ["0,-7", "8,0"], "position": {"x": 62.5, "y": 71.5}},
       {
         "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "-2.5,-0.5"}, {"entity_rel": "-8,1"}, {"entity_rel": "8,0"}]}},
-        "neighbours": ["-8,1", "8,0"],
-        "position": {"x": 53.5, "y": 75.5}
-      },
-      {
-        "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "-8,0"}, {"entity_rel": "6.5,-0.5"}]}},
-        "neighbours": ["-8,0"],
-        "position": {"x": 61.5, "y": 75.5}
+        "neighbours": ["-8,0", "0,-7", "8,0"],
+        "position": {"x": 62.5, "y": 71.5}
       },
       {
         "name": "medium-electric-pole",
@@ -6466,74 +6540,6 @@
         "connections": {"1": {"green": [{"entity_rel": "-7,0"}], "red": [{"entity_rel": "-7,0"}]}},
         "neighbours": ["-7,0", "0,-3"],
         "position": {"x": 77.5, "y": 87.5}
-      },
-      {
-        "name": "power-switch",
-        "switch_state": false,
-        "connections": {
-          "1": {"green": [{"entity_rel": "4.5,1.5"}]},
-          "Cu0": [{"entity_rel": "-3.5,-2.5", "wire_id": 0}],
-          "Cu1": [{"entity_rel": "4.5,1.5", "wire_id": 0}]
-        },
-        "control_behavior": {
-          "circuit_condition": {
-            "comparator": "<",
-            "constant": 3200,
-            "first_signal": {"name": "se-material-testing-pack", "type": "item"}
-          }
-        },
-        "position": {"x": 15, "y": 74}
-      },
-      {
-        "name": "power-switch",
-        "switch_state": false,
-        "connections": {
-          "1": {"green": [{"entity_rel": "-3.5,1.5"}]},
-          "Cu0": [{"entity_rel": "-3.5,1.5", "wire_id": 0}],
-          "Cu1": [{"entity_rel": "4.5,-3.5", "wire_id": 0}]
-        },
-        "control_behavior": {
-          "circuit_condition": {
-            "comparator": "<",
-            "constant": 6400,
-            "first_signal": {"name": "se-material-testing-pack", "type": "item"}
-          }
-        },
-        "position": {"x": 31, "y": 75}
-      },
-      {
-        "name": "power-switch",
-        "switch_state": false,
-        "connections": {
-          "1": {"green": [{"entity_rel": "2.5,0.5"}]},
-          "Cu0": [{"entity_rel": "-4.5,-3.5", "wire_id": 0}],
-          "Cu1": [{"entity_rel": "2.5,0.5", "wire_id": 0}]
-        },
-        "control_behavior": {
-          "circuit_condition": {
-            "comparator": "<",
-            "constant": 9600,
-            "first_signal": {"name": "se-material-testing-pack", "type": "item"}
-          }
-        },
-        "position": {"x": 51, "y": 75}
-      },
-      {
-        "name": "power-switch",
-        "switch_state": false,
-        "connections": {
-          "1": {"green": [{"entity_rel": "-6.5,0.5"}]},
-          "Cu0": [{"entity_rel": "-6.5,0.5", "wire_id": 0}],
-          "Cu1": [{"entity_rel": "2.5,-3.5", "wire_id": 0}]
-        },
-        "control_behavior": {
-          "circuit_condition": {
-            "comparator": "<",
-            "constant": 12800,
-            "first_signal": {"name": "se-material-testing-pack", "type": "item"}
-          }
-        },
-        "position": {"x": 68, "y": 75}
       },
       {"name": "rail-chain-signal", "position": {"x": 98.5, "y": -12.5}},
       {"name": "rail-chain-signal", "direction": 1, "position": {"x": 96.5, "y": -7.5}},

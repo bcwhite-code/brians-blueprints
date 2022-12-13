@@ -183,6 +183,7 @@
         "neighbours": ["0,-22", "0,18"],
         "position": {"x": 102, "y": 52}
       },
+      {"name": "big-electric-pole", "neighbours": ["-17,12", "17,-22"], "position": {"x": 23, "y": 70}},
       {
         "name": "big-electric-pole",
         "connections": {
@@ -191,10 +192,9 @@
             "red": [{"circuit_id": 1, "entity_rel": "-1.5,1"}, {"entity_rel": "-8,2"}, {"entity_rel": "8,14"}]
           }
         },
-        "neighbours": ["-8,2", "3.5,0.5", "8,14"],
+        "neighbours": ["-8,2", "17,-12", "3.5,0.5", "8,14"],
         "position": {"x": 6, "y": 82}
       },
-      {"name": "big-electric-pole", "neighbours": ["4,-28"], "position": {"x": 36, "y": 76}},
       {
         "name": "big-electric-pole",
         "connections": {
@@ -429,6 +429,20 @@
           }
         },
         "position": {"x": 4.5, "y": 83}
+      },
+      {
+        "name": "decider-combinator",
+        "connections": {"1": {"green": [{"entity_rel": "-2,3.5"}]}, "2": {"red": [{"entity_rel": "1,-1.5"}]}},
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "<",
+            "constant": 40000,
+            "copy_count_from_input": false,
+            "first_signal": {"name": "glass", "type": "item"},
+            "output_signal": {"name": "signal-check", "type": "virtual"}
+          }
+        },
+        "position": {"x": 37.5, "y": 81}
       },
       {
         "name": "express-underground-belt",
@@ -773,8 +787,30 @@
       {"name": "fast-transport-belt", "direction": 4, "position": {"x": 39.5, "y": 77.5}},
       {"name": "fast-transport-belt", "direction": 4, "position": {"x": 38.5, "y": 78.5}},
       {"name": "fast-transport-belt", "direction": 4, "position": {"x": 39.5, "y": 78.5}},
-      {"name": "fast-transport-belt", "direction": 4, "position": {"x": 38.5, "y": 79.5}},
-      {"name": "fast-transport-belt", "direction": 4, "position": {"x": 39.5, "y": 79.5}},
+      {
+        "name": "fast-transport-belt",
+        "direction": 4,
+        "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "-1,1.5"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {
+          "circuit_contents_read_mode": 0,
+          "circuit_enable_disable": true,
+          "circuit_read_hand_contents": false,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "position": {"x": 38.5, "y": 79.5}
+      },
+      {
+        "name": "fast-transport-belt",
+        "direction": 4,
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {
+          "circuit_contents_read_mode": 0,
+          "circuit_enable_disable": true,
+          "circuit_read_hand_contents": false,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "position": {"x": 39.5, "y": 79.5}
+      },
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 40.5, "y": 75.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 41.5, "y": 75.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 42.5, "y": 75.5}},
@@ -793,8 +829,30 @@
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 43.5, "y": 77.5}},
       {"name": "fast-transport-belt", "direction": 4, "position": {"x": 40.5, "y": 78.5}},
       {"name": "fast-transport-belt", "direction": 4, "position": {"x": 41.5, "y": 78.5}},
-      {"name": "fast-transport-belt", "direction": 4, "position": {"x": 40.5, "y": 79.5}},
-      {"name": "fast-transport-belt", "direction": 4, "position": {"x": 41.5, "y": 79.5}},
+      {
+        "name": "fast-transport-belt",
+        "direction": 4,
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {
+          "circuit_contents_read_mode": 0,
+          "circuit_enable_disable": true,
+          "circuit_read_hand_contents": false,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "position": {"x": 40.5, "y": 79.5}
+      },
+      {
+        "name": "fast-transport-belt",
+        "direction": 4,
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}]}},
+        "control_behavior": {
+          "circuit_contents_read_mode": 0,
+          "circuit_enable_disable": true,
+          "circuit_read_hand_contents": false,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "position": {"x": 41.5, "y": 79.5}
+      },
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 42.5, "y": 78.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 43.5, "y": 78.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 44.5, "y": 76.5}},
@@ -3266,7 +3324,7 @@
         "name": "medium-electric-pole",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "-0.5,-5.5"}, {"entity_rel": "-7,0"}, {"entity_rel": "7,0"}],
+            "green": [{"circuit_id": 1, "entity_rel": "2,-3.5"}, {"entity_rel": "-7,0"}, {"entity_rel": "7,0"}],
             "red": [{"entity_rel": "-7,0"}, {"entity_rel": "7,0"}]
           }
         },
@@ -3412,19 +3470,6 @@
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 62.5, "y": 58.5}},
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 78.5, "y": 3.5}},
       {
-        "name": "power-switch",
-        "switch_state": false,
-        "connections": {
-          "1": {"green": [{"entity_rel": "0.5,5.5"}]},
-          "Cu0": [{"entity_rel": "0.5,5.5", "wire_id": 0}],
-          "Cu1": [{"entity_rel": "1,-3", "wire_id": 0}]
-        },
-        "control_behavior": {
-          "circuit_condition": {"comparator": "<", "constant": 40000, "first_signal": {"name": "glass", "type": "item"}}
-        },
-        "position": {"x": 35, "y": 79}
-      },
-      {
         "name": "pump",
         "control_behavior": {
           "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}}
@@ -3538,7 +3583,7 @@
         "items": {"productivity-module-3": 4},
         "position": {"x": 51.5, "y": 55.5}
       },
-      {"name": "se-pylon-substation", "neighbours": ["-4,28", "29,2"], "position": {"x": 40, "y": 48}},
+      {"name": "se-pylon-substation", "neighbours": ["-17,22", "29,2"], "position": {"x": 40, "y": 48}},
       {"name": "se-wide-beacon", "items": {"speed-module-3": 15}, "position": {"x": 40, "y": 45}},
       {"name": "small-lamp", "position": {"x": 102.5, "y": -12.5}},
       {"name": "small-lamp", "position": {"x": -6.5, "y": 95.5}},
@@ -3564,6 +3609,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 13.5}
       },
       {
@@ -3571,6 +3617,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 13.5}
       },
       {
@@ -3578,6 +3625,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 14.5}
       },
       {
@@ -3585,6 +3633,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 15.5}
       },
       {
@@ -3592,6 +3641,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 14.5}
       },
       {
@@ -3599,6 +3649,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 15.5}
       },
       {
@@ -3606,6 +3657,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 16.5}
       },
       {
@@ -3613,6 +3665,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 17.5}
       },
       {
@@ -3620,6 +3673,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 16.5}
       },
       {
@@ -3627,6 +3681,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 17.5}
       },
       {
@@ -3634,6 +3689,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 18.5}
       },
       {
@@ -3641,6 +3697,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 18.5}
       },
       {
@@ -3648,6 +3705,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 20.5}
       },
       {
@@ -3655,6 +3713,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 21.5}
       },
       {
@@ -3662,6 +3721,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 20.5}
       },
       {
@@ -3669,6 +3729,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 21.5}
       },
       {
@@ -3676,6 +3737,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 22.5}
       },
       {
@@ -3683,6 +3745,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 23.5}
       },
       {
@@ -3690,6 +3753,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 22.5}
       },
       {
@@ -3697,6 +3761,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 23.5}
       },
       {
@@ -3704,6 +3769,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 24.5}
       },
       {
@@ -3711,6 +3777,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 25.5}
       },
       {
@@ -3718,6 +3785,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 24.5}
       },
       {
@@ -3725,6 +3793,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 25.5}
       },
       {
@@ -3732,6 +3801,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 27.5}
       },
       {
@@ -3739,6 +3809,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 27.5}
       },
       {
@@ -3746,6 +3817,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 28.5}
       },
       {
@@ -3753,6 +3825,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 29.5}
       },
       {
@@ -3760,6 +3833,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 28.5}
       },
       {
@@ -3767,6 +3841,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 29.5}
       },
       {
@@ -3774,6 +3849,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 30.5}
       },
       {
@@ -3781,6 +3857,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 31.5}
       },
       {
@@ -3788,6 +3865,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 30.5}
       },
       {
@@ -3795,6 +3873,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 31.5}
       },
       {
@@ -3802,6 +3881,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 32.5}
       },
       {
@@ -3809,6 +3889,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 32.5}
       },
       {
@@ -3816,6 +3897,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 34.5}
       },
       {
@@ -3823,6 +3905,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 35.5}
       },
       {
@@ -3830,6 +3913,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 34.5}
       },
       {
@@ -3837,6 +3921,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 35.5}
       },
       {
@@ -3844,6 +3929,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 36.5}
       },
       {
@@ -3851,6 +3937,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 37.5}
       },
       {
@@ -3858,6 +3945,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 36.5}
       },
       {
@@ -3865,6 +3953,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 37.5}
       },
       {
@@ -3872,6 +3961,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 38.5}
       },
       {
@@ -3879,6 +3969,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,9"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 39.5}
       },
       {
@@ -3886,6 +3977,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 38.5}
       },
       {
@@ -3893,6 +3985,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,9"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 39.5}
       },
       {
@@ -3900,6 +3993,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-9"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 48.5}
       },
       {
@@ -3907,6 +4001,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 49.5}
       },
       {
@@ -3914,6 +4009,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-9"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 48.5}
       },
       {
@@ -3921,6 +4017,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 49.5}
       },
       {
@@ -3928,6 +4025,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 50.5}
       },
       {
@@ -3935,6 +4033,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 51.5}
       },
       {
@@ -3942,6 +4041,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 50.5}
       },
       {
@@ -3949,6 +4049,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 51.5}
       },
       {
@@ -3956,6 +4057,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 52.5}
       },
       {
@@ -3963,6 +4065,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 53.5}
       },
       {
@@ -3970,6 +4073,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 52.5}
       },
       {
@@ -3977,6 +4081,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 53.5}
       },
       {
@@ -3984,6 +4089,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 55.5}
       },
       {
@@ -3991,6 +4097,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 55.5}
       },
       {
@@ -3998,6 +4105,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 56.5}
       },
       {
@@ -4005,6 +4113,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 57.5}
       },
       {
@@ -4012,6 +4121,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 56.5}
       },
       {
@@ -4019,6 +4129,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 57.5}
       },
       {
@@ -4026,6 +4137,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 58.5}
       },
       {
@@ -4033,6 +4145,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 59.5}
       },
       {
@@ -4040,6 +4153,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 58.5}
       },
       {
@@ -4047,6 +4161,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 59.5}
       },
       {
@@ -4054,6 +4169,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 60.5}
       },
       {
@@ -4061,6 +4177,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 60.5}
       },
       {
@@ -4068,6 +4185,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 62.5}
       },
       {
@@ -4075,6 +4193,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 63.5}
       },
       {
@@ -4082,6 +4201,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 62.5}
       },
       {
@@ -4089,6 +4209,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 63.5}
       },
       {
@@ -4096,6 +4217,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 64.5}
       },
       {
@@ -4103,6 +4225,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 65.5}
       },
       {
@@ -4110,6 +4233,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 64.5}
       },
       {
@@ -4117,6 +4241,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 65.5}
       },
       {
@@ -4124,6 +4249,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 66.5}
       },
       {
@@ -4131,6 +4257,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 67.5}
       },
       {
@@ -4138,6 +4265,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 66.5}
       },
       {
@@ -4145,6 +4273,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 67.5}
       },
       {
@@ -4152,6 +4281,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 69.5}
       },
       {
@@ -4159,6 +4289,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 69.5}
       },
       {
@@ -4166,6 +4297,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 70.5}
       },
       {
@@ -4173,6 +4305,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 71.5}
       },
       {
@@ -4180,6 +4313,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 70.5}
       },
       {
@@ -4187,6 +4321,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 71.5}
       },
       {
@@ -4194,6 +4329,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 72.5}
       },
       {
@@ -4201,6 +4337,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 73.5}
       },
       {
@@ -4208,6 +4345,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 72.5}
       },
       {
@@ -4215,6 +4353,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 73.5}
       },
       {
@@ -4226,6 +4365,7 @@
           }
         },
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 0.5, "y": 74.5}
       },
       {
@@ -4233,6 +4373,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "-3,0"}, {"entity_rel": "0,-1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "stone", "index": 1}],
         "position": {"x": 3.5, "y": 74.5}
       },
       {"name": "stack-inserter", "direction": 4, "position": {"x": 25.5, "y": 24.5}},

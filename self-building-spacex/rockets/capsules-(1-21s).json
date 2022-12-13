@@ -2387,7 +2387,14 @@
       {"name": "fast-underground-belt", "type": "input", "position": {"x": 35.5, "y": 91.5}},
       {"name": "fast-underground-belt", "type": "input", "position": {"x": 42.5, "y": 91.5}},
       {"name": "fast-underground-belt", "type": "input", "position": {"x": 43.5, "y": 91.5}},
-      {"name": "inserter", "position": {"x": 42.5, "y": 30.5}},
+      {
+        "name": "inserter",
+        "connections": {"1": {"green": [{"entity_rel": "-2,6"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": "<", "constant": 80, "first_signal": {"name": "se-space-capsule", "type": "item"}}
+        },
+        "position": {"x": 42.5, "y": 30.5}
+      },
       {"name": "inserter", "position": {"x": 26.5, "y": 84.5}},
       {
         "name": "iron-chest",
@@ -4421,14 +4428,21 @@
       },
       {
         "name": "medium-electric-pole",
+        "connections": {"1": {"green": [{"entity_rel": "2,-6"}, {"entity_rel": "2.5,5.5"}]}},
         "neighbours": ["0,-6", "2.5,5.5"],
         "position": {"x": 40.5, "y": 36.5}
       },
       {"name": "medium-electric-pole", "neighbours": ["7.5,0.5"], "position": {"x": 57.5, "y": 40.5}},
       {"name": "medium-electric-pole", "neighbours": ["-8,1", "7,0"], "position": {"x": 32.5, "y": 63.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-7,0", "6,-1"], "position": {"x": 39.5, "y": 63.5}},
       {
         "name": "medium-electric-pole",
+        "connections": {"1": {"green": [{"entity_rel": "-2,7"}, {"entity_rel": "6,-1"}]}},
+        "neighbours": ["-2,7", "-7,0", "6,-1"],
+        "position": {"x": 39.5, "y": 63.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {"1": {"green": [{"entity_rel": "-2.5,-7.5"}, {"entity_rel": "-6,1"}]}},
         "neighbours": ["-2.5,-7.5", "-6,1", "7,1"],
         "position": {"x": 45.5, "y": 62.5}
       },
@@ -4553,12 +4567,7 @@
         "name": "medium-electric-pole",
         "connections": {
           "1": {
-            "green": [
-              {"circuit_id": 1, "entity_rel": "-1.5,-5"},
-              {"entity_rel": "-0.5,-7.5"},
-              {"entity_rel": "-5,-1"},
-              {"entity_rel": "7,0"}
-            ],
+            "green": [{"circuit_id": 1, "entity_rel": "-1.5,-5"}, {"entity_rel": "-5,-1"}, {"entity_rel": "7,0"}],
             "red": [{"entity_rel": "7,0"}]
           }
         },
@@ -4630,16 +4639,28 @@
         "neighbours": ["-7,0", "0,-3", "7,0"],
         "position": {"x": 28.5, "y": 89.5}
       },
+      {
+        "name": "medium-electric-pole",
+        "connections": {"1": {"green": [{"entity_rel": "-2,7"}, {"entity_rel": "2,-7"}]}},
+        "neighbours": ["-2,7", "2,-7"],
+        "position": {"x": 37.5, "y": 70.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {"1": {"green": [{"entity_rel": "0,9"}, {"entity_rel": "2,-7"}]}},
+        "neighbours": ["0,9", "2,-7"],
+        "position": {"x": 35.5, "y": 77.5}
+      },
       {"name": "medium-electric-pole", "neighbours": ["-8,-1", "8,0"], "position": {"x": 60.5, "y": 64.5}},
       {
         "name": "medium-electric-pole",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "-7,0"}, {"entity_rel": "7,0"}],
+            "green": [{"entity_rel": "-7,0"}, {"entity_rel": "0,-9"}, {"entity_rel": "7,0"}],
             "red": [{"entity_rel": "-7,0"}, {"entity_rel": "7,0"}]
           }
         },
-        "neighbours": ["-7,0", "0,3", "7,0"],
+        "neighbours": ["-7,0", "0,-9", "0,3", "7,0"],
         "position": {"x": 35.5, "y": 86.5}
       },
       {
@@ -4671,19 +4692,6 @@
         "position": {"x": 68.5, "y": 64.5}
       },
       {"name": "medium-electric-pole", "neighbours": ["-9,0", "1,-4"], "position": {"x": 77.5, "y": 64.5}},
-      {
-        "name": "power-switch",
-        "switch_state": false,
-        "connections": {
-          "1": {"green": [{"entity_rel": "0.5,7.5"}]},
-          "Cu0": [{"entity_rel": "2.5,-5.5", "wire_id": 0}],
-          "Cu1": [{"entity_rel": "-4.5,1.5", "wire_id": 0}]
-        },
-        "control_behavior": {
-          "circuit_condition": {"comparator": "<", "constant": 80, "first_signal": {"name": "se-space-capsule", "type": "item"}}
-        },
-        "position": {"x": 14, "y": 79}
-      },
       {"name": "rail-chain-signal", "position": {"x": 98.5, "y": -10.5}},
       {"name": "rail-chain-signal", "direction": 1, "position": {"x": 96.5, "y": -5.5}},
       {"name": "rail-chain-signal", "direction": 1, "position": {"x": -3.5, "y": 92.5}},
@@ -4754,12 +4762,14 @@
           "1": {"green": [{"circuit_id": 2, "entity_rel": "-5.5,0"}, {"entity_rel": "0,3"}, {"entity_rel": "1,0"}]}
         },
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 23.5, "y": 0.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "0,-3"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 23.5, "y": 3.5}
       },
       {
@@ -4767,6 +4777,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 24.5, "y": 0.5}
       },
       {
@@ -4774,6 +4785,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 25.5, "y": 0.5}
       },
       {
@@ -4781,6 +4793,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 26.5, "y": 0.5}
       },
       {
@@ -4788,30 +4801,35 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 27.5, "y": 0.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 24.5, "y": 3.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 25.5, "y": 3.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 26.5, "y": 3.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 27.5, "y": 3.5}
       },
       {
@@ -4819,6 +4837,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 28.5, "y": 0.5}
       },
       {
@@ -4826,6 +4845,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 30.5, "y": 0.5}
       },
       {
@@ -4833,24 +4853,28 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 31.5, "y": 0.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 28.5, "y": 3.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 30.5, "y": 3.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 31.5, "y": 3.5}
       },
       {
@@ -4858,6 +4882,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "battery", "index": 1}],
         "position": {"x": 0.5, "y": 18.5}
       },
       {
@@ -4865,6 +4890,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "battery", "index": 1}],
         "position": {"x": 0.5, "y": 19.5}
       },
       {
@@ -4872,6 +4898,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "battery", "index": 1}],
         "position": {"x": 3.5, "y": 18.5}
       },
       {
@@ -4879,6 +4906,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "battery", "index": 1}],
         "position": {"x": 3.5, "y": 19.5}
       },
       {
@@ -4886,6 +4914,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "battery", "index": 1}],
         "position": {"x": 0.5, "y": 20.5}
       },
       {
@@ -4893,6 +4922,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "battery", "index": 1}],
         "position": {"x": 0.5, "y": 21.5}
       },
       {
@@ -4900,6 +4930,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "battery", "index": 1}],
         "position": {"x": 3.5, "y": 20.5}
       },
       {
@@ -4907,6 +4938,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "battery", "index": 1}],
         "position": {"x": 3.5, "y": 21.5}
       },
       {
@@ -4914,6 +4946,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "battery", "index": 1}],
         "position": {"x": 0.5, "y": 22.5}
       },
       {
@@ -4921,6 +4954,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "battery", "index": 1}],
         "position": {"x": 0.5, "y": 23.5}
       },
       {
@@ -4928,6 +4962,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "battery", "index": 1}],
         "position": {"x": 3.5, "y": 22.5}
       },
       {
@@ -4935,6 +4970,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "battery", "index": 1}],
         "position": {"x": 3.5, "y": 23.5}
       },
       {
@@ -4942,6 +4978,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "battery", "index": 1}],
         "position": {"x": 0.5, "y": 25.5}
       },
       {
@@ -4949,6 +4986,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "battery", "index": 1}],
         "position": {"x": 3.5, "y": 25.5}
       },
       {
@@ -4956,6 +4994,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "battery", "index": 1}],
         "position": {"x": 0.5, "y": 26.5}
       },
       {
@@ -4963,6 +5002,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "battery", "index": 1}],
         "position": {"x": 0.5, "y": 27.5}
       },
       {
@@ -4970,6 +5010,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "battery", "index": 1}],
         "position": {"x": 3.5, "y": 26.5}
       },
       {
@@ -4977,6 +5018,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "battery", "index": 1}],
         "position": {"x": 3.5, "y": 27.5}
       },
       {
@@ -4984,6 +5026,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "battery", "index": 1}],
         "position": {"x": 0.5, "y": 28.5}
       },
       {
@@ -4991,6 +5034,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "battery", "index": 1}],
         "position": {"x": 0.5, "y": 29.5}
       },
       {
@@ -4998,6 +5042,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "battery", "index": 1}],
         "position": {"x": 3.5, "y": 28.5}
       },
       {
@@ -5005,6 +5050,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "battery", "index": 1}],
         "position": {"x": 3.5, "y": 29.5}
       },
       {
@@ -5014,6 +5060,7 @@
           "1": {"green": [{"circuit_id": 2, "entity_rel": "0,5.5"}, {"entity_rel": "0,-1"}, {"entity_rel": "3,0"}]}
         },
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "battery", "index": 1}],
         "position": {"x": 0.5, "y": 30.5}
       },
       {
@@ -5021,6 +5068,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "-3,0"}, {"entity_rel": "0,-1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "battery", "index": 1}],
         "position": {"x": 3.5, "y": 30.5}
       },
       {
@@ -5028,6 +5076,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 32.5, "y": 0.5}
       },
       {
@@ -5035,6 +5084,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 33.5, "y": 0.5}
       },
       {
@@ -5042,6 +5092,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 34.5, "y": 0.5}
       },
       {
@@ -5049,30 +5100,35 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 35.5, "y": 0.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 32.5, "y": 3.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 33.5, "y": 3.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 34.5, "y": 3.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 35.5, "y": 3.5}
       },
       {
@@ -5080,6 +5136,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 37.5, "y": 0.5}
       },
       {
@@ -5087,6 +5144,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 38.5, "y": 0.5}
       },
       {
@@ -5094,24 +5152,28 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 39.5, "y": 0.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 37.5, "y": 3.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 38.5, "y": 3.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 39.5, "y": 3.5}
       },
       {
@@ -5119,6 +5181,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 40.5, "y": 0.5}
       },
       {
@@ -5126,6 +5189,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 41.5, "y": 0.5}
       },
       {
@@ -5133,24 +5197,28 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 42.5, "y": 0.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 40.5, "y": 3.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 41.5, "y": 3.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 42.5, "y": 3.5}
       },
       {
@@ -5158,6 +5226,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 44.5, "y": 0.5}
       },
       {
@@ -5165,6 +5234,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 45.5, "y": 0.5}
       },
       {
@@ -5172,6 +5242,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 46.5, "y": 0.5}
       },
       {
@@ -5179,30 +5250,35 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 47.5, "y": 0.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 44.5, "y": 3.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 45.5, "y": 3.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 46.5, "y": 3.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 47.5, "y": 3.5}
       },
       {
@@ -5210,6 +5286,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 48.5, "y": 0.5}
       },
       {
@@ -5217,18 +5294,21 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 49.5, "y": 0.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 48.5, "y": 3.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "glass", "index": 1}],
         "position": {"x": 49.5, "y": 3.5}
       },
       {
@@ -5236,6 +5316,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 0.5, "y": 50.5}
       },
       {
@@ -5243,6 +5324,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 0.5, "y": 51.5}
       },
       {
@@ -5250,6 +5332,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 3.5, "y": 50.5}
       },
       {
@@ -5257,6 +5340,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 3.5, "y": 51.5}
       },
       {
@@ -5264,6 +5348,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 0.5, "y": 52.5}
       },
       {
@@ -5271,6 +5356,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 0.5, "y": 53.5}
       },
       {
@@ -5278,6 +5364,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 3.5, "y": 52.5}
       },
       {
@@ -5285,6 +5372,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 3.5, "y": 53.5}
       },
       {
@@ -5292,6 +5380,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 0.5, "y": 54.5}
       },
       {
@@ -5299,6 +5388,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 0.5, "y": 55.5}
       },
       {
@@ -5306,6 +5396,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 3.5, "y": 54.5}
       },
       {
@@ -5313,6 +5404,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 3.5, "y": 55.5}
       },
       {
@@ -5320,6 +5412,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 0.5, "y": 57.5}
       },
       {
@@ -5327,6 +5420,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 3.5, "y": 57.5}
       },
       {
@@ -5334,6 +5428,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 0.5, "y": 58.5}
       },
       {
@@ -5341,6 +5436,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 0.5, "y": 59.5}
       },
       {
@@ -5348,6 +5444,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 3.5, "y": 58.5}
       },
       {
@@ -5355,6 +5452,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 3.5, "y": 59.5}
       },
       {
@@ -5362,6 +5460,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 0.5, "y": 60.5}
       },
       {
@@ -5369,6 +5468,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 0.5, "y": 61.5}
       },
       {
@@ -5376,6 +5476,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 3.5, "y": 60.5}
       },
       {
@@ -5383,6 +5484,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 3.5, "y": 61.5}
       },
       {
@@ -5390,6 +5492,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 0.5, "y": 62.5}
       },
       {
@@ -5397,6 +5500,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 3.5, "y": 62.5}
       },
       {
@@ -5406,12 +5510,14 @@
           "1": {"green": [{"circuit_id": 2, "entity_rel": "-5.5,0"}, {"entity_rel": "0,3"}, {"entity_rel": "1,0"}]}
         },
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "electronic-circuit", "index": 1}],
         "position": {"x": 67.5, "y": 0.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "0,-3"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "electronic-circuit", "index": 1}],
         "position": {"x": 67.5, "y": 3.5}
       },
       {
@@ -5419,6 +5525,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "electronic-circuit", "index": 1}],
         "position": {"x": 68.5, "y": 0.5}
       },
       {
@@ -5426,6 +5533,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "electronic-circuit", "index": 1}],
         "position": {"x": 69.5, "y": 0.5}
       },
       {
@@ -5433,6 +5541,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "electronic-circuit", "index": 1}],
         "position": {"x": 70.5, "y": 0.5}
       },
       {
@@ -5440,30 +5549,35 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "electronic-circuit", "index": 1}],
         "position": {"x": 71.5, "y": 0.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "electronic-circuit", "index": 1}],
         "position": {"x": 68.5, "y": 3.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "electronic-circuit", "index": 1}],
         "position": {"x": 69.5, "y": 3.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "electronic-circuit", "index": 1}],
         "position": {"x": 70.5, "y": 3.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "electronic-circuit", "index": 1}],
         "position": {"x": 71.5, "y": 3.5}
       },
       {
@@ -5471,6 +5585,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "electronic-circuit", "index": 1}],
         "position": {"x": 72.5, "y": 0.5}
       },
       {
@@ -5478,6 +5593,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "electronic-circuit", "index": 1}],
         "position": {"x": 74.5, "y": 0.5}
       },
       {
@@ -5485,24 +5601,28 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "electronic-circuit", "index": 1}],
         "position": {"x": 75.5, "y": 0.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "electronic-circuit", "index": 1}],
         "position": {"x": 72.5, "y": 3.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "electronic-circuit", "index": 1}],
         "position": {"x": 74.5, "y": 3.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "electronic-circuit", "index": 1}],
         "position": {"x": 75.5, "y": 3.5}
       },
       {
@@ -5510,6 +5630,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "electronic-circuit", "index": 1}],
         "position": {"x": 76.5, "y": 0.5}
       },
       {
@@ -5517,6 +5638,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "electronic-circuit", "index": 1}],
         "position": {"x": 77.5, "y": 0.5}
       },
       {
@@ -5524,6 +5646,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "electronic-circuit", "index": 1}],
         "position": {"x": 78.5, "y": 0.5}
       },
       {
@@ -5531,30 +5654,35 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "electronic-circuit", "index": 1}],
         "position": {"x": 79.5, "y": 0.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "electronic-circuit", "index": 1}],
         "position": {"x": 76.5, "y": 3.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "electronic-circuit", "index": 1}],
         "position": {"x": 77.5, "y": 3.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "electronic-circuit", "index": 1}],
         "position": {"x": 78.5, "y": 3.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "electronic-circuit", "index": 1}],
         "position": {"x": 79.5, "y": 3.5}
       },
       {
@@ -5562,6 +5690,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 0.5, "y": 64.5}
       },
       {
@@ -5569,6 +5698,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 0.5, "y": 65.5}
       },
       {
@@ -5576,6 +5706,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 3.5, "y": 64.5}
       },
       {
@@ -5583,6 +5714,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 3.5, "y": 65.5}
       },
       {
@@ -5590,6 +5722,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 0.5, "y": 66.5}
       },
       {
@@ -5597,6 +5730,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 0.5, "y": 67.5}
       },
       {
@@ -5604,6 +5738,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 3.5, "y": 66.5}
       },
       {
@@ -5611,6 +5746,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 3.5, "y": 67.5}
       },
       {
@@ -5618,6 +5754,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 0.5, "y": 68.5}
       },
       {
@@ -5625,6 +5762,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 0.5, "y": 69.5}
       },
       {
@@ -5632,6 +5770,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 3.5, "y": 68.5}
       },
       {
@@ -5639,6 +5778,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,2"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 3.5, "y": 69.5}
       },
       {
@@ -5646,6 +5786,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 0.5, "y": 71.5}
       },
       {
@@ -5653,6 +5794,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 3.5, "y": 71.5}
       },
       {
@@ -5660,6 +5802,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 0.5, "y": 72.5}
       },
       {
@@ -5667,6 +5810,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 0.5, "y": 73.5}
       },
       {
@@ -5674,6 +5818,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 3.5, "y": 72.5}
       },
       {
@@ -5681,6 +5826,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 3.5, "y": 73.5}
       },
       {
@@ -5688,6 +5834,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 0.5, "y": 74.5}
       },
       {
@@ -5695,6 +5842,7 @@
         "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 0.5, "y": 75.5}
       },
       {
@@ -5702,6 +5850,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 3.5, "y": 74.5}
       },
       {
@@ -5709,6 +5858,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 3.5, "y": 75.5}
       },
       {
@@ -5718,6 +5868,7 @@
           "1": {"green": [{"circuit_id": 2, "entity_rel": "0,5.5"}, {"entity_rel": "0,-1"}, {"entity_rel": "3,0"}]}
         },
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 0.5, "y": 76.5}
       },
       {
@@ -5725,6 +5876,7 @@
         "direction": 6,
         "connections": {"1": {"green": [{"entity_rel": "-3,0"}, {"entity_rel": "0,-1"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-plate", "index": 1}],
         "position": {"x": 3.5, "y": 76.5}
       },
       {
@@ -6525,8 +6677,18 @@
       {"name": "substation", "neighbours": ["0,12"], "position": {"x": 20, "y": 29}},
       {"name": "substation", "neighbours": ["0,-12", "0,12", "7.5,-0.5"], "position": {"x": 20, "y": 41}},
       {"name": "substation", "neighbours": ["-2.5,4.5", "0,-12"], "position": {"x": 20, "y": 53}},
-      {"name": "substation", "neighbours": ["-2.5,-5.5", "0,13"], "position": {"x": 43, "y": 42}},
-      {"name": "substation", "neighbours": ["0,-13", "2.5,7.5"], "position": {"x": 43, "y": 55}},
+      {
+        "name": "substation",
+        "connections": {"1": {"green": [{"entity_rel": "-2.5,-5.5"}, {"entity_rel": "0,13"}]}},
+        "neighbours": ["-2.5,-5.5", "0,13"],
+        "position": {"x": 43, "y": 42}
+      },
+      {
+        "name": "substation",
+        "connections": {"1": {"green": [{"entity_rel": "0,-13"}, {"entity_rel": "2.5,7.5"}]}},
+        "neighbours": ["0,-13", "2.5,7.5"],
+        "position": {"x": 43, "y": 55}
+      },
       {"name": "substation", "neighbours": ["0,12"], "position": {"x": 65, "y": 29}},
       {"name": "substation", "neighbours": ["-7.5,-0.5", "0,-12", "0,12"], "position": {"x": 65, "y": 41}},
       {"name": "substation", "neighbours": ["0,-12", "2.5,4.5"], "position": {"x": 65, "y": 53}},

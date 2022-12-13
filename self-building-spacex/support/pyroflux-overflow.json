@@ -550,6 +550,17 @@
         "name": "big-electric-pole",
         "connections": {"1": {"green": [{"entity_rel": "0,22"}], "red": [{"entity_rel": "0,22"}]}},
         "neighbours": ["0,22"],
+        "position": {"x": 55, "y": -79}
+      },
+      {
+        "name": "big-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "0,-22"}, {"entity_rel": "0,22"}],
+            "red": [{"entity_rel": "0,-22"}, {"entity_rel": "0,22"}]
+          }
+        },
+        "neighbours": ["0,-22", "0,22"],
         "position": {"x": 55, "y": -57}
       },
       {
@@ -627,7 +638,7 @@
             ]
           }
         },
-        "neighbours": ["3.5,0.5", "8,14"],
+        "neighbours": ["-3.5,-6.5", "3.5,0.5", "8,14"],
         "position": {"x": 3, "y": 17}
       },
       {
@@ -957,6 +968,21 @@
       },
       {
         "name": "decider-combinator",
+        "direction": 6,
+        "connections": {"1": {"green": [{"entity_rel": "3.5,5"}]}, "2": {"green": [{"entity_rel": "-3.5,-2"}]}},
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "constant": 2500,
+            "copy_count_from_input": false,
+            "first_signal": {"name": "se-pyroflux", "type": "fluid"},
+            "output_signal": {"name": "signal-check", "type": "virtual"}
+          }
+        },
+        "position": {"x": 3, "y": 12.5}
+      },
+      {
+        "name": "decider-combinator",
         "direction": 4,
         "connections": {
           "1": {"red": [{"entity_rel": "1.5,-1"}]},
@@ -1024,12 +1050,54 @@
         },
         "position": {"x": 6.5, "y": 16}
       },
-      {"name": "fast-inserter", "position": {"x": -26.5, "y": 7.5}},
-      {"name": "fast-inserter", "position": {"x": -21.5, "y": 7.5}},
-      {"name": "fast-inserter", "position": {"x": -20.5, "y": 7.5}},
-      {"name": "fast-inserter", "position": {"x": -10.5, "y": 7.5}},
-      {"name": "fast-inserter", "position": {"x": -9.5, "y": 7.5}},
-      {"name": "fast-inserter", "position": {"x": -4.5, "y": 7.5}},
+      {
+        "name": "fast-inserter",
+        "connections": {"1": {"green": [{"entity_rel": "5,0"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "position": {"x": -26.5, "y": 7.5}
+      },
+      {
+        "name": "fast-inserter",
+        "connections": {"1": {"green": [{"entity_rel": "-5,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "position": {"x": -21.5, "y": 7.5}
+      },
+      {
+        "name": "fast-inserter",
+        "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "5,3"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "position": {"x": -20.5, "y": 7.5}
+      },
+      {
+        "name": "fast-inserter",
+        "connections": {"1": {"green": [{"entity_rel": "-5,3"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "position": {"x": -10.5, "y": 7.5}
+      },
+      {
+        "name": "fast-inserter",
+        "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "5,0"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "position": {"x": -9.5, "y": 7.5}
+      },
+      {
+        "name": "fast-inserter",
+        "connections": {"1": {"green": [{"entity_rel": "-5,0"}, {"entity_rel": "4,3"}]}},
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "position": {"x": -4.5, "y": 7.5}
+      },
       {"name": "iron-chest", "position": {"x": -31.5, "y": 18.5}},
       {"name": "iron-chest", "position": {"x": -30.5, "y": 18.5}},
       {"name": "iron-chest", "position": {"x": -29.5, "y": 18.5}},
@@ -1211,10 +1279,17 @@
       {"name": "medium-electric-pole", "neighbours": ["0,-5", "0,6"], "position": {"x": -15.5, "y": 4.5}},
       {
         "name": "medium-electric-pole",
+        "connections": {"1": {"green": [{"entity_rel": "-5,-3"}, {"entity_rel": "5,-3"}]}},
         "neighbours": ["-8,-1", "0,-6", "8,-1"],
         "position": {"x": -15.5, "y": 10.5}
       },
-      {"name": "medium-electric-pole", "neighbours": ["-8,1"], "position": {"x": -7.5, "y": 9.5}},
+      {"name": "medium-electric-pole", "neighbours": ["-8,1", "7,1"], "position": {"x": -7.5, "y": 9.5}},
+      {
+        "name": "medium-electric-pole",
+        "connections": {"1": {"green": [{"circuit_id": 2, "entity_rel": "3.5,2"}, {"entity_rel": "-4,-3"}]}},
+        "neighbours": ["-7,-1", "3.5,6.5"],
+        "position": {"x": -0.5, "y": 10.5}
+      },
       {
         "name": "medium-electric-pole",
         "connections": {
@@ -1297,7 +1372,7 @@
         "name": "medium-electric-pole",
         "connections": {
           "1": {
-            "green": [{"entity_rel": "-2,1"}, {"entity_rel": "-7.5,-6.5"}, {"entity_rel": "5,2"}],
+            "green": [{"circuit_id": 1, "entity_rel": "-3.5,-5"}, {"entity_rel": "-2,1"}, {"entity_rel": "5,2"}],
             "red": [{"entity_rel": "-2,1"}]
           }
         },
@@ -1346,19 +1421,6 @@
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 9.5, "y": 24.5}},
       {"name": "pipe-to-ground", "position": {"x": 18.5, "y": 16.5}},
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 18.5, "y": 24.5}},
-      {
-        "name": "power-switch",
-        "switch_state": false,
-        "connections": {
-          "1": {"green": [{"entity_rel": "7.5,6.5"}]},
-          "Cu0": [{"entity_rel": "-6.5,-1.5", "wire_id": 0}],
-          "Cu1": [{"entity_rel": "4,6", "wire_id": 0}]
-        },
-        "control_behavior": {
-          "circuit_condition": {"comparator": ">", "constant": 1000, "first_signal": {"name": "se-pyroflux", "type": "fluid"}}
-        },
-        "position": {"x": -1, "y": 11}
-      },
       {"name": "pump", "position": {"x": 9.5, "y": 14}},
       {"name": "pump", "position": {"x": 13.5, "y": 19}},
       {"name": "pump", "position": {"x": 15.5, "y": 19}},
@@ -2170,9 +2232,29 @@
       {"name": "transport-belt", "direction": 6, "position": {"x": -18.5, "y": 0.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": -17.5, "y": 0.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": -16.5, "y": 0.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": -27.5, "y": 8.5}},
+      {
+        "name": "transport-belt",
+        "direction": 4,
+        "control_behavior": {
+          "circuit_contents_read_mode": 0,
+          "circuit_enable_disable": true,
+          "circuit_read_hand_contents": false,
+          "circuit_condition": {"comparator": ">", "constant": 5000, "first_signal": {"name": "se-pyroflux", "type": "fluid"}}
+        },
+        "position": {"x": -27.5, "y": 8.5}
+      },
       {"name": "transport-belt", "direction": 6, "position": {"x": -26.5, "y": 8.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": -27.5, "y": 9.5}},
+      {
+        "name": "transport-belt",
+        "direction": 4,
+        "control_behavior": {
+          "circuit_contents_read_mode": 0,
+          "circuit_enable_disable": true,
+          "circuit_read_hand_contents": false,
+          "circuit_condition": {"comparator": ">", "constant": 5000, "first_signal": {"name": "se-pyroflux", "type": "fluid"}}
+        },
+        "position": {"x": -27.5, "y": 9.5}
+      },
       {"name": "transport-belt", "direction": 6, "position": {"x": -25.5, "y": 8.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": -24.5, "y": 8.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": -27.5, "y": 10.5}},

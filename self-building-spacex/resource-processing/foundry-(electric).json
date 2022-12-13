@@ -209,20 +209,21 @@
             "red": [{"entity_rel": "0,-22"}, {"entity_rel": "0,22"}]
           }
         },
-        "neighbours": ["0,-22", "0,22"],
+        "neighbours": ["0,-22", "0,22", "13,1"],
         "position": {"x": 2, "y": 112}
       },
       {
         "name": "big-electric-pole",
-        "neighbours": ["-7.5,-4.5", "-7.5,2.5", "27,12"],
-        "position": {"x": 92, "y": 113}
+        "neighbours": ["-13,-1", "3.5,-4.5", "3.5,2.5"],
+        "position": {"x": 15, "y": 113}
       },
       {
         "name": "big-electric-pole",
-        "neighbours": ["-5,29", "22,-9", "8.5,1.5"],
-        "position": {"x": 124, "y": 113}
+        "connections": {"1": {"red": [{"entity_rel": "-1.5,-3.5"}, {"entity_rel": "25,12"}]}},
+        "neighbours": ["25,12"],
+        "position": {"x": 106, "y": 113}
       },
-      {"name": "big-electric-pole", "neighbours": ["-27,-12", "28,9"], "position": {"x": 119, "y": 125}},
+      {"name": "big-electric-pole", "neighbours": ["-5,29", "22,-9"], "position": {"x": 124, "y": 113}},
       {
         "name": "big-electric-pole",
         "connections": {
@@ -303,6 +304,12 @@
       },
       {"name": "big-electric-pole", "neighbours": ["0,-26", "0,21"], "position": {"x": 168, "y": 79}},
       {"name": "big-electric-pole", "neighbours": ["-22,9", "22,-4"], "position": {"x": 146, "y": 104}},
+      {
+        "name": "big-electric-pole",
+        "connections": {"1": {"red": [{"entity_rel": "-25,-12"}, {"entity_rel": "28,9"}]}},
+        "neighbours": ["-25,-12", "28,9"],
+        "position": {"x": 131, "y": 125}
+      },
       {"name": "big-electric-pole", "neighbours": ["-22,4", "0,-21"], "position": {"x": 168, "y": 100}},
       {
         "name": "big-electric-pole",
@@ -466,7 +473,12 @@
         "neighbours": ["-22,0", "22,0"],
         "position": {"x": 112, "y": 222}
       },
-      {"name": "big-electric-pole", "neighbours": ["-28,-9"], "position": {"x": 147, "y": 134}},
+      {
+        "name": "big-electric-pole",
+        "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "7,0.5"}, {"entity_rel": "-28,-9"}]}},
+        "neighbours": ["-28,-9", "8.5,0.5"],
+        "position": {"x": 159, "y": 134}
+      },
       {
         "name": "big-electric-pole",
         "connections": {
@@ -628,7 +640,7 @@
             {"count": 5, "index": 11, "signal": {"name": "arithmetic-combinator", "type": "item"}},
             {"count": 3, "index": 12, "signal": {"name": "decider-combinator", "type": "item"}},
             {"count": 2, "index": 13, "signal": {"name": "constant-combinator", "type": "item"}},
-            {"count": 1, "index": 14, "signal": {"name": "power-switch", "type": "item"}},
+            {"count": 0, "index": 14, "signal": {"name": "power-switch", "type": "item"}},
             {"count": 80, "index": 15, "signal": {"name": "small-lamp", "type": "item"}},
             {"count": 1000, "index": 16, "signal": {"name": "rail", "type": "item"}},
             {"count": 24, "index": 17, "signal": {"name": "rail-signal", "type": "item"}},
@@ -786,6 +798,21 @@
           }
         },
         "position": {"x": 202.5, "y": 120}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 6,
+        "connections": {"1": {"green": [{"entity_rel": "1.5,0"}]}, "2": {"red": [{"entity_rel": "-7,-0.5"}]}},
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "<",
+            "constant": 50000,
+            "copy_count_from_input": false,
+            "first_signal": {"name": "signal-everything", "type": "virtual"},
+            "output_signal": {"name": "signal-check", "type": "virtual"}
+          }
+        },
+        "position": {"x": 166, "y": 134.5}
       },
       {
         "name": "decider-combinator",
@@ -1796,9 +1823,31 @@
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 103.5, "y": 102.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 102.5, "y": 103.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 103.5, "y": 103.5}},
-      {"name": "fast-transport-belt", "direction": 6, "position": {"x": 104.5, "y": 102.5}},
+      {
+        "name": "fast-transport-belt",
+        "direction": 6,
+        "connections": {"1": {"red": [{"entity_rel": "0,1"}]}},
+        "control_behavior": {
+          "circuit_contents_read_mode": 0,
+          "circuit_enable_disable": true,
+          "circuit_read_hand_contents": false,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "position": {"x": 104.5, "y": 102.5}
+      },
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 105.5, "y": 102.5}},
-      {"name": "fast-transport-belt", "direction": 6, "position": {"x": 104.5, "y": 103.5}},
+      {
+        "name": "fast-transport-belt",
+        "direction": 6,
+        "connections": {"1": {"red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {
+          "circuit_contents_read_mode": 0,
+          "circuit_enable_disable": true,
+          "circuit_read_hand_contents": false,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "position": {"x": 104.5, "y": 103.5}
+      },
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 105.5, "y": 103.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 106.5, "y": 102.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 107.5, "y": 102.5}},
@@ -1842,25 +1891,91 @@
       {"name": "fast-transport-belt", "direction": 4, "position": {"x": 101.5, "y": 111.5}},
       {"name": "fast-transport-belt", "direction": 4, "position": {"x": 102.5, "y": 110.5}},
       {"name": "fast-transport-belt", "direction": 4, "position": {"x": 102.5, "y": 111.5}},
-      {"name": "fast-transport-belt", "direction": 6, "position": {"x": 104.5, "y": 104.5}},
+      {
+        "name": "fast-transport-belt",
+        "direction": 6,
+        "connections": {"1": {"red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {
+          "circuit_contents_read_mode": 0,
+          "circuit_enable_disable": true,
+          "circuit_read_hand_contents": false,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "position": {"x": 104.5, "y": 104.5}
+      },
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 105.5, "y": 104.5}},
-      {"name": "fast-transport-belt", "direction": 6, "position": {"x": 104.5, "y": 105.5}},
+      {
+        "name": "fast-transport-belt",
+        "direction": 6,
+        "connections": {"1": {"red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {
+          "circuit_contents_read_mode": 0,
+          "circuit_enable_disable": true,
+          "circuit_read_hand_contents": false,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "position": {"x": 104.5, "y": 105.5}
+      },
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 105.5, "y": 105.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 106.5, "y": 104.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 107.5, "y": 104.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 106.5, "y": 105.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 107.5, "y": 105.5}},
-      {"name": "fast-transport-belt", "direction": 6, "position": {"x": 104.5, "y": 106.5}},
+      {
+        "name": "fast-transport-belt",
+        "direction": 6,
+        "connections": {"1": {"red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {
+          "circuit_contents_read_mode": 0,
+          "circuit_enable_disable": true,
+          "circuit_read_hand_contents": false,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "position": {"x": 104.5, "y": 106.5}
+      },
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 105.5, "y": 106.5}},
-      {"name": "fast-transport-belt", "direction": 6, "position": {"x": 104.5, "y": 107.5}},
+      {
+        "name": "fast-transport-belt",
+        "direction": 6,
+        "connections": {"1": {"red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {
+          "circuit_contents_read_mode": 0,
+          "circuit_enable_disable": true,
+          "circuit_read_hand_contents": false,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "position": {"x": 104.5, "y": 107.5}
+      },
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 105.5, "y": 107.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 106.5, "y": 106.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 107.5, "y": 106.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 106.5, "y": 107.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 107.5, "y": 107.5}},
-      {"name": "fast-transport-belt", "direction": 6, "position": {"x": 104.5, "y": 108.5}},
+      {
+        "name": "fast-transport-belt",
+        "direction": 6,
+        "connections": {"1": {"red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
+        "control_behavior": {
+          "circuit_contents_read_mode": 0,
+          "circuit_enable_disable": true,
+          "circuit_read_hand_contents": false,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "position": {"x": 104.5, "y": 108.5}
+      },
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 105.5, "y": 108.5}},
-      {"name": "fast-transport-belt", "direction": 6, "position": {"x": 104.5, "y": 109.5}},
+      {
+        "name": "fast-transport-belt",
+        "direction": 6,
+        "connections": {"1": {"red": [{"entity_rel": "0,-1"}, {"entity_rel": "1.5,3.5"}]}},
+        "control_behavior": {
+          "circuit_contents_read_mode": 0,
+          "circuit_enable_disable": true,
+          "circuit_read_hand_contents": false,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-check", "type": "virtual"}}
+        },
+        "position": {"x": 104.5, "y": 109.5}
+      },
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 105.5, "y": 109.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 106.5, "y": 108.5}},
       {"name": "fast-transport-belt", "direction": 6, "position": {"x": 107.5, "y": 108.5}},
@@ -6146,7 +6261,7 @@
       },
       {
         "name": "medium-electric-pole",
-        "neighbours": ["0,-4", "0,7", "6,0"],
+        "neighbours": ["-3.5,4.5", "0,-4", "6,0"],
         "position": {"x": 18.5, "y": 108.5}
       },
       {
@@ -6171,7 +6286,7 @@
       },
       {
         "name": "medium-electric-pole",
-        "neighbours": ["0,-7", "0,4", "6,0"],
+        "neighbours": ["-3.5,-2.5", "0,4", "6,0"],
         "position": {"x": 18.5, "y": 115.5}
       },
       {
@@ -6541,7 +6656,7 @@
       },
       {
         "name": "medium-electric-pole",
-        "neighbours": ["-6,0", "0,-4", "0,7", "7.5,4.5"],
+        "neighbours": ["-6,0", "0,-4", "0,7"],
         "position": {"x": 84.5, "y": 108.5}
       },
       {"name": "medium-electric-pole", "neighbours": ["-7,-1"], "position": {"x": 91.5, "y": 105.5}},
@@ -6592,7 +6707,7 @@
       },
       {
         "name": "medium-electric-pole",
-        "neighbours": ["-6,0", "0,-7", "0,4", "7.5,-2.5"],
+        "neighbours": ["-6,0", "0,-7", "0,4"],
         "position": {"x": 84.5, "y": 115.5}
       },
       {
@@ -6608,7 +6723,7 @@
       {
         "name": "medium-electric-pole",
         "connections": {"1": {"green": [{"entity_rel": "7,0"}], "red": [{"entity_rel": "7,0"}]}},
-        "neighbours": ["-8.5,-1.5", "0,3", "7,0"],
+        "neighbours": ["0,3", "7,0"],
         "position": {"x": 132.5, "y": 114.5}
       },
       {
@@ -7734,9 +7849,12 @@
       {
         "name": "medium-electric-pole",
         "connections": {
-          "1": {"green": [{"entity_rel": "-10.5,-1.5"}, {"entity_rel": "7,0"}], "red": [{"entity_rel": "7,0"}]}
+          "1": {
+            "green": [{"circuit_id": 1, "entity_rel": "-1.5,0"}, {"entity_rel": "7,0"}],
+            "red": [{"entity_rel": "7,0"}]
+          }
         },
-        "neighbours": ["0,3", "7,0"],
+        "neighbours": ["-8.5,-0.5", "0,3", "7,0"],
         "position": {"x": 167.5, "y": 134.5}
       },
       {
@@ -7835,19 +7953,6 @@
         "position": {"x": 200.5, "y": 139.5}
       },
       {"name": "medium-electric-pole", "neighbours": ["-7,0"], "position": {"x": 133.5, "y": 210.5}},
-      {
-        "name": "power-switch",
-        "switch_state": false,
-        "connections": {
-          "1": {"green": [{"entity_rel": "10.5,1.5"}]},
-          "Cu0": [{"entity_rel": "-10,1", "wire_id": 0}],
-          "Cu1": [{"entity_rel": "10.5,1.5", "wire_id": 0}]
-        },
-        "control_behavior": {
-          "circuit_condition": {"comparator": "<", "constant": 50000, "first_signal": {"name": "steel-plate", "type": "item"}}
-        },
-        "position": {"x": 157, "y": 133}
-      },
       {"name": "rail-chain-signal", "direction": 2, "position": {"x": 2.5, "y": -11.5}},
       {"name": "rail-chain-signal", "direction": 2, "position": {"x": 20.5, "y": -1.5}},
       {"name": "rail-chain-signal", "direction": 2, "position": {"x": 202.5, "y": -1.5}},
@@ -8048,6 +8153,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 133.5, "y": 114.5}
       },
       {
@@ -8055,6 +8161,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 134.5, "y": 114.5}
       },
       {
@@ -8062,24 +8169,28 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 135.5, "y": 114.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 133.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 134.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 135.5, "y": 117.5}
       },
       {
@@ -8087,6 +8198,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 136.5, "y": 114.5}
       },
       {
@@ -8094,6 +8206,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 137.5, "y": 114.5}
       },
       {
@@ -8101,6 +8214,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 138.5, "y": 114.5}
       },
       {
@@ -8108,6 +8222,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 140.5, "y": 114.5}
       },
       {
@@ -8115,6 +8230,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 141.5, "y": 114.5}
       },
       {
@@ -8122,6 +8238,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 142.5, "y": 114.5}
       },
       {
@@ -8129,48 +8246,56 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 143.5, "y": 114.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 136.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 137.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 138.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 140.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 141.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 142.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 143.5, "y": 117.5}
       },
       {
@@ -8178,6 +8303,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 144.5, "y": 114.5}
       },
       {
@@ -8185,6 +8311,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 145.5, "y": 114.5}
       },
       {
@@ -8192,6 +8319,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 147.5, "y": 114.5}
       },
       {
@@ -8199,6 +8327,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 148.5, "y": 114.5}
       },
       {
@@ -8206,6 +8335,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 149.5, "y": 114.5}
       },
       {
@@ -8213,6 +8343,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 150.5, "y": 114.5}
       },
       {
@@ -8220,48 +8351,56 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 151.5, "y": 114.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 144.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 145.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 147.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 148.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 149.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 150.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 151.5, "y": 117.5}
       },
       {
@@ -8269,6 +8408,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 152.5, "y": 114.5}
       },
       {
@@ -8276,6 +8416,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 154.5, "y": 114.5}
       },
       {
@@ -8283,6 +8424,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 155.5, "y": 114.5}
       },
       {
@@ -8290,6 +8432,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 156.5, "y": 114.5}
       },
       {
@@ -8297,6 +8440,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 157.5, "y": 114.5}
       },
       {
@@ -8304,6 +8448,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 158.5, "y": 114.5}
       },
       {
@@ -8311,48 +8456,56 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "9,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 159.5, "y": 114.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 152.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 154.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 155.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 156.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 157.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 158.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "9,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 159.5, "y": 117.5}
       },
       {
@@ -8360,6 +8513,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-9,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 168.5, "y": 114.5}
       },
       {
@@ -8367,6 +8521,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 169.5, "y": 114.5}
       },
       {
@@ -8374,6 +8529,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 170.5, "y": 114.5}
       },
       {
@@ -8381,6 +8537,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 171.5, "y": 114.5}
       },
       {
@@ -8388,6 +8545,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 172.5, "y": 114.5}
       },
       {
@@ -8395,6 +8553,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 173.5, "y": 114.5}
       },
       {
@@ -8402,48 +8561,56 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 175.5, "y": 114.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-9,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 168.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 169.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 170.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 171.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 172.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 173.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 175.5, "y": 117.5}
       },
       {
@@ -8451,6 +8618,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 176.5, "y": 114.5}
       },
       {
@@ -8458,6 +8626,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 177.5, "y": 114.5}
       },
       {
@@ -8465,6 +8634,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 178.5, "y": 114.5}
       },
       {
@@ -8472,6 +8642,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 179.5, "y": 114.5}
       },
       {
@@ -8479,6 +8650,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 180.5, "y": 114.5}
       },
       {
@@ -8486,6 +8658,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 182.5, "y": 114.5}
       },
       {
@@ -8493,48 +8666,56 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 183.5, "y": 114.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 176.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 177.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 178.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 179.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 180.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 182.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 183.5, "y": 117.5}
       },
       {
@@ -8542,6 +8723,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 184.5, "y": 114.5}
       },
       {
@@ -8549,6 +8731,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 185.5, "y": 114.5}
       },
       {
@@ -8556,6 +8739,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 186.5, "y": 114.5}
       },
       {
@@ -8563,6 +8747,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 187.5, "y": 114.5}
       },
       {
@@ -8570,6 +8755,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 189.5, "y": 114.5}
       },
       {
@@ -8577,6 +8763,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 190.5, "y": 114.5}
       },
       {
@@ -8584,48 +8771,56 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 191.5, "y": 114.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 184.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 185.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 186.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 187.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 189.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 190.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 191.5, "y": 117.5}
       },
       {
@@ -8633,6 +8828,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 192.5, "y": 114.5}
       },
       {
@@ -8640,6 +8836,7 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 193.5, "y": 114.5}
       },
       {
@@ -8647,18 +8844,21 @@
         "direction": 4,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "0,3"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 194.5, "y": 114.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 192.5, "y": 117.5}
       },
       {
         "name": "stack-filter-inserter",
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 193.5, "y": 117.5}
       },
       {
@@ -8669,6 +8869,7 @@
           }
         },
         "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "iron-ore", "index": 1}],
         "position": {"x": 194.5, "y": 117.5}
       },
       {
