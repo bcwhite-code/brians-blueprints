@@ -3128,8 +3128,8 @@
             {"count": 10000, "index": 4, "signal": {"name": "ltn-requester-threshold", "type": "virtual"}},
             {"count": 999999, "index": 5, "signal": {"name": "ltn-provider-threshold", "type": "virtual"}},
             {"count": 4096, "index": 6, "signal": {"name": "ltn-network-id", "type": "virtual"}},
-            {"count": -999999, "index": 7, "signal": {"name": "burner-mining-drill", "type": "item"}},
-            {"count": 1, "index": 18, "signal": {"name": "ltn-disable-warnings", "type": "virtual"}}
+            {"count": 1, "index": 10, "signal": {"name": "ltn-disable-warnings", "type": "virtual"}},
+            {"count": -999999, "index": 11, "signal": {"name": "burner-mining-drill", "type": "item"}}
           ]
         },
         "position": {"x": 16.5, "y": 82.5}
@@ -4806,10 +4806,11 @@
       },
       {
         "name": "decider-combinator",
+        "connections": {"1": {"red": [{"entity_rel": "2,6.5"}]}, "2": {"red": [{"entity_rel": "-0.5,-3"}]}},
         "control_behavior": {
           "decider_conditions": {
             "comparator": ">",
-            "constant": 0,
+            "constant": 200,
             "copy_count_from_input": false,
             "first_signal": {"name": "signal-anything", "type": "virtual"},
             "output_signal": {"name": "ltn-locked-slots", "type": "virtual"}
@@ -10714,14 +10715,46 @@
         "position": {"x": 208, "y": 177.5}
       },
       {"name": "logistic-chest-active-provider", "position": {"x": 14.5, "y": 44.5}},
-      {"name": "logistic-chest-active-provider", "position": {"x": 16.5, "y": 91.5}},
-      {"name": "logistic-chest-active-provider", "position": {"x": 16.5, "y": 92.5}},
-      {"name": "logistic-chest-active-provider", "position": {"x": 16.5, "y": 98.5}},
-      {"name": "logistic-chest-active-provider", "position": {"x": 16.5, "y": 99.5}},
-      {"name": "logistic-chest-active-provider", "position": {"x": 16.5, "y": 105.5}},
-      {"name": "logistic-chest-active-provider", "position": {"x": 16.5, "y": 106.5}},
-      {"name": "logistic-chest-active-provider", "position": {"x": 16.5, "y": 112.5}},
-      {"name": "logistic-chest-active-provider", "position": {"x": 16.5, "y": 113.5}},
+      {
+        "name": "logistic-chest-active-provider",
+        "connections": {"1": {"red": [{"circuit_id": 1, "entity_rel": "-2,-6.5"}, {"entity_rel": "0,1"}]}},
+        "position": {"x": 16.5, "y": 91.5}
+      },
+      {
+        "name": "logistic-chest-active-provider",
+        "connections": {"1": {"red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,6"}]}},
+        "position": {"x": 16.5, "y": 92.5}
+      },
+      {
+        "name": "logistic-chest-active-provider",
+        "connections": {"1": {"red": [{"entity_rel": "0,-6"}, {"entity_rel": "0,1"}]}},
+        "position": {"x": 16.5, "y": 98.5}
+      },
+      {
+        "name": "logistic-chest-active-provider",
+        "connections": {"1": {"red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,6"}]}},
+        "position": {"x": 16.5, "y": 99.5}
+      },
+      {
+        "name": "logistic-chest-active-provider",
+        "connections": {"1": {"red": [{"entity_rel": "0,-6"}, {"entity_rel": "0,1"}]}},
+        "position": {"x": 16.5, "y": 105.5}
+      },
+      {
+        "name": "logistic-chest-active-provider",
+        "connections": {"1": {"red": [{"entity_rel": "0,-1"}, {"entity_rel": "0,6"}]}},
+        "position": {"x": 16.5, "y": 106.5}
+      },
+      {
+        "name": "logistic-chest-active-provider",
+        "connections": {"1": {"red": [{"entity_rel": "0,-6"}, {"entity_rel": "0,1"}]}},
+        "position": {"x": 16.5, "y": 112.5}
+      },
+      {
+        "name": "logistic-chest-active-provider",
+        "connections": {"1": {"red": [{"entity_rel": "0,-1"}]}},
+        "position": {"x": 16.5, "y": 113.5}
+      },
       {"name": "logistic-chest-active-provider", "position": {"x": 32.5, "y": 163.5}},
       {"name": "logistic-chest-active-provider", "position": {"x": 153.5, "y": 132.5}},
       {
@@ -11892,9 +11925,9 @@
           "g": 0.8235294222831726,
           "r": 0.9333333373069763
         },
+        "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "0.5,3"}]}},
         "control_behavior": {
           "circuit_enable_disable": true,
-          "read_from_train": true,
           "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "ltn-locked-slots", "type": "virtual"}},
           "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
         },
