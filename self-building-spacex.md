@@ -715,7 +715,7 @@ the head of the orbital fluid station.
 
 * Receiving Items from Ships
 
-Receves items from ships and transports them to the ground, thus
+Receives items from ships and transports them to the ground, thus
 avoiding the need for rocket engines to leave the planet surface.
 
 There is room for up to 12 LTN provider stations; just duplicate the
