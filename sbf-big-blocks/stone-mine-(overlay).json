@@ -1,0 +1,1405 @@
+{
+  "index": 10,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "Stone Mine (overlay)",
+    "shift_x": 1702,
+    "shift_y": -1381,
+    "version": 281479276527617,
+    "entities": [
+      {
+        "name": "arithmetic-combinator",
+        "direction": 4,
+        "connections": {
+          "1": {"green": [{"entity_rel": "1.5,-1"}]},
+          "2": {"red": [{"circuit_id": 1, "entity_rel": "1.5,0.5"}, {"entity_rel": "-1.5,-1"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "+",
+            "second_constant": 0,
+            "first_signal": {"name": "stone", "type": "item"},
+            "output_signal": {"name": "signal-L", "type": "virtual"}
+          }
+        },
+        "position": {"x": 0.5, "y": 3}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 2,
+        "connections": {
+          "1": {"red": [{"circuit_id": 2, "entity_rel": "-1.5,-0.5"}]},
+          "2": {"red": [{"entity_rel": "0,-1.5"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "+",
+            "second_constant": 0,
+            "first_signal": {"name": "signal-C", "type": "virtual"},
+            "output_signal": {"name": "stone", "type": "item"}
+          }
+        },
+        "position": {"x": 2, "y": 3.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 4,
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 2, "entity_rel": "0,2"}, {"entity_rel": "0,-1.5"}],
+            "red": [{"entity_rel": "-2.5,-8"}]
+          },
+          "2": {"green": [{"entity_rel": "-0.5,8"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-8", "type": "virtual"}
+          }
+        },
+        "position": {"x": 4.5, "y": 10}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "connections": {
+          "1": {"green": [{"circuit_id": 2, "entity_rel": "0,2"}]},
+          "2": {"green": [{"circuit_id": 1, "entity_rel": "0,-2"}, {"circuit_id": 2, "entity_rel": "2,0"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "second_constant": -2147483648,
+            "first_signal": {"name": "signal-dot", "type": "virtual"},
+            "output_signal": {"name": "signal-dot", "type": "virtual"}
+          }
+        },
+        "position": {"x": 0.5, "y": 12}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "connections": {
+          "1": {"green": [{"circuit_id": 2, "entity_rel": "0,2"}]},
+          "2": {"red": [{"circuit_id": 1, "entity_rel": "-1,-2"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "+",
+            "second_constant": 0,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 1.5, "y": 12}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "connections": {
+          "1": {"green": [{"circuit_id": 2, "entity_rel": "0,2"}]},
+          "2": {"green": [{"circuit_id": 1, "entity_rel": "0,-2"}, {"circuit_id": 2, "entity_rel": "-2,0"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "second_constant": 2147483647,
+            "first_signal": {"name": "signal-dot", "type": "virtual"},
+            "output_signal": {"name": "signal-dot", "type": "virtual"}
+          }
+        },
+        "position": {"x": 2.5, "y": 12}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "connections": {
+          "1": {"green": [{"circuit_id": 1, "entity_rel": "-1,0"}, {"circuit_id": 1, "entity_rel": "1,0"}]},
+          "2": {"green": [{"circuit_id": 1, "entity_rel": "0,-2"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "+",
+            "second_constant": 0,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 1.5, "y": 14}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 2, "entity_rel": "-2,0"}],
+            "red": [{"circuit_id": 2, "entity_rel": "-1,0"}]
+          },
+          "2": {"green": [{"circuit_id": 1, "entity_rel": "0,-2"}]}
+        },
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-dot", "type": "virtual"}
+          }
+        },
+        "position": {"x": 2.5, "y": 16}
+      },
+      {
+        "name": "big-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 1, "entity_rel": "-1.5,1"}, {"entity_rel": "-0.5,7.5"}],
+            "red": [{"circuit_id": 1, "entity_rel": "2.5,8"}, {"circuit_id": 2, "entity_rel": "0,1.5"}]
+          }
+        },
+        "neighbours": ["-0.5,7.5", "-5.5,-0.5"],
+        "position": {"x": 2, "y": 2}
+      },
+      {
+        "name": "big-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 2, "entity_rel": "0.5,-8"}, {"entity_rel": "-2.5,-0.5"}],
+            "red": [{"circuit_id": 1, "entity_rel": "0.5,-6"}, {"entity_rel": "-2.5,-0.5"}]
+          }
+        },
+        "neighbours": ["-2.5,-0.5"],
+        "position": {"x": 4, "y": 18}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 4,
+        "connections": {"1": {"green": [{"circuit_id": 1, "entity_rel": "0,1.5"}]}},
+        "control_behavior": {"filters": [{"count": 1024, "index": 1, "signal": {"name": "stone", "type": "item"}}]},
+        "position": {"x": 4.5, "y": 8.5}
+      },
+      {
+        "name": "constant-combinator",
+        "connections": {"1": {"red": [{"circuit_id": 1, "entity_rel": "0,-1.5"}]}},
+        "control_behavior": {
+          "filters": [{"count": -2147483648, "index": 1, "signal": {"name": "signal-dot", "type": "virtual"}}]
+        },
+        "position": {"x": 0.5, "y": 17.5}
+      },
+      {"name": "curved-rail", "direction": 3, "position": {"x": 4, "y": 1}},
+      {
+        "name": "decider-combinator",
+        "direction": 4,
+        "connections": {"1": {"green": [{"entity_rel": "1,-0.5"}]}, "2": {"red": [{"entity_rel": "1,-0.5"}]}},
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "<",
+            "constant": 100,
+            "copy_count_from_input": false,
+            "first_signal": {"name": "signal-everything", "type": "virtual"},
+            "output_signal": {"name": "signal-red", "type": "virtual"}
+          }
+        },
+        "position": {"x": -4.5, "y": 2}
+      },
+      {
+        "name": "decider-combinator",
+        "connections": {
+          "1": {"green": [{"circuit_id": 2, "entity_rel": "0,2"}], "red": [{"circuit_id": 2, "entity_rel": "1,2"}]},
+          "2": {"green": [{"entity_rel": "1,-0.5"}], "red": [{"circuit_id": 1, "entity_rel": "2,0"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "copy_count_from_input": true,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-dot", "type": "virtual"}
+          }
+        },
+        "position": {"x": 0.5, "y": 10}
+      },
+      {
+        "name": "decider-combinator",
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 2, "entity_rel": "0,2"}],
+            "red": [{"circuit_id": 2, "entity_rel": "-2,0"}, {"circuit_id": 2, "entity_rel": "0,0"}]
+          },
+          "2": {"green": [{"entity_rel": "-1,-0.5"}], "red": [{"circuit_id": 1, "entity_rel": "0,0"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "<",
+            "copy_count_from_input": true,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-dot", "type": "virtual"}
+          }
+        },
+        "position": {"x": 2.5, "y": 10}
+      },
+      {
+        "name": "decider-combinator",
+        "connections": {
+          "1": {"green": [{"circuit_id": 1, "entity_rel": "1,0"}]},
+          "2": {"green": [{"circuit_id": 1, "entity_rel": "0,-2"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "≠",
+            "constant": 0,
+            "copy_count_from_input": false,
+            "first_signal": {"name": "signal-anything", "type": "virtual"},
+            "output_signal": {"name": "signal-dot", "type": "virtual"}
+          }
+        },
+        "position": {"x": 0.5, "y": 14}
+      },
+      {
+        "name": "decider-combinator",
+        "connections": {
+          "1": {"green": [{"circuit_id": 1, "entity_rel": "-1,0"}, {"circuit_id": 2, "entity_rel": "0,2"}]},
+          "2": {"green": [{"circuit_id": 1, "entity_rel": "0,-2"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "=",
+            "constant": 0,
+            "copy_count_from_input": false,
+            "first_signal": {"name": "signal-everything", "type": "virtual"},
+            "output_signal": {"name": "signal-dot", "type": "virtual"}
+          }
+        },
+        "position": {"x": 2.5, "y": 14}
+      },
+      {
+        "name": "decider-combinator",
+        "connections": {
+          "1": {"red": [{"entity_rel": "-0.5,6"}]},
+          "2": {"green": [{"circuit_id": 1, "entity_rel": "0,-2"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "constant": 0,
+            "copy_count_from_input": false,
+            "first_signal": {"name": "signal-8", "type": "virtual"},
+            "output_signal": {"name": "signal-8", "type": "virtual"}
+          }
+        },
+        "position": {"x": 4.5, "y": 12}
+      },
+      {
+        "name": "decider-combinator",
+        "connections": {
+          "1": {"green": [{"circuit_id": 1, "entity_rel": "1,0"}], "red": [{"entity_rel": "0,1.5"}]},
+          "2": {"green": [{"circuit_id": 1, "entity_rel": "2,0"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "constant": -2000000000,
+            "copy_count_from_input": true,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 0.5, "y": 16}
+      },
+      {
+        "name": "decider-combinator",
+        "connections": {
+          "1": {"green": [{"circuit_id": 1, "entity_rel": "-1,0"}, {"entity_rel": "0,1.5"}]},
+          "2": {"red": [{"circuit_id": 1, "entity_rel": "1,0"}]}
+        },
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": ">",
+            "constant": 0,
+            "copy_count_from_input": false,
+            "first_signal": {"name": "signal-9", "type": "virtual"},
+            "output_signal": {"name": "signal-dot", "type": "virtual"}
+          }
+        },
+        "position": {"x": 1.5, "y": 16}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {"1": {"green": [{"entity_rel": "6,0"}], "red": [{"entity_rel": "6,0"}]}},
+        "neighbours": ["6,0"],
+        "position": {"x": -563.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-6,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-3.5,0.5"}, {"entity_rel": "-6,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-6,0", "9,0"],
+        "position": {"x": -557.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -548.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -539.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -530.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -521.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -512.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -503.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -494.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -485.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -476.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -467.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -458.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -449.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -440.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "8,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "8,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "8,0"],
+        "position": {"x": -431.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-8,0"}, {"entity_rel": "6,0"}],
+            "red": [{"entity_rel": "-8,0"}, {"entity_rel": "6,0"}]
+          }
+        },
+        "neighbours": ["-8,0", "6,0"],
+        "position": {"x": -423.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-6,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-3.5,0.5"}, {"entity_rel": "-6,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-6,0", "9,0"],
+        "position": {"x": -417.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -408.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -399.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -390.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -381.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -372.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -363.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -354.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -345.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -336.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -327.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -318.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -309.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -300.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "8,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "8,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "8,0"],
+        "position": {"x": -291.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-8,0"}, {"entity_rel": "6,0"}],
+            "red": [{"entity_rel": "-8,0"}, {"entity_rel": "6,0"}]
+          }
+        },
+        "neighbours": ["-8,0", "6,0"],
+        "position": {"x": -283.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-6,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-3.5,0.5"}, {"entity_rel": "-6,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-6,0", "9,0"],
+        "position": {"x": -277.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -268.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -259.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -250.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -241.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -232.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -223.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -214.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -205.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -196.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -187.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -178.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -169.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -160.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "8,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "8,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "8,0"],
+        "position": {"x": -151.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-8,0"}, {"entity_rel": "6,0"}],
+            "red": [{"entity_rel": "-8,0"}, {"entity_rel": "6,0"}]
+          }
+        },
+        "neighbours": ["-8,0", "6,0"],
+        "position": {"x": -143.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-6,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-3.5,0.5"}, {"entity_rel": "-6,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-6,0", "9,0"],
+        "position": {"x": -137.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -128.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -119.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -110.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -101.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -92.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -83.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -74.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -65.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -56.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -47.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -38.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -29.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "9,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "9,0"],
+        "position": {"x": -20.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"entity_rel": "-9,0"}, {"entity_rel": "8,0"}],
+            "red": [{"entity_rel": "-9,0"}, {"entity_rel": "8,0"}]
+          }
+        },
+        "neighbours": ["-9,0", "8,0"],
+        "position": {"x": -11.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 1, "entity_rel": "-1,0.5"}, {"entity_rel": "-8,0"}],
+            "red": [{"circuit_id": 2, "entity_rel": "-1,0.5"}, {"entity_rel": "-8,0"}, {"entity_rel": "2.5,0.5"}]
+          }
+        },
+        "neighbours": ["-8,0", "5.5,0.5"],
+        "position": {"x": -3.5, "y": 1.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [
+              {"circuit_id": 2, "entity_rel": "-1,0.5"},
+              {"circuit_id": 2, "entity_rel": "1,0.5"},
+              {"entity_rel": "0.5,-7.5"}
+            ],
+            "red": [{"entity_rel": "0,8"}]
+          }
+        },
+        "neighbours": ["0,8", "0.5,-7.5"],
+        "position": {"x": 1.5, "y": 9.5}
+      },
+      {
+        "name": "medium-electric-pole",
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 1, "entity_rel": "0,-1.5"}, {"entity_rel": "2.5,0.5"}],
+            "red": [{"entity_rel": "0,-8"}, {"entity_rel": "2.5,0.5"}]
+          }
+        },
+        "neighbours": ["0,-8", "2.5,0.5"],
+        "position": {"x": 1.5, "y": 17.5}
+      },
+      {"name": "rail-signal", "direction": 6, "position": {"x": -559.5, "y": 1.5}},
+      {"name": "rail-signal", "direction": 6, "position": {"x": -419.5, "y": 1.5}},
+      {"name": "rail-signal", "direction": 6, "position": {"x": -279.5, "y": 1.5}},
+      {"name": "rail-signal", "direction": 6, "position": {"x": -139.5, "y": 1.5}},
+      {"name": "rail-signal", "direction": 6, "position": {"x": 0.5, "y": 1.5}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -563, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -561, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -559, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -557, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -555, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -553, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -551, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -549, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -547, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -545, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -543, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -541, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -539, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -537, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -535, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -533, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -531, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -529, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -527, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -525, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -523, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -521, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -519, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -517, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -515, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -513, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -511, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -509, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -507, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -505, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -503, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -501, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -499, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -497, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -495, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -493, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -491, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -489, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -487, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -485, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -483, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -481, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -479, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -477, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -475, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -473, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -471, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -469, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -467, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -465, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -463, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -461, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -459, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -457, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -455, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -453, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -451, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -449, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -447, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -445, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -443, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -441, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -439, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -437, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -435, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -433, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -431, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -429, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -427, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -425, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -423, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -421, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -419, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -417, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -415, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -413, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -411, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -409, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -407, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -405, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -403, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -401, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -399, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -397, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -395, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -393, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -391, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -389, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -387, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -385, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -383, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -381, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -379, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -377, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -375, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -373, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -371, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -369, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -367, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -365, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -363, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -361, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -359, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -357, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -355, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -353, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -351, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -349, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -347, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -345, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -343, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -341, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -339, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -337, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -335, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -333, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -331, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -329, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -327, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -325, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -323, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -321, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -319, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -317, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -315, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -313, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -311, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -309, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -307, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -305, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -303, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -301, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -299, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -297, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -295, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -293, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -291, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -289, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -287, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -285, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -283, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -281, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -279, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -277, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -275, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -273, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -271, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -269, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -267, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -265, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -263, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -261, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -259, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -257, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -255, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -253, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -251, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -249, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -247, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -245, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -243, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -241, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -239, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -237, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -235, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -233, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -231, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -229, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -227, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -225, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -223, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -221, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -219, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -217, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -215, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -213, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -211, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -209, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -207, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -205, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -203, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -201, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -199, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -197, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -195, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -193, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -191, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -189, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -187, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -185, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -183, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -181, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -179, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -177, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -175, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -173, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -171, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -169, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -167, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -165, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -163, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -161, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -159, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -157, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -155, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -153, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -151, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -149, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -147, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -145, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -143, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -141, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -139, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -137, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -135, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -133, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -131, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -129, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -127, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -125, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -123, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -121, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -119, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -117, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -115, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -113, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -111, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -109, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -107, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -105, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -103, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -101, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -99, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -97, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -95, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -93, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -91, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -89, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -87, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -85, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -83, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -81, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -79, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -77, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -75, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -73, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -71, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -69, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -67, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -65, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -63, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -61, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -59, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -57, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -55, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -53, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -51, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -49, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -47, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -45, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -43, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -41, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -39, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -37, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -35, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -33, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -31, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -29, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -27, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -25, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -23, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -21, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -19, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -17, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -15, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -13, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -11, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -9, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -7, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -5, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -3, "y": 0}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": -1, "y": 0}},
+      {
+        "name": "train-stop",
+        "direction": 2,
+        "station": "BB Stone (a)",
+        "color": {"a": 0.49803921580314636, "b": 0.0784313753247261, "g": 1, "r": 0.23529411852359772},
+        "connections": {"1": {"red": [{"entity_rel": "3.5,-0.5"}]}},
+        "control_behavior": {
+          "read_trains_count": true,
+          "set_trains_limit": true,
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"},
+          "trains_limit_signal": {"name": "signal-L", "type": "virtual"}
+        },
+        "position": {"x": -561, "y": 2}
+      },
+      {
+        "name": "train-stop",
+        "direction": 2,
+        "station": "BB Stone (b)",
+        "color": {"a": 0.49803921580314636, "b": 0.0784313753247261, "g": 1, "r": 0.23529411852359772},
+        "connections": {"1": {"red": [{"entity_rel": "3.5,-0.5"}]}},
+        "control_behavior": {"train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
+        "position": {"x": -421, "y": 2}
+      },
+      {
+        "name": "train-stop",
+        "direction": 2,
+        "station": "BB Stone (c)",
+        "color": {"a": 0.49803921580314636, "b": 0.0784313753247261, "g": 1, "r": 0.23529411852359772},
+        "connections": {"1": {"red": [{"entity_rel": "3.5,-0.5"}]}},
+        "control_behavior": {"train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
+        "position": {"x": -281, "y": 2}
+      },
+      {
+        "name": "train-stop",
+        "direction": 2,
+        "station": "BB Stone (d)",
+        "color": {"a": 0.49803921580314636, "b": 0.0784313753247261, "g": 1, "r": 0.23529411852359772},
+        "connections": {"1": {"red": [{"entity_rel": "3.5,-0.5"}]}},
+        "control_behavior": {"train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
+        "position": {"x": -141, "y": 2}
+      },
+      {
+        "name": "train-stop",
+        "direction": 2,
+        "station": "BB Stone (e)",
+        "color": {"a": 0.49803921580314636, "b": 0.0784313753247261, "g": 1, "r": 0.23529411852359772},
+        "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "1.5,1"}, {"entity_rel": "-2.5,-0.5"}]}},
+        "control_behavior": {
+          "read_trains_count": true,
+          "set_trains_limit": true,
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"},
+          "trains_limit_signal": {"name": "signal-L", "type": "virtual"}
+        },
+        "position": {"x": -1, "y": 2}
+      }
+    ],
+    "icons": [{"index": 1, "signal": {"name": "stone", "type": "item"}}]
+  }
+}
