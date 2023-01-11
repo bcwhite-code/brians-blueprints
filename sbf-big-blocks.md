@@ -2,7 +2,9 @@
 
 _Go big, or go home!_
 
-This expansion can be started any time after the first
+This [expansion
+book](https://github.com/bcwhite-code/brians-blueprints/releases/tag/sbf-big-blocks)
+can be started any time after the first
 [SBF](https://github.com/bcwhite-code/brians-blueprints/releases/tag/self-building-factory)
 Refinery is built though it is probably best to get through "More
 Plates" at the end of Phase 4 but **skip the Modules block**.  But if
