@@ -1,0 +1,618 @@
+{
+  "index": 8,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "Construction Supply",
+    "shift_x": 921,
+    "shift_y": -1361,
+    "version": 281479276527617,
+    "entities": [
+      {"name": "cargo-wagon", "inventory": null, "orientation": 0.75, "position": {"x": 3.03125, "y": 2}},
+      {"name": "cargo-wagon", "inventory": null, "orientation": 0.75, "position": {"x": 10.03125, "y": 2}},
+      {"name": "cargo-wagon", "inventory": null, "orientation": 0.75, "position": {"x": 17.03125, "y": 2}},
+      {"name": "cargo-wagon", "inventory": null, "orientation": 0.75, "position": {"x": 24.03125, "y": 2}},
+      {
+        "name": "decider-combinator",
+        "direction": 6,
+        "connections": {"2": {"red": [{"entity_rel": "-4.5,0"}]}},
+        "control_behavior": {
+          "decider_conditions": {
+            "comparator": "<",
+            "constant": 0,
+            "copy_count_from_input": false,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 31, "y": 0.5}
+      },
+      {
+        "name": "infinity-chest",
+        "infinity_settings": {"remove_unfiltered_items": true},
+        "position": {"x": 0.5, "y": -0.5}
+      },
+      {
+        "name": "infinity-chest",
+        "infinity_settings": {"remove_unfiltered_items": true},
+        "position": {"x": 1.5, "y": -0.5}
+      },
+      {
+        "name": "infinity-chest",
+        "infinity_settings": {"remove_unfiltered_items": true},
+        "position": {"x": 2.5, "y": -0.5}
+      },
+      {
+        "name": "infinity-chest",
+        "infinity_settings": {
+          "remove_unfiltered_items": true,
+          "filters": [
+            {"name": "assembling-machine-3", "count": 50, "index": 1, "mode": "at-least"},
+            {"name": "assembling-machine-2", "count": 50, "index": 2, "mode": "at-least"},
+            {"name": "assembling-machine-1", "count": 50, "index": 3, "mode": "at-least"},
+            {"name": "locomotive", "count": 5, "index": 4, "mode": "at-least"},
+            {"name": "cargo-wagon", "count": 5, "index": 5, "mode": "at-least"},
+            {"name": "fluid-wagon", "count": 5, "index": 6, "mode": "at-least"},
+            {"name": "electric-furnace", "count": 50, "index": 7, "mode": "at-least"},
+            {"name": "oil-refinery", "count": 10, "index": 8, "mode": "at-least"},
+            {"name": "chemical-plant", "count": 10, "index": 9, "mode": "at-least"},
+            {"name": "lab", "count": 10, "index": 10, "mode": "at-least"},
+            {"name": "beacon", "count": 10, "index": 11, "mode": "at-least"},
+            {"name": "speed-module-3", "count": 50, "index": 12, "mode": "at-least"},
+            {"name": "productivity-module-3", "count": 50, "index": 13, "mode": "at-least"},
+            {"name": "boiler", "count": 50, "index": 14, "mode": "at-least"}
+          ]
+        },
+        "position": {"x": 3.5, "y": -0.5}
+      },
+      {
+        "name": "infinity-chest",
+        "infinity_settings": {
+          "remove_unfiltered_items": true,
+          "filters": [
+            {"name": "transport-belt", "count": 100, "index": 1, "mode": "at-least"},
+            {"name": "fast-transport-belt", "count": 100, "index": 2, "mode": "at-least"},
+            {"name": "express-transport-belt", "count": 100, "index": 3, "mode": "at-least"},
+            {"name": "underground-belt", "count": 50, "index": 4, "mode": "at-least"},
+            {"name": "fast-underground-belt", "count": 50, "index": 5, "mode": "at-least"},
+            {"name": "express-underground-belt", "count": 50, "index": 6, "mode": "at-least"},
+            {"name": "splitter", "count": 50, "index": 7, "mode": "at-least"},
+            {"name": "fast-splitter", "count": 50, "index": 8, "mode": "at-least"},
+            {"name": "express-splitter", "count": 50, "index": 9, "mode": "at-least"},
+            {"name": "rail", "count": 100, "index": 10, "mode": "at-least"},
+            {"name": "loader", "count": 50, "index": 11, "mode": "at-least"},
+            {"name": "fast-loader", "count": 50, "index": 12, "mode": "at-least"},
+            {"name": "express-loader", "count": 50, "index": 13, "mode": "at-least"},
+            {"name": "inserter", "count": 50, "index": 14, "mode": "at-least"},
+            {"name": "long-handed-inserter", "count": 50, "index": 15, "mode": "at-least"},
+            {"name": "fast-inserter", "count": 50, "index": 16, "mode": "at-least"},
+            {"name": "filter-inserter", "count": 50, "index": 17, "mode": "at-least"},
+            {"name": "stack-inserter", "count": 50, "index": 18, "mode": "at-least"},
+            {"name": "stack-filter-inserter", "count": 50, "index": 19, "mode": "at-least"},
+            {"name": "storage-tank", "count": 50, "index": 20, "mode": "at-least"},
+            {"name": "logistic-chest-requester", "count": 50, "index": 21, "mode": "at-least"},
+            {"name": "logistic-chest-passive-provider", "count": 50, "index": 22, "mode": "at-least"}
+          ]
+        },
+        "position": {"x": 4.5, "y": -0.5}
+      },
+      {
+        "name": "infinity-chest",
+        "infinity_settings": {
+          "remove_unfiltered_items": true,
+          "filters": [
+            {"name": "iron-chest", "count": 150, "index": 1, "mode": "at-least"},
+            {"name": "medium-electric-pole", "count": 50, "index": 2, "mode": "at-least"},
+            {"name": "big-electric-pole", "count": 50, "index": 3, "mode": "at-least"},
+            {"name": "substation", "count": 50, "index": 4, "mode": "at-least"},
+            {"name": "rail", "count": 100, "index": 5, "mode": "at-least"},
+            {"name": "rail-signal", "count": 50, "index": 6, "mode": "at-least"},
+            {"name": "rail-chain-signal", "count": 50, "index": 7, "mode": "at-least"},
+            {"name": "roboport", "count": 10, "index": 8, "mode": "at-least"},
+            {"name": "construction-robot", "count": 50, "index": 9, "mode": "at-least"},
+            {"name": "logistic-robot", "count": 50, "index": 10, "mode": "at-least"},
+            {"name": "small-lamp", "count": 50, "index": 11, "mode": "at-least"},
+            {"name": "arithmetic-combinator", "count": 50, "index": 12, "mode": "at-least"},
+            {"name": "decider-combinator", "count": 50, "index": 13, "mode": "at-least"},
+            {"name": "constant-combinator", "count": 50, "index": 14, "mode": "at-least"},
+            {"name": "landfill", "count": 100, "index": 15, "mode": "at-least"},
+            {"name": "cliff-explosives", "count": 20, "index": 16, "mode": "at-least"},
+            {"name": "repair-pack", "count": 100, "index": 17, "mode": "at-least"},
+            {"name": "pipe", "count": 100, "index": 18, "mode": "at-least"},
+            {"name": "pipe-to-ground", "count": 50, "index": 19, "mode": "at-least"},
+            {"name": "pump", "count": 50, "index": 20, "mode": "at-least"},
+            {"name": "train-stop", "count": 10, "index": 21, "mode": "at-least"},
+            {"name": "logistic-train-stop", "count": 10, "index": 22, "mode": "at-least"}
+          ]
+        },
+        "position": {"x": 5.5, "y": -0.5}
+      },
+      {
+        "name": "infinity-chest",
+        "infinity_settings": {"remove_unfiltered_items": true},
+        "position": {"x": 7.5, "y": -0.5}
+      },
+      {
+        "name": "infinity-chest",
+        "infinity_settings": {"remove_unfiltered_items": true},
+        "position": {"x": 8.5, "y": -0.5}
+      },
+      {
+        "name": "infinity-chest",
+        "infinity_settings": {"remove_unfiltered_items": true},
+        "position": {"x": 9.5, "y": -0.5}
+      },
+      {
+        "name": "infinity-chest",
+        "infinity_settings": {
+          "remove_unfiltered_items": true,
+          "filters": [
+            {"name": "assembling-machine-3", "count": 50, "index": 1, "mode": "at-least"},
+            {"name": "assembling-machine-2", "count": 50, "index": 2, "mode": "at-least"},
+            {"name": "assembling-machine-1", "count": 50, "index": 3, "mode": "at-least"},
+            {"name": "locomotive", "count": 5, "index": 4, "mode": "at-least"},
+            {"name": "cargo-wagon", "count": 5, "index": 5, "mode": "at-least"},
+            {"name": "fluid-wagon", "count": 5, "index": 6, "mode": "at-least"},
+            {"name": "electric-furnace", "count": 50, "index": 7, "mode": "at-least"},
+            {"name": "oil-refinery", "count": 10, "index": 8, "mode": "at-least"},
+            {"name": "chemical-plant", "count": 10, "index": 9, "mode": "at-least"},
+            {"name": "lab", "count": 10, "index": 10, "mode": "at-least"},
+            {"name": "beacon", "count": 10, "index": 11, "mode": "at-least"},
+            {"name": "speed-module-3", "count": 50, "index": 12, "mode": "at-least"},
+            {"name": "productivity-module-3", "count": 50, "index": 13, "mode": "at-least"},
+            {"name": "boiler", "count": 50, "index": 14, "mode": "at-least"}
+          ]
+        },
+        "position": {"x": 10.5, "y": -0.5}
+      },
+      {
+        "name": "infinity-chest",
+        "infinity_settings": {
+          "remove_unfiltered_items": true,
+          "filters": [
+            {"name": "transport-belt", "count": 100, "index": 1, "mode": "at-least"},
+            {"name": "fast-transport-belt", "count": 100, "index": 2, "mode": "at-least"},
+            {"name": "express-transport-belt", "count": 100, "index": 3, "mode": "at-least"},
+            {"name": "underground-belt", "count": 50, "index": 4, "mode": "at-least"},
+            {"name": "fast-underground-belt", "count": 50, "index": 5, "mode": "at-least"},
+            {"name": "express-underground-belt", "count": 50, "index": 6, "mode": "at-least"},
+            {"name": "splitter", "count": 50, "index": 7, "mode": "at-least"},
+            {"name": "fast-splitter", "count": 50, "index": 8, "mode": "at-least"},
+            {"name": "express-splitter", "count": 50, "index": 9, "mode": "at-least"},
+            {"name": "rail", "count": 100, "index": 10, "mode": "at-least"},
+            {"name": "loader", "count": 50, "index": 11, "mode": "at-least"},
+            {"name": "fast-loader", "count": 50, "index": 12, "mode": "at-least"},
+            {"name": "express-loader", "count": 50, "index": 13, "mode": "at-least"},
+            {"name": "inserter", "count": 50, "index": 14, "mode": "at-least"},
+            {"name": "long-handed-inserter", "count": 50, "index": 15, "mode": "at-least"},
+            {"name": "fast-inserter", "count": 50, "index": 16, "mode": "at-least"},
+            {"name": "filter-inserter", "count": 50, "index": 17, "mode": "at-least"},
+            {"name": "stack-inserter", "count": 50, "index": 18, "mode": "at-least"},
+            {"name": "stack-filter-inserter", "count": 50, "index": 19, "mode": "at-least"},
+            {"name": "storage-tank", "count": 50, "index": 20, "mode": "at-least"},
+            {"name": "logistic-chest-requester", "count": 50, "index": 21, "mode": "at-least"},
+            {"name": "logistic-chest-passive-provider", "count": 50, "index": 22, "mode": "at-least"}
+          ]
+        },
+        "position": {"x": 11.5, "y": -0.5}
+      },
+      {
+        "name": "infinity-chest",
+        "infinity_settings": {
+          "remove_unfiltered_items": true,
+          "filters": [
+            {"name": "iron-chest", "count": 150, "index": 1, "mode": "at-least"},
+            {"name": "medium-electric-pole", "count": 50, "index": 2, "mode": "at-least"},
+            {"name": "big-electric-pole", "count": 50, "index": 3, "mode": "at-least"},
+            {"name": "substation", "count": 50, "index": 4, "mode": "at-least"},
+            {"name": "rail", "count": 100, "index": 5, "mode": "at-least"},
+            {"name": "rail-signal", "count": 50, "index": 6, "mode": "at-least"},
+            {"name": "rail-chain-signal", "count": 50, "index": 7, "mode": "at-least"},
+            {"name": "roboport", "count": 10, "index": 8, "mode": "at-least"},
+            {"name": "construction-robot", "count": 50, "index": 9, "mode": "at-least"},
+            {"name": "logistic-robot", "count": 50, "index": 10, "mode": "at-least"},
+            {"name": "small-lamp", "count": 50, "index": 11, "mode": "at-least"},
+            {"name": "arithmetic-combinator", "count": 50, "index": 12, "mode": "at-least"},
+            {"name": "decider-combinator", "count": 50, "index": 13, "mode": "at-least"},
+            {"name": "constant-combinator", "count": 50, "index": 14, "mode": "at-least"},
+            {"name": "landfill", "count": 100, "index": 15, "mode": "at-least"},
+            {"name": "cliff-explosives", "count": 20, "index": 16, "mode": "at-least"},
+            {"name": "repair-pack", "count": 100, "index": 17, "mode": "at-least"},
+            {"name": "pipe", "count": 100, "index": 18, "mode": "at-least"},
+            {"name": "pipe-to-ground", "count": 50, "index": 19, "mode": "at-least"},
+            {"name": "pump", "count": 50, "index": 20, "mode": "at-least"},
+            {"name": "train-stop", "count": 10, "index": 21, "mode": "at-least"},
+            {"name": "logistic-train-stop", "count": 10, "index": 22, "mode": "at-least"}
+          ]
+        },
+        "position": {"x": 12.5, "y": -0.5}
+      },
+      {
+        "name": "infinity-chest",
+        "infinity_settings": {"remove_unfiltered_items": true},
+        "position": {"x": 14.5, "y": -0.5}
+      },
+      {
+        "name": "infinity-chest",
+        "infinity_settings": {"remove_unfiltered_items": true},
+        "position": {"x": 15.5, "y": -0.5}
+      },
+      {
+        "name": "infinity-chest",
+        "infinity_settings": {"remove_unfiltered_items": true},
+        "position": {"x": 16.5, "y": -0.5}
+      },
+      {
+        "name": "infinity-chest",
+        "infinity_settings": {
+          "remove_unfiltered_items": true,
+          "filters": [
+            {"name": "assembling-machine-3", "count": 50, "index": 1, "mode": "at-least"},
+            {"name": "assembling-machine-2", "count": 50, "index": 2, "mode": "at-least"},
+            {"name": "assembling-machine-1", "count": 50, "index": 3, "mode": "at-least"},
+            {"name": "locomotive", "count": 5, "index": 4, "mode": "at-least"},
+            {"name": "cargo-wagon", "count": 5, "index": 5, "mode": "at-least"},
+            {"name": "fluid-wagon", "count": 5, "index": 6, "mode": "at-least"},
+            {"name": "electric-furnace", "count": 50, "index": 7, "mode": "at-least"},
+            {"name": "oil-refinery", "count": 10, "index": 8, "mode": "at-least"},
+            {"name": "chemical-plant", "count": 10, "index": 9, "mode": "at-least"},
+            {"name": "lab", "count": 10, "index": 10, "mode": "at-least"},
+            {"name": "beacon", "count": 10, "index": 11, "mode": "at-least"},
+            {"name": "speed-module-3", "count": 50, "index": 12, "mode": "at-least"},
+            {"name": "productivity-module-3", "count": 50, "index": 13, "mode": "at-least"},
+            {"name": "boiler", "count": 50, "index": 14, "mode": "at-least"}
+          ]
+        },
+        "position": {"x": 17.5, "y": -0.5}
+      },
+      {
+        "name": "infinity-chest",
+        "infinity_settings": {
+          "remove_unfiltered_items": true,
+          "filters": [
+            {"name": "transport-belt", "count": 100, "index": 1, "mode": "at-least"},
+            {"name": "fast-transport-belt", "count": 100, "index": 2, "mode": "at-least"},
+            {"name": "express-transport-belt", "count": 100, "index": 3, "mode": "at-least"},
+            {"name": "underground-belt", "count": 50, "index": 4, "mode": "at-least"},
+            {"name": "fast-underground-belt", "count": 50, "index": 5, "mode": "at-least"},
+            {"name": "express-underground-belt", "count": 50, "index": 6, "mode": "at-least"},
+            {"name": "splitter", "count": 50, "index": 7, "mode": "at-least"},
+            {"name": "fast-splitter", "count": 50, "index": 8, "mode": "at-least"},
+            {"name": "express-splitter", "count": 50, "index": 9, "mode": "at-least"},
+            {"name": "rail", "count": 100, "index": 10, "mode": "at-least"},
+            {"name": "loader", "count": 50, "index": 11, "mode": "at-least"},
+            {"name": "fast-loader", "count": 50, "index": 12, "mode": "at-least"},
+            {"name": "express-loader", "count": 50, "index": 13, "mode": "at-least"},
+            {"name": "inserter", "count": 50, "index": 14, "mode": "at-least"},
+            {"name": "long-handed-inserter", "count": 50, "index": 15, "mode": "at-least"},
+            {"name": "fast-inserter", "count": 50, "index": 16, "mode": "at-least"},
+            {"name": "filter-inserter", "count": 50, "index": 17, "mode": "at-least"},
+            {"name": "stack-inserter", "count": 50, "index": 18, "mode": "at-least"},
+            {"name": "stack-filter-inserter", "count": 50, "index": 19, "mode": "at-least"},
+            {"name": "storage-tank", "count": 50, "index": 20, "mode": "at-least"},
+            {"name": "logistic-chest-requester", "count": 50, "index": 21, "mode": "at-least"},
+            {"name": "logistic-chest-passive-provider", "count": 50, "index": 22, "mode": "at-least"}
+          ]
+        },
+        "position": {"x": 18.5, "y": -0.5}
+      },
+      {
+        "name": "infinity-chest",
+        "infinity_settings": {
+          "remove_unfiltered_items": true,
+          "filters": [
+            {"name": "iron-chest", "count": 150, "index": 1, "mode": "at-least"},
+            {"name": "medium-electric-pole", "count": 50, "index": 2, "mode": "at-least"},
+            {"name": "big-electric-pole", "count": 50, "index": 3, "mode": "at-least"},
+            {"name": "substation", "count": 50, "index": 4, "mode": "at-least"},
+            {"name": "rail", "count": 100, "index": 5, "mode": "at-least"},
+            {"name": "rail-signal", "count": 50, "index": 6, "mode": "at-least"},
+            {"name": "rail-chain-signal", "count": 50, "index": 7, "mode": "at-least"},
+            {"name": "roboport", "count": 10, "index": 8, "mode": "at-least"},
+            {"name": "construction-robot", "count": 50, "index": 9, "mode": "at-least"},
+            {"name": "logistic-robot", "count": 50, "index": 10, "mode": "at-least"},
+            {"name": "small-lamp", "count": 50, "index": 11, "mode": "at-least"},
+            {"name": "arithmetic-combinator", "count": 50, "index": 12, "mode": "at-least"},
+            {"name": "decider-combinator", "count": 50, "index": 13, "mode": "at-least"},
+            {"name": "constant-combinator", "count": 50, "index": 14, "mode": "at-least"},
+            {"name": "landfill", "count": 100, "index": 15, "mode": "at-least"},
+            {"name": "cliff-explosives", "count": 20, "index": 16, "mode": "at-least"},
+            {"name": "repair-pack", "count": 100, "index": 17, "mode": "at-least"},
+            {"name": "pipe", "count": 100, "index": 18, "mode": "at-least"},
+            {"name": "pipe-to-ground", "count": 50, "index": 19, "mode": "at-least"},
+            {"name": "pump", "count": 50, "index": 20, "mode": "at-least"},
+            {"name": "train-stop", "count": 10, "index": 21, "mode": "at-least"},
+            {"name": "logistic-train-stop", "count": 10, "index": 22, "mode": "at-least"}
+          ]
+        },
+        "position": {"x": 19.5, "y": -0.5}
+      },
+      {
+        "name": "infinity-chest",
+        "infinity_settings": {"remove_unfiltered_items": true},
+        "position": {"x": 21.5, "y": -0.5}
+      },
+      {
+        "name": "infinity-chest",
+        "infinity_settings": {"remove_unfiltered_items": true},
+        "position": {"x": 22.5, "y": -0.5}
+      },
+      {
+        "name": "infinity-chest",
+        "infinity_settings": {"remove_unfiltered_items": true},
+        "position": {"x": 23.5, "y": -0.5}
+      },
+      {
+        "name": "infinity-chest",
+        "infinity_settings": {
+          "remove_unfiltered_items": true,
+          "filters": [
+            {"name": "assembling-machine-3", "count": 50, "index": 1, "mode": "at-least"},
+            {"name": "assembling-machine-2", "count": 50, "index": 2, "mode": "at-least"},
+            {"name": "assembling-machine-1", "count": 50, "index": 3, "mode": "at-least"},
+            {"name": "locomotive", "count": 5, "index": 4, "mode": "at-least"},
+            {"name": "cargo-wagon", "count": 5, "index": 5, "mode": "at-least"},
+            {"name": "fluid-wagon", "count": 5, "index": 6, "mode": "at-least"},
+            {"name": "electric-furnace", "count": 50, "index": 7, "mode": "at-least"},
+            {"name": "oil-refinery", "count": 10, "index": 8, "mode": "at-least"},
+            {"name": "chemical-plant", "count": 10, "index": 9, "mode": "at-least"},
+            {"name": "lab", "count": 10, "index": 10, "mode": "at-least"},
+            {"name": "beacon", "count": 10, "index": 11, "mode": "at-least"},
+            {"name": "speed-module-3", "count": 50, "index": 12, "mode": "at-least"},
+            {"name": "productivity-module-3", "count": 50, "index": 13, "mode": "at-least"},
+            {"name": "boiler", "count": 50, "index": 14, "mode": "at-least"}
+          ]
+        },
+        "position": {"x": 24.5, "y": -0.5}
+      },
+      {
+        "name": "infinity-chest",
+        "infinity_settings": {
+          "remove_unfiltered_items": true,
+          "filters": [
+            {"name": "transport-belt", "count": 100, "index": 1, "mode": "at-least"},
+            {"name": "fast-transport-belt", "count": 100, "index": 2, "mode": "at-least"},
+            {"name": "express-transport-belt", "count": 100, "index": 3, "mode": "at-least"},
+            {"name": "underground-belt", "count": 50, "index": 4, "mode": "at-least"},
+            {"name": "fast-underground-belt", "count": 50, "index": 5, "mode": "at-least"},
+            {"name": "express-underground-belt", "count": 50, "index": 6, "mode": "at-least"},
+            {"name": "splitter", "count": 50, "index": 7, "mode": "at-least"},
+            {"name": "fast-splitter", "count": 50, "index": 8, "mode": "at-least"},
+            {"name": "express-splitter", "count": 50, "index": 9, "mode": "at-least"},
+            {"name": "rail", "count": 100, "index": 10, "mode": "at-least"},
+            {"name": "loader", "count": 50, "index": 11, "mode": "at-least"},
+            {"name": "fast-loader", "count": 50, "index": 12, "mode": "at-least"},
+            {"name": "express-loader", "count": 50, "index": 13, "mode": "at-least"},
+            {"name": "inserter", "count": 50, "index": 14, "mode": "at-least"},
+            {"name": "long-handed-inserter", "count": 50, "index": 15, "mode": "at-least"},
+            {"name": "fast-inserter", "count": 50, "index": 16, "mode": "at-least"},
+            {"name": "filter-inserter", "count": 50, "index": 17, "mode": "at-least"},
+            {"name": "stack-inserter", "count": 50, "index": 18, "mode": "at-least"},
+            {"name": "stack-filter-inserter", "count": 50, "index": 19, "mode": "at-least"},
+            {"name": "storage-tank", "count": 50, "index": 20, "mode": "at-least"},
+            {"name": "logistic-chest-requester", "count": 50, "index": 21, "mode": "at-least"},
+            {"name": "logistic-chest-passive-provider", "count": 50, "index": 22, "mode": "at-least"}
+          ]
+        },
+        "position": {"x": 25.5, "y": -0.5}
+      },
+      {
+        "name": "infinity-chest",
+        "infinity_settings": {
+          "remove_unfiltered_items": true,
+          "filters": [
+            {"name": "iron-chest", "count": 150, "index": 1, "mode": "at-least"},
+            {"name": "medium-electric-pole", "count": 50, "index": 2, "mode": "at-least"},
+            {"name": "big-electric-pole", "count": 50, "index": 3, "mode": "at-least"},
+            {"name": "substation", "count": 50, "index": 4, "mode": "at-least"},
+            {"name": "rail", "count": 100, "index": 5, "mode": "at-least"},
+            {"name": "rail-signal", "count": 50, "index": 6, "mode": "at-least"},
+            {"name": "rail-chain-signal", "count": 50, "index": 7, "mode": "at-least"},
+            {"name": "roboport", "count": 10, "index": 8, "mode": "at-least"},
+            {"name": "construction-robot", "count": 50, "index": 9, "mode": "at-least"},
+            {"name": "logistic-robot", "count": 50, "index": 10, "mode": "at-least"},
+            {"name": "small-lamp", "count": 50, "index": 11, "mode": "at-least"},
+            {"name": "arithmetic-combinator", "count": 50, "index": 12, "mode": "at-least"},
+            {"name": "decider-combinator", "count": 50, "index": 13, "mode": "at-least"},
+            {"name": "constant-combinator", "count": 50, "index": 14, "mode": "at-least"},
+            {"name": "landfill", "count": 100, "index": 15, "mode": "at-least"},
+            {"name": "cliff-explosives", "count": 20, "index": 16, "mode": "at-least"},
+            {"name": "repair-pack", "count": 100, "index": 17, "mode": "at-least"},
+            {"name": "pipe", "count": 100, "index": 18, "mode": "at-least"},
+            {"name": "pipe-to-ground", "count": 50, "index": 19, "mode": "at-least"},
+            {"name": "pump", "count": 50, "index": 20, "mode": "at-least"},
+            {"name": "train-stop", "count": 10, "index": 21, "mode": "at-least"},
+            {"name": "logistic-train-stop", "count": 10, "index": 22, "mode": "at-least"}
+          ]
+        },
+        "position": {"x": 26.5, "y": -0.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "connections": {"1": {"red": [{"entity_rel": "1,0"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "chemical-plant", "index": 1}],
+        "position": {"x": 0.5, "y": 0.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "chemical-plant", "index": 1}],
+        "position": {"x": 1.5, "y": 0.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "chemical-plant", "index": 1}],
+        "position": {"x": 2.5, "y": 0.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "chemical-plant", "index": 1}],
+        "position": {"x": 3.5, "y": 0.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "chemical-plant", "index": 1}],
+        "position": {"x": 4.5, "y": 0.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "chemical-plant", "index": 1}],
+        "position": {"x": 5.5, "y": 0.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "connections": {"1": {"red": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "chemical-plant", "index": 1}],
+        "position": {"x": 7.5, "y": 0.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "chemical-plant", "index": 1}],
+        "position": {"x": 8.5, "y": 0.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "chemical-plant", "index": 1}],
+        "position": {"x": 9.5, "y": 0.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "chemical-plant", "index": 1}],
+        "position": {"x": 10.5, "y": 0.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "chemical-plant", "index": 1}],
+        "position": {"x": 11.5, "y": 0.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "chemical-plant", "index": 1}],
+        "position": {"x": 12.5, "y": 0.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "connections": {"1": {"red": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "chemical-plant", "index": 1}],
+        "position": {"x": 14.5, "y": 0.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "chemical-plant", "index": 1}],
+        "position": {"x": 15.5, "y": 0.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "chemical-plant", "index": 1}],
+        "position": {"x": 16.5, "y": 0.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "chemical-plant", "index": 1}],
+        "position": {"x": 17.5, "y": 0.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "chemical-plant", "index": 1}],
+        "position": {"x": 18.5, "y": 0.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}, {"entity_rel": "2,0"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "chemical-plant", "index": 1}],
+        "position": {"x": 19.5, "y": 0.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "connections": {"1": {"red": [{"entity_rel": "-2,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "chemical-plant", "index": 1}],
+        "position": {"x": 21.5, "y": 0.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "chemical-plant", "index": 1}],
+        "position": {"x": 22.5, "y": 0.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "chemical-plant", "index": 1}],
+        "position": {"x": 23.5, "y": 0.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "chemical-plant", "index": 1}],
+        "position": {"x": 24.5, "y": 0.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "connections": {"1": {"red": [{"entity_rel": "-1,0"}, {"entity_rel": "1,0"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "chemical-plant", "index": 1}],
+        "position": {"x": 25.5, "y": 0.5}
+      },
+      {
+        "name": "stack-filter-inserter",
+        "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "4.5,0"}, {"entity_rel": "-1,0"}]}},
+        "control_behavior": {"circuit_mode_of_operation": 1},
+        "filters": [{"name": "chemical-plant", "index": 1}],
+        "position": {"x": 26.5, "y": 0.5}
+      },
+      {"name": "straight-rail", "direction": 2, "position": {"x": -2, "y": 2}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 0, "y": 2}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 2, "y": 2}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 4, "y": 2}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 6, "y": 2}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 8, "y": 2}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 10, "y": 2}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 12, "y": 2}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 14, "y": 2}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 16, "y": 2}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 18, "y": 2}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 20, "y": 2}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 22, "y": 2}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 24, "y": 2}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 26, "y": 2}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 28, "y": 2}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 30, "y": 2}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 32, "y": 2}}
+    ],
+    "icons": [{"index": 1, "signal": {"name": "construction-robot", "type": "item"}}]
+  }
+}
