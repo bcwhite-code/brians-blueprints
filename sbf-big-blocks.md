@@ -183,10 +183,9 @@ very _inefficient_.  For circuits, having the output of a lower teir
 next to the input of the next higher teir is most efficient.
 
 Have a plan before starting.  For example: Smelter at the top of a
-block. Green Circuts at the bottom of the same block. Refinery above
-the Smelter. Red Circuits to the left of that (also at the
-bottom). Blue Circuits to the left of that. Modules to the left of
-that.
+block. Green Circuts at the bottom of the same block.  Red Circuits to
+the left of greens (also at the bottom).  Blue Circuits to the left of
+reds. Modules to the left of blues.  Refinery above the Smelter.
 
 * Connection
 
