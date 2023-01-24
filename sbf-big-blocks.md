@@ -142,6 +142,11 @@ to run.
 
 ### Launch
 
+_Before launching, save the game!  Then save again under a new name
+and continue from there.  If things go wrong, you'll want a stable
+place to come back to because, as a general rule, production problems
+can never be fully fixed._
+
 Blocks don't start automatically.  When construction is complete, all
 of the trains at the factory stations need to be set to automatic;
 this is the minimum operating limit.  The other trains in the stacker
