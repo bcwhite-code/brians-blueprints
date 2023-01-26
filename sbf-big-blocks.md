@@ -213,8 +213,8 @@ There is no self-building for these because there is no standard
 layout for ore patches and a generic layout would be massive simply
 because of the size of these blocks.  Multi-ore support is also
 unavailable because these are not LTN trains.  Mines have to be built
-manually but don't bother going beyond seven blue belts per mine as
-that's the fastest they can load trains.
+manually.  Trains can load at a speed somewhere around the equivalent
+of 100 blue belts so don't hold back.
 
 It's best to go build mines whenever waiting for a block to build.
 Iron and copper are the most used with coal and stone being a far
