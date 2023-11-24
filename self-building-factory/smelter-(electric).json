@@ -186,7 +186,10 @@
       {
         "name": "arithmetic-combinator",
         "direction": 2,
-        "connections": {"1": {"green": [{"entity_rel": "-1.5,0"}], "red": [{"circuit_id": 2, "entity_rel": "1.5,0.5"}]}},
+        "connections": {
+          "1": {"green": [{"entity_rel": "-1.5,0"}], "red": [{"circuit_id": 2, "entity_rel": "1.5,0.5"}]},
+          "2": {"green": [{"entity_rel": "0,1.5"}]}
+        },
         "control_behavior": {
           "arithmetic_conditions": {
             "operation": "*",
@@ -610,7 +613,12 @@
       },
       {
         "name": "big-electric-pole",
-        "connections": {"1": {"green": [{"entity_rel": "18,-4"}], "red": [{"entity_rel": "18,-4"}]}},
+        "connections": {
+          "1": {
+            "green": [{"circuit_id": 2, "entity_rel": "0,-1.5"}, {"entity_rel": "18,-4"}],
+            "red": [{"circuit_id": 1, "entity_rel": "1.5,-1"}, {"entity_rel": "18,-4"}]
+          }
+        },
         "neighbours": ["-3.5,-0.5", "0,-20", "18,-4"],
         "position": {"x": 204, "y": 160}
       },
@@ -909,7 +917,10 @@
       },
       {
         "name": "decider-combinator",
-        "connections": {"2": {"red": [{"circuit_id": 1, "entity_rel": "-1.5,-0.5"}]}},
+        "connections": {
+          "1": {"red": [{"entity_rel": "-1.5,1"}]},
+          "2": {"red": [{"circuit_id": 1, "entity_rel": "-1.5,-0.5"}]}
+        },
         "control_behavior": {
           "decider_conditions": {
             "comparator": ">",
