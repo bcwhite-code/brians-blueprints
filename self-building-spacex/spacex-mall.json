@@ -3,7 +3,7 @@
   "blueprint": {
     "item": "blueprint",
     "label": "SpaceX Mall",
-    "description": "- Will fit within a single block using rail \"spurs\" off a full-length siding track.  Leave room for a Construction Site.\n- The iron-stick assembler at the top-right can be changed to iron pipe to produce boilers.\n- Change the refinery recipe to \"basic\" until \"advanced\" is researched.  Manually move plastic to (outside) Advanced Circuits assemblers.",
+    "description": "- The iron-stick assembler at the top-right can be changed to iron pipe to produce boilers.\n- Change the refinery recipe to \"basic\" until \"advanced\" is researched.  Manually move plastic to (outside) Advanced Circuits assemblers.",
     "absolute-snapping": true,
     "shift_x": 53,
     "shift_y": 53,
@@ -1141,7 +1141,7 @@
         "direction": 6,
         "connections": {
           "1": {"red": [{"entity_rel": "-0.5,2"}]},
-          "2": {"red": [{"circuit_id": 2, "entity_rel": "-4,0"}, {"entity_rel": "0.5,2,bb1d"}]}
+          "2": {"red": [{"circuit_id": 2, "entity_rel": "-4,0"}, {"entity_rel": "0.5,2,9a25"}]}
         },
         "control_behavior": {
           "arithmetic_conditions": {
@@ -5396,18 +5396,18 @@
       {
         "name": "fast-filter-miniloader-inserter",
         "override_stack_size": 1,
-        "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "-0.5,-2"}, {"entity_rel": "0,0,9a25"}]}},
+        "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "-0.5,-2"}, {"entity_rel": "0,0,bb1d"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
-        "drop_position": {"x": 0.25, "y": -0.203125},
+        "drop_position": {"x": -0.25, "y": -0.203125},
         "pickup_position": {"x": 0, "y": 0.796875},
         "position": {"x": 214.5, "y": 151.5}
       },
       {
         "name": "fast-filter-miniloader-inserter",
         "override_stack_size": 1,
-        "connections": {"1": {"red": [{"entity_rel": "0,0,bb1d"}]}},
+        "connections": {"1": {"red": [{"entity_rel": "0,0,9a25"}]}},
         "control_behavior": {"circuit_mode_of_operation": 1},
-        "drop_position": {"x": -0.25, "y": -0.203125},
+        "drop_position": {"x": 0.25, "y": -0.203125},
         "pickup_position": {"x": 0, "y": 0.796875},
         "position": {"x": 214.5, "y": 151.5}
       },
@@ -5711,14 +5711,14 @@
       {
         "name": "fast-miniloader-inserter",
         "override_stack_size": 1,
-        "drop_position": {"x": -0.25, "y": 1.19921875},
+        "drop_position": {"x": 0.25, "y": 1.19921875},
         "pickup_position": {"x": 0, "y": -0.203125},
         "position": {"x": 209.5, "y": 151.5}
       },
       {
         "name": "fast-miniloader-inserter",
         "override_stack_size": 1,
-        "drop_position": {"x": 0.25, "y": 1.19921875},
+        "drop_position": {"x": -0.25, "y": 1.19921875},
         "pickup_position": {"x": 0, "y": -0.203125},
         "position": {"x": 209.5, "y": 151.5}
       },
@@ -6893,6 +6893,7 @@
       {"name": "inserter", "direction": 6, "position": {"x": 67.5, "y": 109.5}},
       {
         "name": "inserter",
+        "direction": 2,
         "connections": {"1": {"green": [{"entity_rel": "-1,0"}]}},
         "control_behavior": {
           "circuit_condition": {"comparator": "<", "constant": 10, "first_signal": {"name": "logistic-train-stop", "type": "item"}}
@@ -11928,6 +11929,7 @@
         "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "0.5,3"}]}},
         "control_behavior": {
           "circuit_enable_disable": true,
+          "read_from_train": true,
           "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "ltn-locked-slots", "type": "virtual"}},
           "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
         },
