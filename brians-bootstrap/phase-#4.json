@@ -3,8 +3,8 @@
   "blueprint": {
     "item": "blueprint",
     "label": "Phase #4",
-    "shift_x": -101,
-    "shift_y": 684,
+    "shift_x": -727,
+    "shift_y": 116,
     "version": 281479278428160,
     "entities": [
       {"name": "assembling-machine-1", "recipe": "stone-wall", "position": {"x": 7.5, "y": 4.5}},
@@ -16,7 +16,6 @@
       {"name": "assembling-machine-1", "recipe": "iron-gear-wheel", "position": {"x": 26.5, "y": 14.5}},
       {"name": "assembling-machine-1", "recipe": "electronic-circuit", "position": {"x": 17.5, "y": 22.5}},
       {"name": "assembling-machine-1", "recipe": "electronic-circuit", "position": {"x": 21.5, "y": 22.5}},
-      {"name": "assembling-machine-1", "recipe": "repair-pack", "position": {"x": 25.5, "y": 22.5}},
       {"name": "assembling-machine-1", "recipe": "copper-cable", "position": {"x": 16.5, "y": 26.5}},
       {"name": "assembling-machine-1", "recipe": "copper-cable", "position": {"x": 19.5, "y": 26.5}},
       {"name": "assembling-machine-1", "recipe": "copper-cable", "position": {"x": 22.5, "y": 26.5}},
@@ -39,6 +38,7 @@
         "recipe": "stack-filter-inserter",
         "position": {"x": 48.5, "y": 14.5}
       },
+      {"name": "assembling-machine-1", "recipe": "repair-pack", "position": {"x": 37.5, "y": 17.5}},
       {"name": "assembling-machine-1", "recipe": "filter-inserter", "position": {"x": 42.5, "y": 18.5}},
       {"name": "assembling-machine-1", "recipe": "stack-inserter", "position": {"x": 46.5, "y": 18.5}},
       {
@@ -82,6 +82,8 @@
         "recipe": "electric-mining-drill",
         "position": {"x": 30.5, "y": 7.5}
       },
+      {"name": "assembling-machine-2", "recipe": "electronic-circuit", "position": {"x": 25.5, "y": 22.5}},
+      {"name": "assembling-machine-2", "recipe": "copper-cable", "position": {"x": 25.5, "y": 26.5}},
       {
         "name": "assembling-machine-2",
         "recipe": "medium-electric-pole",
@@ -138,6 +140,7 @@
       {"name": "assembling-machine-2", "recipe": "empty-barrel", "position": {"x": 19.5, "y": 60.5}},
       {"name": "assembling-machine-2", "recipe": "cliff-explosives", "position": {"x": 23.5, "y": 61.5}},
       {"name": "assembling-machine-2", "recipe": "pipe", "position": {"x": 34.5, "y": 33.5}},
+      {"name": "assembling-machine-2", "recipe": "steam-engine", "position": {"x": 38.5, "y": 35.5}},
       {"name": "assembling-machine-2", "recipe": "pumpjack", "position": {"x": 46.5, "y": 35.5}},
       {"name": "assembling-machine-2", "recipe": "engine-unit", "position": {"x": 42.5, "y": 42.5}},
       {"name": "assembling-machine-2", "recipe": "engine-unit", "position": {"x": 45.5, "y": 42.5}},
@@ -211,6 +214,11 @@
       },
       {
         "name": "constant-combinator",
+        "control_behavior": {"filters": [{"count": 0, "index": 1, "signal": {"name": "crude-oil", "type": "fluid"}}]},
+        "position": {"x": -2.5, "y": 11.5}
+      },
+      {
+        "name": "constant-combinator",
         "control_behavior": {"filters": [{"count": 1, "index": 1, "signal": {"name": "iron-ore", "type": "item"}}]},
         "position": {"x": -2.5, "y": 18.5}
       },
@@ -223,6 +231,11 @@
         "name": "constant-combinator",
         "control_behavior": {"filters": [{"count": 1, "index": 1, "signal": {"name": "coal", "type": "item"}}]},
         "position": {"x": -2.5, "y": 34.5}
+      },
+      {
+        "name": "constant-combinator",
+        "control_behavior": {"filters": [{"count": 0, "index": 1, "signal": {"name": "water", "type": "fluid"}}]},
+        "position": {"x": -2.5, "y": 37.5}
       },
       {
         "name": "constant-combinator",
@@ -245,7 +258,8 @@
       {"name": "fast-inserter", "direction": 4, "position": {"x": 23.5, "y": 16.5}},
       {"name": "fast-inserter", "direction": 4, "position": {"x": 26.5, "y": 16.5}},
       {"name": "fast-inserter", "direction": 2, "position": {"x": 31.5, "y": 16.5}},
-      {"name": "fast-inserter", "direction": 2, "position": {"x": 27.5, "y": 21.5}},
+      {"name": "fast-inserter", "position": {"x": 25.5, "y": 20.5}},
+      {"name": "fast-inserter", "direction": 4, "position": {"x": 24.5, "y": 28.5}},
       {"name": "fast-inserter", "position": {"x": 33.5, "y": 1.5}},
       {"name": "fast-inserter", "position": {"x": 37.5, "y": 1.5}},
       {"name": "fast-inserter", "direction": 4, "position": {"x": 36.5, "y": 5.5}},
@@ -291,6 +305,7 @@
       {"name": "fast-inserter", "direction": 6, "position": {"x": 32.5, "y": 33.5}},
       {"name": "fast-inserter", "direction": 6, "position": {"x": 36.5, "y": 32.5}},
       {"name": "fast-inserter", "direction": 6, "position": {"x": 33.5, "y": 36.5}},
+      {"name": "fast-inserter", "direction": 4, "position": {"x": 37.5, "y": 37.5}},
       {"name": "fast-inserter", "position": {"x": 38.5, "y": 47.5}},
       {"name": "fast-inserter", "position": {"x": 42.5, "y": 40.5}},
       {"name": "fast-inserter", "position": {"x": 45.5, "y": 40.5}},
@@ -431,25 +446,28 @@
       {"name": "inserter", "position": {"x": 5.5, "y": 30.5}},
       {"name": "inserter", "position": {"x": 6.5, "y": 30.5}},
       {"name": "inserter", "position": {"x": 8.5, "y": 27.5}},
+      {"name": "inserter", "position": {"x": 9.5, "y": 27.5}},
+      {"name": "inserter", "position": {"x": 11.5, "y": 27.5}},
+      {"name": "inserter", "position": {"x": 12.5, "y": 27.5}},
       {"name": "inserter", "position": {"x": 8.5, "y": 30.5}},
-      {"name": "inserter", "direction": 4, "position": {"x": 11.5, "y": 30.5}},
+      {"name": "inserter", "position": {"x": 9.5, "y": 30.5}},
+      {"name": "inserter", "position": {"x": 11.5, "y": 30.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 15.5, "y": 28.5}},
+      {"name": "inserter", "position": {"x": 12.5, "y": 30.5}},
       {"name": "inserter", "direction": 4, "override_stack_size": 1, "position": {"x": 17.5, "y": 16.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 16.5, "y": 17.5}},
       {"name": "inserter", "position": {"x": 17.5, "y": 20.5}},
       {"name": "inserter", "position": {"x": 21.5, "y": 20.5}},
-      {"name": "inserter", "position": {"x": 25.5, "y": 20.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 17.5, "y": 24.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 18.5, "y": 24.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 20.5, "y": 24.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 21.5, "y": 24.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 17.5, "y": 28.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 18.5, "y": 28.5}},
+      {"name": "inserter", "direction": 6, "position": {"x": 16.5, "y": 30.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 20.5, "y": 28.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 21.5, "y": 28.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 23.5, "y": 28.5}},
-      {"name": "inserter", "position": {"x": 24.5, "y": 24.5}},
-      {"name": "inserter", "direction": 4, "position": {"x": 25.5, "y": 24.5}},
       {"name": "inserter", "position": {"x": 28.5, "y": 26.5}},
       {"name": "inserter", "direction": 6, "position": {"x": 29.5, "y": 27.5}},
       {"name": "inserter", "direction": 2, "position": {"x": 29.5, "y": 28.5}},
@@ -467,6 +485,7 @@
       {"name": "inserter", "position": {"x": 32.5, "y": 12.5}},
       {"name": "inserter", "direction": 6, "position": {"x": 34.5, "y": 14.5}},
       {"name": "inserter", "position": {"x": 36.5, "y": 12.5}},
+      {"name": "inserter", "direction": 4, "position": {"x": 38.5, "y": 15.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 44.5, "y": 9.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 47.5, "y": 9.5}},
       {"name": "inserter", "position": {"x": 40.5, "y": 12.5}},
@@ -476,6 +495,7 @@
       {"name": "inserter", "position": {"x": 33.5, "y": 16.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 32.5, "y": 17.5}},
       {"name": "inserter", "position": {"x": 35.5, "y": 16.5}},
+      {"name": "inserter", "direction": 4, "position": {"x": 38.5, "y": 19.5}},
       {"name": "inserter", "position": {"x": 36.5, "y": 22.5}},
       {"name": "inserter", "direction": 2, "position": {"x": 38.5, "y": 23.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 42.5, "y": 16.5}},
@@ -517,7 +537,12 @@
       {"name": "inserter", "direction": 2, "position": {"x": 5.5, "y": 38.5}},
       {"name": "inserter", "direction": 6, "position": {"x": 5.5, "y": 39.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 8.5, "y": 32.5}},
+      {"name": "inserter", "direction": 4, "position": {"x": 9.5, "y": 32.5}},
+      {"name": "inserter", "direction": 4, "position": {"x": 10.5, "y": 32.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 9.5, "y": 35.5}},
+      {"name": "inserter", "direction": 4, "position": {"x": 10.5, "y": 35.5}},
+      {"name": "inserter", "direction": 4, "position": {"x": 12.5, "y": 32.5}},
+      {"name": "inserter", "direction": 4, "position": {"x": 12.5, "y": 35.5}},
       {"name": "inserter", "direction": 6, "position": {"x": 15.5, "y": 34.5}},
       {"name": "inserter", "direction": 2, "position": {"x": 10.5, "y": 39.5}},
       {"name": "inserter", "direction": 2, "position": {"x": 14.5, "y": 39.5}},
@@ -565,6 +590,7 @@
       {"name": "inserter", "direction": 6, "position": {"x": 21.5, "y": 61.5}},
       {"name": "inserter", "direction": 6, "position": {"x": 21.5, "y": 62.5}},
       {"name": "inserter", "position": {"x": 23.5, "y": 63.5}},
+      {"name": "inserter", "direction": 2, "position": {"x": 36.5, "y": 36.5}},
       {"name": "inserter", "direction": 6, "position": {"x": 43.5, "y": 34.5}},
       {"name": "inserter", "position": {"x": 46.5, "y": 33.5}},
       {"name": "inserter", "direction": 2, "position": {"x": 44.5, "y": 36.5}},
@@ -634,6 +660,7 @@
         "override_stack_size": 1,
         "position": {"x": 20.5, "y": 20.5}
       },
+      {"name": "long-handed-inserter", "direction": 4, "position": {"x": 26.5, "y": 20.5}},
       {"name": "long-handed-inserter", "position": {"x": 30.5, "y": 22.5}},
       {"name": "long-handed-inserter", "position": {"x": 33.5, "y": 12.5}},
       {"name": "long-handed-inserter", "position": {"x": 35.5, "y": 12.5}},
@@ -642,6 +669,7 @@
       {"name": "long-handed-inserter", "position": {"x": 41.5, "y": 12.5}},
       {"name": "long-handed-inserter", "position": {"x": 43.5, "y": 12.5}},
       {"name": "long-handed-inserter", "direction": 6, "position": {"x": 52.5, "y": 13.5}},
+      {"name": "long-handed-inserter", "direction": 4, "position": {"x": 36.5, "y": 19.5}},
       {"name": "long-handed-inserter", "position": {"x": 32.5, "y": 22.5}},
       {"name": "long-handed-inserter", "position": {"x": 37.5, "y": 22.5}},
       {"name": "long-handed-inserter", "position": {"x": 39.5, "y": 22.5}},
@@ -667,6 +695,7 @@
       {"name": "long-handed-inserter", "direction": 6, "position": {"x": 17.5, "y": 54.5}},
       {"name": "long-handed-inserter", "direction": 6, "position": {"x": 17.5, "y": 62.5}},
       {"name": "long-handed-inserter", "direction": 4, "position": {"x": 22.5, "y": 63.5}},
+      {"name": "long-handed-inserter", "direction": 4, "position": {"x": 38.5, "y": 37.5}},
       {"name": "long-handed-inserter", "position": {"x": 42.5, "y": 33.5}},
       {"name": "long-handed-inserter", "position": {"x": 45.5, "y": 33.5}},
       {"name": "long-handed-inserter", "direction": 4, "position": {"x": 42.5, "y": 37.5}},
@@ -715,12 +744,12 @@
       },
       {
         "name": "medium-electric-pole",
-        "neighbours": ["-2,-7", "-4,5", "7,-2"],
+        "neighbours": ["-4,5", "2,-4", "7,-2"],
         "position": {"x": 29.5, "y": 35.5}
       },
       {
         "name": "medium-electric-pole",
-        "neighbours": ["-3,-5", "-6,6", "-7,1", "4,7", "6,0"],
+        "neighbours": ["-3,-5", "-4,0", "-6,6", "4,7", "6,0"],
         "position": {"x": 19.5, "y": 40.5}
       },
       {
@@ -848,7 +877,6 @@
         "recipe": "advanced-oil-processing",
         "position": {"x": 27.5, "y": 51.5}
       },
-      {"name": "pipe", "position": {"x": -0.5, "y": 37.5}},
       {"name": "pipe", "position": {"x": 10.5, "y": 9.5}},
       {"name": "pipe", "position": {"x": 10.5, "y": 10.5}},
       {"name": "pipe", "position": {"x": 10.5, "y": 11.5}},
@@ -912,6 +940,7 @@
       {"name": "pipe", "position": {"x": 47.5, "y": 58.5}},
       {"name": "pipe", "position": {"x": 21.5, "y": 64.5}},
       {"name": "pipe-to-ground", "direction": 2, "position": {"x": -1.5, "y": 37.5}},
+      {"name": "pipe-to-ground", "direction": 6, "position": {"x": -0.5, "y": 37.5}},
       {"name": "pipe-to-ground", "direction": 2, "position": {"x": 1.5, "y": 11.5}},
       {"name": "pipe-to-ground", "direction": 6, "position": {"x": 2.5, "y": 11.5}},
       {"name": "pipe-to-ground", "direction": 6, "position": {"x": 11.5, "y": 9.5}},
@@ -930,9 +959,8 @@
       {"name": "pipe-to-ground", "position": {"x": 52.5, "y": 15.5}},
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 52.5, "y": 24.5}},
       {"name": "pipe-to-ground", "position": {"x": 52.5, "y": 25.5}},
-      {"name": "pipe-to-ground", "direction": 6, "position": {"x": 0.5, "y": 37.5}},
-      {"name": "pipe-to-ground", "direction": 2, "position": {"x": 10.5, "y": 37.5}},
-      {"name": "pipe-to-ground", "direction": 6, "position": {"x": 11.5, "y": 37.5}},
+      {"name": "pipe-to-ground", "direction": 2, "position": {"x": 9.5, "y": 37.5}},
+      {"name": "pipe-to-ground", "direction": 6, "position": {"x": 10.5, "y": 37.5}},
       {"name": "pipe-to-ground", "direction": 2, "position": {"x": 19.5, "y": 37.5}},
       {"name": "pipe-to-ground", "position": {"x": 21.5, "y": 37.5}},
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 21.5, "y": 47.5}},
@@ -1124,7 +1152,7 @@
       },
       {
         "name": "small-electric-pole",
-        "neighbours": ["-4,0", "1,-6", "6,-3"],
+        "neighbours": ["-4,0", "1,-6", "1,6", "6,-3"],
         "position": {"x": 28.5, "y": 20.5}
       },
       {
@@ -1144,17 +1172,17 @@
       },
       {
         "name": "small-electric-pole",
-        "neighbours": ["-2,-4", "-4,4", "1,4"],
+        "neighbours": ["-2,-4", "-4,4", "3,2"],
         "position": {"x": 26.5, "y": 24.5}
       },
       {
         "name": "small-electric-pole",
-        "neighbours": ["-1,-4", "2,7", "4,3"],
-        "position": {"x": 27.5, "y": 28.5}
+        "neighbours": ["-1,-6", "-3,-2", "2,5", "5,-2"],
+        "position": {"x": 29.5, "y": 26.5}
       },
       {
         "name": "small-electric-pole",
-        "neighbours": ["-4,-3", "4,-4", "5,-1"],
+        "neighbours": ["-2,-5", "-2,4", "4,-4", "5,-1"],
         "position": {"x": 31.5, "y": 31.5}
       },
       {
@@ -1204,22 +1232,27 @@
       },
       {
         "name": "small-electric-pole",
-        "neighbours": ["-5,-5", "-6,3", "0,7", "6,-1"],
+        "neighbours": ["-5,-5", "-6,3", "0,7", "5,2"],
         "position": {"x": 34.5, "y": 17.5}
       },
       {
         "name": "small-electric-pole",
-        "neighbours": ["-6,-4", "-6,1", "2,-4"],
+        "neighbours": ["-1,5", "-5,-2", "1,-3", "5,-1"],
+        "position": {"x": 39.5, "y": 19.5}
+      },
+      {
+        "name": "small-electric-pole",
+        "neighbours": ["-1,3", "-6,-4", "2,-4"],
         "position": {"x": 40.5, "y": 16.5}
       },
       {
         "name": "small-electric-pole",
-        "neighbours": ["-2,-6", "-2,6", "2,6", "4,2"],
+        "neighbours": ["-2,-6", "-2,6", "-5,1", "2,6", "4,2"],
         "position": {"x": 44.5, "y": 18.5}
       },
       {
         "name": "small-electric-pole",
-        "neighbours": ["0,-7", "1,3", "2,6", "4,0"],
+        "neighbours": ["-5,2", "0,-7", "1,3", "2,6", "4,0"],
         "position": {"x": 34.5, "y": 24.5}
       },
       {
@@ -1229,7 +1262,7 @@
       },
       {
         "name": "small-electric-pole",
-        "neighbours": ["-4,0", "2,5", "4,0"],
+        "neighbours": ["-4,0", "1,-5", "2,5", "4,0"],
         "position": {"x": 38.5, "y": 24.5}
       },
       {
@@ -1272,14 +1305,10 @@
         "neighbours": ["-3,6", "0,-5", "1,6", "3,2", "7,0"],
         "position": {"x": 4.5, "y": 35.5}
       },
+      {"name": "small-electric-pole", "neighbours": ["-3,-2", "3,3"], "position": {"x": 7.5, "y": 37.5}},
       {
         "name": "small-electric-pole",
-        "neighbours": ["-3,-2", "3,3", "5,4"],
-        "position": {"x": 7.5, "y": 37.5}
-      },
-      {
-        "name": "small-electric-pole",
-        "neighbours": ["-1,-5", "-1,5", "-7,0", "1,6", "5,0"],
+        "neighbours": ["-1,-5", "-1,5", "-7,0", "4,5", "5,0"],
         "position": {"x": 11.5, "y": 35.5}
       },
       {
@@ -1289,7 +1318,7 @@
       },
       {
         "name": "small-electric-pole",
-        "neighbours": ["-1,-6", "-7,0", "0,4", "5,-1", "7,0"],
+        "neighbours": ["-1,-6", "-7,0", "0,4", "5,-1"],
         "position": {"x": 5.5, "y": 41.5}
       },
       {
@@ -1309,12 +1338,12 @@
       },
       {
         "name": "small-electric-pole",
-        "neighbours": ["-1,-6", "-2,4", "-5,-4", "-7,0", "7,-1"],
-        "position": {"x": 12.5, "y": 41.5}
+        "neighbours": ["-4,-5", "-5,5", "4,0"],
+        "position": {"x": 15.5, "y": 40.5}
       },
       {
         "name": "small-electric-pole",
-        "neighbours": ["-5,0", "0,-5", "2,-4"],
+        "neighbours": ["-5,0", "0,-5", "5,-5"],
         "position": {"x": 10.5, "y": 45.5}
       },
       {
@@ -1396,6 +1425,7 @@
       {"name": "splitter", "direction": 4, "output_priority": "right", "position": {"x": 50, "y": 20.5}},
       {"name": "splitter", "direction": 4, "output_priority": "right", "position": {"x": 50, "y": 30.5}},
       {"name": "splitter", "position": {"x": 1, "y": 33.5}},
+      {"name": "splitter", "direction": 2, "position": {"x": 11.5, "y": 37}},
       {"name": "splitter", "direction": 6, "position": {"x": 15.5, "y": 39}},
       {
         "name": "splitter",
@@ -1416,6 +1446,7 @@
       {"name": "splitter", "direction": 4, "position": {"x": 56, "y": 38.5}},
       {"name": "splitter", "direction": 4, "position": {"x": 51, "y": 44.5}},
       {"name": "splitter", "direction": 4, "position": {"x": 55, "y": 51.5}},
+      {"name": "stack-inserter", "direction": 4, "position": {"x": 25.5, "y": 24.5}},
       {"name": "steel-furnace", "position": {"x": 17, "y": 5}},
       {"name": "steel-furnace", "position": {"x": 19, "y": 5}},
       {"name": "steel-furnace", "position": {"x": 22, "y": 5}},
@@ -1426,6 +1457,10 @@
       {"name": "steel-furnace", "position": {"x": 22, "y": 8}},
       {"name": "steel-furnace", "position": {"x": 24, "y": 8}},
       {"name": "steel-furnace", "position": {"x": 27, "y": 8}},
+      {"name": "steel-furnace", "position": {"x": 11, "y": 29}},
+      {"name": "steel-furnace", "position": {"x": 13, "y": 29}},
+      {"name": "steel-furnace", "position": {"x": 11, "y": 34}},
+      {"name": "steel-furnace", "position": {"x": 13, "y": 34}},
       {"name": "stone-furnace", "position": {"x": -3, "y": 41}},
       {"name": "stone-furnace", "position": {"x": 3, "y": 5}},
       {"name": "stone-furnace", "position": {"x": 5, "y": 5}},
@@ -1670,10 +1705,14 @@
       {"name": "transport-belt", "direction": 2, "position": {"x": 10.5, "y": 24.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 11.5, "y": 24.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 8.5, "y": 26.5}},
+      {"name": "transport-belt", "direction": 2, "position": {"x": 9.5, "y": 26.5}},
+      {"name": "transport-belt", "direction": 2, "position": {"x": 10.5, "y": 26.5}},
+      {"name": "transport-belt", "direction": 2, "position": {"x": 11.5, "y": 26.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 12.5, "y": 24.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 13.5, "y": 24.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 14.5, "y": 24.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 14.5, "y": 25.5}},
+      {"name": "transport-belt", "direction": 2, "position": {"x": 12.5, "y": 26.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 14.5, "y": 26.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 14.5, "y": 27.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 8.5, "y": 31.5}},
@@ -1737,7 +1776,6 @@
       {"name": "transport-belt", "position": {"x": 29.5, "y": 21.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 30.5, "y": 20.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 31.5, "y": 20.5}},
-      {"name": "transport-belt", "direction": 6, "position": {"x": 31.5, "y": 21.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 28.5, "y": 22.5}},
       {"name": "transport-belt", "position": {"x": 29.5, "y": 22.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 16.5, "y": 29.5}},
@@ -1758,15 +1796,15 @@
       {"name": "transport-belt", "direction": 2, "position": {"x": 21.5, "y": 31.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 22.5, "y": 30.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 23.5, "y": 30.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 25.5, "y": 25.5}},
       {"name": "transport-belt", "position": {"x": 27.5, "y": 24.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 26.5, "y": 25.5}},
       {"name": "transport-belt", "position": {"x": 27.5, "y": 25.5}},
-      {"name": "transport-belt", "position": {"x": 25.5, "y": 26.5}},
-      {"name": "transport-belt", "position": {"x": 25.5, "y": 27.5}},
-      {"name": "transport-belt", "position": {"x": 25.5, "y": 28.5}},
+      {"name": "transport-belt", "position": {"x": 27.5, "y": 26.5}},
+      {"name": "transport-belt", "position": {"x": 27.5, "y": 27.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 24.5, "y": 29.5}},
-      {"name": "transport-belt", "position": {"x": 25.5, "y": 29.5}},
+      {"name": "transport-belt", "direction": 2, "position": {"x": 25.5, "y": 29.5}},
+      {"name": "transport-belt", "direction": 2, "position": {"x": 26.5, "y": 28.5}},
+      {"name": "transport-belt", "position": {"x": 27.5, "y": 28.5}},
+      {"name": "transport-belt", "position": {"x": 26.5, "y": 29.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 24.5, "y": 30.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 25.5, "y": 30.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 25.5, "y": 31.5}},
@@ -1877,14 +1915,8 @@
       {"name": "transport-belt", "direction": 2, "position": {"x": 32.5, "y": 18.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 33.5, "y": 18.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 34.5, "y": 18.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 35.5, "y": 18.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 36.5, "y": 18.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 37.5, "y": 18.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 38.5, "y": 18.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 39.5, "y": 18.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 32.5, "y": 20.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 33.5, "y": 20.5}},
-      {"name": "transport-belt", "direction": 6, "position": {"x": 32.5, "y": 21.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 33.5, "y": 21.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 34.5, "y": 20.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 35.5, "y": 20.5}},
@@ -2003,13 +2035,15 @@
       {"name": "transport-belt", "direction": 6, "position": {"x": 8.5, "y": 38.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 8.5, "y": 39.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 9.5, "y": 39.5}},
+      {"name": "transport-belt", "direction": 2, "position": {"x": 12.5, "y": 36.5}},
       {"name": "transport-belt", "direction": 2, "position": {"x": 15.5, "y": 36.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 7.5, "y": 40.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 7.5, "y": 46.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 8.5, "y": 40.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": 11.5, "y": 42.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 11.5, "y": 43.5}},
-      {"name": "transport-belt", "direction": 6, "position": {"x": 13.5, "y": 42.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 12.5, "y": 42.5}},
+      {"name": "transport-belt", "position": {"x": 13.5, "y": 42.5}},
+      {"name": "transport-belt", "direction": 6, "position": {"x": 12.5, "y": 43.5}},
       {"name": "transport-belt", "direction": 6, "position": {"x": 14.5, "y": 42.5}},
       {"name": "transport-belt", "position": {"x": 14.5, "y": 43.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 11.5, "y": 44.5}},
@@ -2378,8 +2412,6 @@
       {"name": "underground-belt", "direction": 4, "type": "input", "position": {"x": 14.5, "y": 28.5}},
       {"name": "underground-belt", "type": "output", "position": {"x": 29.5, "y": 16.5}},
       {"name": "underground-belt", "type": "input", "position": {"x": 29.5, "y": 20.5}},
-      {"name": "underground-belt", "direction": 6, "type": "output", "position": {"x": 28.5, "y": 21.5}},
-      {"name": "underground-belt", "direction": 6, "type": "input", "position": {"x": 30.5, "y": 21.5}},
       {"name": "underground-belt", "direction": 2, "type": "input", "position": {"x": 22.5, "y": 31.5}},
       {"name": "underground-belt", "direction": 2, "type": "output", "position": {"x": 24.5, "y": 31.5}},
       {"name": "underground-belt", "direction": 2, "type": "input", "position": {"x": 28.5, "y": 30.5}},
@@ -2398,6 +2430,8 @@
       {"name": "underground-belt", "direction": 2, "type": "output", "position": {"x": 57.5, "y": 9.5}},
       {"name": "underground-belt", "direction": 4, "type": "input", "position": {"x": 56.5, "y": 11.5}},
       {"name": "underground-belt", "direction": 4, "type": "output", "position": {"x": 56.5, "y": 13.5}},
+      {"name": "underground-belt", "direction": 2, "type": "input", "position": {"x": 35.5, "y": 18.5}},
+      {"name": "underground-belt", "direction": 2, "type": "output", "position": {"x": 39.5, "y": 18.5}},
       {"name": "underground-belt", "direction": 4, "type": "input", "position": {"x": 51.5, "y": 18.5}},
       {"name": "underground-belt", "direction": 4, "type": "output", "position": {"x": 51.5, "y": 20.5}},
       {"name": "underground-belt", "direction": 4, "type": "input", "position": {"x": 56.5, "y": 19.5}},
@@ -2406,11 +2440,11 @@
       {"name": "underground-belt", "type": "input", "position": {"x": 0.5, "y": 32.5}},
       {"name": "underground-belt", "direction": 2, "type": "output", "position": {"x": 0.5, "y": 34.5}},
       {"name": "underground-belt", "direction": 4, "type": "output", "position": {"x": 14.5, "y": 33.5}},
-      {"name": "underground-belt", "direction": 4, "type": "input", "position": {"x": 11.5, "y": 36.5}},
       {"name": "underground-belt", "direction": 6, "type": "output", "position": {"x": 9.5, "y": 38.5}},
+      {"name": "underground-belt", "direction": 4, "type": "input", "position": {"x": 12.5, "y": 37.5}},
       {"name": "underground-belt", "direction": 2, "type": "output", "position": {"x": 14.5, "y": 36.5}},
       {"name": "underground-belt", "direction": 6, "type": "input", "position": {"x": 14.5, "y": 38.5}},
-      {"name": "underground-belt", "direction": 4, "type": "output", "position": {"x": 11.5, "y": 41.5}},
+      {"name": "underground-belt", "direction": 4, "type": "output", "position": {"x": 12.5, "y": 41.5}},
       {"name": "underground-belt", "direction": 6, "type": "output", "position": {"x": 13.5, "y": 45.5}},
       {"name": "underground-belt", "direction": 2, "type": "input", "position": {"x": 25.5, "y": 33.5}},
       {"name": "underground-belt", "direction": 2, "type": "output", "position": {"x": 30.5, "y": 33.5}},
@@ -2455,9 +2489,8 @@
       {"name": "wooden-chest", "bar": 1, "position": {"x": 29.5, "y": 5.5}},
       {"name": "wooden-chest", "bar": 1, "position": {"x": 31.5, "y": 4.5}},
       {"name": "wooden-chest", "bar": 2, "position": {"x": 16.5, "y": 11.5}},
-      {"name": "wooden-chest", "bar": 1, "position": {"x": 11.5, "y": 29.5}},
       {"name": "wooden-chest", "bar": 2, "position": {"x": 16.5, "y": 16.5}},
-      {"name": "wooden-chest", "bar": 1, "position": {"x": 24.5, "y": 25.5}},
+      {"name": "wooden-chest", "bar": 1, "position": {"x": 17.5, "y": 30.5}},
       {"name": "wooden-chest", "bar": 5, "position": {"x": 28.5, "y": 27.5}},
       {"name": "wooden-chest", "bar": 2, "position": {"x": 28.5, "y": 28.5}},
       {"name": "wooden-chest", "bar": 2, "position": {"x": 32.5, "y": 6.5}},
@@ -2465,11 +2498,12 @@
       {"name": "wooden-chest", "bar": 2, "position": {"x": 42.5, "y": 6.5}},
       {"name": "wooden-chest", "bar": 1, "position": {"x": 45.5, "y": 4.5}},
       {"name": "wooden-chest", "bar": 1, "position": {"x": 46.5, "y": 4.5}},
+      {"name": "wooden-chest", "bar": 1, "position": {"x": 38.5, "y": 14.5}},
       {"name": "wooden-chest", "bar": 1, "position": {"x": 42.5, "y": 15.5}},
       {"name": "wooden-chest", "bar": 2, "position": {"x": 46.5, "y": 15.5}},
       {"name": "wooden-chest", "bar": 10, "position": {"x": 32.5, "y": 16.5}},
       {"name": "wooden-chest", "bar": 2, "position": {"x": 33.5, "y": 17.5}},
-      {"name": "wooden-chest", "bar": 1, "position": {"x": 35.5, "y": 17.5}},
+      {"name": "wooden-chest", "bar": 2, "position": {"x": 35.5, "y": 17.5}},
       {"name": "wooden-chest", "bar": 2, "position": {"x": 44.5, "y": 17.5}},
       {"name": "wooden-chest", "bar": 1, "position": {"x": 33.5, "y": 27.5}},
       {"name": "wooden-chest", "bar": 1, "position": {"x": 34.5, "y": 27.5}},
@@ -2486,9 +2520,9 @@
       {"name": "wooden-chest", "bar": 1, "position": {"x": 17.5, "y": 42.5}},
       {"name": "wooden-chest", "bar": 1, "position": {"x": 24.5, "y": 45.5}},
       {"name": "wooden-chest", "bar": 1, "position": {"x": 27.5, "y": 45.5}},
-      {"name": "wooden-chest", "bar": 1, "position": {"x": 30.5, "y": 45.5}},
       {"name": "wooden-chest", "bar": 1, "position": {"x": 7.5, "y": 48.5}},
-      {"name": "wooden-chest", "bar": 2, "position": {"x": 34.5, "y": 36.5}},
+      {"name": "wooden-chest", "bar": 4, "position": {"x": 34.5, "y": 36.5}},
+      {"name": "wooden-chest", "bar": 1, "position": {"x": 35.5, "y": 36.5}},
       {"name": "wooden-chest", "bar": 1, "position": {"x": 44.5, "y": 34.5}},
       {"name": "wooden-chest", "bar": 1, "position": {"x": 43.5, "y": 36.5}},
       {"name": "wooden-chest", "bar": 1, "position": {"x": 33.5, "y": 45.5}},
