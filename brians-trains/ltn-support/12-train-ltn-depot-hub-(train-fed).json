@@ -6,15 +6,11 @@
     "absolute-snapping": true,
     "shift_x": 11,
     "shift_y": -105,
-    "version": 281479278886912,
+    "version": 562949953945601,
     "entities": [
       {
         "name": "arithmetic-combinator",
-        "direction": 6,
-        "connections": {
-          "1": {"green": [{"entity_rel": "0.5,-2"}, {"entity_rel": "0.5,6"}]},
-          "2": {"green": [{"entity_rel": "-0.5,-2"}]}
-        },
+        "direction": 12,
         "control_behavior": {
           "arithmetic_conditions": {
             "operation": "/",
@@ -27,7 +23,6 @@
       },
       {
         "name": "arithmetic-combinator",
-        "connections": {"1": {"red": [{"entity_rel": "0,1.5"}]}, "2": {"green": [{"entity_rel": "1,-4.5"}]}},
         "control_behavior": {
           "arithmetic_conditions": {
             "operation": "*",
@@ -38,347 +33,223 @@
         },
         "position": {"x": -2.5, "y": 85}
       },
-      {"name": "big-electric-pole", "neighbours": ["2.5,-3.5", "20,0"], "position": {"x": -4, "y": 90}},
-      {"name": "big-electric-pole", "neighbours": ["-20,0", "2.5,-3.5"], "position": {"x": 16, "y": 90}},
+      {"name": "big-electric-pole", "position": {"x": -4, "y": 90}},
+      {"name": "big-electric-pole", "position": {"x": 16, "y": 90}},
       {
         "name": "constant-combinator",
-        "direction": 4,
-        "connections": {
-          "1": {
-            "green": [{"entity_rel": "0.5,1.5"}],
-            "red": [{"circuit_id": 1, "entity_rel": "0,-1.5"}, {"entity_rel": "0,2"}]
-          }
-        },
+        "direction": 8,
         "control_behavior": {
-          "filters": [
-            {"count": 1, "index": 1, "signal": {"name": "ltn-max-trains", "type": "virtual"}},
-            {"count": 2, "index": 2, "signal": {"name": "ltn-min-train-length", "type": "virtual"}},
-            {"count": 3, "index": 3, "signal": {"name": "ltn-max-train-length", "type": "virtual"}},
-            {"count": 255, "index": 4, "signal": {"name": "ltn-network-id", "type": "virtual"}},
-            {"count": 400, "index": 5, "signal": {"name": "ltn-requester-threshold", "type": "virtual"}},
-            {"count": 999999, "index": 6, "signal": {"name": "ltn-provider-threshold", "type": "virtual"}},
-            {"count": -500, "index": 7, "signal": {"name": "rocket-fuel", "type": "item"}}
-          ]
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [{"name": "rocket-fuel", "comparator": "=", "count": -500, "index": 1, "quality": "normal"}]
+              }
+            ]
+          }
         },
         "position": {"x": -2.5, "y": 86.5}
       },
       {
         "name": "constant-combinator",
-        "direction": 6,
-        "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "0.5,-2"}, {"entity_rel": "0,2"}]}},
-        "control_behavior": {"filters": [{"count": 65535, "index": 1, "signal": {"name": "ltn-network-id", "type": "virtual"}}]},
+        "direction": 12,
+        "control_behavior": {"sections": null},
         "position": {"x": 17.5, "y": 86.5}
       },
       {
         "name": "constant-combinator",
-        "direction": 6,
-        "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "0.5,-2"}, {"entity_rel": "0,2"}]}},
-        "control_behavior": {"filters": [{"count": 65535, "index": 1, "signal": {"name": "ltn-network-id", "type": "virtual"}}]},
+        "direction": 12,
+        "control_behavior": {"sections": null},
         "position": {"x": 21.5, "y": 86.5}
       },
       {
         "name": "constant-combinator",
-        "direction": 6,
-        "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "0.5,-2"}, {"entity_rel": "0,2"}]}},
-        "control_behavior": {"filters": [{"count": 65535, "index": 1, "signal": {"name": "ltn-network-id", "type": "virtual"}}]},
+        "direction": 12,
+        "control_behavior": {"sections": null},
         "position": {"x": 25.5, "y": 86.5}
       },
       {
         "name": "constant-combinator",
-        "direction": 6,
-        "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "0.5,-2"}, {"entity_rel": "0,2"}]}},
-        "control_behavior": {"filters": [{"count": 65535, "index": 1, "signal": {"name": "ltn-network-id", "type": "virtual"}}]},
+        "direction": 12,
+        "control_behavior": {"sections": null},
         "position": {"x": 29.5, "y": 86.5}
       },
       {
         "name": "constant-combinator",
-        "direction": 6,
-        "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "0.5,-2"}, {"entity_rel": "0,2"}]}},
-        "control_behavior": {"filters": [{"count": 65535, "index": 1, "signal": {"name": "ltn-network-id", "type": "virtual"}}]},
+        "direction": 12,
+        "control_behavior": {"sections": null},
         "position": {"x": 33.5, "y": 86.5}
       },
       {
         "name": "constant-combinator",
-        "direction": 6,
-        "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "0.5,-2"}, {"entity_rel": "0,2"}]}},
-        "control_behavior": {"filters": [{"count": 65535, "index": 1, "signal": {"name": "ltn-network-id", "type": "virtual"}}]},
+        "direction": 12,
+        "control_behavior": {"sections": null},
         "position": {"x": 37.5, "y": 86.5}
       },
       {
         "name": "constant-combinator",
-        "direction": 6,
-        "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "0.5,-2"}, {"entity_rel": "0,2"}]}},
-        "control_behavior": {"filters": [{"count": 65535, "index": 1, "signal": {"name": "ltn-network-id", "type": "virtual"}}]},
+        "direction": 12,
+        "control_behavior": {"sections": null},
         "position": {"x": 43.5, "y": 86.5}
       },
       {
         "name": "constant-combinator",
-        "direction": 6,
-        "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "0.5,-2"}, {"entity_rel": "0,2"}]}},
-        "control_behavior": {"filters": [{"count": 65535, "index": 1, "signal": {"name": "ltn-network-id", "type": "virtual"}}]},
+        "direction": 12,
+        "control_behavior": {"sections": null},
         "position": {"x": 47.5, "y": 86.5}
       },
       {
         "name": "constant-combinator",
-        "direction": 6,
-        "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "0.5,-2"}, {"entity_rel": "0,2"}]}},
-        "control_behavior": {"filters": [{"count": 65535, "index": 1, "signal": {"name": "ltn-network-id", "type": "virtual"}}]},
+        "direction": 12,
+        "control_behavior": {"sections": null},
         "position": {"x": 51.5, "y": 86.5}
       },
       {
         "name": "constant-combinator",
-        "direction": 6,
-        "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "0.5,-2"}, {"entity_rel": "0,2"}]}},
-        "control_behavior": {"filters": [{"count": 65535, "index": 1, "signal": {"name": "ltn-network-id", "type": "virtual"}}]},
+        "direction": 12,
+        "control_behavior": {"sections": null},
         "position": {"x": 55.5, "y": 86.5}
       },
       {
         "name": "constant-combinator",
-        "direction": 6,
-        "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "0.5,-2"}, {"entity_rel": "0,2"}]}},
-        "control_behavior": {"filters": [{"count": 65535, "index": 1, "signal": {"name": "ltn-network-id", "type": "virtual"}}]},
+        "direction": 12,
+        "control_behavior": {"sections": null},
         "position": {"x": 59.5, "y": 86.5}
       },
       {
         "name": "constant-combinator",
-        "direction": 6,
-        "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "0.5,-2"}, {"entity_rel": "0,2"}]}},
-        "control_behavior": {"filters": [{"count": 65535, "index": 1, "signal": {"name": "ltn-network-id", "type": "virtual"}}]},
+        "direction": 12,
+        "control_behavior": {"sections": null},
         "position": {"x": 63.5, "y": 86.5}
       },
-      {"name": "curved-rail", "direction": 5, "position": {"x": -1, "y": 99}},
-      {"name": "curved-rail", "direction": 6, "position": {"x": -1, "y": 101}},
-      {"name": "curved-rail", "direction": 2, "position": {"x": -7, "y": 105}},
-      {"name": "curved-rail", "direction": 6, "position": {"x": 7, "y": 1}},
-      {"name": "curved-rail", "direction": 1, "position": {"x": 1, "y": 7}},
-      {"name": "curved-rail", "direction": 1, "position": {"x": 21, "y": 7}},
-      {"name": "curved-rail", "direction": 6, "position": {"x": 27, "y": 1}},
-      {"name": "curved-rail", "direction": 6, "position": {"x": 31, "y": 1}},
-      {"name": "curved-rail", "direction": 1, "position": {"x": 25, "y": 7}},
-      {"name": "curved-rail", "direction": 1, "position": {"x": 29, "y": 7}},
-      {"name": "curved-rail", "direction": 6, "position": {"x": 35, "y": 1}},
-      {"name": "curved-rail", "direction": 6, "position": {"x": 39, "y": 1}},
-      {"name": "curved-rail", "direction": 1, "position": {"x": 33, "y": 7}},
-      {"name": "curved-rail", "direction": 1, "position": {"x": 37, "y": 7}},
-      {"name": "curved-rail", "direction": 6, "position": {"x": 43, "y": 1}},
-      {"name": "curved-rail", "direction": 6, "position": {"x": 47, "y": 1}},
-      {"name": "curved-rail", "direction": 1, "position": {"x": 41, "y": 7}},
-      {"name": "curved-rail", "direction": 1, "position": {"x": 47, "y": 7}},
-      {"name": "curved-rail", "direction": 6, "position": {"x": 53, "y": 1}},
-      {"name": "curved-rail", "direction": 1, "position": {"x": 51, "y": 7}},
-      {"name": "curved-rail", "direction": 1, "position": {"x": 55, "y": 7}},
-      {"name": "curved-rail", "direction": 6, "position": {"x": 57, "y": 1}},
-      {"name": "curved-rail", "direction": 6, "position": {"x": 61, "y": 1}},
-      {"name": "curved-rail", "direction": 1, "position": {"x": 59, "y": 7}},
-      {"name": "curved-rail", "direction": 1, "position": {"x": 63, "y": 7}},
-      {"name": "curved-rail", "direction": 6, "position": {"x": 65, "y": 1}},
-      {"name": "curved-rail", "direction": 6, "position": {"x": 69, "y": 1}},
-      {"name": "curved-rail", "direction": 1, "position": {"x": 67, "y": 7}},
-      {"name": "curved-rail", "direction": 6, "position": {"x": 73, "y": 1}},
-      {"name": "curved-rail", "direction": 3, "position": {"x": 81, "y": 1}},
-      {"name": "curved-rail", "position": {"x": 87, "y": 7}},
-      {"name": "curved-rail", "direction": 5, "position": {"x": 19, "y": 93}},
-      {"name": "curved-rail", "direction": 5, "position": {"x": 23, "y": 93}},
-      {"name": "curved-rail", "direction": 5, "position": {"x": 27, "y": 93}},
-      {"name": "curved-rail", "direction": 5, "position": {"x": 31, "y": 93}},
-      {"name": "curved-rail", "direction": 5, "position": {"x": 35, "y": 93}},
-      {"name": "curved-rail", "direction": 5, "position": {"x": 39, "y": 93}},
-      {"name": "curved-rail", "direction": 5, "position": {"x": 45, "y": 93}},
-      {"name": "curved-rail", "direction": 5, "position": {"x": 49, "y": 93}},
-      {"name": "curved-rail", "direction": 5, "position": {"x": 53, "y": 93}},
-      {"name": "curved-rail", "direction": 5, "position": {"x": 57, "y": 93}},
-      {"name": "curved-rail", "direction": 5, "position": {"x": 61, "y": 93}},
-      {"name": "curved-rail", "direction": 2, "position": {"x": 13, "y": 99}},
-      {"name": "curved-rail", "direction": 2, "position": {"x": 17, "y": 99}},
-      {"name": "curved-rail", "direction": 2, "position": {"x": 21, "y": 99}},
-      {"name": "curved-rail", "direction": 2, "position": {"x": 25, "y": 99}},
-      {"name": "curved-rail", "direction": 2, "position": {"x": 29, "y": 99}},
-      {"name": "curved-rail", "direction": 2, "position": {"x": 33, "y": 99}},
-      {"name": "curved-rail", "direction": 2, "position": {"x": 39, "y": 99}},
-      {"name": "curved-rail", "direction": 2, "position": {"x": 43, "y": 99}},
-      {"name": "curved-rail", "direction": 2, "position": {"x": 47, "y": 99}},
-      {"name": "curved-rail", "direction": 2, "position": {"x": 51, "y": 99}},
-      {"name": "curved-rail", "direction": 2, "position": {"x": 55, "y": 99}},
-      {"name": "curved-rail", "direction": 2, "position": {"x": 59, "y": 99}},
-      {"name": "curved-rail", "direction": 5, "position": {"x": 65, "y": 93}},
-      {"name": "curved-rail", "direction": 4, "position": {"x": 89, "y": 99}},
-      {"name": "curved-rail", "direction": 7, "position": {"x": 95, "y": 105}},
       {
         "name": "decider-combinator",
-        "direction": 6,
-        "connections": {"1": {"red": [{"entity_rel": "0,3.5"}]}, "2": {"red": [{"entity_rel": "-0.5,2"}]}},
+        "direction": 12,
         "control_behavior": {
           "decider_conditions": {
-            "comparator": "=",
-            "constant": 0,
-            "copy_count_from_input": false,
-            "first_signal": {"name": "signal-everything", "type": "virtual"},
-            "output_signal": {"name": "ltn-depot", "type": "virtual"}
+            "conditions": [{"comparator": "=", "first_signal": {"name": "signal-everything", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false}]
           }
         },
         "position": {"x": 18, "y": 84.5}
       },
       {
         "name": "decider-combinator",
-        "direction": 6,
-        "connections": {"1": {"red": [{"entity_rel": "0,3.5"}]}, "2": {"red": [{"entity_rel": "-0.5,2"}]}},
+        "direction": 12,
         "control_behavior": {
           "decider_conditions": {
-            "comparator": "=",
-            "constant": 0,
-            "copy_count_from_input": false,
-            "first_signal": {"name": "signal-everything", "type": "virtual"},
-            "output_signal": {"name": "ltn-depot", "type": "virtual"}
+            "conditions": [{"comparator": "=", "first_signal": {"name": "signal-everything", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false}]
           }
         },
         "position": {"x": 22, "y": 84.5}
       },
       {
         "name": "decider-combinator",
-        "direction": 6,
-        "connections": {"1": {"red": [{"entity_rel": "0,3.5"}]}, "2": {"red": [{"entity_rel": "-0.5,2"}]}},
+        "direction": 12,
         "control_behavior": {
           "decider_conditions": {
-            "comparator": "=",
-            "constant": 0,
-            "copy_count_from_input": false,
-            "first_signal": {"name": "signal-everything", "type": "virtual"},
-            "output_signal": {"name": "ltn-depot", "type": "virtual"}
+            "conditions": [{"comparator": "=", "first_signal": {"name": "signal-everything", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false}]
           }
         },
         "position": {"x": 26, "y": 84.5}
       },
       {
         "name": "decider-combinator",
-        "direction": 6,
-        "connections": {"1": {"red": [{"entity_rel": "0,3.5"}]}, "2": {"red": [{"entity_rel": "-0.5,2"}]}},
+        "direction": 12,
         "control_behavior": {
           "decider_conditions": {
-            "comparator": "=",
-            "constant": 0,
-            "copy_count_from_input": false,
-            "first_signal": {"name": "signal-everything", "type": "virtual"},
-            "output_signal": {"name": "ltn-depot", "type": "virtual"}
+            "conditions": [{"comparator": "=", "first_signal": {"name": "signal-everything", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false}]
           }
         },
         "position": {"x": 30, "y": 84.5}
       },
       {
         "name": "decider-combinator",
-        "direction": 6,
-        "connections": {"1": {"red": [{"entity_rel": "0,3.5"}]}, "2": {"red": [{"entity_rel": "-0.5,2"}]}},
+        "direction": 12,
         "control_behavior": {
           "decider_conditions": {
-            "comparator": "=",
-            "constant": 0,
-            "copy_count_from_input": false,
-            "first_signal": {"name": "signal-everything", "type": "virtual"},
-            "output_signal": {"name": "ltn-depot", "type": "virtual"}
+            "conditions": [{"comparator": "=", "first_signal": {"name": "signal-everything", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false}]
           }
         },
         "position": {"x": 34, "y": 84.5}
       },
       {
         "name": "decider-combinator",
-        "direction": 6,
-        "connections": {"1": {"red": [{"entity_rel": "0,3.5"}]}, "2": {"red": [{"entity_rel": "-0.5,2"}]}},
+        "direction": 12,
         "control_behavior": {
           "decider_conditions": {
-            "comparator": "=",
-            "constant": 0,
-            "copy_count_from_input": false,
-            "first_signal": {"name": "signal-everything", "type": "virtual"},
-            "output_signal": {"name": "ltn-depot", "type": "virtual"}
+            "conditions": [{"comparator": "=", "first_signal": {"name": "signal-everything", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false}]
           }
         },
         "position": {"x": 38, "y": 84.5}
       },
       {
         "name": "decider-combinator",
-        "direction": 6,
-        "connections": {"1": {"red": [{"entity_rel": "0,3.5"}]}, "2": {"red": [{"entity_rel": "-0.5,2"}]}},
+        "direction": 12,
         "control_behavior": {
           "decider_conditions": {
-            "comparator": "=",
-            "constant": 0,
-            "copy_count_from_input": false,
-            "first_signal": {"name": "signal-everything", "type": "virtual"},
-            "output_signal": {"name": "ltn-depot", "type": "virtual"}
+            "conditions": [{"comparator": "=", "first_signal": {"name": "signal-everything", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false}]
           }
         },
         "position": {"x": 44, "y": 84.5}
       },
       {
         "name": "decider-combinator",
-        "direction": 6,
-        "connections": {"1": {"red": [{"entity_rel": "0,3.5"}]}, "2": {"red": [{"entity_rel": "-0.5,2"}]}},
+        "direction": 12,
         "control_behavior": {
           "decider_conditions": {
-            "comparator": "=",
-            "constant": 0,
-            "copy_count_from_input": false,
-            "first_signal": {"name": "signal-everything", "type": "virtual"},
-            "output_signal": {"name": "ltn-depot", "type": "virtual"}
+            "conditions": [{"comparator": "=", "first_signal": {"name": "signal-everything", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false}]
           }
         },
         "position": {"x": 48, "y": 84.5}
       },
       {
         "name": "decider-combinator",
-        "direction": 6,
-        "connections": {"1": {"red": [{"entity_rel": "0,3.5"}]}, "2": {"red": [{"entity_rel": "-0.5,2"}]}},
+        "direction": 12,
         "control_behavior": {
           "decider_conditions": {
-            "comparator": "=",
-            "constant": 0,
-            "copy_count_from_input": false,
-            "first_signal": {"name": "signal-everything", "type": "virtual"},
-            "output_signal": {"name": "ltn-depot", "type": "virtual"}
+            "conditions": [{"comparator": "=", "first_signal": {"name": "signal-everything", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false}]
           }
         },
         "position": {"x": 52, "y": 84.5}
       },
       {
         "name": "decider-combinator",
-        "direction": 6,
-        "connections": {"1": {"red": [{"entity_rel": "0,3.5"}]}, "2": {"red": [{"entity_rel": "-0.5,2"}]}},
+        "direction": 12,
         "control_behavior": {
           "decider_conditions": {
-            "comparator": "=",
-            "constant": 0,
-            "copy_count_from_input": false,
-            "first_signal": {"name": "signal-everything", "type": "virtual"},
-            "output_signal": {"name": "ltn-depot", "type": "virtual"}
+            "conditions": [{"comparator": "=", "first_signal": {"name": "signal-everything", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false}]
           }
         },
         "position": {"x": 56, "y": 84.5}
       },
       {
         "name": "decider-combinator",
-        "direction": 6,
-        "connections": {"1": {"red": [{"entity_rel": "0,3.5"}]}, "2": {"red": [{"entity_rel": "-0.5,2"}]}},
+        "direction": 12,
         "control_behavior": {
           "decider_conditions": {
-            "comparator": "=",
-            "constant": 0,
-            "copy_count_from_input": false,
-            "first_signal": {"name": "signal-everything", "type": "virtual"},
-            "output_signal": {"name": "ltn-depot", "type": "virtual"}
+            "conditions": [{"comparator": "=", "first_signal": {"name": "signal-everything", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false}]
           }
         },
         "position": {"x": 60, "y": 84.5}
       },
       {
         "name": "decider-combinator",
-        "direction": 6,
-        "connections": {"1": {"red": [{"entity_rel": "0,3.5"}]}, "2": {"red": [{"entity_rel": "-0.5,2"}]}},
+        "direction": 12,
         "control_behavior": {
           "decider_conditions": {
-            "comparator": "=",
-            "constant": 0,
-            "copy_count_from_input": false,
-            "first_signal": {"name": "signal-everything", "type": "virtual"},
-            "output_signal": {"name": "ltn-depot", "type": "virtual"}
+            "conditions": [{"comparator": "=", "first_signal": {"name": "signal-everything", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false}]
           }
         },
         "position": {"x": 64, "y": 84.5}
@@ -431,65 +302,36 @@
       {"name": "express-underground-belt", "type": "input", "position": {"x": 55.5, "y": 101.5}},
       {"name": "express-underground-belt", "type": "input", "position": {"x": 59.5, "y": 101.5}},
       {"name": "express-underground-belt", "type": "input", "position": {"x": 63.5, "y": 101.5}},
-      {"name": "inserter", "direction": 4, "position": {"x": 17.5, "y": 15.5}},
-      {"name": "inserter", "direction": 4, "position": {"x": 21.5, "y": 15.5}},
-      {"name": "inserter", "direction": 4, "position": {"x": 25.5, "y": 15.5}},
-      {"name": "inserter", "direction": 4, "position": {"x": 29.5, "y": 15.5}},
-      {"name": "inserter", "direction": 4, "position": {"x": 33.5, "y": 15.5}},
-      {"name": "inserter", "direction": 4, "position": {"x": 37.5, "y": 15.5}},
-      {"name": "inserter", "direction": 4, "position": {"x": 43.5, "y": 15.5}},
-      {"name": "inserter", "direction": 4, "position": {"x": 47.5, "y": 15.5}},
-      {"name": "inserter", "direction": 4, "position": {"x": 51.5, "y": 15.5}},
-      {"name": "inserter", "direction": 4, "position": {"x": 55.5, "y": 15.5}},
-      {"name": "inserter", "direction": 4, "position": {"x": 59.5, "y": 15.5}},
-      {"name": "inserter", "direction": 4, "position": {"x": 63.5, "y": 15.5}},
-      {"name": "inserter", "direction": 4, "position": {"x": 17.5, "y": 50.5}},
-      {"name": "inserter", "direction": 4, "position": {"x": 21.5, "y": 50.5}},
-      {"name": "inserter", "direction": 4, "position": {"x": 25.5, "y": 50.5}},
-      {"name": "inserter", "direction": 4, "position": {"x": 29.5, "y": 50.5}},
-      {"name": "inserter", "direction": 4, "position": {"x": 33.5, "y": 50.5}},
-      {"name": "inserter", "direction": 4, "position": {"x": 37.5, "y": 50.5}},
-      {"name": "inserter", "direction": 4, "position": {"x": 43.5, "y": 50.5}},
-      {"name": "inserter", "direction": 4, "position": {"x": 47.5, "y": 50.5}},
-      {"name": "inserter", "direction": 4, "position": {"x": 51.5, "y": 50.5}},
-      {"name": "inserter", "direction": 4, "position": {"x": 55.5, "y": 50.5}},
-      {"name": "inserter", "direction": 4, "position": {"x": 59.5, "y": 50.5}},
-      {"name": "inserter", "direction": 4, "position": {"x": 63.5, "y": 50.5}},
-      {
-        "name": "iron-chest",
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}], "red": [{"entity_rel": "-1,0"}]}},
-        "position": {"x": -2.5, "y": 75.5}
-      },
-      {
-        "name": "iron-chest",
-        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}], "red": [{"entity_rel": "-1,0"}]}},
-        "position": {"x": -2.5, "y": 76.5}
-      },
-      {
-        "name": "iron-chest",
-        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}], "red": [{"entity_rel": "-1,0"}]}},
-        "position": {"x": -2.5, "y": 77.5}
-      },
-      {
-        "name": "iron-chest",
-        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}], "red": [{"entity_rel": "-1,0"}]}},
-        "position": {"x": -2.5, "y": 78.5}
-      },
-      {
-        "name": "iron-chest",
-        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}], "red": [{"entity_rel": "-1,0"}]}},
-        "position": {"x": -2.5, "y": 79.5}
-      },
-      {
-        "name": "iron-chest",
-        "connections": {
-          "1": {
-            "green": [{"circuit_id": 1, "entity_rel": "-0.5,2"}, {"entity_rel": "0,-1"}, {"entity_rel": "5,0"}],
-            "red": [{"entity_rel": "-1,0"}]
-          }
-        },
-        "position": {"x": -2.5, "y": 80.5}
-      },
+      {"name": "inserter", "direction": 8, "position": {"x": 17.5, "y": 15.5}},
+      {"name": "inserter", "direction": 8, "position": {"x": 21.5, "y": 15.5}},
+      {"name": "inserter", "direction": 8, "position": {"x": 25.5, "y": 15.5}},
+      {"name": "inserter", "direction": 8, "position": {"x": 29.5, "y": 15.5}},
+      {"name": "inserter", "direction": 8, "position": {"x": 33.5, "y": 15.5}},
+      {"name": "inserter", "direction": 8, "position": {"x": 37.5, "y": 15.5}},
+      {"name": "inserter", "direction": 8, "position": {"x": 43.5, "y": 15.5}},
+      {"name": "inserter", "direction": 8, "position": {"x": 47.5, "y": 15.5}},
+      {"name": "inserter", "direction": 8, "position": {"x": 51.5, "y": 15.5}},
+      {"name": "inserter", "direction": 8, "position": {"x": 55.5, "y": 15.5}},
+      {"name": "inserter", "direction": 8, "position": {"x": 59.5, "y": 15.5}},
+      {"name": "inserter", "direction": 8, "position": {"x": 63.5, "y": 15.5}},
+      {"name": "inserter", "direction": 8, "position": {"x": 17.5, "y": 50.5}},
+      {"name": "inserter", "direction": 8, "position": {"x": 21.5, "y": 50.5}},
+      {"name": "inserter", "direction": 8, "position": {"x": 25.5, "y": 50.5}},
+      {"name": "inserter", "direction": 8, "position": {"x": 29.5, "y": 50.5}},
+      {"name": "inserter", "direction": 8, "position": {"x": 33.5, "y": 50.5}},
+      {"name": "inserter", "direction": 8, "position": {"x": 37.5, "y": 50.5}},
+      {"name": "inserter", "direction": 8, "position": {"x": 43.5, "y": 50.5}},
+      {"name": "inserter", "direction": 8, "position": {"x": 47.5, "y": 50.5}},
+      {"name": "inserter", "direction": 8, "position": {"x": 51.5, "y": 50.5}},
+      {"name": "inserter", "direction": 8, "position": {"x": 55.5, "y": 50.5}},
+      {"name": "inserter", "direction": 8, "position": {"x": 59.5, "y": 50.5}},
+      {"name": "inserter", "direction": 8, "position": {"x": 63.5, "y": 50.5}},
+      {"name": "iron-chest", "position": {"x": -2.5, "y": 75.5}},
+      {"name": "iron-chest", "position": {"x": -2.5, "y": 76.5}},
+      {"name": "iron-chest", "position": {"x": -2.5, "y": 77.5}},
+      {"name": "iron-chest", "position": {"x": -2.5, "y": 78.5}},
+      {"name": "iron-chest", "position": {"x": -2.5, "y": 79.5}},
+      {"name": "iron-chest", "position": {"x": -2.5, "y": 80.5}},
       {"name": "iron-chest", "bar": 1, "position": {"x": 17.5, "y": 14.5}},
       {"name": "iron-chest", "bar": 1, "position": {"x": 21.5, "y": 14.5}},
       {"name": "iron-chest", "bar": 1, "position": {"x": 25.5, "y": 14.5}},
@@ -514,36 +356,12 @@
       {"name": "iron-chest", "bar": 1, "position": {"x": 55.5, "y": 49.5}},
       {"name": "iron-chest", "bar": 1, "position": {"x": 59.5, "y": 49.5}},
       {"name": "iron-chest", "bar": 1, "position": {"x": 63.5, "y": 49.5}},
-      {
-        "name": "iron-chest",
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}], "red": [{"entity_rel": "1,0"}]}},
-        "position": {"x": 2.5, "y": 75.5}
-      },
-      {
-        "name": "iron-chest",
-        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}], "red": [{"entity_rel": "1,0"}]}},
-        "position": {"x": 2.5, "y": 76.5}
-      },
-      {
-        "name": "iron-chest",
-        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}], "red": [{"entity_rel": "1,0"}]}},
-        "position": {"x": 2.5, "y": 77.5}
-      },
-      {
-        "name": "iron-chest",
-        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}], "red": [{"entity_rel": "1,0"}]}},
-        "position": {"x": 2.5, "y": 78.5}
-      },
-      {
-        "name": "iron-chest",
-        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}], "red": [{"entity_rel": "1,0"}]}},
-        "position": {"x": 2.5, "y": 79.5}
-      },
-      {
-        "name": "iron-chest",
-        "connections": {"1": {"green": [{"entity_rel": "-5,0"}, {"entity_rel": "0,-1"}], "red": [{"entity_rel": "1,0"}]}},
-        "position": {"x": 2.5, "y": 80.5}
-      },
+      {"name": "iron-chest", "position": {"x": 2.5, "y": 75.5}},
+      {"name": "iron-chest", "position": {"x": 2.5, "y": 76.5}},
+      {"name": "iron-chest", "position": {"x": 2.5, "y": 77.5}},
+      {"name": "iron-chest", "position": {"x": 2.5, "y": 78.5}},
+      {"name": "iron-chest", "position": {"x": 2.5, "y": 79.5}},
+      {"name": "iron-chest", "position": {"x": 2.5, "y": 80.5}},
       {"name": "iron-chest", "bar": 1, "position": {"x": 17.5, "y": 85.5}},
       {"name": "iron-chest", "bar": 1, "position": {"x": 21.5, "y": 85.5}},
       {"name": "iron-chest", "bar": 1, "position": {"x": 25.5, "y": 85.5}},
@@ -556,265 +374,6 @@
       {"name": "iron-chest", "bar": 1, "position": {"x": 55.5, "y": 85.5}},
       {"name": "iron-chest", "bar": 1, "position": {"x": 59.5, "y": 85.5}},
       {"name": "iron-chest", "bar": 1, "position": {"x": 63.5, "y": 85.5}},
-      {
-        "name": "logistic-train-stop",
-        "direction": 4,
-        "station": "Depot #1 Fuel",
-        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.501960813999176, "r": 0},
-        "connections": {"1": {"green": [{"entity_rel": "-0.5,-1.5"}]}},
-        "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
-        "position": {"x": -2, "y": 88}
-      },
-      {
-        "name": "logistic-train-stop",
-        "direction": 4,
-        "manual_trains_limit": 1,
-        "station": "LTN Depot",
-        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
-        "connections": {"1": {"red": [{"circuit_id": 1, "entity_rel": "0,-3.5"}]}},
-        "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
-        "position": {"x": 18, "y": 88}
-      },
-      {
-        "name": "logistic-train-stop",
-        "direction": 4,
-        "manual_trains_limit": 1,
-        "station": "LTN Depot",
-        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
-        "connections": {"1": {"red": [{"circuit_id": 1, "entity_rel": "0,-3.5"}]}},
-        "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
-        "position": {"x": 22, "y": 88}
-      },
-      {
-        "name": "logistic-train-stop",
-        "direction": 4,
-        "manual_trains_limit": 1,
-        "station": "LTN Depot",
-        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
-        "connections": {"1": {"red": [{"circuit_id": 1, "entity_rel": "0,-3.5"}]}},
-        "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
-        "position": {"x": 26, "y": 88}
-      },
-      {
-        "name": "logistic-train-stop",
-        "direction": 4,
-        "manual_trains_limit": 1,
-        "station": "LTN Depot",
-        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
-        "connections": {"1": {"red": [{"circuit_id": 1, "entity_rel": "0,-3.5"}]}},
-        "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
-        "position": {"x": 30, "y": 88}
-      },
-      {
-        "name": "logistic-train-stop",
-        "direction": 4,
-        "manual_trains_limit": 1,
-        "station": "LTN Depot",
-        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
-        "connections": {"1": {"red": [{"circuit_id": 1, "entity_rel": "0,-3.5"}]}},
-        "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
-        "position": {"x": 34, "y": 88}
-      },
-      {
-        "name": "logistic-train-stop",
-        "direction": 4,
-        "manual_trains_limit": 1,
-        "station": "LTN Depot",
-        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
-        "connections": {"1": {"red": [{"circuit_id": 1, "entity_rel": "0,-3.5"}]}},
-        "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
-        "position": {"x": 38, "y": 88}
-      },
-      {
-        "name": "logistic-train-stop",
-        "direction": 4,
-        "manual_trains_limit": 1,
-        "station": "LTN Depot",
-        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
-        "connections": {"1": {"red": [{"circuit_id": 1, "entity_rel": "0,-3.5"}]}},
-        "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
-        "position": {"x": 44, "y": 88}
-      },
-      {
-        "name": "logistic-train-stop",
-        "direction": 4,
-        "manual_trains_limit": 1,
-        "station": "LTN Depot",
-        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
-        "connections": {"1": {"red": [{"circuit_id": 1, "entity_rel": "0,-3.5"}]}},
-        "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
-        "position": {"x": 48, "y": 88}
-      },
-      {
-        "name": "logistic-train-stop",
-        "direction": 4,
-        "manual_trains_limit": 1,
-        "station": "LTN Depot",
-        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
-        "connections": {"1": {"red": [{"circuit_id": 1, "entity_rel": "0,-3.5"}]}},
-        "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
-        "position": {"x": 52, "y": 88}
-      },
-      {
-        "name": "logistic-train-stop",
-        "direction": 4,
-        "manual_trains_limit": 1,
-        "station": "LTN Depot",
-        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
-        "connections": {"1": {"red": [{"circuit_id": 1, "entity_rel": "0,-3.5"}]}},
-        "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
-        "position": {"x": 56, "y": 88}
-      },
-      {
-        "name": "logistic-train-stop",
-        "direction": 4,
-        "manual_trains_limit": 1,
-        "station": "LTN Depot",
-        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
-        "connections": {"1": {"red": [{"circuit_id": 1, "entity_rel": "0,-3.5"}]}},
-        "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
-        "position": {"x": 60, "y": 88}
-      },
-      {
-        "name": "logistic-train-stop",
-        "direction": 4,
-        "manual_trains_limit": 1,
-        "station": "LTN Depot",
-        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
-        "connections": {"1": {"red": [{"circuit_id": 1, "entity_rel": "0,-3.5"}]}},
-        "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
-        "position": {"x": 64, "y": 88}
-      },
-      {
-        "name": "logistic-train-stop-input",
-        "connections": {"1": {"green": [{"circuit_id": 1, "entity_rel": "-0.5,-6"}], "red": [{"entity_rel": "0,-2"}]}},
-        "control_behavior": {
-          "use_colors": true,
-          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
-        },
-        "position": {"x": -2.5, "y": 88.5}
-      },
-      {
-        "name": "logistic-train-stop-input",
-        "connections": {"1": {"red": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
-        "control_behavior": {
-          "use_colors": true,
-          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
-        },
-        "position": {"x": 17.5, "y": 88.5}
-      },
-      {
-        "name": "logistic-train-stop-input",
-        "connections": {"1": {"red": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
-        "control_behavior": {
-          "use_colors": true,
-          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
-        },
-        "position": {"x": 21.5, "y": 88.5}
-      },
-      {
-        "name": "logistic-train-stop-input",
-        "connections": {"1": {"red": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
-        "control_behavior": {
-          "use_colors": true,
-          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
-        },
-        "position": {"x": 25.5, "y": 88.5}
-      },
-      {
-        "name": "logistic-train-stop-input",
-        "connections": {"1": {"red": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
-        "control_behavior": {
-          "use_colors": true,
-          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
-        },
-        "position": {"x": 29.5, "y": 88.5}
-      },
-      {
-        "name": "logistic-train-stop-input",
-        "connections": {"1": {"red": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
-        "control_behavior": {
-          "use_colors": true,
-          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
-        },
-        "position": {"x": 33.5, "y": 88.5}
-      },
-      {
-        "name": "logistic-train-stop-input",
-        "connections": {"1": {"red": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
-        "control_behavior": {
-          "use_colors": true,
-          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
-        },
-        "position": {"x": 37.5, "y": 88.5}
-      },
-      {
-        "name": "logistic-train-stop-input",
-        "connections": {"1": {"red": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
-        "control_behavior": {
-          "use_colors": true,
-          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
-        },
-        "position": {"x": 43.5, "y": 88.5}
-      },
-      {
-        "name": "logistic-train-stop-input",
-        "connections": {"1": {"red": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
-        "control_behavior": {
-          "use_colors": true,
-          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
-        },
-        "position": {"x": 47.5, "y": 88.5}
-      },
-      {
-        "name": "logistic-train-stop-input",
-        "connections": {"1": {"red": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
-        "control_behavior": {
-          "use_colors": true,
-          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
-        },
-        "position": {"x": 51.5, "y": 88.5}
-      },
-      {
-        "name": "logistic-train-stop-input",
-        "connections": {"1": {"red": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
-        "control_behavior": {
-          "use_colors": true,
-          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
-        },
-        "position": {"x": 55.5, "y": 88.5}
-      },
-      {
-        "name": "logistic-train-stop-input",
-        "connections": {"1": {"red": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
-        "control_behavior": {
-          "use_colors": true,
-          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
-        },
-        "position": {"x": 59.5, "y": 88.5}
-      },
-      {
-        "name": "logistic-train-stop-input",
-        "connections": {"1": {"red": [{"entity_rel": "0,-2"}, {"entity_rel": "0,1"}]}},
-        "control_behavior": {
-          "use_colors": true,
-          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
-        },
-        "position": {"x": 63.5, "y": 88.5}
-      },
-      {"name": "logistic-train-stop-output", "direction": 4, "position": {"x": -1.5, "y": 88.5}},
-      {"name": "logistic-train-stop-output", "direction": 4, "position": {"x": 18.5, "y": 88.5}},
-      {"name": "logistic-train-stop-output", "direction": 4, "position": {"x": 22.5, "y": 88.5}},
-      {"name": "logistic-train-stop-output", "direction": 4, "position": {"x": 26.5, "y": 88.5}},
-      {"name": "logistic-train-stop-output", "direction": 4, "position": {"x": 30.5, "y": 88.5}},
-      {"name": "logistic-train-stop-output", "direction": 4, "position": {"x": 34.5, "y": 88.5}},
-      {"name": "logistic-train-stop-output", "direction": 4, "position": {"x": 38.5, "y": 88.5}},
-      {"name": "logistic-train-stop-output", "direction": 4, "position": {"x": 44.5, "y": 88.5}},
-      {"name": "logistic-train-stop-output", "direction": 4, "position": {"x": 48.5, "y": 88.5}},
-      {"name": "logistic-train-stop-output", "direction": 4, "position": {"x": 52.5, "y": 88.5}},
-      {"name": "logistic-train-stop-output", "direction": 4, "position": {"x": 56.5, "y": 88.5}},
-      {"name": "logistic-train-stop-output", "direction": 4, "position": {"x": 60.5, "y": 88.5}},
-      {"name": "logistic-train-stop-output", "direction": 4, "position": {"x": 64.5, "y": 88.5}},
       {"name": "long-handed-inserter", "position": {"x": 17.5, "y": 83.5}},
       {"name": "long-handed-inserter", "position": {"x": 21.5, "y": 83.5}},
       {"name": "long-handed-inserter", "position": {"x": 25.5, "y": 83.5}},
@@ -827,321 +386,177 @@
       {"name": "long-handed-inserter", "position": {"x": 55.5, "y": 83.5}},
       {"name": "long-handed-inserter", "position": {"x": 59.5, "y": 83.5}},
       {"name": "long-handed-inserter", "position": {"x": 63.5, "y": 83.5}},
-      {"name": "medium-electric-pole", "neighbours": ["0,7", "3,0"], "position": {"x": -1.5, "y": 74.5}},
-      {
-        "name": "medium-electric-pole",
-        "neighbours": ["0,-7", "0,5", "3,0"],
-        "position": {"x": -1.5, "y": 81.5}
-      },
-      {
-        "name": "medium-electric-pole",
-        "neighbours": ["-2.5,3.5", "0,-5", "3,-5"],
-        "position": {"x": -1.5, "y": 86.5}
-      },
-      {"name": "medium-electric-pole", "neighbours": ["4,0"], "position": {"x": 18.5, "y": 13.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 22.5, "y": 13.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 26.5, "y": 13.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 30.5, "y": 13.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 34.5, "y": 13.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "6,0"], "position": {"x": 38.5, "y": 13.5}},
-      {
-        "name": "medium-electric-pole",
-        "neighbours": ["-6,0", "0,7", "4,0"],
-        "position": {"x": 44.5, "y": 13.5}
-      },
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 48.5, "y": 13.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 52.5, "y": 13.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 56.5, "y": 13.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 60.5, "y": 13.5}},
-      {
-        "name": "medium-electric-pole",
-        "connections": {"1": {"red": [{"entity_rel": "0,9"}]}},
-        "neighbours": ["0,-7", "0,9"],
-        "position": {"x": 44.5, "y": 20.5}
-      },
-      {
-        "name": "medium-electric-pole",
-        "connections": {"1": {"red": [{"entity_rel": "0,-9"}, {"entity_rel": "0,9"}]}},
-        "neighbours": ["0,-9", "0,9"],
-        "position": {"x": 44.5, "y": 29.5}
-      },
-      {"name": "medium-electric-pole", "neighbours": ["4,0"], "position": {"x": 18.5, "y": 48.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 22.5, "y": 48.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 26.5, "y": 48.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 30.5, "y": 48.5}},
-      {
-        "name": "medium-electric-pole",
-        "connections": {"1": {"red": [{"entity_rel": "0,-9"}, {"entity_rel": "0,8"}]}},
-        "neighbours": ["0,-9", "0,8"],
-        "position": {"x": 44.5, "y": 38.5}
-      },
-      {
-        "name": "medium-electric-pole",
-        "connections": {"1": {"red": [{"entity_rel": "0,-8"}, {"entity_rel": "0,4"}]}},
-        "neighbours": ["-6,2", "0,-8", "4,2"],
-        "position": {"x": 44.5, "y": 46.5}
-      },
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 34.5, "y": 48.5}},
-      {
-        "name": "medium-electric-pole",
-        "neighbours": ["-4,0", "6,-2", "6,2"],
-        "position": {"x": 38.5, "y": 48.5}
-      },
-      {
-        "name": "medium-electric-pole",
-        "connections": {"1": {"red": [{"entity_rel": "0,-4"}, {"entity_rel": "0,9"}]}},
-        "neighbours": ["-6,-2", "0,9", "4,-2"],
-        "position": {"x": 44.5, "y": 50.5}
-      },
-      {
-        "name": "medium-electric-pole",
-        "connections": {"1": {"red": [{"entity_rel": "0,-9"}, {"entity_rel": "0,9"}]}},
-        "neighbours": ["0,-9", "0,9"],
-        "position": {"x": 44.5, "y": 59.5}
-      },
-      {
-        "name": "medium-electric-pole",
-        "neighbours": ["-4,-2", "-4,2", "4,0"],
-        "position": {"x": 48.5, "y": 48.5}
-      },
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 52.5, "y": 48.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 56.5, "y": 48.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 60.5, "y": 48.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0"], "position": {"x": 64.5, "y": 13.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0"], "position": {"x": 64.5, "y": 48.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-3,0", "0,7"], "position": {"x": 1.5, "y": 74.5}},
-      {
-        "name": "medium-electric-pole",
-        "neighbours": ["-3,0", "-3,5", "0,-7"],
-        "position": {"x": 1.5, "y": 81.5}
-      },
-      {
-        "name": "medium-electric-pole",
-        "neighbours": ["-2.5,3.5", "4,0"],
-        "position": {"x": 18.5, "y": 86.5}
-      },
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 22.5, "y": 86.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 26.5, "y": 86.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 30.5, "y": 86.5}},
-      {
-        "name": "medium-electric-pole",
-        "connections": {"1": {"red": [{"entity_rel": "0,-9"}, {"entity_rel": "0,9"}]}},
-        "neighbours": ["0,-9", "0,9"],
-        "position": {"x": 44.5, "y": 68.5}
-      },
-      {
-        "name": "medium-electric-pole",
-        "connections": {"1": {"red": [{"entity_rel": "0,-9"}]}},
-        "neighbours": ["0,-9", "0,9"],
-        "position": {"x": 44.5, "y": 77.5}
-      },
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 34.5, "y": 86.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "6,0"], "position": {"x": 38.5, "y": 86.5}},
-      {
-        "name": "medium-electric-pole",
-        "neighbours": ["-6,0", "0,-9", "4,0"],
-        "position": {"x": 44.5, "y": 86.5}
-      },
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 48.5, "y": 86.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 52.5, "y": 86.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 56.5, "y": 86.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0", "4,0"], "position": {"x": 60.5, "y": 86.5}},
-      {"name": "medium-electric-pole", "neighbours": ["-4,0"], "position": {"x": 64.5, "y": 86.5}},
+      {"name": "medium-electric-pole", "position": {"x": -1.5, "y": 74.5}},
+      {"name": "medium-electric-pole", "position": {"x": -1.5, "y": 81.5}},
+      {"name": "medium-electric-pole", "position": {"x": -1.5, "y": 86.5}},
+      {"name": "medium-electric-pole", "position": {"x": 18.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 22.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 26.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 30.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 34.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 38.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 44.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 48.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 52.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 56.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 60.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 44.5, "y": 20.5}},
+      {"name": "medium-electric-pole", "position": {"x": 44.5, "y": 29.5}},
+      {"name": "medium-electric-pole", "position": {"x": 18.5, "y": 48.5}},
+      {"name": "medium-electric-pole", "position": {"x": 22.5, "y": 48.5}},
+      {"name": "medium-electric-pole", "position": {"x": 26.5, "y": 48.5}},
+      {"name": "medium-electric-pole", "position": {"x": 30.5, "y": 48.5}},
+      {"name": "medium-electric-pole", "position": {"x": 44.5, "y": 38.5}},
+      {"name": "medium-electric-pole", "position": {"x": 44.5, "y": 46.5}},
+      {"name": "medium-electric-pole", "position": {"x": 34.5, "y": 48.5}},
+      {"name": "medium-electric-pole", "position": {"x": 38.5, "y": 48.5}},
+      {"name": "medium-electric-pole", "position": {"x": 44.5, "y": 50.5}},
+      {"name": "medium-electric-pole", "position": {"x": 44.5, "y": 59.5}},
+      {"name": "medium-electric-pole", "position": {"x": 48.5, "y": 48.5}},
+      {"name": "medium-electric-pole", "position": {"x": 52.5, "y": 48.5}},
+      {"name": "medium-electric-pole", "position": {"x": 56.5, "y": 48.5}},
+      {"name": "medium-electric-pole", "position": {"x": 60.5, "y": 48.5}},
+      {"name": "medium-electric-pole", "position": {"x": 64.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 64.5, "y": 48.5}},
+      {"name": "medium-electric-pole", "position": {"x": 1.5, "y": 74.5}},
+      {"name": "medium-electric-pole", "position": {"x": 1.5, "y": 81.5}},
+      {"name": "medium-electric-pole", "position": {"x": 18.5, "y": 86.5}},
+      {"name": "medium-electric-pole", "position": {"x": 22.5, "y": 86.5}},
+      {"name": "medium-electric-pole", "position": {"x": 26.5, "y": 86.5}},
+      {"name": "medium-electric-pole", "position": {"x": 30.5, "y": 86.5}},
+      {"name": "medium-electric-pole", "position": {"x": 44.5, "y": 68.5}},
+      {"name": "medium-electric-pole", "position": {"x": 44.5, "y": 77.5}},
+      {"name": "medium-electric-pole", "position": {"x": 34.5, "y": 86.5}},
+      {"name": "medium-electric-pole", "position": {"x": 38.5, "y": 86.5}},
+      {"name": "medium-electric-pole", "position": {"x": 44.5, "y": 86.5}},
+      {"name": "medium-electric-pole", "position": {"x": 48.5, "y": 86.5}},
+      {"name": "medium-electric-pole", "position": {"x": 52.5, "y": 86.5}},
+      {"name": "medium-electric-pole", "position": {"x": 56.5, "y": 86.5}},
+      {"name": "medium-electric-pole", "position": {"x": 60.5, "y": 86.5}},
+      {"name": "medium-electric-pole", "position": {"x": 64.5, "y": 86.5}},
       {
         "name": "programmable-speaker",
-        "alert_parameters": {
-          "alert_message": "LTN Depot Train Not Empty",
-          "show_alert": true,
-          "show_on_map": true,
-          "icon_signal_id": {"name": "ltn-depot", "type": "virtual"}
-        },
-        "connections": {"1": {"red": [{"entity_rel": "0,-1"}]}},
+        "alert_parameters": {"alert_message": "LTN Depot Train Not Empty", "show_alert": true, "show_on_map": true},
         "control_behavior": {
-          "circuit_condition": {"comparator": "≠", "constant": 1, "first_signal": {"name": "ltn-depot", "type": "virtual"}},
+          "circuit_condition": {"comparator": "≠", "constant": 1},
           "circuit_parameters": {"instrument_id": 0, "note_id": 2, "signal_value_is_pitch": false}
         },
-        "parameters": {"allow_polyphony": true, "playback_globally": false, "playback_volume": 1},
+        "parameters": {"allow_polyphony": true, "playback_mode": "local", "playback_volume": 1},
         "position": {"x": 17.5, "y": 89.5}
       },
       {
         "name": "programmable-speaker",
-        "alert_parameters": {
-          "alert_message": "LTN Depot Train Not Empty",
-          "show_alert": true,
-          "show_on_map": true,
-          "icon_signal_id": {"name": "ltn-depot", "type": "virtual"}
-        },
-        "connections": {"1": {"red": [{"entity_rel": "0,-1"}]}},
+        "alert_parameters": {"alert_message": "LTN Depot Train Not Empty", "show_alert": true, "show_on_map": true},
         "control_behavior": {
-          "circuit_condition": {"comparator": "≠", "constant": 1, "first_signal": {"name": "ltn-depot", "type": "virtual"}},
+          "circuit_condition": {"comparator": "≠", "constant": 1},
           "circuit_parameters": {"instrument_id": 0, "note_id": 2, "signal_value_is_pitch": false}
         },
-        "parameters": {"allow_polyphony": true, "playback_globally": false, "playback_volume": 1},
+        "parameters": {"allow_polyphony": true, "playback_mode": "local", "playback_volume": 1},
         "position": {"x": 21.5, "y": 89.5}
       },
       {
         "name": "programmable-speaker",
-        "alert_parameters": {
-          "alert_message": "LTN Depot Train Not Empty",
-          "show_alert": true,
-          "show_on_map": true,
-          "icon_signal_id": {"name": "ltn-depot", "type": "virtual"}
-        },
-        "connections": {"1": {"red": [{"entity_rel": "0,-1"}]}},
+        "alert_parameters": {"alert_message": "LTN Depot Train Not Empty", "show_alert": true, "show_on_map": true},
         "control_behavior": {
-          "circuit_condition": {"comparator": "≠", "constant": 1, "first_signal": {"name": "ltn-depot", "type": "virtual"}},
+          "circuit_condition": {"comparator": "≠", "constant": 1},
           "circuit_parameters": {"instrument_id": 0, "note_id": 2, "signal_value_is_pitch": false}
         },
-        "parameters": {"allow_polyphony": true, "playback_globally": false, "playback_volume": 1},
+        "parameters": {"allow_polyphony": true, "playback_mode": "local", "playback_volume": 1},
         "position": {"x": 25.5, "y": 89.5}
       },
       {
         "name": "programmable-speaker",
-        "alert_parameters": {
-          "alert_message": "LTN Depot Train Not Empty",
-          "show_alert": true,
-          "show_on_map": true,
-          "icon_signal_id": {"name": "ltn-depot", "type": "virtual"}
-        },
-        "connections": {"1": {"red": [{"entity_rel": "0,-1"}]}},
+        "alert_parameters": {"alert_message": "LTN Depot Train Not Empty", "show_alert": true, "show_on_map": true},
         "control_behavior": {
-          "circuit_condition": {"comparator": "≠", "constant": 1, "first_signal": {"name": "ltn-depot", "type": "virtual"}},
+          "circuit_condition": {"comparator": "≠", "constant": 1},
           "circuit_parameters": {"instrument_id": 0, "note_id": 2, "signal_value_is_pitch": false}
         },
-        "parameters": {"allow_polyphony": true, "playback_globally": false, "playback_volume": 1},
+        "parameters": {"allow_polyphony": true, "playback_mode": "local", "playback_volume": 1},
         "position": {"x": 29.5, "y": 89.5}
       },
       {
         "name": "programmable-speaker",
-        "alert_parameters": {
-          "alert_message": "LTN Depot Train Not Empty",
-          "show_alert": true,
-          "show_on_map": true,
-          "icon_signal_id": {"name": "ltn-depot", "type": "virtual"}
-        },
-        "connections": {"1": {"red": [{"entity_rel": "0,-1"}]}},
+        "alert_parameters": {"alert_message": "LTN Depot Train Not Empty", "show_alert": true, "show_on_map": true},
         "control_behavior": {
-          "circuit_condition": {"comparator": "≠", "constant": 1, "first_signal": {"name": "ltn-depot", "type": "virtual"}},
+          "circuit_condition": {"comparator": "≠", "constant": 1},
           "circuit_parameters": {"instrument_id": 0, "note_id": 2, "signal_value_is_pitch": false}
         },
-        "parameters": {"allow_polyphony": true, "playback_globally": false, "playback_volume": 1},
+        "parameters": {"allow_polyphony": true, "playback_mode": "local", "playback_volume": 1},
         "position": {"x": 33.5, "y": 89.5}
       },
       {
         "name": "programmable-speaker",
-        "alert_parameters": {
-          "alert_message": "LTN Depot Train Not Empty",
-          "show_alert": true,
-          "show_on_map": true,
-          "icon_signal_id": {"name": "ltn-depot", "type": "virtual"}
-        },
-        "connections": {"1": {"red": [{"entity_rel": "0,-1"}]}},
+        "alert_parameters": {"alert_message": "LTN Depot Train Not Empty", "show_alert": true, "show_on_map": true},
         "control_behavior": {
-          "circuit_condition": {"comparator": "≠", "constant": 1, "first_signal": {"name": "ltn-depot", "type": "virtual"}},
+          "circuit_condition": {"comparator": "≠", "constant": 1},
           "circuit_parameters": {"instrument_id": 0, "note_id": 2, "signal_value_is_pitch": false}
         },
-        "parameters": {"allow_polyphony": true, "playback_globally": false, "playback_volume": 1},
+        "parameters": {"allow_polyphony": true, "playback_mode": "local", "playback_volume": 1},
         "position": {"x": 37.5, "y": 89.5}
       },
       {
         "name": "programmable-speaker",
-        "alert_parameters": {
-          "alert_message": "LTN Depot Train Not Empty",
-          "show_alert": true,
-          "show_on_map": true,
-          "icon_signal_id": {"name": "ltn-depot", "type": "virtual"}
-        },
-        "connections": {"1": {"red": [{"entity_rel": "0,-1"}]}},
+        "alert_parameters": {"alert_message": "LTN Depot Train Not Empty", "show_alert": true, "show_on_map": true},
         "control_behavior": {
-          "circuit_condition": {"comparator": "≠", "constant": 1, "first_signal": {"name": "ltn-depot", "type": "virtual"}},
+          "circuit_condition": {"comparator": "≠", "constant": 1},
           "circuit_parameters": {"instrument_id": 0, "note_id": 2, "signal_value_is_pitch": false}
         },
-        "parameters": {"allow_polyphony": true, "playback_globally": false, "playback_volume": 1},
+        "parameters": {"allow_polyphony": true, "playback_mode": "local", "playback_volume": 1},
         "position": {"x": 43.5, "y": 89.5}
       },
       {
         "name": "programmable-speaker",
-        "alert_parameters": {
-          "alert_message": "LTN Depot Train Not Empty",
-          "show_alert": true,
-          "show_on_map": true,
-          "icon_signal_id": {"name": "ltn-depot", "type": "virtual"}
-        },
-        "connections": {"1": {"red": [{"entity_rel": "0,-1"}]}},
+        "alert_parameters": {"alert_message": "LTN Depot Train Not Empty", "show_alert": true, "show_on_map": true},
         "control_behavior": {
-          "circuit_condition": {"comparator": "≠", "constant": 1, "first_signal": {"name": "ltn-depot", "type": "virtual"}},
+          "circuit_condition": {"comparator": "≠", "constant": 1},
           "circuit_parameters": {"instrument_id": 0, "note_id": 2, "signal_value_is_pitch": false}
         },
-        "parameters": {"allow_polyphony": true, "playback_globally": false, "playback_volume": 1},
+        "parameters": {"allow_polyphony": true, "playback_mode": "local", "playback_volume": 1},
         "position": {"x": 47.5, "y": 89.5}
       },
       {
         "name": "programmable-speaker",
-        "alert_parameters": {
-          "alert_message": "LTN Depot Train Not Empty",
-          "show_alert": true,
-          "show_on_map": true,
-          "icon_signal_id": {"name": "ltn-depot", "type": "virtual"}
-        },
-        "connections": {"1": {"red": [{"entity_rel": "0,-1"}]}},
+        "alert_parameters": {"alert_message": "LTN Depot Train Not Empty", "show_alert": true, "show_on_map": true},
         "control_behavior": {
-          "circuit_condition": {"comparator": "≠", "constant": 1, "first_signal": {"name": "ltn-depot", "type": "virtual"}},
+          "circuit_condition": {"comparator": "≠", "constant": 1},
           "circuit_parameters": {"instrument_id": 0, "note_id": 2, "signal_value_is_pitch": false}
         },
-        "parameters": {"allow_polyphony": true, "playback_globally": false, "playback_volume": 1},
+        "parameters": {"allow_polyphony": true, "playback_mode": "local", "playback_volume": 1},
         "position": {"x": 51.5, "y": 89.5}
       },
       {
         "name": "programmable-speaker",
-        "alert_parameters": {
-          "alert_message": "LTN Depot Train Not Empty",
-          "show_alert": true,
-          "show_on_map": true,
-          "icon_signal_id": {"name": "ltn-depot", "type": "virtual"}
-        },
-        "connections": {"1": {"red": [{"entity_rel": "0,-1"}]}},
+        "alert_parameters": {"alert_message": "LTN Depot Train Not Empty", "show_alert": true, "show_on_map": true},
         "control_behavior": {
-          "circuit_condition": {"comparator": "≠", "constant": 1, "first_signal": {"name": "ltn-depot", "type": "virtual"}},
+          "circuit_condition": {"comparator": "≠", "constant": 1},
           "circuit_parameters": {"instrument_id": 0, "note_id": 2, "signal_value_is_pitch": false}
         },
-        "parameters": {"allow_polyphony": true, "playback_globally": false, "playback_volume": 1},
+        "parameters": {"allow_polyphony": true, "playback_mode": "local", "playback_volume": 1},
         "position": {"x": 55.5, "y": 89.5}
       },
       {
         "name": "programmable-speaker",
-        "alert_parameters": {
-          "alert_message": "LTN Depot Train Not Empty",
-          "show_alert": true,
-          "show_on_map": true,
-          "icon_signal_id": {"name": "ltn-depot", "type": "virtual"}
-        },
-        "connections": {"1": {"red": [{"entity_rel": "0,-1"}]}},
+        "alert_parameters": {"alert_message": "LTN Depot Train Not Empty", "show_alert": true, "show_on_map": true},
         "control_behavior": {
-          "circuit_condition": {"comparator": "≠", "constant": 1, "first_signal": {"name": "ltn-depot", "type": "virtual"}},
+          "circuit_condition": {"comparator": "≠", "constant": 1},
           "circuit_parameters": {"instrument_id": 0, "note_id": 2, "signal_value_is_pitch": false}
         },
-        "parameters": {"allow_polyphony": true, "playback_globally": false, "playback_volume": 1},
+        "parameters": {"allow_polyphony": true, "playback_mode": "local", "playback_volume": 1},
         "position": {"x": 59.5, "y": 89.5}
       },
       {
         "name": "programmable-speaker",
-        "alert_parameters": {
-          "alert_message": "LTN Depot Train Not Empty",
-          "show_alert": true,
-          "show_on_map": true,
-          "icon_signal_id": {"name": "ltn-depot", "type": "virtual"}
-        },
-        "connections": {"1": {"red": [{"entity_rel": "0,-1"}]}},
+        "alert_parameters": {"alert_message": "LTN Depot Train Not Empty", "show_alert": true, "show_on_map": true},
         "control_behavior": {
-          "circuit_condition": {"comparator": "≠", "constant": 1, "first_signal": {"name": "ltn-depot", "type": "virtual"}},
+          "circuit_condition": {"comparator": "≠", "constant": 1},
           "circuit_parameters": {"instrument_id": 0, "note_id": 2, "signal_value_is_pitch": false}
         },
-        "parameters": {"allow_polyphony": true, "playback_globally": false, "playback_volume": 1},
+        "parameters": {"allow_polyphony": true, "playback_mode": "local", "playback_volume": 1},
         "position": {"x": 63.5, "y": 89.5}
       },
       {"name": "rail-chain-signal", "position": {"x": -1.5, "y": 89.5}},
-      {"name": "rail-chain-signal", "direction": 1, "position": {"x": -5.5, "y": 102.5}},
-      {"name": "rail-chain-signal", "direction": 4, "position": {"x": 89.5, "y": 10.5}},
+      {"name": "rail-chain-signal", "direction": 2, "position": {"x": -5.5, "y": 102.5}},
+      {"name": "rail-chain-signal", "direction": 8, "position": {"x": 89.5, "y": 10.5}},
       {"name": "rail-signal", "position": {"x": -1.5, "y": 11.5}},
       {"name": "rail-signal", "position": {"x": 18.5, "y": 10.5}},
       {"name": "rail-signal", "position": {"x": 22.5, "y": 10.5}},
@@ -1167,278 +582,269 @@
       {"name": "rail-signal", "position": {"x": 56.5, "y": 89.5}},
       {"name": "rail-signal", "position": {"x": 60.5, "y": 89.5}},
       {"name": "rail-signal", "position": {"x": 64.5, "y": 89.5}},
-      {"name": "rail-signal", "direction": 3, "position": {"x": 92.5, "y": 101.5}},
-      {"name": "splitter", "direction": 4, "position": {"x": 4, "y": 82.5}},
-      {"name": "splitter", "direction": 4, "position": {"x": 5, "y": 85.5}},
-      {"name": "splitter", "direction": 2, "position": {"x": 16.5, "y": 102}},
-      {"name": "splitter", "direction": 2, "position": {"x": 20.5, "y": 102}},
-      {"name": "splitter", "direction": 2, "position": {"x": 24.5, "y": 102}},
-      {"name": "splitter", "direction": 2, "position": {"x": 28.5, "y": 102}},
-      {"name": "splitter", "direction": 2, "position": {"x": 32.5, "y": 102}},
-      {"name": "splitter", "direction": 2, "position": {"x": 36.5, "y": 102}},
-      {"name": "splitter", "direction": 2, "position": {"x": 42.5, "y": 102}},
-      {"name": "splitter", "direction": 2, "position": {"x": 46.5, "y": 102}},
-      {"name": "splitter", "direction": 2, "position": {"x": 50.5, "y": 102}},
-      {"name": "splitter", "direction": 2, "position": {"x": 54.5, "y": 102}},
-      {"name": "splitter", "direction": 2, "position": {"x": 58.5, "y": 102}},
-      {
-        "name": "stack-filter-inserter",
-        "direction": 2,
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}]}},
-        "control_behavior": {"circuit_mode_of_operation": 1},
-        "position": {"x": -1.5, "y": 75.5}
-      },
-      {
-        "name": "stack-filter-inserter",
-        "direction": 2,
-        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
-        "control_behavior": {"circuit_mode_of_operation": 1},
-        "position": {"x": -1.5, "y": 76.5}
-      },
-      {
-        "name": "stack-filter-inserter",
-        "direction": 2,
-        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
-        "control_behavior": {"circuit_mode_of_operation": 1},
-        "position": {"x": -1.5, "y": 77.5}
-      },
-      {
-        "name": "stack-filter-inserter",
-        "direction": 2,
-        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
-        "control_behavior": {"circuit_mode_of_operation": 1},
-        "position": {"x": -1.5, "y": 78.5}
-      },
-      {
-        "name": "stack-filter-inserter",
-        "direction": 2,
-        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
-        "control_behavior": {"circuit_mode_of_operation": 1},
-        "position": {"x": -1.5, "y": 79.5}
-      },
-      {
-        "name": "stack-filter-inserter",
-        "direction": 2,
-        "connections": {
-          "1": {
-            "green": [{"circuit_id": 2, "entity_rel": "-1,4.5"}, {"entity_rel": "0,-1"}, {"entity_rel": "3,0"}]
-          }
-        },
-        "control_behavior": {"circuit_mode_of_operation": 1},
-        "position": {"x": -1.5, "y": 80.5}
-      },
-      {
-        "name": "stack-filter-inserter",
-        "direction": 6,
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}]}},
-        "control_behavior": {"circuit_mode_of_operation": 1},
-        "position": {"x": 1.5, "y": 75.5}
-      },
-      {
-        "name": "stack-filter-inserter",
-        "direction": 6,
-        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
-        "control_behavior": {"circuit_mode_of_operation": 1},
-        "position": {"x": 1.5, "y": 76.5}
-      },
-      {
-        "name": "stack-filter-inserter",
-        "direction": 6,
-        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
-        "control_behavior": {"circuit_mode_of_operation": 1},
-        "position": {"x": 1.5, "y": 77.5}
-      },
-      {
-        "name": "stack-filter-inserter",
-        "direction": 6,
-        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
-        "control_behavior": {"circuit_mode_of_operation": 1},
-        "position": {"x": 1.5, "y": 78.5}
-      },
-      {
-        "name": "stack-filter-inserter",
-        "direction": 6,
-        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}]}},
-        "control_behavior": {"circuit_mode_of_operation": 1},
-        "position": {"x": 1.5, "y": 79.5}
-      },
-      {
-        "name": "stack-filter-inserter",
-        "direction": 6,
-        "connections": {"1": {"green": [{"entity_rel": "-3,0"}, {"entity_rel": "0,-1"}]}},
-        "control_behavior": {"circuit_mode_of_operation": 1},
-        "position": {"x": 1.5, "y": 80.5}
-      },
+      {"name": "rail-signal", "direction": 6, "position": {"x": 92.5, "y": 101.5}},
+      {"name": "splitter", "direction": 8, "position": {"x": 4, "y": 82.5}},
+      {"name": "splitter", "direction": 8, "position": {"x": 5, "y": 85.5}},
+      {"name": "splitter", "direction": 4, "position": {"x": 16.5, "y": 102}},
+      {"name": "splitter", "direction": 4, "position": {"x": 20.5, "y": 102}},
+      {"name": "splitter", "direction": 4, "position": {"x": 24.5, "y": 102}},
+      {"name": "splitter", "direction": 4, "position": {"x": 28.5, "y": 102}},
+      {"name": "splitter", "direction": 4, "position": {"x": 32.5, "y": 102}},
+      {"name": "splitter", "direction": 4, "position": {"x": 36.5, "y": 102}},
+      {"name": "splitter", "direction": 4, "position": {"x": 42.5, "y": 102}},
+      {"name": "splitter", "direction": 4, "position": {"x": 46.5, "y": 102}},
+      {"name": "splitter", "direction": 4, "position": {"x": 50.5, "y": 102}},
+      {"name": "splitter", "direction": 4, "position": {"x": 54.5, "y": 102}},
+      {"name": "splitter", "direction": 4, "position": {"x": 58.5, "y": 102}},
       {
         "name": "stack-inserter",
-        "direction": 2,
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}], "red": [{"entity_rel": "1,0"}]}},
+        "direction": 4,
         "control_behavior": {
+          "circuit_enabled": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}}
         },
         "position": {"x": -3.5, "y": 75.5}
       },
       {
         "name": "stack-inserter",
-        "direction": 2,
-        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}], "red": [{"entity_rel": "1,0"}]}},
+        "direction": 4,
+        "use_filters": true,
+        "control_behavior": {"circuit_set_filters": true},
+        "position": {"x": -1.5, "y": 75.5}
+      },
+      {
+        "name": "stack-inserter",
+        "direction": 4,
         "control_behavior": {
+          "circuit_enabled": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}}
         },
         "position": {"x": -3.5, "y": 76.5}
       },
       {
         "name": "stack-inserter",
-        "direction": 2,
-        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}], "red": [{"entity_rel": "1,0"}]}},
+        "direction": 4,
         "control_behavior": {
+          "circuit_enabled": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}}
         },
         "position": {"x": -3.5, "y": 77.5}
       },
       {
         "name": "stack-inserter",
-        "direction": 2,
-        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}], "red": [{"entity_rel": "1,0"}]}},
+        "direction": 4,
+        "use_filters": true,
+        "control_behavior": {"circuit_set_filters": true},
+        "position": {"x": -1.5, "y": 76.5}
+      },
+      {
+        "name": "stack-inserter",
+        "direction": 4,
+        "use_filters": true,
+        "control_behavior": {"circuit_set_filters": true},
+        "position": {"x": -1.5, "y": 77.5}
+      },
+      {
+        "name": "stack-inserter",
+        "direction": 4,
         "control_behavior": {
+          "circuit_enabled": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}}
         },
         "position": {"x": -3.5, "y": 78.5}
       },
       {
         "name": "stack-inserter",
-        "direction": 2,
-        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}], "red": [{"entity_rel": "1,0"}]}},
+        "direction": 4,
         "control_behavior": {
+          "circuit_enabled": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}}
         },
         "position": {"x": -3.5, "y": 79.5}
       },
       {
         "name": "stack-inserter",
-        "direction": 2,
-        "connections": {
-          "1": {
-            "green": [{"circuit_id": 2, "entity_rel": "0.5,2"}, {"entity_rel": "0,-1"}, {"entity_rel": "7,0"}],
-            "red": [{"entity_rel": "1,0"}]
-          }
-        },
+        "direction": 4,
+        "use_filters": true,
+        "control_behavior": {"circuit_set_filters": true},
+        "position": {"x": -1.5, "y": 78.5}
+      },
+      {
+        "name": "stack-inserter",
+        "direction": 4,
+        "use_filters": true,
+        "control_behavior": {"circuit_set_filters": true},
+        "position": {"x": -1.5, "y": 79.5}
+      },
+      {
+        "name": "stack-inserter",
+        "direction": 4,
         "control_behavior": {
+          "circuit_enabled": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}}
         },
         "position": {"x": -3.5, "y": 80.5}
       },
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 18.5, "y": 14.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 22.5, "y": 14.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 26.5, "y": 14.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 30.5, "y": 14.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 34.5, "y": 14.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 38.5, "y": 14.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 44.5, "y": 14.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 48.5, "y": 14.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 52.5, "y": 14.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 56.5, "y": 14.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 60.5, "y": 14.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 18.5, "y": 49.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 22.5, "y": 49.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 26.5, "y": 49.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 30.5, "y": 49.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 34.5, "y": 49.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 38.5, "y": 49.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 44.5, "y": 49.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 48.5, "y": 49.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 52.5, "y": 49.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 56.5, "y": 49.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 60.5, "y": 49.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 64.5, "y": 14.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 64.5, "y": 49.5}},
       {
         "name": "stack-inserter",
-        "direction": 6,
-        "connections": {"1": {"green": [{"entity_rel": "0,1"}], "red": [{"entity_rel": "-1,0"}]}},
+        "direction": 4,
+        "use_filters": true,
+        "control_behavior": {"circuit_set_filters": true},
+        "position": {"x": -1.5, "y": 80.5}
+      },
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 18.5, "y": 14.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 22.5, "y": 14.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 26.5, "y": 14.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 30.5, "y": 14.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 34.5, "y": 14.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 38.5, "y": 14.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 44.5, "y": 14.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 48.5, "y": 14.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 52.5, "y": 14.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 56.5, "y": 14.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 60.5, "y": 14.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 18.5, "y": 49.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 22.5, "y": 49.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 26.5, "y": 49.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 30.5, "y": 49.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 34.5, "y": 49.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 38.5, "y": 49.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 44.5, "y": 49.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 48.5, "y": 49.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 52.5, "y": 49.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 56.5, "y": 49.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 60.5, "y": 49.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 64.5, "y": 14.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 64.5, "y": 49.5}},
+      {
+        "name": "stack-inserter",
+        "direction": 12,
+        "use_filters": true,
+        "control_behavior": {"circuit_set_filters": true},
+        "position": {"x": 1.5, "y": 75.5}
+      },
+      {
+        "name": "stack-inserter",
+        "direction": 12,
         "control_behavior": {
+          "circuit_enabled": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}}
         },
         "position": {"x": 3.5, "y": 75.5}
       },
       {
         "name": "stack-inserter",
-        "direction": 6,
-        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}], "red": [{"entity_rel": "-1,0"}]}},
+        "direction": 12,
+        "use_filters": true,
+        "control_behavior": {"circuit_set_filters": true},
+        "position": {"x": 1.5, "y": 76.5}
+      },
+      {
+        "name": "stack-inserter",
+        "direction": 12,
+        "use_filters": true,
+        "control_behavior": {"circuit_set_filters": true},
+        "position": {"x": 1.5, "y": 77.5}
+      },
+      {
+        "name": "stack-inserter",
+        "direction": 12,
         "control_behavior": {
+          "circuit_enabled": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}}
         },
         "position": {"x": 3.5, "y": 76.5}
       },
       {
         "name": "stack-inserter",
-        "direction": 6,
-        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}], "red": [{"entity_rel": "-1,0"}]}},
+        "direction": 12,
         "control_behavior": {
+          "circuit_enabled": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}}
         },
         "position": {"x": 3.5, "y": 77.5}
       },
       {
         "name": "stack-inserter",
-        "direction": 6,
-        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}], "red": [{"entity_rel": "-1,0"}]}},
+        "direction": 12,
+        "use_filters": true,
+        "control_behavior": {"circuit_set_filters": true},
+        "position": {"x": 1.5, "y": 78.5}
+      },
+      {
+        "name": "stack-inserter",
+        "direction": 12,
+        "use_filters": true,
+        "control_behavior": {"circuit_set_filters": true},
+        "position": {"x": 1.5, "y": 79.5}
+      },
+      {
+        "name": "stack-inserter",
+        "direction": 12,
         "control_behavior": {
+          "circuit_enabled": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}}
         },
         "position": {"x": 3.5, "y": 78.5}
       },
       {
         "name": "stack-inserter",
-        "direction": 6,
-        "connections": {"1": {"green": [{"entity_rel": "0,-1"}, {"entity_rel": "0,1"}], "red": [{"entity_rel": "-1,0"}]}},
+        "direction": 12,
         "control_behavior": {
+          "circuit_enabled": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}}
         },
         "position": {"x": 3.5, "y": 79.5}
       },
       {
         "name": "stack-inserter",
-        "direction": 6,
-        "connections": {"1": {"green": [{"entity_rel": "-7,0"}, {"entity_rel": "0,-1"}], "red": [{"entity_rel": "-1,0"}]}},
+        "direction": 12,
+        "use_filters": true,
+        "control_behavior": {"circuit_set_filters": true},
+        "position": {"x": 1.5, "y": 80.5}
+      },
+      {
+        "name": "stack-inserter",
+        "direction": 12,
         "control_behavior": {
+          "circuit_enabled": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}}
         },
         "position": {"x": 3.5, "y": 80.5}
       },
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 18.5, "y": 85.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 22.5, "y": 85.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 26.5, "y": 85.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 30.5, "y": 85.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 34.5, "y": 85.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 38.5, "y": 85.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 44.5, "y": 85.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 48.5, "y": 85.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 52.5, "y": 85.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 56.5, "y": 85.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 60.5, "y": 85.5}},
-      {"name": "stack-inserter", "direction": 6, "position": {"x": 64.5, "y": 85.5}},
-      {"name": "straight-rail", "direction": 3, "position": {"x": -4, "y": 102}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": -10, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": -8, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": -6, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": -4, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": -2, "y": 106}},
-      {"name": "straight-rail", "direction": 7, "position": {"x": 4, "y": 4}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 12, "y": 0}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 14, "y": 0}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 18.5, "y": 85.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 22.5, "y": 85.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 26.5, "y": 85.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 30.5, "y": 85.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 34.5, "y": 85.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 38.5, "y": 85.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 44.5, "y": 85.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 48.5, "y": 85.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 52.5, "y": 85.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 56.5, "y": 85.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 60.5, "y": 85.5}},
+      {"name": "stack-inserter", "direction": 12, "position": {"x": 64.5, "y": 85.5}},
+      {"name": "straight-rail", "direction": 6, "position": {"x": -4, "y": 102}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": -10, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": -8, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": -6, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": -4, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": -2, "y": 106}},
+      {"name": "straight-rail", "direction": 6, "position": {"x": 4, "y": 4}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 12, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 14, "y": 0}},
       {"name": "straight-rail", "position": {"x": 0, "y": 12}},
       {"name": "straight-rail", "position": {"x": 0, "y": 14}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 16, "y": 0}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 18, "y": 0}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 20, "y": 0}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 22, "y": 0}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 24, "y": 0}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 26, "y": 0}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 28, "y": 0}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 30, "y": 0}},
-      {"name": "straight-rail", "direction": 7, "position": {"x": 24, "y": 4}},
-      {"name": "straight-rail", "direction": 7, "position": {"x": 28, "y": 4}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 16, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 18, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 20, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 22, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 24, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 26, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 28, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 30, "y": 0}},
+      {"name": "straight-rail", "direction": 6, "position": {"x": 24, "y": 4}},
+      {"name": "straight-rail", "direction": 6, "position": {"x": 28, "y": 4}},
       {"name": "straight-rail", "position": {"x": 20, "y": 12}},
       {"name": "straight-rail", "position": {"x": 20, "y": 14}},
       {"name": "straight-rail", "position": {"x": 24, "y": 12}},
@@ -1477,18 +883,18 @@
       {"name": "straight-rail", "position": {"x": 24, "y": 30}},
       {"name": "straight-rail", "position": {"x": 28, "y": 28}},
       {"name": "straight-rail", "position": {"x": 28, "y": 30}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 32, "y": 0}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 34, "y": 0}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 36, "y": 0}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 38, "y": 0}},
-      {"name": "straight-rail", "direction": 7, "position": {"x": 32, "y": 4}},
-      {"name": "straight-rail", "direction": 7, "position": {"x": 36, "y": 4}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 40, "y": 0}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 42, "y": 0}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 44, "y": 0}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 46, "y": 0}},
-      {"name": "straight-rail", "direction": 7, "position": {"x": 40, "y": 4}},
-      {"name": "straight-rail", "direction": 7, "position": {"x": 44, "y": 4}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 32, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 34, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 36, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 38, "y": 0}},
+      {"name": "straight-rail", "direction": 6, "position": {"x": 32, "y": 4}},
+      {"name": "straight-rail", "direction": 6, "position": {"x": 36, "y": 4}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 40, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 42, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 44, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 46, "y": 0}},
+      {"name": "straight-rail", "direction": 6, "position": {"x": 40, "y": 4}},
+      {"name": "straight-rail", "direction": 6, "position": {"x": 44, "y": 4}},
       {"name": "straight-rail", "position": {"x": 32, "y": 12}},
       {"name": "straight-rail", "position": {"x": 32, "y": 14}},
       {"name": "straight-rail", "position": {"x": 36, "y": 12}},
@@ -1497,18 +903,18 @@
       {"name": "straight-rail", "position": {"x": 40, "y": 14}},
       {"name": "straight-rail", "position": {"x": 46, "y": 12}},
       {"name": "straight-rail", "position": {"x": 46, "y": 14}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 48, "y": 0}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 50, "y": 0}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 52, "y": 0}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 54, "y": 0}},
-      {"name": "straight-rail", "direction": 7, "position": {"x": 50, "y": 4}},
-      {"name": "straight-rail", "direction": 7, "position": {"x": 54, "y": 4}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 56, "y": 0}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 58, "y": 0}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 60, "y": 0}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 62, "y": 0}},
-      {"name": "straight-rail", "direction": 7, "position": {"x": 58, "y": 4}},
-      {"name": "straight-rail", "direction": 7, "position": {"x": 62, "y": 4}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 48, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 50, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 52, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 54, "y": 0}},
+      {"name": "straight-rail", "direction": 6, "position": {"x": 50, "y": 4}},
+      {"name": "straight-rail", "direction": 6, "position": {"x": 54, "y": 4}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 56, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 58, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 60, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 62, "y": 0}},
+      {"name": "straight-rail", "direction": 6, "position": {"x": 58, "y": 4}},
+      {"name": "straight-rail", "direction": 6, "position": {"x": 62, "y": 4}},
       {"name": "straight-rail", "position": {"x": 50, "y": 12}},
       {"name": "straight-rail", "position": {"x": 50, "y": 14}},
       {"name": "straight-rail", "position": {"x": 54, "y": 12}},
@@ -1773,18 +1179,18 @@
       {"name": "straight-rail", "position": {"x": 58, "y": 62}},
       {"name": "straight-rail", "position": {"x": 62, "y": 60}},
       {"name": "straight-rail", "position": {"x": 62, "y": 62}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 64, "y": 0}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 66, "y": 0}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 68, "y": 0}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 70, "y": 0}},
-      {"name": "straight-rail", "direction": 7, "position": {"x": 66, "y": 4}},
-      {"name": "straight-rail", "direction": 7, "position": {"x": 70, "y": 4}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 72, "y": 0}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 74, "y": 0}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 76, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 64, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 66, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 68, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 70, "y": 0}},
+      {"name": "straight-rail", "direction": 6, "position": {"x": 66, "y": 4}},
+      {"name": "straight-rail", "direction": 6, "position": {"x": 70, "y": 4}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 72, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 74, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 76, "y": 0}},
       {"name": "straight-rail", "position": {"x": 66, "y": 12}},
       {"name": "straight-rail", "position": {"x": 66, "y": 14}},
-      {"name": "straight-rail", "direction": 1, "position": {"x": 84, "y": 4}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 84, "y": 4}},
       {"name": "straight-rail", "position": {"x": 88, "y": 12}},
       {"name": "straight-rail", "position": {"x": 88, "y": 14}},
       {"name": "straight-rail", "position": {"x": 66, "y": 16}},
@@ -1994,76 +1400,76 @@
       {"name": "straight-rail", "position": {"x": 54, "y": 88}},
       {"name": "straight-rail", "position": {"x": 58, "y": 88}},
       {"name": "straight-rail", "position": {"x": 62, "y": 88}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 4, "y": 100}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 6, "y": 100}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 8, "y": 100}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 10, "y": 100}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 12, "y": 100}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 14, "y": 100}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 0, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 2, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 4, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 6, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 8, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 10, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 12, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 14, "y": 106}},
-      {"name": "straight-rail", "direction": 3, "position": {"x": 16, "y": 96}},
-      {"name": "straight-rail", "direction": 3, "position": {"x": 20, "y": 96}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 16, "y": 100}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 18, "y": 100}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 20, "y": 100}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 22, "y": 100}},
-      {"name": "straight-rail", "direction": 3, "position": {"x": 24, "y": 96}},
-      {"name": "straight-rail", "direction": 3, "position": {"x": 28, "y": 96}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 24, "y": 100}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 26, "y": 100}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 28, "y": 100}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 30, "y": 100}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 16, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 18, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 20, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 22, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 24, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 26, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 28, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 30, "y": 106}},
-      {"name": "straight-rail", "direction": 3, "position": {"x": 32, "y": 96}},
-      {"name": "straight-rail", "direction": 3, "position": {"x": 36, "y": 96}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 32, "y": 100}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 34, "y": 100}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 36, "y": 100}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 38, "y": 100}},
-      {"name": "straight-rail", "direction": 3, "position": {"x": 42, "y": 96}},
-      {"name": "straight-rail", "direction": 3, "position": {"x": 46, "y": 96}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 40, "y": 100}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 42, "y": 100}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 44, "y": 100}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 46, "y": 100}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 32, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 34, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 36, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 38, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 40, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 42, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 44, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 46, "y": 106}},
-      {"name": "straight-rail", "direction": 3, "position": {"x": 50, "y": 96}},
-      {"name": "straight-rail", "direction": 3, "position": {"x": 54, "y": 96}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 48, "y": 100}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 50, "y": 100}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 52, "y": 100}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 54, "y": 100}},
-      {"name": "straight-rail", "direction": 3, "position": {"x": 58, "y": 96}},
-      {"name": "straight-rail", "direction": 3, "position": {"x": 62, "y": 96}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 48, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 50, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 52, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 54, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 56, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 58, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 60, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 62, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 4, "y": 100}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 6, "y": 100}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 8, "y": 100}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 10, "y": 100}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 12, "y": 100}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 14, "y": 100}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 0, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 2, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 4, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 6, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 8, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 10, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 12, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 14, "y": 106}},
+      {"name": "straight-rail", "direction": 6, "position": {"x": 16, "y": 96}},
+      {"name": "straight-rail", "direction": 6, "position": {"x": 20, "y": 96}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 16, "y": 100}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 18, "y": 100}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 20, "y": 100}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 22, "y": 100}},
+      {"name": "straight-rail", "direction": 6, "position": {"x": 24, "y": 96}},
+      {"name": "straight-rail", "direction": 6, "position": {"x": 28, "y": 96}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 24, "y": 100}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 26, "y": 100}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 28, "y": 100}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 30, "y": 100}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 16, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 18, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 20, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 22, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 24, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 26, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 28, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 30, "y": 106}},
+      {"name": "straight-rail", "direction": 6, "position": {"x": 32, "y": 96}},
+      {"name": "straight-rail", "direction": 6, "position": {"x": 36, "y": 96}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 32, "y": 100}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 34, "y": 100}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 36, "y": 100}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 38, "y": 100}},
+      {"name": "straight-rail", "direction": 6, "position": {"x": 42, "y": 96}},
+      {"name": "straight-rail", "direction": 6, "position": {"x": 46, "y": 96}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 40, "y": 100}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 42, "y": 100}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 44, "y": 100}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 46, "y": 100}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 32, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 34, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 36, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 38, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 40, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 42, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 44, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 46, "y": 106}},
+      {"name": "straight-rail", "direction": 6, "position": {"x": 50, "y": 96}},
+      {"name": "straight-rail", "direction": 6, "position": {"x": 54, "y": 96}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 48, "y": 100}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 50, "y": 100}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 52, "y": 100}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 54, "y": 100}},
+      {"name": "straight-rail", "direction": 6, "position": {"x": 58, "y": 96}},
+      {"name": "straight-rail", "direction": 6, "position": {"x": 62, "y": 96}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 48, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 50, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 52, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 54, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 56, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 58, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 60, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 62, "y": 106}},
       {"name": "straight-rail", "position": {"x": 66, "y": 64}},
       {"name": "straight-rail", "position": {"x": 66, "y": 66}},
       {"name": "straight-rail", "position": {"x": 66, "y": 68}},
@@ -2093,33 +1499,33 @@
       {"name": "straight-rail", "position": {"x": 88, "y": 90}},
       {"name": "straight-rail", "position": {"x": 88, "y": 92}},
       {"name": "straight-rail", "position": {"x": 88, "y": 94}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 64, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 66, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 68, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 70, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 72, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 74, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 76, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 78, "y": 106}},
-      {"name": "straight-rail", "direction": 5, "position": {"x": 92, "y": 102}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 80, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 82, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 84, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 86, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 88, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 90, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 92, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 94, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 96, "y": 106}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 98, "y": 106}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": -4.5, "y": 75.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": -4.5, "y": 76.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": -4.5, "y": 77.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": -4.5, "y": 78.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": -4.5, "y": 79.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": -4.5, "y": 80.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": -4.5, "y": 81.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": -3.5, "y": 81.5}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 64, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 66, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 68, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 70, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 72, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 74, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 76, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 78, "y": 106}},
+      {"name": "straight-rail", "direction": 2, "position": {"x": 92, "y": 102}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 80, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 82, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 84, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 86, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 88, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 90, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 92, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 94, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 96, "y": 106}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 98, "y": 106}},
+      {"name": "transport-belt", "direction": 8, "position": {"x": -4.5, "y": 75.5}},
+      {"name": "transport-belt", "direction": 8, "position": {"x": -4.5, "y": 76.5}},
+      {"name": "transport-belt", "direction": 8, "position": {"x": -4.5, "y": 77.5}},
+      {"name": "transport-belt", "direction": 8, "position": {"x": -4.5, "y": 78.5}},
+      {"name": "transport-belt", "direction": 8, "position": {"x": -4.5, "y": 79.5}},
+      {"name": "transport-belt", "direction": 8, "position": {"x": -4.5, "y": 80.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": -4.5, "y": 81.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": -3.5, "y": 81.5}},
       {"name": "transport-belt", "position": {"x": 17.5, "y": 16.5}},
       {"name": "transport-belt", "position": {"x": 17.5, "y": 17.5}},
       {"name": "transport-belt", "position": {"x": 17.5, "y": 18.5}},
@@ -2648,11 +2054,11 @@
       {"name": "transport-belt", "position": {"x": 63.5, "y": 61.5}},
       {"name": "transport-belt", "position": {"x": 63.5, "y": 62.5}},
       {"name": "transport-belt", "position": {"x": 63.5, "y": 63.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": 4.5, "y": 75.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": 4.5, "y": 76.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": 4.5, "y": 77.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": 4.5, "y": 78.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": 4.5, "y": 79.5}},
+      {"name": "transport-belt", "direction": 8, "position": {"x": 4.5, "y": 75.5}},
+      {"name": "transport-belt", "direction": 8, "position": {"x": 4.5, "y": 76.5}},
+      {"name": "transport-belt", "direction": 8, "position": {"x": 4.5, "y": 77.5}},
+      {"name": "transport-belt", "direction": 8, "position": {"x": 4.5, "y": 78.5}},
+      {"name": "transport-belt", "direction": 8, "position": {"x": 4.5, "y": 79.5}},
       {"name": "transport-belt", "position": {"x": 17.5, "y": 64.5}},
       {"name": "transport-belt", "position": {"x": 17.5, "y": 65.5}},
       {"name": "transport-belt", "position": {"x": 17.5, "y": 66.5}},
@@ -2717,23 +2123,23 @@
       {"name": "transport-belt", "position": {"x": 29.5, "y": 77.5}},
       {"name": "transport-belt", "position": {"x": 29.5, "y": 78.5}},
       {"name": "transport-belt", "position": {"x": 29.5, "y": 79.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": 3.5, "y": 81.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": 3.5, "y": 83.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": 4.5, "y": 80.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": 4.5, "y": 81.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 4.5, "y": 83.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 3.5, "y": 84.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": 4.5, "y": 86.5}},
-      {"name": "transport-belt", "direction": 6, "position": {"x": 5.5, "y": 86.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": 4.5, "y": 87.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": 4.5, "y": 88.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": 4.5, "y": 89.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": 4.5, "y": 90.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": 4.5, "y": 91.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": 4.5, "y": 92.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": 4.5, "y": 93.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": 4.5, "y": 94.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": 4.5, "y": 95.5}},
+      {"name": "transport-belt", "direction": 8, "position": {"x": 3.5, "y": 81.5}},
+      {"name": "transport-belt", "direction": 8, "position": {"x": 3.5, "y": 83.5}},
+      {"name": "transport-belt", "direction": 8, "position": {"x": 4.5, "y": 80.5}},
+      {"name": "transport-belt", "direction": 8, "position": {"x": 4.5, "y": 81.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 4.5, "y": 83.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 3.5, "y": 84.5}},
+      {"name": "transport-belt", "direction": 8, "position": {"x": 4.5, "y": 86.5}},
+      {"name": "transport-belt", "direction": 12, "position": {"x": 5.5, "y": 86.5}},
+      {"name": "transport-belt", "direction": 8, "position": {"x": 4.5, "y": 87.5}},
+      {"name": "transport-belt", "direction": 8, "position": {"x": 4.5, "y": 88.5}},
+      {"name": "transport-belt", "direction": 8, "position": {"x": 4.5, "y": 89.5}},
+      {"name": "transport-belt", "direction": 8, "position": {"x": 4.5, "y": 90.5}},
+      {"name": "transport-belt", "direction": 8, "position": {"x": 4.5, "y": 91.5}},
+      {"name": "transport-belt", "direction": 8, "position": {"x": 4.5, "y": 92.5}},
+      {"name": "transport-belt", "direction": 8, "position": {"x": 4.5, "y": 93.5}},
+      {"name": "transport-belt", "direction": 8, "position": {"x": 4.5, "y": 94.5}},
+      {"name": "transport-belt", "direction": 8, "position": {"x": 4.5, "y": 95.5}},
       {"name": "transport-belt", "position": {"x": 17.5, "y": 80.5}},
       {"name": "transport-belt", "position": {"x": 17.5, "y": 81.5}},
       {"name": "transport-belt", "position": {"x": 21.5, "y": 80.5}},
@@ -2886,61 +2292,61 @@
       {"name": "transport-belt", "position": {"x": 59.5, "y": 81.5}},
       {"name": "transport-belt", "position": {"x": 63.5, "y": 80.5}},
       {"name": "transport-belt", "position": {"x": 63.5, "y": 81.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": 4.5, "y": 96.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": 4.5, "y": 97.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 4.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 5.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 6.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 7.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 8.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 9.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 10.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 11.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 12.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 13.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 14.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 15.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 17.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 18.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 19.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 21.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 22.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 23.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 25.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 26.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 27.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 29.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 30.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 31.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 33.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 34.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 35.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 39.5, "y": 101.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 37.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 38.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 8, "position": {"x": 4.5, "y": 96.5}},
+      {"name": "transport-belt", "direction": 8, "position": {"x": 4.5, "y": 97.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 4.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 5.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 6.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 7.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 8.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 9.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 10.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 11.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 12.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 13.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 14.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 15.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 17.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 18.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 19.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 21.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 22.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 23.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 25.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 26.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 27.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 29.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 30.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 31.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 33.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 34.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 35.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 39.5, "y": 101.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 37.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 38.5, "y": 102.5}},
       {"name": "transport-belt", "position": {"x": 39.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": 40.5, "y": 101.5}},
-      {"name": "transport-belt", "direction": 6, "position": {"x": 41.5, "y": 101.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 40.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 41.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 43.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 44.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 45.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 47.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 48.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 49.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 51.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 52.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 53.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 55.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 56.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 57.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 59.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 62.5, "y": 101.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 60.5, "y": 102.5}},
-      {"name": "transport-belt", "direction": 2, "position": {"x": 61.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 8, "position": {"x": 40.5, "y": 101.5}},
+      {"name": "transport-belt", "direction": 12, "position": {"x": 41.5, "y": 101.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 40.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 41.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 43.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 44.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 45.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 47.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 48.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 49.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 51.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 52.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 53.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 55.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 56.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 57.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 59.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 62.5, "y": 101.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 60.5, "y": 102.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 61.5, "y": 102.5}},
       {"name": "transport-belt", "position": {"x": 62.5, "y": 102.5}},
-      {"name": "underground-belt", "direction": 2, "type": "input", "position": {"x": -2.5, "y": 81.5}},
+      {"name": "underground-belt", "direction": 4, "type": "input", "position": {"x": -2.5, "y": 81.5}},
       {"name": "underground-belt", "type": "output", "position": {"x": 17.5, "y": 48.5}},
       {"name": "underground-belt", "type": "input", "position": {"x": 17.5, "y": 51.5}},
       {"name": "underground-belt", "type": "output", "position": {"x": 21.5, "y": 48.5}},
@@ -2965,17 +2371,14 @@
       {"name": "underground-belt", "type": "input", "position": {"x": 59.5, "y": 51.5}},
       {"name": "underground-belt", "type": "output", "position": {"x": 63.5, "y": 48.5}},
       {"name": "underground-belt", "type": "input", "position": {"x": 63.5, "y": 51.5}},
-      {"name": "underground-belt", "direction": 2, "type": "output", "position": {"x": 2.5, "y": 81.5}},
-      {"name": "underground-belt", "direction": 4, "type": "input", "position": {"x": 5.5, "y": 83.5}},
-      {"name": "underground-belt", "direction": 4, "type": "output", "position": {"x": 4.5, "y": 84.5}},
-      {"name": "underground-belt", "direction": 4, "type": "output", "position": {"x": 5.5, "y": 84.5}},
-      {"name": "underground-belt", "direction": 4, "type": "input", "position": {"x": 4.5, "y": 98.5}},
-      {"name": "underground-belt", "direction": 4, "type": "output", "position": {"x": 4.5, "y": 101.5}}
+      {"name": "underground-belt", "direction": 4, "type": "output", "position": {"x": 2.5, "y": 81.5}},
+      {"name": "underground-belt", "direction": 8, "type": "input", "position": {"x": 5.5, "y": 83.5}},
+      {"name": "underground-belt", "direction": 8, "type": "output", "position": {"x": 4.5, "y": 84.5}},
+      {"name": "underground-belt", "direction": 8, "type": "output", "position": {"x": 5.5, "y": 84.5}},
+      {"name": "underground-belt", "direction": 8, "type": "input", "position": {"x": 4.5, "y": 98.5}},
+      {"name": "underground-belt", "direction": 8, "type": "output", "position": {"x": 4.5, "y": 101.5}}
     ],
-    "icons": [
-      {"index": 1, "signal": {"name": "train-stop", "type": "item"}},
-      {"index": 2, "signal": {"name": "rocket-fuel", "type": "item"}}
-    ],
+    "icons": [{"index": 1, "signal": {"name": "train-stop"}}, {"index": 2, "signal": {"name": "rocket-fuel"}}],
     "snap-to-grid": {"x": 110, "y": 2},
     "tiles": [
       {"name": "landfill", "position": {"x": 0, "y": 0}},
@@ -7839,6 +7242,128 @@
       {"name": "landfill", "position": {"x": 108, "y": 1}},
       {"name": "landfill", "position": {"x": 109, "y": 0}},
       {"name": "landfill", "position": {"x": 109, "y": 1}}
+    ],
+    "wires": [
+      [77, 5, 81, 5],
+      [81, 5, 85, 5],
+      [85, 5, 89, 5],
+      [89, 5, 93, 5],
+      [93, 5, 97, 5],
+      [97, 5, 101, 5],
+      [101, 5, 105, 5],
+      [101, 5, 221, 5],
+      [105, 5, 109, 5],
+      [109, 5, 113, 5],
+      [113, 5, 117, 5],
+      [117, 5, 121, 5],
+      [221, 1, 412, 1],
+      [221, 5, 412, 5],
+      [412, 1, 565, 1],
+      [412, 5, 565, 5],
+      [565, 1, 718, 1],
+      [565, 5, 718, 5],
+      [718, 1, 812, 1],
+      [718, 5, 759, 5],
+      [718, 5, 766, 5],
+      [739, 5, 743, 5],
+      [743, 5, 747, 5],
+      [747, 5, 751, 5],
+      [751, 5, 755, 5],
+      [755, 5, 759, 5],
+      [759, 5, 812, 5],
+      [766, 5, 770, 5],
+      [766, 5, 812, 5],
+      [770, 5, 774, 5],
+      [774, 5, 778, 5],
+      [778, 5, 782, 5],
+      [812, 1, 1009, 1],
+      [812, 5, 1009, 5],
+      [1009, 1, 1162, 1],
+      [1009, 5, 1162, 5],
+      [1162, 1, 1387, 1],
+      [1162, 5, 1387, 5],
+      [1258, 5, 1260, 5],
+      [1258, 5, 1464, 5],
+      [1260, 5, 1467, 5],
+      [1298, 1, 1302, 1],
+      [1298, 2, 1299, 2],
+      [1299, 1, 1305, 1],
+      [1299, 2, 1353, 2],
+      [1302, 2, 1305, 2],
+      [1303, 2, 1304, 2],
+      [1304, 2, 1358, 2],
+      [1305, 2, 1356, 2],
+      [1307, 1, 1312, 1],
+      [1307, 2, 1308, 2],
+      [1308, 1, 1311, 1],
+      [1308, 2, 1361, 2],
+      [1309, 2, 1310, 2],
+      [1310, 2, 1363, 2],
+      [1311, 2, 1312, 2],
+      [1311, 2, 1366, 2],
+      [1353, 1, 1356, 1],
+      [1353, 2, 1354, 2],
+      [1354, 1, 1357, 1],
+      [1354, 2, 1408, 2],
+      [1356, 2, 1357, 2],
+      [1357, 2, 1411, 2],
+      [1358, 2, 1359, 2],
+      [1359, 2, 1413, 2],
+      [1361, 1, 1366, 1],
+      [1361, 2, 1362, 2],
+      [1362, 1, 1367, 1],
+      [1362, 2, 1416, 2],
+      [1363, 2, 1364, 2],
+      [1364, 2, 1418, 2],
+      [1366, 2, 1367, 2],
+      [1367, 2, 1422, 2],
+      [1387, 5, 1590, 5],
+      [1407, 1, 1412, 1],
+      [1407, 2, 1408, 2],
+      [1407, 2, 1421, 2],
+      [1407, 2, 1461, 4],
+      [1408, 1, 1411, 1],
+      [1411, 2, 1412, 2],
+      [1412, 2, 1417, 2],
+      [1412, 2, 1461, 2],
+      [1413, 2, 1414, 2],
+      [1414, 2, 1419, 2],
+      [1414, 2, 1509, 4],
+      [1416, 1, 1422, 1],
+      [1416, 2, 1417, 2],
+      [1417, 1, 1421, 1],
+      [1418, 2, 1419, 2],
+      [1421, 2, 1422, 2],
+      [1464, 5, 1467, 5],
+      [1464, 5, 1555, 5],
+      [1467, 5, 1555, 5],
+      [1509, 1, 1554, 1],
+      [1518, 3, 1561, 1],
+      [1520, 3, 1566, 1],
+      [1523, 3, 1571, 1],
+      [1526, 3, 1576, 1],
+      [1529, 3, 1581, 1],
+      [1532, 3, 1586, 1],
+      [1535, 3, 1591, 1],
+      [1538, 3, 1596, 1],
+      [1541, 3, 1601, 1],
+      [1544, 3, 1606, 1],
+      [1547, 3, 1611, 1],
+      [1550, 3, 1616, 1],
+      [1555, 5, 1637, 5],
+      [1560, 5, 1565, 5],
+      [1560, 5, 1642, 5],
+      [1565, 5, 1570, 5],
+      [1570, 5, 1575, 5],
+      [1575, 5, 1580, 5],
+      [1580, 5, 1585, 5],
+      [1585, 5, 1590, 5],
+      [1590, 5, 1595, 5],
+      [1595, 5, 1600, 5],
+      [1600, 5, 1605, 5],
+      [1605, 5, 1610, 5],
+      [1610, 5, 1615, 5],
+      [1637, 5, 1642, 5]
     ]
   }
 }

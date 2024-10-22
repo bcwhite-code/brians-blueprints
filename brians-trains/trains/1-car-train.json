@@ -5,36 +5,41 @@
     "label": "1-Car Train",
     "shift_x": 0,
     "shift_y": -3,
-    "version": 281479278886912,
+    "version": 562949953945601,
     "entities": [
       {
         "name": "cargo-wagon",
+        "copy_color_from_train_stop": true,
+        "enable_logistics_while_moving": false,
         "inventory": null,
         "orientation": 0.5,
         "position": {"x": 0, "y": -0.6484375}
       },
       {
         "name": "locomotive",
+        "enable_logistics_while_moving": false,
         "orientation": 0.5,
-        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "color": {"a": 1, "b": 1, "g": 0.49803921580314636, "r": 0},
         "position": {"x": 0, "y": 6.3515625}
       }
     ],
     "icons": [
-      {"index": 1, "signal": {"name": "locomotive", "type": "item"}},
+      {"index": 1, "signal": {"name": "locomotive"}},
       {"index": 2, "signal": {"name": "signal-1", "type": "virtual"}},
-      {"index": 3, "signal": {"name": "cargo-wagon", "type": "item"}},
+      {"index": 3, "signal": {"name": "cargo-wagon"}},
       {"index": 4, "signal": {"name": "signal-1", "type": "virtual"}}
     ],
     "schedules": [
       {
         "locomotives": ["0,7"],
-        "schedule": [
-          {
-            "station": "LTN Depot",
-            "wait_conditions": [{"compare_type": "and", "ticks": 300, "type": "inactivity"}]
-          }
-        ]
+        "schedule": {
+          "records": [
+            {
+              "station": "LTN Depot",
+              "wait_conditions": [{"compare_type": "and", "ticks": 300, "type": "inactivity"}]
+            }
+          ]
+        }
       }
     ]
   }

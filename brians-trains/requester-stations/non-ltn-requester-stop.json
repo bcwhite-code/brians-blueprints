@@ -6,18 +6,11 @@
     "description": "Convert an LTN requester into a \"vanilla\" requester.  Remove the LTN stop (if present) and overlay this circuit at the head of the station.\n\nConfigure the constant combinator:\n1) Replace \"X\" with the item being requested. Give it the NEGATIVE of the max number of items to fetch (must be at least a full train load).  Have enough stackers.\n\nConfigure the \"divider\" combinator:\n1) Replace \"X\" with the actual item being requested.\n2) Replace \"-999K\" with the NEGATIVE number of items in a full train.\n",
     "shift_x": -134,
     "shift_y": 319,
-    "version": 281479278886912,
+    "version": 562949953945601,
     "entities": [
       {
         "name": "arithmetic-combinator",
-        "direction": 6,
-        "connections": {
-          "1": {
-            "green": [{"circuit_id": 2, "entity_rel": "1.5,-1.5"}],
-            "red": [{"circuit_id": 2, "entity_rel": "-1.5,-0.5"}]
-          },
-          "2": {"green": [{"entity_rel": "0,-1.5"}]}
-        },
+        "direction": 12,
         "control_behavior": {
           "arithmetic_conditions": {
             "operation": "*",
@@ -30,16 +23,7 @@
       },
       {
         "name": "arithmetic-combinator",
-        "direction": 2,
-        "connections": {
-          "1": {
-            "red": [
-              {"circuit_id": 1, "entity_rel": "-3.5,-1.5"},
-              {"circuit_id": 1, "entity_rel": "0,1"},
-              {"entity_rel": "-1.5,0"}
-            ]
-          }
-        },
+        "direction": 4,
         "control_behavior": {
           "arithmetic_conditions": {
             "operation": "*",
@@ -52,14 +36,7 @@
       },
       {
         "name": "arithmetic-combinator",
-        "direction": 6,
-        "connections": {
-          "1": {
-            "green": [{"circuit_id": 1, "entity_rel": "-3.5,-2.5"}, {"entity_rel": "3.5,0"}],
-            "red": [{"circuit_id": 1, "entity_rel": "0,-1"}]
-          },
-          "2": {"red": [{"entity_rel": "-3,-0.5"}]}
-        },
+        "direction": 12,
         "control_behavior": {
           "arithmetic_conditions": {
             "operation": "/",
@@ -70,84 +47,64 @@
         },
         "position": {"x": 6, "y": 2.5}
       },
-      {
-        "name": "big-electric-pole",
-        "connections": {
-          "1": {
-            "green": [{"circuit_id": 2, "entity_rel": "0,1.5"}],
-            "red": [{"circuit_id": 1, "entity_rel": "-1.5,1"}]
-          }
-        },
-        "neighbours": ["3.5,0.5"],
-        "position": {"x": 1, "y": 0}
-      },
+      {"name": "big-electric-pole", "position": {"x": 1, "y": 0}},
       {
         "name": "constant-combinator",
-        "direction": 4,
-        "connections": {"1": {"red": [{"circuit_id": 1, "entity_rel": "1.5,0"}]}},
-        "control_behavior": {"filters": [{"count": -5000, "index": 1, "signal": {"name": "signal-X", "type": "virtual"}}]},
+        "direction": 8,
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "signal-X",
+                    "comparator": "=",
+                    "count": -5000,
+                    "index": 1,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
         "position": {"x": 4.5, "y": 1.5}
       },
       {
         "name": "decider-combinator",
-        "direction": 4,
-        "connections": {
-          "1": {"red": [{"entity_rel": "1.5,-1"}]},
-          "2": {"red": [{"circuit_id": 1, "entity_rel": "1.5,0.5"}]}
-        },
+        "direction": 8,
         "control_behavior": {
           "decider_conditions": {
-            "comparator": ">",
-            "constant": 0,
-            "copy_count_from_input": false,
-            "first_signal": {"name": "signal-0", "type": "virtual"},
-            "output_signal": {"name": "signal-0", "type": "virtual"}
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-0", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-0", "type": "virtual"}}]
           }
         },
         "position": {"x": -0.5, "y": 1}
       },
       {
         "name": "decider-combinator",
-        "direction": 4,
-        "connections": {
-          "1": {
-            "green": [{"circuit_id": 1, "entity_rel": "3.5,2.5"}],
-            "red": [{"circuit_id": 1, "entity_rel": "3.5,1.5"}]
-          },
-          "2": {"green": [{"circuit_id": 1, "entity_rel": "-1.5,1.5"}]}
-        },
+        "direction": 8,
         "control_behavior": {
           "decider_conditions": {
-            "comparator": "<",
-            "constant": 0,
-            "copy_count_from_input": true,
-            "first_signal": {"name": "signal-each", "type": "virtual"},
-            "output_signal": {"name": "signal-each", "type": "virtual"}
+            "conditions": [{"first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
           }
         },
         "position": {"x": 2.5, "y": 0}
       },
-      {
-        "name": "medium-electric-pole",
-        "neighbours": ["-3.5,-0.5", "5,2"],
-        "position": {"x": 4.5, "y": 0.5}
-      },
-      {
-        "name": "medium-electric-pole",
-        "connections": {"1": {"green": [{"circuit_id": 1, "entity_rel": "-3.5,0"}]}},
-        "neighbours": ["-5,-2"],
-        "position": {"x": 9.5, "y": 2.5}
-      },
-      {"name": "straight-rail", "direction": 2, "position": {"x": 3, "y": 4}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 5, "y": 4}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 7, "y": 4}},
-      {"name": "straight-rail", "direction": 2, "position": {"x": 9, "y": 4}},
+      {"name": "medium-electric-pole", "position": {"x": 4.5, "y": 0.5}},
+      {"name": "medium-electric-pole", "position": {"x": 9.5, "y": 2.5}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 3, "y": 4}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 5, "y": 4}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 7, "y": 4}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 9, "y": 4}},
       {
         "name": "train-stop",
-        "direction": 6,
+        "direction": 12,
         "station": "",
         "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
-        "connections": {"1": {"red": [{"circuit_id": 2, "entity_rel": "3,0.5"}]}},
         "control_behavior": {
           "read_from_train": true,
           "set_trains_limit": true,
@@ -158,6 +115,20 @@
         "position": {"x": 3, "y": 2}
       }
     ],
-    "icons": [{"index": 1, "signal": {"name": "train-stop", "type": "item"}}]
+    "icons": [{"index": 1, "signal": {"name": "train-stop"}}],
+    "wires": [
+      [1, 1, 2, 1],
+      [1, 3, 5, 1],
+      [2, 2, 5, 4],
+      [2, 5, 4, 5],
+      [3, 1, 7, 1],
+      [3, 2, 9, 2],
+      [3, 4, 5, 2],
+      [4, 5, 10, 5],
+      [6, 1, 9, 3],
+      [7, 1, 8, 1],
+      [7, 1, 9, 1],
+      [9, 2, 10, 2]
+    ]
   }
 }
