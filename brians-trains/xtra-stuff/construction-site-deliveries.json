@@ -6,7 +6,7 @@
     "description": "Place near construction site.  Materials will arrive here, be unloaded, and given to bots.\n\nIf site is huge, place several of these around it with green wire connected to the track network.  Trains will deliver to the one least busy.\n\nWhen done, ride the train here, turn the inserters around, and add them beside the yellow/blue chests.  This will load everything into the train.\n\nManually destruct the remaining items and ride the train back to base. The station there will unload the extras.",
     "shift_x": 1107,
     "shift_y": 277,
-    "version": 562949953945601,
+    "version": 562949954142211,
     "entities": [
       {
         "name": "arithmetic-combinator",
@@ -153,16 +153,44 @@
           ]
         }
       },
-      {"name": "roboport", "position": {"x": 2, "y": 6}},
-      {"name": "roboport", "position": {"x": 10, "y": 6}},
-      {"name": "roboport", "position": {"x": 17, "y": 6}},
-      {"name": "storage-chest", "position": {"x": -3.5, "y": 2.5}},
-      {"name": "storage-chest", "position": {"x": -2.5, "y": 2.5}},
-      {"name": "storage-chest", "position": {"x": 4.5, "y": 2.5}},
-      {"name": "storage-chest", "position": {"x": 7.5, "y": 2.5}},
-      {"name": "storage-chest", "position": {"x": 11.5, "y": 2.5}},
-      {"name": "storage-chest", "position": {"x": 14.5, "y": 2.5}},
-      {"name": "storage-chest", "position": {"x": 21.5, "y": 2.5}},
+      {"name": "roboport", "position": {"x": 2, "y": 6}, "request_filters": {"sections": [{"index": 1}]}},
+      {"name": "roboport", "position": {"x": 10, "y": 6}, "request_filters": {"sections": [{"index": 1}]}},
+      {"name": "roboport", "position": {"x": 17, "y": 6}, "request_filters": {"sections": [{"index": 1}]}},
+      {
+        "name": "storage-chest",
+        "position": {"x": -3.5, "y": 2.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "storage-chest",
+        "position": {"x": -2.5, "y": 2.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "storage-chest",
+        "position": {"x": 4.5, "y": 2.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "storage-chest",
+        "position": {"x": 7.5, "y": 2.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "storage-chest",
+        "position": {"x": 11.5, "y": 2.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "storage-chest",
+        "position": {"x": 14.5, "y": 2.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "storage-chest",
+        "position": {"x": 21.5, "y": 2.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
       {"name": "straight-rail", "direction": 4, "position": {"x": -6, "y": 0}},
       {"name": "straight-rail", "direction": 4, "position": {"x": -4, "y": 0}},
       {"name": "straight-rail", "direction": 4, "position": {"x": -2, "y": 0}},
@@ -206,28 +234,28 @@
       {"index": 2, "signal": {"name": "passive-provider-chest"}}
     ],
     "wires": [
-      [21, 2, 27, 2],
-      [21, 5, 27, 5],
-      [23, 2, 25, 2],
-      [25, 2, 28, 2],
-      [27, 2, 35, 2],
-      [27, 5, 35, 5],
-      [28, 2, 31, 2],
-      [31, 2, 34, 2],
-      [34, 2, 39, 2],
-      [35, 2, 41, 2],
-      [35, 5, 41, 5],
-      [39, 2, 43, 2],
-      [41, 2, 49, 2],
-      [41, 5, 49, 5],
-      [42, 2, 43, 2],
-      [42, 2, 46, 2],
-      [46, 3, 50, 3],
-      [46, 4, 49, 2],
-      [49, 2, 50, 2],
-      [50, 2, 51, 2],
-      [50, 3, 52, 1],
-      [52, 3, 53, 1]
+      ["1.5,1.5", 2, "8.5,1.5", 2],
+      ["1.5,1.5", 5, "8.5,1.5", 5],
+      ["6.5,2.5", 2, "7.5,2.5", 2],
+      ["7.5,2.5", 2, "9.5,2.5", 2],
+      ["8.5,1.5", 2, "15.5,1.5", 2],
+      ["8.5,1.5", 5, "15.5,1.5", 5],
+      ["9.5,2.5", 2, "14.5,2.5", 2],
+      ["14.5,2.5", 2, "16.5,2.5", 2],
+      ["16.5,2.5", 2, "21.5,2.5", 2],
+      ["15.5,1.5", 2, "22.5,1.5", 2],
+      ["15.5,1.5", 5, "22.5,1.5", 5],
+      ["21.5,2.5", 2, "23.5,2.5", 2],
+      ["22.5,1.5", 2, "29.5,1.5", 2],
+      ["22.5,1.5", 5, "29.5,1.5", 5],
+      ["24.5,2.5", 2, "23.5,2.5", 2],
+      ["24.5,2.5", 2, "26.5,3", 2],
+      ["26.5,3", 3, "30.5,3", 3],
+      ["26.5,3", 4, "29.5,1.5", 2],
+      ["29.5,1.5", 2, "30.5,3", 2],
+      ["30.5,3", 2, "31.5,2.5", 2],
+      ["30.5,3", 3, "32.5,3", 1],
+      ["32.5,3", 3, "36,2", 1]
     ]
   }
 }
