@@ -1,0 +1,42 @@
+{
+  "index": 6,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "Multiplexer",
+    "description": "Change the numbers in the comibator to select channel (1 through 9, channel 0 is used to report train station supply).  \nConnect large power pole red and green to train network.\n\nFeed green wire to arithmetic combinator input.  It'll appear on the train network when the channel indicator appears on the red wire.",
+    "shift_x": -875,
+    "shift_y": -511,
+    "version": 562949954142211,
+    "entities": [
+      {"name": "big-electric-pole", "position": {"x": 0, "y": 0}},
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "comparator": ">",
+                "first_signal": {"name": "signal-0", "type": "virtual"},
+                "first_signal_networks": {"green": false, "red": true}
+              }
+            ],
+            "outputs": [
+              {
+                "networks": {"green": true, "red": false},
+                "signal": {"name": "signal-everything", "type": "virtual"}
+              }
+            ]
+          }
+        },
+        "position": {"x": 0, "y": 1.5}
+      }
+    ],
+    "icons": [
+      {"index": 1, "signal": {"name": "signal-M", "type": "virtual"}},
+      {"index": 2, "signal": {"name": "signal-U", "type": "virtual"}},
+      {"index": 3, "signal": {"name": "signal-X", "type": "virtual"}}
+    ],
+    "wires": [["0,0", 1, "0,1.5", 1], ["0,0", 2, "0,1.5", 4]]
+  }
+}

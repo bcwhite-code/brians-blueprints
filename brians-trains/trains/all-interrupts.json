@@ -1,0 +1,1570 @@
+{
+  "index": 24,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "All Interrupts",
+    "shift_x": -937,
+    "shift_y": -645,
+    "version": 562949954142211,
+    "entities": [
+      {
+        "name": "locomotive",
+        "enable_logistics_while_moving": false,
+        "orientation": 0.75,
+        "color": {"a": 1, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "position": {"x": 0, "y": 0}
+      }
+    ],
+    "icons": [{"index": 2, "signal": {"name": "signal-info", "type": "virtual"}}],
+    "schedules": [
+      {
+        "locomotives": ["0,0"],
+        "schedule": {
+          "interrupts": [
+            {
+              "name": "BT:1to1",
+              "inside_interrupt": false,
+              "conditions": [
+                {"compare_type": "and", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 1,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 3,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 5,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 7,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 9,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 11,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 13,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 15,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                }
+              ],
+              "targets": [
+                {
+                  "station": "[virtual-signal=up-arrow][virtual-signal=signal-1][virtual-signal=signal-signal-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "full"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3600, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                },
+                {
+                  "station": "[virtual-signal=down-arrow][virtual-signal=signal-1][virtual-signal=signal-signal-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "empty"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3900, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BT:Empty1",
+              "inside_interrupt": false,
+              "conditions": [
+                {"compare_type": "and", "station": "BT Depot", "type": "at_station"},
+                {"compare_type": "and", "type": "not_empty"}
+              ],
+              "targets": [
+                {
+                  "station": "[virtual-signal=down-arrow][virtual-signal=signal-1][virtual-signal=signal-item-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "empty"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3900, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BT:1to1f",
+              "inside_interrupt": false,
+              "conditions": [
+                {"compare_type": "and", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 1,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 3,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 5,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 7,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 9,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 11,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 13,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 15,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                }
+              ],
+              "targets": [
+                {
+                  "station": "[virtual-signal=up-right-arrow][virtual-signal=signal-1][virtual-signal=signal-signal-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "full"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3600, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                },
+                {
+                  "station": "[virtual-signal=down-right-arrow][virtual-signal=signal-1][virtual-signal=signal-signal-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "empty"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3900, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BT:Empty1f",
+              "inside_interrupt": false,
+              "conditions": [
+                {"compare_type": "and", "station": "BT Depot", "type": "at_station"},
+                {"compare_type": "and", "type": "not_empty"}
+              ],
+              "targets": [
+                {
+                  "station": "[virtual-signal=down-right-arrow][virtual-signal=signal-1][virtual-signal=signal-fluid-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "empty"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3900, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BT:2to2",
+              "inside_interrupt": false,
+              "conditions": [
+                {"compare_type": "and", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 2,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 3,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 6,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 7,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 10,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 11,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 14,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 15,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                }
+              ],
+              "targets": [
+                {
+                  "station": "[virtual-signal=up-arrow][virtual-signal=signal-2][virtual-signal=signal-signal-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "full"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3600, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                },
+                {
+                  "station": "[virtual-signal=down-arrow][virtual-signal=signal-2][virtual-signal=signal-signal-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "empty"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3900, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BT:Empty2",
+              "inside_interrupt": false,
+              "conditions": [
+                {"compare_type": "and", "station": "BT Depot", "type": "at_station"},
+                {"compare_type": "and", "type": "not_empty"}
+              ],
+              "targets": [
+                {
+                  "station": "[virtual-signal=down-arrow][virtual-signal=signal-2][virtual-signal=signal-item-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "empty"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3900, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BT:2to2f",
+              "inside_interrupt": false,
+              "conditions": [
+                {"compare_type": "and", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 2,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 3,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 6,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 7,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 10,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 11,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 14,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 15,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                }
+              ],
+              "targets": [
+                {
+                  "station": "[virtual-signal=up-right-arrow][virtual-signal=signal-2][virtual-signal=signal-signal-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "full"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3600, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                },
+                {
+                  "station": "[virtual-signal=down-right-arrow][virtual-signal=signal-2][virtual-signal=signal-signal-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "empty"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3900, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BT:Empty2f",
+              "inside_interrupt": false,
+              "conditions": [
+                {"compare_type": "and", "station": "BT Depot", "type": "at_station"},
+                {"compare_type": "and", "type": "not_empty"}
+              ],
+              "targets": [
+                {
+                  "station": "[virtual-signal=down-right-arrow][virtual-signal=signal-2][virtual-signal=signal-fluid-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "empty"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3900, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BT:4to4",
+              "inside_interrupt": false,
+              "conditions": [
+                {"compare_type": "and", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 4,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 5,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 6,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 7,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 12,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 13,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 14,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 15,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                }
+              ],
+              "targets": [
+                {
+                  "station": "[virtual-signal=up-arrow][virtual-signal=signal-4][virtual-signal=signal-signal-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "full"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3600, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                },
+                {
+                  "station": "[virtual-signal=down-arrow][virtual-signal=signal-4][virtual-signal=signal-signal-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "empty"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3900, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BT:Empty4",
+              "inside_interrupt": false,
+              "conditions": [
+                {"compare_type": "and", "station": "BT Depot", "type": "at_station"},
+                {"compare_type": "and", "type": "not_empty"}
+              ],
+              "targets": [
+                {
+                  "station": "[virtual-signal=down-arrow][virtual-signal=signal-4][virtual-signal=signal-item-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "empty"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3900, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BT:4to4f",
+              "inside_interrupt": false,
+              "conditions": [
+                {"compare_type": "and", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 4,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 5,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 6,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 7,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 12,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 13,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 14,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 15,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                }
+              ],
+              "targets": [
+                {
+                  "station": "[virtual-signal=up-right-arrow][virtual-signal=signal-4][virtual-signal=signal-signal-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "full"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3600, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                },
+                {
+                  "station": "[virtual-signal=down-right-arrow][virtual-signal=signal-4][virtual-signal=signal-signal-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "empty"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3900, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BT:Empty4f",
+              "inside_interrupt": false,
+              "conditions": [
+                {"compare_type": "and", "station": "BT Depot", "type": "at_station"},
+                {"compare_type": "and", "type": "not_empty"}
+              ],
+              "targets": [
+                {
+                  "station": "[virtual-signal=down-right-arrow][virtual-signal=signal-4][virtual-signal=signal-fluid-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "empty"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3900, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BT:8to8",
+              "inside_interrupt": false,
+              "conditions": [
+                {"compare_type": "and", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 8,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 9,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 10,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 11,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 12,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 13,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 14,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 15,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                }
+              ],
+              "targets": [
+                {
+                  "station": "[virtual-signal=up-arrow][virtual-signal=signal-8][virtual-signal=signal-signal-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "full"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3600, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                },
+                {
+                  "station": "[virtual-signal=down-arrow][virtual-signal=signal-8][virtual-signal=signal-signal-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "empty"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3900, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BT:Empty8",
+              "inside_interrupt": false,
+              "conditions": [
+                {"compare_type": "and", "station": "BT Depot", "type": "at_station"},
+                {"compare_type": "and", "type": "not_empty"}
+              ],
+              "targets": [
+                {
+                  "station": "[virtual-signal=down-arrow][virtual-signal=signal-8][virtual-signal=signal-item-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "empty"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3600, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BT:8to8f",
+              "inside_interrupt": false,
+              "conditions": [
+                {"compare_type": "and", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 8,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 9,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 10,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 11,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 12,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 13,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 14,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 15,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                }
+              ],
+              "targets": [
+                {
+                  "station": "[virtual-signal=up-right-arrow][virtual-signal=signal-8][virtual-signal=signal-signal-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "full"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3600, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                },
+                {
+                  "station": "[virtual-signal=down-right-arrow][virtual-signal=signal-8][virtual-signal=signal-signal-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "empty"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3900, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BT:Empty8f",
+              "inside_interrupt": false,
+              "conditions": [
+                {"compare_type": "and", "station": "BT Depot", "type": "at_station"},
+                {"compare_type": "and", "type": "not_empty"}
+              ],
+              "targets": [
+                {
+                  "station": "[virtual-signal=down-right-arrow][virtual-signal=signal-8][virtual-signal=signal-fluid-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "empty"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3900, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BT:Refuel",
+              "inside_interrupt": true,
+              "conditions": [
+                {
+                  "compare_type": "and",
+                  "type": "fuel_item_count_any",
+                  "condition": {"comparator": "<", "constant": 50, "first_signal": {"name": "coal"}}
+                },
+                {
+                  "compare_type": "and",
+                  "type": "fuel_item_count_any",
+                  "condition": {"comparator": "<", "constant": 50, "first_signal": {"name": "solid-fuel"}}
+                },
+                {
+                  "compare_type": "and",
+                  "type": "fuel_item_count_any",
+                  "condition": {"comparator": "<", "constant": 10, "first_signal": {"name": "rocket-fuel"}}
+                },
+                {
+                  "compare_type": "and",
+                  "type": "fuel_item_count_any",
+                  "condition": {"comparator": "<", "constant": 1, "first_signal": {"name": "nuclear-fuel"}}
+                }
+              ],
+              "targets": [
+                {
+                  "station": "BT Fuel",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "fuel_full"},
+                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                    {"compare_type": "or", "ticks": 1800, "type": "time"}
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BT:Depot",
+              "inside_interrupt": true,
+              "conditions": [
+                {"compare_type": "and", "station": "BT Depot", "type": "at_station"},
+                {"compare_type": "and", "type": "destination_full_or_no_path"},
+                {"compare_type": "or", "station": "BT Depot", "type": "not_at_station"},
+                {"compare_type": "and", "type": "empty"},
+                {"compare_type": "or", "station": "BT Fuel", "type": "at_station"},
+                {"compare_type": "and", "type": "not_empty"}
+              ],
+              "targets": [{"station": "BT Depot"}]
+            },
+            {
+              "name": "BT:Idle",
+              "inside_interrupt": false,
+              "conditions": [{"compare_type": "and", "station": "BT Depot", "type": "at_station"}],
+              "targets": [
+                {"station": "BT Depot", "wait_conditions": [{"compare_type": "and", "ticks": 600, "type": "time"}]}
+              ]
+            },
+            {
+              "name": "BT:8to4",
+              "inside_interrupt": false,
+              "conditions": [
+                {"compare_type": "and", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "≠",
+                    "constant": 0,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "and", "station": "BT Depot", "type": "at_station"}
+              ],
+              "targets": [
+                {
+                  "station": "[virtual-signal=up-arrow][virtual-signal=signal-8][virtual-signal=signal-signal-parameter]",
+                  "wait_conditions": [{"compare_type": "and", "type": "full"}]
+                },
+                {
+                  "station": "[virtual-signal=down-arrow][virtual-signal=signal-4][virtual-signal=signal-signal-parameter]",
+                  "wait_conditions": [{"compare_type": "and", "type": "empty"}]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "stock_connections": [{"stock": 1}]
+  }
+}

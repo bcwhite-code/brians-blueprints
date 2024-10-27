@@ -1,0 +1,155 @@
+{
+  "index": 24,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "Vanilla Item Requester",
+    "description": "Prepare for a \"vanilla\" ITEM requester station.   After mixing with the loading section...\n\nConfigure By:\n1) Configure in the REQ combinator by changing the X into the desired item type with the NEGATIVE maximum amount that should be held locally.\n2) Wire red & green from big power pole to train grid.\n\nYou must have space for all trains that could come at once so\n\n        X / items-per-stack / stacks-per-train - 1\n\nstacker spots.",
+    "shift_x": -947,
+    "shift_y": -579,
+    "version": 562949954142211,
+    "entities": [
+      {
+        "name": "arithmetic-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "first_signal_networks": {"green": true, "red": false},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-M", "type": "virtual"},
+            "second_signal_networks": {"green": false, "red": true}
+          }
+        },
+        "position": {"x": 1.5, "y": 0}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "second_constant": 1,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-L", "type": "virtual"}
+          }
+        },
+        "position": {"x": 2.5, "y": 0}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "/",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "first_signal_networks": {"green": true, "red": false},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal_networks": {"green": false, "red": true}
+          }
+        },
+        "position": {"x": 3.5, "y": 2}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "/",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-T", "type": "virtual"},
+            "second_signal_networks": {"green": false, "red": true}
+          }
+        },
+        "position": {"x": 5.5, "y": 2}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 4,
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "second_constant": -1,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 7, "y": 2.5}
+      },
+      {"name": "big-electric-pole", "position": {"x": 0, "y": 0}},
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "comparator": ">",
+                "first_signal": {"name": "signal-9", "type": "virtual"},
+                "first_signal_networks": {"green": false, "red": true}
+              }
+            ],
+            "outputs": [
+              {
+                "networks": {"green": true, "red": false},
+                "signal": {"name": "signal-everything", "type": "virtual"}
+              }
+            ]
+          }
+        },
+        "position": {"x": 0, "y": 1.5}
+      },
+      {"name": "medium-electric-pole", "position": {"x": 3.5, "y": 0.5}},
+      {"name": "medium-electric-pole", "position": {"x": 8.5, "y": 2.5}},
+      {"name": "medium-electric-pole", "position": {"x": 8.5, "y": 5.5}},
+      {
+        "name": "selector-combinator",
+        "direction": 8,
+        "control_behavior": {"operation": "stack-size"},
+        "position": {"x": 4.5, "y": 2}
+      },
+      {"name": "straight-rail", "direction": 4, "position": {"x": 2, "y": 4}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 4, "y": 4}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 6, "y": 4}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 8, "y": 4}},
+      {
+        "name": "train-stop",
+        "direction": 12,
+        "priority": 40,
+        "station": "",
+        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "control_behavior": {
+          "circuit_enabled": true,
+          "set_trains_limit": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-L", "type": "virtual"}},
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_limit_signal": {"name": "signal-L", "type": "virtual"}
+        },
+        "position": {"x": 2, "y": 2}
+      }
+    ],
+    "icons": [{"index": 1, "signal": {"name": "train-stop"}}],
+    "wires": [
+      ["0,0", 1, "0,1.5", 1],
+      ["0,0", 2, "0,1.5", 4],
+      ["0,0", 5, "3.5,0.5", 5],
+      ["2.5,0", 2, "1.5,0", 2],
+      ["2.5,0", 2, "3.5,2", 4],
+      ["2.5,0", 3, "2,2", 1],
+      ["1.5,0", 1, "5.5,2", 1],
+      ["1.5,0", 4, "0,1.5", 2],
+      ["3.5,0.5", 2, "5.5,2", 2],
+      ["3.5,0.5", 2, "8.5,2.5", 2],
+      ["3.5,0.5", 5, "8.5,2.5", 5],
+      ["4.5,2", 2, "3.5,2", 2],
+      ["4.5,2", 2, "5.5,2", 4],
+      ["4.5,2", 3, "3.5,2", 1],
+      ["5.5,2", 1, "7,2.5", 1],
+      ["7,2.5", 1, "8.5,5.5", 1],
+      ["7,2.5", 3, "8.5,2.5", 1],
+      ["8.5,2.5", 5, "8.5,5.5", 5]
+    ]
+  }
+}

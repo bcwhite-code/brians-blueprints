@@ -1,0 +1,544 @@
+{
+  "index": 5,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "Vanilla Controller",
+    "description": "Place exactly ONE of these in the factory and connect red & green wires from the big power pole to the train grid.\n\nIt can fit inside a round-about junction somewhere.",
+    "shift_x": -871,
+    "shift_y": -482,
+    "version": 562949954142211,
+    "entities": [
+      {
+        "name": "arithmetic-combinator",
+        "direction": 4,
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "/",
+            "second_constant": 6,
+            "first_signal": {"name": "signal-T", "type": "virtual"},
+            "output_signal": {"name": "signal-P", "type": "virtual"}
+          }
+        },
+        "position": {"x": 2, "y": 5.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "AND",
+            "second_constant": 255,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 8.5, "y": 2}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "AND",
+            "second_constant": 65280,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 9.5, "y": 2}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "AND",
+            "second_constant": 16711680,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 10.5, "y": 2}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "AND",
+            "second_constant": -16777216,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 11.5, "y": 2}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "second_constant": -1,
+            "first_signal": {"name": "signal-check", "type": "virtual"},
+            "output_signal": {"name": "signal-check", "type": "virtual"}
+          }
+        },
+        "position": {"x": 9.5, "y": 5}
+      },
+      {"name": "big-electric-pole", "position": {"x": 5, "y": 4}},
+      {
+        "name": "constant-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "signal-T",
+                    "comparator": "=",
+                    "count": -1,
+                    "index": 1,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 1.5, "y": 3.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 4,
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "signal-T",
+                    "comparator": "=",
+                    "count": 1,
+                    "index": 1,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 2.5, "y": 3.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 4,
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "signal-check",
+                    "comparator": "=",
+                    "count": -2147483648,
+                    "index": 1,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-9",
+                    "comparator": "=",
+                    "count": -50000,
+                    "index": 2,
+                    "max_count": 4294917296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 9.5, "y": 7.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": -2, "y": 2.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": -2, "y": 4.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": "=", "constant": 6, "first_signal": {"name": "signal-P", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-6", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 0, "y": 0.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": "=", "constant": 5, "first_signal": {"name": "signal-P", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-5", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 0, "y": 1.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": "=", "constant": 7, "first_signal": {"name": "signal-P", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-7", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 2, "y": 0.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": "=", "constant": 8, "first_signal": {"name": "signal-P", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-8", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 2, "y": 1.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": "=", "constant": 4, "first_signal": {"name": "signal-P", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-4", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 0, "y": 2.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": "=", "constant": 1, "first_signal": {"name": "signal-T", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-S", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 0, "y": 3.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": "=", "constant": 9, "first_signal": {"name": "signal-P", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-9", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 2, "y": 2.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "comparator": ">",
+                "first_signal": {"name": "signal-1", "type": "virtual"},
+                "first_signal_networks": {"green": false, "red": true}
+              }
+            ],
+            "outputs": [
+              {
+                "networks": {"green": true, "red": false},
+                "signal": {"name": "signal-everything", "type": "virtual"}
+              }
+            ]
+          }
+        },
+        "position": {"x": 7.5, "y": 0}
+      },
+      {
+        "name": "decider-combinator",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 7.5, "y": 2}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": "=", "constant": 3, "first_signal": {"name": "signal-P", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-3", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 0, "y": 4.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": "=", "constant": 2, "first_signal": {"name": "signal-P", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-2", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 0, "y": 5.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"constant": 60, "first_signal": {"name": "signal-T", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-T", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 2, "y": 4.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": "=", "constant": 1, "first_signal": {"name": "signal-P", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-1", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 0, "y": 6.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": "=", "first_signal": {"name": "signal-P", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-0", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 2, "y": 6.5}
+      },
+      {
+        "name": "decider-combinator",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 8.5, "y": 0}
+      },
+      {
+        "name": "decider-combinator",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [
+              {"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}},
+              {"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}}
+            ]
+          }
+        },
+        "position": {"x": 9.5, "y": 0}
+      },
+      {
+        "name": "decider-combinator",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [
+              {"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}},
+              {"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}},
+              {"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}},
+              {"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}}
+            ]
+          }
+        },
+        "position": {"x": 10.5, "y": 0}
+      },
+      {
+        "name": "decider-combinator",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [
+              {"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}},
+              {"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}},
+              {"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}},
+              {"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}},
+              {"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}},
+              {"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}},
+              {"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}},
+              {"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}}
+            ]
+          }
+        },
+        "position": {"x": 11.5, "y": 0}
+      },
+      {
+        "name": "decider-combinator",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": "=", "constant": 1, "first_signal": {"name": "signal-check", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-everything", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 8.5, "y": 4}
+      },
+      {
+        "name": "decider-combinator",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "comparator": "≠",
+                "constant": 1,
+                "first_signal": {"name": "signal-check", "type": "virtual"},
+                "first_signal_networks": {"green": false, "red": true}
+              }
+            ],
+            "outputs": [{"signal": {"name": "signal-everything", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 10.5, "y": 4}
+      },
+      {
+        "name": "decider-combinator",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-9", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-check", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 8.5, "y": 6}
+      },
+      {
+        "name": "decider-combinator",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "comparator": ">",
+                "constant": -2000000000,
+                "first_signal": {"name": "signal-each", "type": "virtual"}
+              }
+            ],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 10.5, "y": 6}
+      },
+      {"name": "medium-electric-pole", "position": {"x": -1.5, "y": 3.5}},
+      {"name": "medium-electric-pole", "position": {"x": 9.5, "y": 3.5}},
+      {"name": "medium-electric-pole", "position": {"x": 9.5, "y": 6.5}}
+    ],
+    "icons": [{"index": 1, "signal": {"name": "selector-combinator"}}],
+    "wires": [
+      ["2,1.5", 1, "2,0.5", 1],
+      ["2,1.5", 1, "2,2.5", 1],
+      ["2,1.5", 3, "2,0.5", 3],
+      ["2,1.5", 3, "2,2.5", 3],
+      ["2,1.5", 4, "2,0.5", 4],
+      ["2,1.5", 4, "2,2.5", 4],
+      ["2,0.5", 1, "4,0.5", 1],
+      ["2,0.5", 3, "4,0.5", 3],
+      ["2,0.5", 4, "4,0.5", 4],
+      ["4,1.5", 1, "4,0.5", 1],
+      ["4,1.5", 1, "4,2.5", 1],
+      ["4,1.5", 3, "4,0.5", 3],
+      ["4,1.5", 3, "4,2.5", 3],
+      ["4,1.5", 4, "4,0.5", 4],
+      ["4,1.5", 4, "4,2.5", 4],
+      ["10.5,0", 2, "10.5,2", 4],
+      ["10.5,0", 4, "9.5,0", 2],
+      ["10.5,0", 4, "11.5,0", 4],
+      ["9.5,0", 1, "11.5,3.5", 1],
+      ["9.5,0", 4, "11.5,6.5", 2],
+      ["12.5,0", 2, "12.5,2", 4],
+      ["12.5,0", 4, "11.5,0", 4],
+      ["12.5,0", 4, "13.5,0", 4],
+      ["11.5,0", 2, "11.5,2", 4],
+      ["13.5,0", 2, "13.5,2", 4],
+      ["0.5,3.5", 1, "0,2.5", 1],
+      ["0.5,3.5", 1, "0,2.5", 3],
+      ["0.5,3.5", 1, "2,3.5", 3],
+      ["0.5,3.5", 1, "7,4", 1],
+      ["0.5,3.5", 2, "0,4.5", 4],
+      ["0.5,3.5", 2, "7,4", 2],
+      ["0.5,3.5", 5, "7,4", 5],
+      ["2,3.5", 2, "4,4.5", 4],
+      ["2,3.5", 3, "2,2.5", 3],
+      ["2,3.5", 3, "2,4.5", 3],
+      ["2,2.5", 1, "2,4.5", 1],
+      ["2,2.5", 4, "2,4.5", 4],
+      ["4.5,3.5", 2, "4,4.5", 2],
+      ["3.5,3.5", 2, "4,5.5", 2],
+      ["10.5,2", 2, "9.5,2", 4],
+      ["10.5,2", 2, "11.5,2", 2],
+      ["9.5,2", 2, "11.5,3.5", 2],
+      ["11.5,3.5", 1, "11.5,6.5", 1],
+      ["11.5,3.5", 2, "10.5,4", 4],
+      ["11.5,3.5", 2, "12.5,4", 4],
+      ["11.5,3.5", 5, "7,4", 5],
+      ["11.5,3.5", 5, "11.5,6.5", 5],
+      ["12.5,2", 2, "11.5,2", 2],
+      ["12.5,2", 2, "13.5,2", 2],
+      ["0,4.5", 2, "2,4.5", 4],
+      ["2,5.5", 1, "2,4.5", 1],
+      ["2,5.5", 1, "2,6.5", 1],
+      ["2,5.5", 3, "2,4.5", 3],
+      ["2,5.5", 3, "2,6.5", 3],
+      ["2,5.5", 4, "2,4.5", 4],
+      ["2,5.5", 4, "2,6.5", 4],
+      ["4,5.5", 1, "4,4.5", 3],
+      ["4,5.5", 3, "4,6.5", 1],
+      ["4,4.5", 1, "4,4.5", 3],
+      ["7,4", 1, "11.5,6.5", 1],
+      ["7,4", 2, "11.5,6.5", 2],
+      ["10.5,4", 1, "10.5,6", 3],
+      ["10.5,4", 2, "11.5,5", 2],
+      ["11.5,5", 1, "12.5,4", 1],
+      ["11.5,5", 1, "10.5,6", 3],
+      ["11.5,5", 2, "12.5,6", 4],
+      ["11.5,5", 4, "12.5,4", 2],
+      ["12.5,4", 2, "12.5,4", 4],
+      ["2,6.5", 1, "4,6.5", 1],
+      ["2,6.5", 3, "4,6.5", 3],
+      ["2,6.5", 4, "4,6.5", 4],
+      ["10.5,6", 2, "11.5,6.5", 2],
+      ["11.5,7.5", 1, "12.5,6", 1],
+      ["12.5,6", 2, "11.5,6.5", 2]
+    ]
+  }
+}
