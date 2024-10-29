@@ -3,8 +3,8 @@
   "blueprint": {
     "item": "blueprint",
     "label": "Single-Station 2-Car Spur (for reversible)",
-    "shift_x": -165,
-    "shift_y": -247,
+    "shift_x": 21,
+    "shift_y": -223,
     "version": 562949954142211,
     "entities": [
       {"name": "curved-rail-a", "direction": 10, "position": {"x": 0, "y": -11}},
@@ -44,7 +44,22 @@
       {"name": "straight-rail", "direction": 4, "position": {"x": 6, "y": 0}},
       {"name": "straight-rail", "direction": 4, "position": {"x": 8, "y": 0}},
       {"name": "straight-rail", "direction": 4, "position": {"x": 10, "y": 0}},
-      {"name": "straight-rail", "direction": 4, "position": {"x": 12, "y": 0}}
+      {"name": "straight-rail", "direction": 4, "position": {"x": 12, "y": 0}},
+      {
+        "name": "train-stop",
+        "priority": 40,
+        "station": "good will",
+        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "control_behavior": {
+          "circuit_enabled": true,
+          "read_from_train": true,
+          "set_trains_limit": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-L", "type": "virtual"}},
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_limit_signal": {"name": "signal-L", "type": "virtual"}
+        },
+        "position": {"x": 2, "y": -40}
+      }
     ],
     "icons": [
       {"index": 1, "signal": {"name": "train-stop"}},
