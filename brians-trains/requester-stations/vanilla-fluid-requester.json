@@ -4,9 +4,9 @@
     "item": "blueprint",
     "label": "Vanilla Fluid Requester",
     "description": "Prepare for a \"vanilla\" FLUID requester station.   After mixing with the loading section...\n\n1) Configure in the REQ combinator by changing the X into the desired item type with the NEGATIVE maximum amount that should be held locally.\n\n3) Wire red & green from big power pole to train grid.\n\nYou must have space for all trains that could come at once so\n\n        X / fluid-per-train - 1\n\nstacker spots.",
-    "shift_x": -945,
+    "shift_x": -947,
     "shift_y": -181,
-    "version": 562949954142211,
+    "version": 562949954207746,
     "entities": [
       {
         "name": "arithmetic-combinator",
@@ -67,7 +67,7 @@
       {"name": "big-electric-pole", "position": {"x": 0, "y": 0}},
       {
         "name": "constant-combinator",
-        "direction": 8,
+        "direction": 12,
         "control_behavior": {
           "sections": {
             "sections": [
@@ -314,7 +314,17 @@
       },
       {
         "name": "decider-combinator",
-        "direction": 8,
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 5, "y": 0.5}
+      },
+      {
+        "name": "decider-combinator",
         "control_behavior": {
           "decider_conditions": {
             "conditions": [{"first_signal": {"name": "signal-each", "type": "virtual"}}],
@@ -357,13 +367,14 @@
       ["2.5,0", 2, "3.5,2", 4],
       ["2.5,0", 3, "2,2", 1],
       ["3.5,0.5", 1, "8.5,5.5", 1],
-      ["3.5,0.5", 2, "3.5,2", 2],
+      ["3.5,0.5", 2, "5,0.5", 2],
       ["3.5,0.5", 2, "8.5,2.5", 2],
       ["3.5,0.5", 5, "8.5,2.5", 5],
+      ["5,0.5", 1, "4.5,2", 3],
+      ["5,0.5", 4, "3.5,2", 2],
       ["4.5,2", 1, "3.5,2", 1],
       ["4.5,2", 1, "7,2.5", 1],
       ["4.5,2", 2, "5.5,2.5", 2],
-      ["4.5,2", 4, "3.5,2", 2],
       ["8.5,2.5", 1, "7,2.5", 3],
       ["8.5,2.5", 5, "8.5,5.5", 5],
       ["7,2.5", 1, "8.5,5.5", 1]
