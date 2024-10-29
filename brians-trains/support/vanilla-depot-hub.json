@@ -42,6 +42,7 @@
           "arithmetic_conditions": {
             "operation": "/",
             "first_signal": {"name": "signal-each", "type": "virtual"},
+            "first_signal_networks": {"green": true, "red": false},
             "output_signal": {"name": "signal-each", "type": "virtual"},
             "second_signal": {"name": "signal-T", "type": "virtual"},
             "second_signal_networks": {"green": false, "red": true}
@@ -860,6 +861,16 @@
       {"name": "curved-rail-b", "direction": 14, "position": {"x": 90, "y": 102}},
       {
         "name": "decider-combinator",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 4.5, "y": 73}
+      },
+      {
+        "name": "decider-combinator",
         "direction": 8,
         "control_behavior": {
           "decider_conditions": {
@@ -1576,7 +1587,7 @@
       {
         "name": "train-stop",
         "direction": 8,
-        "priority": 250,
+        "priority": 40,
         "station": "[virtual-signal=down-arrow][virtual-signal=signal-1][item=nuclear-fuel]",
         "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
         "control_behavior": {
@@ -1837,10 +1848,13 @@
       ["18.5,71", 5, "16.5,76", 5],
       ["21.5,72", 1, "21.5,71", 1],
       ["21.5,71", 1, "18.5,72.5", 1],
+      ["21.5,71", 1, "16.5,76", 1],
       ["18.5,72.5", 1, "18,74", 1],
-      ["18,74", 1, "16,78", 1],
-      ["18,74", 2, "16.5,76", 2],
+      ["18,74", 2, "16.5,74.5", 4],
       ["18,74", 4, "18,75", 2],
+      ["16.5,74.5", 1, "16.5,76", 1],
+      ["16.5,74.5", 2, "16.5,76", 2],
+      ["16.5,76", 1, "16,78", 1],
       ["16.5,76", 5, "16,79.5", 5],
       ["18,76", 1, "18,75", 3],
       ["18,76", 2, "18,75", 2],
