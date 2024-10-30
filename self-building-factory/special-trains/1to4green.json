@@ -1,10 +1,10 @@
 {
-  "index": 6,
+  "index": 33,
   "blueprint": {
     "item": "blueprint",
-    "label": "8to4stone",
-    "shift_x": 84,
-    "shift_y": -13,
+    "label": "1to4green",
+    "shift_x": 37,
+    "shift_y": -713,
     "version": 562949954207746,
     "entities": [
       {
@@ -14,61 +14,34 @@
         "inventory": null,
         "orientation": 0.75,
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
-        "position": {"x": 7.5, "y": 0}
-      },
-      {
-        "name": "cargo-wagon",
-        "copy_color_from_train_stop": true,
-        "enable_logistics_while_moving": false,
-        "inventory": null,
-        "orientation": 0.75,
-        "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
-        "position": {"x": 14.5, "y": 0}
-      },
-      {
-        "name": "cargo-wagon",
-        "copy_color_from_train_stop": true,
-        "enable_logistics_while_moving": false,
-        "inventory": null,
-        "orientation": 0.75,
-        "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
-        "position": {"x": 21.5, "y": 0}
-      },
-      {
-        "name": "cargo-wagon",
-        "copy_color_from_train_stop": true,
-        "enable_logistics_while_moving": false,
-        "inventory": null,
-        "orientation": 0.75,
-        "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
-        "position": {"x": 28.5, "y": 0}
+        "position": {"x": 7.8125, "y": 0}
       },
       {
         "name": "locomotive",
         "enable_logistics_while_moving": false,
         "orientation": 0.75,
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
-        "position": {"x": 0.5, "y": 0}
+        "position": {"x": 0.8125, "y": 0}
       },
       {
         "name": "locomotive",
         "enable_logistics_while_moving": false,
-        "orientation": 0.75,
+        "orientation": 0.25,
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
-        "position": {"x": 35.5, "y": 0}
+        "position": {"x": 14.8125, "y": 0}
       }
     ],
     "icons": [
       {"index": 1, "signal": {"name": "locomotive"}},
-      {"index": 2, "signal": {"name": "stone"}},
-      {"index": 3, "signal": {"name": "signal-8", "type": "virtual"}},
+      {"index": 2, "signal": {"name": "electronic-circuit"}},
+      {"index": 3, "signal": {"name": "signal-1", "type": "virtual"}},
       {"index": 4, "signal": {"name": "signal-4", "type": "virtual"}}
     ],
     "schedules": [
       {
-        "locomotives": ["0,0", "35,0"],
+        "locomotives": ["0,0", "14,0"],
         "schedule": {
-          "group": "BT:8to4stone",
+          "group": "BT:1to4green",
           "interrupts": [
             {
               "name": "BT:Refuel",
@@ -109,7 +82,7 @@
           ],
           "records": [
             {
-              "station": "[virtual-signal=up-arrow][virtual-signal=signal-8][item=stone]",
+              "station": "[virtual-signal=up-arrow][virtual-signal=signal-1][item=electronic-circuit]",
               "wait_conditions": [
                 {"compare_type": "and", "type": "full"},
                 {"compare_type": "or", "ticks": 120, "type": "inactivity"},
@@ -118,7 +91,7 @@
             },
             {"station": "BT Depot"},
             {
-              "station": "[virtual-signal=down-arrow][virtual-signal=signal-4][item=stone]",
+              "station": "[virtual-signal=down-arrow][virtual-signal=signal-4][item=electronic-circuit]",
               "wait_conditions": [
                 {"compare_type": "and", "type": "empty"},
                 {"compare_type": "or", "ticks": 300, "type": "inactivity"},
@@ -132,10 +105,7 @@
     "stock_connections": [
       {"back": "7,0", "stock": "0,0"},
       {"back": "14,0", "front": "0,0", "stock": "7,0"},
-      {"back": "21,0", "front": "7,0", "stock": "14,0"},
-      {"back": "28,0", "front": "14,0", "stock": "21,0"},
-      {"back": "35,0", "front": "21,0", "stock": "28,0"},
-      {"front": "28,0", "stock": "35,0"}
+      {"back": "7,0", "stock": "14,0"}
     ]
   }
 }
