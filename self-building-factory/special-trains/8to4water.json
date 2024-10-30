@@ -1,74 +1,62 @@
 {
-  "index": 6,
+  "index": 12,
   "blueprint": {
     "item": "blueprint",
-    "label": "8to4stone",
-    "shift_x": 179,
-    "shift_y": -27,
+    "label": "8to4water",
+    "shift_x": -10,
+    "shift_y": 199,
     "version": 562949954207746,
     "entities": [
       {
-        "name": "cargo-wagon",
-        "copy_color_from_train_stop": true,
+        "name": "fluid-wagon",
         "enable_logistics_while_moving": false,
-        "inventory": null,
-        "orientation": 0,
-        "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
-        "position": {"x": 0, "y": 6}
+        "orientation": 0.75,
+        "position": {"x": 6.3125, "y": 0}
       },
       {
-        "name": "cargo-wagon",
-        "copy_color_from_train_stop": true,
+        "name": "fluid-wagon",
         "enable_logistics_while_moving": false,
-        "inventory": null,
-        "orientation": 0,
-        "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
-        "position": {"x": 0, "y": 13.00390625}
+        "orientation": 0.75,
+        "position": {"x": 13.3125, "y": 0}
       },
       {
-        "name": "cargo-wagon",
-        "copy_color_from_train_stop": true,
+        "name": "fluid-wagon",
         "enable_logistics_while_moving": false,
-        "inventory": null,
-        "orientation": 0,
-        "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
-        "position": {"x": 0, "y": 20}
+        "orientation": 0.75,
+        "position": {"x": 20.3125, "y": 0}
       },
       {
-        "name": "cargo-wagon",
-        "copy_color_from_train_stop": true,
+        "name": "fluid-wagon",
         "enable_logistics_while_moving": false,
-        "inventory": null,
-        "orientation": 0,
-        "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
-        "position": {"x": 0, "y": 27.00390625}
+        "orientation": 0.75,
+        "position": {"x": 27.3125, "y": 0}
       },
       {
         "name": "locomotive",
         "enable_logistics_while_moving": false,
-        "orientation": 0,
+        "orientation": 0.25,
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
-        "position": {"x": 0, "y": -0.99609375}
+        "position": {"x": -0.6875, "y": 0}
       },
       {
         "name": "locomotive",
         "enable_logistics_while_moving": false,
-        "orientation": 0,
+        "orientation": 0.25,
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
-        "position": {"x": 0, "y": 34}
+        "position": {"x": 34.3125, "y": 0}
       }
     ],
     "icons": [
       {"index": 1, "signal": {"name": "locomotive"}},
-      {"index": 2, "signal": {"name": "stone"}},
+      {"index": 2, "signal": {"name": "water", "type": "fluid"}},
       {"index": 3, "signal": {"name": "signal-8", "type": "virtual"}},
       {"index": 4, "signal": {"name": "signal-4", "type": "virtual"}}
     ],
     "schedules": [
       {
-        "locomotives": ["0,0", "0,35"],
+        "locomotives": ["0,0", "35,0"],
         "schedule": {
-          "group": "BT:8to4stone",
+          "group": "BT:8to4water",
           "interrupts": [
             {
               "name": "BT:Refuel",
@@ -109,16 +97,16 @@
           ],
           "records": [
             {
-              "station": "[virtual-signal=up-arrow][virtual-signal=signal-8][item=stone]",
+              "station": "[virtual-signal=up-right-arrow][virtual-signal=signal-8][fluid=water]",
               "wait_conditions": [
                 {"compare_type": "and", "type": "full"},
-                {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                {"compare_type": "or", "ticks": 120, "type": "inactivity"},
                 {"compare_type": "or", "ticks": 1800, "type": "time"}
               ]
             },
             {"station": "BT Depot"},
             {
-              "station": "[virtual-signal=down-arrow][virtual-signal=signal-4][item=stone]",
+              "station": "[virtual-signal=down-right-arrow][virtual-signal=signal-4][fluid=water]",
               "wait_conditions": [
                 {"compare_type": "and", "type": "empty"},
                 {"compare_type": "or", "ticks": 300, "type": "inactivity"},
@@ -130,12 +118,12 @@
       }
     ],
     "stock_connections": [
-      {"back": "0,7", "stock": "0,0"},
-      {"back": "0,14", "front": "0,0", "stock": "0,7"},
-      {"back": "0,21", "front": "0,7", "stock": "0,14"},
-      {"back": "0,28", "front": "0,14", "stock": "0,21"},
-      {"back": "0,35", "front": "0,21", "stock": "0,28"},
-      {"front": "0,28", "stock": "0,35"}
+      {"front": "7,0", "stock": "0,0"},
+      {"back": "14,0", "front": "0,0", "stock": "7,0"},
+      {"back": "21,0", "front": "7,0", "stock": "14,0"},
+      {"back": "28,0", "front": "14,0", "stock": "21,0"},
+      {"back": "35,0", "front": "21,0", "stock": "28,0"},
+      {"back": "28,0", "stock": "35,0"}
     ]
   }
 }
