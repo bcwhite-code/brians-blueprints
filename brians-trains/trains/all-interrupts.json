@@ -3,8 +3,8 @@
   "blueprint": {
     "item": "blueprint",
     "label": "All Interrupts",
-    "shift_x": -937,
-    "shift_y": -645,
+    "shift_x": -642,
+    "shift_y": -383,
     "version": 562949954207746,
     "entities": [
       {
@@ -12,7 +12,7 @@
         "enable_logistics_while_moving": false,
         "orientation": 0.75,
         "color": {"a": 1, "b": 1, "g": 0.49803921580314636, "r": 0},
-        "position": {"x": 0, "y": 0}
+        "position": {"x": -0.5, "y": 0}
       }
     ],
     "icons": [{"index": 2, "signal": {"name": "signal-info", "type": "virtual"}}],
@@ -1535,31 +1535,13 @@
               ]
             },
             {
-              "name": "BT:8to4",
+              "name": "BT:FuelIdle",
               "inside_interrupt": false,
               "conditions": [
-                {"compare_type": "and", "type": "empty"},
-                {
-                  "compare_type": "and",
-                  "type": "circuit",
-                  "condition": {
-                    "comparator": "≠",
-                    "constant": 0,
-                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
-                  }
-                },
-                {"compare_type": "and", "station": "BT Depot", "type": "at_station"}
+                {"compare_type": "and", "station": "BT Fuel", "type": "at_station"},
+                {"compare_type": "and", "type": "destination_full_or_no_path"}
               ],
-              "targets": [
-                {
-                  "station": "[virtual-signal=up-arrow][virtual-signal=signal-8][virtual-signal=signal-signal-parameter]",
-                  "wait_conditions": [{"compare_type": "and", "type": "full"}]
-                },
-                {
-                  "station": "[virtual-signal=down-arrow][virtual-signal=signal-4][virtual-signal=signal-signal-parameter]",
-                  "wait_conditions": [{"compare_type": "and", "type": "empty"}]
-                }
-              ]
+              "targets": [{"station": "BT Depot"}]
             }
           ]
         }
