@@ -1,36 +1,39 @@
 {
-  "index": 12,
+  "index": 2,
   "blueprint": {
     "item": "blueprint",
-    "label": "8to1oil",
-    "shift_x": -656,
-    "shift_y": -395,
+    "label": "8to1coal",
+    "shift_x": 9,
+    "shift_y": 199,
     "version": 562949954273281,
     "entities": [
       {
-        "name": "fluid-wagon",
+        "name": "cargo-wagon",
+        "copy_color_from_train_stop": true,
         "enable_logistics_while_moving": false,
-        "orientation": 0.25,
-        "position": {"x": 6.21875, "y": 0}
+        "inventory": null,
+        "orientation": 0.75,
+        "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
+        "position": {"x": 7.1875, "y": 0}
       },
       {
         "name": "locomotive",
         "enable_logistics_while_moving": false,
         "orientation": 0.75,
-        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
-        "position": {"x": -0.78125, "y": 0}
+        "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
+        "position": {"x": 0.1875, "y": 0}
       },
       {
         "name": "locomotive",
         "enable_logistics_while_moving": false,
         "orientation": 0.25,
-        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
-        "position": {"x": 13.21875, "y": 0}
+        "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
+        "position": {"x": 14.1875, "y": 0}
       }
     ],
     "icons": [
       {"index": 1, "signal": {"name": "locomotive"}},
-      {"index": 2, "signal": {"name": "crude-oil", "type": "fluid"}},
+      {"index": 2, "signal": {"name": "coal"}},
       {"index": 3, "signal": {"name": "signal-8", "type": "virtual"}},
       {"index": 4, "signal": {"name": "signal-1", "type": "virtual"}}
     ],
@@ -38,7 +41,7 @@
       {
         "locomotives": ["0,0"],
         "schedule": {
-          "group": "BT:8to1oil",
+          "group": "BT:8to1coal",
           "interrupts": [
             {
               "name": "BT:Refuel",
@@ -88,7 +91,7 @@
           ],
           "records": [
             {
-              "station": "[virtual-signal=up-right-arrow][virtual-signal=signal-8][fluid=crude-oil]",
+              "station": "[virtual-signal=signal-8][virtual-signal=up-arrow][item=coal]",
               "wait_conditions": [
                 {"compare_type": "and", "type": "full"},
                 {"compare_type": "or", "ticks": 120, "type": "inactivity"},
@@ -97,7 +100,7 @@
             },
             {"station": "BT Depot"},
             {
-              "station": "[virtual-signal=down-right-arrow][virtual-signal=signal-1][fluid=crude-oil]",
+              "station": "[virtual-signal=down-arrow][virtual-signal=signal-1][item=coal]",
               "wait_conditions": [
                 {"compare_type": "and", "type": "empty"},
                 {"compare_type": "or", "ticks": 300, "type": "inactivity"},
@@ -110,7 +113,7 @@
       {
         "locomotives": ["14,0"],
         "schedule": {
-          "group": "BT:8to1oil",
+          "group": "BT:8to1coal",
           "interrupts": [
             {
               "name": "BT:Refuel",
@@ -160,7 +163,7 @@
           ],
           "records": [
             {
-              "station": "[virtual-signal=up-right-arrow][virtual-signal=signal-8][fluid=crude-oil]",
+              "station": "[virtual-signal=signal-8][virtual-signal=up-arrow][item=coal]",
               "wait_conditions": [
                 {"compare_type": "and", "type": "full"},
                 {"compare_type": "or", "ticks": 120, "type": "inactivity"},
@@ -169,7 +172,7 @@
             },
             {"station": "BT Depot"},
             {
-              "station": "[virtual-signal=down-right-arrow][virtual-signal=signal-1][fluid=crude-oil]",
+              "station": "[virtual-signal=down-arrow][virtual-signal=signal-1][item=coal]",
               "wait_conditions": [
                 {"compare_type": "and", "type": "empty"},
                 {"compare_type": "or", "ticks": 300, "type": "inactivity"},
@@ -182,7 +185,7 @@
     ],
     "stock_connections": [
       {"back": "7,0", "stock": "0,0"},
-      {"back": "0,0", "front": "14,0", "stock": "7,0"},
+      {"back": "14,0", "front": "0,0", "stock": "7,0"},
       {"back": "7,0", "stock": "14,0"}
     ]
   }

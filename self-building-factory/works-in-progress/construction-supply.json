@@ -1,0 +1,1225 @@
+{
+  "index": 1,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "Construction Supply",
+    "shift_x": -1129,
+    "shift_y": -459,
+    "version": 562949954273281,
+    "entities": [
+      {"name": "active-provider-chest", "position": {"x": -2.5, "y": 2.5}},
+      {"name": "active-provider-chest", "position": {"x": 4.5, "y": 2.5}},
+      {"name": "active-provider-chest", "position": {"x": 11.5, "y": 2.5}},
+      {"name": "active-provider-chest", "position": {"x": 18.5, "y": 2.5}},
+      {"name": "active-provider-chest", "position": {"x": 25.5, "y": 2.5}},
+      {
+        "name": "arithmetic-combinator",
+        "direction": 12,
+        "player_description": "Divide the request among all requesters. The incoming value is significant so don't have to worry about rounding.",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "/",
+            "second_constant": 7,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 23, "y": 7.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 12,
+        "player_description": "Items in the buffer for which there are no requests (are positive).",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "-",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "first_signal_networks": {"green": false, "red": true},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal_networks": {"green": true, "red": false}
+          }
+        },
+        "position": {"x": 27, "y": 1.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 4,
+        "player_description": "Forward \"unload\" pulses as positive values on the accumulating grid-red wire.",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "second_constant": 1,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 27, "y": 3.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 4,
+        "player_description": "Forward \"load\" pulses as negative values on the accumulating grid-red wire.",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "second_constant": -1,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 27, "y": 4.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 12,
+        "player_description": "This block holds the input flag for 1min so temporary reductions, like when a Site is unloading, don't cause the station to empty what it has bufferred.",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "second_constant": -1,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 30, "y": 4.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "+",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "first_signal_networks": {"green": false, "red": true},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal_networks": {"green": true, "red": false}
+          }
+        },
+        "position": {"x": 29, "y": 6.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 12,
+        "player_description": "Divide the outstanding request between all active Malls.",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "/",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-M", "type": "virtual"},
+            "second_signal_networks": {"green": false, "red": true}
+          }
+        },
+        "position": {"x": 32, "y": 7.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "second_constant": -1,
+            "first_signal": {"name": "signal-check", "type": "virtual"},
+            "output_signal": {"name": "signal-check", "type": "virtual"}
+          }
+        },
+        "position": {"x": 39.5, "y": 4}
+      },
+      {"name": "big-electric-pole", "position": {"x": 34, "y": 4}},
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {"circuit_set_filters": true},
+        "position": {"x": -0.5, "y": 1.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {"circuit_read_hand_contents": true},
+        "position": {"x": -0.5, "y": 3.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {"circuit_set_filters": true},
+        "position": {"x": 2.5, "y": 1.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {"circuit_read_hand_contents": true},
+        "position": {"x": 2.5, "y": 3.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {"circuit_set_filters": true},
+        "position": {"x": 6.5, "y": 1.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {"circuit_read_hand_contents": true},
+        "position": {"x": 6.5, "y": 3.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {"circuit_set_filters": true},
+        "position": {"x": 9.5, "y": 1.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {"circuit_read_hand_contents": true},
+        "position": {"x": 9.5, "y": 3.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {"circuit_set_filters": true},
+        "position": {"x": 13.5, "y": 1.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {"circuit_read_hand_contents": true},
+        "position": {"x": 13.5, "y": 3.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {"circuit_set_filters": true},
+        "position": {"x": 16.5, "y": 1.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {"circuit_read_hand_contents": true},
+        "position": {"x": 16.5, "y": 3.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}}
+        },
+        "position": {"x": 20.5, "y": 1.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {"circuit_set_filters": true},
+        "position": {"x": 23.5, "y": 1.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {"circuit_read_hand_contents": true},
+        "position": {"x": 20.5, "y": 3.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {"circuit_read_hand_contents": true},
+        "position": {"x": 23.5, "y": 3.5}
+      },
+      {
+        "name": "cargo-wagon",
+        "copy_color_from_train_stop": true,
+        "enable_logistics_while_moving": false,
+        "inventory": null,
+        "orientation": 0.25,
+        "color": {"a": 1, "b": 0.007843137718737125, "g": 0.8235294222831726, "r": 0.9333333373069763},
+        "position": {"x": 0.99609375, "y": 0}
+      },
+      {
+        "name": "cargo-wagon",
+        "copy_color_from_train_stop": true,
+        "enable_logistics_while_moving": false,
+        "inventory": null,
+        "orientation": 0.25,
+        "color": {"a": 1, "b": 0.007843137718737125, "g": 0.8235294222831726, "r": 0.9333333373069763},
+        "position": {"x": 8, "y": 0}
+      },
+      {
+        "name": "cargo-wagon",
+        "copy_color_from_train_stop": true,
+        "enable_logistics_while_moving": false,
+        "inventory": null,
+        "orientation": 0.25,
+        "color": {"a": 1, "b": 0.007843137718737125, "g": 0.8235294222831726, "r": 0.9333333373069763},
+        "position": {"x": 14.99609375, "y": 0}
+      },
+      {
+        "name": "cargo-wagon",
+        "copy_color_from_train_stop": true,
+        "enable_logistics_while_moving": false,
+        "inventory": null,
+        "orientation": 0.25,
+        "color": {"a": 1, "b": 0.007843137718737125, "g": 0.8235294222831726, "r": 0.9333333373069763},
+        "position": {"x": 22, "y": 0}
+      },
+      {
+        "name": "constant-combinator",
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "signal-M",
+                    "comparator": "=",
+                    "count": 1,
+                    "index": 1,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 33.5, "y": 1.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "signal-check",
+                    "comparator": "=",
+                    "count": -2147483648,
+                    "index": 1,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 39.5, "y": 1.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "group": "BT:Alphanum+1G",
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "signal-A",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 1,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-B",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 2,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-C",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 3,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-D",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 4,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-E",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 5,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-F",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 6,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-G",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 7,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-H",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 8,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-I",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 9,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-J",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 10,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-K",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 11,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-L",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 12,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-M",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 13,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-N",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 14,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-O",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 15,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-P",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 16,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-Q",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 17,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-R",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 18,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-S",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 19,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-T",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 20,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-U",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 21,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-V",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 22,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-W",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 23,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-X",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 24,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-Y",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 25,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-Z",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 26,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-0",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 31,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-1",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 32,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-2",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 33,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-3",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 34,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-4",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 35,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-5",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 36,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-6",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 37,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-7",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 38,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-8",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 39,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-9",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 40,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 35.5, "y": 6.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 4,
+        "player_description": "Each bufferred item, as a flag.",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 27, "y": 2.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 4,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"constant": 3600, "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 30, "y": 1.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 4,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"constant": 3600, "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 30, "y": 2.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 4,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 30, "y": 3.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "player_description": "Small requests go here, adding back what is in storage for the determination but not the output.",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "first_signal": {"name": "signal-each", "type": "virtual"},
+                "first_signal_networks": {"green": true, "red": false},
+                "second_signal": {"name": "signal-each", "type": "virtual"},
+                "second_signal_networks": {"green": false, "red": true}
+              }
+            ],
+            "outputs": [{"networks": {"green": false, "red": true}, "signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 27, "y": 6.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "player_description": "Sort large requests, 1 stack or more.",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "comparator": "≥",
+                "first_signal": {"name": "signal-each", "type": "virtual"},
+                "first_signal_networks": {"green": true, "red": false},
+                "second_signal": {"name": "signal-each", "type": "virtual"},
+                "second_signal_networks": {"green": false, "red": true}
+              }
+            ],
+            "outputs": [{"networks": {"green": false, "red": true}, "signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 27, "y": 7.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "comparator": ">",
+                "constant": -2000000000,
+                "first_signal": {"name": "signal-each", "type": "virtual"}
+              }
+            ],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 38.5, "y": 3}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "player_description": "Each requested item, as a flag.",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 32, "y": 5.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 4,
+        "player_description": "Add 1 before dividing by M to round-up.",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 32, "y": 6.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "player_description": "Get the negative grid-red values, the total items ready for or in transit.",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 34, "y": 6.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 34, "y": 7.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": "≠", "constant": 1, "first_signal": {"name": "signal-check", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-everything", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 38.5, "y": 5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-6", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-check", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 40.5, "y": 3}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": "=", "constant": 1, "first_signal": {"name": "signal-check", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-everything", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 40.5, "y": 5}
+      },
+      {
+        "name": "fast-inserter",
+        "direction": 4,
+        "use_filters": true,
+        "control_behavior": {
+          "circuit_read_hand_contents": true,
+          "circuit_set_filters": true,
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-I", "type": "virtual"}}
+        },
+        "position": {"x": -1.5, "y": 2.5}
+      },
+      {
+        "name": "fast-inserter",
+        "direction": 12,
+        "use_filters": true,
+        "control_behavior": {
+          "circuit_read_hand_contents": true,
+          "circuit_set_filters": true,
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-I", "type": "virtual"}}
+        },
+        "position": {"x": 3.5, "y": 2.5}
+      },
+      {
+        "name": "fast-inserter",
+        "direction": 4,
+        "use_filters": true,
+        "control_behavior": {
+          "circuit_read_hand_contents": true,
+          "circuit_set_filters": true,
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-I", "type": "virtual"}}
+        },
+        "position": {"x": 5.5, "y": 2.5}
+      },
+      {
+        "name": "fast-inserter",
+        "direction": 12,
+        "use_filters": true,
+        "control_behavior": {
+          "circuit_read_hand_contents": true,
+          "circuit_set_filters": true,
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-I", "type": "virtual"}}
+        },
+        "position": {"x": 10.5, "y": 2.5}
+      },
+      {
+        "name": "fast-inserter",
+        "direction": 4,
+        "use_filters": true,
+        "control_behavior": {
+          "circuit_read_hand_contents": true,
+          "circuit_set_filters": true,
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-I", "type": "virtual"}}
+        },
+        "position": {"x": 12.5, "y": 2.5}
+      },
+      {
+        "name": "fast-inserter",
+        "direction": 12,
+        "use_filters": true,
+        "control_behavior": {
+          "circuit_read_hand_contents": true,
+          "circuit_set_filters": true,
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-I", "type": "virtual"}}
+        },
+        "position": {"x": 17.5, "y": 2.5}
+      },
+      {
+        "name": "fast-inserter",
+        "direction": 4,
+        "use_filters": true,
+        "control_behavior": {
+          "circuit_read_hand_contents": true,
+          "circuit_set_filters": true,
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-I", "type": "virtual"}}
+        },
+        "position": {"x": 19.5, "y": 2.5}
+      },
+      {
+        "name": "fast-inserter",
+        "direction": 12,
+        "use_filters": true,
+        "control_behavior": {
+          "circuit_read_hand_contents": true,
+          "circuit_set_filters": true,
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-I", "type": "virtual"}}
+        },
+        "position": {"x": 24.5, "y": 2.5}
+      },
+      {
+        "name": "locomotive",
+        "copy_color_from_train_stop": false,
+        "enable_logistics_while_moving": false,
+        "orientation": 0.25,
+        "color": {"a": 1, "b": 0.007843137718737125, "g": 0.8235294222831726, "r": 0.9333333373069763},
+        "position": {"x": -6, "y": 0}
+      },
+      {
+        "name": "locomotive",
+        "copy_color_from_train_stop": false,
+        "enable_logistics_while_moving": false,
+        "orientation": 0.25,
+        "color": {"a": 1, "b": 0.007843137718737125, "g": 0.8235294222831726, "r": 0.9333333373069763},
+        "position": {"x": 28.99609375, "y": 0}
+      },
+      {"name": "medium-electric-pole", "position": {"x": -2.5, "y": 1.5}},
+      {"name": "medium-electric-pole", "position": {"x": 4.5, "y": 1.5}},
+      {"name": "medium-electric-pole", "position": {"x": 11.5, "y": 1.5}},
+      {"name": "medium-electric-pole", "position": {"x": 18.5, "y": 1.5}},
+      {"name": "medium-electric-pole", "position": {"x": 25.5, "y": 1.5}},
+      {"name": "medium-electric-pole", "position": {"x": 25.5, "y": 8.5}},
+      {"name": "medium-electric-pole", "position": {"x": 31.5, "y": 8.5}},
+      {"name": "medium-electric-pole", "position": {"x": 4.5, "y": 17.5}},
+      {"name": "medium-electric-pole", "position": {"x": 11.5, "y": 17.5}},
+      {"name": "medium-electric-pole", "position": {"x": 18.5, "y": 17.5}},
+      {"name": "medium-electric-pole", "position": {"x": 25.5, "y": 17.5}},
+      {"name": "medium-electric-pole", "position": {"x": 32.5, "y": 3.5}},
+      {"name": "medium-electric-pole", "position": {"x": 39.5, "y": 2.5}},
+      {"name": "medium-electric-pole", "position": {"x": 39.5, "y": 5.5}},
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": -0.5, "y": 4.5},
+        "request_filters": {"request_from_buffers": true, "sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 2.5, "y": 4.5},
+        "request_filters": {"request_from_buffers": true, "sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 6.5, "y": 4.5},
+        "request_filters": {"request_from_buffers": true, "sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 9.5, "y": 4.5},
+        "request_filters": {"request_from_buffers": true, "sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 13.5, "y": 4.5},
+        "request_filters": {"request_from_buffers": true, "sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 16.5, "y": 4.5},
+        "request_filters": {"request_from_buffers": true, "sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 20.5, "y": 4.5},
+        "request_filters": {"request_from_buffers": true, "sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 23.5, "y": 4.5},
+        "request_filters": {"request_from_buffers": true, "sections": [{"index": 1}]}
+      },
+      {"name": "roboport", "position": {"x": 1, "y": 17}, "request_filters": {"sections": [{"index": 1}]}},
+      {"name": "roboport", "position": {"x": 8, "y": 17}, "request_filters": {"sections": [{"index": 1}]}},
+      {
+        "name": "roboport",
+        "position": {"x": 15, "y": 17},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "roboport",
+        "position": {"x": 22, "y": 17},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "selector-combinator",
+        "direction": 12,
+        "control_behavior": {"operation": "stack-size"},
+        "position": {"x": 29, "y": 7.5}
+      },
+      {"name": "steel-chest", "position": {"x": -0.5, "y": 2.5}},
+      {"name": "steel-chest", "position": {"x": 2.5, "y": 2.5}},
+      {"name": "steel-chest", "position": {"x": 6.5, "y": 2.5}},
+      {"name": "steel-chest", "position": {"x": 9.5, "y": 2.5}},
+      {"name": "steel-chest", "position": {"x": 13.5, "y": 2.5}},
+      {"name": "steel-chest", "position": {"x": 16.5, "y": 2.5}},
+      {"name": "steel-chest", "position": {"x": 20.5, "y": 2.5}},
+      {"name": "steel-chest", "position": {"x": 23.5, "y": 2.5}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": -10, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": -8, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": -6, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": -4, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": -2, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 0, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 2, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 4, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 6, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 8, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 10, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 12, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 14, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 16, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 18, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 20, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 22, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 24, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 26, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 28, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 30, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 32, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 34, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 36, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 38, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 40, "y": 0}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 42, "y": 0}},
+      {
+        "name": "train-stop",
+        "direction": 4,
+        "manual_trains_limit": 1,
+        "priority": 10,
+        "station": "Construction Supply",
+        "color": {"a": 1, "b": 0.007843137718737125, "g": 0.8235294222831726, "r": 0.9333333373069763},
+        "control_behavior": {
+          "circuit_enabled": true,
+          "read_from_train": true,
+          "circuit_condition": {
+            "comparator": ">",
+            "first_signal": {"name": "signal-red", "type": "virtual"},
+            "second_signal": {"name": "signal-T", "type": "virtual"}
+          },
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+        },
+        "position": {"x": 32, "y": 2}
+      }
+    ],
+    "icons": [{"index": 1, "signal": {"name": "active-provider-chest"}}],
+    "schedules": [
+      {
+        "locomotives": ["4,0,13d7", "39,0"],
+        "schedule": {
+          "group": "BT:Construction",
+          "interrupts": [
+            {
+              "name": "BT:Refuel",
+              "inside_interrupt": true,
+              "conditions": [
+                {
+                  "compare_type": "and",
+                  "type": "fuel_item_count_any",
+                  "condition": {"comparator": "<", "constant": 50, "first_signal": {"name": "coal"}}
+                },
+                {
+                  "compare_type": "and",
+                  "type": "fuel_item_count_any",
+                  "condition": {"comparator": "<", "constant": 50, "first_signal": {"name": "solid-fuel"}}
+                },
+                {
+                  "compare_type": "and",
+                  "type": "fuel_item_count_any",
+                  "condition": {"comparator": "<", "constant": 10, "first_signal": {"name": "rocket-fuel"}}
+                },
+                {
+                  "compare_type": "and",
+                  "type": "fuel_item_count_any",
+                  "condition": {"comparator": "<", "constant": 1, "first_signal": {"name": "nuclear-fuel"}}
+                }
+              ],
+              "targets": [
+                {
+                  "station": "BT Fuel",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "fuel_full"},
+                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                    {"compare_type": "or", "ticks": 1800, "type": "time"}
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BT:FuelIdle",
+              "inside_interrupt": false,
+              "conditions": [
+                {"compare_type": "and", "station": "BT Fuel", "type": "at_station"},
+                {"compare_type": "and", "type": "destination_full_or_no_path"}
+              ],
+              "targets": [{"station": "BT Depot"}]
+            }
+          ],
+          "records": [
+            {
+              "station": "Construction Supply",
+              "wait_conditions": [
+                {"compare_type": "and", "type": "not_empty"},
+                {"compare_type": "and", "ticks": 60, "type": "inactivity"},
+                {"compare_type": "or", "type": "not_empty"},
+                {"compare_type": "and", "ticks": 3600, "type": "time"}
+              ]
+            },
+            {
+              "station": "[virtual-signal=up-right-arrow][virtual-signal=signal-1][virtual-signal=signal-X]",
+              "wait_conditions": [
+                {"compare_type": "or", "ticks": 120, "type": "inactivity"},
+                {"compare_type": "or", "ticks": 1800, "type": "time"}
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "stock_connections": [
+      {"front": "11,0", "stock": "4,0,13d7"},
+      {"back": "4,0,13d7", "front": "18,0,90b7", "stock": "11,0"},
+      {"back": "11,0", "front": "25,0", "stock": "18,0,90b7"},
+      {"back": "18,0,90b7", "front": "32,0,90b7", "stock": "25,0"},
+      {"back": "25,0", "front": "39,0", "stock": "32,0,90b7"},
+      {"back": "32,0,90b7", "stock": "39,0"}
+    ],
+    "wires": [
+      ["7.5,1.5", 5, "14.5,1.5", 5],
+      ["8.5,2.5", 1, "13.5,2.5", 1],
+      ["8.5,2.5", 2, "13.5,2.5", 2],
+      ["9.5,2.5", 2, "12.5,2.5", 2],
+      ["12.5,2.5", 2, "16.5,2.5", 2],
+      ["14.5,1.5", 5, "21.5,1.5", 5],
+      ["13.5,2.5", 1, "15.5,2.5", 1],
+      ["13.5,2.5", 2, "15.5,2.5", 2],
+      ["16.5,2.5", 2, "19.5,2.5", 2],
+      ["15.5,2.5", 1, "20.5,2.5", 1],
+      ["15.5,2.5", 2, "20.5,2.5", 2],
+      ["19.5,2.5", 2, "23.5,2.5", 2],
+      ["20.5,2.5", 1, "22.5,2.5", 1],
+      ["20.5,2.5", 2, "22.5,2.5", 2],
+      ["21.5,1.5", 5, "28.5,1.5", 5],
+      ["22.5,2.5", 1, "27.5,2.5", 1],
+      ["22.5,2.5", 2, "27.5,2.5", 2],
+      ["23.5,2.5", 2, "26.5,2.5", 2],
+      ["26.5,2.5", 2, "30.5,2.5", 2],
+      ["28.5,1.5", 5, "35.5,1.5", 5],
+      ["27.5,2.5", 1, "29.5,2.5", 1],
+      ["27.5,2.5", 2, "29.5,2.5", 2],
+      ["30.5,1.5", 1, "33.5,2.5", 1],
+      ["30.5,2.5", 2, "33.5,2.5", 2],
+      ["29.5,2.5", 1, "34.5,2.5", 1],
+      ["29.5,2.5", 2, "34.5,2.5", 2],
+      ["33.5,2.5", 2, "37,2.5", 2],
+      ["34.5,2.5", 1, "37,1.5", 3],
+      ["34.5,2.5", 2, "37,3.5", 2],
+      ["35.5,1.5", 5, "42.5,3.5", 5],
+      ["35.5,1.5", 5, "35.5,8.5", 5],
+      ["37,1.5", 1, "37,2.5", 3],
+      ["37,1.5", 2, "40,2.5", 2],
+      ["37,2.5", 2, "39,6.5", 2],
+      ["37,2.5", 3, "40,3.5", 1],
+      ["40,1.5", 2, "40,2.5", 2],
+      ["40,1.5", 4, "40,2.5", 4],
+      ["40,2.5", 2, "40,2.5", 4],
+      ["40,2.5", 4, "40,3.5", 4],
+      ["43.5,1.5", 1, "44,4", 1],
+      ["49.5,1.5", 1, "48.5,3", 1],
+      ["49.5,2.5", 1, "44,4", 1],
+      ["49.5,2.5", 1, "49.5,5.5", 1],
+      ["49.5,2.5", 2, "44,4", 2],
+      ["49.5,2.5", 2, "48.5,3", 2],
+      ["49.5,2.5", 2, "50.5,3", 2],
+      ["49.5,2.5", 5, "44,4", 5],
+      ["49.5,2.5", 5, "49.5,5.5", 5],
+      ["9.5,3.5", 2, "12.5,3.5", 2],
+      ["9.5,4.5", 1, "12.5,4.5", 1],
+      ["12.5,3.5", 2, "16.5,3.5", 2],
+      ["12.5,4.5", 1, "16.5,4.5", 1],
+      ["16.5,3.5", 2, "19.5,3.5", 2],
+      ["16.5,4.5", 1, "19.5,4.5", 1],
+      ["19.5,3.5", 2, "23.5,3.5", 2],
+      ["19.5,4.5", 1, "23.5,4.5", 1],
+      ["23.5,3.5", 2, "26.5,3.5", 2],
+      ["23.5,4.5", 1, "26.5,4.5", 1],
+      ["26.5,3.5", 2, "30.5,3.5", 2],
+      ["26.5,4.5", 1, "30.5,4.5", 1],
+      ["30.5,3.5", 2, "33.5,3.5", 2],
+      ["30.5,4.5", 1, "33,7.5", 3],
+      ["33.5,3.5", 2, "37,4.5", 2],
+      ["33.5,4.5", 1, "37,6.5", 3],
+      ["37,3.5", 3, "37,4.5", 3],
+      ["37,4.5", 3, "44,4", 1],
+      ["40,3.5", 1, "40,4.5", 3],
+      ["40,3.5", 2, "40,4.5", 2],
+      ["40,4.5", 2, "42,5.5", 4],
+      ["42.5,3.5", 5, "44,4", 5],
+      ["42.5,3.5", 5, "41.5,8.5", 5],
+      ["44,4", 1, "44,6.5", 1],
+      ["48.5,3", 4, "49.5,4", 2],
+      ["49.5,4", 1, "50.5,3", 3],
+      ["49.5,4", 1, "48.5,5", 1],
+      ["49.5,4", 2, "50.5,5", 2],
+      ["49.5,4", 4, "48.5,5", 2],
+      ["50.5,3", 3, "50.5,5", 1],
+      ["37,6.5", 1, "37,7.5", 1],
+      ["37,6.5", 2, "39,6.5", 4],
+      ["37,6.5", 2, "37,7.5", 2],
+      ["39,6.5", 1, "42,7.5", 3],
+      ["42,6.5", 1, "44,7.5", 3],
+      ["42,6.5", 4, "42,5.5", 2],
+      ["42,6.5", 4, "42,7.5", 2],
+      ["44,6.5", 1, "42,7.5", 1],
+      ["44,6.5", 2, "45.5,6.5", 2],
+      ["44,6.5", 3, "44,7.5", 1],
+      ["48.5,5", 2, "48.5,5", 4],
+      ["48.5,5", 4, "49.5,5.5", 2],
+      ["49.5,5.5", 2, "50.5,5", 4],
+      ["49.5,5.5", 2, "44,7.5", 2],
+      ["49.5,5.5", 5, "41.5,8.5", 5],
+      ["33,7.5", 1, "37,7.5", 3],
+      ["35.5,8.5", 5, "41.5,8.5", 5],
+      ["35.5,8.5", 5, "35.5,17.5", 5],
+      ["37,7.5", 1, "39,7.5", 3],
+      ["39,7.5", 2, "42,7.5", 2],
+      ["42,7.5", 2, "44,7.5", 4],
+      ["14.5,17.5", 5, "21.5,17.5", 5],
+      ["21.5,17.5", 5, "28.5,17.5", 5],
+      ["28.5,17.5", 5, "35.5,17.5", 5]
+    ]
+  }
+}
