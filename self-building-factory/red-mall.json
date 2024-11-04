@@ -9,6 +9,19 @@
     "shift_y": 53,
     "version": 562949954273281,
     "entities": [
+      {"name": "active-provider-chest", "position": {"x": 146.5, "y": 14.5}},
+      {"name": "active-provider-chest", "position": {"x": 151.5, "y": 14.5}},
+      {"name": "active-provider-chest", "position": {"x": 153.5, "y": 14.5}},
+      {"name": "active-provider-chest", "position": {"x": 158.5, "y": 14.5}},
+      {"name": "active-provider-chest", "position": {"x": 160.5, "y": 14.5}},
+      {"name": "active-provider-chest", "position": {"x": 165.5, "y": 14.5}},
+      {"name": "active-provider-chest", "position": {"x": 167.5, "y": 14.5}},
+      {"name": "active-provider-chest", "position": {"x": 172.5, "y": 14.5}},
+      {"name": "active-provider-chest", "position": {"x": 269.5, "y": 14.5}},
+      {"name": "active-provider-chest", "position": {"x": 276.5, "y": 14.5}},
+      {"name": "active-provider-chest", "position": {"x": 283.5, "y": 14.5}},
+      {"name": "active-provider-chest", "position": {"x": 290.5, "y": 14.5}},
+      {"name": "active-provider-chest", "position": {"x": 297.5, "y": 14.5}},
       {
         "name": "arithmetic-combinator",
         "direction": 8,
@@ -341,6 +354,19 @@
           }
         },
         "position": {"x": 27, "y": 126.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "second_constant": -1,
+            "first_signal": {"name": "signal-check", "type": "virtual"},
+            "output_signal": {"name": "signal-check", "type": "virtual"}
+          }
+        },
+        "position": {"x": 138.5, "y": 68}
       },
       {
         "name": "arithmetic-combinator",
@@ -991,6 +1017,206 @@
           }
         },
         "position": {"x": 184, "y": 202.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 12,
+        "player_description": "Items in the buffer for which there are no requests (are positive).",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "-",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "first_signal_networks": {"green": false, "red": true},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal_networks": {"green": true, "red": false}
+          }
+        },
+        "position": {"x": 299, "y": 13.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 4,
+        "player_description": "Forward \"unload\" pulses as positive values on the accumulating grid-red wire.",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "second_constant": 1,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 299, "y": 15.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 12,
+        "player_description": "Divide the request among all requesters. The incoming value is significant so don't have to worry about rounding.",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "/",
+            "second_constant": 7,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 295, "y": 19.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 4,
+        "player_description": "Forward \"load\" pulses as negative values on the accumulating grid-red wire.",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "second_constant": -1,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 299, "y": 16.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "first_signal_networks": {"green": true, "red": false},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal_networks": {"green": false, "red": true}
+          }
+        },
+        "position": {"x": 297, "y": 18.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "first_signal_networks": {"green": true, "red": false},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal_networks": {"green": false, "red": true}
+          }
+        },
+        "position": {"x": 297, "y": 19.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 12,
+        "player_description": "This block holds the input flag for 1min so temporary reductions, like when a Site is unloading, don't cause the station to empty what it has bufferred.",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "second_constant": -1,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 302, "y": 16.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "+",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "first_signal_networks": {"green": false, "red": true},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal_networks": {"green": true, "red": false}
+          }
+        },
+        "position": {"x": 301, "y": 18.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "+",
+            "second_constant": 0,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal_networks": {"green": true, "red": false}
+          }
+        },
+        "position": {"x": 299, "y": 20.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "+",
+            "second_constant": 0,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal_networks": {"green": true, "red": false}
+          }
+        },
+        "position": {"x": 301, "y": 20.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "second_constant": -1000000000,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 299.5, "y": 26}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "first_signal_networks": {"green": false, "red": true},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal_networks": {"green": true, "red": false}
+          }
+        },
+        "position": {"x": 299.5, "y": 30}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 12,
+        "player_description": "Divide the outstanding request between all active Malls.",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "/",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "first_signal_networks": {"green": true, "red": false},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-M", "type": "virtual"},
+            "second_signal_networks": {"green": false, "red": true}
+          }
+        },
+        "position": {"x": 304, "y": 19.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "second_constant": -1,
+            "first_signal": {"name": "signal-check", "type": "virtual"},
+            "output_signal": {"name": "signal-check", "type": "virtual"}
+          }
+        },
+        "position": {"x": 311.5, "y": 16}
       },
       {
         "name": "arithmetic-combinator",
@@ -4472,6 +4698,9 @@
       {"name": "big-electric-pole", "position": {"x": 134, "y": 2}},
       {"name": "big-electric-pole", "position": {"x": 156, "y": 2}},
       {"name": "big-electric-pole", "position": {"x": 178, "y": 2}},
+      {"name": "big-electric-pole", "position": {"x": 160, "y": 21}},
+      {"name": "big-electric-pole", "position": {"x": 150, "y": 38}},
+      {"name": "big-electric-pole", "position": {"x": 139, "y": 58}},
       {"name": "big-electric-pole", "position": {"x": 198, "y": 2}},
       {"name": "big-electric-pole", "position": {"x": 222, "y": 2}},
       {"name": "big-electric-pole", "position": {"x": 246, "y": 2}},
@@ -4507,8 +4736,10 @@
       {"name": "big-electric-pole", "position": {"x": 246, "y": 204}},
       {"name": "big-electric-pole", "position": {"x": 246, "y": 222}},
       {"name": "big-electric-pole", "position": {"x": 266, "y": 2}},
+      {"name": "big-electric-pole", "position": {"x": 268, "y": 30}},
       {"name": "big-electric-pole", "position": {"x": 288, "y": 2}},
       {"name": "big-electric-pole", "position": {"x": 310, "y": 2}},
+      {"name": "big-electric-pole", "position": {"x": 306, "y": 16}},
       {"name": "big-electric-pole", "position": {"x": 332, "y": 2}},
       {"name": "big-electric-pole", "position": {"x": 354, "y": 2}},
       {"name": "big-electric-pole", "position": {"x": 376, "y": 2}},
@@ -4551,6 +4782,162 @@
       {"name": "boiler", "direction": 8, "position": {"x": 310.5, "y": 115}},
       {"name": "boiler", "direction": 8, "position": {"x": 313.5, "y": 115}},
       {"name": "boiler", "direction": 8, "position": {"x": 316.5, "y": 115}},
+      {
+        "name": "buffer-chest",
+        "position": {"x": 278.5, "y": 26.5},
+        "request_filters": {
+          "sections": [
+            {
+              "index": 1,
+              "filters": [
+                {
+                  "name": "express-transport-belt",
+                  "comparator": "=",
+                  "count": 1000,
+                  "index": 1,
+                  "quality": "normal"
+                },
+                {
+                  "name": "express-underground-belt",
+                  "comparator": "=",
+                  "count": 500,
+                  "index": 2,
+                  "quality": "normal"
+                },
+                {"name": "express-splitter", "comparator": "=", "count": 200, "index": 3, "quality": "normal"}
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "name": "buffer-chest",
+        "position": {"x": 279.5, "y": 26.5},
+        "request_filters": {
+          "sections": [
+            {
+              "index": 1,
+              "filters": [
+                {"name": "fast-transport-belt", "comparator": "=", "count": 1000, "index": 1, "quality": "normal"},
+                {"name": "fast-underground-belt", "comparator": "=", "count": 500, "index": 2, "quality": "normal"},
+                {"name": "fast-splitter", "comparator": "=", "count": 200, "index": 3, "quality": "normal"}
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "name": "buffer-chest",
+        "position": {"x": 280.5, "y": 26.5},
+        "request_filters": {
+          "sections": [
+            {
+              "index": 1,
+              "filters": [
+                {"name": "transport-belt", "comparator": "=", "count": 1000, "index": 1, "quality": "normal"},
+                {"name": "underground-belt", "comparator": "=", "count": 500, "index": 2, "quality": "normal"},
+                {"name": "splitter", "comparator": "=", "count": 200, "index": 3, "quality": "normal"}
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "name": "buffer-chest",
+        "position": {"x": 281.5, "y": 26.5},
+        "request_filters": {
+          "sections": [
+            {
+              "index": 1,
+              "filters": [
+                {"name": "inserter", "comparator": "=", "count": 100, "index": 1, "quality": "normal"},
+                {"name": "long-handed-inserter", "comparator": "=", "count": 100, "index": 2, "quality": "normal"},
+                {"name": "fast-inserter", "comparator": "=", "count": 250, "index": 3, "quality": "normal"},
+                {"name": "bulk-inserter", "comparator": "=", "count": 250, "index": 4, "quality": "normal"},
+                {"name": "stack-inserter", "comparator": "=", "count": 50, "index": 5, "quality": "normal"}
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "name": "buffer-chest",
+        "position": {"x": 285.5, "y": 26.5},
+        "request_filters": {
+          "sections": [
+            {
+              "index": 1,
+              "filters": [
+                {"name": "rail", "comparator": "=", "count": 1000, "index": 1, "quality": "normal"},
+                {"name": "big-electric-pole", "comparator": "=", "count": 100, "index": 2, "quality": "normal"},
+                {"name": "medium-electric-pole", "comparator": "=", "count": 200, "index": 3, "quality": "normal"},
+                {"name": "substation", "comparator": "=", "count": 100, "index": 4, "quality": "normal"},
+                {"name": "arithmetic-combinator", "comparator": "=", "count": 50, "index": 5, "quality": "normal"},
+                {"name": "decider-combinator", "comparator": "=", "count": 50, "index": 6, "quality": "normal"},
+                {"name": "selector-combinator", "comparator": "=", "count": 50, "index": 7, "quality": "normal"},
+                {"name": "constant-combinator", "comparator": "=", "count": 50, "index": 8, "quality": "normal"}
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "name": "buffer-chest",
+        "position": {"x": 286.5, "y": 26.5},
+        "request_filters": {
+          "sections": [
+            {
+              "index": 1,
+              "filters": [
+                {"name": "assembling-machine-2", "comparator": "=", "count": 50, "index": 1, "quality": "normal"},
+                {"name": "assembling-machine-3", "comparator": "=", "count": 250, "index": 2, "quality": "normal"},
+                {"name": "oil-refinery", "comparator": "=", "count": 10, "index": 3, "quality": "normal"},
+                {"name": "chemical-plant", "comparator": "=", "count": 10, "index": 4, "quality": "normal"},
+                {"name": "beacon", "comparator": "=", "count": 200, "index": 5, "quality": "normal"},
+                {"name": "electric-furnace", "comparator": "=", "count": 100, "index": 6, "quality": "normal"}
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "name": "buffer-chest",
+        "position": {"x": 287.5, "y": 26.5},
+        "request_filters": {
+          "sections": [
+            {
+              "index": 1,
+              "filters": [
+                {"name": "stone-brick", "comparator": "=", "count": 1000, "index": 1, "quality": "normal"},
+                {"name": "concrete", "comparator": "=", "count": 1000, "index": 2, "quality": "normal"},
+                {"name": "hazard-concrete", "comparator": "=", "count": 200, "index": 3, "quality": "normal"},
+                {"name": "refined-concrete", "comparator": "=", "count": 100, "index": 4, "quality": "normal"},
+                {"name": "refined-hazard-concrete", "comparator": "=", "count": 50, "index": 5, "quality": "normal"},
+                {"name": "landfill", "comparator": "=", "count": 200, "index": 6, "quality": "normal"}
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "name": "buffer-chest",
+        "position": {"x": 288.5, "y": 26.5},
+        "request_filters": {
+          "sections": [
+            {
+              "index": 1,
+              "filters": [
+                {"name": "pipe", "comparator": "=", "count": 1000, "index": 1, "quality": "normal"},
+                {"name": "pipe-to-ground", "comparator": "=", "count": 100, "index": 2, "quality": "normal"},
+                {"name": "pump", "comparator": "=", "count": 50, "index": 3, "quality": "normal"},
+                {"name": "storage-tank", "comparator": "=", "count": 50, "index": 4, "quality": "normal"},
+                {"name": "iron-chest", "comparator": "=", "count": 256, "index": 5, "quality": "normal"},
+                {"name": "cliff-explosives", "comparator": "=", "count": 20, "index": 6, "quality": "normal"}
+              ]
+            }
+          ]
+        }
+      },
       {"name": "bulk-inserter", "direction": 8, "position": {"x": 95.5, "y": 43.5}},
       {"name": "bulk-inserter", "direction": 8, "position": {"x": 90.5, "y": 45.5}},
       {"name": "bulk-inserter", "direction": 4, "position": {"x": 91.5, "y": 47.5}},
@@ -5829,6 +6216,54 @@
         "control_behavior": {"circuit_set_filters": true},
         "position": {"x": 34.5, "y": 126.5}
       },
+      {
+        "name": "bulk-inserter",
+        "control_behavior": {"circuit_read_hand_contents": true},
+        "position": {"x": 148.5, "y": 13.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "control_behavior": {"circuit_read_hand_contents": true},
+        "position": {"x": 149.5, "y": 13.5}
+      },
+      {"name": "bulk-inserter", "position": {"x": 148.5, "y": 15.5}},
+      {"name": "bulk-inserter", "position": {"x": 149.5, "y": 15.5}},
+      {
+        "name": "bulk-inserter",
+        "control_behavior": {"circuit_read_hand_contents": true},
+        "position": {"x": 155.5, "y": 13.5}
+      },
+      {"name": "bulk-inserter", "position": {"x": 155.5, "y": 15.5}},
+      {
+        "name": "bulk-inserter",
+        "control_behavior": {"circuit_read_hand_contents": true},
+        "position": {"x": 156.5, "y": 13.5}
+      },
+      {"name": "bulk-inserter", "position": {"x": 156.5, "y": 15.5}},
+      {
+        "name": "bulk-inserter",
+        "control_behavior": {"circuit_read_hand_contents": true},
+        "position": {"x": 162.5, "y": 13.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "control_behavior": {"circuit_read_hand_contents": true},
+        "position": {"x": 163.5, "y": 13.5}
+      },
+      {"name": "bulk-inserter", "position": {"x": 162.5, "y": 15.5}},
+      {"name": "bulk-inserter", "position": {"x": 163.5, "y": 15.5}},
+      {
+        "name": "bulk-inserter",
+        "control_behavior": {"circuit_read_hand_contents": true},
+        "position": {"x": 169.5, "y": 13.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "control_behavior": {"circuit_read_hand_contents": true},
+        "position": {"x": 170.5, "y": 13.5}
+      },
+      {"name": "bulk-inserter", "position": {"x": 169.5, "y": 15.5}},
+      {"name": "bulk-inserter", "position": {"x": 170.5, "y": 15.5}},
       {"name": "bulk-inserter", "direction": 8, "position": {"x": 129.5, "y": 45.5}},
       {"name": "bulk-inserter", "direction": 12, "position": {"x": 128.5, "y": 47.5}},
       {"name": "bulk-inserter", "position": {"x": 155.5, "y": 47.5}},
@@ -9819,6 +10254,105 @@
         },
         "position": {"x": 191.5, "y": 194.5}
       },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {"circuit_set_filters": true},
+        "position": {"x": 271.5, "y": 13.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {"circuit_read_hand_contents": true},
+        "position": {"x": 271.5, "y": 15.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {"circuit_set_filters": true},
+        "position": {"x": 274.5, "y": 13.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {"circuit_read_hand_contents": true},
+        "position": {"x": 274.5, "y": 15.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {"circuit_set_filters": true},
+        "position": {"x": 278.5, "y": 13.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {"circuit_read_hand_contents": true},
+        "position": {"x": 278.5, "y": 15.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {"circuit_set_filters": true},
+        "position": {"x": 281.5, "y": 13.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {"circuit_read_hand_contents": true},
+        "position": {"x": 281.5, "y": 15.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {"circuit_set_filters": true},
+        "position": {"x": 285.5, "y": 13.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {"circuit_read_hand_contents": true},
+        "position": {"x": 285.5, "y": 15.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {"circuit_set_filters": true},
+        "position": {"x": 288.5, "y": 13.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {"circuit_read_hand_contents": true},
+        "position": {"x": 288.5, "y": 15.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}}
+        },
+        "position": {"x": 292.5, "y": 13.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {"circuit_set_filters": true},
+        "position": {"x": 295.5, "y": 13.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {"circuit_read_hand_contents": true},
+        "position": {"x": 292.5, "y": 15.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "control_behavior": {"circuit_read_hand_contents": true},
+        "position": {"x": 295.5, "y": 15.5}
+      },
       {"name": "bulk-inserter", "direction": 4, "position": {"x": 266.5, "y": 100.5}},
       {
         "name": "bulk-inserter",
@@ -11495,6 +12029,42 @@
         "position": {"x": 435.5, "y": 142.5}
       },
       {
+        "name": "cargo-wagon",
+        "copy_color_from_train_stop": true,
+        "enable_logistics_while_moving": false,
+        "inventory": null,
+        "orientation": 0.25,
+        "color": {"a": 1, "b": 0.007843137718737125, "g": 0.8235294222831726, "r": 0.9333333373069763},
+        "position": {"x": 272.90625, "y": 12}
+      },
+      {
+        "name": "cargo-wagon",
+        "copy_color_from_train_stop": true,
+        "enable_logistics_while_moving": false,
+        "inventory": null,
+        "orientation": 0.25,
+        "color": {"a": 1, "b": 0.007843137718737125, "g": 0.8235294222831726, "r": 0.9333333373069763},
+        "position": {"x": 279.90625, "y": 12}
+      },
+      {
+        "name": "cargo-wagon",
+        "copy_color_from_train_stop": true,
+        "enable_logistics_while_moving": false,
+        "inventory": null,
+        "orientation": 0.25,
+        "color": {"a": 1, "b": 0.007843137718737125, "g": 0.8235294222831726, "r": 0.9333333373069763},
+        "position": {"x": 286.90625, "y": 12}
+      },
+      {
+        "name": "cargo-wagon",
+        "copy_color_from_train_stop": true,
+        "enable_logistics_while_moving": false,
+        "inventory": null,
+        "orientation": 0.25,
+        "color": {"a": 1, "b": 0.007843137718737125, "g": 0.8235294222831726, "r": 0.9333333373069763},
+        "position": {"x": 293.90625, "y": 12}
+      },
+      {
         "name": "centrifuge",
         "direction": 8,
         "recipe": "nuclear-fuel",
@@ -12186,6 +12756,416 @@
             "sections": [
               {
                 "index": 1,
+                "filters": [
+                  {
+                    "name": "signal-check",
+                    "comparator": "=",
+                    "count": -2147483648,
+                    "index": 1,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 138.5, "y": 65.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "stone-brick",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 1,
+                    "max_count": 3294967296,
+                    "quality": "normal"
+                  },
+                  {
+                    "name": "concrete",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 2,
+                    "max_count": 3294967296,
+                    "quality": "normal"
+                  },
+                  {
+                    "name": "hazard-concrete",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 3,
+                    "max_count": 3294967296,
+                    "quality": "normal"
+                  },
+                  {
+                    "name": "refined-concrete",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 4,
+                    "max_count": 3294967296,
+                    "quality": "normal"
+                  },
+                  {
+                    "name": "refined-hazard-concrete",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 5,
+                    "max_count": 3294967296,
+                    "quality": "normal"
+                  }
+                ]
+              },
+              {
+                "group": "BT:Alphanum-1G",
+                "index": 2,
+                "filters": [
+                  {
+                    "name": "signal-A",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 1,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-B",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 2,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-C",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 3,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-D",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 4,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-E",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 5,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-F",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 6,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-G",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 7,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-H",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 8,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-I",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 9,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-J",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 10,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-K",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 11,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-L",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 12,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-M",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 13,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-N",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 14,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-O",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 15,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-P",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 16,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-Q",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 17,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-R",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 18,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-S",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 19,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-T",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 20,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-U",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 21,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-V",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 22,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-W",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 23,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-X",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 24,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-Y",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 25,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-Z",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 26,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-0",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 31,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-1",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 32,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-2",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 33,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-3",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 34,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-4",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 35,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-5",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 36,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-6",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 37,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-7",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 38,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-8",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 39,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-9",
+                    "comparator": "=",
+                    "count": -1000000000,
+                    "index": 40,
+                    "max_count": 3294967296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 138.5, "y": 71.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
                 "filters": [{"name": "iron-plate", "comparator": "=", "count": 2, "index": 1, "quality": "normal"}]
               }
             ]
@@ -12237,11 +13217,11 @@
                   {"name": "splitter", "comparator": "=", "count": 50, "index": 3, "quality": "normal"},
                   {"name": "inserter", "comparator": "=", "count": 250, "index": 4, "quality": "normal"},
                   {"name": "fast-inserter", "comparator": "=", "count": 100, "index": 5, "quality": "normal"},
-                  {"name": "fast-transport-belt", "comparator": "=", "count": 1000, "index": 6, "quality": "normal"},
-                  {"name": "fast-underground-belt", "comparator": "=", "count": 100, "index": 7, "quality": "normal"},
-                  {"name": "fast-splitter", "comparator": "=", "count": 50, "index": 8, "quality": "normal"},
+                  {"name": "fast-transport-belt", "comparator": "=", "count": 1500, "index": 6, "quality": "normal"},
+                  {"name": "fast-underground-belt", "comparator": "=", "count": 600, "index": 7, "quality": "normal"},
+                  {"name": "fast-splitter", "comparator": "=", "count": 100, "index": 8, "quality": "normal"},
                   {"name": "long-handed-inserter", "comparator": "=", "count": 500, "index": 9, "quality": "normal"},
-                  {"name": "bulk-inserter", "comparator": "=", "count": 500, "index": 10, "quality": "normal"},
+                  {"name": "stack-inserter", "comparator": "=", "count": 500, "index": 10, "quality": "normal"},
                   {
                     "name": "express-transport-belt",
                     "comparator": "=",
@@ -12257,8 +13237,7 @@
                     "quality": "normal"
                   },
                   {"name": "express-splitter", "comparator": "=", "count": 50, "index": 13, "quality": "normal"},
-                  {"name": "burner-inserter", "comparator": "=", "count": 0, "index": 14, "quality": "normal"},
-                  {"name": "stack-inserter", "comparator": "=", "count": 100, "index": 15, "quality": "normal"}
+                  {"name": "burner-inserter", "comparator": "=", "count": 0, "index": 14, "quality": "normal"}
                 ]
               }
             ]
@@ -12276,24 +13255,23 @@
                 "index": 1,
                 "filters": [
                   {"name": "pipe", "comparator": "=", "count": 2000, "index": 1, "quality": "normal"},
-                  {"name": "medium-electric-pole", "comparator": "=", "count": 500, "index": 2, "quality": "normal"},
+                  {"name": "medium-electric-pole", "comparator": "=", "count": 200, "index": 2, "quality": "normal"},
                   {"name": "copper-cable", "comparator": "=", "count": 10, "index": 3, "quality": "normal"},
                   {"name": "arithmetic-combinator", "comparator": "=", "count": 200, "index": 4, "quality": "normal"},
                   {"name": "power-switch", "comparator": "=", "count": 50, "index": 5, "quality": "normal"},
                   {"name": "solar-panel", "comparator": "=", "count": 3000, "index": 6, "quality": "normal"},
                   {"name": "pipe-to-ground", "comparator": "=", "count": 2000, "index": 7, "quality": "normal"},
-                  {"name": "big-electric-pole", "comparator": "=", "count": 500, "index": 8, "quality": "normal"},
+                  {"name": "big-electric-pole", "comparator": "=", "count": 2000, "index": 8, "quality": "normal"},
                   {"name": "red-wire", "comparator": "=", "count": 200, "index": 9, "quality": "normal"},
                   {"name": "decider-combinator", "comparator": "=", "count": 200, "index": 10, "quality": "normal"},
                   {"name": "programmable-speaker", "comparator": "=", "count": 50, "index": 11, "quality": "normal"},
                   {"name": "accumulator", "comparator": "=", "count": 2500, "index": 12, "quality": "normal"},
                   {"name": "pump", "comparator": "=", "count": 200, "index": 13, "quality": "normal"},
-                  {"name": "substation", "comparator": "=", "count": 100, "index": 14, "quality": "normal"},
+                  {"name": "substation", "comparator": "=", "count": 200, "index": 14, "quality": "normal"},
                   {"name": "green-wire", "comparator": "=", "count": 200, "index": 15, "quality": "normal"},
                   {"name": "constant-combinator", "comparator": "=", "count": 200, "index": 16, "quality": "normal"},
                   {"name": "small-lamp", "comparator": "=", "count": 500, "index": 17, "quality": "normal"},
-                  {"name": "repair-pack", "comparator": "=", "count": 50, "index": 18, "quality": "normal"},
-                  {"name": "selector-combinator", "comparator": "=", "count": 100, "index": 19, "quality": "normal"}
+                  {"name": "repair-pack", "comparator": "=", "count": 50, "index": 18, "quality": "normal"}
                 ]
               }
             ]
@@ -12602,7 +13580,7 @@
               {
                 "index": 1,
                 "filters": [
-                  {"name": "rail", "comparator": "=", "count": 2000, "index": 1, "quality": "normal"},
+                  {"name": "rail", "comparator": "=", "count": 1000, "index": 1, "quality": "normal"},
                   {"name": "rail-signal", "comparator": "=", "count": 200, "index": 2, "quality": "normal"},
                   {"name": "rail-chain-signal", "comparator": "=", "count": 200, "index": 3, "quality": "normal"},
                   {"name": "train-stop", "comparator": "=", "count": 20, "index": 4, "quality": "normal"},
@@ -12619,9 +13597,7 @@
                   {"name": "flamethrower-turret", "comparator": "=", "count": 0, "index": 15, "quality": "normal"},
                   {"name": "artillery-turret", "comparator": "=", "count": 0, "index": 16, "quality": "normal"},
                   {"name": "radar", "comparator": "=", "count": 10, "index": 17, "quality": "normal"},
-                  {"name": "rocket-silo", "comparator": "=", "count": 1, "index": 18, "quality": "normal"},
-                  {"name": "cannon-shell", "comparator": "=", "count": 0, "index": 19, "quality": "normal"},
-                  {"name": "explosive-cannon-shell", "comparator": "=", "count": 0, "index": 20, "quality": "normal"}
+                  {"name": "rocket-silo", "comparator": "=", "count": 1, "index": 18, "quality": "normal"}
                 ]
               }
             ]
@@ -14058,6 +15034,385 @@
           }
         },
         "position": {"x": 189.5, "y": 196.5}
+      },
+      {
+        "name": "constant-combinator",
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "signal-M",
+                    "comparator": "=",
+                    "count": 1,
+                    "index": 1,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 305.5, "y": 13.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "signal-check",
+                    "comparator": "=",
+                    "count": -2147483648,
+                    "index": 1,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 311.5, "y": 13.5}
+      },
+      {
+        "name": "constant-combinator",
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {"name": "speed-module", "comparator": "=", "count": 1, "index": 1, "quality": "normal"},
+                  {"name": "speed-module-2", "comparator": "=", "count": 1, "index": 2, "quality": "normal"},
+                  {"name": "speed-module-3", "comparator": "=", "count": 1, "index": 3, "quality": "normal"},
+                  {"name": "efficiency-module", "comparator": "=", "count": 1, "index": 6, "quality": "normal"},
+                  {"name": "efficiency-module-2", "comparator": "=", "count": 1, "index": 7, "quality": "normal"},
+                  {"name": "efficiency-module-3", "comparator": "=", "count": 1, "index": 8, "quality": "normal"},
+                  {"name": "productivity-module", "comparator": "=", "count": 1, "index": 11, "quality": "normal"},
+                  {"name": "productivity-module-2", "comparator": "=", "count": 1, "index": 12, "quality": "normal"},
+                  {"name": "productivity-module-3", "comparator": "=", "count": 1, "index": 13, "quality": "normal"},
+                  {"name": "quality-module", "comparator": "=", "count": 1, "index": 16, "quality": "normal"},
+                  {"name": "quality-module-2", "comparator": "=", "count": 1, "index": 17, "quality": "normal"},
+                  {"name": "quality-module-3", "comparator": "=", "count": 1, "index": 18, "quality": "normal"}
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 299.5, "y": 31.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "group": "BT:Alphanum+1G",
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "signal-A",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 1,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-B",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 2,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-C",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 3,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-D",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 4,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-E",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 5,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-F",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 6,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-G",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 7,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-H",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 8,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-I",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 9,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-J",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 10,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-K",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 11,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-L",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 12,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-M",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 13,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-N",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 14,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-O",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 15,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-P",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 16,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-Q",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 17,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-R",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 18,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-S",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 19,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-T",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 20,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-U",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 21,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-V",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 22,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-W",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 23,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-X",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 24,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-Y",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 25,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-Z",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 26,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-0",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 31,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-1",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 32,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-2",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 33,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-3",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 34,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-4",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 35,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-5",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 36,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-6",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 37,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-7",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 38,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-8",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 39,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-9",
+                    "comparator": "=",
+                    "count": 1000000000,
+                    "index": 40,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 307.5, "y": 18.5}
       },
       {
         "name": "constant-combinator",
@@ -15568,24 +16923,18 @@
       {"name": "curved-rail-a", "direction": 12, "position": {"x": -1, "y": -12}},
       {"name": "curved-rail-a", "direction": 2, "position": {"x": -12, "y": -1}},
       {"name": "curved-rail-a", "direction": 6, "position": {"x": 5, "y": -12}},
-      {"name": "curved-rail-a", "position": {"x": 16, "y": -1}},
       {"name": "curved-rail-a", "direction": 12, "position": {"x": 219, "y": -12}},
       {"name": "curved-rail-a", "direction": 6, "position": {"x": 225, "y": -12}},
-      {"name": "curved-rail-a", "direction": 2, "position": {"x": 428, "y": -1}},
       {"name": "curved-rail-a", "direction": 12, "position": {"x": 439, "y": -12}},
       {"name": "curved-rail-a", "direction": 6, "position": {"x": 445, "y": -12}},
       {"name": "curved-rail-a", "position": {"x": 456, "y": -1}},
       {"name": "curved-rail-a", "direction": 8, "position": {"x": -12, "y": 5}},
-      {"name": "curved-rail-a", "direction": 14, "position": {"x": -1, "y": 16}},
-      {"name": "curved-rail-a", "direction": 12, "position": {"x": -1, "y": 208}},
       {"name": "curved-rail-a", "direction": 2, "position": {"x": -12, "y": 219}},
       {"name": "curved-rail-a", "direction": 8, "position": {"x": -12, "y": 225}},
       {"name": "curved-rail-a", "direction": 14, "position": {"x": -1, "y": 236}},
       {"name": "curved-rail-a", "direction": 14, "position": {"x": 23, "y": 0}},
-      {"name": "curved-rail-a", "direction": 10, "position": {"x": 16, "y": 5}},
       {"name": "curved-rail-a", "direction": 12, "position": {"x": 23, "y": 4}},
       {"name": "curved-rail-a", "direction": 6, "position": {"x": 27, "y": 4}},
-      {"name": "curved-rail-a", "direction": 4, "position": {"x": 5, "y": 16}},
       {"name": "curved-rail-a", "position": {"x": 0, "y": 23}},
       {"name": "curved-rail-a", "direction": 2, "position": {"x": 4, "y": 23}},
       {"name": "curved-rail-a", "direction": 8, "position": {"x": 4, "y": 27}},
@@ -15634,14 +16983,11 @@
       {"name": "curved-rail-a", "direction": 2, "position": {"x": 4, "y": 197}},
       {"name": "curved-rail-a", "direction": 10, "position": {"x": 0, "y": 201}},
       {"name": "curved-rail-a", "direction": 8, "position": {"x": 4, "y": 201}},
-      {"name": "curved-rail-a", "direction": 6, "position": {"x": 5, "y": 208}},
-      {"name": "curved-rail-a", "position": {"x": 16, "y": 219}},
       {"name": "curved-rail-a", "direction": 14, "position": {"x": 23, "y": 220}},
       {"name": "curved-rail-a", "direction": 4, "position": {"x": 27, "y": 220}},
       {"name": "curved-rail-a", "direction": 12, "position": {"x": 37, "y": 216}},
       {"name": "curved-rail-a", "direction": 4, "position": {"x": 57, "y": 216}},
       {"name": "curved-rail-a", "direction": 4, "position": {"x": 5, "y": 236}},
-      {"name": "curved-rail-a", "direction": 10, "position": {"x": 16, "y": 225}},
       {"name": "curved-rail-a", "direction": 12, "position": {"x": 23, "y": 224}},
       {"name": "curved-rail-a", "direction": 10, "position": {"x": 68, "y": 205}},
       {"name": "curved-rail-a", "direction": 10, "position": {"x": 88, "y": 205}},
@@ -15684,9 +17030,6 @@
       {"name": "curved-rail-a", "direction": 4, "position": {"x": 421, "y": 0}},
       {"name": "curved-rail-a", "direction": 12, "position": {"x": 417, "y": 4}},
       {"name": "curved-rail-a", "direction": 6, "position": {"x": 421, "y": 4}},
-      {"name": "curved-rail-a", "direction": 8, "position": {"x": 428, "y": 5}},
-      {"name": "curved-rail-a", "direction": 14, "position": {"x": 439, "y": 16}},
-      {"name": "curved-rail-a", "direction": 4, "position": {"x": 445, "y": 16}},
       {"name": "curved-rail-a", "position": {"x": 440, "y": 23}},
       {"name": "curved-rail-a", "direction": 2, "position": {"x": 444, "y": 23}},
       {"name": "curved-rail-a", "direction": 10, "position": {"x": 440, "y": 27}},
@@ -15740,11 +17083,7 @@
       {"name": "curved-rail-a", "direction": 8, "position": {"x": 444, "y": 201}},
       {"name": "curved-rail-a", "direction": 14, "position": {"x": 417, "y": 220}},
       {"name": "curved-rail-a", "direction": 4, "position": {"x": 421, "y": 220}},
-      {"name": "curved-rail-a", "direction": 2, "position": {"x": 428, "y": 219}},
-      {"name": "curved-rail-a", "direction": 12, "position": {"x": 439, "y": 208}},
-      {"name": "curved-rail-a", "direction": 6, "position": {"x": 445, "y": 208}},
       {"name": "curved-rail-a", "direction": 6, "position": {"x": 421, "y": 224}},
-      {"name": "curved-rail-a", "direction": 8, "position": {"x": 428, "y": 225}},
       {"name": "curved-rail-a", "direction": 14, "position": {"x": 439, "y": 236}},
       {"name": "curved-rail-a", "direction": 4, "position": {"x": 445, "y": 236}},
       {"name": "curved-rail-a", "position": {"x": 456, "y": 219}},
@@ -15752,27 +17091,21 @@
       {"name": "curved-rail-b", "direction": 12, "position": {"x": -6, "y": -10}},
       {"name": "curved-rail-b", "direction": 2, "position": {"x": -10, "y": -6}},
       {"name": "curved-rail-b", "direction": 6, "position": {"x": 10, "y": -10}},
-      {"name": "curved-rail-b", "position": {"x": 14, "y": -6}},
       {"name": "curved-rail-b", "direction": 14, "position": {"x": 18, "y": -2}},
       {"name": "curved-rail-b", "direction": 4, "position": {"x": 206, "y": -2}},
       {"name": "curved-rail-b", "direction": 12, "position": {"x": 214, "y": -10}},
       {"name": "curved-rail-b", "direction": 6, "position": {"x": 230, "y": -10}},
       {"name": "curved-rail-b", "direction": 14, "position": {"x": 238, "y": -2}},
-      {"name": "curved-rail-b", "direction": 2, "position": {"x": 430, "y": -6}},
       {"name": "curved-rail-b", "direction": 4, "position": {"x": 426, "y": -2}},
       {"name": "curved-rail-b", "direction": 12, "position": {"x": 434, "y": -10}},
       {"name": "curved-rail-b", "direction": 6, "position": {"x": 450, "y": -10}},
       {"name": "curved-rail-b", "position": {"x": 454, "y": -6}},
       {"name": "curved-rail-b", "direction": 8, "position": {"x": -10, "y": 10}},
-      {"name": "curved-rail-b", "direction": 14, "position": {"x": -6, "y": 14}},
       {"name": "curved-rail-b", "position": {"x": -2, "y": 18}},
       {"name": "curved-rail-b", "direction": 10, "position": {"x": -2, "y": 206}},
       {"name": "curved-rail-b", "direction": 2, "position": {"x": -10, "y": 214}},
-      {"name": "curved-rail-b", "direction": 12, "position": {"x": -6, "y": 210}},
       {"name": "curved-rail-b", "direction": 8, "position": {"x": -10, "y": 230}},
       {"name": "curved-rail-b", "direction": 14, "position": {"x": -6, "y": 234}},
-      {"name": "curved-rail-b", "direction": 10, "position": {"x": 14, "y": 10}},
-      {"name": "curved-rail-b", "direction": 4, "position": {"x": 10, "y": 14}},
       {"name": "curved-rail-b", "direction": 12, "position": {"x": 18, "y": 6}},
       {"name": "curved-rail-b", "direction": 2, "position": {"x": 6, "y": 18}},
       {"name": "curved-rail-b", "direction": 6, "position": {"x": 32, "y": 6}},
@@ -15815,11 +17148,8 @@
       {"name": "curved-rail-b", "direction": 2, "position": {"x": 90, "y": 160}},
       {"name": "curved-rail-b", "direction": 2, "position": {"x": 110, "y": 160}},
       {"name": "curved-rail-b", "direction": 8, "position": {"x": 6, "y": 206}},
-      {"name": "curved-rail-b", "direction": 6, "position": {"x": 10, "y": 210}},
-      {"name": "curved-rail-b", "position": {"x": 14, "y": 214}},
       {"name": "curved-rail-b", "direction": 14, "position": {"x": 18, "y": 218}},
       {"name": "curved-rail-b", "direction": 4, "position": {"x": 62, "y": 214}},
-      {"name": "curved-rail-b", "direction": 10, "position": {"x": 14, "y": 230}},
       {"name": "curved-rail-b", "direction": 4, "position": {"x": 10, "y": 234}},
       {"name": "curved-rail-b", "direction": 12, "position": {"x": 18, "y": 226}},
       {"name": "curved-rail-b", "direction": 10, "position": {"x": 66, "y": 210}},
@@ -15862,14 +17192,11 @@
       {"name": "curved-rail-b", "direction": 12, "position": {"x": 412, "y": 6}},
       {"name": "curved-rail-b", "direction": 4, "position": {"x": 408, "y": 10}},
       {"name": "curved-rail-b", "direction": 6, "position": {"x": 426, "y": 6}},
-      {"name": "curved-rail-b", "direction": 8, "position": {"x": 430, "y": 10}},
-      {"name": "curved-rail-b", "direction": 14, "position": {"x": 434, "y": 14}},
       {"name": "curved-rail-b", "position": {"x": 438, "y": 18}},
       {"name": "curved-rail-b", "direction": 2, "position": {"x": 446, "y": 18}},
       {"name": "curved-rail-b", "direction": 10, "position": {"x": 438, "y": 32}},
       {"name": "curved-rail-b", "direction": 2, "position": {"x": 434, "y": 36}},
       {"name": "curved-rail-b", "direction": 10, "position": {"x": 454, "y": 10}},
-      {"name": "curved-rail-b", "direction": 4, "position": {"x": 450, "y": 14}},
       {"name": "curved-rail-b", "direction": 12, "position": {"x": 256, "y": 156}},
       {"name": "curved-rail-b", "direction": 12, "position": {"x": 276, "y": 156}},
       {"name": "curved-rail-b", "direction": 12, "position": {"x": 296, "y": 156}},
@@ -15915,13 +17242,9 @@
       {"name": "curved-rail-b", "position": {"x": 438, "y": 192}},
       {"name": "curved-rail-b", "direction": 10, "position": {"x": 438, "y": 206}},
       {"name": "curved-rail-b", "direction": 8, "position": {"x": 446, "y": 206}},
-      {"name": "curved-rail-b", "direction": 2, "position": {"x": 430, "y": 214}},
       {"name": "curved-rail-b", "direction": 4, "position": {"x": 426, "y": 218}},
-      {"name": "curved-rail-b", "direction": 12, "position": {"x": 434, "y": 210}},
       {"name": "curved-rail-b", "direction": 6, "position": {"x": 426, "y": 226}},
-      {"name": "curved-rail-b", "direction": 8, "position": {"x": 430, "y": 230}},
       {"name": "curved-rail-b", "direction": 14, "position": {"x": 434, "y": 234}},
-      {"name": "curved-rail-b", "direction": 6, "position": {"x": 450, "y": 210}},
       {"name": "curved-rail-b", "position": {"x": 454, "y": 214}},
       {"name": "curved-rail-b", "direction": 10, "position": {"x": 454, "y": 230}},
       {"name": "curved-rail-b", "direction": 4, "position": {"x": 450, "y": 234}},
@@ -16056,6 +17379,67 @@
           }
         },
         "position": {"x": 25, "y": 124.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "comparator": ">",
+                "constant": -2000000000,
+                "first_signal": {"name": "signal-each", "type": "virtual"}
+              }
+            ],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 137.5, "y": 67}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-5", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-check", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 139.5, "y": 67}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": "≠", "constant": 1, "first_signal": {"name": "signal-check", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-everything", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 137.5, "y": 69}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": "=", "constant": 1, "first_signal": {"name": "signal-check", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-everything", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 139.5, "y": 69}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 138.5, "y": 73}
       },
       {
         "name": "decider-combinator",
@@ -16335,6 +17719,209 @@
           }
         },
         "position": {"x": 185.5, "y": 204}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 4,
+        "player_description": "Each bufferred item, as a flag.",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 299, "y": 14.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 4,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"constant": 3600, "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 302, "y": 13.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 4,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"constant": 3600, "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 302, "y": 14.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 4,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 302, "y": 15.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "comparator": ">",
+                "constant": -2000000000,
+                "first_signal": {"name": "signal-each", "type": "virtual"}
+              }
+            ],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 310.5, "y": 15}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-6", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-check", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 312.5, "y": 15}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "player_description": "Small requests go here, adding back what is in storage for the determination but not the output.",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "first_signal": {"name": "signal-each", "type": "virtual"},
+                "first_signal_networks": {"green": true, "red": false},
+                "second_signal": {"name": "signal-each", "type": "virtual"},
+                "second_signal_networks": {"green": false, "red": true}
+              }
+            ],
+            "outputs": [
+              {
+                "copy_count_from_input": false,
+                "networks": {"green": true, "red": false},
+                "signal": {"name": "signal-each", "type": "virtual"}
+              }
+            ]
+          }
+        },
+        "position": {"x": 299, "y": 18.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "player_description": "Sort large requests, 1 stack or more.",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "comparator": "≥",
+                "first_signal": {"name": "signal-each", "type": "virtual"},
+                "first_signal_networks": {"green": true, "red": false},
+                "second_signal": {"name": "signal-each", "type": "virtual"},
+                "second_signal_networks": {"green": false, "red": true}
+              }
+            ],
+            "outputs": [
+              {
+                "copy_count_from_input": false,
+                "networks": {"green": true, "red": false},
+                "signal": {"name": "signal-each", "type": "virtual"}
+              }
+            ]
+          }
+        },
+        "position": {"x": 299, "y": 19.5}
+      },
+      {
+        "name": "decider-combinator",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"constant": 10, "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 299.5, "y": 28}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "player_description": "Each requested item, as a flag.",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 304, "y": 17.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 4,
+        "player_description": "Add 1 before dividing by M to round-up.",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 304, "y": 18.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "player_description": "Get the negative grid-red values, the total items ready for or in transit.",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 306, "y": 18.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 306, "y": 19.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": "≠", "constant": 1, "first_signal": {"name": "signal-check", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-everything", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 310.5, "y": 17}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": "=", "constant": 1, "first_signal": {"name": "signal-check", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-everything", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 312.5, "y": 17}
       },
       {
         "name": "decider-combinator",
@@ -19660,6 +21247,94 @@
         "position": {"x": 252.5, "y": 102.5}
       },
       {"name": "fast-inserter", "direction": 12, "position": {"x": 254.5, "y": 103.5}},
+      {
+        "name": "fast-inserter",
+        "direction": 4,
+        "use_filters": true,
+        "control_behavior": {
+          "circuit_read_hand_contents": true,
+          "circuit_set_filters": true,
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-I", "type": "virtual"}}
+        },
+        "position": {"x": 270.5, "y": 14.5}
+      },
+      {
+        "name": "fast-inserter",
+        "direction": 12,
+        "use_filters": true,
+        "control_behavior": {
+          "circuit_read_hand_contents": true,
+          "circuit_set_filters": true,
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-I", "type": "virtual"}}
+        },
+        "position": {"x": 275.5, "y": 14.5}
+      },
+      {
+        "name": "fast-inserter",
+        "direction": 4,
+        "use_filters": true,
+        "control_behavior": {
+          "circuit_read_hand_contents": true,
+          "circuit_set_filters": true,
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-I", "type": "virtual"}}
+        },
+        "position": {"x": 277.5, "y": 14.5}
+      },
+      {
+        "name": "fast-inserter",
+        "direction": 12,
+        "use_filters": true,
+        "control_behavior": {
+          "circuit_read_hand_contents": true,
+          "circuit_set_filters": true,
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-I", "type": "virtual"}}
+        },
+        "position": {"x": 282.5, "y": 14.5}
+      },
+      {
+        "name": "fast-inserter",
+        "direction": 4,
+        "use_filters": true,
+        "control_behavior": {
+          "circuit_read_hand_contents": true,
+          "circuit_set_filters": true,
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-I", "type": "virtual"}}
+        },
+        "position": {"x": 284.5, "y": 14.5}
+      },
+      {
+        "name": "fast-inserter",
+        "direction": 12,
+        "use_filters": true,
+        "control_behavior": {
+          "circuit_read_hand_contents": true,
+          "circuit_set_filters": true,
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-I", "type": "virtual"}}
+        },
+        "position": {"x": 289.5, "y": 14.5}
+      },
+      {
+        "name": "fast-inserter",
+        "direction": 4,
+        "use_filters": true,
+        "control_behavior": {
+          "circuit_read_hand_contents": true,
+          "circuit_set_filters": true,
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-I", "type": "virtual"}}
+        },
+        "position": {"x": 291.5, "y": 14.5}
+      },
+      {
+        "name": "fast-inserter",
+        "direction": 12,
+        "use_filters": true,
+        "control_behavior": {
+          "circuit_read_hand_contents": true,
+          "circuit_set_filters": true,
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-I", "type": "virtual"}}
+        },
+        "position": {"x": 296.5, "y": 14.5}
+      },
       {"name": "fast-inserter", "direction": 4, "position": {"x": 258.5, "y": 55.5}},
       {"name": "fast-inserter", "direction": 12, "position": {"x": 260.5, "y": 55.5}},
       {"name": "fast-inserter", "direction": 4, "position": {"x": 264.5, "y": 55.5}},
@@ -19690,8 +21365,24 @@
       },
       {"name": "fast-inserter", "direction": 12, "position": {"x": 272.5, "y": 55.5}},
       {"name": "fast-inserter", "direction": 4, "position": {"x": 276.5, "y": 55.5}},
-      {"name": "fast-inserter", "direction": 12, "position": {"x": 278.5, "y": 55.5}},
-      {"name": "fast-inserter", "direction": 4, "position": {"x": 282.5, "y": 55.5}},
+      {
+        "name": "fast-inserter",
+        "direction": 12,
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "rocket-silo"}}
+        },
+        "position": {"x": 278.5, "y": 55.5}
+      },
+      {
+        "name": "fast-inserter",
+        "direction": 4,
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "rocket-silo"}}
+        },
+        "position": {"x": 282.5, "y": 55.5}
+      },
       {"name": "fast-inserter", "direction": 12, "position": {"x": 284.5, "y": 55.5}},
       {"name": "fast-inserter", "direction": 8, "position": {"x": 273.5, "y": 58.5}},
       {"name": "fast-inserter", "direction": 8, "position": {"x": 274.5, "y": 58.5}},
@@ -19719,7 +21410,15 @@
       },
       {"name": "fast-inserter", "direction": 12, "position": {"x": 278.5, "y": 62.5}},
       {"name": "fast-inserter", "direction": 12, "position": {"x": 278.5, "y": 63.5}},
-      {"name": "fast-inserter", "direction": 4, "position": {"x": 282.5, "y": 56.5}},
+      {
+        "name": "fast-inserter",
+        "direction": 4,
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "rocket-silo"}}
+        },
+        "position": {"x": 282.5, "y": 56.5}
+      },
       {
         "name": "fast-inserter",
         "direction": 12,
@@ -31913,6 +33612,14 @@
       {"name": "half-diagonal-rail", "direction": 2, "position": {"x": 6, "y": 192}},
       {"name": "half-diagonal-rail", "direction": 4, "position": {"x": 32, "y": 218}},
       {"name": "half-diagonal-rail", "direction": 6, "position": {"x": 412, "y": 218}},
+      {"name": "inserter", "direction": 4, "position": {"x": 147.5, "y": 14.5}},
+      {"name": "inserter", "direction": 12, "position": {"x": 150.5, "y": 14.5}},
+      {"name": "inserter", "direction": 4, "position": {"x": 154.5, "y": 14.5}},
+      {"name": "inserter", "direction": 12, "position": {"x": 157.5, "y": 14.5}},
+      {"name": "inserter", "direction": 4, "position": {"x": 161.5, "y": 14.5}},
+      {"name": "inserter", "direction": 12, "position": {"x": 164.5, "y": 14.5}},
+      {"name": "inserter", "direction": 4, "position": {"x": 168.5, "y": 14.5}},
+      {"name": "inserter", "direction": 12, "position": {"x": 171.5, "y": 14.5}},
       {
         "name": "inserter",
         "direction": 8,
@@ -32331,6 +34038,24 @@
       {"name": "iron-chest", "position": {"x": 434.5, "y": 140.5}},
       {"name": "iron-chest", "position": {"x": 434.5, "y": 141.5}},
       {"name": "iron-chest", "position": {"x": 434.5, "y": 142.5}},
+      {
+        "name": "locomotive",
+        "copy_color_from_train_stop": false,
+        "enable_logistics_while_moving": false,
+        "orientation": 0.25,
+        "color": {"a": 1, "b": 0.007843137718737125, "g": 0.8235294222831726, "r": 0.9333333373069763},
+        "items": [{"id": {"name": "coal"}, "items": {"in_inventory": [{"count": 10, "inventory": 1, "stack": 0}]}}],
+        "position": {"x": 265.90625, "y": 12}
+      },
+      {
+        "name": "locomotive",
+        "copy_color_from_train_stop": false,
+        "enable_logistics_while_moving": false,
+        "orientation": 0.25,
+        "color": {"a": 1, "b": 0.007843137718737125, "g": 0.8235294222831726, "r": 0.9333333373069763},
+        "items": [{"id": {"name": "coal"}, "items": {"in_inventory": [{"count": 10, "inventory": 1, "stack": 0}]}}],
+        "position": {"x": 300.90625, "y": 12}
+      },
       {"name": "long-handed-inserter", "direction": 8, "position": {"x": 132.5, "y": 67.5}},
       {"name": "long-handed-inserter", "direction": 8, "position": {"x": 133.5, "y": 67.5}},
       {"name": "long-handed-inserter", "position": {"x": 349.5, "y": 53.5}},
@@ -32394,6 +34119,11 @@
       {"name": "medium-electric-pole", "position": {"x": 42.5, "y": 106.5}},
       {"name": "medium-electric-pole", "position": {"x": 42.5, "y": 109.5}},
       {"name": "medium-electric-pole", "position": {"x": 35.5, "y": 126.5}},
+      {"name": "medium-electric-pole", "position": {"x": 145.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 152.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 159.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 166.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 173.5, "y": 13.5}},
       {"name": "medium-electric-pole", "position": {"x": 167.5, "y": 57.5}},
       {"name": "medium-electric-pole", "position": {"x": 167.5, "y": 63.5}},
       {"name": "medium-electric-pole", "position": {"x": 174.5, "y": 57.5}},
@@ -32419,6 +34149,8 @@
       {"name": "medium-electric-pole", "position": {"x": 248.5, "y": 58.5}},
       {"name": "medium-electric-pole", "position": {"x": 254.5, "y": 58.5}},
       {"name": "medium-electric-pole", "position": {"x": 134.5, "y": 67.5}},
+      {"name": "medium-electric-pole", "position": {"x": 138.5, "y": 66.5}},
+      {"name": "medium-electric-pole", "position": {"x": 138.5, "y": 69.5}},
       {"name": "medium-electric-pole", "position": {"x": 141.5, "y": 79.5}},
       {"name": "medium-electric-pole", "position": {"x": 149.5, "y": 79.5}},
       {"name": "medium-electric-pole", "position": {"x": 167.5, "y": 69.5}},
@@ -32606,6 +34338,20 @@
       {"name": "medium-electric-pole", "position": {"x": 186.5, "y": 195.5}},
       {"name": "medium-electric-pole", "position": {"x": 189.5, "y": 195.5}},
       {"name": "medium-electric-pole", "position": {"x": 184.5, "y": 200.5}},
+      {"name": "medium-electric-pole", "position": {"x": 269.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 276.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 283.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 276.5, "y": 29.5}},
+      {"name": "medium-electric-pole", "position": {"x": 283.5, "y": 29.5}},
+      {"name": "medium-electric-pole", "position": {"x": 290.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 297.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 304.5, "y": 15.5}},
+      {"name": "medium-electric-pole", "position": {"x": 311.5, "y": 14.5}},
+      {"name": "medium-electric-pole", "position": {"x": 297.5, "y": 20.5}},
+      {"name": "medium-electric-pole", "position": {"x": 303.5, "y": 20.5}},
+      {"name": "medium-electric-pole", "position": {"x": 290.5, "y": 29.5}},
+      {"name": "medium-electric-pole", "position": {"x": 297.5, "y": 29.5}},
+      {"name": "medium-electric-pole", "position": {"x": 311.5, "y": 17.5}},
       {"name": "medium-electric-pole", "position": {"x": 260.5, "y": 58.5}},
       {"name": "medium-electric-pole", "position": {"x": 266.5, "y": 58.5}},
       {"name": "medium-electric-pole", "position": {"x": 272.5, "y": 58.5}},
@@ -32894,6 +34640,14 @@
         "control_behavior": {"circuit_condition_enabled": false},
         "position": {"x": 125.5, "y": 43.5}
       },
+      {"name": "passive-provider-chest", "position": {"x": 148.5, "y": 16.5}},
+      {"name": "passive-provider-chest", "position": {"x": 149.5, "y": 16.5}},
+      {"name": "passive-provider-chest", "position": {"x": 155.5, "y": 16.5}},
+      {"name": "passive-provider-chest", "position": {"x": 156.5, "y": 16.5}},
+      {"name": "passive-provider-chest", "position": {"x": 162.5, "y": 16.5}},
+      {"name": "passive-provider-chest", "position": {"x": 163.5, "y": 16.5}},
+      {"name": "passive-provider-chest", "position": {"x": 169.5, "y": 16.5}},
+      {"name": "passive-provider-chest", "position": {"x": 170.5, "y": 16.5}},
       {"name": "passive-provider-chest", "bar": 2, "position": {"x": 143.5, "y": 99.5}},
       {
         "name": "passive-provider-chest",
@@ -33451,8 +35205,6 @@
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 253.5, "y": 168.5}},
       {"name": "pipe-to-ground", "direction": 12, "position": {"x": 245.5, "y": 177.5}},
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 253.5, "y": 177.5}},
-      {"name": "pipe-to-ground", "direction": 4, "position": {"x": 296.5, "y": 21.5}},
-      {"name": "pipe-to-ground", "direction": 12, "position": {"x": 297.5, "y": 21.5}},
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 263.5, "y": 46.5}},
       {"name": "pipe-to-ground", "direction": 12, "position": {"x": 264.5, "y": 46.5}},
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 274.5, "y": 46.5}},
@@ -33975,9 +35727,7 @@
       {"name": "rail-chain-signal", "position": {"x": -13.5, "y": 221.5}},
       {"name": "rail-chain-signal", "direction": 14, "position": {"x": -9.5, "y": 232.5}},
       {"name": "rail-chain-signal", "direction": 10, "position": {"x": 12.5, "y": 13.5}},
-      {"name": "rail-chain-signal", "direction": 8, "position": {"x": 17.5, "y": 2.5}},
       {"name": "rail-chain-signal", "direction": 11, "position": {"x": 19.5, "y": 6.5}},
-      {"name": "rail-chain-signal", "direction": 12, "position": {"x": 1.5, "y": 17.5}},
       {"name": "rail-chain-signal", "direction": 9, "position": {"x": 6.5, "y": 19.5}},
       {"name": "rail-chain-signal", "direction": 7, "position": {"x": 6.5, "y": 30.5}},
       {"name": "rail-chain-signal", "direction": 8, "position": {"x": 57.5, "y": 94.5}},
@@ -33993,11 +35743,9 @@
       {"name": "rail-chain-signal", "direction": 10, "position": {"x": 53.5, "y": 154.5}},
       {"name": "rail-chain-signal", "direction": 4, "position": {"x": 94.5, "y": 152.5}},
       {"name": "rail-chain-signal", "direction": 4, "position": {"x": 114.5, "y": 152.5}},
-      {"name": "rail-chain-signal", "direction": 4, "position": {"x": 2.5, "y": 206.5}},
       {"name": "rail-chain-signal", "direction": 7, "position": {"x": 6.5, "y": 204.5}},
       {"name": "rail-chain-signal", "direction": 6, "position": {"x": 13.5, "y": 211.5}},
       {"name": "rail-chain-signal", "direction": 5, "position": {"x": 19.5, "y": 217.5}},
-      {"name": "rail-chain-signal", "direction": 8, "position": {"x": 17.5, "y": 222.5}},
       {"name": "rail-chain-signal", "direction": 3, "position": {"x": 30.5, "y": 217.5}},
       {"name": "rail-chain-signal", "direction": 12, "position": {"x": 1.5, "y": 237.5}},
       {"name": "rail-chain-signal", "direction": 10, "position": {"x": 12.5, "y": 233.5}},
@@ -34017,11 +35765,9 @@
       {"name": "rail-chain-signal", "direction": 11, "position": {"x": 239.5, "y": 226.5}},
       {"name": "rail-chain-signal", "direction": 10, "position": {"x": 232.5, "y": 233.5}},
       {"name": "rail-chain-signal", "direction": 11, "position": {"x": 413.5, "y": 6.5}},
-      {"name": "rail-chain-signal", "position": {"x": 426.5, "y": 1.5}},
       {"name": "rail-chain-signal", "direction": 13, "position": {"x": 424.5, "y": 6.5}},
       {"name": "rail-chain-signal", "direction": 14, "position": {"x": 430.5, "y": 12.5}},
       {"name": "rail-chain-signal", "direction": 15, "position": {"x": 437.5, "y": 19.5}},
-      {"name": "rail-chain-signal", "direction": 12, "position": {"x": 441.5, "y": 17.5}},
       {"name": "rail-chain-signal", "direction": 9, "position": {"x": 446.5, "y": 19.5}},
       {"name": "rail-chain-signal", "direction": 8, "position": {"x": 457.5, "y": 2.5}},
       {"name": "rail-chain-signal", "direction": 10, "position": {"x": 452.5, "y": 13.5}},
@@ -34037,11 +35783,9 @@
       {"name": "rail-chain-signal", "direction": 6, "position": {"x": 378.5, "y": 156.5}},
       {"name": "rail-chain-signal", "direction": 15, "position": {"x": 437.5, "y": 193.5}},
       {"name": "rail-chain-signal", "direction": 1, "position": {"x": 437.5, "y": 204.5}},
-      {"name": "rail-chain-signal", "direction": 4, "position": {"x": 442.5, "y": 206.5}},
       {"name": "rail-chain-signal", "direction": 7, "position": {"x": 446.5, "y": 204.5}},
       {"name": "rail-chain-signal", "direction": 2, "position": {"x": 431.5, "y": 210.5}},
       {"name": "rail-chain-signal", "direction": 3, "position": {"x": 424.5, "y": 217.5}},
-      {"name": "rail-chain-signal", "position": {"x": 426.5, "y": 221.5}},
       {"name": "rail-chain-signal", "direction": 13, "position": {"x": 424.5, "y": 226.5}},
       {"name": "rail-chain-signal", "direction": 14, "position": {"x": 430.5, "y": 232.5}},
       {"name": "rail-chain-signal", "direction": 12, "position": {"x": 441.5, "y": 237.5}},
@@ -34190,6 +35934,54 @@
       },
       {
         "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 271.5, "y": 16.5},
+        "request_filters": {"request_from_buffers": true, "sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 274.5, "y": 16.5},
+        "request_filters": {"request_from_buffers": true, "sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 278.5, "y": 16.5},
+        "request_filters": {"request_from_buffers": true, "sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 281.5, "y": 16.5},
+        "request_filters": {"request_from_buffers": true, "sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 285.5, "y": 16.5},
+        "request_filters": {"request_from_buffers": true, "sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 288.5, "y": 16.5},
+        "request_filters": {"request_from_buffers": true, "sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 292.5, "y": 16.5},
+        "request_filters": {"request_from_buffers": true, "sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 295.5, "y": 16.5},
+        "request_filters": {"request_from_buffers": true, "sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
         "position": {"x": 275.5, "y": 59.5},
         "request_filters": {
           "sections": [
@@ -34306,7 +36098,17 @@
       },
       {
         "name": "roboport",
+        "position": {"x": 110, "y": 47},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "roboport",
         "position": {"x": 112, "y": 113},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "roboport",
+        "position": {"x": 160, "y": 24},
         "request_filters": {"sections": [{"index": 1}]}
       },
       {
@@ -34362,6 +36164,26 @@
       {
         "name": "roboport",
         "position": {"x": 212, "y": 163},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "roboport",
+        "position": {"x": 273, "y": 29},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "roboport",
+        "position": {"x": 280, "y": 29},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "roboport",
+        "position": {"x": 287, "y": 29},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "roboport",
+        "position": {"x": 294, "y": 29},
         "request_filters": {"sections": [{"index": 1}]}
       },
       {
@@ -34495,6 +36317,12 @@
         "direction": 4,
         "control_behavior": {"operation": "stack-size"},
         "position": {"x": 186, "y": 199.5}
+      },
+      {
+        "name": "selector-combinator",
+        "direction": 12,
+        "control_behavior": {"operation": "stack-size"},
+        "position": {"x": 301, "y": 19.5}
       },
       {
         "name": "selector-combinator",
@@ -34755,6 +36583,14 @@
       {"name": "steam-engine", "position": {"x": 310.5, "y": 128.5}},
       {"name": "steam-engine", "position": {"x": 313.5, "y": 128.5}},
       {"name": "steam-engine", "position": {"x": 316.5, "y": 128.5}},
+      {"name": "steel-chest", "position": {"x": 148.5, "y": 14.5}},
+      {"name": "steel-chest", "position": {"x": 149.5, "y": 14.5}},
+      {"name": "steel-chest", "position": {"x": 155.5, "y": 14.5}},
+      {"name": "steel-chest", "position": {"x": 156.5, "y": 14.5}},
+      {"name": "steel-chest", "position": {"x": 162.5, "y": 14.5}},
+      {"name": "steel-chest", "position": {"x": 163.5, "y": 14.5}},
+      {"name": "steel-chest", "position": {"x": 169.5, "y": 14.5}},
+      {"name": "steel-chest", "position": {"x": 170.5, "y": 14.5}},
       {"name": "steel-chest", "position": {"x": 155.5, "y": 46.5}},
       {"name": "steel-chest", "bar": 1, "position": {"x": 199.5, "y": 69.5}},
       {"name": "steel-chest", "bar": 1, "position": {"x": 202.5, "y": 71.5}},
@@ -34763,6 +36599,14 @@
       {"name": "steel-chest", "bar": 1, "position": {"x": 202.5, "y": 94.5}},
       {"name": "steel-chest", "bar": 1, "position": {"x": 238.5, "y": 71.5}},
       {"name": "steel-chest", "bar": 1, "position": {"x": 202.5, "y": 100.5}},
+      {"name": "steel-chest", "position": {"x": 271.5, "y": 14.5}},
+      {"name": "steel-chest", "position": {"x": 274.5, "y": 14.5}},
+      {"name": "steel-chest", "position": {"x": 278.5, "y": 14.5}},
+      {"name": "steel-chest", "position": {"x": 281.5, "y": 14.5}},
+      {"name": "steel-chest", "position": {"x": 285.5, "y": 14.5}},
+      {"name": "steel-chest", "position": {"x": 288.5, "y": 14.5}},
+      {"name": "steel-chest", "position": {"x": 292.5, "y": 14.5}},
+      {"name": "steel-chest", "position": {"x": 295.5, "y": 14.5}},
       {"name": "steel-chest", "bar": 3, "position": {"x": 325.5, "y": 57.5}},
       {"name": "steel-chest", "position": {"x": 281.5, "y": 99.5}},
       {"name": "steel-chest", "position": {"x": 357.5, "y": 100.5}},
@@ -36132,6 +37976,11 @@
       },
       {
         "name": "storage-chest",
+        "position": {"x": 244.5, "y": 71.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "storage-chest",
         "control_behavior": {"circuit_condition_enabled": false},
         "position": {"x": 253.5, "y": 69.5},
         "request_filters": {
@@ -36495,6 +38344,46 @@
             }
           ]
         }
+      },
+      {
+        "name": "storage-chest",
+        "position": {"x": 271.5, "y": 26.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "storage-chest",
+        "position": {"x": 272.5, "y": 26.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "storage-chest",
+        "position": {"x": 273.5, "y": 26.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "storage-chest",
+        "position": {"x": 274.5, "y": 26.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "storage-chest",
+        "position": {"x": 292.5, "y": 26.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "storage-chest",
+        "position": {"x": 293.5, "y": 26.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "storage-chest",
+        "position": {"x": 294.5, "y": 26.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "storage-chest",
+        "position": {"x": 295.5, "y": 26.5},
+        "request_filters": {"sections": [{"index": 1}]}
       },
       {
         "name": "storage-chest",
@@ -37841,14 +39730,12 @@
       {"name": "straight-rail", "direction": 2, "position": {"x": 13, "y": 11}},
       {"name": "straight-rail", "direction": 2, "position": {"x": 11, "y": 13}},
       {"name": "straight-rail", "direction": 2, "position": {"x": 9, "y": 15}},
-      {"name": "straight-rail", "position": {"x": 16, "y": 2}},
       {"name": "straight-rail", "direction": 4, "position": {"x": 26, "y": 0}},
       {"name": "straight-rail", "direction": 4, "position": {"x": 28, "y": 0}},
       {"name": "straight-rail", "direction": 4, "position": {"x": 30, "y": 0}},
       {"name": "straight-rail", "direction": 4, "position": {"x": 26, "y": 4}},
       {"name": "straight-rail", "direction": 4, "position": {"x": 28, "y": 4}},
       {"name": "straight-rail", "direction": 4, "position": {"x": 30, "y": 4}},
-      {"name": "straight-rail", "direction": 4, "position": {"x": 2, "y": 16}},
       {"name": "straight-rail", "position": {"x": 0, "y": 26}},
       {"name": "straight-rail", "position": {"x": 4, "y": 26}},
       {"name": "straight-rail", "position": {"x": 0, "y": 28}},
@@ -38479,12 +40366,10 @@
       {"name": "straight-rail", "position": {"x": 0, "y": 198}},
       {"name": "straight-rail", "position": {"x": 4, "y": 196}},
       {"name": "straight-rail", "position": {"x": 4, "y": 198}},
-      {"name": "straight-rail", "direction": 4, "position": {"x": 2, "y": 208}},
       {"name": "straight-rail", "direction": 6, "position": {"x": 9, "y": 209}},
       {"name": "straight-rail", "direction": 6, "position": {"x": 11, "y": 211}},
       {"name": "straight-rail", "direction": 6, "position": {"x": 13, "y": 213}},
       {"name": "straight-rail", "direction": 6, "position": {"x": 15, "y": 215}},
-      {"name": "straight-rail", "position": {"x": 16, "y": 222}},
       {"name": "straight-rail", "direction": 4, "position": {"x": 26, "y": 220}},
       {"name": "straight-rail", "direction": 4, "position": {"x": 28, "y": 220}},
       {"name": "straight-rail", "direction": 4, "position": {"x": 30, "y": 220}},
@@ -39177,12 +41062,10 @@
       {"name": "straight-rail", "direction": 4, "position": {"x": 418, "y": 0}},
       {"name": "straight-rail", "direction": 4, "position": {"x": 416, "y": 4}},
       {"name": "straight-rail", "direction": 4, "position": {"x": 418, "y": 4}},
-      {"name": "straight-rail", "position": {"x": 428, "y": 2}},
       {"name": "straight-rail", "direction": 6, "position": {"x": 429, "y": 9}},
       {"name": "straight-rail", "direction": 6, "position": {"x": 431, "y": 11}},
       {"name": "straight-rail", "direction": 6, "position": {"x": 433, "y": 13}},
       {"name": "straight-rail", "direction": 6, "position": {"x": 435, "y": 15}},
-      {"name": "straight-rail", "direction": 4, "position": {"x": 442, "y": 16}},
       {"name": "straight-rail", "position": {"x": 440, "y": 26}},
       {"name": "straight-rail", "position": {"x": 444, "y": 26}},
       {"name": "straight-rail", "position": {"x": 440, "y": 28}},
@@ -39860,10 +41743,8 @@
       {"name": "straight-rail", "direction": 2, "position": {"x": 429, "y": 215}},
       {"name": "straight-rail", "direction": 4, "position": {"x": 416, "y": 220}},
       {"name": "straight-rail", "direction": 4, "position": {"x": 418, "y": 220}},
-      {"name": "straight-rail", "position": {"x": 428, "y": 222}},
       {"name": "straight-rail", "direction": 2, "position": {"x": 435, "y": 209}},
       {"name": "straight-rail", "direction": 2, "position": {"x": 433, "y": 211}},
-      {"name": "straight-rail", "direction": 4, "position": {"x": 442, "y": 208}},
       {"name": "straight-rail", "direction": 4, "position": {"x": 384, "y": 224}},
       {"name": "straight-rail", "direction": 4, "position": {"x": 386, "y": 224}},
       {"name": "straight-rail", "direction": 4, "position": {"x": 388, "y": 224}},
@@ -39961,6 +41842,25 @@
           "trains_limit_signal": {"name": "signal-L", "type": "virtual"}
         },
         "position": {"x": 22, "y": 126}
+      },
+      {
+        "name": "train-stop",
+        "direction": 4,
+        "manual_trains_limit": 1,
+        "priority": 10,
+        "station": "Red Mall Recycling",
+        "color": {"a": 1, "b": 0.007843137718737125, "g": 0.8235294222831726, "r": 0.9333333373069763},
+        "control_behavior": {
+          "circuit_enabled": true,
+          "read_from_train": true,
+          "circuit_condition": {
+            "comparator": ">",
+            "first_signal": {"name": "signal-red", "type": "virtual"},
+            "second_signal": {"name": "signal-T", "type": "virtual"}
+          },
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+        },
+        "position": {"x": 180, "y": 14}
       },
       {
         "name": "train-stop",
@@ -40081,6 +41981,24 @@
           "trains_limit_signal": {"name": "signal-L", "type": "virtual"}
         },
         "position": {"x": 186, "y": 202}
+      },
+      {
+        "name": "train-stop",
+        "direction": 4,
+        "manual_trains_limit": 1,
+        "priority": 10,
+        "station": "Red Mall Supply",
+        "color": {"a": 1, "b": 0.007843137718737125, "g": 0.8235294222831726, "r": 0.9333333373069763},
+        "control_behavior": {
+          "read_from_train": true,
+          "circuit_condition": {
+            "comparator": ">",
+            "first_signal": {"name": "signal-red", "type": "virtual"},
+            "second_signal": {"name": "signal-T", "type": "virtual"}
+          },
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+        },
+        "position": {"x": 304, "y": 14}
       },
       {
         "name": "train-stop",
@@ -42159,7 +44077,91 @@
       {"index": 1, "signal": {"name": "signal-M", "type": "virtual"}},
       {"index": 2, "signal": {"name": "fast-transport-belt"}}
     ],
+    "schedules": [
+      {
+        "locomotives": ["279.375,25.5", "314.375,25.5"],
+        "schedule": {
+          "group": "SBF:NauvisConstruction",
+          "interrupts": [
+            {
+              "name": "BT:Refuel",
+              "inside_interrupt": true,
+              "conditions": [
+                {
+                  "compare_type": "and",
+                  "type": "fuel_item_count_any",
+                  "condition": {"comparator": "<", "constant": 50, "first_signal": {"name": "coal"}}
+                },
+                {
+                  "compare_type": "and",
+                  "type": "fuel_item_count_any",
+                  "condition": {"comparator": "<", "constant": 50, "first_signal": {"name": "solid-fuel"}}
+                },
+                {
+                  "compare_type": "and",
+                  "type": "fuel_item_count_any",
+                  "condition": {"comparator": "<", "constant": 10, "first_signal": {"name": "rocket-fuel"}}
+                },
+                {
+                  "compare_type": "and",
+                  "type": "fuel_item_count_any",
+                  "condition": {"comparator": "<", "constant": 1, "first_signal": {"name": "nuclear-fuel"}}
+                }
+              ],
+              "targets": [
+                {
+                  "station": "BT Fuel",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "fuel_full"},
+                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                    {"compare_type": "or", "ticks": 1800, "type": "time"}
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BT:FuelIdle",
+              "inside_interrupt": false,
+              "conditions": [
+                {"compare_type": "and", "station": "BT Fuel", "type": "at_station"},
+                {"compare_type": "and", "type": "destination_full_or_no_path"}
+              ],
+              "targets": [{"station": "BT Depot"}]
+            }
+          ],
+          "records": [
+            {
+              "station": "Red Mall Recycling",
+              "wait_conditions": [
+                {"compare_type": "and", "type": "empty"},
+                {"compare_type": "or", "ticks": 60, "type": "inactivity"}
+              ]
+            },
+            {
+              "station": "Red Mall Supply",
+              "wait_conditions": [
+                {"compare_type": "and", "type": "not_empty"},
+                {"compare_type": "and", "ticks": 120, "type": "inactivity"},
+                {"compare_type": "or", "ticks": 18000, "type": "time"}
+              ]
+            },
+            {
+              "station": "Add Your Construction Site Like This",
+              "wait_conditions": [{"compare_type": "and", "ticks": 60, "type": "inactivity"}]
+            }
+          ]
+        }
+      }
+    ],
     "snap-to-grid": {"x": 110, "y": 110},
+    "stock_connections": [
+      {"front": "286.375,25.5", "stock": "279.375,25.5"},
+      {"back": "279.375,25.5", "front": "293.375,25.5", "stock": "286.375,25.5"},
+      {"back": "286.375,25.5", "front": "300.375,25.5", "stock": "293.375,25.5"},
+      {"back": "293.375,25.5", "front": "307.375,25.5", "stock": "300.375,25.5"},
+      {"back": "300.375,25.5", "front": "314.375,25.5", "stock": "307.375,25.5"},
+      {"back": "307.375,25.5", "stock": "314.375,25.5"}
+    ],
     "tiles": [
       {"name": "stone-path", "position": {"x": 219, "y": 88}},
       {"name": "stone-path", "position": {"x": 220, "y": 88}},
@@ -46309,8 +48311,11 @@
       ["147.5,15.5", 2, "169.5,15.5", 2],
       ["147.5,15.5", 5, "169.5,15.5", 5],
       ["169.5,15.5", 1, "191.5,15.5", 1],
+      ["169.5,15.5", 1, "173.5,34.5", 1],
       ["169.5,15.5", 2, "191.5,15.5", 2],
+      ["169.5,15.5", 2, "173.5,34.5", 2],
       ["169.5,15.5", 5, "191.5,15.5", 5],
+      ["169.5,15.5", 5, "173.5,34.5", 5],
       ["191.5,15.5", 1, "211.5,15.5", 1],
       ["191.5,15.5", 2, "211.5,15.5", 2],
       ["191.5,15.5", 5, "211.5,15.5", 5],
@@ -46326,12 +48331,16 @@
       ["279.5,15.5", 1, "301.5,15.5", 1],
       ["279.5,15.5", 2, "301.5,15.5", 2],
       ["279.5,15.5", 5, "301.5,15.5", 5],
+      ["279.5,15.5", 5, "281.5,43.5", 5],
       ["301.5,15.5", 1, "323.5,15.5", 1],
       ["301.5,15.5", 2, "323.5,15.5", 2],
       ["301.5,15.5", 5, "323.5,15.5", 5],
       ["323.5,15.5", 1, "345.5,15.5", 1],
+      ["323.5,15.5", 1, "319.5,29.5", 1],
       ["323.5,15.5", 2, "345.5,15.5", 2],
+      ["323.5,15.5", 2, "319.5,29.5", 2],
       ["323.5,15.5", 5, "345.5,15.5", 5],
+      ["323.5,15.5", 5, "319.5,29.5", 5],
       ["345.5,15.5", 1, "367.5,15.5", 1],
       ["345.5,15.5", 2, "367.5,15.5", 2],
       ["345.5,15.5", 5, "367.5,15.5", 5],
@@ -46352,16 +48361,153 @@
       ["455.5,15.5", 1, "455.5,39.5", 1],
       ["455.5,15.5", 2, "455.5,39.5", 2],
       ["455.5,15.5", 5, "455.5,39.5", 5],
+      ["159,27", 5, "166,27", 5],
+      ["162,27", 1, "163,27", 1],
+      ["163,27", 1, "166,27", 1],
+      ["166,27", 1, "169,27", 1],
+      ["166,27", 5, "173,27", 5],
+      ["169,27", 1, "170,27", 1],
+      ["170,27", 1, "173,27", 1],
+      ["173,27", 1, "176,27", 1],
+      ["173,27", 1, "173.5,34.5", 1],
+      ["173,27", 5, "180,27", 5],
+      ["173,27", 5, "173.5,34.5", 5],
+      ["176,27", 1, "177,27", 1],
+      ["177,27", 1, "180,27", 1],
+      ["180,27", 1, "183,27", 1],
+      ["180,27", 5, "187,27", 5],
+      ["183,27", 1, "184,27", 1],
+      ["283,27", 5, "290,27", 5],
+      ["284,28", 1, "289,28", 1],
+      ["284,28", 2, "289,28", 2],
+      ["285,28", 2, "288,28", 2],
+      ["288,28", 2, "292,28", 2],
+      ["290,27", 5, "297,27", 5],
+      ["289,28", 1, "291,28", 1],
+      ["289,28", 2, "291,28", 2],
+      ["292,28", 2, "295,28", 2],
+      ["291,28", 1, "296,28", 1],
+      ["291,28", 2, "296,28", 2],
+      ["295,28", 2, "299,28", 2],
+      ["296,28", 1, "298,28", 1],
+      ["296,28", 2, "298,28", 2],
+      ["297,27", 5, "304,27", 5],
+      ["298,28", 1, "303,28", 1],
+      ["298,28", 2, "303,28", 2],
+      ["299,28", 2, "302,28", 2],
+      ["302,28", 2, "306,28", 2],
+      ["304,27", 5, "311,27", 5],
+      ["303,28", 1, "305,28", 1],
+      ["303,28", 2, "305,28", 2],
+      ["306,27", 1, "309,28", 1],
+      ["306,28", 2, "309,28", 2],
+      ["305,28", 1, "310,28", 1],
+      ["305,28", 2, "310,28", 2],
+      ["309,28", 2, "312.5,28", 2],
+      ["310,28", 1, "312.5,27", 3],
+      ["310,28", 2, "312.5,29", 2],
+      ["311,27", 5, "318,29", 5],
+      ["311,27", 5, "311,34", 5],
+      ["312.5,27", 1, "312.5,28", 3],
+      ["312.5,27", 2, "315.5,28", 2],
+      ["312.5,28", 2, "317.5,27.5", 2],
+      ["312.5,28", 2, "314.5,32", 2],
+      ["312.5,28", 3, "315.5,29", 1],
+      ["315.5,27", 2, "315.5,28", 2],
+      ["315.5,27", 4, "315.5,28", 4],
+      ["315.5,28", 2, "315.5,28", 4],
+      ["315.5,28", 4, "315.5,29", 4],
+      ["319,27", 1, "319.5,29.5", 1],
+      ["325,27", 1, "324,28.5", 1],
+      ["325,28", 1, "319.5,29.5", 1],
+      ["325,28", 1, "325,31", 1],
+      ["325,28", 2, "319.5,29.5", 2],
+      ["325,28", 2, "324,28.5", 2],
+      ["325,28", 2, "326,28.5", 2],
+      ["325,28", 5, "319.5,29.5", 5],
+      ["325,28", 5, "325,31", 5],
+      ["285,29", 2, "288,29", 2],
+      ["285,30", 1, "288,30", 1],
+      ["288,29", 2, "292,29", 2],
+      ["288,30", 1, "292,30", 1],
+      ["292,29", 2, "295,29", 2],
+      ["292,30", 1, "295,30", 1],
+      ["295,29", 2, "299,29", 2],
+      ["295,30", 1, "299,30", 1],
+      ["299,29", 2, "302,29", 2],
+      ["299,30", 1, "302,30", 1],
+      ["302,29", 2, "306,29", 2],
+      ["302,30", 1, "306,30", 1],
+      ["306,29", 2, "309,29", 2],
+      ["306,30", 1, "308.5,33", 3],
+      ["309,29", 2, "312.5,30", 2],
+      ["309,30", 1, "310.5,32", 3],
+      ["312.5,29", 3, "312.5,30", 3],
+      ["312.5,30", 3, "319.5,29.5", 1],
+      ["315.5,29", 1, "315.5,30", 3],
+      ["315.5,29", 2, "315.5,30", 2],
+      ["315.5,30", 2, "317.5,31", 4],
+      ["318,29", 5, "319.5,29.5", 5],
+      ["318,29", 5, "317,34", 5],
+      ["319.5,29.5", 1, "319.5,32", 1],
+      ["324,28.5", 4, "325,29.5", 2],
+      ["325,29.5", 1, "326,28.5", 3],
+      ["325,29.5", 1, "324,30.5", 1],
+      ["325,29.5", 2, "326,30.5", 2],
+      ["325,29.5", 4, "324,30.5", 2],
+      ["326,28.5", 3, "326,30.5", 1],
+      ["310.5,32", 1, "312.5,32", 3],
+      ["310.5,32", 2, "310.5,33", 2],
+      ["312.5,32", 1, "312.5,33", 1],
+      ["312.5,32", 2, "314.5,32", 4],
+      ["312.5,32", 2, "312.5,33", 2],
+      ["314.5,32", 1, "317.5,33", 3],
+      ["317.5,32", 1, "319.5,33", 3],
+      ["317.5,32", 4, "317.5,31", 2],
+      ["317.5,32", 4, "317.5,33", 2],
+      ["319.5,32", 1, "317.5,33", 1],
+      ["319.5,32", 2, "321,32", 2],
+      ["319.5,32", 3, "319.5,33", 1],
+      ["324,30.5", 2, "324,30.5", 4],
+      ["324,30.5", 4, "325,31", 2],
+      ["325,31", 2, "326,30.5", 4],
+      ["325,31", 2, "319.5,33", 2],
+      ["325,31", 5, "317,34", 5],
+      ["308.5,33", 1, "310.5,33", 3],
+      ["310.5,33", 1, "312.5,33", 3],
+      ["310.5,33", 2, "312.5,34", 4],
+      ["311,34", 5, "317,34", 5],
+      ["311,34", 5, "311,43", 5],
+      ["312.5,34", 2, "314.5,34", 4],
+      ["312.5,33", 1, "314.5,33", 3],
+      ["314.5,34", 2, "317.5,33", 4],
+      ["314.5,33", 2, "317.5,33", 2],
+      ["317.5,33", 2, "319.5,33", 4],
+      ["319.5,33", 1, "313,39.5", 3],
+      ["173.5,34.5", 1, "163.5,51.5", 1],
+      ["173.5,34.5", 2, "163.5,51.5", 2],
+      ["173.5,34.5", 5, "163.5,51.5", 5],
       ["408.5,36.5", 1, "409.5,46.5", 1],
       ["408.5,36.5", 5, "409.5,46.5", 6],
       ["408.5,36.5", 5, "429.5,53.5", 5],
       ["15.5,39.5", 1, "15.5,59.5", 1],
       ["15.5,39.5", 2, "15.5,59.5", 2],
       ["15.5,39.5", 5, "15.5,59.5", 5],
+      ["313,39.5", 1, "313,41.5", 3],
       ["455.5,39.5", 1, "455.5,59.5", 1],
       ["455.5,39.5", 2, "455.5,59.5", 2],
       ["455.5,39.5", 5, "455.5,59.5", 5],
+      ["313,41.5", 1, "313,43.5", 3],
+      ["281.5,43.5", 5, "290,43", 5],
+      ["290,43", 5, "297,43", 5],
+      ["297,43", 5, "304,43", 5],
+      ["304,43", 5, "311,43", 5],
+      ["307.5,42.5", 1, "313,43.5", 1],
+      ["313,43.5", 2, "313,45", 2],
       ["409.5,46.5", 5, "408.5,55.5", 5],
+      ["163.5,51.5", 1, "152.5,71.5", 1],
+      ["163.5,51.5", 2, "152.5,71.5", 2],
+      ["163.5,51.5", 5, "152.5,71.5", 5],
       ["406,53", 2, "405,53", 2],
       ["406,53", 2, "411,53", 2],
       ["405,53", 2, "402,56", 2],
@@ -46412,9 +48558,15 @@
       ["169.5,68.5", 5, "169.5,86.5", 5],
       ["230,70", 2, "231,70", 2],
       ["231,70", 2, "232,72", 2],
+      ["292,69", 2, "296,69", 2],
+      ["296,69", 2, "296,70", 2],
+      ["296,70", 2, "296,71", 2],
       ["332,70", 2, "333,70", 2],
       ["333,70", 2, "334,70", 2],
       ["333,70", 2, "334,72", 2],
+      ["152.5,71.5", 1, "152,80", 1],
+      ["152.5,71.5", 2, "152,80", 2],
+      ["152.5,71.5", 5, "152,80", 5],
       ["181,71", 5, "188,71", 5],
       ["181,71", 5, "181,77", 5],
       ["188,71", 5, "190,71", 5],
@@ -46797,6 +48949,11 @@
       ["53,79", 2, "54,79", 2],
       ["54,79", 2, "55,79", 2],
       ["56,80", 5, "56,83", 5],
+      ["152,79", 1, "151,80.5", 1],
+      ["152,80", 1, "152,83", 1],
+      ["152,80", 2, "151,80.5", 2],
+      ["152,80", 2, "153,80.5", 2],
+      ["152,80", 5, "152,83", 5],
       ["210,79", 2, "210,80", 2],
       ["210,79", 2, "214,84", 2],
       ["216,79", 2, "216,80", 2],
@@ -46813,6 +48970,12 @@
       ["15.5,81.5", 2, "15.5,103.5", 2],
       ["15.5,81.5", 5, "15.5,103.5", 5],
       ["148,81", 5, "148.5,89.5", 5],
+      ["152,81.5", 1, "153,80.5", 3],
+      ["152,81.5", 1, "151,82.5", 1],
+      ["152,81.5", 2, "151,80.5", 4],
+      ["152,81.5", 2, "153,82.5", 2],
+      ["152,81.5", 4, "151,82.5", 2],
+      ["153,80.5", 3, "153,82.5", 1],
       ["356,81", 2, "357,81", 2],
       ["455.5,81.5", 1, "455.5,103.5", 1],
       ["455.5,81.5", 2, "455.5,103.5", 2],
@@ -46853,6 +49016,10 @@
       ["54,84", 1, "54,85", 1],
       ["54,84", 2, "55,84", 2],
       ["55,84", 1, "55,85", 1],
+      ["152,83", 2, "151,82.5", 4],
+      ["152,83", 2, "153,82.5", 4],
+      ["152,83", 2, "152,86.5", 2],
+      ["151,82.5", 2, "151,82.5", 4],
       ["181,83", 5, "188,83", 5],
       ["181,83", 5, "174,88", 5],
       ["181,83", 5, "181,89", 5],
@@ -47004,10 +49171,12 @@
       ["52,85", 2, "53,85", 2],
       ["54,85", 2, "53,85", 2],
       ["54,85", 2, "55,85", 2],
+      ["152,85", 1, "152,86.5", 1],
       ["313,85", 2, "313,86", 2],
       ["348,85", 2, "348,86", 2],
       ["384,86", 2, "383,86", 2],
       ["384,86", 2, "383,88", 2],
+      ["152,86.5", 3, "155,93", 1],
       ["169.5,86.5", 5, "174,88", 5],
       ["169.5,86.5", 5, "167.5,93.5", 6],
       ["174,88", 5, "180,91", 5],
