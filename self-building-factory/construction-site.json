@@ -26,11 +26,11 @@
       {
         "name": "arithmetic-combinator",
         "direction": 12,
-        "player_description": "Take the \"extra\" request and make it _negative_ because the only clean place to feed it into the request logic is as the \"already received\" signal (which is subtracted from the \"wanted\" signal).",
+        "player_description": "Isolate the \"extra request\" signal and make it available on both red & green.",
         "control_behavior": {
           "arithmetic_conditions": {
             "operation": "*",
-            "second_constant": -1,
+            "second_constant": 1,
             "first_signal": {"name": "signal-each", "type": "virtual"},
             "output_signal": {"name": "signal-each", "type": "virtual"}
           }
@@ -2211,11 +2211,12 @@
       ["21.5,12.5", 2, "22,13.5", 2],
       ["21.5,12.5", 5, "26.5,14.5", 5],
       ["22.5,12", 1, "22.5,12", 3],
+      ["24,12.5", 1, "24,11.5", 3],
       ["24,12.5", 1, "27,12.5", 3],
       ["24,12.5", 1, "24,13.5", 3],
       ["24,12.5", 2, "20,14", 2],
       ["24,12.5", 3, "26.5,14.5", 1],
-      ["24,11.5", 3, "24,13.5", 1],
+      ["24,11.5", 4, "22,13.5", 2],
       ["25.5,12", 2, "24,13.5", 4],
       ["25.5,12", 3, "26.5,14.5", 1],
       ["28.5,12.5", 2, "28.5,11.5", 2],
