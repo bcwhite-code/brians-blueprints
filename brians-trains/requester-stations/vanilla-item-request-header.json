@@ -6,11 +6,12 @@
     "description": "Prepare for a \"vanilla\" ITEM requester station.   After mixing with the loading section...\n\nConfigure By:\n1) Configure in the REQ combinator by changing the X into the desired item type with the NEGATIVE maximum amount that should be held locally.\n2) Wire red & green from big power pole to train grid.\n\nYou must have space for all trains that could come at once so\n\n        X / items-per-stack / stacks-per-train - 1\n\nstacker spots.",
     "shift_x": -913,
     "shift_y": -181,
-    "version": 562949954273281,
+    "version": 562949954338818,
     "entities": [
       {
         "name": "arithmetic-combinator",
         "direction": 8,
+        "player_description": "Code the train request according to the train-length.  The output is routed through the train-stop so that it can't go out until the train-stop exists.",
         "control_behavior": {
           "arithmetic_conditions": {
             "operation": "*",
@@ -151,13 +152,14 @@
       ["2.5,0", 2, "3.5,2", 4],
       ["2.5,0", 3, "2,2", 1],
       ["1.5,0", 1, "3.5,0.5", 1],
-      ["1.5,0", 4, "0,1.5", 2],
+      ["1.5,0", 4, "2,2", 2],
       ["3.5,0.5", 1, "5,0.5", 1],
       ["3.5,0.5", 1, "8.5,5.5", 1],
       ["3.5,0.5", 2, "5,0.5", 2],
       ["3.5,0.5", 2, "8.5,2.5", 2],
       ["3.5,0.5", 5, "8.5,2.5", 5],
       ["5,0.5", 4, "5.5,2", 2],
+      ["0,1.5", 2, "2,2", 2],
       ["4.5,2", 2, "3.5,2", 2],
       ["4.5,2", 2, "5.5,2", 4],
       ["4.5,2", 3, "3.5,2", 1],
