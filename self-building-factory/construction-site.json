@@ -88,20 +88,6 @@
       },
       {
         "name": "arithmetic-combinator",
-        "direction": 8,
-        "player_description": "Increase request by 2% because having some extra seems a general necessity.",
-        "control_behavior": {
-          "arithmetic_conditions": {
-            "operation": "/",
-            "second_constant": 50,
-            "first_signal": {"name": "signal-each", "type": "virtual"},
-            "output_signal": {"name": "signal-each", "type": "virtual"}
-          }
-        },
-        "position": {"x": 36.5, "y": 4}
-      },
-      {
-        "name": "arithmetic-combinator",
         "direction": 4,
         "control_behavior": {
           "arithmetic_conditions": {
@@ -253,7 +239,6 @@
         "direction": 8,
         "use_filters": true,
         "control_behavior": {
-          "circuit_enabled": true,
           "circuit_read_hand_contents": true,
           "circuit_set_filters": true,
           "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-black", "type": "virtual"}}
@@ -265,7 +250,6 @@
         "direction": 8,
         "use_filters": true,
         "control_behavior": {
-          "circuit_enabled": true,
           "circuit_read_hand_contents": true,
           "circuit_set_filters": true,
           "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-black", "type": "virtual"}}
@@ -356,7 +340,6 @@
         "direction": 8,
         "use_filters": true,
         "control_behavior": {
-          "circuit_enabled": true,
           "circuit_read_hand_contents": true,
           "circuit_set_filters": true,
           "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-black", "type": "virtual"}}
@@ -368,7 +351,6 @@
         "direction": 8,
         "use_filters": true,
         "control_behavior": {
-          "circuit_enabled": true,
           "circuit_read_hand_contents": true,
           "circuit_set_filters": true,
           "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-black", "type": "virtual"}}
@@ -506,7 +488,6 @@
         "direction": 8,
         "use_filters": true,
         "control_behavior": {
-          "circuit_enabled": true,
           "circuit_read_hand_contents": true,
           "circuit_set_filters": true,
           "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-black", "type": "virtual"}}
@@ -518,7 +499,6 @@
         "direction": 8,
         "use_filters": true,
         "control_behavior": {
-          "circuit_enabled": true,
           "circuit_read_hand_contents": true,
           "circuit_set_filters": true,
           "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-black", "type": "virtual"}}
@@ -530,7 +510,6 @@
         "direction": 8,
         "use_filters": true,
         "control_behavior": {
-          "circuit_enabled": true,
           "circuit_read_hand_contents": true,
           "circuit_set_filters": true,
           "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-black", "type": "virtual"}}
@@ -590,7 +569,6 @@
         "direction": 8,
         "use_filters": true,
         "control_behavior": {
-          "circuit_enabled": true,
           "circuit_read_hand_contents": true,
           "circuit_set_filters": true,
           "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-black", "type": "virtual"}}
@@ -1550,18 +1528,6 @@
       {
         "name": "decider-combinator",
         "direction": 8,
-        "player_description": "Round-up the extra-percentage amount so it's never zero.",
-        "control_behavior": {
-          "decider_conditions": {
-            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
-            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}}]
-          }
-        },
-        "position": {"x": 35.5, "y": 4}
-      },
-      {
-        "name": "decider-combinator",
-        "direction": 8,
         "control_behavior": {
           "decider_conditions": {
             "conditions": [
@@ -2309,6 +2275,7 @@
       ["24,12.5", 1, "24,11.5", 3],
       ["24,12.5", 1, "25.5,12", 1],
       ["24,12.5", 1, "22,13.5", 3],
+      ["24,12.5", 2, "20,14", 2],
       ["24,12.5", 3, "26.5,14.5", 1],
       ["24,11.5", 4, "22,13.5", 4],
       ["25.5,12", 1, "27,12.5", 3],
@@ -2403,10 +2370,6 @@
       ["48.5,14.5", 1, "50.5,14.5", 1],
       ["48.5,14.5", 2, "50.5,14.5", 2],
       ["48.5,13.5", 2, "50.5,13.5", 2],
-      ["53.5,13", 1, "54.5,13", 1],
-      ["53.5,13", 4, "54.5,13", 4],
-      ["54.5,13", 1, "55.5,13", 3],
-      ["54.5,13", 4, "55.5,13", 4],
       ["54.5,14.5", 1, "55.5,13", 1],
       ["54.5,14.5", 1, "61.5,14.5", 1],
       ["54.5,14.5", 2, "55.5,13", 4],
