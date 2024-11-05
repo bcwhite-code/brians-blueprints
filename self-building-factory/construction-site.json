@@ -11,20 +11,6 @@
     "entities": [
       {
         "name": "arithmetic-combinator",
-        "direction": 8,
-        "player_description": "Forward control signals to the train stop without letting the \"read contents\" flow back to the local control wire.",
-        "control_behavior": {
-          "arithmetic_conditions": {
-            "operation": "+",
-            "second_constant": 0,
-            "first_signal": {"name": "signal-each", "type": "virtual"},
-            "output_signal": {"name": "signal-each", "type": "virtual"}
-          }
-        },
-        "position": {"x": 1.5, "y": 3}
-      },
-      {
-        "name": "arithmetic-combinator",
         "direction": 12,
         "player_description": "Isolate the \"extra request\" signal and make it available on both red & green.",
         "control_behavior": {
@@ -102,6 +88,20 @@
       },
       {
         "name": "arithmetic-combinator",
+        "direction": 8,
+        "player_description": "Increase request by 2% because having some extra seems a general necessity.",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "/",
+            "second_constant": 50,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 36.5, "y": 4}
+      },
+      {
+        "name": "arithmetic-combinator",
         "direction": 4,
         "control_behavior": {
           "arithmetic_conditions": {
@@ -163,6 +163,12 @@
       {"name": "big-electric-pole", "position": {"x": 22, "y": 17}},
       {
         "name": "bulk-inserter",
+        "direction": 4,
+        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_read_hand_contents": true},
+        "position": {"x": 11.5, "y": 0.5}
+      },
+      {
+        "name": "bulk-inserter",
         "control_behavior": {
           "circuit_enabled": true,
           "circuit_hand_read_mode": 1,
@@ -172,18 +178,55 @@
       },
       {
         "name": "bulk-inserter",
+        "direction": 12,
+        "filter_mode": "blacklist",
+        "use_filters": true,
         "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-blue", "type": "virtual"}}
+        },
+        "filters": [
+          {"name": "wood", "comparator": "=", "index": 1, "quality": "normal"},
+          {"name": "coal", "comparator": "=", "index": 2, "quality": "normal"},
+          {"name": "stone", "comparator": "=", "index": 3, "quality": "normal"},
+          {"name": "iron-ore", "comparator": "=", "index": 4, "quality": "normal"},
+          {"name": "copper-ore", "comparator": "=", "index": 5, "quality": "normal"}
+        ],
+        "position": {"x": 11.5, "y": 2.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "control_behavior": {
+          "circuit_enabled": true,
           "circuit_hand_read_mode": 1,
-          "circuit_read_hand_contents": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-blue", "type": "virtual"}}
         },
         "position": {"x": 10.5, "y": 3.5}
       },
       {
         "name": "bulk-inserter",
+        "direction": 4,
+        "filter_mode": "blacklist",
+        "use_filters": true,
+        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_read_hand_contents": true},
+        "filters": [
+          {"name": "construction-robot", "comparator": "=", "index": 1, "quality": "normal"},
+          {"name": "logistic-robot", "comparator": "=", "index": 2, "quality": "normal"},
+          {"name": "repair-pack", "comparator": "=", "index": 3, "quality": "normal"}
+        ],
+        "position": {"x": 13.5, "y": 0.5}
+      },
+      {
+        "name": "bulk-inserter",
         "direction": 8,
         "control_behavior": {"circuit_hand_read_mode": 1, "circuit_read_hand_contents": true},
         "position": {"x": 14.5, "y": 1.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 12,
+        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_read_hand_contents": true},
+        "position": {"x": 13.5, "y": 2.5}
       },
       {
         "name": "bulk-inserter",
@@ -231,15 +274,58 @@
       },
       {
         "name": "bulk-inserter",
+        "direction": 12,
+        "filter_mode": "blacklist",
+        "use_filters": true,
+        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_read_hand_contents": true},
+        "filters": [
+          {"name": "construction-robot", "comparator": "=", "index": 1, "quality": "normal"},
+          {"name": "logistic-robot", "comparator": "=", "index": 2, "quality": "normal"},
+          {"name": "repair-pack", "comparator": "=", "index": 3, "quality": "normal"}
+        ],
+        "position": {"x": 17.5, "y": 0.5}
+      },
+      {
+        "name": "bulk-inserter",
         "direction": 8,
         "control_behavior": {"circuit_hand_read_mode": 1, "circuit_read_hand_contents": true},
         "position": {"x": 16.5, "y": 1.5}
       },
       {
         "name": "bulk-inserter",
+        "direction": 12,
+        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_read_hand_contents": true},
+        "position": {"x": 19.5, "y": 0.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 4,
+        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_read_hand_contents": true},
+        "position": {"x": 17.5, "y": 2.5}
+      },
+      {
+        "name": "bulk-inserter",
         "direction": 8,
         "control_behavior": {"circuit_hand_read_mode": 1, "circuit_read_hand_contents": true},
         "position": {"x": 16.5, "y": 3.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 4,
+        "filter_mode": "blacklist",
+        "use_filters": true,
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-blue", "type": "virtual"}}
+        },
+        "filters": [
+          {"name": "wood", "comparator": "=", "index": 1, "quality": "normal"},
+          {"name": "coal", "comparator": "=", "index": 2, "quality": "normal"},
+          {"name": "stone", "comparator": "=", "index": 3, "quality": "normal"},
+          {"name": "iron-ore", "comparator": "=", "index": 4, "quality": "normal"},
+          {"name": "copper-ore", "comparator": "=", "index": 5, "quality": "normal"}
+        ],
+        "position": {"x": 19.5, "y": 2.5}
       },
       {
         "name": "bulk-inserter",
@@ -259,8 +345,8 @@
       {
         "name": "bulk-inserter",
         "control_behavior": {
+          "circuit_enabled": true,
           "circuit_hand_read_mode": 1,
-          "circuit_read_hand_contents": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-blue", "type": "virtual"}}
         },
         "position": {"x": 20.5, "y": 3.5}
@@ -299,6 +385,12 @@
       },
       {
         "name": "bulk-inserter",
+        "direction": 4,
+        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_read_hand_contents": true},
+        "position": {"x": 25.5, "y": 0.5}
+      },
+      {
+        "name": "bulk-inserter",
         "control_behavior": {
           "circuit_enabled": true,
           "circuit_hand_read_mode": 1,
@@ -308,12 +400,49 @@
       },
       {
         "name": "bulk-inserter",
+        "direction": 4,
+        "filter_mode": "blacklist",
+        "use_filters": true,
+        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_read_hand_contents": true},
+        "filters": [
+          {"name": "construction-robot", "comparator": "=", "index": 1, "quality": "normal"},
+          {"name": "logistic-robot", "comparator": "=", "index": 2, "quality": "normal"},
+          {"name": "repair-pack", "comparator": "=", "index": 3, "quality": "normal"}
+        ],
+        "position": {"x": 27.5, "y": 0.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 12,
+        "filter_mode": "blacklist",
+        "use_filters": true,
         "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-blue", "type": "virtual"}}
+        },
+        "filters": [
+          {"name": "wood", "comparator": "=", "index": 1, "quality": "normal"},
+          {"name": "coal", "comparator": "=", "index": 2, "quality": "normal"},
+          {"name": "stone", "comparator": "=", "index": 3, "quality": "normal"},
+          {"name": "iron-ore", "comparator": "=", "index": 4, "quality": "normal"},
+          {"name": "copper-ore", "comparator": "=", "index": 5, "quality": "normal"}
+        ],
+        "position": {"x": 25.5, "y": 2.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "control_behavior": {
+          "circuit_enabled": true,
           "circuit_hand_read_mode": 1,
-          "circuit_read_hand_contents": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-blue", "type": "virtual"}}
         },
         "position": {"x": 24.5, "y": 3.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 12,
+        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_read_hand_contents": true},
+        "position": {"x": 27.5, "y": 2.5}
       },
       {
         "name": "bulk-inserter",
@@ -329,6 +458,19 @@
       },
       {
         "name": "bulk-inserter",
+        "direction": 12,
+        "filter_mode": "blacklist",
+        "use_filters": true,
+        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_read_hand_contents": true},
+        "filters": [
+          {"name": "construction-robot", "comparator": "=", "index": 1, "quality": "normal"},
+          {"name": "logistic-robot", "comparator": "=", "index": 2, "quality": "normal"},
+          {"name": "repair-pack", "comparator": "=", "index": 3, "quality": "normal"}
+        ],
+        "position": {"x": 31.5, "y": 0.5}
+      },
+      {
+        "name": "bulk-inserter",
         "direction": 8,
         "control_behavior": {"circuit_hand_read_mode": 1, "circuit_read_hand_contents": true},
         "position": {"x": 30.5, "y": 1.5}
@@ -338,6 +480,12 @@
         "direction": 8,
         "control_behavior": {"circuit_hand_read_mode": 1, "circuit_read_hand_contents": true},
         "position": {"x": 28.5, "y": 3.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 4,
+        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_read_hand_contents": true},
+        "position": {"x": 31.5, "y": 2.5}
       },
       {
         "name": "bulk-inserter",
@@ -391,12 +539,36 @@
       },
       {
         "name": "bulk-inserter",
+        "direction": 12,
+        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_read_hand_contents": true},
+        "position": {"x": 33.5, "y": 0.5}
+      },
+      {
+        "name": "bulk-inserter",
         "control_behavior": {
           "circuit_enabled": true,
           "circuit_hand_read_mode": 1,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-blue", "type": "virtual"}}
         },
         "position": {"x": 34.5, "y": 1.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 4,
+        "filter_mode": "blacklist",
+        "use_filters": true,
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-blue", "type": "virtual"}}
+        },
+        "filters": [
+          {"name": "wood", "comparator": "=", "index": 1, "quality": "normal"},
+          {"name": "coal", "comparator": "=", "index": 2, "quality": "normal"},
+          {"name": "stone", "comparator": "=", "index": 3, "quality": "normal"},
+          {"name": "iron-ore", "comparator": "=", "index": 4, "quality": "normal"},
+          {"name": "copper-ore", "comparator": "=", "index": 5, "quality": "normal"}
+        ],
+        "position": {"x": 33.5, "y": 2.5}
       },
       {
         "name": "bulk-inserter",
@@ -407,8 +579,8 @@
       {
         "name": "bulk-inserter",
         "control_behavior": {
+          "circuit_enabled": true,
           "circuit_hand_read_mode": 1,
-          "circuit_read_hand_contents": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-blue", "type": "virtual"}}
         },
         "position": {"x": 34.5, "y": 3.5}
@@ -468,14 +640,8 @@
                 "group": "SBF:ConstructionExtras",
                 "index": 1,
                 "filters": [
-                  {"name": "landfill", "comparator": "=", "count": 180, "index": 1, "quality": "normal"},
-                  {"name": "cliff-explosives", "comparator": "=", "count": 15, "index": 2, "quality": "normal"},
-                  {"name": "big-electric-pole", "comparator": "=", "count": 0, "index": 3, "quality": "normal"},
-                  {"name": "medium-electric-pole", "comparator": "=", "count": 0, "index": 4, "quality": "normal"},
-                  {"name": "small-lamp", "comparator": "=", "count": 40, "index": 5, "quality": "normal"},
-                  {"name": "rail", "comparator": "=", "count": 0, "index": 6, "quality": "normal"},
-                  {"name": "rail-signal", "comparator": "=", "count": 0, "index": 7, "quality": "normal"},
-                  {"name": "rail-chain-signal", "comparator": "=", "count": 0, "index": 8, "quality": "normal"}
+                  {"name": "landfill", "comparator": "=", "count": 240, "index": 1, "quality": "normal"},
+                  {"name": "cliff-explosives", "comparator": "=", "count": 0, "index": 2, "quality": "normal"}
                 ]
               }
             ]
@@ -1156,18 +1322,6 @@
       },
       {
         "name": "decider-combinator",
-        "direction": 8,
-        "player_description": "Disable the stop for completed construction sites.",
-        "control_behavior": {
-          "decider_conditions": {
-            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-green", "type": "virtual"}}],
-            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-red", "type": "virtual"}}]
-          }
-        },
-        "position": {"x": 2.5, "y": 3}
-      },
-      {
-        "name": "decider-combinator",
         "player_description": "Done when recycling and all items return.",
         "control_behavior": {
           "decider_conditions": {
@@ -1280,7 +1434,7 @@
       {
         "name": "decider-combinator",
         "direction": 12,
-        "player_description": "The _phase_ delivery request:\n- Outstanding BOM.\n- Standard items.\n\nHalt request when train is in station as the set of outstanding items will reduce faster than the request is updated causing excess requests at the Mall.",
+        "player_description": "The _phase_ delivery request:\n- Outstanding BOM.\n- Standard items.",
         "control_behavior": {
           "decider_conditions": {
             "conditions": [
@@ -1293,12 +1447,6 @@
                 "comparator": "=",
                 "compare_type": "and",
                 "first_signal": {"name": "signal-red", "type": "virtual"},
-                "first_signal_networks": {"green": false, "red": true}
-              },
-              {
-                "comparator": "=",
-                "compare_type": "and",
-                "first_signal": {"name": "signal-T", "type": "virtual"},
                 "first_signal_networks": {"green": false, "red": true}
               }
             ],
@@ -1345,6 +1493,17 @@
       {
         "name": "decider-combinator",
         "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "down-arrow", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 9, "y": 2.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
         "player_description": "Unloaded items for which there is no place in the logistics chests.\nDisable stop in this case.",
         "control_behavior": {
           "decider_conditions": {
@@ -1387,6 +1546,18 @@
           }
         },
         "position": {"x": 36, "y": 1.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "player_description": "Round-up the extra-percentage amount so it's never zero.",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 35.5, "y": 4}
       },
       {
         "name": "decider-combinator",
@@ -1532,106 +1703,6 @@
           {"name": "repair-pack", "comparator": "=", "index": 3, "quality": "normal"}
         ],
         "position": {"x": 30.5, "y": -0.5}
-      },
-      {
-        "name": "fast-inserter",
-        "direction": 4,
-        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_read_hand_contents": true},
-        "position": {"x": 11.5, "y": 0.5}
-      },
-      {
-        "name": "fast-inserter",
-        "direction": 4,
-        "filter_mode": "blacklist",
-        "use_filters": true,
-        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_read_hand_contents": true},
-        "filters": [
-          {"name": "construction-robot", "comparator": "=", "index": 1, "quality": "normal"},
-          {"name": "logistic-robot", "comparator": "=", "index": 2, "quality": "normal"},
-          {"name": "repair-pack", "comparator": "=", "index": 3, "quality": "normal"}
-        ],
-        "position": {"x": 13.5, "y": 0.5}
-      },
-      {
-        "name": "fast-inserter",
-        "direction": 12,
-        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_read_hand_contents": true},
-        "position": {"x": 13.5, "y": 2.5}
-      },
-      {
-        "name": "fast-inserter",
-        "direction": 12,
-        "filter_mode": "blacklist",
-        "use_filters": true,
-        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_read_hand_contents": true},
-        "filters": [
-          {"name": "construction-robot", "comparator": "=", "index": 1, "quality": "normal"},
-          {"name": "logistic-robot", "comparator": "=", "index": 2, "quality": "normal"},
-          {"name": "repair-pack", "comparator": "=", "index": 3, "quality": "normal"}
-        ],
-        "position": {"x": 17.5, "y": 0.5}
-      },
-      {
-        "name": "fast-inserter",
-        "direction": 12,
-        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_read_hand_contents": true},
-        "position": {"x": 19.5, "y": 0.5}
-      },
-      {
-        "name": "fast-inserter",
-        "direction": 4,
-        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_read_hand_contents": true},
-        "position": {"x": 17.5, "y": 2.5}
-      },
-      {
-        "name": "fast-inserter",
-        "direction": 4,
-        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_read_hand_contents": true},
-        "position": {"x": 25.5, "y": 0.5}
-      },
-      {
-        "name": "fast-inserter",
-        "direction": 4,
-        "filter_mode": "blacklist",
-        "use_filters": true,
-        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_read_hand_contents": true},
-        "filters": [
-          {"name": "construction-robot", "comparator": "=", "index": 1, "quality": "normal"},
-          {"name": "logistic-robot", "comparator": "=", "index": 2, "quality": "normal"},
-          {"name": "repair-pack", "comparator": "=", "index": 3, "quality": "normal"}
-        ],
-        "position": {"x": 27.5, "y": 0.5}
-      },
-      {
-        "name": "fast-inserter",
-        "direction": 12,
-        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_read_hand_contents": true},
-        "position": {"x": 27.5, "y": 2.5}
-      },
-      {
-        "name": "fast-inserter",
-        "direction": 12,
-        "filter_mode": "blacklist",
-        "use_filters": true,
-        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_read_hand_contents": true},
-        "filters": [
-          {"name": "construction-robot", "comparator": "=", "index": 1, "quality": "normal"},
-          {"name": "logistic-robot", "comparator": "=", "index": 2, "quality": "normal"},
-          {"name": "repair-pack", "comparator": "=", "index": 3, "quality": "normal"}
-        ],
-        "position": {"x": 31.5, "y": 0.5}
-      },
-      {
-        "name": "fast-inserter",
-        "direction": 4,
-        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_read_hand_contents": true},
-        "position": {"x": 31.5, "y": 2.5}
-      },
-      {
-        "name": "fast-inserter",
-        "direction": 12,
-        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_read_hand_contents": true},
-        "position": {"x": 33.5, "y": 0.5}
       },
       {"name": "iron-chest", "position": {"x": 12.5, "y": 4.5}},
       {"name": "iron-chest", "position": {"x": 14.5, "y": 4.5}},
@@ -1930,7 +2001,14 @@
         "name": "storage-chest",
         "control_behavior": {"circuit_condition_enabled": false},
         "position": {"x": 10.5, "y": 4.5},
-        "request_filters": {"sections": [{"index": 1}]}
+        "request_filters": {
+          "sections": [
+            {
+              "index": 1,
+              "filters": [{"name": "wood", "comparator": "=", "count": 1, "index": 1, "quality": "normal"}]
+            }
+          ]
+        }
       },
       {
         "name": "storage-chest",
@@ -1942,7 +2020,14 @@
         "name": "storage-chest",
         "control_behavior": {"circuit_condition_enabled": false},
         "position": {"x": 20.5, "y": 4.5},
-        "request_filters": {"sections": [{"index": 1}]}
+        "request_filters": {
+          "sections": [
+            {
+              "index": 1,
+              "filters": [{"name": "stone", "comparator": "=", "count": 1, "index": 1, "quality": "normal"}]
+            }
+          ]
+        }
       },
       {
         "name": "storage-chest",
@@ -1954,7 +2039,14 @@
         "name": "storage-chest",
         "control_behavior": {"circuit_condition_enabled": false},
         "position": {"x": 24.5, "y": 4.5},
-        "request_filters": {"sections": [{"index": 1}]}
+        "request_filters": {
+          "sections": [
+            {
+              "index": 1,
+              "filters": [{"name": "coal", "comparator": "=", "count": 1, "index": 1, "quality": "normal"}]
+            }
+          ]
+        }
       },
       {
         "name": "storage-chest",
@@ -1966,7 +2058,14 @@
         "name": "storage-chest",
         "control_behavior": {"circuit_condition_enabled": false},
         "position": {"x": 34.5, "y": 4.5},
-        "request_filters": {"sections": [{"index": 1}]}
+        "request_filters": {
+          "sections": [
+            {
+              "index": 1,
+              "filters": [{"name": "wood", "comparator": "=", "count": 1, "index": 1, "quality": "normal"}]
+            }
+          ]
+        }
       },
       {"name": "straight-rail", "direction": 4, "position": {"x": -18, "y": 15}},
       {"name": "straight-rail", "direction": 4, "position": {"x": -16, "y": 15}},
@@ -2103,7 +2202,6 @@
       ["23.5,7", 2, "23.5,7", 4],
       ["23.5,7", 3, "25,7.5", 1],
       ["26.5,8.5", 1, "33.5,8.5", 1],
-      ["26.5,8.5", 1, "24,14.5", 1],
       ["26.5,8.5", 2, "33.5,8.5", 2],
       ["26.5,8.5", 2, "24,11.5", 2],
       ["26.5,8.5", 5, "33.5,8.5", 5],
@@ -2140,9 +2238,8 @@
       ["22.5,9.5", 1, "23.5,9.5", 1],
       ["22.5,9.5", 1, "22.5,12", 3],
       ["23.5,9.5", 1, "24.5,9.5", 1],
-      ["23.5,9.5", 2, "24,12.5", 2],
       ["24.5,9.5", 1, "25.5,12", 3],
-      ["28.5,10.5", 1, "30.5,14.5", 1],
+      ["28.5,10.5", 1, "29.5,11.5", 1],
       ["28.5,10.5", 2, "28.5,11.5", 2],
       ["28.5,9.5", 2, "29.5,9.5", 2],
       ["29.5,9.5", 2, "30.5,9.5", 2],
@@ -2160,11 +2257,11 @@
       ["36.5,9.5", 2, "37.5,9.5", 2],
       ["36.5,9.5", 2, "36.5,11.5", 2],
       ["37.5,9.5", 2, "38.5,9.5", 2],
-      ["38.5,10.5", 1, "36.5,14.5", 1],
+      ["38.5,10.5", 1, "37.5,11.5", 1],
       ["38.5,10.5", 2, "38.5,11.5", 2],
       ["38.5,9.5", 2, "42.5,9.5", 2],
       ["40.5,9.5", 1, "40.5,13.5", 1],
-      ["42.5,10.5", 1, "44.5,14.5", 1],
+      ["42.5,10.5", 1, "43.5,11.5", 1],
       ["42.5,10.5", 2, "42.5,11.5", 2],
       ["42.5,9.5", 2, "43.5,9.5", 2],
       ["43.5,9.5", 2, "44.5,9.5", 2],
@@ -2182,7 +2279,7 @@
       ["50.5,9.5", 2, "51.5,9.5", 2],
       ["50.5,9.5", 2, "50.5,11.5", 2],
       ["51.5,9.5", 2, "52.5,9.5", 2],
-      ["52.5,10.5", 1, "50.5,14.5", 1],
+      ["52.5,10.5", 1, "51.5,11.5", 1],
       ["52.5,10.5", 2, "52.5,11.5", 2],
       ["52.5,9.5", 2, "54,9.5", 2],
       ["54,9.5", 4, "55.5,9", 2],
@@ -2200,29 +2297,28 @@
       ["18,12", 1, "18,14.5", 1],
       ["18,12", 1, "27,13.5", 3],
       ["18,12", 1, "18,26", 1],
-      ["18,12", 2, "18,14.5", 4],
+      ["18,12", 2, "18,13.5", 4],
       ["18,12", 2, "18,26", 2],
       ["18,12", 5, "21.5,12.5", 5],
       ["18,12", 5, "18,26", 5],
-      ["20.5,12", 1, "19.5,12", 1],
-      ["20.5,12", 1, "22,14.5", 1],
-      ["20.5,12", 4, "20,14", 2],
-      ["19.5,12", 3, "20,14", 1],
-      ["21.5,12.5", 2, "22,13.5", 2],
+      ["21.5,12.5", 2, "22,13.5", 4],
       ["21.5,12.5", 5, "26.5,14.5", 5],
       ["22.5,12", 1, "22.5,12", 3],
+      ["22.5,12", 1, "22,13.5", 1],
+      ["22.5,12", 2, "27,11.5", 4],
       ["24,12.5", 1, "24,11.5", 3],
-      ["24,12.5", 1, "27,12.5", 3],
-      ["24,12.5", 1, "24,13.5", 3],
-      ["24,12.5", 2, "20,14", 2],
+      ["24,12.5", 1, "25.5,12", 1],
+      ["24,12.5", 1, "22,13.5", 3],
       ["24,12.5", 3, "26.5,14.5", 1],
-      ["24,11.5", 4, "22,13.5", 2],
-      ["25.5,12", 2, "24,13.5", 4],
+      ["24,11.5", 4, "22,13.5", 4],
+      ["25.5,12", 1, "27,12.5", 3],
       ["25.5,12", 3, "26.5,14.5", 1],
-      ["28.5,12.5", 2, "28.5,11.5", 2],
-      ["28.5,12.5", 2, "28.5,13.5", 2],
+      ["27,11.5", 2, "28.5,11.5", 2],
+      ["28.5,12.5", 1, "29.5,11.5", 1],
+      ["28.5,12.5", 1, "30.5,14.5", 1],
       ["27,12.5", 2, "30.5,13.5", 2],
       ["28.5,11.5", 2, "38.5,11.5", 2],
+      ["28.5,11.5", 2, "28.5,13.5", 2],
       ["30.5,12.5", 2, "32.5,12.5", 2],
       ["30.5,12.5", 2, "30.5,13.5", 2],
       ["31.5,11.5", 2, "32.5,11.5", 2],
@@ -2230,19 +2326,22 @@
       ["34.5,12.5", 2, "36.5,12.5", 2],
       ["34.5,11.5", 2, "35.5,11.5", 2],
       ["36.5,12.5", 2, "44.5,12.5", 2],
-      ["38.5,12.5", 2, "38.5,11.5", 2],
-      ["38.5,12.5", 2, "38.5,13.5", 2],
+      ["37.5,11.5", 1, "38.5,12.5", 1],
+      ["38.5,12.5", 1, "36.5,14.5", 1],
       ["38.5,11.5", 2, "42.5,11.5", 2],
-      ["42.5,12.5", 2, "42.5,11.5", 2],
-      ["42.5,12.5", 2, "42.5,13.5", 2],
+      ["38.5,11.5", 2, "38.5,13.5", 2],
+      ["42.5,12.5", 1, "43.5,11.5", 1],
+      ["42.5,12.5", 1, "44.5,14.5", 1],
       ["42.5,11.5", 2, "52.5,11.5", 2],
+      ["42.5,11.5", 2, "42.5,13.5", 2],
       ["44.5,12.5", 2, "46.5,12.5", 2],
       ["45.5,11.5", 2, "46.5,11.5", 2],
       ["46.5,12.5", 2, "48.5,12.5", 2],
       ["48.5,12.5", 2, "50.5,12.5", 2],
       ["48.5,11.5", 2, "49.5,11.5", 2],
-      ["52.5,12.5", 2, "52.5,11.5", 2],
-      ["52.5,12.5", 2, "52.5,13.5", 2],
+      ["51.5,11.5", 1, "52.5,12.5", 1],
+      ["52.5,12.5", 1, "50.5,14.5", 1],
+      ["52.5,11.5", 2, "52.5,13.5", 2],
       ["56.5,12", 2, "58.5,12", 2],
       ["56.5,12", 4, "55.5,13", 2],
       ["55.5,11.5", 1, "57.5,11.5", 1],
@@ -2258,10 +2357,9 @@
       ["18,13.5", 2, "22,13.5", 4],
       ["18,13.5", 4, "18,14.5", 4],
       ["18,14.5", 2, "22,14.5", 4],
-      ["22,14.5", 1, "22,13.5", 1],
-      ["22,14.5", 1, "26.5,14.5", 1],
-      ["22,14.5", 2, "24,14.5", 4],
+      ["22,13.5", 1, "22,14.5", 1],
       ["22,13.5", 2, "24,13.5", 4],
+      ["22,14.5", 2, "24,14.5", 4],
       ["24,14.5", 2, "25.5,14", 4],
       ["24,13.5", 1, "25.5,14", 3],
       ["24,13.5", 2, "26.5,14.5", 2],
@@ -2270,7 +2368,6 @@
       ["26.5,14.5", 5, "33.5,14.5", 5],
       ["25.5,14", 2, "25.5,14", 4],
       ["25.5,14", 4, "27,13.5", 4],
-      ["28.5,14.5", 2, "28.5,13.5", 2],
       ["27,13.5", 2, "30.5,14.5", 2],
       ["30.5,14.5", 1, "32.5,14.5", 1],
       ["30.5,14.5", 2, "32.5,14.5", 2],
@@ -2288,12 +2385,10 @@
       ["34.5,13.5", 2, "36.5,13.5", 2],
       ["36.5,14.5", 2, "44.5,14.5", 2],
       ["36.5,13.5", 2, "44.5,13.5", 2],
-      ["38.5,14.5", 2, "38.5,13.5", 2],
       ["40.5,13.5", 1, "40.5,14.5", 1],
       ["40.5,14.5", 1, "47.5,14.5", 1],
       ["40.5,14.5", 2, "47.5,14.5", 2],
       ["40.5,14.5", 5, "47.5,14.5", 5],
-      ["42.5,14.5", 2, "42.5,13.5", 2],
       ["44.5,14.5", 1, "46.5,14.5", 1],
       ["44.5,14.5", 2, "46.5,14.5", 2],
       ["44.5,13.5", 2, "46.5,13.5", 2],
@@ -2308,17 +2403,23 @@
       ["48.5,14.5", 1, "50.5,14.5", 1],
       ["48.5,14.5", 2, "50.5,14.5", 2],
       ["48.5,13.5", 2, "50.5,13.5", 2],
-      ["52.5,14.5", 2, "52.5,13.5", 2],
+      ["53.5,13", 1, "54.5,13", 1],
+      ["53.5,13", 4, "54.5,13", 4],
+      ["54.5,13", 1, "55.5,13", 3],
+      ["54.5,13", 4, "55.5,13", 4],
       ["54.5,14.5", 1, "55.5,13", 1],
       ["54.5,14.5", 1, "61.5,14.5", 1],
       ["54.5,14.5", 2, "55.5,13", 4],
       ["54.5,14.5", 2, "61.5,14.5", 2],
       ["54.5,14.5", 5, "61.5,14.5", 5],
       ["55.5,13", 1, "57.5,13", 1],
+      ["55.5,13", 3, "57.5,13", 3],
       ["55.5,13", 4, "57.5,13", 4],
       ["57.5,13", 1, "59.5,13", 1],
+      ["57.5,13", 3, "59.5,13", 3],
       ["57.5,13", 4, "59.5,13", 4],
       ["59.5,13", 1, "61.5,13", 1],
+      ["59.5,13", 3, "61.5,13", 3],
       ["59.5,13", 4, "61.5,13", 4],
       ["61.5,14.5", 1, "62.5,14.5", 1],
       ["18,26", 1, "40,26", 1],

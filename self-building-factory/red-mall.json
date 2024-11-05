@@ -34640,14 +34640,6 @@
         "control_behavior": {"circuit_condition_enabled": false},
         "position": {"x": 125.5, "y": 43.5}
       },
-      {"name": "passive-provider-chest", "position": {"x": 148.5, "y": 16.5}},
-      {"name": "passive-provider-chest", "position": {"x": 149.5, "y": 16.5}},
-      {"name": "passive-provider-chest", "position": {"x": 155.5, "y": 16.5}},
-      {"name": "passive-provider-chest", "position": {"x": 156.5, "y": 16.5}},
-      {"name": "passive-provider-chest", "position": {"x": 162.5, "y": 16.5}},
-      {"name": "passive-provider-chest", "position": {"x": 163.5, "y": 16.5}},
-      {"name": "passive-provider-chest", "position": {"x": 169.5, "y": 16.5}},
-      {"name": "passive-provider-chest", "position": {"x": 170.5, "y": 16.5}},
       {"name": "passive-provider-chest", "bar": 2, "position": {"x": 143.5, "y": 99.5}},
       {
         "name": "passive-provider-chest",
@@ -36611,6 +36603,46 @@
       {"name": "steel-chest", "position": {"x": 281.5, "y": 99.5}},
       {"name": "steel-chest", "position": {"x": 357.5, "y": 100.5}},
       {"name": "steel-chest", "position": {"x": 359.5, "y": 100.5}},
+      {
+        "name": "storage-chest",
+        "position": {"x": 148.5, "y": 16.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "storage-chest",
+        "position": {"x": 149.5, "y": 16.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "storage-chest",
+        "position": {"x": 155.5, "y": 16.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "storage-chest",
+        "position": {"x": 156.5, "y": 16.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "storage-chest",
+        "position": {"x": 162.5, "y": 16.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "storage-chest",
+        "position": {"x": 163.5, "y": 16.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "storage-chest",
+        "position": {"x": 169.5, "y": 16.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "storage-chest",
+        "position": {"x": 170.5, "y": 16.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
       {
         "name": "storage-chest",
         "position": {"x": 157.5, "y": 54.5},
@@ -42063,7 +42095,7 @@
       {
         "name": "train-stop",
         "direction": 8,
-        "priority": 40,
+        "priority": 0,
         "station": "[virtual-signal=down-arrow][virtual-signal=signal-8][item=iron-plate]",
         "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
         "control_behavior": {
@@ -44141,7 +44173,8 @@
               "station": "Red Mall Supply",
               "wait_conditions": [
                 {"compare_type": "and", "type": "not_empty"},
-                {"compare_type": "and", "ticks": 120, "type": "inactivity"},
+                {"compare_type": "and", "ticks": 3600, "type": "time"},
+                {"compare_type": "and", "ticks": 60, "type": "inactivity"},
                 {"compare_type": "or", "ticks": 18000, "type": "time"}
               ]
             },
