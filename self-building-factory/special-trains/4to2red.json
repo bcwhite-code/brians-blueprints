@@ -3,8 +3,8 @@
   "blueprint": {
     "item": "blueprint",
     "label": "4to2red",
-    "shift_x": -660,
-    "shift_y": -395,
+    "shift_x": -946,
+    "shift_y": -667,
     "version": 562949954338818,
     "entities": [
       {
@@ -14,7 +14,7 @@
         "inventory": null,
         "orientation": 0.75,
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
-        "position": {"x": 6.28125, "y": 0}
+        "position": {"x": 6.75, "y": 0}
       },
       {
         "name": "cargo-wagon",
@@ -23,21 +23,21 @@
         "inventory": null,
         "orientation": 0.75,
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
-        "position": {"x": 13.28125, "y": 0}
+        "position": {"x": 13.75, "y": 0}
       },
       {
         "name": "locomotive",
         "enable_logistics_while_moving": false,
         "orientation": 0.75,
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
-        "position": {"x": -0.71875, "y": 0}
+        "position": {"x": -0.25, "y": 0}
       },
       {
         "name": "locomotive",
         "enable_logistics_while_moving": false,
         "orientation": 0.25,
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
-        "position": {"x": 20.28125, "y": 0}
+        "position": {"x": 20.75, "y": 0}
       }
     ],
     "icons": [
@@ -48,56 +48,9 @@
     ],
     "schedules": [
       {
-        "locomotives": ["0,0"],
+        "locomotives": ["0,0", "21,0"],
         "schedule": {
           "group": "BT:4to2red",
-          "interrupts": [
-            {
-              "name": "BT:Refuel",
-              "inside_interrupt": true,
-              "conditions": [
-                {
-                  "compare_type": "and",
-                  "type": "fuel_item_count_any",
-                  "condition": {"comparator": "<", "constant": 50, "first_signal": {"name": "coal"}}
-                },
-                {
-                  "compare_type": "and",
-                  "type": "fuel_item_count_any",
-                  "condition": {"comparator": "<", "constant": 50, "first_signal": {"name": "solid-fuel"}}
-                },
-                {
-                  "compare_type": "and",
-                  "type": "fuel_item_count_any",
-                  "condition": {"comparator": "<", "constant": 10, "first_signal": {"name": "rocket-fuel"}}
-                },
-                {
-                  "compare_type": "and",
-                  "type": "fuel_item_count_any",
-                  "condition": {"comparator": "<", "constant": 1, "first_signal": {"name": "nuclear-fuel"}}
-                }
-              ],
-              "targets": [
-                {
-                  "station": "BT Fuel",
-                  "wait_conditions": [
-                    {"compare_type": "and", "type": "fuel_full"},
-                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
-                    {"compare_type": "or", "ticks": 1800, "type": "time"}
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "BT:FuelIdle",
-              "inside_interrupt": false,
-              "conditions": [
-                {"compare_type": "and", "station": "BT Fuel", "type": "at_station"},
-                {"compare_type": "and", "type": "destination_full_or_no_path"}
-              ],
-              "targets": [{"station": "BT Depot"}]
-            }
-          ],
           "records": [
             {
               "station": "[virtual-signal=up-arrow][virtual-signal=signal-4][item=advanced-circuit]",
@@ -107,79 +60,10 @@
                 {"compare_type": "or", "ticks": 1800, "type": "time"}
               ]
             },
-            {"station": "BT Depot"},
             {
-              "station": "[virtual-signal=down-arrow][virtual-signal=signal-2][item=advanced-circuit]",
-              "wait_conditions": [
-                {"compare_type": "and", "type": "empty"},
-                {"compare_type": "or", "ticks": 300, "type": "inactivity"},
-                {"compare_type": "or", "ticks": 2100, "type": "time"}
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "locomotives": ["21,0"],
-        "schedule": {
-          "group": "BT:4to2red",
-          "interrupts": [
-            {
-              "name": "BT:Refuel",
-              "inside_interrupt": true,
-              "conditions": [
-                {
-                  "compare_type": "and",
-                  "type": "fuel_item_count_any",
-                  "condition": {"comparator": "<", "constant": 50, "first_signal": {"name": "coal"}}
-                },
-                {
-                  "compare_type": "and",
-                  "type": "fuel_item_count_any",
-                  "condition": {"comparator": "<", "constant": 50, "first_signal": {"name": "solid-fuel"}}
-                },
-                {
-                  "compare_type": "and",
-                  "type": "fuel_item_count_any",
-                  "condition": {"comparator": "<", "constant": 10, "first_signal": {"name": "rocket-fuel"}}
-                },
-                {
-                  "compare_type": "and",
-                  "type": "fuel_item_count_any",
-                  "condition": {"comparator": "<", "constant": 1, "first_signal": {"name": "nuclear-fuel"}}
-                }
-              ],
-              "targets": [
-                {
-                  "station": "BT Fuel",
-                  "wait_conditions": [
-                    {"compare_type": "and", "type": "fuel_full"},
-                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
-                    {"compare_type": "or", "ticks": 1800, "type": "time"}
-                  ]
-                }
-              ]
+              "station": "BT Depot",
+              "wait_conditions": [{"compare_type": "and", "ticks": 60, "type": "inactivity"}]
             },
-            {
-              "name": "BT:FuelIdle",
-              "inside_interrupt": false,
-              "conditions": [
-                {"compare_type": "and", "station": "BT Fuel", "type": "at_station"},
-                {"compare_type": "and", "type": "destination_full_or_no_path"}
-              ],
-              "targets": [{"station": "BT Depot"}]
-            }
-          ],
-          "records": [
-            {
-              "station": "[virtual-signal=up-arrow][virtual-signal=signal-4][item=advanced-circuit]",
-              "wait_conditions": [
-                {"compare_type": "and", "type": "full"},
-                {"compare_type": "or", "ticks": 120, "type": "inactivity"},
-                {"compare_type": "or", "ticks": 1800, "type": "time"}
-              ]
-            },
-            {"station": "BT Depot"},
             {
               "station": "[virtual-signal=down-arrow][virtual-signal=signal-2][item=advanced-circuit]",
               "wait_conditions": [
