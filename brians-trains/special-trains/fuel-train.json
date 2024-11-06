@@ -1,0 +1,55 @@
+{
+  "index": 0,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "Fuel Train",
+    "description": "Create exactly ONE of these per surface using BT trains.  It will keep the various Depot Hubs fully fueled and thus able to recharge the trains that visit them.\n\nTo change the fuel for the entire surface, change the pick-up station to be one that provides the desired fuel type.",
+    "shift_x": -1197,
+    "shift_y": -827,
+    "version": 562949954338818,
+    "entities": [
+      {
+        "name": "cargo-wagon",
+        "copy_color_from_train_stop": true,
+        "enable_logistics_while_moving": false,
+        "inventory": null,
+        "orientation": 0.5,
+        "position": {"x": 0, "y": -0.59375}
+      },
+      {
+        "name": "locomotive",
+        "copy_color_from_train_stop": false,
+        "enable_logistics_while_moving": false,
+        "orientation": 0.5,
+        "color": {"a": 1, "b": 0.16470588743686676, "g": 1, "r": 0.2549019753932953},
+        "position": {"x": 0, "y": 6.40625}
+      }
+    ],
+    "icons": [{"index": 1, "signal": {"name": "coal-liquefaction", "type": "recipe"}}],
+    "schedules": [
+      {
+        "locomotives": ["0,7"],
+        "schedule": {
+          "records": [
+            {
+              "station": "[virtual-signal=up-arrow][virtual-signal=signal-8][item=coal]",
+              "wait_conditions": [
+                {"compare_type": "and", "type": "full"},
+                {"compare_type": "or", "ticks": 120, "type": "inactivity"}
+              ]
+            },
+            {"station": "BT Depot"},
+            {
+              "station": "[virtual-signal=down-arrow][virtual-signal=signal-1][recipe=coal-liquefaction]",
+              "wait_conditions": [
+                {"compare_type": "and", "type": "empty"},
+                {"compare_type": "or", "ticks": 300, "type": "inactivity"}
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "stock_connections": [{"front": "0,7", "stock": "0,0"}, {"back": "0,0", "stock": "0,7"}]
+  }
+}

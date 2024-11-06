@@ -1,89 +1,65 @@
 {
-  "index": 11,
+  "index": 16,
   "blueprint": {
     "item": "blueprint",
-    "label": "2-Tank Train (reversible)",
-    "shift_x": -923,
-    "shift_y": -627,
+    "label": "4-Tank Train",
+    "shift_x": -927,
+    "shift_y": -631,
     "version": 562949954338818,
     "entities": [
       {
         "name": "fluid-wagon",
         "enable_logistics_while_moving": false,
         "orientation": 0.25,
-        "position": {"x": 6.4375, "y": 0}
+        "position": {"x": 6.0625, "y": 0}
       },
       {
         "name": "fluid-wagon",
         "enable_logistics_while_moving": false,
         "orientation": 0.25,
-        "position": {"x": 13.4375, "y": 0}
+        "position": {"x": 13.0625, "y": 0}
+      },
+      {
+        "name": "fluid-wagon",
+        "enable_logistics_while_moving": false,
+        "orientation": 0.25,
+        "position": {"x": 20.0625, "y": 0}
+      },
+      {
+        "name": "fluid-wagon",
+        "enable_logistics_while_moving": false,
+        "orientation": 0.25,
+        "position": {"x": 27.0625, "y": 0}
       },
       {
         "name": "locomotive",
         "enable_logistics_while_moving": false,
         "orientation": 0.75,
         "color": {"a": 1, "b": 1, "g": 0.49803921580314636, "r": 0},
-        "position": {"x": -0.5625, "y": 0}
+        "position": {"x": -0.9375, "y": 0}
       },
       {
         "name": "locomotive",
         "enable_logistics_while_moving": false,
-        "orientation": 0.25,
+        "orientation": 0.75,
         "color": {"a": 1, "b": 1, "g": 0.49803921580314636, "r": 0},
-        "position": {"x": 20.4375, "y": 0}
+        "position": {"x": 34.0625, "y": 0}
       }
     ],
     "icons": [
       {"index": 1, "signal": {"name": "locomotive"}},
       {"index": 2, "signal": {"name": "signal-2", "type": "virtual"}},
       {"index": 3, "signal": {"name": "fluid-wagon"}},
-      {"index": 4, "signal": {"name": "signal-2", "type": "virtual"}}
+      {"index": 4, "signal": {"name": "signal-4", "type": "virtual"}}
     ],
     "schedules": [
       {
-        "locomotives": ["0,0", "21,0"],
+        "locomotives": ["0,0", "35,0"],
         "schedule": {
-          "group": "BT:2tankR",
+          "group": "BT:4tank",
           "interrupts": [
             {
-              "name": "BT:Refuel",
-              "inside_interrupt": true,
-              "conditions": [
-                {
-                  "compare_type": "and",
-                  "type": "fuel_item_count_any",
-                  "condition": {"comparator": "<", "constant": 50, "first_signal": {"name": "coal"}}
-                },
-                {
-                  "compare_type": "and",
-                  "type": "fuel_item_count_any",
-                  "condition": {"comparator": "<", "constant": 50, "first_signal": {"name": "solid-fuel"}}
-                },
-                {
-                  "compare_type": "and",
-                  "type": "fuel_item_count_any",
-                  "condition": {"comparator": "<", "constant": 10, "first_signal": {"name": "rocket-fuel"}}
-                },
-                {
-                  "compare_type": "and",
-                  "type": "fuel_item_count_any",
-                  "condition": {"comparator": "<", "constant": 1, "first_signal": {"name": "nuclear-fuel"}}
-                }
-              ],
-              "targets": [
-                {
-                  "station": "BT Fuel",
-                  "wait_conditions": [
-                    {"compare_type": "and", "type": "fuel_full"},
-                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
-                    {"compare_type": "or", "ticks": 1800, "type": "time"}
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "BT:2to2f",
+              "name": "BT:4to4f",
               "inside_interrupt": false,
               "conditions": [
                 {"compare_type": "and", "type": "empty"},
@@ -92,7 +68,7 @@
                   "type": "circuit",
                   "condition": {
                     "comparator": "=",
-                    "constant": 2,
+                    "constant": 4,
                     "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
                   }
                 },
@@ -102,7 +78,7 @@
                   "type": "circuit",
                   "condition": {
                     "comparator": "=",
-                    "constant": 3,
+                    "constant": 5,
                     "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
                   }
                 },
@@ -132,7 +108,7 @@
                   "type": "circuit",
                   "condition": {
                     "comparator": "=",
-                    "constant": 10,
+                    "constant": 12,
                     "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
                   }
                 },
@@ -142,7 +118,7 @@
                   "type": "circuit",
                   "condition": {
                     "comparator": "=",
-                    "constant": 11,
+                    "constant": 13,
                     "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
                   }
                 },
@@ -169,7 +145,7 @@
               ],
               "targets": [
                 {
-                  "station": "[virtual-signal=up-right-arrow][virtual-signal=signal-2][virtual-signal=signal-signal-parameter]",
+                  "station": "[virtual-signal=up-right-arrow][virtual-signal=signal-4][virtual-signal=signal-signal-parameter]",
                   "wait_conditions": [
                     {"compare_type": "and", "type": "full"},
                     {
@@ -197,7 +173,7 @@
                   ]
                 },
                 {
-                  "station": "[virtual-signal=down-right-arrow][virtual-signal=signal-2][virtual-signal=signal-signal-parameter]",
+                  "station": "[virtual-signal=down-right-arrow][virtual-signal=signal-4][virtual-signal=signal-signal-parameter]",
                   "wait_conditions": [
                     {"compare_type": "and", "type": "empty"},
                     {
@@ -227,7 +203,7 @@
               ]
             },
             {
-              "name": "BT:Empty2f",
+              "name": "BT:Empty4f",
               "inside_interrupt": false,
               "conditions": [
                 {"compare_type": "and", "station": "BT Depot", "type": "at_station"},
@@ -235,7 +211,7 @@
               ],
               "targets": [
                 {
-                  "station": "[virtual-signal=down-right-arrow][virtual-signal=signal-2][virtual-signal=signal-fluid-parameter]",
+                  "station": "[virtual-signal=down-right-arrow][virtual-signal=signal-4][virtual-signal=signal-fluid-parameter]",
                   "wait_conditions": [
                     {"compare_type": "and", "type": "empty"},
                     {
@@ -275,7 +251,12 @@
                 {"compare_type": "or", "station": "BT Fuel", "type": "at_station"},
                 {"compare_type": "and", "type": "not_empty"}
               ],
-              "targets": [{"station": "BT Depot"}]
+              "targets": [
+                {
+                  "station": "BT Depot",
+                  "wait_conditions": [{"compare_type": "and", "ticks": 60, "type": "inactivity"}]
+                }
+              ]
             },
             {
               "name": "BT:Idle",
@@ -293,7 +274,9 @@
       {"back": "7,0", "stock": "0,0"},
       {"back": "0,0", "front": "14,0", "stock": "7,0"},
       {"back": "7,0", "front": "21,0", "stock": "14,0"},
-      {"back": "14,0", "stock": "21,0"}
+      {"back": "14,0", "front": "28,0", "stock": "21,0"},
+      {"back": "21,0", "front": "35,0", "stock": "28,0"},
+      {"front": "28,0", "stock": "35,0"}
     ]
   }
 }
