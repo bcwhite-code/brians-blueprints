@@ -125,6 +125,7 @@
       {"name": "inserter", "direction": 12, "position": {"x": 4.5, "y": 6.5}},
       {"name": "inserter", "position": {"x": 8.5, "y": 2.5}},
       {"name": "inserter", "direction": 12, "position": {"x": 8.5, "y": 6.5}},
+      {"name": "medium-electric-pole", "position": {"x": 4.5, "y": 5.5}},
       {"name": "solar-panel", "position": {"x": 4.5, "y": 10.5}},
       {"name": "solar-panel", "position": {"x": 7.5, "y": 10.5}},
       {
@@ -165,8 +166,18 @@
       },
       {"name": "transport-belt", "direction": 8, "position": {"x": 2.5, "y": 1.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": 3.5, "y": 1.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": 4.5, "y": 1.5}},
-      {"name": "transport-belt", "direction": 4, "position": {"x": 6.5, "y": 1.5}},
+      {"name": "transport-belt", "direction": 8, "position": {"x": 4.5, "y": 1.5}},
+      {
+        "name": "transport-belt",
+        "direction": 4,
+        "control_behavior": {
+          "circuit_contents_read_mode": 0,
+          "circuit_enabled": true,
+          "circuit_read_hand_contents": false,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}}
+        },
+        "position": {"x": 6.5, "y": 1.5}
+      },
       {"name": "transport-belt", "direction": 4, "position": {"x": 7.5, "y": 1.5}},
       {
         "name": "transport-belt",
@@ -178,7 +189,7 @@
         },
         "position": {"x": 6.5, "y": 2.5}
       },
-      {"name": "transport-belt", "direction": 4, "position": {"x": 8.5, "y": 1.5}},
+      {"name": "transport-belt", "direction": 8, "position": {"x": 8.5, "y": 1.5}},
       {"name": "underground-belt", "direction": 4, "type": "input", "position": {"x": 0.5, "y": 2.5}},
       {"name": "underground-belt", "direction": 4, "type": "output", "position": {"x": 5.5, "y": 2.5}}
     ],
@@ -307,7 +318,7 @@
       ["0,3", 1, "2,4.5", 3],
       ["0,3", 2, "2,4.5", 2],
       ["3,2", 2, "4,3", 2],
-      ["9,3", 2, "10,3", 2],
+      ["9,2", 2, "10,3", 2],
       ["2,4.5", 1, "4,6", 1]
     ]
   }

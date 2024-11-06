@@ -1,5 +1,5 @@
 {
-  "index": 16,
+  "index": 0,
   "blueprint": {
     "item": "blueprint",
     "label": "Depot Hub (bot fuel)",
@@ -9,6 +9,12 @@
     "shift_y": -167,
     "version": 562949954338818,
     "entities": [
+      {"name": "active-provider-chest", "position": {"x": 209.5, "y": 116.5}},
+      {"name": "active-provider-chest", "position": {"x": 209.5, "y": 151.5}},
+      {"name": "active-provider-chest", "position": {"x": 209.5, "y": 165.5}},
+      {"name": "active-provider-chest", "position": {"x": 209.5, "y": 170.5}},
+      {"name": "active-provider-chest", "position": {"x": 209.5, "y": 184.5}},
+      {"name": "active-provider-chest", "position": {"x": 197.5, "y": 217.5}},
       {
         "name": "arithmetic-combinator",
         "direction": 8,
@@ -38,7 +44,20 @@
       },
       {
         "name": "arithmetic-combinator",
-        "direction": 8,
+        "direction": 12,
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "second_constant": 4,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 209, "y": 180.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 4,
         "control_behavior": {
           "arithmetic_conditions": {
             "operation": "*",
@@ -47,7 +66,7 @@
             "output_signal": {"name": "signal-each", "type": "virtual"}
           }
         },
-        "position": {"x": 197.5, "y": 216}
+        "position": {"x": 199, "y": 213.5}
       },
       {"name": "big-electric-pole", "position": {"x": 2, "y": 2}},
       {"name": "big-electric-pole", "position": {"x": 26, "y": 2}},
@@ -90,24 +109,135 @@
       {"name": "big-electric-pole", "position": {"x": 178, "y": 222}},
       {"name": "big-electric-pole", "position": {"x": 199, "y": 193}},
       {"name": "big-electric-pole", "position": {"x": 222, "y": 198}},
-      {"name": "big-electric-pole", "position": {"x": 199, "y": 216}},
+      {"name": "big-electric-pole", "position": {"x": 199, "y": 215}},
       {"name": "big-electric-pole", "position": {"x": 198, "y": 222}},
       {"name": "big-electric-pole", "position": {"x": 222, "y": 222}},
       {
         "name": "buffer-chest",
         "bar": 9,
-        "position": {"x": 200.5, "y": 216.5},
+        "control_behavior": {"circuit_condition_enabled": false},
+        "position": {"x": 200.5, "y": 215.5},
         "request_filters": {"sections": [{"index": 1}]}
       },
       {
         "name": "buffer-chest",
         "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
-        "position": {"x": 200.5, "y": 218.5},
+        "position": {"x": 200.5, "y": 217.5},
         "request_filters": {"sections": [{"index": 1}]}
       },
+      {
+        "name": "bulk-inserter",
+        "direction": 4,
+        "filter_mode": "blacklist",
+        "use_filters": true,
+        "control_behavior": {"circuit_set_filters": true},
+        "filters": [{"name": "coal", "comparator": "=", "index": 1, "quality": "normal"}],
+        "position": {"x": 210.5, "y": 116.5}
+      },
       {"name": "bulk-inserter", "direction": 12, "position": {"x": 210.5, "y": 117.5}},
+      {
+        "name": "bulk-inserter",
+        "direction": 4,
+        "filter_mode": "blacklist",
+        "use_filters": true,
+        "control_behavior": {"circuit_set_filters": true},
+        "filters": [{"name": "coal", "comparator": "=", "index": 1, "quality": "normal"}],
+        "position": {"x": 210.5, "y": 151.5}
+      },
       {"name": "bulk-inserter", "direction": 12, "position": {"x": 210.5, "y": 152.5}},
+      {
+        "name": "bulk-inserter",
+        "direction": 4,
+        "filter_mode": "blacklist",
+        "use_filters": true,
+        "control_behavior": {"circuit_set_filters": true},
+        "filters": [{"name": "coal", "comparator": "=", "index": 1, "quality": "normal"}],
+        "position": {"x": 210.5, "y": 165.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 4,
+        "filter_mode": "blacklist",
+        "use_filters": true,
+        "control_behavior": {"circuit_set_filters": true},
+        "filters": [{"name": "coal", "comparator": "=", "index": 1, "quality": "normal"}],
+        "position": {"x": 210.5, "y": 170.5}
+      },
       {"name": "bulk-inserter", "direction": 12, "position": {"x": 210.5, "y": 183.5}},
+      {
+        "name": "bulk-inserter",
+        "direction": 4,
+        "filter_mode": "blacklist",
+        "use_filters": true,
+        "control_behavior": {"circuit_set_filters": true},
+        "filters": [{"name": "coal", "comparator": "=", "index": 1, "quality": "normal"}],
+        "position": {"x": 210.5, "y": 184.5}
+      },
+      {"name": "bulk-inserter", "position": {"x": 197.5, "y": 216.5}},
+      {
+        "name": "cargo-wagon",
+        "copy_color_from_train_stop": true,
+        "enable_logistics_while_moving": false,
+        "inventory": null,
+        "orientation": 0.5,
+        "position": {"x": 212, "y": 122.34375}
+      },
+      {
+        "name": "cargo-wagon",
+        "copy_color_from_train_stop": true,
+        "enable_logistics_while_moving": false,
+        "inventory": null,
+        "orientation": 0.5,
+        "position": {"x": 212, "y": 129.34375}
+      },
+      {
+        "name": "cargo-wagon",
+        "copy_color_from_train_stop": true,
+        "enable_logistics_while_moving": false,
+        "inventory": null,
+        "orientation": 0.5,
+        "position": {"x": 212, "y": 136.34375}
+      },
+      {
+        "name": "cargo-wagon",
+        "copy_color_from_train_stop": true,
+        "enable_logistics_while_moving": false,
+        "inventory": null,
+        "orientation": 0.5,
+        "position": {"x": 212, "y": 143.34375}
+      },
+      {
+        "name": "cargo-wagon",
+        "copy_color_from_train_stop": true,
+        "enable_logistics_while_moving": false,
+        "inventory": null,
+        "orientation": 0.5,
+        "position": {"x": 212, "y": 157.34375}
+      },
+      {
+        "name": "cargo-wagon",
+        "copy_color_from_train_stop": true,
+        "enable_logistics_while_moving": false,
+        "inventory": null,
+        "orientation": 0.5,
+        "position": {"x": 212, "y": 164.34375}
+      },
+      {
+        "name": "cargo-wagon",
+        "copy_color_from_train_stop": true,
+        "enable_logistics_while_moving": false,
+        "inventory": null,
+        "orientation": 0.5,
+        "position": {"x": 212, "y": 171.34375}
+      },
+      {
+        "name": "cargo-wagon",
+        "copy_color_from_train_stop": true,
+        "enable_logistics_while_moving": false,
+        "inventory": null,
+        "orientation": 0.5,
+        "position": {"x": 212, "y": 178.34375}
+      },
       {
         "name": "constant-combinator",
         "direction": 12,
@@ -868,7 +998,7 @@
       },
       {
         "name": "constant-combinator",
-        "direction": 4,
+        "direction": 12,
         "player_description": "Change to positive value to active a particular fuel.",
         "control_behavior": {
           "sections": {
@@ -880,33 +1010,9 @@
                   {
                     "name": "coal",
                     "comparator": "=",
-                    "count": -200,
+                    "count": 50,
                     "index": 1,
-                    "max_count": 4294967096,
-                    "quality": "normal"
-                  },
-                  {
-                    "name": "solid-fuel",
-                    "comparator": "=",
-                    "count": -200,
-                    "index": 2,
-                    "max_count": 4294967096,
-                    "quality": "normal"
-                  },
-                  {
-                    "name": "rocket-fuel",
-                    "comparator": "=",
-                    "count": -80,
-                    "index": 3,
-                    "max_count": 4294967216,
-                    "quality": "normal"
-                  },
-                  {
-                    "name": "nuclear-fuel",
-                    "comparator": "=",
-                    "count": -4,
-                    "index": 4,
-                    "max_count": 4294967292,
+                    "max_count": 4294967246,
                     "quality": "normal"
                   }
                 ]
@@ -914,7 +1020,7 @@
             ]
           }
         },
-        "position": {"x": 205.5, "y": 163.5}
+        "position": {"x": 209.5, "y": 181.5}
       },
       {"name": "curved-rail-a", "direction": 12, "position": {"x": -1, "y": -12}},
       {"name": "curved-rail-a", "direction": 2, "position": {"x": -12, "y": -1}},
@@ -1483,8 +1589,85 @@
         },
         "position": {"x": 64.5, "y": 198}
       },
-      {"name": "fast-inserter", "direction": 8, "position": {"x": 200.5, "y": 217.5}},
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "comparator": "=",
+                "first_signal": {"name": "signal-red", "type": "virtual"},
+                "second_signal": {"name": "signal-green", "type": "virtual"}
+              }
+            ],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-4", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 210.5, "y": 159}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "comparator": "=",
+                "first_signal": {"name": "signal-red", "type": "virtual"},
+                "second_signal": {"name": "signal-green", "type": "virtual"}
+              }
+            ],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-3", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 210.5, "y": 168}
+      },
+      {
+        "name": "fast-inserter",
+        "direction": 12,
+        "override_stack_size": 1,
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_hand_read_mode": 1,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-4", "type": "virtual"}}
+        },
+        "position": {"x": 210.5, "y": 163.5}
+      },
+      {
+        "name": "fast-inserter",
+        "direction": 12,
+        "override_stack_size": 1,
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_hand_read_mode": 1,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-3", "type": "virtual"}}
+        },
+        "position": {"x": 210.5, "y": 169.5}
+      },
+      {"name": "fast-inserter", "direction": 8, "position": {"x": 200.5, "y": 216.5}},
       {"name": "half-diagonal-rail", "position": {"x": 214, "y": 196}},
+      {
+        "name": "locomotive",
+        "enable_logistics_while_moving": false,
+        "orientation": 0.5,
+        "color": {"a": 1, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "position": {"x": 212, "y": 115.34375}
+      },
+      {
+        "name": "locomotive",
+        "enable_logistics_while_moving": false,
+        "orientation": 0.5,
+        "color": {"a": 1, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "position": {"x": 212, "y": 150.34375}
+      },
+      {
+        "name": "locomotive",
+        "enable_logistics_while_moving": false,
+        "orientation": 0.5,
+        "color": {"a": 1, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "position": {"x": 212, "y": 185.34375}
+      },
       {"name": "medium-electric-pole", "position": {"x": 72.5, "y": 28.5}},
       {"name": "medium-electric-pole", "position": {"x": 80.5, "y": 28.5}},
       {"name": "medium-electric-pole", "position": {"x": 88.5, "y": 28.5}},
@@ -1498,7 +1681,8 @@
       {"name": "medium-electric-pole", "position": {"x": 152.5, "y": 28.5}},
       {"name": "medium-electric-pole", "position": {"x": 160.5, "y": 25.5}},
       {"name": "medium-electric-pole", "position": {"x": 160.5, "y": 28.5}},
-      {"name": "medium-electric-pole", "position": {"x": 208.5, "y": 119.5}},
+      {"name": "medium-electric-pole", "position": {"x": 208.5, "y": 116.5}},
+      {"name": "medium-electric-pole", "position": {"x": 208.5, "y": 124.5}},
       {"name": "medium-electric-pole", "position": {"x": 63.5, "y": 195.5}},
       {"name": "medium-electric-pole", "position": {"x": 63.5, "y": 198.5}},
       {"name": "medium-electric-pole", "position": {"x": 71.5, "y": 195.5}},
@@ -1509,16 +1693,15 @@
       {"name": "medium-electric-pole", "position": {"x": 111.5, "y": 195.5}},
       {"name": "medium-electric-pole", "position": {"x": 119.5, "y": 195.5}},
       {"name": "medium-electric-pole", "position": {"x": 127.5, "y": 195.5}},
-      {"name": "medium-electric-pole", "position": {"x": 208.5, "y": 128.5}},
-      {"name": "medium-electric-pole", "position": {"x": 208.5, "y": 137.5}},
+      {"name": "medium-electric-pole", "position": {"x": 208.5, "y": 132.5}},
+      {"name": "medium-electric-pole", "position": {"x": 208.5, "y": 140.5}},
       {"name": "medium-electric-pole", "position": {"x": 200.5, "y": 144.5}},
-      {"name": "medium-electric-pole", "position": {"x": 208.5, "y": 146.5}},
+      {"name": "medium-electric-pole", "position": {"x": 208.5, "y": 148.5}},
       {"name": "medium-electric-pole", "position": {"x": 208.5, "y": 155.5}},
-      {"name": "medium-electric-pole", "position": {"x": 202.5, "y": 164.5}},
       {"name": "medium-electric-pole", "position": {"x": 208.5, "y": 164.5}},
-      {"name": "medium-electric-pole", "position": {"x": 208.5, "y": 173.5}},
+      {"name": "medium-electric-pole", "position": {"x": 208.5, "y": 172.5}},
       {"name": "medium-electric-pole", "position": {"x": 203.5, "y": 188.5}},
-      {"name": "medium-electric-pole", "position": {"x": 208.5, "y": 182.5}},
+      {"name": "medium-electric-pole", "position": {"x": 208.5, "y": 181.5}},
       {"name": "medium-electric-pole", "position": {"x": 135.5, "y": 195.5}},
       {"name": "medium-electric-pole", "position": {"x": 143.5, "y": 195.5}},
       {"name": "medium-electric-pole", "position": {"x": 151.5, "y": 195.5}},
@@ -1683,6 +1866,35 @@
       {"name": "rail-signal", "direction": 2, "position": {"x": 124.5, "y": 207.5}},
       {"name": "rail-signal", "direction": 4, "position": {"x": 102.5, "y": 218.5}},
       {"name": "rail-signal", "direction": 12, "position": {"x": 121.5, "y": 225.5}},
+      {
+        "name": "rail-signal",
+        "control_behavior": {
+          "circuit_close_signal": true,
+          "circuit_read_signal": false,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+        },
+        "position": {"x": 210.5, "y": 153.5}
+      },
+      {
+        "name": "rail-signal",
+        "control_behavior": {"circuit_close_signal": false, "circuit_read_signal": true},
+        "position": {"x": 210.5, "y": 155.5}
+      },
+      {
+        "name": "rail-signal",
+        "control_behavior": {"circuit_close_signal": false, "circuit_read_signal": true},
+        "position": {"x": 210.5, "y": 157.5}
+      },
+      {
+        "name": "rail-signal",
+        "control_behavior": {"circuit_close_signal": false, "circuit_read_signal": true},
+        "position": {"x": 210.5, "y": 162.5}
+      },
+      {
+        "name": "rail-signal",
+        "control_behavior": {"circuit_close_signal": false, "circuit_read_signal": true},
+        "position": {"x": 210.5, "y": 164.5}
+      },
       {"name": "rail-signal", "position": {"x": 210.5, "y": 189.5}},
       {"name": "rail-signal", "direction": 8, "position": {"x": 225.5, "y": 190.5}},
       {"name": "rail-signal", "direction": 2, "position": {"x": 136.5, "y": 207.5}},
@@ -1708,17 +1920,29 @@
       {
         "name": "requester-chest",
         "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 209.5, "y": 163.5},
+        "request_filters": {"request_from_buffers": true, "sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 209.5, "y": 169.5},
+        "request_filters": {"request_from_buffers": true, "sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
         "position": {"x": 209.5, "y": 183.5},
         "request_filters": {"request_from_buffers": true, "sections": [{"index": 1}]}
       },
       {
         "name": "roboport",
-        "position": {"x": 196, "y": 142},
+        "position": {"x": 196, "y": 141},
         "request_filters": {"sections": [{"index": 1}]}
       },
       {
         "name": "roboport",
-        "position": {"x": 196, "y": 192},
+        "position": {"x": 196, "y": 191},
         "request_filters": {"sections": [{"index": 1}]}
       },
       {
@@ -1960,14 +2184,6 @@
       {"name": "small-lamp", "position": {"x": 222.5, "y": 135.5}},
       {"name": "small-lamp", "position": {"x": 221.5, "y": 154.5}},
       {"name": "small-lamp", "position": {"x": 222.5, "y": 157.5}},
-      {"name": "small-lamp", "position": {"x": 203.5, "y": 161.5}},
-      {"name": "small-lamp", "position": {"x": 203.5, "y": 163.5}},
-      {"name": "small-lamp", "position": {"x": 205.5, "y": 161.5}},
-      {"name": "small-lamp", "position": {"x": 207.5, "y": 161.5}},
-      {"name": "small-lamp", "position": {"x": 207.5, "y": 163.5}},
-      {"name": "small-lamp", "position": {"x": 203.5, "y": 165.5}},
-      {"name": "small-lamp", "position": {"x": 205.5, "y": 165.5}},
-      {"name": "small-lamp", "position": {"x": 207.5, "y": 165.5}},
       {"name": "small-lamp", "position": {"x": 221.5, "y": 176.5}},
       {"name": "small-lamp", "position": {"x": 222.5, "y": 179.5}},
       {"name": "small-lamp", "position": {"x": 135.5, "y": 221.5}},
@@ -1981,6 +2197,11 @@
       {"name": "small-lamp", "position": {"x": 199.5, "y": 221.5}},
       {"name": "small-lamp", "position": {"x": 196.5, "y": 222.5}},
       {"name": "small-lamp", "position": {"x": 220.5, "y": 220.5}},
+      {
+        "name": "storage-chest",
+        "position": {"x": 197.5, "y": 215.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
       {"name": "straight-rail", "direction": 4, "position": {"x": 2, "y": -12}},
       {"name": "straight-rail", "direction": 6, "position": {"x": 13, "y": -7}},
       {"name": "straight-rail", "direction": 6, "position": {"x": 15, "y": -5}},
@@ -4994,7 +5215,763 @@
       }
     ],
     "icons": [{"index": 1, "signal": {"name": "train-stop"}}, {"index": 2, "signal": {"name": "logistic-robot"}}],
+    "schedules": [
+      {
+        "locomotives": ["225.5,128.875"],
+        "schedule": {
+          "group": "BT:8car",
+          "interrupts": [
+            {
+              "name": "BT:Refuel",
+              "inside_interrupt": true,
+              "conditions": [
+                {
+                  "compare_type": "and",
+                  "type": "fuel_item_count_any",
+                  "condition": {"comparator": "<", "constant": 50, "first_signal": {"name": "coal"}}
+                },
+                {
+                  "compare_type": "and",
+                  "type": "fuel_item_count_any",
+                  "condition": {"comparator": "<", "constant": 50, "first_signal": {"name": "solid-fuel"}}
+                },
+                {
+                  "compare_type": "and",
+                  "type": "fuel_item_count_any",
+                  "condition": {"comparator": "<", "constant": 10, "first_signal": {"name": "rocket-fuel"}}
+                },
+                {
+                  "compare_type": "and",
+                  "type": "fuel_item_count_any",
+                  "condition": {"comparator": "<", "constant": 1, "first_signal": {"name": "nuclear-fuel"}}
+                }
+              ],
+              "targets": [
+                {
+                  "station": "BT Fuel",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "fuel_full"},
+                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                    {"compare_type": "or", "ticks": 1800, "type": "time"}
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BT:8to8",
+              "inside_interrupt": false,
+              "conditions": [
+                {"compare_type": "and", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 8,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 9,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 10,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 11,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 12,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 13,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 14,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 15,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                }
+              ],
+              "targets": [
+                {
+                  "station": "[virtual-signal=up-arrow][virtual-signal=signal-8][virtual-signal=signal-signal-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "full"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 120, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3600, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                },
+                {
+                  "station": "[virtual-signal=down-arrow][virtual-signal=signal-8][virtual-signal=signal-signal-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "empty"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 120, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3900, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BT:Empty8",
+              "inside_interrupt": false,
+              "conditions": [
+                {"compare_type": "and", "station": "BT Depot", "type": "at_station"},
+                {"compare_type": "and", "type": "not_empty"}
+              ],
+              "targets": [
+                {
+                  "station": "[virtual-signal=down-arrow][virtual-signal=signal-8][virtual-signal=signal-item-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "empty"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 120, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3600, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BT:Depot",
+              "inside_interrupt": true,
+              "conditions": [
+                {"compare_type": "and", "station": "BT Depot", "type": "at_station"},
+                {"compare_type": "and", "type": "destination_full_or_no_path"},
+                {"compare_type": "or", "station": "BT Depot", "type": "not_at_station"},
+                {"compare_type": "and", "type": "empty"},
+                {"compare_type": "or", "station": "BT Fuel", "type": "at_station"},
+                {"compare_type": "and", "type": "not_empty"}
+              ],
+              "targets": [{"station": "BT Depot"}]
+            },
+            {
+              "name": "BT:Idle",
+              "inside_interrupt": false,
+              "conditions": [{"compare_type": "and", "type": "passenger_not_present"}],
+              "targets": [
+                {"station": "BT Depot", "wait_conditions": [{"compare_type": "and", "ticks": 120, "type": "time"}]}
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "locomotives": ["225.5,163.875"],
+        "schedule": {
+          "group": "BT:8car",
+          "interrupts": [
+            {
+              "name": "BT:Refuel",
+              "inside_interrupt": true,
+              "conditions": [
+                {
+                  "compare_type": "and",
+                  "type": "fuel_item_count_any",
+                  "condition": {"comparator": "<", "constant": 50, "first_signal": {"name": "coal"}}
+                },
+                {
+                  "compare_type": "and",
+                  "type": "fuel_item_count_any",
+                  "condition": {"comparator": "<", "constant": 50, "first_signal": {"name": "solid-fuel"}}
+                },
+                {
+                  "compare_type": "and",
+                  "type": "fuel_item_count_any",
+                  "condition": {"comparator": "<", "constant": 10, "first_signal": {"name": "rocket-fuel"}}
+                },
+                {
+                  "compare_type": "and",
+                  "type": "fuel_item_count_any",
+                  "condition": {"comparator": "<", "constant": 1, "first_signal": {"name": "nuclear-fuel"}}
+                }
+              ],
+              "targets": [
+                {
+                  "station": "BT Fuel",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "fuel_full"},
+                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                    {"compare_type": "or", "ticks": 1800, "type": "time"}
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BT:8to8",
+              "inside_interrupt": false,
+              "conditions": [
+                {"compare_type": "and", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 8,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 9,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 10,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 11,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 12,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 13,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 14,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 15,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                }
+              ],
+              "targets": [
+                {
+                  "station": "[virtual-signal=up-arrow][virtual-signal=signal-8][virtual-signal=signal-signal-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "full"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 120, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3600, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                },
+                {
+                  "station": "[virtual-signal=down-arrow][virtual-signal=signal-8][virtual-signal=signal-signal-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "empty"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 120, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3900, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BT:Empty8",
+              "inside_interrupt": false,
+              "conditions": [
+                {"compare_type": "and", "station": "BT Depot", "type": "at_station"},
+                {"compare_type": "and", "type": "not_empty"}
+              ],
+              "targets": [
+                {
+                  "station": "[virtual-signal=down-arrow][virtual-signal=signal-8][virtual-signal=signal-item-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "empty"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 120, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3600, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BT:Depot",
+              "inside_interrupt": true,
+              "conditions": [
+                {"compare_type": "and", "station": "BT Depot", "type": "at_station"},
+                {"compare_type": "and", "type": "destination_full_or_no_path"},
+                {"compare_type": "or", "station": "BT Depot", "type": "not_at_station"},
+                {"compare_type": "and", "type": "empty"},
+                {"compare_type": "or", "station": "BT Fuel", "type": "at_station"},
+                {"compare_type": "and", "type": "not_empty"}
+              ],
+              "targets": [{"station": "BT Depot"}]
+            },
+            {
+              "name": "BT:Idle",
+              "inside_interrupt": false,
+              "conditions": [{"compare_type": "and", "type": "passenger_not_present"}],
+              "targets": [
+                {"station": "BT Depot", "wait_conditions": [{"compare_type": "and", "ticks": 120, "type": "time"}]}
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "locomotives": ["225.5,198.875"],
+        "schedule": {
+          "group": "BT:8car",
+          "interrupts": [
+            {
+              "name": "BT:Refuel",
+              "inside_interrupt": true,
+              "conditions": [
+                {
+                  "compare_type": "and",
+                  "type": "fuel_item_count_any",
+                  "condition": {"comparator": "<", "constant": 50, "first_signal": {"name": "coal"}}
+                },
+                {
+                  "compare_type": "and",
+                  "type": "fuel_item_count_any",
+                  "condition": {"comparator": "<", "constant": 50, "first_signal": {"name": "solid-fuel"}}
+                },
+                {
+                  "compare_type": "and",
+                  "type": "fuel_item_count_any",
+                  "condition": {"comparator": "<", "constant": 10, "first_signal": {"name": "rocket-fuel"}}
+                },
+                {
+                  "compare_type": "and",
+                  "type": "fuel_item_count_any",
+                  "condition": {"comparator": "<", "constant": 1, "first_signal": {"name": "nuclear-fuel"}}
+                }
+              ],
+              "targets": [
+                {
+                  "station": "BT Fuel",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "fuel_full"},
+                    {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                    {"compare_type": "or", "ticks": 1800, "type": "time"}
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BT:8to8",
+              "inside_interrupt": false,
+              "conditions": [
+                {"compare_type": "and", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 8,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 9,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 10,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 11,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 12,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 13,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 14,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 15,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                }
+              ],
+              "targets": [
+                {
+                  "station": "[virtual-signal=up-arrow][virtual-signal=signal-8][virtual-signal=signal-signal-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "full"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 120, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3600, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                },
+                {
+                  "station": "[virtual-signal=down-arrow][virtual-signal=signal-8][virtual-signal=signal-signal-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "empty"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 120, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3900, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BT:Empty8",
+              "inside_interrupt": false,
+              "conditions": [
+                {"compare_type": "and", "station": "BT Depot", "type": "at_station"},
+                {"compare_type": "and", "type": "not_empty"}
+              ],
+              "targets": [
+                {
+                  "station": "[virtual-signal=down-arrow][virtual-signal=signal-8][virtual-signal=signal-item-parameter]",
+                  "wait_conditions": [
+                    {"compare_type": "and", "type": "empty"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 120, "type": "inactivity"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {"compare_type": "or", "ticks": 3600, "type": "time"},
+                    {
+                      "compare_type": "and",
+                      "type": "circuit",
+                      "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+                    },
+                    {
+                      "compare_type": "or",
+                      "type": "circuit",
+                      "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-green", "type": "virtual"}}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "BT:Depot",
+              "inside_interrupt": true,
+              "conditions": [
+                {"compare_type": "and", "station": "BT Depot", "type": "at_station"},
+                {"compare_type": "and", "type": "destination_full_or_no_path"},
+                {"compare_type": "or", "station": "BT Depot", "type": "not_at_station"},
+                {"compare_type": "and", "type": "empty"},
+                {"compare_type": "or", "station": "BT Fuel", "type": "at_station"},
+                {"compare_type": "and", "type": "not_empty"}
+              ],
+              "targets": [{"station": "BT Depot"}]
+            },
+            {
+              "name": "BT:Idle",
+              "inside_interrupt": false,
+              "conditions": [{"compare_type": "and", "type": "passenger_not_present"}],
+              "targets": [
+                {"station": "BT Depot", "wait_conditions": [{"compare_type": "and", "ticks": 120, "type": "time"}]}
+              ]
+            }
+          ]
+        }
+      }
+    ],
     "snap-to-grid": {"x": 110, "y": 110},
+    "stock_connections": [
+      {"front": "225.5,135.875", "stock": "225.5,128.875"},
+      {"back": "225.5,128.875", "front": "225.5,142.875", "stock": "225.5,135.875"},
+      {"back": "225.5,135.875", "front": "225.5,149.875", "stock": "225.5,142.875"},
+      {"back": "225.5,142.875", "front": "225.5,156.875", "stock": "225.5,149.875"},
+      {"back": "225.5,149.875", "front": "225.5,163.875", "stock": "225.5,156.875"},
+      {"back": "225.5,156.875", "front": "225.5,170.875", "stock": "225.5,163.875"},
+      {"back": "225.5,163.875", "front": "225.5,177.875", "stock": "225.5,170.875"},
+      {"back": "225.5,170.875", "front": "225.5,184.875", "stock": "225.5,177.875"},
+      {"back": "225.5,177.875", "front": "225.5,191.875", "stock": "225.5,184.875"},
+      {"back": "225.5,184.875", "front": "225.5,198.875", "stock": "225.5,191.875"},
+      {"back": "225.5,191.875", "stock": "225.5,198.875"}
+    ],
     "wires": [
       ["15.5,15.5", 1, "39.5,15.5", 1],
       ["15.5,15.5", 1, "15.5,39.5", 1],
@@ -5148,55 +6125,78 @@
       ["235.5,125.5", 1, "235.5,147.5", 1],
       ["235.5,125.5", 2, "235.5,147.5", 2],
       ["235.5,125.5", 5, "235.5,147.5", 5],
-      ["223,131", 1, "222,133", 1],
-      ["222,133", 1, "222,142", 1],
-      ["222,133", 5, "222,142", 5],
-      ["222,142", 1, "222,151", 1],
-      ["222,142", 5, "222,151", 5],
+      ["222,130", 1, "223,131", 1],
+      ["222,130", 1, "222,138", 1],
+      ["222,130", 5, "222,138", 5],
+      ["224,130", 1, "223,131", 1],
+      ["222,138", 1, "222,146", 1],
+      ["222,138", 5, "222,146", 5],
+      ["222,146", 1, "222,154", 1],
+      ["222,146", 5, "222,154", 5],
       ["15.5,147.5", 1, "15.5,169.5", 1],
       ["15.5,147.5", 2, "15.5,169.5", 2],
       ["15.5,147.5", 5, "15.5,169.5", 5],
       ["235.5,147.5", 1, "235.5,169.5", 1],
       ["235.5,147.5", 2, "235.5,169.5", 2],
       ["235.5,147.5", 5, "235.5,169.5", 5],
-      ["222,151", 1, "222,160", 1],
-      ["222,151", 5, "222,160", 5],
-      ["214,158", 5, "222,160", 5],
-      ["222,160", 1, "222,169", 1],
-      ["222,160", 5, "222,169", 5],
+      ["222,154", 1, "222,162", 1],
+      ["222,154", 5, "222,162", 5],
+      ["214,158", 5, "222,162", 5],
+      ["222,162", 1, "222,169", 1],
+      ["222,162", 5, "222,169", 5],
+      ["224,165", 1, "223,166", 1],
       ["223,166", 1, "222,169", 1],
+      ["224,167", 1, "224,171", 1],
       ["15.5,169.5", 1, "15.5,191.5", 1],
       ["15.5,169.5", 2, "15.5,191.5", 2],
       ["15.5,169.5", 5, "15.5,191.5", 5],
       ["222,169", 1, "222,178", 1],
       ["222,169", 5, "222,178", 5],
+      ["224,169", 2, "224,171", 2],
       ["235.5,169.5", 1, "235.5,191.5", 1],
       ["235.5,169.5", 2, "235.5,191.5", 2],
       ["235.5,169.5", 5, "235.5,191.5", 5],
-      ["216,178", 5, "222,178", 5],
-      ["219,177", 1, "222,178", 1],
-      ["222,178", 1, "222,187", 1],
-      ["222,178", 5, "222,187", 5],
-      ["222,187", 1, "222,196", 1],
-      ["222,187", 5, "222,196", 5],
+      ["224,171", 1, "224,178", 1],
+      ["224,171", 2, "224,172.5", 2],
+      ["224,172.5", 3, "224,177", 1],
+      ["224,176", 1, "224,178", 1],
+      ["224,176", 2, "224,178", 2],
+      ["222,178", 1, "223,177", 1],
+      ["222,178", 1, "223,183", 1],
+      ["222,178", 1, "222,186", 1],
+      ["222,178", 5, "222,186", 5],
+      ["223,177", 1, "224,179", 1],
+      ["224,178", 2, "224,181.5", 2],
+      ["224,181.5", 3, "224,183", 1],
+      ["224,184", 1, "223,183", 1],
+      ["223,183", 1, "222,186", 1],
+      ["222,186", 1, "222,195", 1],
+      ["222,186", 5, "222,195", 5],
       ["15.5,191.5", 1, "15.5,211.5", 1],
       ["15.5,191.5", 2, "15.5,211.5", 2],
       ["15.5,191.5", 5, "15.5,211.5", 5],
       ["235.5,191.5", 1, "235.5,211.5", 1],
       ["235.5,191.5", 2, "235.5,211.5", 2],
       ["235.5,191.5", 5, "235.5,211.5", 5],
-      ["222,196", 1, "223,197", 1],
-      ["222,196", 1, "217,202", 1],
-      ["222,196", 5, "217,202", 5],
+      ["222.5,194", 1, "223,195", 1],
+      ["222.5,194", 3, "222,195", 1],
+      ["222,195", 1, "223,197", 1],
+      ["222,195", 1, "217,202", 1],
+      ["222,195", 5, "217,202", 5],
+      ["224,198", 1, "223,197", 1],
       ["217,202", 1, "212.5,206.5", 1],
+      ["217,202", 2, "223.5,201.5", 2],
+      ["217,202", 2, "212.5,206.5", 2],
       ["217,202", 5, "212.5,206.5", 5],
       ["77,208", 1, "79.5,208", 1],
       ["79.5,208", 2, "78,209.5", 4],
       ["79.5,208", 2, "77,209", 2],
       ["79.5,208", 4, "82,209.5", 2],
       ["79.5,208", 4, "85,209", 2],
-      ["212.5,206.5", 1, "212.5,229.5", 1],
-      ["212.5,206.5", 5, "212.5,229.5", 5],
+      ["212.5,206.5", 1, "212.5,228.5", 1],
+      ["212.5,206.5", 2, "212.5,228.5", 2],
+      ["212.5,206.5", 5, "212.5,228.5", 5],
+      ["212.5,206.5", 5, "211.5,235.5", 5],
       ["76,209.5", 1, "76,211.5", 3],
       ["76,209.5", 2, "77,210.5", 2],
       ["76,209.5", 4, "78,209.5", 4],
@@ -5284,9 +6284,10 @@
       ["73.5,219.5", 1, "81.5,235.5", 1],
       ["73.5,219.5", 2, "81.5,235.5", 2],
       ["73.5,219.5", 5, "81.5,235.5", 5],
-      ["211,229.5", 1, "212.5,229.5", 1],
-      ["211,229.5", 3, "214,232", 1],
-      ["212.5,229.5", 5, "211.5,235.5", 5],
+      ["212.5,227", 1, "212.5,228.5", 1],
+      ["212.5,227", 3, "214,231", 1],
+      ["212.5,228.5", 2, "214,229", 2],
+      ["212.5,228.5", 5, "211.5,235.5", 5],
       ["15.5,235.5", 1, "39.5,235.5", 1],
       ["15.5,235.5", 2, "39.5,235.5", 2],
       ["15.5,235.5", 5, "39.5,235.5", 5],
