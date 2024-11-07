@@ -1,0 +1,76 @@
+{
+  "index": 39,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "1to4plastic",
+    "shift_x": 909,
+    "shift_y": -383,
+    "version": 562949954338818,
+    "entities": [
+      {
+        "name": "cargo-wagon",
+        "copy_color_from_train_stop": true,
+        "enable_logistics_while_moving": false,
+        "inventory": null,
+        "orientation": 0.75,
+        "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
+        "position": {"x": 7.78125, "y": 0}
+      },
+      {
+        "name": "locomotive",
+        "enable_logistics_while_moving": false,
+        "orientation": 0.75,
+        "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
+        "position": {"x": 0.78125, "y": 0}
+      },
+      {
+        "name": "locomotive",
+        "enable_logistics_while_moving": false,
+        "orientation": 0.25,
+        "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
+        "position": {"x": 14.78125, "y": 0}
+      }
+    ],
+    "icons": [
+      {"index": 1, "signal": {"name": "locomotive"}},
+      {"index": 2, "signal": {"name": "plastic-bar"}},
+      {"index": 3, "signal": {"name": "signal-1", "type": "virtual"}},
+      {"index": 4, "signal": {"name": "signal-4", "type": "virtual"}}
+    ],
+    "schedules": [
+      {
+        "locomotives": ["0,0", "14,0"],
+        "schedule": {
+          "group": "BT:1to4plastic",
+          "records": [
+            {
+              "station": "[virtual-signal=up-arrow][virtual-signal=signal-1][item=plastic-bar]",
+              "wait_conditions": [
+                {"compare_type": "and", "type": "full"},
+                {"compare_type": "or", "ticks": 120, "type": "inactivity"},
+                {"compare_type": "or", "ticks": 1800, "type": "time"}
+              ]
+            },
+            {
+              "station": "BT Depot",
+              "wait_conditions": [{"compare_type": "and", "ticks": 60, "type": "inactivity"}]
+            },
+            {
+              "station": "[virtual-signal=down-arrow][virtual-signal=signal-4][item=plastic-bar]",
+              "wait_conditions": [
+                {"compare_type": "and", "type": "empty"},
+                {"compare_type": "or", "ticks": 300, "type": "inactivity"},
+                {"compare_type": "or", "ticks": 2100, "type": "time"}
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "stock_connections": [
+      {"back": "7,0", "stock": "0,0"},
+      {"back": "14,0", "front": "0,0", "stock": "7,0"},
+      {"back": "7,0", "stock": "14,0"}
+    ]
+  }
+}
