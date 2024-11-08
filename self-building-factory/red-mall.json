@@ -1109,7 +1109,7 @@
       {
         "name": "arithmetic-combinator",
         "direction": 12,
-        "player_description": "This block holds the input flag for 1min so temporary reductions, like when a Site is unloading, don't cause the station to empty what it has bufferred.",
+        "player_description": "This block holds the input flag for a time so temporary reductions, like when a Site is unloading, don't cause the station to empty what it has bufferred.",
         "control_behavior": {
           "arithmetic_conditions": {
             "operation": "*",
@@ -1915,7 +1915,6 @@
         "recipe_quality": "normal",
         "position": {"x": 133.5, "y": 65.5}
       },
-      {"name": "assembling-machine-2", "position": {"x": 152.5, "y": 90.5}},
       {
         "name": "assembling-machine-2",
         "recipe": "iron-gear-wheel",
@@ -4753,6 +4752,7 @@
       {"name": "big-electric-pole", "position": {"x": 416, "y": 40}},
       {"name": "big-electric-pole", "position": {"x": 442, "y": 46}},
       {"name": "big-electric-pole", "position": {"x": 442, "y": 68}},
+      {"name": "big-electric-pole", "position": {"x": 416, "y": 90}},
       {"name": "big-electric-pole", "position": {"x": 442, "y": 90}},
       {"name": "big-electric-pole", "position": {"x": 442, "y": 112}},
       {"name": "big-electric-pole", "position": {"x": 260, "y": 166}},
@@ -13245,7 +13245,7 @@
                   {"name": "fast-underground-belt", "comparator": "=", "count": 600, "index": 7, "quality": "normal"},
                   {"name": "fast-splitter", "comparator": "=", "count": 100, "index": 8, "quality": "normal"},
                   {"name": "long-handed-inserter", "comparator": "=", "count": 500, "index": 9, "quality": "normal"},
-                  {"name": "stack-inserter", "comparator": "=", "count": 500, "index": 10, "quality": "normal"},
+                  {"name": "bulk-inserter", "comparator": "=", "count": 500, "index": 10, "quality": "normal"},
                   {
                     "name": "express-transport-belt",
                     "comparator": "=",
@@ -13261,7 +13261,8 @@
                     "quality": "normal"
                   },
                   {"name": "express-splitter", "comparator": "=", "count": 50, "index": 13, "quality": "normal"},
-                  {"name": "burner-inserter", "comparator": "=", "count": 0, "index": 14, "quality": "normal"}
+                  {"name": "burner-inserter", "comparator": "=", "count": 0, "index": 14, "quality": "normal"},
+                  {"name": "stack-inserter", "comparator": "=", "count": 100, "index": 15, "quality": "normal"}
                 ]
               }
             ]
@@ -17773,7 +17774,7 @@
         "direction": 4,
         "control_behavior": {
           "decider_conditions": {
-            "conditions": [{"constant": 3600, "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "conditions": [{"constant": 18000, "first_signal": {"name": "signal-each", "type": "virtual"}}],
             "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
           }
         },
@@ -20435,7 +20436,6 @@
         "position": {"x": 252.5, "y": 63.5}
       },
       {"name": "fast-inserter", "direction": 12, "position": {"x": 135.5, "y": 64.5}},
-      {"name": "fast-inserter", "direction": 8, "position": {"x": 152.5, "y": 92.5}},
       {"name": "fast-inserter", "direction": 12, "position": {"x": 167.5, "y": 68.5}},
       {"name": "fast-inserter", "position": {"x": 170.5, "y": 70.5}},
       {"name": "fast-inserter", "position": {"x": 171.5, "y": 70.5}},
@@ -20782,7 +20782,7 @@
         "direction": 12,
         "control_behavior": {
           "circuit_enabled": true,
-          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "red-wire"}}
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "constant-combinator"}}
         },
         "position": {"x": 222.5, "y": 84.5}
       },
@@ -21352,6 +21352,7 @@
       {
         "name": "fast-inserter",
         "direction": 12,
+        "override_stack_size": 1,
         "use_filters": true,
         "control_behavior": {
           "circuit_read_hand_contents": true,
@@ -33645,12 +33646,6 @@
       {"name": "inserter", "direction": 12, "position": {"x": 164.5, "y": 14.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 168.5, "y": 14.5}},
       {"name": "inserter", "direction": 12, "position": {"x": 171.5, "y": 14.5}},
-      {
-        "name": "inserter",
-        "direction": 8,
-        "control_behavior": {"circuit_enabled": true, "circuit_condition": {"comparator": "<", "constant": 10}},
-        "position": {"x": 152.5, "y": 88.5}
-      },
       {"name": "inserter", "position": {"x": 310.5, "y": 113.5}},
       {"name": "inserter", "position": {"x": 313.5, "y": 113.5}},
       {"name": "inserter", "position": {"x": 316.5, "y": 113.5}},
@@ -34544,8 +34539,6 @@
       {"name": "medium-electric-pole", "position": {"x": 401.5, "y": 44.5}},
       {"name": "medium-electric-pole", "position": {"x": 430.5, "y": 80.5}},
       {"name": "medium-electric-pole", "position": {"x": 430.5, "y": 87.5}},
-      {"name": "medium-electric-pole", "position": {"x": 416.5, "y": 89.5}},
-      {"name": "medium-electric-pole", "position": {"x": 423.5, "y": 93.5}},
       {"name": "medium-electric-pole", "position": {"x": 430.5, "y": 94.5}},
       {"name": "medium-electric-pole", "position": {"x": 433.5, "y": 80.5}},
       {"name": "medium-electric-pole", "position": {"x": 433.5, "y": 87.5}},
@@ -35891,24 +35884,6 @@
             {
               "index": 1,
               "filters": [{"name": "stone", "comparator": "=", "count": 200, "index": 1, "quality": "normal"}]
-            }
-          ]
-        }
-      },
-      {
-        "name": "requester-chest",
-        "position": {"x": 152.5, "y": 93.5},
-        "request_filters": {
-          "sections": [
-            {
-              "index": 1,
-              "filters": [
-                {"name": "train-stop", "comparator": "=", "count": 5, "index": 1, "quality": "normal"},
-                {"name": "small-lamp", "comparator": "=", "count": 5, "index": 2, "quality": "normal"},
-                {"name": "red-wire", "comparator": "=", "count": 10, "index": 3, "quality": "normal"},
-                {"name": "green-wire", "comparator": "=", "count": 10, "index": 4, "quality": "normal"},
-                {"name": "constant-combinator", "comparator": "=", "count": 5, "index": 5, "quality": "normal"}
-              ]
             }
           ]
         }
@@ -37286,12 +37261,6 @@
       {
         "name": "storage-chest",
         "position": {"x": 158.5, "y": 73.5},
-        "request_filters": {"sections": [{"index": 1}]}
-      },
-      {
-        "name": "storage-chest",
-        "control_behavior": {"circuit_condition_enabled": false},
-        "position": {"x": 152.5, "y": 87.5},
         "request_filters": {"sections": [{"index": 1}]}
       },
       {
@@ -48452,11 +48421,11 @@
       ["310,28", 2, "312.5,29", 2],
       ["311,27", 5, "318,29", 5],
       ["311,27", 5, "311,34", 5],
-      ["312.5,27", 1, "312.5,28", 3],
-      ["312.5,27", 2, "315.5,28", 2],
       ["312.5,28", 2, "317.5,27.5", 2],
       ["312.5,28", 2, "314.5,32", 2],
-      ["312.5,28", 3, "315.5,29", 1],
+      ["312.5,28", 3, "312.5,27", 3],
+      ["312.5,27", 1, "315.5,29", 1],
+      ["312.5,27", 2, "315.5,28", 2],
       ["315.5,27", 2, "315.5,28", 2],
       ["315.5,27", 4, "315.5,28", 4],
       ["315.5,28", 2, "315.5,28", 4],
@@ -48506,8 +48475,8 @@
       ["312.5,32", 2, "314.5,32", 4],
       ["312.5,32", 2, "312.5,33", 2],
       ["314.5,32", 1, "317.5,33", 3],
+      ["317.5,31", 2, "319.5,33", 2],
       ["317.5,32", 1, "319.5,33", 3],
-      ["317.5,32", 4, "317.5,31", 2],
       ["317.5,32", 4, "317.5,33", 2],
       ["319.5,32", 1, "317.5,33", 1],
       ["319.5,32", 2, "321,32", 2],
@@ -48516,7 +48485,6 @@
       ["324,30.5", 4, "325,31", 2],
       ["325,31", 2, "326,30.5", 4],
       ["325,31", 2, "319.5,33", 2],
-      ["325,31", 5, "317,34", 5],
       ["308.5,33", 1, "310.5,33", 3],
       ["310.5,33", 1, "312.5,33", 3],
       ["310.5,33", 2, "312.5,34", 4],
@@ -49748,7 +49716,6 @@
       ["449,99", 2, "449,100", 2],
       ["449,100", 2, "449,102", 2],
       ["78.5,100.5", 5, "104.5,109.5", 5],
-      ["166,101", 2, "166,102", 2],
       ["169.5,100.5", 5, "169.5,118.5", 5],
       ["246,102", 2, "246,103", 2],
       ["246,102", 2, "250,103", 2],
@@ -49955,7 +49922,7 @@
       ["376,103", 5, "376,109", 5],
       ["382,103", 2, "382,109", 2],
       ["382,103", 5, "382,109", 5],
-      ["430,103", 5, "437,107", 5],
+      ["429.5,103.5", 5, "455.5,103.5", 5],
       ["442,104", 1, "443,104", 1],
       ["442,104", 2, "442,103", 2],
       ["442,104", 2, "442,105", 2],
@@ -50023,7 +49990,6 @@
       ["377,108", 2, "377,109", 2],
       ["380.5,107", 1, "380.5,107", 3],
       ["407.5,107.5", 5, "407.5,119.5", 5],
-      ["437,107", 5, "444,108", 5],
       ["442,107", 1, "443,107", 1],
       ["442,107", 2, "442,109", 2],
       ["444,108", 5, "447,108", 5],
