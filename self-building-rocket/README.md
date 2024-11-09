@@ -157,7 +157,7 @@ Upgrade preparation:
 - If you still have time, you can shift-click place the #5 blueprint and start on the new belting.
 - Change all iron chests to red "passive provider" chests. There should be 10. You can use the "upgrade" planner to flag them with yellow circles.
 
-## Step 5: Robots!
+## Step 5: Robots
 
 No new inputs are needed here though this blueprint may need to be dropped multiple times if not everything has been researched at the time of the first drop.
 
@@ -201,7 +201,7 @@ Upgrade preparation:
 
 - Wait until the robots have completed building everything and all furnaces are operational. You can give the robots a hand if you have time and are feeling generous. Otherwise, take a well-deserved break.
 
-## Step 7: Rocket Launch!
+## Step 7: Rocket Launch
 
 This blueprint is so much larger than the others, it can actually be difficult to align. Once it is, bring in:
 
