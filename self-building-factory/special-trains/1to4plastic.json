@@ -3,9 +3,9 @@
   "blueprint": {
     "item": "blueprint",
     "label": "1to4plastic",
-    "shift_x": 909,
-    "shift_y": -383,
-    "version": 562949954338818,
+    "shift_x": -952,
+    "shift_y": -783,
+    "version": 562949954404356,
     "entities": [
       {
         "name": "cargo-wagon",
@@ -14,21 +14,21 @@
         "inventory": null,
         "orientation": 0.75,
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
-        "position": {"x": 7.78125, "y": 0}
+        "position": {"x": 6.3125, "y": 0}
       },
       {
         "name": "locomotive",
         "enable_logistics_while_moving": false,
         "orientation": 0.75,
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
-        "position": {"x": 0.78125, "y": 0}
+        "position": {"x": -0.6875, "y": 0}
       },
       {
         "name": "locomotive",
         "enable_logistics_while_moving": false,
         "orientation": 0.25,
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
-        "position": {"x": 14.78125, "y": 0}
+        "position": {"x": 13.3125, "y": 0}
       }
     ],
     "icons": [
@@ -43,6 +43,10 @@
         "schedule": {
           "group": "BT:1to4plastic",
           "records": [
+            {
+              "station": "BT Depot",
+              "wait_conditions": [{"compare_type": "and", "ticks": 60, "type": "inactivity"}]
+            },
             {
               "station": "[virtual-signal=up-arrow][virtual-signal=signal-1][item=plastic-bar]",
               "wait_conditions": [

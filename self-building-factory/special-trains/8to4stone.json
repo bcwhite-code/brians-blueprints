@@ -3,9 +3,9 @@
   "blueprint": {
     "item": "blueprint",
     "label": "8to4stone",
-    "shift_x": -948,
-    "shift_y": -667,
-    "version": 562949954338818,
+    "shift_x": -960,
+    "shift_y": -783,
+    "version": 562949954404356,
     "entities": [
       {
         "name": "cargo-wagon",
@@ -14,7 +14,7 @@
         "inventory": null,
         "orientation": 0.75,
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
-        "position": {"x": 6.5, "y": 0}
+        "position": {"x": 6.25, "y": 0}
       },
       {
         "name": "cargo-wagon",
@@ -23,7 +23,7 @@
         "inventory": null,
         "orientation": 0.75,
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
-        "position": {"x": 13.5, "y": 0}
+        "position": {"x": 13.25, "y": 0}
       },
       {
         "name": "cargo-wagon",
@@ -32,7 +32,7 @@
         "inventory": null,
         "orientation": 0.75,
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
-        "position": {"x": 20.5, "y": 0}
+        "position": {"x": 20.25, "y": 0}
       },
       {
         "name": "cargo-wagon",
@@ -41,21 +41,21 @@
         "inventory": null,
         "orientation": 0.75,
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
-        "position": {"x": 27.5, "y": 0}
+        "position": {"x": 27.25, "y": 0}
       },
       {
         "name": "locomotive",
         "enable_logistics_while_moving": false,
         "orientation": 0.75,
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
-        "position": {"x": -0.5, "y": 0}
+        "position": {"x": -0.75, "y": 0}
       },
       {
         "name": "locomotive",
         "enable_logistics_while_moving": false,
         "orientation": 0.75,
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
-        "position": {"x": 34.5, "y": 0}
+        "position": {"x": 34.25, "y": 0}
       }
     ],
     "icons": [
@@ -70,6 +70,10 @@
         "schedule": {
           "group": "BT:8to4stone",
           "records": [
+            {
+              "station": "BT Depot",
+              "wait_conditions": [{"compare_type": "and", "ticks": 60, "type": "inactivity"}]
+            },
             {
               "station": "[virtual-signal=up-arrow][virtual-signal=signal-8][item=stone]",
               "wait_conditions": [

@@ -3,9 +3,9 @@
   "blueprint": {
     "item": "blueprint",
     "label": "1to2red",
-    "shift_x": -939,
-    "shift_y": -667,
-    "version": 562949954338818,
+    "shift_x": -951,
+    "shift_y": -783,
+    "version": 562949954404356,
     "entities": [
       {
         "name": "cargo-wagon",
@@ -14,21 +14,21 @@
         "inventory": null,
         "orientation": 0.75,
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
-        "position": {"x": 6.46875, "y": 0}
+        "position": {"x": 6.71875, "y": 0}
       },
       {
         "name": "locomotive",
         "enable_logistics_while_moving": false,
         "orientation": 0.75,
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
-        "position": {"x": -0.53125, "y": 0}
+        "position": {"x": -0.28125, "y": 0}
       },
       {
         "name": "locomotive",
         "enable_logistics_while_moving": false,
         "orientation": 0.25,
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
-        "position": {"x": 13.46875, "y": 0}
+        "position": {"x": 13.71875, "y": 0}
       }
     ],
     "icons": [
@@ -43,6 +43,10 @@
         "schedule": {
           "group": "BT:1to2red",
           "records": [
+            {
+              "station": "BT Depot",
+              "wait_conditions": [{"compare_type": "and", "ticks": 60, "type": "inactivity"}]
+            },
             {
               "station": "[virtual-signal=up-arrow][virtual-signal=signal-1][item=advanced-circuit]",
               "wait_conditions": [

@@ -3,29 +3,29 @@
   "blueprint": {
     "item": "blueprint",
     "label": "8to1oil",
-    "shift_x": -938,
-    "shift_y": -667,
-    "version": 562949954338818,
+    "shift_x": -949,
+    "shift_y": -783,
+    "version": 562949954404356,
     "entities": [
       {
         "name": "fluid-wagon",
         "enable_logistics_while_moving": false,
         "orientation": 0.25,
-        "position": {"x": 6.0625, "y": 0}
+        "position": {"x": 6.4375, "y": 0}
       },
       {
         "name": "locomotive",
         "enable_logistics_while_moving": false,
         "orientation": 0.75,
         "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
-        "position": {"x": -0.9375, "y": 0}
+        "position": {"x": -0.5625, "y": 0}
       },
       {
         "name": "locomotive",
         "enable_logistics_while_moving": false,
         "orientation": 0.25,
         "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
-        "position": {"x": 13.0625, "y": 0}
+        "position": {"x": 13.4375, "y": 0}
       }
     ],
     "icons": [
@@ -40,6 +40,10 @@
         "schedule": {
           "group": "BT:8to1oil",
           "records": [
+            {
+              "station": "BT Depot",
+              "wait_conditions": [{"compare_type": "and", "ticks": 60, "type": "inactivity"}]
+            },
             {
               "station": "[virtual-signal=up-right-arrow][virtual-signal=signal-8][fluid=crude-oil]",
               "wait_conditions": [
