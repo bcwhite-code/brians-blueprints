@@ -105,7 +105,7 @@ After placing the block blueprint (which is after the Construction
 Site has been built):
 
 - Go into the third constant combinator and _delete_ the signals for Prod-3 and Speed-3.
-- Go into the constant combinator immediately beside the Ghost Scanner (it has rrocket fuel and nuclear fuel signals) and similarly add Prod-3 and Speed-3 with values of -50000 (i.e. _negative_ fifty thousand).
+- Go into the constant combinator immediately beside the Ghost Scanner (it has rocket fuel and nuclear fuel signals) and similarly add Prod-3 and Speed-3 with values of -50000 (i.e. _negative_ fifty thousand).
 
 Start construction.
 

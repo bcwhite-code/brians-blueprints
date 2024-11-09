@@ -46,7 +46,7 @@ You'll need the following blueprint books:
 
 - [Space Exploration](https://github.com/bcwhite-code/brians-blueprints/releases/tag/self-building-spacex): Most builds will come from this book.
 - [Self-Building Factory](https://factorioprints.com/view/-MNZWdWosuqr3vtaC2hD): Needed for general rail grid and station track from the "Rail Templates" sub-book.
-- [Brian's Trains (auxilliary)](https://factorioprints.com/view/-M5PZvxZVXEZnmg4V7Hy): Needed for train stations when manually building mines.
+- [Brian's Trains (auxiliary)](https://factorioprints.com/view/-M5PZvxZVXEZnmg4V7Hy): Needed for train stations when manually building mines.
 - [Brian's Trains](https://factorioprints.com/view/-LaIPNgh8f16V8EwXXpW): Needed for fluid train stations when manually building oil fields and for building new trains.
 
 ## Configuration
@@ -153,7 +153,7 @@ useful in a block with multiple large resources patches.
 - Rocket Sections: _Read blueprint comment!_
 - Speed-1/2/3: This will have to be placed multiple times as research progresses.
 
-At this point, Nav Sats should have produced enough telementry and
+At this point, Nav Sats should have produced enough telemetry and
 shipped it to Basic Science to finish researching nuclear power, cargo
 rockets, and then every other non-space technology. Re-place both the
 Nav Sats and the Rocket Sections blueprints to ensure they have the
@@ -182,7 +182,7 @@ upon returning from space, to **turn off** the combinators listing the
 desired contents before switching out of "load" mode.
 
 Once in orbit, there are a couple logistics chests that can be brought
-back and placed in the Mall to falicitly automatic construction of
+back and placed in the Mall to facilitate automatic construction of
 things instead of hand-feeding them. Use wisely!
 
 Use space science to research "Speed module 3", "Automation 3",
@@ -235,7 +235,7 @@ prepared.
 that can be built while waiting.)
 
 - Cryonite: Set the provide threshold for rods to 10 stacks because of the limited input ore.
-- Efficency-1/2/3.
+- Efficiency-1/2/3.
 - Data Substrates.
 - Rocket Fuel.
 
@@ -328,7 +328,7 @@ configured via sat-nav view even if on another planet.
 Once the rocket is ready, choose a Cryonite world, ideally with water
 and no threat. Using satellite view, be sure you can actually find a
 good ore patch -- sometimes they won't be close or even common! Go
-there and build the [Colony Home](#colony-home) block in a convienent
+there and build the [Colony Home](#colony-home) block in a convenient
 place.
 
 Using the sat-nav view, configure the [Off-World
@@ -468,7 +468,7 @@ ice-water in order to lower its priority.
 
 Fix some defaults:
 
-- Change the signal receiver to moniter the channel "Nauvis/Home".
+- Change the signal receiver to monitor the channel "Nauvis/Home".
 - Change landing pad beside red warehouse chests to "(world)/Home", substituting the name of the world.
 - Change the landing pad beside the green warehouse chest to "-Personal-".
 - Change the recycling rocket beside the plain warehouse chest to have a destination of Nauvis/Recycling and to "launch on cargo full".
@@ -483,13 +483,13 @@ There are some add-on blueprints that merged later. The necessary
 build items will be included in the next rocket delivery.
 
 1. Personal Train: Local version of the Nauvis Home train.
-2. More Meteor Defense: In case you're truely paranoid about a meteor getting through on a world where they spawn biters.
+2. More Meteor Defense: In case you're truly paranoid about a meteor getting through on a world where they spawn biters.
 3. Solar Support: Applied to the power switch between the reactor and the main grid, it'll disconnect whenever an outside solar field is supplying significant power even at night.
 
 There are three bulk provider stations: two fluid and one item.
 
-One fluid is configured to fetch and provide Sulfulic Acid (typically
-for mining purpores). The other is set for Petroleum Gas but this can
+One fluid is configured to fetch and provide Sulfuric Acid (typically
+for mining purposes). The other is set for Petroleum Gas but this can
 be changed to any other fluid simply by changing the type everywhere
 around the station. Neither will fetch barrels of the set type until
 the constant combinator with the "W" setting is turned on; this
@@ -553,7 +553,7 @@ everything back in order.
 
 The stone/steel furnace has a chest for coal. Manually fill this.
 
-Set refinecy recipe to basic processing (output only petroleum gas) until
+Set refinery recipe to basic processing (output only petroleum gas) until
 "advanced oil processing" is researched (requires blue science).
 
 There are inputs from outside the block for various simple materials.
@@ -579,7 +579,7 @@ Construction Supply station!**
 
 If you don't catch the notice about the weapons cache when it happens,
 you can find a link to in under the "exploration journal" in the
-InformaTron ("i" key).
+Informatron ("i" key).
 
 There are a number of requester chests used. Until that becomes
 available (in v0.5, it was available much earlier), items will have to
@@ -641,14 +641,14 @@ supplies, configure this block:
 - Change the channel of the dish near the delivery cannons to "(world)/Cannons".
 - Change the channel of the dish near the rocket silo to "(world)/Home".
 - Change the destination of the ice cannon to be the receiver chest next to the reactor and turn it on.
-- Change the destination of the two rocket fuel cannons to be the receiver chest besider the station and turn them on.
+- Change the destination of the two rocket fuel cannons to be the receiver chest besides the station and turn them on.
 - Change the destination of the rocket silo to be "(world)/Home" with a launch trigger of "launch on green signal or when cargo full".
 
 This can also be used for "non home" bases such as in space. Any
 landing pad will do. Signaling works like this:
 
 - green wire: General request. Everything here will be loaded "best effort" into the rocket. Smaller requests may be deferred so as to not request too many trains. Include the receiving pad's contents in the local availability so that everything is counted from the moment the rocket lands.
-- red wire: Required items and control. If items are sent this way, they will be prioritized in the request and the rocket will launch soon aftero all the required items are loaded. The requirement **must not be greater than** the general request (i.e. green wire) or it will never be fulfilled.
+- red wire: Required items and control. If items are sent this way, they will be prioritized in the request and the rocket will launch soon after all the required items are loaded. The requirement **must not be greater than** the general request (i.e. green wire) or it will never be fulfilled.
 
 The following signals on the red wire will affect the launch:
 

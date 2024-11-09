@@ -102,7 +102,7 @@ Just showing the left side, the right side is a mirror image of this. To get aro
 
 Turbines:
 Image
-Pretty straightforward a triple row of turbines with some interruptions for substations to pull the power. You may notice that the substations from the pumps and the ones touching the turbines do not interconnect. This is by design for players who want to have the reactor controls and steam feeding devices on a separate circuit with backup power in case of black outs, for easier recovery. I've never found it neccesary... the only realistic way where the plant could fail, fuel starvation.
+Pretty straightforward a triple row of turbines with some interruptions for substations to pull the power. You may notice that the substations from the pumps and the ones touching the turbines do not interconnect. This is by design for players who want to have the reactor controls and steam feeding devices on a separate circuit with backup power in case of black outs, for easier recovery. I've never found it necessary... the only realistic way where the plant could fail, fuel starvation.
 If you want to be able to consume slightly more steam then the heat exchangers produce, add one more turbine at the end. The strings posted generate 556MW of power for 560MW of heat exchanger steam production for 640MW reactor energy generation.
 
 Failure modes:
