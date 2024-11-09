@@ -23,14 +23,32 @@ It's important to completely remove the old directory before splitting otherwise
 tools/fbp.py build --outfile=my-book.txt --indir=book-directory
 ```
 
+OR
+
+```sh
+tools/fatul.py encode -v book-dir my-book.txt
+```
+
 ### Unpack a Single Blueprint
 
 ```sh
 tools/fbp.py unpack --outfile=book-directory/blueprint.json --infile=my-exported-blueprint.txt
 ```
 
+OR
+
+```sh
+tools/fatul.py decode my-exported-blueprint.txt blueprint.json
+```
+
 ### Pack a Single Blueprint
 
 ```sh
 tools/fbp.py pack --outfile=my-blueprint.txt --infile=book-directory/blueprint.json
+```
+
+OR
+
+```sh
+tools/fatul.py encode book-directory/blueprint.json my-exported-blueprint.txt
 ```
