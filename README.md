@@ -4,6 +4,19 @@ Brian's Blueprints for Factorio
 
 Don't just look at the latest release shown on the left. Each book is released separately so to see them you have to go to the [all-releases page](https://github.com/bcwhite-code/brians-blueprints/releases).
 
+Blueprints include:
+
+- [Brian's Bootstrap](./brians-bootstrap/)
+- [Brian's Trains](./brians-trains/)
+- [Brian's Trains Auxiliary](./brians-trains-auxiliary/)
+- [Finite State Machine](./finite-state-machine/)
+- [SBF Big Blocks](./sbf-big-blocks/)
+- [Self Building Angel Bob](./self-building-angelbob/)
+- [Self Building Factory](./self-building-factory/)
+- [Self Building Rocket](./self-building-rocket/)
+- [Self Building Space Exploration](./self-building-spacex/)
+- [Tileable Reactor](./tileable-reactor/)
+
 ## Commands
 
 The "fbp.py" script can be used to split books into a directory structure and later build them back into a single entity as well as to unpack/pack single blueprints from their encoded form into json. The latter allows working with single blueprints within a book.
