@@ -106,8 +106,6 @@ History, in brief.
 
 ---
 
-**===> V3 Blueprints are incompatible with V2 blueprints! Do not mix them! <===**
-
 ## [V3.6](http://backgroundexposure.com/files/brians-trains-v3.txt)
 
 - Added missing red wire on 4 car provider (right input)
@@ -139,6 +137,8 @@ History, in brief.
 - Upgraded quad-rail high-capacity station to make use of new space. Now 15% faster! Sustained rates >42 trains per minute.
 
 ## V3.0
+
+**V3 Blueprints are incompatible with V2 blueprints! Do not mix them!**
 
 - Rebuilt to 110x110 global, "absolute" grid for easier, error-free placement of track.
 - Junctions and straights are now the same size.
