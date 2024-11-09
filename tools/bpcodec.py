@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # Factorio blueprints codec.
 # Written by Brian White <bcwhite@pobox.com>
 # This file is covered by the CC0 license.
