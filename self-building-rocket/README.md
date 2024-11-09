@@ -6,7 +6,11 @@ The factory certainly isn't fully optimal in creating its components so there's 
 
 It takes a bit of work to get that first robot flying around but then you can just sit back and relax, right? Not quite. At that point, it takes a lot of continued effort just to keep this monster fed with power and raw materials. How you accomplish that is up to you -- I'm not going to provide details.
 
-Questions? Join the [discussion on Discord](https://discord.gg/Uk42YKA2f2).
+- Download from [Factorio Prints](https://factorioprints.com/user/RNRy11ePrQRDlqu6AwY4QDQi26l2)
+- Download from [GitHub](https://github.com/bcwhite-code/brians-blueprints/releases)
+- See [Changelog](./CHANGELOG.md)
+- See my other [blueprints](https://github.com/bcwhite-code/brians-blueprints)
+- Join the [discussion on Discord](https://discord.gg/hQnsXwpZ8A)
 
 ## Placing Blueprints
 

@@ -1,6 +1,30 @@
 # Brian's Trains Auxiliary Changelog
 
-History, in brief...
+Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
+
+## v4.14
+
+- Removed train-stop names from template stations.
+- Added priority placeholder to configs.
+
+## v4.13
+
+- Added red+green from LTN lamp to pole for easier debugging.
+- Moved combinator in stations so loader blueprint will fit at front.
+- Added multi-station "loader" unloader blueprints.
+
+## v4.12
+
+- Updated signalling on station tracks and locked to global grid.
+- Added landfill under tracks.
+
+## v4.11
+
+- Added embedded descriptions of multi-station use.
+
+## v4.10
+
+- Cleanup of multi-stations.
 
 ## v4.9
 

@@ -1,4 +1,4 @@
-# Self-Building Space-Exploration
+# Self Building Space-Exploration Factory
 
 These blueprints are for Space Exploration games using the "self building factory" (SBF) system from my [self-building-factory](https://factorioprints.com/view/-MNZWdWosuqr3vtaC2hD).
 
@@ -48,6 +48,12 @@ You'll need the following blueprint books:
 - [Self-Building Factory](https://factorioprints.com/view/-MNZWdWosuqr3vtaC2hD): Needed for general rail grid and station track from the "Rail Templates" sub-book.
 - [Brian's Trains (auxiliary)](https://factorioprints.com/view/-M5PZvxZVXEZnmg4V7Hy): Needed for train stations when manually building mines.
 - [Brian's Trains](https://factorioprints.com/view/-LaIPNgh8f16V8EwXXpW): Needed for fluid train stations when manually building oil fields and for building new trains.
+
+- Download from [Factorio Prints](https://factorioprints.com/user/RNRy11ePrQRDlqu6AwY4QDQi26l2)
+- Download from [GitHub](https://github.com/bcwhite-code/brians-blueprints/releases)
+- See [Changelog](./CHANGELOG.md)
+- See my other [blueprints](https://github.com/bcwhite-code/brians-blueprints)
+- Join the [discussion on Discord](https://discord.gg/hQnsXwpZ8A)
 
 ## Configuration
 

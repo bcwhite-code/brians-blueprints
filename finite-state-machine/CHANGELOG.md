@@ -1,7 +1,5 @@
 # Finite State Machine Changelog
 
-History, in brief.
-
 ## v1.2
 
 - Added constant combinator at one edge as an alternate red-wire connection point and to support constants being added to signals.

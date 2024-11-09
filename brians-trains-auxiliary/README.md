@@ -13,6 +13,12 @@ then these extra blueprints will save a huge amount of resources and space as we
 
 The narrower station design, even with extra logic and belting to keep the two sides balanced, is 1/2 the width which means it's possible to have about 2x as many stations in the same space. Included in the blueprint book are 7-station designs for 2, 4, and 8-car trains. I've also included double-width 17-station designs for 2-car and 4-car trains. (Yes, I've actually used those when bringing in materials for an Angel's & Bob's factory.)
 
+- Download from [Factorio Prints](https://factorioprints.com/user/RNRy11ePrQRDlqu6AwY4QDQi26l2)
+- Download from [GitHub](https://github.com/bcwhite-code/brians-blueprints/releases)
+- See [Changelog](./CHANGELOG.md)
+- See my other [blueprints](https://github.com/bcwhite-code/brians-blueprints)
+- Join the [discussion on Discord](https://discord.gg/hQnsXwpZ8A)
+
 ## How to Use
 
 For the "Merging Chests" mod, go to the "Startup" settings and change the "mergable chest" [sic] type to "iron". Also set the maximum height and width to at least 64. It's okay to lower the maximum chest area to keep memory-use down. I set that to 100.

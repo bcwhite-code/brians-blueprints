@@ -1,10 +1,18 @@
 # Brian's Bootstrap
 
+**Now updated for Factorio 2.0!** At the time of this writing, there is no Auto-Research Mod so you have to queue the research manually. It can make Cliff Explosives only if the [I'd like cliff explosives on Nauvis please](https://mods.factorio.com/mod/id-like-cliff-explosives-on-nauvis-please) mod is installed. Note: I've only played through this once (making necessary changes as I went) so there may be errors.
+
 The goal of the "bootstrap" base is to produce all the materials required for [Brian's Trains](https://factorioprints.com/view/-LaIPNgh8f16V8EwXXpW) with mines and smelters in remote locations. The assemblers for creating a personal roboport and construction bots are also present as they make building the train network much easier.
 
 This starter base is built in phases with the items needed earliest being the ones that are constructed first. Some items will need to be crafted manually but, for the most part, any items needed in bulk are being produced by the time they are needed. Those that have already used this once may elect to just lay down the final "Phase #4" blueprint as they already know how it goes together. First-time users should build the phases in order, dropping each new one directly over the last one to expand upon it.
 
 Once the train network is running with the potential to bring huge amounts of various materials into a concentrated area, a more full-featured mall can be built with the output being directly fed into the logistics network. The production capacity created here is intended only to get the larger base going, not to provide for a full expansion.
+
+- Download from [Factorio Prints](https://factorioprints.com/user/RNRy11ePrQRDlqu6AwY4QDQi26l2)
+- Download from [GitHub](https://github.com/bcwhite-code/brians-blueprints/releases)
+- See [Changelog](./CHANGELOG.md)
+- See my other [blueprints](https://github.com/bcwhite-code/brians-blueprints)
+- Join the [discussion on Discord](https://discord.gg/hQnsXwpZ8A)
 
 ## Construction Order
 

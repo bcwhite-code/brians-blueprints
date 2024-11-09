@@ -2,6 +2,30 @@
 
 Don't update to a new version that is different in the first or second digit while in the process of building the factory. Though very similar, they are **not** compatible!
 
+## 1.3.2
+
+- Restored recipes lost during the 1.3.1 export. Reason unknown.
+- Fixed underground belt for bots frames in #5.
+
+## 1.3.1
+
+- Fixed absolute grid origin to be the same in all layers.
+
+## 1.3.0
+
+- Updated from received feedback about various small problems.
+
+## 1.2.0
+
+- Manage resources for crafting of construction bots.
+- Prioritize silo assembler once it starts.
+
+## 1.1.6
+
+- Fixed some more missing power lines.
+- Fixed a badly rotated belt.
+- Added blueprints for steam power.
+
 ## v1.1.5
 
 - Restored yet another missing red wire.

@@ -45,6 +45,12 @@ Additional rows can be added at any time but may stall the reactor (no new fuel 
 
 The new row will activate with all the others come the next cycle. If the reactors are present before all the logic gets built, fuel cells may be inserted out-of-sync. It will re-synchronize eventually but probably waste fuel until then. To synchronize manually: Turn off the reactor via the main switch and wait for all remaining fuel to finish burning, then immediately turn it back on again. Power generation shouldn't be interrupted by this.
 
+- Download from [Factorio Prints](https://factorioprints.com/user/RNRy11ePrQRDlqu6AwY4QDQi26l2)
+- Download from [GitHub](https://github.com/bcwhite-code/brians-blueprints/releases)
+- See [Changelog](./CHANGELOG.md)
+- See my other [blueprints](https://github.com/bcwhite-code/brians-blueprints)
+- Join the [discussion on Discord](https://discord.gg/hQnsXwpZ8A)
+
 ## I Study Nuclear Science
 
 _I love my classes. I got a crazy teacher; he wears dark glasses._

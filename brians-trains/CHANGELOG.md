@@ -2,6 +2,197 @@
 
 History, in brief.
 
+Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
+
+## Released v5.0.26
+
+- Add "inactivity 1s" to depot stop for fuel train (or it won't fuel).
+- Add missing wire to Depot Hub fuel station.
+
+## v5.0.25
+
+- New fueling mechanism for trains.
+
+The Depot Hub now no longer has a separate "BT Fuel" station on the side. Instead, trains are fueled directly at the Depot stops. (Reason is in the doc.)
+
+The train templates no longer include the BT:Refuel interrupt but that will not affect existing trains (or any such trains added in the future). That shouldn't be a problem.
+
+The old fueling stations will continue to work but are unlikely to be used given that trains will be constantly topped-up every time they visit a Depot.
+
+If the existing Depot Hubs are not updated then trains will continue to get fueled with the old method which will cause trains to become stuck if the fuel type is ever changed (the reason why this fueling change was required in the first place).
+
+## v5.0.24
+
+- Route train-request signal via train-stop so it can't go out until the stop is built.
+
+## v5.0.23
+
+- Fixed station name of 8-car "merged" provider.
+- Moved signal in Depot Hub to fit in short block.
+- Try to make station build instructions more clear.
+
+## v5.0.22
+
+- Fixed configuration of merged stations. (Just apply over existing ones.)
+- Increased height of 8-car loops by 1-rail so that stations fit inside.
+
+## v5.0.20
+
+- New Depot Hub fuel station that can fill backward-facing engines. This is necessary if your factory has reversible "stub" stops as they can cause trains servicing them to get permanently stalled at the fueling station.
+
+## v5.0.18
+
+- Remove erroneous red wires from "Rail for Stations" blueprints.
+
+## v5.0.16
+
+- Fix bug in requester headers that could cause negative requests if station is overfilled.
+
+Old headers still work but if the station is overfilled, like from it being full and the request reduced, they will start requesting a negative number of trains which can mess things up elsewhere.
+
+## v5.0.15
+
+- Fixed remaining old-rail blueprints.
+- Added red & green wires to all rail-for-station blueprints, shortening them by 1 in the process.
+
+## v5.0.14
+
+- Fix reversed underground belt in 1-car-provider-right.
+- Add some train stops to some station loops.
+
+## v5.0.13
+
+- Fixed fluid-provider header to properly handle number of trains.
+
+## v5.0.12
+
+- Fixed some bad logic in the Depot Hub where it was looking at the wrong channel.
+
+## v5.0.11
+
+- Add "limited loading" support to all providers.
+
+Both the headers and the stations have changed. If you use new headers with old stations, just change the PVD amount in the config combinator from 1 to 1000000000 (or any number larger than is contained in a full train).
+
+Note regarding limited loading:
+
+> The calculated number of allowed trains is based on full trains. Thus, even if you set the load limit to 1/4 of a train, it won't call a train until there is enough material for a full one.
+>
+> If you don't want that... In the top line of the constant combinator add a negative stacks S (for items) or negative units F (for fluids) of the amount to be left free in a train, then a T (for items) or G (for fluids) of the positive same number.
+>
+> Do not change the S, T, F, or G in the bottom section as that will affect all stations of that type & length.
+>
+> Keep in mind that by reducing these limits, the station has capacity for more trains which means you need to have additional stacker space to support them or limit the loading of the station. For items, this can be done by blocking off additional slots in the first chest.
+
+## v5.0.10
+
+- Fixed feedback on fluid-requester header.
+- Fixed BT:idle interrupt like shown above.
+
+**You'll want to make the same change to your build or you may find trains stuck at a bad station that requested but won't unload.**
+
+## v5.0.9
+
+- Fix some stations
+
+## v5.0.8
+
+- Added missing rail segments to 3-station loops.
+- Fixed fluid requester header.
+
+To fix the fluid header, remove the conflicting combinator before re-placing the header. Nothing else should need changing.
+
+Again, two version of the blueprint, the main one exported from git with Fatul and the `-direct` one the export string from Factorio.
+
+## v5.0.7
+
+- Fixed some bad track in one requester station.
+- Fixed missing blueprint parameter in another station.
+- Turned off "read train contents" in all requester stations.
+
+Note: If a requester is high-traffic, you can turn that on to have the train go directly back to the provider rather than making an intermediate visit to a depot (where it might be scheduled for a different item).
+I've updated the 5.0.7 release to have two files:
+5.0.7 which was imported into git using Fatul then re-exported.
+5.0.7-direct which is the string direct from Factorio.
+If you use the former, please let me know any blueprint problems. Fatul has need some updates for F2.
+
+## v5.0.6
+
+This is a **BREAKING CHANGE** over previous 5.0.x releases. Before applying anything new, you must:
+
+- remove all trains
+- remove all circuit entities from all stations
+- remove all circuit entities from the Depot Hub
+- remove the "multiplex controller"
+
+To use this new version:
+
+- place the new "Vanilla Controller" (it can sit in junction)
+- place new station headers
+- place new stations overtop old ones; these are parameterized blueprints and will prompt for the item/fluid being provided/requested
+- for requesters, set the negative request amount in the combinator (the order of these probably no longer matters even though the instructions say so)
+- drop new trains (don't forget to fuel backward-facing engines)
+
+## v5.0.5
+
+- Improved requester stations are shorter and have fewer splitters.
+- Depot Hub is now smaller (but has no functional changes).
+
+You'll need a Depot Hub. And exactly one "Multiplexer Control" (from the Xtra sub-book) wired via red to the train grid.
+
+The trains should start in "automatic" mode so it should just launch after giving it some fuel. Since the first Depot Hub won't yet have a functioning fuel station, you'll have to fully fuel the train.
+
+Do NOT mix 1-car and 1-car-reversible in the same factory. Use only one or the other depending on your needs.
+
+There's probably more but I can't think of it right now.
+
+I'VE DONE ONLY LIMITED TESTING
+
+## v5.0.3
+
+- Fixed all "stack" inserters to be "bulk".
+- Fixed filter setting on requester stations.
+- Fixed pump enables and filters on fluid stations.
+- Updated "header" blueprints.
+- Probably have to re-place ones from 5.0.2.
+
+## v5.0.2
+
+- Updated all sizes of provider and requester station.
+- Updated train templates to use F2 schedules.
+
+## v5.0.0
+
+- Updates for Factorio 2.x. A work-in-progress. Not for the faint-of-heart.
+
+## v4.26
+
+- Changed provider divisors back to multiples of 12 to simplify and fix non-LTN mixins.
+
+## v4.25
+
+- Fixed a bad splitter in 1-car right-output requester station.
+
+## v4.24
+
+- New symmetrical quad-rail non-loop intersection with left-turn avoidance.
+- Add "congestion control" mix-in for quad-rail 4-way "loop" junctions. (Read blueprint comment.)
+
+## v4.23
+
+- Added missing red wire in 4-car provider (right).
+- Added red+green from LTN lamp to pole for easier debugging.
+- Added priority placeholders to station configs.
+
+## v4.22
+
+- Added landfill under all BT rail blueprints
+
+## v4.21
+
+- Changed requester station divisor back to actual chest count (no performance improvement from off-by-one)
+- Changed station-rail exit signal to chain-signal so trains can't exit and immediately block the main track.
+
 ## v4.20
 
 - Updated non-LTN requester to properly export amount short.

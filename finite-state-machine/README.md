@@ -10,7 +10,11 @@ The FSM implemented here has up to 9 unique states (plus a "reset" state) and ca
 
 _Why use an external general-purpose FSM instead of just implementing it yourself with more basic logic?_ Because it turns out that designing circuits to manage state is surprisingly complex with exacting timing requirements and plenty of "gotcha" edge cases. Factorio does not make it easy to change circuits or even move existing combinators whereas adjustments to the FSM require only changes to constants in combinators and comparators.
 
-For help, [join the Discord channel](https://discord.gg/yBDwZPY2CH).
+- Download from [Factorio Prints](https://factorioprints.com/user/RNRy11ePrQRDlqu6AwY4QDQi26l2)
+- Download from [GitHub](https://github.com/bcwhite-code/brians-blueprints/releases)
+- See [Changelog](./CHANGELOG.md)
+- See my other [blueprints](https://github.com/bcwhite-code/brians-blueprints)
+- Join the [discussion on Discord](https://discord.gg/hQnsXwpZ8A)
 
 ## Control
 

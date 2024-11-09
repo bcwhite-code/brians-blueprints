@@ -48,6 +48,11 @@ With the "Moar-Radar" mod, setting the "Nearby revealed range" to 20
 in "startup" settings will make the entire map visible when radars are
 placed in the corners.
 
+- Download from [GitHub](https://github.com/bcwhite-code/brians-blueprints/releases)
+- See [Changelog](./CHANGELOG.md)
+- See my other [blueprints](https://github.com/bcwhite-code/brians-blueprints)
+- Join the [discussion on Discord](https://discord.gg/hQnsXwpZ8A)
+
 ## Construction
 
 Each blueprint is a 1/2 block. When the long track is at the bottom,
