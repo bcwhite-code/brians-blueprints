@@ -65,6 +65,7 @@ SORT_ORDER = {
 }
 COMPLEX_TYPES = {dict, list}
 NUMBER_TYPES = (int, float)
+SPECIAL_REF_TYPES = {"locomotives", "wires", "stock_connections"}
 IdsMode = Literal["refs", "mixed", "keep"]
 SortMode = Literal["all", "entities", "keys", "none"]
 Position = NewType("Position", Tuple[int, int])
@@ -91,6 +92,8 @@ def main():
                             * refs  - convert entity_id values to relative references.
                                       Set neighbours to the delta x,y relative to the current entity.
                                       Set schedules.locomotives to the absolute x,y of their position. 
+                                      Set schedules.wires to the absolute x,y of their entity position. 
+                                      Set schedules.stock_connections to the absolute x,y of their entity position. 
                                       The original entity_id and entity_number values will be removed.
                             * mixed - Same as refs, but do not delete original entity_id values.
                             * keep  - Do not convert entity_id values."""))
@@ -129,6 +132,8 @@ def main():
     dumper.add_argument("--verbose", "-v", action="store_true", help="Verbose output")
     dumper.add_argument("--pretty", "-p", dest="compact", default=True, action="store_false",
                         help="Use standard JSON formatting instead of compact")
+    dumper.add_argument("--sort", "-s", dest="sort", default=False, action="store_true",
+                        help="Sort output by keys")
     dumper.add_argument("destination", type=Path,
                         help="The destination file or directory to write to. "
                              "Use '-' to write to STDOUT as a single formatted JSON.")
@@ -162,7 +167,7 @@ def main():
 
 
 def dump_cmd(args: argparse.Namespace):
-    decode(args.source, args.destination, args.verbose, args.compact)
+    decode(args.source, args.destination, args.verbose, args.compact, sort_mode='keys' if args.sort else 'none')
 
 
 def decode_cmd(args: argparse.Namespace):
@@ -184,7 +189,7 @@ def decode(source: Path, destination: Path, verbose: bool, compact: bool,
         if not source.is_file():
             raise ValueError(f"Source file does not exist, or it is not a file: {source}")
         eprint(f"Reading blueprint string from {source}")
-        json_text = source.read_text()
+        json_text = source.read_text(encoding="utf8")
     processor = Processor(verbose, sort_mode, ids_mode, normalize_shift, compact, merge_index, merge_shift,
                           (override_shift_x, override_shift_y))
     data = processor.decode(json_text)
@@ -200,7 +205,7 @@ def encode_cmd(args: argparse.Namespace):
         data = json.loads("".join(sys.stdin.readlines()))
     elif args.source.is_file():
         eprint(f"Reading a json file from {args.source}")
-        data = json.loads(args.source.read_text())
+        data = json.loads(args.source.read_text(encoding="utf8"))
     elif args.source.is_dir():
         eprint(f"Reading json files from directory {args.source}")
         data = read_files(args.source, args.verbose)
@@ -216,7 +221,7 @@ def encode_cmd(args: argparse.Namespace):
         print(encoded)
     else:
         eprint(f"Writing to {args.destination}")
-        args.destination.write_text(encoded)
+        args.destination.write_text(encoded, "utf8")
 
 
 def get_non_index_key(data):
@@ -232,7 +237,7 @@ def read_files(dir_path: Path, verbose: bool) -> dict:
     metadata_path = dir_path / "_metadata.json"
     if not metadata_path.is_file():
         raise ValueError(f"Missing metadata file: {metadata_path}")
-    data = json.loads(metadata_path.read_text())
+    data = json.loads(metadata_path.read_text(encoding="utf8"))
     assert type(data) == dict
     blueprints = []
     key = get_non_index_key(data)
@@ -249,7 +254,7 @@ def read_files(dir_path: Path, verbose: bool) -> dict:
                 continue
             if verbose:
                 eprint(f"Loading {path}")
-            blueprints.append(json.loads(path.read_text()))
+            blueprints.append(json.loads(path.read_text(encoding="utf8")))
         else:
             eprint(f"Skipping unrecognized {path}")
     blueprints.sort(key=lambda v: v.get("index", 0))
@@ -352,7 +357,7 @@ class Processor:
         dest.mkdir(parents=True, exist_ok=True)
         book = data["blueprint_book"]
         blueprints = book.pop("blueprints", [])
-        (dest / "_metadata.json").write_text(to_pretty_json(data, self.compact) + "\n")
+        (dest / "_metadata.json").write_text(to_pretty_json(data, self.compact) + "\n", "utf8")
         files = set()
         for bp in blueprints:
             is_dir = "blueprint_book" in bp
@@ -376,13 +381,13 @@ class Processor:
     def write_single_file(self, data: dict, dest: Path) -> None:
         if dest.exists():
             self.migrate_old_data(data, dest)
-        dest.write_text(to_pretty_json(data, self.compact) + "\n")
+        dest.write_text(to_pretty_json(data, self.compact) + "\n", "utf8")
 
     def migrate_old_data(self, new_data: dict, dest: Path) -> None:
         msg = f"Overwriting {dest} with new data"
         old_data = None
         if self.merge_index or self.merge_shift:
-            old_data = json.loads(dest.read_text())
+            old_data = json.loads(dest.read_text(encoding="utf8"))
         if self.merge_index and "index" not in new_data:
             index = old_data.get("index", None)
             if index is not None:
@@ -489,12 +494,53 @@ class IdEncoder:
                 else:
                     data.append(self._parse_rel_id(entity_number, val, typ))
 
+    def update_wires_list(self, data, entity_number, typ):
+        if len(data) != 4:
+            raise ValueError(f"Invalid {typ} list {entity_number}: must have 4 values")
+        if type(data[1]) != int or type(data[3]) != int:
+            raise ValueError(
+                f"Invalid {typ} list {entity_number}: values 2 and 4 must be ints (e.g. 1=red, 2=green, 5=copper)")
+        list_is_int = type(data[0]) == int and type(data[2]) == int
+        list_is_str = type(data[0]) == str and type(data[2]) == str
+        if not list_is_str and not list_is_int:
+            raise ValueError(
+                f"Invalid {typ} list {entity_number}: source/destination values must be either ints or strs")
+        if not self.to_abs_ids and not list_is_int:
+            raise ValueError(f"Invalid {typ} list {entity_number} - source/destination values must be ints")
+        if self.use_rel_ids != list_is_str:
+            # Convert entity IDs to relative IDs or vice versa
+            old_list = data.copy()
+            data.clear()
+            for idx, val in enumerate(old_list):
+                if idx % 2 == 0:
+                    if self.use_rel_ids:
+                        data.append(self._make_rel_id(entity_number, val, typ))
+                    else:
+                        data.append(self._parse_rel_id(entity_number, val, typ))
+                else:
+                    data.append(val)
+
+    def update_obj_values(self, data: dict, entity_number, typ):
+        list_is_int = all(type(v) == int for v in data.values())
+        list_is_str = all(type(v) == str for v in data.values())
+        if not list_is_str and not list_is_int:
+            raise ValueError(f"Invalid {typ} object {entity_number}: all values must be either ints or strs")
+        if not self.to_abs_ids and not list_is_int:
+            raise ValueError(f"Invalid {typ} object {entity_number} - all values must be ints")
+        if self.use_rel_ids != list_is_str:
+            # Convert entity IDs to relative IDs or vice versa
+            for key in data.keys():
+                if self.use_rel_ids:
+                    data[key] = self._make_rel_id(entity_number, data[key], typ)
+                else:
+                    data[key] = self._parse_rel_id(entity_number, data[key], typ)
+
     def _make_rel_id(self, from_entity_number: EID, to_entity_id: EID, typ: Optional[str] = None) -> str:
         """Convert an absolute entity ID to a relative ID.
            from_entity_number is the ID of the current entity,
-           unless typ is "locomotives", in which case it is just a debug string."""
+           unless typ is one of the SPECIAL_REF_TYPES, in which case it is just a debug string."""
         assert type(to_entity_id) == int
-        if typ != "locomotives":
+        if not typ in SPECIAL_REF_TYPES:
             from_entity = self.entity_ids[from_entity_number]
             from_x, from_y = from_entity.pos
         else:
@@ -514,9 +560,9 @@ class IdEncoder:
     def _parse_rel_id(self, entity_number: EID, rel_id: str, typ: Optional[str] = None) -> EID:
         """Convert a relative entity value to an entity ID.
            entity_number is the ID of the current entity,
-           unless typ is "locomotives", in which case it is just a debug string."""
+           unless typ is one of the SPECIAL_REF_TYPES, in which case it is just a debug string."""
         assert type(rel_id) == str
-        if typ != "locomotives":
+        if not typ in SPECIAL_REF_TYPES:
             pe = self.entity_ids[entity_number]
             from_x, from_y = pe.pos
         else:
@@ -593,6 +639,10 @@ class Blueprint:
             self.ids.update_rel_ids(entity_data["entity_number"], entity_data)
         for idx, locomotive in enumerate(self.blueprint.get("schedules", [])):
             self.ids.update_ref_list(locomotive["locomotives"], f"schedule[{idx}]", "locomotives")
+        for idx, wires in enumerate(self.blueprint.get("wires", [])):
+            self.ids.update_wires_list(wires, f"wires[{idx}]", "wires")
+        for idx, conn in enumerate(self.blueprint.get("stock_connections", [])):
+            self.ids.update_obj_values(conn, f"stock_connections[{idx}]", "stock_connections")
 
     def shift_by_usage(self):
         hist_x = self.calc_histogram("x", by_name=False)
@@ -723,7 +773,7 @@ class Blueprint:
         return Histogram(res)
 
 
-def sort_dicts_rec(data: Any, parent: Optional[str]=None) -> None:
+def sort_dicts_rec(data: Any, parent: Optional[str] = None) -> None:
     if type(data) == dict:
         for key, val in data.items():
             sort_dicts_rec(val, key)
@@ -818,7 +868,7 @@ def get_obj_hash(obj: Any) -> str:
     _rm_volatile(obj)
     # sort the object to ensure the hash is stable
     sort_dicts_rec(obj)
-    return hashlib.md5(to_json(obj).encode("utf-8")).hexdigest()[:4]
+    return hashlib.md5(to_json(obj).encode("utf8")).hexdigest()[:4]
 
 
 def to_json(data):
