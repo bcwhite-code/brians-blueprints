@@ -4,155 +4,155 @@ Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprint
 
 ## v5.0.23
 
-Add train counting for depots to Home and Hubs.
-Fix supply of small-stack items in Red Mall Supply.
-Fix wiring on Solar Parts. Add more instruction to bp comment.
-Fix chest locked-slots for greens in Starter Circuits.
-Add "Rocketry" block to WIP (self-building).
+- Add train counting for depots to Home and Hubs.
+- Fix supply of small-stack items in Red Mall Supply.
+- Fix wiring on Solar Parts. Add more instruction to bp comment.
+- Fix chest locked-slots for greens in Starter Circuits.
+- Add "Rocketry" block to WIP (self-building).
 
 ## v5.0.22
 
-Fix U-235 line to nuclear fuel in Nuclear 2.4GW.
-Change "special" trains to go to Depot stops between every transfer. This fixes both launch and stalls at stations.
-Add Solar Parts block for Advanced Solar. (self-building).
+- Fix U-235 line to nuclear fuel in Nuclear 2.4GW.
+- Change "special" trains to go to Depot stops between every transfer. This fixes both launch and stalls at stations.
+- Add Solar Parts block for Advanced Solar. (self-building).
 
-If you're having trouble with Special Trains then add another `BT Depot` stop at the beginning or end with a `inactivity 1s` condition.
+- If you're having trouble with Special Trains then add another `BT Depot` stop at the beginning or end with a `inactivity 1s` condition.
 
 ## v5.0.21
 
-Improved Supply logic in Red Mall. (see below)
-Fixed missing requests for new F2 items in Red Mall. (regression)
-Add "build" area to Home.
-Add new alerts to Home.
-Fix missing green wires in Home.
-Fix signals and train-limits for Refinery output fluids.
-Add filters to inserters removing fuel.
-Add electric smelter (self-building).
-Add electric foundry (self-building).
+- Improved Supply logic in Red Mall. (see below)
+- Fixed missing requests for new F2 items in Red Mall. (regression)
+- Add "build" area to Home.
+- Add new alerts to Home.
+- Fix missing green wires in Home.
+- Fix signals and train-limits for Refinery output fluids.
+- Add filters to inserters removing fuel.
+- Add electric smelter (self-building).
+- Add electric foundry (self-building).
 
-Before applying the new Home blueprint, completely remove the "parking" track on one side. After that, the new print should merge without conflict.
+- Before applying the new Home blueprint, completely remove the "parking" track on one side. After that, the new print should merge without conflict.
 
-Before applying the new Mall blueprint, you must remove some logic at the Supply station. Remove these gates and just the gates; leave power, station, chests, etc. Don't leave any gates that you can see in the image. Then apply the new print to restore functionality.
+- Before applying the new Mall blueprint, you must remove some logic at the Supply station. Remove these gates and just the gates; leave power, station, chests, etc. Don't leave any gates that you can see in the image. Then apply the new print to restore functionality.
 
 ![Remove logic at supply station](./assets/sbf%20v5.0.21%20breaking%20change.png)
 
 ## v5.0.20
 
-Fix some wiring in Home block.
-Add "build" area in Home block.
-Add filters to all fuel requesters so they can't unload bad things.
+- Fix some wiring in Home block.
+- Add "build" area in Home block.
+- Add filters to all fuel requesters so they can't unload bad things.
 
-The new Home block should place safely over the existing one but remove the "parking" track on the one side first.
+- The new Home block should place safely over the existing one but remove the "parking" track on the one side first.
 
-In that new area, you can drop train blueprints and the bots will build them. You still have to drop fuel into them manually when you want them to go. A single stack of coal half-dropped (ctrl-click) in each engine (starting with any back-facing engines) should do the trick.
+- In that new area, you can drop train blueprints and the bots will build them. You still have to drop fuel into them manually when you want them to go. A single stack of coal half-dropped (ctrl-click) in each engine (starting with any back-facing engines) should do the trick.
 
 ## v5.0.19
 
-Fix acid station name in Starter Circuits.
-Fix direction of underground battery belt in Refinery.
-Fix setting for selection-combinators in Red Mall.
-Fix unloading of uranium trains in Red Mall.
-Add fueling of construction train to Red Mall.
+- Fix acid station name in Starter Circuits.
+- Fix direction of underground battery belt in Refinery.
+- Fix setting for selection-combinators in Red Mall.
+- Fix unloading of uranium trains in Red Mall.
+- Add fueling of construction train to Red Mall.
 
 ## v5.0.18
 
-Fix acid pipe in Starter Circuits.
-Add Refinery (self-building).
+- Fix acid pipe in Starter Circuits.
+- Add Refinery (self-building).
 
 ## v5.0.17
 
-Update Depot Hub prints for new fueling method and moved out of WIP.
+- Update Depot Hub prints for new fueling method and moved out of WIP.
 
 ## v5.0.16
 
-Update Home block to match new fueling of trains in BT v5.0.25.
-Update special-train schedules for new fueling.
-Fix extraction of science from landing-pad in IS block.
+- Update Home block to match new fueling of trains in BT v5.0.25.
+- Update special-train schedules for new fueling.
+- Fix extraction of science from landing-pad in IS block.
 
-The existing Home block will continue to work but there will be problems when updating the fuel to something better. (See BT doc for details as to why.)
+- The existing Home block will continue to work but there will be problems when updating the fuel to something better. (See BT doc for details as to why.)
 
 ## v5.0.15
 
-Minor improvements to Construction Site.
-Moved Depot Hub prints to WIP book. (See BT thread for details.)
-Add Nuclear (2.4GW) w/ Kovarex block. (self-building)
+- Minor improvements to Construction Site.
+- Moved Depot Hub prints to WIP book. (See BT thread for details.)
+- Add Nuclear (2.4GW) w/ Kovarex block. (self-building)
 
 ## v5.0.12
 
-Add back another lost wire to Construction Site. (Can also be merged with .10 or .11 versions.)
+- Add back another lost wire to Construction Site. (Can also be merged with .10 or .11 versions.)
 
 ## v5.0.11
 
-Restored missing wire from train-stop (read contents) to combinator. (Can be applied over existing 5.0.10 Site.)
+- Restored missing wire from train-stop (read contents) to combinator. (Can be applied over existing 5.0.10 Site.)
 
 ## v5.0.10
 
-Fix Construction Site for "extra" items like landfill. Should now handle blocks placed on water. The request for Cliff Explosives is now off by default but easy to turn on in a const combinator near the tail of the station. (Will not overlay; only for new builds.)
-Fix recycler in Mall: red chests -> yellow chests
-Improve schedule of construction train with time limits.
-Add Starter Circuits block (self-building).
+- Fix Construction Site for "extra" items like landfill. Should now handle blocks placed on water. The request for Cliff Explosives is now off by default but easy to turn on in a const combinator near the tail of the station. (Will not overlay; only for new builds.)
+- Fix recycler in Mall: red chests -> yellow chests
+- Improve schedule of construction train with time limits.
+- Add Starter Circuits block (self-building).
 
 ## v5.0.9
 
-Fix Construction Site request of "extra' things like landfill and cliff-explosives.
-Add coal-fired smelter for iron and copper plates. (self-building)
+- Fix Construction Site request of "extra' things like landfill and cliff-explosives.
+- Add coal-fired smelter for iron and copper plates. (self-building)
 
 ## v5.0.7
 
-Fixed construction instructions in Solar Block.
+- Fixed construction instructions in Solar Block.
 
 ## v5.0.6
 
-SELF-BUILDING!
-Solar block (128MW)
-Updated Mall (with self-build parts) -- should place over existing with no conflict though there is one corner rail that you'll have to fill in by hand because the roboports don't cover it.
-Initial Since updated to support additional science packs. Remove the existing "labs" section then place the new version; there should be no conflicts. It includes a Landing Pad to receive Space Science packs though I expect it'll be moved later in the build. (Remember, keep the block on that side of IS open for future use.)
+- SELF-BUILDING!
+- Solar block (128MW)
+- Updated Mall (with self-build parts) -- should place over existing with no conflict though there is one corner rail that you'll have to fill in by hand because the roboports don't cover it.
+- Initial Since updated to support additional science packs. Remove the existing "labs" section then place the new version; there should be no conflicts. It includes a Landing Pad to receive Space Science packs though I expect it'll be moved later in the build. (Remember, keep the block on that side of IS open for future use.)
 
-Basic instructions are included in the Construction Site blueprint at the very head of the book. Once you have a location in mind, fit that block but don't place it -- just note where the construction Site needs to go. Then follow the instructions.
+- Basic instructions are included in the Construction Site blueprint at the very head of the book. Once you have a location in mind, fit that block but don't place it -- just note where the construction Site needs to go. Then follow the instructions.
 
 ## v5.0.5
 
-Update to Red Mall support Space Age initial rocket. Super-force-place TWICE (ctrl-shift-left-click) to ensure it updates everything.
-New Space book with extension to the Red Mall that will build a few rockets and some basic parts.
-New Space Science (very simple) blueprint to apply to a new space platform for creating space science.
+- Update to Red Mall support Space Age initial rocket. Super-force-place TWICE (ctrl-shift-left-click) to ensure it updates everything.
+- New Space book with extension to the Red Mall that will build a few rockets and some basic parts.
+- New Space Science (very simple) blueprint to apply to a new space platform for creating space science.
 
-Though the Mall extension produces scaffolding, crushers, and collectors, there are some other things needed to build the Space Science print. Collect those by hand and put them in the rocket cargo.
+- Though the Mall extension produces scaffolding, crushers, and collectors, there are some other things needed to build the Space Science print. Collect those by hand and put them in the rocket cargo.
 
-It'll take multiple launches after the first one (that just places the space platform) to get everything up there. For the last launch, look at the requirements (shown by the space platform) to finish the build and make sure everything is present, especially enough scaffolding.
+- It'll take multiple launches after the first one (that just places the space platform) to get everything up there. For the last launch, look at the requirements (shown by the space platform) to finish the build and make sure everything is present, especially enough scaffolding.
 
-It'll immediately start producing Space Science for return. Which I'll get to in the next release.
+- It'll immediately start producing Space Science for return. Which I'll get to in the next release.
 
 ## v5.0.4
 
-New fueling station in Home block. (See up for how to apply it to existing builds.)
-Added BT:FuelIdle interrupts to all Special Trains. This prevents them getting stuck at fueling stations when their next stop isn't available. You can add this manually to your existing trains, available once any new special-train is placed.
+- New fueling station in Home block. (See up for how to apply it to existing builds.)
+- Added BT:FuelIdle interrupts to all Special Trains. This prevents them getting stuck at fueling stations when their next stop isn't available. You can add this manually to your existing trains, available once any new special-train is placed.
 
 ## v5.0.3
 
-Fix IS provider stations that had green wires where they shouldn't be: (a) between the chests of different cars and (b) to the first "/" combinator on the 2-car and 4-car providers.
+- Fix IS provider stations that had green wires where they shouldn't be: (a) between the chests of different cars and (b) to the first "/" combinator on the 2-car and 4-car providers.
 
 ## v5.0.2
 
-Fix some small issues with Red Mall.
-Add Red Mall self-build framework. Just place this down, add the necessary trains, and let it go.
-Better pipe routing in IS. (very small change)
+- Fix some small issues with Red Mall.
+- Add Red Mall self-build framework. Just place this down, add the necessary trains, and let it go.
+- Better pipe routing in IS. (very small change)
 
 ## v5.0.1
 
-Updated headers for all requester stations in IS. You'll have to remove the logic gates for requesters before applying.
-Moved IS 1-car stub stations that wouldn't let the train back out. Remove everything but the chests. Remove the green wire that goes across the track. Remove the 4 most-outside chests; the other 8 chests can remain with whatever contents they have. Remove the conflicting belts and move the pipe to its new position (or it'll feed the station by mistake). Apply the blueprint without conflict.
-Added the Red Mall! The basic structure to allow it to build itself isn't done -- later. I think I've updated all the recipes as required. A few require advanced materials now; they just have requester chests for that stuff.
-A number of new "Special Trains" have been added. Build and launch one of each (always fully fueling any backward-facing engine first). If you launched the ore ones to support IS, you don't need more of them.
+- Updated headers for all requester stations in IS. You'll have to remove the logic gates for requesters before applying.
+- Moved IS 1-car stub stations that wouldn't let the train back out. Remove everything but the chests. Remove the green wire that goes across the track. Remove the 4 most-outside chests; the other 8 chests can remain with whatever contents they have. Remove the conflicting belts and move the pipe to its new position (or it'll feed the station by mistake). Apply the blueprint without conflict.
+- Added the Red Mall! The basic structure to allow it to build itself isn't done -- later. I think I've updated all the recipes as required. A few require advanced materials now; they just have requester chests for that stuff.
+- A number of new "Special Trains" have been added. Build and launch one of each (always fully fueling any backward-facing engine first). If you launched the ore ones to support IS, you don't need more of them.
 
 ## 5.0.0
 
-- Work in progress. Plenty of bugs. Maybe some breaking changes. Lots of fun.
+Work in progress. Plenty of bugs. Maybe some breaking changes. Lots of fun.
 
 v5 blueprints are for Factorio 2.x and the Space-Age expansion. It is wholly incompatible with all previous versions (and Factorio 1.x) but will join with track from Brian's Trains at the junctions.
 
 Follow the original SBF instructions on how to place these. It hasn't been updated but the method should not have changed.
 
-For trains, you'll need one 8-car BT train and 1 8-tank BT train, plus one each of the "special" trains in the SBF book. \_Start with the 8to1coal since that will fill the fuel station. Remember that they'll start moving as soon as they get fuel so supply a full stack and fill any backward-facing engine first.
+For trains, you'll need one 8-car BT train and 1 8-tank BT train, plus one each of the "special" trains in the SBF book. Start with the 8to1coal since that will fill the fuel station. Remember that they'll start moving as soon as they get fuel so supply a full stack and fill any backward-facing engine first.
 
 And of course you'll need the full set of mines (coal, stone, iron ore, copper ore, oil) all using the 8-car provider blueprints from the BT book. Don't forget to connect red & green on those providers!
 
@@ -210,7 +210,7 @@ And of course you'll need the full set of mines (coal, stone, iron ore, copper o
 
 v4 blueprints are completely compatible with v3. If placed adjacent, there will be a couple extra rail signals along the straight edges but will still operate correctly. However, if you've already started with v3, there's no major reason (yet) to switch to v4.
 
-3.5.13:
+## 3.5.13
 
 - New "strong" perimeter defense!
 - Added landfill under rail templates.
