@@ -11,6 +11,32 @@
     "entities": [
       {
         "name": "arithmetic-combinator",
+        "direction": 4,
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "+",
+            "second_constant": 0,
+            "first_signal": {"name": "signal-Y", "type": "virtual"},
+            "output_signal": {"name": "signal-Y", "type": "virtual"}
+          }
+        },
+        "position": {"x": 167, "y": 22.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "+",
+            "second_constant": 0,
+            "first_signal": {"name": "signal-C", "type": "virtual"},
+            "output_signal": {"name": "signal-Y", "type": "virtual"}
+          }
+        },
+        "position": {"x": 163.5, "y": 25}
+      },
+      {
+        "name": "arithmetic-combinator",
         "direction": 8,
         "control_behavior": {
           "arithmetic_conditions": {
@@ -49,6 +75,18 @@
           }
         },
         "position": {"x": 197, "y": 112.5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "+",
+            "second_constant": 0,
+            "first_signal": {"name": "signal-C", "type": "virtual"},
+            "output_signal": {"name": "signal-Y", "type": "virtual"}
+          }
+        },
+        "position": {"x": 163.5, "y": 199}
       },
       {"name": "big-electric-pole", "position": {"x": 2, "y": 2}},
       {"name": "big-electric-pole", "position": {"x": 26, "y": 2}},
@@ -1052,8 +1090,8 @@
                   {"name": "roboport", "comparator": "=", "count": 16, "index": 13, "quality": "normal"},
                   {"name": "constant-combinator", "comparator": "=", "count": 13, "index": 14, "quality": "normal"},
                   {"name": "iron-chest", "comparator": "=", "count": 12, "index": 15, "quality": "normal"},
-                  {"name": "decider-combinator", "comparator": "=", "count": 5, "index": 16, "quality": "normal"},
-                  {"name": "arithmetic-combinator", "comparator": "=", "count": 3, "index": 17, "quality": "normal"},
+                  {"name": "arithmetic-combinator", "comparator": "=", "count": 6, "index": 16, "quality": "normal"},
+                  {"name": "decider-combinator", "comparator": "=", "count": 5, "index": 17, "quality": "normal"},
                   {"name": "underground-belt", "comparator": "=", "count": 2, "index": 18, "quality": "normal"},
                   {"name": "passive-provider-chest", "comparator": "=", "count": 1, "index": 19, "quality": "normal"},
                   {"name": "storage-chest", "comparator": "=", "count": 1, "index": 20, "quality": "normal"},
@@ -6694,8 +6732,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 66, "y": 22}
       },
@@ -6705,8 +6745,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 70, "y": 22}
       },
@@ -6716,8 +6758,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 74, "y": 22}
       },
@@ -6727,8 +6771,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 78, "y": 22}
       },
@@ -6738,8 +6784,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 82, "y": 22}
       },
@@ -6749,8 +6797,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 86, "y": 22}
       },
@@ -6760,8 +6810,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 92, "y": 22}
       },
@@ -6771,8 +6823,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 96, "y": 22}
       },
@@ -6782,8 +6836,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 100, "y": 22}
       },
@@ -6793,8 +6849,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 104, "y": 22}
       },
@@ -6804,8 +6862,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 108, "y": 22}
       },
@@ -6815,8 +6875,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 112, "y": 22}
       },
@@ -6826,8 +6888,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 116, "y": 22}
       },
@@ -6837,8 +6901,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 120, "y": 22}
       },
@@ -6848,8 +6914,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 124, "y": 22}
       },
@@ -6859,8 +6927,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 128, "y": 22}
       },
@@ -6870,8 +6940,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 132, "y": 22}
       },
@@ -6881,8 +6953,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 136, "y": 22}
       },
@@ -6892,8 +6966,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 142, "y": 22}
       },
@@ -6903,8 +6979,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 146, "y": 22}
       },
@@ -6914,8 +6992,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 150, "y": 22}
       },
@@ -6925,8 +7005,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 154, "y": 22}
       },
@@ -6936,8 +7018,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 158, "y": 22}
       },
@@ -6947,8 +7031,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 162, "y": 22}
       },
@@ -6975,8 +7061,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 62, "y": 202}
       },
@@ -6987,8 +7075,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 66, "y": 202}
       },
@@ -6999,8 +7089,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 70, "y": 202}
       },
@@ -7011,8 +7103,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 74, "y": 202}
       },
@@ -7023,8 +7117,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 78, "y": 202}
       },
@@ -7035,8 +7131,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 82, "y": 202}
       },
@@ -7047,8 +7145,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 88, "y": 202}
       },
@@ -7059,8 +7159,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 92, "y": 202}
       },
@@ -7071,8 +7173,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 96, "y": 202}
       },
@@ -7083,8 +7187,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 100, "y": 202}
       },
@@ -7095,8 +7201,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 104, "y": 202}
       },
@@ -7107,8 +7215,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 108, "y": 202}
       },
@@ -7119,8 +7229,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 112, "y": 202}
       },
@@ -7131,8 +7243,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 116, "y": 202}
       },
@@ -7143,8 +7257,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 120, "y": 202}
       },
@@ -7155,8 +7271,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 124, "y": 202}
       },
@@ -7167,8 +7285,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 128, "y": 202}
       },
@@ -7179,8 +7299,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 132, "y": 202}
       },
@@ -7191,8 +7313,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 138, "y": 202}
       },
@@ -7203,8 +7327,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 142, "y": 202}
       },
@@ -7215,8 +7341,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 146, "y": 202}
       },
@@ -7227,8 +7355,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 150, "y": 202}
       },
@@ -7239,8 +7369,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 154, "y": 202}
       },
@@ -7251,8 +7383,10 @@
         "station": "BT Depot",
         "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
         "control_behavior": {
+          "read_trains_count": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-heart", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
+          "trains_count_signal": {"name": "signal-C", "type": "virtual"}
         },
         "position": {"x": 158, "y": 202}
       },
@@ -30690,29 +30824,55 @@
       ["235.5,15.5", 5, "235.5,39.5", 5],
       ["191,34", 1, "189.5,34.5", 1],
       ["79.5,35.5", 1, "79,38.5", 3],
+      ["79.5,35.5", 2, "83.5,35.5", 2],
       ["83.5,35.5", 1, "83,38.5", 3],
+      ["83.5,35.5", 2, "87.5,35.5", 2],
       ["87.5,35.5", 1, "87,38.5", 3],
+      ["87.5,35.5", 2, "91.5,35.5", 2],
       ["91.5,35.5", 1, "91,38.5", 3],
+      ["91.5,35.5", 2, "95.5,35.5", 2],
       ["95.5,35.5", 1, "95,38.5", 3],
+      ["95.5,35.5", 2, "99.5,35.5", 2],
       ["99.5,35.5", 1, "99,38.5", 3],
+      ["99.5,35.5", 2, "105.5,35.5", 2],
       ["105.5,35.5", 1, "105,38.5", 3],
+      ["105.5,35.5", 2, "109.5,35.5", 2],
       ["109.5,35.5", 1, "110,38.5", 3],
+      ["109.5,35.5", 2, "113.5,35.5", 2],
       ["113.5,35.5", 1, "113,38.5", 3],
+      ["113.5,35.5", 2, "117.5,35.5", 2],
       ["117.5,35.5", 1, "118,38.5", 3],
+      ["117.5,35.5", 2, "121.5,35.5", 2],
       ["121.5,35.5", 1, "121,38.5", 3],
+      ["121.5,35.5", 2, "125.5,35.5", 2],
       ["125.5,35.5", 1, "125,38.5", 3],
+      ["125.5,35.5", 2, "129.5,35.5", 2],
       ["129.5,35.5", 1, "129,38.5", 3],
+      ["129.5,35.5", 2, "133.5,35.5", 2],
       ["133.5,35.5", 1, "133,38.5", 3],
+      ["133.5,35.5", 2, "137.5,35.5", 2],
       ["137.5,35.5", 1, "137,38.5", 3],
+      ["137.5,35.5", 2, "141.5,35.5", 2],
       ["141.5,35.5", 1, "141,38.5", 3],
+      ["141.5,35.5", 2, "145.5,35.5", 2],
       ["145.5,35.5", 1, "145,38.5", 3],
+      ["145.5,35.5", 2, "149.5,35.5", 2],
       ["149.5,35.5", 1, "149,38.5", 3],
+      ["149.5,35.5", 2, "155.5,35.5", 2],
       ["155.5,35.5", 1, "155,38.5", 3],
+      ["155.5,35.5", 2, "159.5,35.5", 2],
       ["159.5,35.5", 1, "160,38.5", 3],
+      ["159.5,35.5", 2, "163.5,35.5", 2],
       ["163.5,35.5", 1, "163,38.5", 3],
+      ["163.5,35.5", 2, "167.5,35.5", 2],
       ["167.5,35.5", 1, "168,38.5", 3],
+      ["167.5,35.5", 2, "171.5,35.5", 2],
       ["171.5,35.5", 1, "171,38.5", 3],
+      ["171.5,35.5", 2, "175.5,35.5", 2],
       ["175.5,35.5", 1, "175,38.5", 3],
+      ["175.5,35.5", 2, "177,38.5", 2],
+      ["180.5,36", 1, "178,42", 1],
+      ["180.5,36", 3, "184,36", 1],
       ["184,36", 1, "189.5,34.5", 1],
       ["184,36", 2, "189.5,34.5", 2],
       ["184,36", 2, "183,37.5", 2],
@@ -30774,6 +30934,7 @@
       ["171,38.5", 2, "175,38.5", 2],
       ["171,40", 1, "178,42", 1],
       ["175,38.5", 2, "178,42", 2],
+      ["177,38.5", 3, "178,42", 1],
       ["183,39.5", 1, "184,38.5", 1],
       ["183,39.5", 2, "183,39.5", 4],
       ["183,39.5", 2, "184,38.5", 4],
@@ -31151,6 +31312,7 @@
       ["163,210", 5, "171,210", 5],
       ["171,210", 5, "178,209", 5],
       ["178,209", 1, "171,211", 1],
+      ["178,209", 1, "177,212.5", 3],
       ["178,209", 2, "172,212.5", 2],
       ["15.5,211.5", 1, "15.5,235.5", 1],
       ["15.5,211.5", 2, "15.5,235.5", 2],
@@ -31228,6 +31390,30 @@
       ["168,212.5", 2, "172,212.5", 2],
       ["168,212.5", 3, "167.5,215.5", 1],
       ["172,212.5", 3, "171.5,215.5", 1],
+      ["177,212.5", 2, "171.5,215.5", 2],
+      ["75.5,215.5", 2, "79.5,215.5", 2],
+      ["79.5,215.5", 2, "83.5,215.5", 2],
+      ["83.5,215.5", 2, "87.5,215.5", 2],
+      ["87.5,215.5", 2, "91.5,215.5", 2],
+      ["91.5,215.5", 2, "95.5,215.5", 2],
+      ["95.5,215.5", 2, "101.5,215.5", 2],
+      ["101.5,215.5", 2, "105.5,215.5", 2],
+      ["105.5,215.5", 2, "109.5,215.5", 2],
+      ["109.5,215.5", 2, "113.5,215.5", 2],
+      ["113.5,215.5", 2, "117.5,215.5", 2],
+      ["117.5,215.5", 2, "121.5,215.5", 2],
+      ["121.5,215.5", 2, "125.5,215.5", 2],
+      ["125.5,215.5", 2, "129.5,215.5", 2],
+      ["129.5,215.5", 2, "133.5,215.5", 2],
+      ["133.5,215.5", 2, "137.5,215.5", 2],
+      ["137.5,215.5", 2, "141.5,215.5", 2],
+      ["141.5,215.5", 2, "145.5,215.5", 2],
+      ["145.5,215.5", 2, "151.5,215.5", 2],
+      ["151.5,215.5", 2, "155.5,215.5", 2],
+      ["155.5,215.5", 2, "159.5,215.5", 2],
+      ["159.5,215.5", 2, "163.5,215.5", 2],
+      ["163.5,215.5", 2, "167.5,215.5", 2],
+      ["167.5,215.5", 2, "171.5,215.5", 2],
       ["15.5,235.5", 1, "39.5,235.5", 1],
       ["15.5,235.5", 2, "39.5,235.5", 2],
       ["15.5,235.5", 5, "39.5,235.5", 5],
