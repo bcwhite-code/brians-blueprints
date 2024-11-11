@@ -2,6 +2,14 @@
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.0.23
+
+Add train counting for depots to Home and Hubs.
+Fix supply of small-stack items in Red Mall Supply.
+Fix wiring on Solar Parts. Add more instruction to bp comment.
+Fix chest locked-slots for greens in Starter Circuits.
+Add "Rocketry" block to WIP (self-building).
+
 ## v5.0.22
 
 Fix U-235 line to nuclear fuel in Nuclear 2.4GW.
