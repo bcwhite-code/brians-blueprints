@@ -25,7 +25,7 @@ The "fbp.py" script can be used to split books into a directory structure and la
 
 ```sh
 rm -rf book-directory
-tools/fbp.py split --outdir=book-directory --infile=my-exported-book.txt
+tools/fbp.py split --outdir=book-directory/book --infile=my-exported-book.txt
 ```
 
 It's important to completely remove the old directory before splitting otherwise removed/renamed blueprints will remain in the previous form and be re-introduced when the book is next built.
@@ -33,19 +33,19 @@ It's important to completely remove the old directory before splitting otherwise
 ### Build a Book
 
 ```sh
-tools/fbp.py build --outfile=my-book.txt --indir=book-directory
+tools/fbp.py build --outfile=my-book.txt --indir=book-directory/book
 ```
 
 OR
 
 ```sh
-tools/fatul.py encode -v book-dir my-book.txt
+tools/fatul.py encode -v book-dir/book my-book.txt
 ```
 
 ### Unpack a Single Blueprint
 
 ```sh
-tools/fbp.py unpack --outfile=book-directory/blueprint.json --infile=my-exported-blueprint.txt
+tools/fbp.py unpack --outfile=book-directory/book/blueprint.json --infile=my-exported-blueprint.txt
 ```
 
 OR
@@ -57,11 +57,11 @@ tools/fatul.py decode my-exported-blueprint.txt blueprint.json
 ### Pack a Single Blueprint
 
 ```sh
-tools/fbp.py pack --outfile=my-blueprint.txt --infile=book-directory/blueprint.json
+tools/fbp.py pack --outfile=my-blueprint.txt --infile=book-directory/book/blueprint.json
 ```
 
 OR
 
 ```sh
-tools/fatul.py encode book-directory/blueprint.json my-exported-blueprint.txt
+tools/fatul.py encode book-directory/book/blueprint.json my-exported-blueprint.txt
 ```
