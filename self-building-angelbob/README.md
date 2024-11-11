@@ -5,3 +5,4 @@
 - See [Changelog](./CHANGELOG.md)
 - See my other [blueprints](https://github.com/bcwhite-code/brians-blueprints)
 - Join the [discussion on Discord](https://discord.gg/hQnsXwpZ8A)
+- More [here](https://drive.google.com/drive/folders/1qo04UYDqENTtjrwOGbTLN5LFHE7SdjoT)

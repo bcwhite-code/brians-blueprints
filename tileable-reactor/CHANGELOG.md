@@ -31,3 +31,17 @@ Don't update to a new version that is different in the first or second digit whi
 - Conversion of the original v4 design, with changes.
 
 **Note:** _If the [Waterfill](https://mods.factorio.com/mod/Noxys_Waterfill) mod is not installed, there may be an error displayed when importing the blueprint. It's still possible to use the landfill method even in this situation._
+
+## 1.3.1
+
+- Fixed grid reference point so it'll be consistent between all the layers.
+
+## v1.3.0
+
+- Many small fixes. Thanks.
+
+## v1.2.0
+
+- Manage resources for bot construction.
+- Fixed some power lines.
+- Added simple steam-power blueprints

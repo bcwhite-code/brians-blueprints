@@ -36,6 +36,10 @@ If the existing Depot Hubs are not updated then trains will continue to get fuel
 - Fixed configuration of merged stations. (Just apply over existing ones.)
 - Increased height of 8-car loops by 1-rail so that stations fit inside.
 
+## v5.0.21
+
+- Added merged-chest stations, both provide and request. The loading blueprints for them is further down the sub-book. You may have to adapt them for whatever "loader" technology is being used.
+
 ## v5.0.20
 
 - New Depot Hub fuel station that can fill backward-facing engines. This is necessary if your factory has reversible "stub" stops as they can cause trains servicing them to get permanently stalled at the fueling station.
