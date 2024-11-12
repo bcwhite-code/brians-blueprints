@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 # Written by Brian White <bcwhite@pobox.com>
 # This file is covered by the CC0 license.
 
