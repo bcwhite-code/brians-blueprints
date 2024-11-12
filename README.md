@@ -19,49 +19,39 @@ Blueprints include:
 
 ## Commands
 
-The "fbp.py" script can be used to split books into a directory structure and later build them back into a single entity as well as to unpack/pack single blueprints from their encoded form into json. The latter allows working with single blueprints within a book.
+You will need [fatul](https://github.com/nyurik/fatul) to encode/decode blueprints. It is included in [tools](./tools/) folder.
 
-### Split a Book
+Replace `book-dir` with the blueprint directory you want to use.
+
+For example, if you want encoded Brian's trains Blueprint book:
 
 ```sh
-rm -rf book-directory
-tools/fbp.py split --outdir=book-directory/book --infile=my-exported-book.txt
+tools/fatul.py encode -v brians-trains/book brians-train.txt
+```
+
+### Decode a Blueprint Book
+
+```sh
+rm -rf book-dir
+tools/fatul.py decode book-dir/book my-exported-book.txt
 ```
 
 It's important to completely remove the old directory before splitting otherwise removed/renamed blueprints will remain in the previous form and be re-introduced when the book is next built.
 
-### Build a Book
-
-```sh
-tools/fbp.py build --outfile=my-book.txt --indir=book-directory/book
-```
-
-OR
+### Encode a Blueprint Book
 
 ```sh
 tools/fatul.py encode -v book-dir/book my-book.txt
 ```
 
-### Unpack a Single Blueprint
+### Decode a Single Blueprint
 
 ```sh
-tools/fbp.py unpack --outfile=book-directory/book/blueprint.json --infile=my-exported-blueprint.txt
+tools/fatul.py decode blueprint.json my-exported-blueprint.txt
 ```
 
-OR
+### Encode a Single Blueprint
 
 ```sh
-tools/fatul.py decode my-exported-blueprint.txt blueprint.json
-```
-
-### Pack a Single Blueprint
-
-```sh
-tools/fbp.py pack --outfile=my-blueprint.txt --infile=book-directory/book/blueprint.json
-```
-
-OR
-
-```sh
-tools/fatul.py encode book-directory/book/blueprint.json my-exported-blueprint.txt
+tools/fatul.py encode book-dir/book/blueprint.json my-exported-blueprint.txt
 ```
