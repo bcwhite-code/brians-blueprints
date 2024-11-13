@@ -1,0 +1,77 @@
+{
+  "index": 15,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "4-Tank Train",
+    "shift_x": -927,
+    "shift_y": -583,
+    "version": 562949954404356,
+    "entities": [
+      {
+        "name": "fluid-wagon",
+        "enable_logistics_while_moving": false,
+        "orientation": 0.25,
+        "position": {"x": 6.0625, "y": 0}
+      },
+      {
+        "name": "fluid-wagon",
+        "enable_logistics_while_moving": false,
+        "orientation": 0.25,
+        "position": {"x": 13.0625, "y": 0}
+      },
+      {
+        "name": "fluid-wagon",
+        "enable_logistics_while_moving": false,
+        "orientation": 0.25,
+        "position": {"x": 20.0625, "y": 0}
+      },
+      {
+        "name": "fluid-wagon",
+        "enable_logistics_while_moving": false,
+        "orientation": 0.25,
+        "position": {"x": 27.0625, "y": 0}
+      },
+      {
+        "name": "locomotive",
+        "enable_logistics_while_moving": false,
+        "orientation": 0.75,
+        "color": {"a": 1, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "position": {"x": -0.9375, "y": 0}
+      },
+      {
+        "name": "locomotive",
+        "enable_logistics_while_moving": false,
+        "orientation": 0.75,
+        "color": {"a": 1, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "position": {"x": 34.0625, "y": 0}
+      }
+    ],
+    "icons": [
+      {"index": 1, "signal": {"name": "locomotive"}},
+      {"index": 2, "signal": {"name": "signal-2", "type": "virtual"}},
+      {"index": 3, "signal": {"name": "fluid-wagon"}},
+      {"index": 4, "signal": {"name": "signal-4", "type": "virtual"}}
+    ],
+    "schedules": [
+      {
+        "locomotives": ["0,0", "35,0"],
+        "schedule": {
+          "records": [
+            {
+              "station": "CS Depot",
+              "wait_conditions": [{"compare_type": "and", "ticks": 300, "type": "inactivity"}]
+            }
+          ]
+        }
+      }
+    ],
+    "stock_connections": [
+      {"back": "7,0", "stock": "0,0"},
+      {"back": "0,0", "front": "14,0", "stock": "7,0"},
+      {"back": "7,0", "front": "21,0", "stock": "14,0"},
+      {"back": "14,0", "front": "28,0", "stock": "21,0"},
+      {"back": "21,0", "front": "35,0", "stock": "28,0"},
+      {"front": "28,0", "stock": "35,0"}
+    ]
+  }
+}

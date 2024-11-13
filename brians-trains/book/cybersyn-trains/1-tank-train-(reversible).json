@@ -1,0 +1,56 @@
+{
+  "index": 4,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "1-Tank Train (reversible)",
+    "shift_x": -951,
+    "shift_y": -579,
+    "version": 562949954404356,
+    "entities": [
+      {
+        "name": "fluid-wagon",
+        "enable_logistics_while_moving": false,
+        "orientation": 0.25,
+        "position": {"x": 6.5, "y": 0}
+      },
+      {
+        "name": "locomotive",
+        "enable_logistics_while_moving": false,
+        "orientation": 0.75,
+        "color": {"a": 1, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "position": {"x": -0.5, "y": 0}
+      },
+      {
+        "name": "locomotive",
+        "enable_logistics_while_moving": false,
+        "orientation": 0.25,
+        "color": {"a": 1, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "position": {"x": 13.5, "y": 0}
+      }
+    ],
+    "icons": [
+      {"index": 1, "signal": {"name": "locomotive"}},
+      {"index": 2, "signal": {"name": "signal-2", "type": "virtual"}},
+      {"index": 3, "signal": {"name": "fluid-wagon"}},
+      {"index": 4, "signal": {"name": "signal-1", "type": "virtual"}}
+    ],
+    "schedules": [
+      {
+        "locomotives": ["0,0", "14,0"],
+        "schedule": {
+          "records": [
+            {
+              "station": "CS Depot",
+              "wait_conditions": [{"compare_type": "and", "ticks": 300, "type": "inactivity"}]
+            }
+          ]
+        }
+      }
+    ],
+    "stock_connections": [
+      {"back": "7,0", "stock": "0,0"},
+      {"back": "0,0", "front": "14,0", "stock": "7,0"},
+      {"back": "7,0", "stock": "14,0"}
+    ]
+  }
+}

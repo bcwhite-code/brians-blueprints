@@ -1,0 +1,129 @@
+{
+  "index": 18,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "8-Car Train",
+    "shift_x": -972,
+    "shift_y": -587,
+    "version": 562949954404356,
+    "entities": [
+      {
+        "name": "cargo-wagon",
+        "copy_color_from_train_stop": true,
+        "enable_logistics_while_moving": false,
+        "inventory": null,
+        "orientation": 0.75,
+        "position": {"x": 6.8125, "y": 0}
+      },
+      {
+        "name": "cargo-wagon",
+        "copy_color_from_train_stop": true,
+        "enable_logistics_while_moving": false,
+        "inventory": null,
+        "orientation": 0.75,
+        "position": {"x": 13.8125, "y": 0}
+      },
+      {
+        "name": "cargo-wagon",
+        "copy_color_from_train_stop": true,
+        "enable_logistics_while_moving": false,
+        "inventory": null,
+        "orientation": 0.75,
+        "position": {"x": 20.8125, "y": 0}
+      },
+      {
+        "name": "cargo-wagon",
+        "copy_color_from_train_stop": true,
+        "enable_logistics_while_moving": false,
+        "inventory": null,
+        "orientation": 0.75,
+        "position": {"x": 27.8125, "y": 0}
+      },
+      {
+        "name": "cargo-wagon",
+        "copy_color_from_train_stop": true,
+        "enable_logistics_while_moving": false,
+        "inventory": null,
+        "orientation": 0.75,
+        "position": {"x": 41.8125, "y": 0}
+      },
+      {
+        "name": "cargo-wagon",
+        "copy_color_from_train_stop": true,
+        "enable_logistics_while_moving": false,
+        "inventory": null,
+        "orientation": 0.75,
+        "position": {"x": 48.8125, "y": 0}
+      },
+      {
+        "name": "cargo-wagon",
+        "copy_color_from_train_stop": true,
+        "enable_logistics_while_moving": false,
+        "inventory": null,
+        "orientation": 0.75,
+        "position": {"x": 55.8125, "y": 0}
+      },
+      {
+        "name": "cargo-wagon",
+        "copy_color_from_train_stop": true,
+        "enable_logistics_while_moving": false,
+        "inventory": null,
+        "orientation": 0.75,
+        "position": {"x": 62.8125, "y": 0}
+      },
+      {
+        "name": "locomotive",
+        "enable_logistics_while_moving": false,
+        "orientation": 0.75,
+        "color": {"a": 1, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "position": {"x": -0.1875, "y": 0}
+      },
+      {
+        "name": "locomotive",
+        "enable_logistics_while_moving": false,
+        "orientation": 0.75,
+        "color": {"a": 1, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "position": {"x": 34.8125, "y": 0}
+      },
+      {
+        "name": "locomotive",
+        "enable_logistics_while_moving": false,
+        "orientation": 0.75,
+        "color": {"a": 1, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "position": {"x": 69.8125, "y": 0}
+      }
+    ],
+    "icons": [
+      {"index": 1, "signal": {"name": "locomotive"}},
+      {"index": 2, "signal": {"name": "signal-3", "type": "virtual"}},
+      {"index": 3, "signal": {"name": "cargo-wagon"}},
+      {"index": 4, "signal": {"name": "signal-8", "type": "virtual"}}
+    ],
+    "schedules": [
+      {
+        "locomotives": ["0,0", "35,0", "70,0"],
+        "schedule": {
+          "records": [
+            {
+              "station": "CS Depot",
+              "wait_conditions": [{"compare_type": "and", "ticks": 300, "type": "inactivity"}]
+            }
+          ]
+        }
+      }
+    ],
+    "stock_connections": [
+      {"back": "7,0", "stock": "0,0"},
+      {"back": "14,0", "front": "0,0", "stock": "7,0"},
+      {"back": "21,0", "front": "7,0", "stock": "14,0"},
+      {"back": "28,0", "front": "14,0", "stock": "21,0"},
+      {"back": "35,0", "front": "21,0", "stock": "28,0"},
+      {"back": "42,0", "front": "28,0", "stock": "35,0"},
+      {"back": "49,0", "front": "35,0", "stock": "42,0"},
+      {"back": "56,0", "front": "42,0", "stock": "49,0"},
+      {"back": "63,0", "front": "49,0", "stock": "56,0"},
+      {"back": "70,0", "front": "56,0", "stock": "63,0"},
+      {"front": "63,0", "stock": "70,0"}
+    ]
+  }
+}

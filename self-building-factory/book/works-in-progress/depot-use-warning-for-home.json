@@ -1,0 +1,130 @@
+{
+  "index": 2,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "Depot-Use Warning for Home",
+    "shift_x": 143,
+    "shift_y": 59,
+    "version": 562949954404356,
+    "entities": [
+      {
+        "name": "arithmetic-combinator",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "/",
+            "second_constant": 10,
+            "first_signal": {"name": "signal-Y", "type": "virtual"},
+            "output_signal": {"name": "signal-Y", "type": "virtual"}
+          }
+        },
+        "position": {"x": 14.5, "y": 0}
+      },
+      {"name": "big-electric-pole", "position": {"x": 15, "y": 6}},
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "comparator": ">",
+                "first_signal": {"name": "signal-each", "type": "virtual"},
+                "second_signal": {"name": "signal-dot", "type": "virtual"}
+              }
+            ],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 0, "y": 0.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "first_signal": {"name": "signal-each", "type": "virtual"},
+                "second_signal": {"name": "signal-dot", "type": "virtual"}
+              }
+            ],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 0, "y": 2.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 4,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "first_signal": {"name": "signal-each", "type": "virtual"},
+                "second_signal": {"name": "signal-dot", "type": "virtual"}
+              }
+            ],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 0, "y": 4.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 4,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "comparator": ">",
+                "first_signal": {"name": "signal-each", "type": "virtual"},
+                "second_signal": {"name": "signal-dot", "type": "virtual"}
+              }
+            ],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 0, "y": 6.5}
+      },
+      {"name": "medium-electric-pole", "position": {"x": 15.5, "y": 0.5}},
+      {
+        "name": "programmable-speaker",
+        "alert_parameters": {
+          "alert_message": "Depots are more than 90% full.",
+          "show_alert": true,
+          "show_on_map": false,
+          "icon_signal_id": {"name": "train-stop"}
+        },
+        "control_behavior": {
+          "circuit_condition": {
+            "comparator": "≥",
+            "first_signal": {"name": "signal-Y", "type": "virtual"},
+            "second_signal": {"name": "signal-Z", "type": "virtual"}
+          },
+          "circuit_parameters": {"instrument_id": 0, "note_id": 0, "signal_value_is_pitch": false}
+        },
+        "parameters": {"allow_polyphony": false, "playback_mode": "local", "playback_volume": 0},
+        "position": {"x": 16.5, "y": 0.5}
+      },
+      {"name": "radar", "position": {"x": 15.5, "y": -2.5}}
+    ],
+    "icons": [
+      {"index": 1, "signal": {"name": "train-stop"}},
+      {"index": 2, "signal": {"name": "programmable-speaker"}}
+    ],
+    "wires": [
+      ["0,3", 1, "0,5", 1],
+      ["0,3", 2, "0,7", 4],
+      ["0,3", 4, "0,5", 2],
+      ["14.5,2.5", 1, "15.5,3", 1],
+      ["14.5,2.5", 4, "16.5,3", 2],
+      ["16.5,3", 1, "15.5,3", 1],
+      ["15.5,3", 1, "15,8.5", 1],
+      ["15.5,3", 5, "15,8.5", 5],
+      ["0,5", 1, "0,7", 1],
+      ["0,5", 2, "0,5", 4],
+      ["0,7", 2, "0,7", 4],
+      ["0,7", 2, "0,9", 4]
+    ]
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "index": 1,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "Cybersyn Item Provide Header",
+    "description": "1) Create a provider station body first.\n2) Then add Cybersyn head.\n3) Calculate 3 * (S + 2) where S is the max number of stacker (i.e. train waiting) spaces.\n4) In the iron chest nearest the head, block off all but that number of slots.\n5) Wire red & green from big power pole to train grid.\n",
+    "shift_x": -881,
+    "shift_y": -359,
+    "version": 562949954404356,
+    "entities": [
+      {"name": "big-electric-pole", "position": {"x": 0, "y": -2}},
+      {
+        "name": "constant-combinator",
+        "direction": 12,
+        "player_description": "The \"request threshold\" is relative to a full train.  A NEGATIVE number will allow partial trains with up to that amount empty.  A positive number will delay calling a train until more buffer space is free so not really any use for it.  \n\nOr remove the two combinators to the left-side of the track and then the \"request threshold\" becomes an absolute amount.  Check the output of those combinators to know how much is in a full train; it's in items, not stacks.",
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "cybersyn-priority",
+                    "comparator": "=",
+                    "count": 10,
+                    "index": 1,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "cybersyn-locked-slots",
+                    "comparator": "=",
+                    "count": 0,
+                    "index": 2,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "cybersyn-request-threshold",
+                    "comparator": "=",
+                    "count": 0,
+                    "index": 3,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 4.5, "y": -0.5}
+      },
+      {
+        "name": "cybersyn-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "arithmetic_conditions": {"operation": "/", "second_constant": 17, "first_signal": {"name": "signal-Q", "type": "virtual"}}
+        },
+        "position": {"x": 4, "y": 0.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "comparator": ">",
+                "first_signal": {"name": "signal-0", "type": "virtual"},
+                "first_signal_networks": {"green": false, "red": true}
+              }
+            ],
+            "outputs": [
+              {
+                "networks": {"green": true, "red": false},
+                "signal": {"name": "signal-everything", "type": "virtual"}
+              }
+            ]
+          }
+        },
+        "position": {"x": 0, "y": -0.5}
+      },
+      {"name": "medium-electric-pole", "position": {"x": 3.5, "y": -1.5}},
+      {"name": "medium-electric-pole", "position": {"x": 8.5, "y": 0.5}},
+      {"name": "medium-electric-pole", "position": {"x": 8.5, "y": 3.5}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 2, "y": 2}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 4, "y": 2}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 6, "y": 2}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 8, "y": 2}},
+      {
+        "name": "train-stop",
+        "direction": 12,
+        "priority": 10,
+        "station": "",
+        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "control_behavior": {
+          "read_from_train": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-L", "type": "virtual"}},
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+        },
+        "position": {"x": 2, "y": 0}
+      }
+    ],
+    "icons": [
+      {"index": 1, "signal": {"name": "train-stop"}},
+      {"index": 2, "signal": {"name": "up-arrow", "type": "virtual"}}
+    ],
+    "wires": [
+      ["0,0", 1, "0,1.5", 1],
+      ["0,0", 2, "0,1.5", 4],
+      ["0,0", 5, "3.5,0.5", 5],
+      ["3.5,0.5", 1, "4.5,1.5", 1],
+      ["3.5,0.5", 2, "0,1.5", 2],
+      ["3.5,0.5", 2, "4,2.5", 2],
+      ["3.5,0.5", 2, "8.5,2.5", 2],
+      ["3.5,0.5", 5, "8.5,2.5", 5],
+      ["2,2", 1, "4,2.5", 3],
+      ["4,2.5", 1, "4.5,1.5", 1],
+      ["4,2.5", 3, "8.5,2.5", 1],
+      ["8.5,2.5", 5, "8.5,5.5", 5]
+    ]
+  }
+}

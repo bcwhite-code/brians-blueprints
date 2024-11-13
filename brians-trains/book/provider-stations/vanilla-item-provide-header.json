@@ -3,10 +3,10 @@
   "blueprint": {
     "item": "blueprint",
     "label": "Vanilla Item Provide Header",
-    "description": "Create a \"vanilla\" ITEM provider station.  After mixing with the loading section...\n\nConfigure by:\n1) Calculate 3 * (S + 2) where S is the max number of stacker spaces.\n2) In the iron chest nearest the head, block off all but that number of slots.\n3) Wire red & green from big power pole to train grid.",
+    "description": "Create a \"vanilla\" ITEM provider station.  After mixing with the loading section...\n\nConfigure by:\n1) Calculate 3 * (S + 2) where S is the max number of stacker (i.e. train waiting) spaces.\n2) In the iron chest nearest the head, block off all but that number of slots.\n3) Wire red & green from big power pole to train grid.",
     "shift_x": -913,
     "shift_y": -361,
-    "version": 562949954338818,
+    "version": 562949954404356,
     "entities": [
       {
         "name": "arithmetic-combinator",
@@ -343,7 +343,10 @@
         "position": {"x": 2, "y": 2}
       }
     ],
-    "icons": [{"index": 1, "signal": {"name": "train-stop"}}],
+    "icons": [
+      {"index": 1, "signal": {"name": "train-stop"}},
+      {"index": 2, "signal": {"name": "up-arrow", "type": "virtual"}}
+    ],
     "wires": [
       ["0,0", 1, "0,1.5", 1],
       ["0,0", 2, "0,1.5", 4],

@@ -4,7 +4,16 @@ History, in brief.
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
-## Released v5.0.26
+## v5.0.27
+
+- Add Cybersyn headers, support hub, and trains.
+- Some reorganization of the book.
+- Fix city-block roboport mix-ins.
+- Fix station priorities for 8-car bodies.
+- Fix green wire for double-station 4-car loop.
+
+
+## v5.0.26
 
 - Add "inactivity 1s" to depot stop for fuel train (or it won't fuel).
 - Add missing wire to Depot Hub fuel station.

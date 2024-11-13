@@ -1,11 +1,11 @@
 {
-  "index": 12,
+  "index": 0,
   "blueprint": {
     "item": "blueprint",
-    "label": "4-Car Train",
-    "shift_x": -980,
-    "shift_y": -631,
-    "version": 562949954338818,
+    "label": "1-Car Train",
+    "shift_x": -968,
+    "shift_y": -623,
+    "version": 562949954404356,
     "entities": [
       {
         "name": "cargo-wagon",
@@ -13,61 +13,30 @@
         "enable_logistics_while_moving": false,
         "inventory": null,
         "orientation": 0.75,
-        "position": {"x": 6.28125, "y": 0}
-      },
-      {
-        "name": "cargo-wagon",
-        "copy_color_from_train_stop": true,
-        "enable_logistics_while_moving": false,
-        "inventory": null,
-        "orientation": 0.75,
-        "position": {"x": 13.28125, "y": 0}
-      },
-      {
-        "name": "cargo-wagon",
-        "copy_color_from_train_stop": true,
-        "enable_logistics_while_moving": false,
-        "inventory": null,
-        "orientation": 0.75,
-        "position": {"x": 20.28125, "y": 0}
-      },
-      {
-        "name": "cargo-wagon",
-        "copy_color_from_train_stop": true,
-        "enable_logistics_while_moving": false,
-        "inventory": null,
-        "orientation": 0.75,
-        "position": {"x": 27.28125, "y": 0}
+        "position": {"x": 6.4375, "y": 0}
       },
       {
         "name": "locomotive",
         "enable_logistics_while_moving": false,
         "orientation": 0.75,
         "color": {"a": 1, "b": 1, "g": 0.49803921580314636, "r": 0},
-        "position": {"x": -0.71875, "y": 0}
-      },
-      {
-        "name": "locomotive",
-        "enable_logistics_while_moving": false,
-        "orientation": 0.75,
-        "color": {"a": 1, "b": 1, "g": 0.49803921580314636, "r": 0},
-        "position": {"x": 34.28125, "y": 0}
+        "position": {"x": -0.5625, "y": 0}
       }
     ],
     "icons": [
       {"index": 1, "signal": {"name": "locomotive"}},
-      {"index": 2, "signal": {"name": "signal-4", "type": "virtual"}},
+      {"index": 2, "signal": {"name": "signal-1", "type": "virtual"}},
       {"index": 3, "signal": {"name": "cargo-wagon"}},
-      {"index": 4, "signal": {"name": "signal-4", "type": "virtual"}}
+      {"index": 4, "signal": {"name": "signal-1", "type": "virtual"}}
     ],
     "schedules": [
       {
-        "locomotives": ["0,0", "35,0"],
+        "locomotives": ["0,0"],
         "schedule": {
-          "group": "BT:4car",
+          "group": "BT:1car",
           "interrupts": [
             {
-              "name": "BT:4to4",
+              "name": "BT:1to1",
               "inside_interrupt": false,
               "conditions": [
                 {"compare_type": "and", "type": "empty"},
@@ -76,7 +45,17 @@
                   "type": "circuit",
                   "condition": {
                     "comparator": "=",
-                    "constant": 4,
+                    "constant": 1,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 3,
                     "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
                   }
                 },
@@ -96,16 +75,6 @@
                   "type": "circuit",
                   "condition": {
                     "comparator": "=",
-                    "constant": 6,
-                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
-                  }
-                },
-                {"compare_type": "or", "type": "empty"},
-                {
-                  "compare_type": "and",
-                  "type": "circuit",
-                  "condition": {
-                    "comparator": "=",
                     "constant": 7,
                     "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
                   }
@@ -116,7 +85,17 @@
                   "type": "circuit",
                   "condition": {
                     "comparator": "=",
-                    "constant": 12,
+                    "constant": 9,
+                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
+                  }
+                },
+                {"compare_type": "or", "type": "empty"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {
+                    "comparator": "=",
+                    "constant": 11,
                     "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
                   }
                 },
@@ -136,16 +115,6 @@
                   "type": "circuit",
                   "condition": {
                     "comparator": "=",
-                    "constant": 14,
-                    "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
-                  }
-                },
-                {"compare_type": "or", "type": "empty"},
-                {
-                  "compare_type": "and",
-                  "type": "circuit",
-                  "condition": {
-                    "comparator": "=",
                     "constant": 15,
                     "first_signal": {"name": "signal-signal-parameter", "type": "virtual"}
                   }
@@ -153,7 +122,7 @@
               ],
               "targets": [
                 {
-                  "station": "[virtual-signal=up-arrow][virtual-signal=signal-4][virtual-signal=signal-signal-parameter]",
+                  "station": "[virtual-signal=up-arrow][virtual-signal=signal-1][virtual-signal=signal-signal-parameter]",
                   "wait_conditions": [
                     {"compare_type": "and", "type": "full"},
                     {
@@ -181,7 +150,7 @@
                   ]
                 },
                 {
-                  "station": "[virtual-signal=down-arrow][virtual-signal=signal-4][virtual-signal=signal-signal-parameter]",
+                  "station": "[virtual-signal=down-arrow][virtual-signal=signal-1][virtual-signal=signal-signal-parameter]",
                   "wait_conditions": [
                     {"compare_type": "and", "type": "empty"},
                     {
@@ -211,7 +180,7 @@
               ]
             },
             {
-              "name": "BT:Empty4",
+              "name": "BT:Empty1",
               "inside_interrupt": false,
               "conditions": [
                 {"compare_type": "and", "station": "BT Depot", "type": "at_station"},
@@ -219,7 +188,7 @@
               ],
               "targets": [
                 {
-                  "station": "[virtual-signal=down-arrow][virtual-signal=signal-4][virtual-signal=signal-item-parameter]",
+                  "station": "[virtual-signal=down-arrow][virtual-signal=signal-1][virtual-signal=signal-item-parameter]",
                   "wait_conditions": [
                     {"compare_type": "and", "type": "empty"},
                     {
@@ -278,13 +247,6 @@
         }
       }
     ],
-    "stock_connections": [
-      {"back": "7,0", "stock": "0,0"},
-      {"back": "14,0", "front": "0,0", "stock": "7,0"},
-      {"back": "21,0", "front": "7,0", "stock": "14,0"},
-      {"back": "28,0", "front": "14,0", "stock": "21,0"},
-      {"back": "35,0", "front": "21,0", "stock": "28,0"},
-      {"front": "28,0", "stock": "35,0"}
-    ]
+    "stock_connections": [{"back": "7,0", "stock": "0,0"}, {"front": "0,0", "stock": "7,0"}]
   }
 }
