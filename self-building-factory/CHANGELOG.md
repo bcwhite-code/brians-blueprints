@@ -2,6 +2,12 @@
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.0.26
+
+- Add 35/s basic circuits block. (self-building)
+- Add 90/s advanced circuits block. (self-building)
+- Add 12/s processors block. (self-building)
+
 ## v5.0.23
 
 - Add train counting for depots to Home and Hubs.
