@@ -4,6 +4,11 @@ History, in brief.
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.0.28
+
+- Set default blocked slots for only one train at a time.
+- Moved fuel extractor in Vanilla Fueling station.
+
 ## v5.0.27
 
 - Add Cybersyn headers, support hub, and trains.
