@@ -4,6 +4,11 @@ History, in brief.
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.0.29
+
+- Remove priorities from all station templates as they cause problems with Cybersyn.
+- Fix icons from 4-car trains.
+
 ## v5.0.28
 
 - Set default blocked slots for only one train at a time.
