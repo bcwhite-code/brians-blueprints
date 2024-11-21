@@ -19,7 +19,7 @@
             "output_signal": {"name": "signal-each", "type": "virtual"}
           }
         },
-        "position": {"x": 10.5, "y": 141}
+        "position": {"x": 9.5, "y": 141}
       },
       {
         "name": "arithmetic-combinator",
@@ -34,7 +34,49 @@
             "second_signal_networks": {"green": true, "red": false}
           }
         },
+        "position": {"x": 11.5, "y": 141}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "first_signal_networks": {"green": false, "red": true},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal_networks": {"green": true, "red": false}
+          }
+        },
         "position": {"x": 12.5, "y": 141}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "%",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "first_signal_networks": {"green": true, "red": false},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal_networks": {"green": false, "red": true}
+          }
+        },
+        "position": {"x": 9.5, "y": 146}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "/",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "first_signal_networks": {"green": true, "red": false},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal_networks": {"green": false, "red": true}
+          }
+        },
+        "position": {"x": 10.5, "y": 146}
       },
       {
         "name": "arithmetic-combinator",
@@ -5564,6 +5606,11 @@
         "position": {"x": 161.5, "y": 194.5}
       },
       {
+        "name": "cargo-landing-pad",
+        "position": {"x": 207, "y": 153},
+        "request_filters": {"request_from_buffers": true, "sections": [{"index": 1}]}
+      },
+      {
         "name": "constant-combinator",
         "direction": 12,
         "control_behavior": {
@@ -6992,7 +7039,7 @@
             "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-dot", "type": "virtual"}}]
           }
         },
-        "position": {"x": 9.5, "y": 141}
+        "position": {"x": 8.5, "y": 141}
       },
       {
         "name": "decider-combinator",
@@ -7009,7 +7056,39 @@
             "outputs": [{"signal": {"name": "signal-everything", "type": "virtual"}}]
           }
         },
-        "position": {"x": 11.5, "y": 141}
+        "position": {"x": 10.5, "y": 141}
+      },
+      {
+        "name": "decider-combinator",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "comparator": "=",
+                "first_signal": {"name": "signal-everything", "type": "virtual"},
+                "first_signal_networks": {"green": true, "red": false}
+              },
+              {
+                "comparator": ">",
+                "compare_type": "and",
+                "first_signal": {"name": "signal-each", "type": "virtual"},
+                "first_signal_networks": {"green": false, "red": true}
+              }
+            ],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 9.5, "y": 144}
+      },
+      {
+        "name": "decider-combinator",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 10.5, "y": 144}
       },
       {
         "name": "decider-combinator",
@@ -7668,6 +7747,7 @@
       {"name": "medium-electric-pole", "position": {"x": 9.5, "y": 138.5}},
       {"name": "medium-electric-pole", "position": {"x": 21.5, "y": 134.5}},
       {"name": "medium-electric-pole", "position": {"x": 16.5, "y": 141.5}},
+      {"name": "medium-electric-pole", "position": {"x": 9.5, "y": 147.5}},
       {"name": "medium-electric-pole", "position": {"x": 23.5, "y": 145.5}},
       {"name": "medium-electric-pole", "position": {"x": 27.5, "y": 145.5}},
       {"name": "medium-electric-pole", "position": {"x": 31.5, "y": 144.5}},
@@ -7805,6 +7885,21 @@
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 141.5, "y": 188.5}},
       {"name": "pipe-to-ground", "direction": 12, "position": {"x": 133.5, "y": 197.5}},
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 141.5, "y": 197.5}},
+      {
+        "name": "programmable-speaker",
+        "alert_parameters": {
+          "alert_message": "Rocket needs manual launch",
+          "show_alert": true,
+          "show_on_map": true,
+          "icon_signal_id": {"name": "thruster"}
+        },
+        "control_behavior": {
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "circuit_parameters": {"instrument_id": 11, "note_id": 0, "signal_value_is_pitch": false}
+        },
+        "parameters": {"allow_polyphony": false, "playback_mode": "local", "playback_volume": 0},
+        "position": {"x": 8.5, "y": 144.5}
+      },
       {
         "name": "pump",
         "direction": 12,
@@ -8022,6 +8117,17 @@
         ],
         "position": {"x": 14.5, "y": 135.5},
         "request_filters": {"request_from_buffers": true, "sections": [{"index": 1}]}
+      },
+      {
+        "name": "selector-combinator",
+        "player_description": "This outputs a 1 signal for something to be loaded in the rocket. If there are full rockets of a particular item to be sent, it'll output one of those. If not, it'll output one of the remaining components.",
+        "control_behavior": {"index_constant": 0, "operation": "select", "select_max": false},
+        "position": {"x": 11.5, "y": 144}
+      },
+      {
+        "name": "selector-combinator",
+        "control_behavior": {"operation": "rocket-capacity"},
+        "position": {"x": 11.5, "y": 146}
       },
       {
         "name": "selector-combinator",
@@ -11770,8 +11876,9 @@
       ["235.5,147.5", 1, "235.5,169.5", 1],
       ["235.5,147.5", 2, "235.5,169.5", 2],
       ["235.5,147.5", 5, "235.5,169.5", 5],
-      ["28,149", 1, "26,154.5", 1],
+      ["28,149", 2, "23,161", 2],
       ["23,152", 5, "30,155", 5],
+      ["23,152", 5, "23,161", 5],
       ["34,151", 1, "33,151", 1],
       ["34,151", 2, "35,151", 2],
       ["33,151", 1, "33,153", 1],
@@ -11779,23 +11886,36 @@
       ["28,154", 1, "29,154", 1],
       ["28,154", 1, "26,154.5", 3],
       ["28,154", 2, "29,154", 2],
-      ["28,154", 2, "25,154.5", 2],
+      ["28,154", 2, "24,154.5", 2],
       ["29,154", 1, "31,154", 1],
       ["29,154", 2, "31,154", 2],
       ["31,154", 1, "33,153", 1],
       ["31,154", 2, "33,153", 2],
       ["43,153", 2, "43,156", 2],
-      ["24,154.5", 1, "23,154.5", 1],
-      ["24,154.5", 1, "26,154.5", 1],
-      ["24,154.5", 4, "23,154.5", 2],
-      ["23,154.5", 4, "25,154.5", 2],
-      ["26,154.5", 2, "25,154.5", 4],
-      ["25,154.5", 1, "25,154.5", 3],
+      ["22,154.5", 1, "23,154.5", 1],
+      ["22,154.5", 2, "23,154.5", 4],
+      ["22,154.5", 4, "24,154.5", 2],
+      ["24,154.5", 1, "24,154.5", 3],
+      ["24,154.5", 4, "25,154.5", 2],
+      ["23,154.5", 1, "25,154.5", 1],
+      ["26,154.5", 1, "25,154.5", 3],
+      ["26,154.5", 2, "25,157.5", 4],
       ["30,155", 5, "37,159", 5],
       ["43,156", 2, "48,156", 2],
       ["43,156", 2, "43,162", 2],
+      ["22,158", 2, "23,157.5", 4],
+      ["23,157.5", 1, "23,159.5", 3],
+      ["23,157.5", 2, "24,159.5", 4],
+      ["23,157.5", 3, "25,157.5", 1],
+      ["24,157.5", 2, "24,159.5", 4],
+      ["24,157.5", 3, "25,157.5", 1],
       ["45,158", 5, "41,159", 5],
       ["45,158", 5, "53,159", 5],
+      ["23,159.5", 1, "25,159.5", 3],
+      ["23,159.5", 2, "24,159.5", 2],
+      ["23,159.5", 2, "23,161", 2],
+      ["24,159.5", 1, "25,159.5", 3],
+      ["24,159.5", 2, "25,159.5", 2],
       ["37,159", 5, "41,159", 5],
       ["37,159", 5, "40,167", 5],
       ["225,163", 5, "232,165", 5],

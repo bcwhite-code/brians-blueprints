@@ -2,6 +2,12 @@
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.0.27
+
+- Add prod2 modules to science labs in Science block.
+- Add WIP "quality" block (self-building).
+- Add signal-sorter from Alex Leonheart to WIP Rocketry (completely untested).
+
 ## v5.0.26
 
 - Add 35/s basic circuits block. (self-building)
