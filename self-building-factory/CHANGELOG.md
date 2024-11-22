@@ -2,6 +2,13 @@
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.0.28
+
+- Fix Construction Site missing combinators by removing non-std signals from default but making them easy to add locally.
+- Restore landing pad to Science blueprint.
+- Add (very slow) production of L2 productivity modules to Science to fill labs.
+- Better purging of excess plates in Quality block before recycling begins.
+
 ## v5.0.27
 
 - Add prod2 modules to science labs in Science block.
