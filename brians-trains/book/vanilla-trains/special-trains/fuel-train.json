@@ -4,8 +4,8 @@
     "item": "blueprint",
     "label": "Fuel Train",
     "description": "Create exactly ONE of these per surface using BT trains.  It will keep the various Depot Hubs fully fueled and thus able to recharge the trains that visit them.\n\nTo change the fuel for the entire surface, change the pick-up station to be one that provides the desired fuel type.",
-    "shift_x": -531,
-    "shift_y": -562,
+    "shift_x": -1197,
+    "shift_y": -847,
     "version": 562949954404356,
     "entities": [
       {
@@ -14,7 +14,7 @@
         "enable_logistics_while_moving": false,
         "inventory": null,
         "orientation": 0,
-        "position": {"x": 0, "y": 6.34375}
+        "position": {"x": 0, "y": 7.46875}
       },
       {
         "name": "locomotive",
@@ -22,14 +22,19 @@
         "enable_logistics_while_moving": false,
         "orientation": 0,
         "color": {"a": 1, "b": 0.16470588743686676, "g": 1, "r": 0.2549019753932953},
-        "position": {"x": 0, "y": -0.65625}
-      }
+        "position": {"x": 0, "y": 0.46875}
+      },
+      {"name": "straight-rail", "position": {"x": 0, "y": 0}},
+      {"name": "straight-rail", "position": {"x": 0, "y": 2}},
+      {"name": "straight-rail", "position": {"x": 0, "y": 4}},
+      {"name": "straight-rail", "position": {"x": 0, "y": 6}}
     ],
     "icons": [{"index": 1, "signal": {"name": "coal-liquefaction", "type": "recipe"}}],
     "schedules": [
       {
-        "locomotives": ["0,0"],
+        "locomotives": ["0,0.5"],
         "schedule": {
+          "group": "BT:FuelTrain",
           "records": [
             {
               "station": "[virtual-signal=up-arrow][virtual-signal=signal-8][item=coal]",
@@ -38,10 +43,7 @@
                 {"compare_type": "or", "ticks": 120, "type": "inactivity"}
               ]
             },
-            {
-              "station": "BT Depot",
-              "wait_conditions": [{"compare_type": "and", "ticks": 60, "type": "inactivity"}]
-            },
+            {"station": "BT Depot"},
             {
               "station": "[virtual-signal=down-arrow][virtual-signal=signal-1][recipe=coal-liquefaction]",
               "wait_conditions": [
@@ -53,6 +55,6 @@
         }
       }
     ],
-    "stock_connections": [{"back": "0,7", "stock": "0,0"}, {"front": "0,0", "stock": "0,7"}]
+    "stock_connections": [{"back": "0,7.5", "stock": "0,0.5"}, {"front": "0,0.5", "stock": "0,7.5"}]
   }
 }

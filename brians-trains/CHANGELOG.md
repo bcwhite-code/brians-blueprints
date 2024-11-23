@@ -4,6 +4,10 @@ History, in brief.
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.0.30
+
+- Change fuel station in Cybersyn Depot Hub to remove specialized fuel train.
+
 ## v5.0.29
 
 - Remove priorities from all station templates as they cause problems with Cybersyn.
