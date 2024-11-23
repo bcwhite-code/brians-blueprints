@@ -2,6 +2,10 @@
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.0.29
+
+- Restored full roundabout corner junctions on blocks (or don't get straight-through when adjacent).
+
 ## v5.0.28
 
 - Fix Construction Site missing combinators by removing non-std signals from default but making them easy to add locally.
