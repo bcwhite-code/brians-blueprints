@@ -29,7 +29,7 @@ jobs:
           echo "release_name=$release_name" >>$GITHUB_OUTPUT
 
       - name: build
-        run: python3 tools/fatul.py encode -v $folder/book ${{ steps.determine-variables.outputs.folder }}-${{ steps.determine-variables.outputs.version }}.txt
+        run: python3 tools/fatul.py encode -v ${{ steps.determine-variables.outputs.folder }}/book ${{ steps.determine-variables.outputs.folder }}-${{ steps.determine-variables.outputs.version }}.txt
       - name: release
         uses: softprops/action-gh-release@v2
         with:
