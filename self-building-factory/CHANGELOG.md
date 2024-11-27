@@ -2,6 +2,12 @@
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.0.31
+
+- Add "depots full" alarm to Home block.
+- Add elevated rail assemblers to Red Mall.
+- Change all L3 modules to L2 modules in Red Mall, Starter Circuits, Refinery, and Solar Parts.
+
 ## v5.0.30
 
 - Set water request in reactor.

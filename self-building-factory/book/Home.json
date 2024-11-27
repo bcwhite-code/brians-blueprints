@@ -400,6 +400,18 @@
       },
       {
         "name": "arithmetic-combinator",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "/",
+            "second_constant": 11,
+            "first_signal": {"name": "signal-Y", "type": "virtual"},
+            "output_signal": {"name": "signal-Y", "type": "virtual"}
+          }
+        },
+        "position": {"x": 104.5, "y": 116}
+      },
+      {
+        "name": "arithmetic-combinator",
         "direction": 4,
         "player_description": "Count the number of trains currently waiting.",
         "control_behavior": {
@@ -455,6 +467,7 @@
       {"name": "big-electric-pole", "position": {"x": 26, "y": 112}},
       {"name": "big-electric-pole", "position": {"x": 56, "y": 119}},
       {"name": "big-electric-pole", "position": {"x": 73, "y": 122}},
+      {"name": "big-electric-pole", "position": {"x": 105, "y": 122}},
       {"name": "big-electric-pole", "position": {"x": 134, "y": 2}},
       {"name": "big-electric-pole", "position": {"x": 156, "y": 2}},
       {"name": "big-electric-pole", "position": {"x": 178, "y": 2}},
@@ -4118,6 +4131,12 @@
         "enable_logistics_while_moving": false,
         "orientation": 0,
         "color": {"a": 0.49803921580314636, "b": 0, "g": 1, "r": 1},
+        "items": [
+          {
+            "id": {"name": "nuclear-fuel"},
+            "items": {"in_inventory": [{"inventory": 1, "stack": 1}, {"inventory": 1, "stack": 2}]}
+          }
+        ],
         "position": {"x": 12, "y": 95.00390625}
       },
       {
@@ -4133,6 +4152,12 @@
         "enable_logistics_while_moving": false,
         "orientation": 0,
         "color": {"a": 0.49803921580314636, "b": 0, "g": 1, "r": 1},
+        "items": [
+          {
+            "id": {"name": "nuclear-fuel"},
+            "items": {"in_inventory": [{"inventory": 1, "stack": 1}, {"inventory": 1, "stack": 2}]}
+          }
+        ],
         "position": {"x": 12, "y": 130}
       },
       {"name": "long-handed-inserter", "direction": 12, "position": {"x": 183.5, "y": 25.5}},
@@ -4210,6 +4235,7 @@
       {"name": "medium-electric-pole", "position": {"x": 111.5, "y": 97.5}},
       {"name": "medium-electric-pole", "position": {"x": 108.5, "y": 104.5}},
       {"name": "medium-electric-pole", "position": {"x": 120.5, "y": 97.5}},
+      {"name": "medium-electric-pole", "position": {"x": 105.5, "y": 116.5}},
       {"name": "medium-electric-pole", "position": {"x": 131.5, "y": 27.5}},
       {"name": "medium-electric-pole", "position": {"x": 140.5, "y": 27.5}},
       {"name": "medium-electric-pole", "position": {"x": 147.5, "y": 27.5}},
@@ -4334,6 +4360,25 @@
       {
         "name": "programmable-speaker",
         "alert_parameters": {
+          "alert_message": "Depots are more than 90% full.",
+          "show_alert": true,
+          "show_on_map": false,
+          "icon_signal_id": {"name": "train-stop"}
+        },
+        "control_behavior": {
+          "circuit_condition": {
+            "comparator": "≥",
+            "first_signal": {"name": "signal-Y", "type": "virtual"},
+            "second_signal": {"name": "signal-Z", "type": "virtual"}
+          },
+          "circuit_parameters": {"instrument_id": 0, "note_id": 0, "signal_value_is_pitch": false}
+        },
+        "parameters": {"allow_polyphony": false, "playback_mode": "local", "playback_volume": 0},
+        "position": {"x": 106.5, "y": 116.5}
+      },
+      {
+        "name": "programmable-speaker",
+        "alert_parameters": {
           "alert_message": "No Train Fuel",
           "show_alert": true,
           "show_on_map": true,
@@ -4346,6 +4391,7 @@
         "parameters": {"allow_polyphony": false, "playback_mode": "local", "playback_volume": 0},
         "position": {"x": 158.5, "y": 22.5}
       },
+      {"name": "radar", "position": {"x": 105.5, "y": 113.5}},
       {"name": "rail-chain-signal", "direction": 2, "position": {"x": -8.5, "y": -9.5}},
       {"name": "rail-chain-signal", "direction": 4, "position": {"x": 2.5, "y": -13.5}},
       {"name": "rail-chain-signal", "direction": 6, "position": {"x": 13.5, "y": -8.5}},
@@ -8211,7 +8257,7 @@
         }
       },
       {
-        "locomotives": ["25.5,108.5", "25.5,143.5,9106"],
+        "locomotives": ["25.5,108.5", "25.5,143.5,e6d1"],
         "schedule": {
           "records": [
             {"station": "-Home-"},
@@ -8232,8 +8278,8 @@
       {"back": "25.5,122.5", "front": "25.5,108.5", "stock": "25.5,115.5,8d76"},
       {"back": "25.5,129.5,7a90", "front": "25.5,115.5,8d76", "stock": "25.5,122.5"},
       {"back": "25.5,136.5", "front": "25.5,122.5", "stock": "25.5,129.5,7a90"},
-      {"back": "25.5,143.5,9106", "front": "25.5,129.5,7a90", "stock": "25.5,136.5"},
-      {"front": "25.5,136.5", "stock": "25.5,143.5,9106"}
+      {"back": "25.5,143.5,e6d1", "front": "25.5,129.5,7a90", "stock": "25.5,136.5"},
+      {"front": "25.5,136.5", "stock": "25.5,143.5,e6d1"}
     ],
     "wires": [
       ["15.5,15.5", 1, "39.5,15.5", 1],
@@ -8607,6 +8653,11 @@
       ["103.5,130", 1, "103.5,132", 1],
       ["103.5,130", 2, "103.5,134", 4],
       ["103.5,130", 4, "103.5,132", 2],
+      ["118,129.5", 1, "119,130", 1],
+      ["118,129.5", 4, "120,130", 2],
+      ["119,130", 1, "120,130", 1],
+      ["119,130", 1, "118.5,135.5", 1],
+      ["119,130", 5, "118.5,135.5", 5],
       ["55,131.5", 2, "56,131.5", 2],
       ["55,131.5", 3, "56,131.5", 1],
       ["56,131.5", 3, "57,131.5", 1],
@@ -8753,9 +8804,12 @@
       ["83.5,136", 2, "77,140", 2],
       ["83.5,136", 4, "83.5,135", 2],
       ["86.5,135.5", 1, "88,135", 1],
+      ["86.5,135.5", 1, "118.5,135.5", 1],
       ["86.5,135.5", 1, "86,140", 1],
+      ["86.5,135.5", 2, "118.5,135.5", 2],
       ["86.5,135.5", 2, "86,140", 2],
       ["86.5,135.5", 5, "88,135", 5],
+      ["86.5,135.5", 5, "118.5,135.5", 5],
       ["86.5,135.5", 5, "86,140", 5],
       ["88,136", 1, "89.5,136", 1],
       ["88,135", 1, "89.5,135", 1],
