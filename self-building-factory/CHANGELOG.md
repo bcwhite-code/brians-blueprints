@@ -2,6 +2,13 @@
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.0.30
+
+- Set water request in reactor.
+- Add assemblers for science labs to Science.
+- Remove methane pump for sulfur in Science.
+- Fix bad belt and some filters in Quality.
+
 ## v5.0.29
 
 - Restored full roundabout corner junctions on blocks (or don't get straight-through when adjacent).
