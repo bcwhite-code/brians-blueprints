@@ -12,20 +12,6 @@
       {
         "name": "arithmetic-combinator",
         "direction": 12,
-        "player_description": "Isolate the \"extra request\" signal and make it available on both red & green.",
-        "control_behavior": {
-          "arithmetic_conditions": {
-            "operation": "*",
-            "second_constant": 1,
-            "first_signal": {"name": "signal-each", "type": "virtual"},
-            "output_signal": {"name": "signal-each", "type": "virtual"}
-          }
-        },
-        "position": {"x": 6, "y": 2.5}
-      },
-      {
-        "name": "arithmetic-combinator",
-        "direction": 12,
         "player_description": "The outstanding _phase_ BOM request (possibly negative).\nThis is used for reporting and also to filter unloading of the train.",
         "control_behavior": {
           "arithmetic_conditions": {
@@ -1488,6 +1474,41 @@
       },
       {
         "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "comparator": ">",
+                "first_signal": {"name": "signal-each", "type": "virtual"},
+                "first_signal_networks": {"green": true, "red": false}
+              },
+              {
+                "comparator": ">",
+                "compare_type": "and",
+                "first_signal": {"name": "signal-cyan", "type": "virtual"},
+                "first_signal_networks": {"green": false, "red": true}
+              },
+              {
+                "comparator": "=",
+                "compare_type": "and",
+                "first_signal": {"name": "signal-red", "type": "virtual"},
+                "first_signal_networks": {"green": false, "red": true}
+              },
+              {
+                "comparator": "=",
+                "compare_type": "and",
+                "first_signal": {"name": "signal-blue", "type": "virtual"},
+                "first_signal_networks": {"green": false, "red": true}
+              }
+            ],
+            "outputs": [{"networks": {"green": true, "red": false}, "signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 6, "y": 2.5}
+      },
+      {
+        "name": "decider-combinator",
         "direction": 4,
         "player_description": "Filter items that are both in train inventory and in the current _phase_ request and use that to set filters on the extraction inserters.",
         "control_behavior": {
@@ -2375,7 +2396,7 @@
       ["22.5,9.5", 1, "22.5,12", 3],
       ["23.5,9.5", 1, "24.5,9.5", 1],
       ["23.5,9.5", 2, "24,12.5", 2],
-      ["24.5,9.5", 1, "25.5,12", 3],
+      ["24.5,9.5", 1, "24,11.5", 1],
       ["28.5,10.5", 1, "29.5,11.5", 1],
       ["28.5,10.5", 2, "28.5,11.5", 2],
       ["28.5,9.5", 2, "29.5,9.5", 2],
@@ -2443,12 +2464,13 @@
       ["22.5,12", 1, "22.5,12", 3],
       ["22.5,12", 1, "22,13.5", 1],
       ["22.5,12", 2, "27,11.5", 4],
-      ["24,12.5", 1, "24,11.5", 3],
+      ["24,11.5", 1, "25.5,12", 3],
+      ["24,11.5", 3, "24,12.5", 1],
+      ["24,11.5", 4, "22,13.5", 4],
       ["24,12.5", 1, "25.5,12", 1],
       ["24,12.5", 1, "22,13.5", 3],
       ["24,12.5", 2, "20,14", 2],
       ["24,12.5", 3, "26.5,14.5", 1],
-      ["24,11.5", 4, "22,13.5", 4],
       ["25.5,12", 1, "27,12.5", 3],
       ["25.5,12", 3, "26.5,14.5", 1],
       ["27,11.5", 2, "28.5,11.5", 2],

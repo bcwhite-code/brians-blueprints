@@ -2,6 +2,14 @@
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.0.32
+
+- Fix Construction Site "recycling" that could loop back some items forever.
+- Remove some leftover prototype assemblers from Red Mall.
+- Fix Solar Parts "supply" station counting of loaded items.
+- Limit all Starter Circuits outputs to a single train.
+- Add 10GW reactor (self-building).
+
 ## v5.0.31
 
 - Add "depots full" alarm to Home block.
