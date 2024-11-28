@@ -2,6 +2,13 @@
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.0.33
+
+- Change all provider stations to be single-train at a time.
+- Handle "spiolage" of agriculture science packs in Science.
+- Disable alarm for empty uranium fuel cells in Home.
+- Keep LDS recycling from consuming all steel in Quality.
+
 ## v5.0.32
 
 - Fix Construction Site "recycling" that could loop back some items forever.

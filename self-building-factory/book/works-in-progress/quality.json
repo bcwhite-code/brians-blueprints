@@ -9,6 +9,11 @@
     "shift_y": 53,
     "version": 562949954797573,
     "entities": [
+      {"name": "aai-fast-loader", "direction": 4, "type": "output", "position": {"x": -2.5, "y": 121.5}},
+      {"name": "aai-fast-loader", "direction": 4, "type": "output", "position": {"x": -2.5, "y": 122.5}},
+      {"name": "aai-fast-loader", "direction": 4, "type": "output", "position": {"x": -2.5, "y": 123.5}},
+      {"name": "aai-fast-loader", "direction": 4, "type": "output", "position": {"x": -2.5, "y": 124.5}},
+      {"name": "aai-fast-loader", "direction": 4, "type": "output", "position": {"x": 168.5, "y": 171.5}},
       {"name": "active-provider-chest", "position": {"x": 59.5, "y": 62.5}},
       {"name": "active-provider-chest", "position": {"x": 103.5, "y": 34.5}},
       {"name": "active-provider-chest", "position": {"x": 109.5, "y": 34.5}},
@@ -169,6 +174,21 @@
           }
         },
         "position": {"x": 84.5, "y": 14}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "first_signal_networks": {"green": false, "red": true},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal_networks": {"green": true, "red": false}
+          }
+        },
+        "position": {"x": 67, "y": 70.5}
       },
       {
         "name": "arithmetic-combinator",
@@ -4495,13 +4515,6 @@
       {"name": "bulk-inserter", "direction": 4, "position": {"x": 60.5, "y": 70.5}},
       {
         "name": "bulk-inserter",
-        "direction": 4,
-        "use_filters": true,
-        "filters": [{"name": "processing-unit", "index": 1}],
-        "position": {"x": 63.5, "y": 70.5}
-      },
-      {
-        "name": "bulk-inserter",
         "direction": 12,
         "control_behavior": {
           "circuit_enabled": true,
@@ -5908,7 +5921,8 @@
         },
         "filters": [
           {"name": "iron-plate", "comparator": "=", "index": 1, "quality": "normal"},
-          {"name": "iron-plate", "comparator": "=", "index": 2, "quality": "uncommon"}
+          {"name": "iron-plate", "comparator": "=", "index": 2, "quality": "uncommon"},
+          {"name": "iron-plate", "comparator": "=", "index": 3, "quality": "rare"}
         ],
         "position": {"x": 139.5, "y": 49.5}
       },
@@ -5932,7 +5946,10 @@
           "circuit_set_filters": true,
           "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "copper-cable"}}
         },
-        "filters": [{"name": "copper-plate", "comparator": "=", "index": 1, "quality": "normal"}],
+        "filters": [
+          {"name": "copper-plate", "comparator": "=", "index": 1, "quality": "normal"},
+          {"name": "copper-cable", "comparator": "=", "index": 2, "quality": "normal"}
+        ],
         "position": {"x": 139.5, "y": 57.5}
       },
       {
@@ -10351,6 +10368,28 @@
               {
                 "index": 1,
                 "filters": [
+                  {"name": "steel-plate", "comparator": "=", "count": 60, "index": 1, "quality": "uncommon"},
+                  {"name": "processing-unit", "comparator": "=", "count": 15, "index": 2, "quality": "uncommon"},
+                  {"name": "steel-plate", "comparator": "=", "count": 40, "index": 4, "quality": "rare"},
+                  {"name": "processing-unit", "comparator": "=", "count": 10, "index": 5, "quality": "rare"},
+                  {"name": "steel-plate", "comparator": "=", "count": 20, "index": 7, "quality": "epic"},
+                  {"name": "processing-unit", "comparator": "=", "count": 5, "index": 8, "quality": "epic"}
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 67.5, "y": 71.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
                   {
                     "name": "signal-R",
                     "comparator": "=",
@@ -12322,6 +12361,17 @@
           }
         },
         "position": {"x": 57, "y": 97.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "constant": 50, "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 70, "y": 70.5}
       },
       {
         "name": "decider-combinator",
@@ -22260,6 +22310,56 @@
         "position": {"x": 129.5, "y": 183.5}
       },
       {"name": "half-diagonal-rail", "position": {"x": 218, "y": 192}},
+      {
+        "name": "infinity-chest",
+        "infinity_settings": {
+          "remove_unfiltered_items": false,
+          "filters": [{"name": "copper-ore", "count": 50, "index": 1, "mode": "at-least"}]
+        },
+        "position": {"x": -3.5, "y": 121.5}
+      },
+      {
+        "name": "infinity-chest",
+        "infinity_settings": {
+          "remove_unfiltered_items": false,
+          "filters": [{"name": "copper-ore", "count": 50, "index": 1, "mode": "at-least"}]
+        },
+        "position": {"x": -3.5, "y": 122.5}
+      },
+      {
+        "name": "infinity-chest",
+        "infinity_settings": {
+          "remove_unfiltered_items": false,
+          "filters": [{"name": "iron-ore", "count": 50, "index": 1, "mode": "at-least"}]
+        },
+        "position": {"x": -3.5, "y": 123.5}
+      },
+      {
+        "name": "infinity-chest",
+        "infinity_settings": {
+          "remove_unfiltered_items": false,
+          "filters": [{"name": "iron-ore", "count": 50, "index": 1, "mode": "at-least"}]
+        },
+        "position": {"x": -3.5, "y": 124.5}
+      },
+      {
+        "name": "infinity-chest",
+        "infinity_settings": {
+          "remove_unfiltered_items": false,
+          "filters": [{"name": "coal", "count": 50, "index": 1, "mode": "at-least"}]
+        },
+        "position": {"x": 167.5, "y": 171.5}
+      },
+      {
+        "name": "infinity-pipe",
+        "infinity_settings": {"name": "crude-oil", "mode": "at-least", "percentage": 1, "temperature": 25},
+        "position": {"x": 7.5, "y": 47.5}
+      },
+      {
+        "name": "infinity-pipe",
+        "infinity_settings": {"name": "water", "mode": "at-least", "percentage": 1, "temperature": 15},
+        "position": {"x": 7.5, "y": 137.5}
+      },
       {"name": "inserter", "direction": 4, "position": {"x": 37.5, "y": 67.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 37.5, "y": 70.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 37.5, "y": 73.5}},
@@ -26160,23 +26260,8 @@
       },
       {
         "name": "requester-chest",
-        "position": {"x": 61.5, "y": 70.5},
-        "request_filters": {
-          "trash_not_requested": true,
-          "sections": [
-            {
-              "index": 1,
-              "filters": [
-                {"name": "steel-plate", "comparator": "=", "count": 60, "index": 1, "quality": "uncommon"},
-                {"name": "processing-unit", "comparator": "=", "count": 15, "index": 2, "quality": "uncommon"},
-                {"name": "steel-plate", "comparator": "=", "count": 40, "index": 3, "quality": "rare"},
-                {"name": "processing-unit", "comparator": "=", "count": 10, "index": 4, "quality": "rare"},
-                {"name": "steel-plate", "comparator": "=", "count": 20, "index": 5, "quality": "epic"},
-                {"name": "processing-unit", "comparator": "=", "count": 5, "index": 6, "quality": "epic"}
-              ]
-            }
-          ]
-        }
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 61.5, "y": 70.5}
       },
       {
         "name": "requester-chest",
@@ -34865,6 +34950,7 @@
       ["30,79", 2, "30,83", 2],
       ["51,80", 5, "51,86", 5],
       ["81,79", 5, "82,84", 5],
+      ["87.5,78.5", 2, "83.5,84", 2],
       ["94,80", 2, "94,79", 2],
       ["95,80", 2, "95,79", 2],
       ["96,80", 2, "96,79", 2],
@@ -34904,8 +34990,11 @@
       ["30,83", 2, "30,86", 2],
       ["42,84", 5, "42,90", 5],
       ["75,83", 2, "76.5,85", 2],
+      ["75,84", 1, "80.5,84", 3],
       ["79,84", 5, "82,84", 5],
       ["79,84", 5, "74,91", 5],
+      ["80.5,84", 1, "83.5,84", 3],
+      ["80.5,84", 2, "81,85", 2],
       ["82,84", 5, "82,91", 5],
       ["134,83", 1, "139,84", 1],
       ["137,84", 2, "139,84", 2],

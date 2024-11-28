@@ -403,7 +403,7 @@
         "control_behavior": {
           "arithmetic_conditions": {
             "operation": "/",
-            "second_constant": 11,
+            "second_constant": 9,
             "first_signal": {"name": "signal-Y", "type": "virtual"},
             "output_signal": {"name": "signal-Y", "type": "virtual"}
           }
@@ -987,6 +987,29 @@
           }
         },
         "position": {"x": 51.5, "y": 115.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "depleted-uranium-fuel-cell",
+                    "comparator": "=",
+                    "count": -2147483648,
+                    "index": 1,
+                    "quality": "normal"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 53.5, "y": 119.5}
       },
       {
         "name": "constant-combinator",
@@ -4131,12 +4154,6 @@
         "enable_logistics_while_moving": false,
         "orientation": 0,
         "color": {"a": 0.49803921580314636, "b": 0, "g": 1, "r": 1},
-        "items": [
-          {
-            "id": {"name": "nuclear-fuel"},
-            "items": {"in_inventory": [{"inventory": 1, "stack": 1}, {"inventory": 1, "stack": 2}]}
-          }
-        ],
         "position": {"x": 12, "y": 95.00390625}
       },
       {
@@ -4152,12 +4169,6 @@
         "enable_logistics_while_moving": false,
         "orientation": 0,
         "color": {"a": 0.49803921580314636, "b": 0, "g": 1, "r": 1},
-        "items": [
-          {
-            "id": {"name": "nuclear-fuel"},
-            "items": {"in_inventory": [{"inventory": 1, "stack": 1}, {"inventory": 1, "stack": 2}]}
-          }
-        ],
         "position": {"x": 12, "y": 130}
       },
       {"name": "long-handed-inserter", "direction": 12, "position": {"x": 183.5, "y": 25.5}},
@@ -4367,7 +4378,7 @@
         },
         "control_behavior": {
           "circuit_condition": {
-            "comparator": "≥",
+            "comparator": ">",
             "first_signal": {"name": "signal-Y", "type": "virtual"},
             "second_signal": {"name": "signal-Z", "type": "virtual"}
           },
@@ -8257,7 +8268,7 @@
         }
       },
       {
-        "locomotives": ["25.5,108.5", "25.5,143.5,e6d1"],
+        "locomotives": ["25.5,108.5", "25.5,143.5,9106"],
         "schedule": {
           "records": [
             {"station": "-Home-"},
@@ -8278,8 +8289,8 @@
       {"back": "25.5,122.5", "front": "25.5,108.5", "stock": "25.5,115.5,8d76"},
       {"back": "25.5,129.5,7a90", "front": "25.5,115.5,8d76", "stock": "25.5,122.5"},
       {"back": "25.5,136.5", "front": "25.5,122.5", "stock": "25.5,129.5,7a90"},
-      {"back": "25.5,143.5,e6d1", "front": "25.5,129.5,7a90", "stock": "25.5,136.5"},
-      {"front": "25.5,136.5", "stock": "25.5,143.5,e6d1"}
+      {"back": "25.5,143.5,9106", "front": "25.5,129.5,7a90", "stock": "25.5,136.5"},
+      {"front": "25.5,136.5", "stock": "25.5,143.5,9106"}
     ],
     "wires": [
       ["15.5,15.5", 1, "39.5,15.5", 1],
@@ -8655,7 +8666,7 @@
       ["103.5,130", 4, "103.5,132", 2],
       ["118,129.5", 1, "119,130", 1],
       ["118,129.5", 4, "120,130", 2],
-      ["119,130", 1, "120,130", 1],
+      ["120,130", 1, "119,130", 1],
       ["119,130", 1, "118.5,135.5", 1],
       ["119,130", 5, "118.5,135.5", 5],
       ["55,131.5", 2, "56,131.5", 2],
@@ -8729,6 +8740,7 @@
       ["65,133", 2, "66,132.5", 4],
       ["65,133", 2, "67,134.5", 2],
       ["65,133", 5, "69.5,132.5", 5],
+      ["67,133", 1, "67,134.5", 1],
       ["69.5,132.5", 1, "86.5,135.5", 1],
       ["69.5,132.5", 1, "74,140", 1],
       ["69.5,132.5", 2, "86.5,135.5", 2],
