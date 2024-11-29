@@ -26,7 +26,6 @@ Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprint
 - Fix station priorities for 8-car bodies.
 - Fix green wire for double-station 4-car loop.
 
-
 ## v5.0.26
 
 - Add "inactivity 1s" to depot stop for fuel train (or it won't fuel).
