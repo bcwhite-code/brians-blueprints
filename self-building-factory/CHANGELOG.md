@@ -2,6 +2,11 @@
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.0.35
+
+- Removed extra blueprints that shouldn't have been there.
+- Improved module support of Red Mall.
+
 ## v5.0.34
 
 - Change smelters to determine the ore from the plate rather than a separate parameter.

@@ -2674,6 +2674,12 @@
         "name": "assembling-machine-2",
         "recipe": "speed-module",
         "recipe_quality": "normal",
+        "items": [
+          {
+            "id": {"name": "speed-module-2"},
+            "items": {"in_inventory": [{"inventory": 4, "stack": 0}, {"inventory": 4, "stack": 1}]}
+          }
+        ],
         "position": {"x": 334.5, "y": 56.5}
       },
       {
@@ -2686,6 +2692,12 @@
         "name": "assembling-machine-2",
         "recipe": "speed-module",
         "recipe_quality": "normal",
+        "items": [
+          {
+            "id": {"name": "speed-module-2"},
+            "items": {"in_inventory": [{"inventory": 4, "stack": 0}, {"inventory": 4, "stack": 1}]}
+          }
+        ],
         "position": {"x": 334.5, "y": 62.5}
       },
       {
@@ -2716,6 +2728,12 @@
         "name": "assembling-machine-2",
         "recipe": "speed-module-2",
         "recipe_quality": "normal",
+        "items": [
+          {
+            "id": {"name": "speed-module-2"},
+            "items": {"in_inventory": [{"inventory": 4, "stack": 0}, {"inventory": 4, "stack": 1}]}
+          }
+        ],
         "position": {"x": 340.5, "y": 62.5}
       },
       {
@@ -22520,6 +22538,15 @@
         },
         "position": {"x": 348.5, "y": 75.5}
       },
+      {
+        "name": "fast-inserter",
+        "direction": 4,
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "speed-module-3"}}
+        },
+        "position": {"x": 350.5, "y": 74.5}
+      },
       {"name": "fast-inserter", "direction": 8, "position": {"x": 346.5, "y": 76.5}},
       {"name": "fast-inserter", "direction": 8, "position": {"x": 321.5, "y": 87.5}},
       {
@@ -22634,12 +22661,13 @@
       {"name": "fast-inserter", "direction": 4, "position": {"x": 354.5, "y": 74.5}},
       {
         "name": "fast-inserter",
-        "direction": 12,
+        "use_filters": true,
         "control_behavior": {
           "circuit_enabled": true,
-          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "speed-module-3"}}
+          "circuit_condition": {"comparator": "<", "constant": 0, "first_signal": {"name": "speed-module-2"}}
         },
-        "position": {"x": 354.5, "y": 75.5}
+        "filters": [{"name": "speed-module-2", "comparator": "=", "index": 1, "quality": "normal"}],
+        "position": {"x": 355.5, "y": 76.5}
       },
       {"name": "fast-inserter", "direction": 4, "position": {"x": 360.5, "y": 74.5}},
       {
@@ -27121,6 +27149,7 @@
       {"name": "fast-transport-belt", "direction": 8, "position": {"x": 355.5, "y": 72.5}},
       {"name": "fast-transport-belt", "direction": 8, "position": {"x": 355.5, "y": 73.5}},
       {"name": "fast-transport-belt", "direction": 8, "position": {"x": 355.5, "y": 74.5}},
+      {"name": "fast-transport-belt", "direction": 8, "position": {"x": 355.5, "y": 75.5}},
       {"name": "fast-transport-belt", "direction": 8, "position": {"x": 356.5, "y": 72.5}},
       {"name": "fast-transport-belt", "direction": 8, "position": {"x": 356.5, "y": 73.5}},
       {"name": "fast-transport-belt", "direction": 8, "position": {"x": 361.5, "y": 72.5}},
@@ -39646,6 +39675,19 @@
       {
         "name": "storage-chest",
         "control_behavior": {"circuit_condition_enabled": false},
+        "position": {"x": 349.5, "y": 74.5},
+        "request_filters": {
+          "sections": [
+            {
+              "index": 1,
+              "filters": [{"name": "speed-module-3", "comparator": "=", "count": 0, "index": 1, "quality": "normal"}]
+            }
+          ]
+        }
+      },
+      {
+        "name": "storage-chest",
+        "control_behavior": {"circuit_condition_enabled": false},
         "position": {"x": 349.5, "y": 75.5},
         "request_filters": {
           "sections": [
@@ -39739,12 +39781,12 @@
       {
         "name": "storage-chest",
         "control_behavior": {"circuit_condition_enabled": false},
-        "position": {"x": 355.5, "y": 75.5},
+        "position": {"x": 355.5, "y": 77.5},
         "request_filters": {
           "sections": [
             {
               "index": 1,
-              "filters": [{"name": "speed-module-3", "comparator": "=", "count": 0, "index": 1, "quality": "normal"}]
+              "filters": [{"name": "speed-module-2", "comparator": "=", "count": 0, "index": 1, "quality": "normal"}]
             }
           ]
         }
@@ -48734,6 +48776,7 @@
       ["304,43", 5, "311,43", 5],
       ["307.5,42.5", 1, "313,43.5", 1],
       ["313,43.5", 2, "313,45", 2],
+      ["313,43.5", 3, "313,45", 1],
       ["409.5,46.5", 5, "408.5,55.5", 5],
       ["163.5,51.5", 1, "152.5,71.5", 1],
       ["163.5,51.5", 2, "152.5,71.5", 2],
@@ -49429,6 +49472,8 @@
       ["174,88", 5, "167.5,93.5", 6],
       ["352,88", 2, "352,87", 2],
       ["352,88", 2, "354.5,87.5", 2],
+      ["363,88", 2, "364,88", 2],
+      ["363,88", 2, "363,89", 2],
       ["382,88", 2, "383,88", 2],
       ["383,88", 2, "382,90", 2],
       ["148.5,89.5", 5, "155,93", 5],
@@ -49606,8 +49651,8 @@
       ["364,90", 2, "370,90", 2],
       ["364,90", 5, "370,90", 5],
       ["364,90", 5, "364,97", 5],
-      ["368,89", 2, "369,89", 2],
-      ["369,89", 2, "370,90", 2],
+      ["369,90", 2, "370,90", 2],
+      ["369,90", 2, "369,91", 2],
       ["370,90", 2, "376,90", 2],
       ["370,90", 5, "376,90", 5],
       ["370,90", 5, "370,97", 5],
