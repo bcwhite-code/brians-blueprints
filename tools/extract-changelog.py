@@ -13,18 +13,14 @@ def extract_changelog(folder_path, version):
     with open(changelog_file_path, "r") as f:
         content = f.read()
 
-    # Find the version header
-    version_header = re.search(rf"^## v{version}$", content, re.MULTILINE)
-    if version_header:
-        version_header = version_header.group()
-        # Find the section corresponding to the version
-        section = re.search(
-            rf"{version_header}(.*?)(?=^##|\Z)",
-            content,
-            re.DOTALL | re.MULTILINE | re.S,
-        )
-        if section:
-            return section.group(0).strip()
+    # Find the section corresponding to the version
+    section = re.search(
+        rf"^## v{version}(.*?)(?=^##|\Z)",
+        content,
+        re.DOTALL | re.MULTILINE | re.S,
+    )
+    if section:
+        return section.group(0).strip()
     return None
 
 
