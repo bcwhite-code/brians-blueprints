@@ -33,7 +33,7 @@ jobs:
         run: python3 tools/fatul.py encode -v ${{ steps.determine-variables.outputs.folder }}/book ${{ steps.determine-variables.outputs.folder }}-${{ steps.determine-variables.outputs.version }}.txt
       - name: Extract Changelog
         run: |
-          changelog=$(python3 tools/extract-changelog.py ${{ steps.determine-variables.outputs.folder }})
+          changelog=$(python3 tools/extract-changelog.py ${{ steps.determine-variables.outputs.folder }} ${{ steps.determine-variables.outputs.version }})
           echo "changelog=$changelog" >>$GITHUB_OUTPUT
       - name: Release
         uses: softprops/action-gh-release@v2
