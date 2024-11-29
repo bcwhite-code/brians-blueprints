@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  build:
+  build-and-release:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -29,14 +29,20 @@ jobs:
           echo "version=$version" >>$GITHUB_OUTPUT
           echo "release_name=$release_name" >>$GITHUB_OUTPUT
 
-      - name: build
+      - name: Build
         run: python3 tools/fatul.py encode -v ${{ steps.determine-variables.outputs.folder }}/book ${{ steps.determine-variables.outputs.folder }}-${{ steps.determine-variables.outputs.version }}.txt
-      - name: release
+      - name: Extract Changelog
+        run: |
+          changelog=$(python3 tools/extract-changelog.py ${{ steps.determine-variables.outputs.folder }})
+          echo "changelog=$changelog" >>$GITHUB_OUTPUT
+      - name: Release
         uses: softprops/action-gh-release@v2
         with:
           files: ${{ steps.determine-variables.outputs.folder }}-${{ steps.determine-variables.outputs.version }}.txt
           fail_on_unmatched_files: true
           body: |
             Read about the blueprint & instructions [here](https://github.com/bcwhite-code/brians-blueprints/blob/main/${{ steps.determine-variables.outputs.folder }})
-            Changelog: https://github.com/bcwhite-code/brians-blueprints/blob/main/${{ steps.determine-variables.outputs.folder }}/CHANGELOG.md
+            Changelog:
+            ${{ steps.determine-variables.outputs.changelog }}
+            Full Changelog [here](https://github.com/bcwhite-code/brians-blueprints/blob/main/${{ steps.determine-variables.outputs.folder }}/CHANGELOG.md)
           name: ${{ steps.determine-variables.outputs.release_name}}
