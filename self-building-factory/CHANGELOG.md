@@ -2,6 +2,11 @@
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.0.34
+
+- Change smelters to determine the ore from the plate rather than a separate parameter.
+- Fix (finally?) the "supply" station of Solar Parts.
+
 ## v5.0.33
 
 - Change all provider stations to be single-train at a time.
