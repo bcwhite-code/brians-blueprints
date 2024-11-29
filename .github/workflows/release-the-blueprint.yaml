@@ -22,7 +22,7 @@ jobs:
           version=${GITHUB_REF##*/}
           version=${version//[!0-9.]/}
 
-          release_name=$(echo "${folder//-/ }" | sed -e 's/\b\(.\)/\u\1/g')
+          release_name=$(echo "${folder//-/ }" | sed -e "s/\b\(.\)/\u\1/g;s/Brians/Brian's/g")
           release_name="$release_name $version"
 
           echo "folder=$folder" >>$GITHUB_OUTPUT
