@@ -188,7 +188,7 @@ Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprint
 - Added the Red Mall! The basic structure to allow it to build itself isn't done -- later. I think I've updated all the recipes as required. A few require advanced materials now; they just have requester chests for that stuff.
 - A number of new "Special Trains" have been added. Build and launch one of each (always fully fueling any backward-facing engine first). If you launched the ore ones to support IS, you don't need more of them.
 
-## 5.0.0
+## v5.0.0
 
 Work in progress. Plenty of bugs. Maybe some breaking changes. Lots of fun.
 
@@ -200,124 +200,124 @@ For trains, you'll need one 8-car BT train and 1 8-tank BT train, plus one each 
 
 And of course you'll need the full set of mines (coal, stone, iron ore, copper ore, oil) all using the 8-car provider blueprints from the BT book. Don't forget to connect red & green on those providers!
 
-## 4.1.6
+## v4.1.6
 
 - Small updates to Red Mall self-build.
 
-## 4.1.5
+## v4.1.5
 
 - Removed slots from loader chests in Red Mall.
 - Fix reporting of amount by electric smelter.
 
-## 4.1.4
+## v4.1.4
 
 - Restored Red-Mall recipes that Factorio itself somehow dropped from the blueprint.
 
-## 4.1.3
+## v4.1.3
 
 - Added missing filters to some Blue Mall beacon storage chests.
 
-## 4.1.2
+## v4.1.2
 
 - Remove bad inserters in Mall placing walls in the wrong chest.
 
-## 4.1.1
+## v4.1.1
 
 - Another update to Blue Mall.
 - Fixed credit for Red-Mall Self-Build.
 
-## 4.1.0
+## v4.1.0
 
 - Updated malls to use storage chests instead of provider chests to provide better recycling. (credit: Thec-NiqueMan)
 - Added Red-Mall Self-Build to "Construction" book. (credit: Merach)
 
-## 4.0.3
+## v4.0.3
 
 - Re-captured Blue Mall as didn't include some expected 4.0.2 changes.
 
-## 4.0.2
+## v4.0.2
 
 - Fixed request glitch when Construction Site is recycling.
 - Fixed blue loader lubricant intake in Blue Mall.
 - Fixed fast loader input of basic loader in Blue Mall.
 - Fixed provide threshold in Advanced Circuits.
 
-## 4.0.1
+## v4.0.1
 
 - Fixed light-oil pipe in Blue Mall.
 - Moved combinator in Strong Defense that (sometimes) conflicts with rail.
 - Prevented signals wires in Strong Defense from connecting between segments.
 
-## 4.0.0
+## v4.0.0
 
 - Moved signal along block edge to fix deadlock potential when using quarter-blocks.
 
 v4 blueprints are completely compatible with v3. If placed adjacent, there will be a couple extra rail signals along the straight edges but will still operate correctly. However, if you've already started with v3, there's no major reason (yet) to switch to v4.
 
-## 3.5.13
+## v3.5.13
 
 - New "strong" perimeter defense!
 - Added landfill under rail templates.
 
-## 3.5.12
+## v3.5.12
 
 - Cleaned up some wiring in the Refinery.
 
-## 3.5.11
+## v3.5.11
 
 - Fixed light-oil cracking in Refinery (removed extra UG pipe).
 - Prioritized, somewhat, plastic production over others.
 
-## 3.5.10
+## v3.5.10
 
 - Re-exported with all necessary mods installed.
 
-## 3.5.9
+## v3.5.9
 
 - Fixed Construction Supply (was missing wire to account what had been loaded).
 - Restored missing quarter-block rail template.
 
-## 3.5.8
+## v3.5.8
 
 - Updated all station names to use embedded icons. (Thanks, nyurik!)
 
-## 3.5.7
+## v3.5.7
 
 - Moved to GitHub under [brians-blueprints](https://github.com/bcwhite-code/brians-blueprints).
 
-## 3.5.6
+## v3.5.6
 
 - Updated perimeter defense.
 
-## 3.5.5
+## v3.5.5
 
 - Minor cleanups on Blue Mall
 - Fixed steel provider train min-length in Initial Science
 - Fixed loader directions in Aux Mine
 
-## 3.5.4
+## v3.5.4
 
 - Removed extra blue chests from Depot Hub (logistics).
 - Removed extra underground belts from tail of malls.
 - Added missing signals to mine block's construction siding.
 - Fixed number of centrifuges requested by 2.4GW block.
 
-## 3.5.3
+## v3.5.3
 
 - Restored train-scaling combinator signals in HOME (lost in v3.5.1).
 
-## 3.5.2
+## v3.5.2
 
 - Added standard "A" signal to the rail network with current accumulator level.
 - Restored train-scaling stop in HOME (lost in v3.5.1).
 
-## 3.5.1
+## v3.5.1
 
 - Fixed artillery outpost caching shells.
 - Changed perimeter belt to red (1/2 the deployed inventory).
 - Fixed an overload problem with multi-provider station.
 
-## 3.5.0
+## v3.5.0
 
 - New quarter-block rail templates.
 - New defense blueprints (not self-building).
@@ -325,140 +325,140 @@ v4 blueprints are completely compatible with v3. If placed adjacent, there will 
 - Fixed refinery item counts.
 - Updated refinery stations to new standard (and set names).
 
-## 3.4.16
+## v3.4.16
 
 - Restored station names in Red and Blue malls.
 
-## 3.4.15
+## v3.4.15
 
 - Added chunk-alignment to landfill block.
 
-## 3.4.14
+## v3.4.14
 
 - Fixed phase#4 of the Construction Site.
 
-## 3.4.13
+## v3.4.13
 
 - Fixed 5-minute maximum time between train in Mall blueprints.
 
-## 3.4.12
+## v3.4.12
 
 - Made it easier to find the fuel configuration in "fueled by logistics" hub.
 - Removed extra rail segment in 1kSPM harness.
 
-## 3.4.11
+## v3.4.11
 
 - Added missing belts to modules factory.
 
-## 3.4.10
+## v3.4.10
 
 - Fixed provide threshold on Battery block requester stations.
 
-## 3.4.9
+## v3.4.9
 
 - Fixed splitters in Processors block (red->blue).
 - Removed some unused/leftover belt parts in Processors block..
 
-## 3.4.8
+## v3.4.8
 
 - Fixed "not being produced" warning and 10-min delta calculation in HOME block.
 - Restored missing flamethrower-ammunition recipe in Red Mall.
 
-## 3.4.7
+## v3.4.7
 
 - Fixed power to roboports in malls.
 
-## 3.4.6
+## v3.4.6
 
 - Fixed channel-3 output of solar parts availability (was going to train red wire).
 
-## 3.4.5
+## v3.4.5
 
 - Fixed 1kSPM power for roboports on long side.
 
-## 3.4.4
+## v3.4.4
 
 - Fixed 5-minute "call train" timer in Construction Supply station (including Red Mall and Blue Mall versions).
 
-## 3.4.3
+## v3.4.3
 
 - Re-released because some assemblers in Starter Circuits and Processors were rotated by the export process.
 
-## 3.4.2
+## v3.4.2
 
 - Extended landfill blueprints for new signals and Mine belts between rails.
 
-## 3.4.1
+## v3.4.1
 
 - Fixed depots-full alert in Home
 
-## 3.4.0
+## v3.4.0
 
 - Added support for automatic train building within Home block. (See doc for details.)
 
-## 3.3.9
+## v3.3.9
 
 - Fixed Modules block publishing of prod module counts.
 - Changed some accidental red belts back to yellow in Advanced Circuits block.
 
-## 3.3.8
+## v3.3.8
 
 - Fixed Modules block build missing power path.
 
-## 3.3.7
+## v3.3.7
 
 - Changed "Aux Mine" to support only len 6 & 11 trains. Otherwise it may try to fill engines and that can leave inserters holding ore.
 
-## 3.3.6
+## v3.3.6
 
 - Restored missing combinators in "Aux Mine" for handling abundance of coal.
 - Fixed ">60%" circuity in WIP "Home" for warning when depot hubs are getting full.
 
-## 3.3.5
+## v3.3.5
 
 - Fixed mall Supply stations that wouldn't eject unwanted material while mall was still building.
 
-## 3.3.4
+## v3.3.4
 
 - Fixed missing wires in Blue Mall from roboport to threshold circuits.
 - Fixed Mine to be compatible with non-std cargo wagons.
 - Removed old designs and test blueprints.
 
-## 3.3.3
+## v3.3.3
 
 - Added "train limit" of 1 to all depot stops.
 - Fixed belt chests in Blue Mall (requester->provider).
 
-## 3.3.2
+## v3.3.2
 
 - Added missing rail segment in Depot Hub (train fuel).
 - Restored missing efficiency modules in Blue Mall.
 - Moved misbehaving rail signal in 1kSPM harness.
 
-## 3.3.1
+## v3.3.1
 
 - Remove incorrect green wires in Mall provider stations between steel chests and the stack inserters that fill them.
 
-## 3.3.0
+## v3.3.0
 
 - Publish info about trains waiting at LTN depots (Home & Hubs).
 - Removed blocked slots in Personal Resupply trash chests.
 - Greater perimeter coverage by roboports in Starter Circuits.
 
-## 3.2.1
+## v3.2.1
 
 - Fixed red->green wire in Construction Chaining blueprint (to properly signal "done").
 
-## 3.2.0
+## v3.2.0
 
 - Moved roboports in 1kSPM to better connect to ones in external blueprint.
 - Cleaned up some constant combinator lines to match Factorio 1.1.
 
-## 3.1.0
+## v3.1.0
 
 - Official release of new designs.
 
-## 3.0.X (testing)
+## v3.0.X (testing)
 
 - Improved Construction Site & Supply.
 - Added Manual Construction Site to allow building custom blueprints.
