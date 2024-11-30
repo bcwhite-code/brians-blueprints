@@ -2,6 +2,10 @@
 
 Don't update to a new version that is different in the first or second digit while in the process of building the reactor, including extending an existing one with more rows. Though very similar, they are **not** compatible!
 
+## v5.0.0
+
+- Updated for Factorio 2.x.
+
 ## v4.3.2
 
 - Fixed lamps in "+5 rows" blueprint.
