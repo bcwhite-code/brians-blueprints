@@ -11,14 +11,14 @@ permissions:
 jobs:
   build-and-release:
     runs-on: ubuntu-latest
+    env:
+      CHANGELOG: ""
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
       - name: Determine variables
         id: determine-variables
         run: |
-          echo "github_ref=$GITHUB_REF"
-          echo "------"
           folder=${GITHUB_REF#*/tags/}
           folder=${folder%-*}
           version=${GITHUB_REF##*/}
@@ -30,14 +30,24 @@ jobs:
           echo "folder=$folder" >>$GITHUB_OUTPUT
           echo "version=$version" >>$GITHUB_OUTPUT
           echo "release_name=$release_name" >>$GITHUB_OUTPUT
-          echo GITHUB_OUTPUT=$GITHUB_OUTPUT
 
       - name: Build
         run: python3 tools/fatul.py encode -v ${{ steps.determine-variables.outputs.folder }}/book ${{ steps.determine-variables.outputs.folder }}-${{ steps.determine-variables.outputs.version }}.txt
       - name: Extract Changelog
         run: |
-          changelog=$(python3 tools/extract-changelog.py ${{ steps.determine-variables.outputs.folder }} ${{ steps.determine-variables.outputs.version }})
-          echo "changelog=$changelog" >>$GITHUB_OUTPUT
+          CHANGELOG=$(python3 tools/extract-changelog.py ${{ steps.determine-variables.outputs.folder }} ${{ steps.determine-variables.outputs.version }})
+          echo "CHANGELOG<<EOF" >>$GITHUB_ENV
+          echo "$CHANGELOG" >>$GITHUB_ENV
+          echo "EOF" >>$GITHUB_ENV
+      - name: Debug Variables
+        run: |
+          echo github_ref=$GITHUB_REF
+          echo "------"
+          echo GITHUB_OUTPUT=$GITHUB_OUTPUT
+          cat $GITHUB_OUTPUT
+          echo "------"
+          echo GITHUB_ENV=$GITHUB_ENV
+          cat $GITHUB_ENV
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
@@ -46,6 +56,6 @@ jobs:
           body: |
             Read about the blueprint & instructions [here](https://github.com/bcwhite-code/brians-blueprints/blob/main/${{ steps.determine-variables.outputs.folder }})
             Changelog:
-            ${{ steps.determine-variables.outputs.changelog }}
+            ${{ env.CHANGELOG }}
             Full Changelog [here](https://github.com/bcwhite-code/brians-blueprints/blob/main/${{ steps.determine-variables.outputs.folder }}/CHANGELOG.md)
           name: ${{ steps.determine-variables.outputs.release_name}}
