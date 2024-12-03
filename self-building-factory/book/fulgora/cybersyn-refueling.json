@@ -1,0 +1,225 @@
+{
+  "index": 5,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "Cybersyn Refueling",
+    "shift_x": 140,
+    "shift_y": -116,
+    "version": 562949954797573,
+    "entities": [
+      {"name": "bulk-inserter", "position": {"x": 5.5, "y": -0.5}},
+      {
+        "name": "bulk-inserter",
+        "override_stack_size": 1,
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_hand_read_mode": 1,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-4", "type": "virtual"}}
+        },
+        "position": {"x": 16.5, "y": -0.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "override_stack_size": 1,
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_hand_read_mode": 1,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-3", "type": "virtual"}}
+        },
+        "position": {"x": 22.5, "y": -0.5}
+      },
+      {"name": "bulk-inserter", "position": {"x": 36.5, "y": -0.5}},
+      {
+        "name": "cybersyn-combinator",
+        "direction": 4,
+        "control_behavior": {
+          "arithmetic_conditions": {"operation": ">>", "second_constant": 4, "first_signal": {"name": "signal-Q", "type": "virtual"}}
+        },
+        "position": {"x": 39, "y": 2.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 4,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "comparator": "=",
+                "first_signal": {"name": "signal-red", "type": "virtual"},
+                "second_signal": {"name": "signal-green", "type": "virtual"}
+              }
+            ],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-4", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 12, "y": -0.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 4,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "comparator": "=",
+                "first_signal": {"name": "signal-red", "type": "virtual"},
+                "second_signal": {"name": "signal-green", "type": "virtual"}
+              }
+            ],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-3", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 21, "y": -0.5}
+      },
+      {"name": "lightning-rod", "position": {"x": 0.5, "y": -0.5}},
+      {"name": "lightning-rod", "position": {"x": 38.5, "y": -0.5}},
+      {"name": "medium-electric-pole", "position": {"x": 3.5, "y": -0.5}},
+      {"name": "medium-electric-pole", "position": {"x": 10.5, "y": -0.5}},
+      {"name": "medium-electric-pole", "position": {"x": 19.5, "y": -0.5}},
+      {"name": "medium-electric-pole", "position": {"x": 26.5, "y": -0.5}},
+      {"name": "medium-electric-pole", "position": {"x": 35.5, "y": -0.5}},
+      {
+        "name": "rail-signal",
+        "direction": 12,
+        "control_behavior": {
+          "circuit_close_signal": true,
+          "circuit_read_signal": false,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-red", "type": "virtual"}}
+        },
+        "position": {"x": 6.5, "y": 2.5}
+      },
+      {
+        "name": "rail-signal",
+        "direction": 12,
+        "control_behavior": {"circuit_close_signal": false, "circuit_read_signal": true},
+        "position": {"x": 8.5, "y": 2.5}
+      },
+      {
+        "name": "rail-signal",
+        "direction": 12,
+        "control_behavior": {"circuit_close_signal": false, "circuit_read_signal": true},
+        "position": {"x": 10.5, "y": 2.5}
+      },
+      {
+        "name": "rail-signal",
+        "direction": 12,
+        "control_behavior": {"circuit_close_signal": false, "circuit_read_signal": true},
+        "position": {"x": 15.5, "y": 2.5}
+      },
+      {
+        "name": "rail-signal",
+        "direction": 12,
+        "control_behavior": {"circuit_close_signal": false, "circuit_read_signal": true},
+        "position": {"x": 17.5, "y": 2.5}
+      },
+      {
+        "name": "requester-chest",
+        "position": {"x": 5.5, "y": -1.5},
+        "request_filters": {
+          "sections": [
+            {
+              "index": 1,
+              "filters": [{"name": "solid-fuel", "comparator": "=", "count": 150, "index": 1, "quality": "normal"}]
+            }
+          ]
+        }
+      },
+      {
+        "name": "requester-chest",
+        "position": {"x": 16.5, "y": -1.5},
+        "request_filters": {
+          "sections": [
+            {
+              "index": 1,
+              "filters": [{"name": "solid-fuel", "comparator": "=", "count": 150, "index": 1, "quality": "normal"}]
+            }
+          ]
+        }
+      },
+      {
+        "name": "requester-chest",
+        "position": {"x": 22.5, "y": -1.5},
+        "request_filters": {
+          "sections": [
+            {
+              "index": 1,
+              "filters": [{"name": "solid-fuel", "comparator": "=", "count": 150, "index": 1, "quality": "normal"}]
+            }
+          ]
+        }
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false},
+        "position": {"x": 36.5, "y": -1.5},
+        "request_filters": {
+          "sections": [
+            {
+              "index": 1,
+              "filters": [{"name": "solid-fuel", "comparator": "=", "count": 150, "index": 1, "quality": "normal"}]
+            }
+          ]
+        }
+      },
+      {
+        "name": "roboport",
+        "position": {"x": 19, "y": -4},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {"name": "straight-rail", "direction": 4, "position": {"x": 1, "y": 1}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 3, "y": 1}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 5, "y": 1}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 7, "y": 1}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 9, "y": 1}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 11, "y": 1}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 13, "y": 1}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 15, "y": 1}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 17, "y": 1}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 19, "y": 1}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 21, "y": 1}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 23, "y": 1}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 25, "y": 1}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 27, "y": 1}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 29, "y": 1}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 31, "y": 1}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 33, "y": 1}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 35, "y": 1}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 37, "y": 1}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 39, "y": 1}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 41, "y": 1}},
+      {
+        "name": "train-stop",
+        "direction": 4,
+        "manual_trains_limit": 1,
+        "station": "CS Fuel",
+        "color": {"a": 1, "b": 1, "g": 0.501960813999176, "r": 0},
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+          "train_stopped_signal": {"name": "signal-T", "type": "virtual"}
+        },
+        "position": {"x": 41, "y": 3}
+      }
+    ],
+    "icons": [
+      {"index": 1, "signal": {"name": "cybersyn-combinator"}},
+      {"index": 2, "signal": {"name": "solid-fuel"}}
+    ],
+    "wires": [
+      ["3,3.5", 5, "10,3.5", 5],
+      ["10,3.5", 5, "19,3.5", 5],
+      ["11.5,3.5", 2, "10,6.5", 2],
+      ["11.5,3.5", 4, "16,3.5", 2],
+      ["19,3.5", 5, "26,3.5", 5],
+      ["20.5,3.5", 2, "17,6.5", 2],
+      ["20.5,3.5", 4, "22,3.5", 2],
+      ["26,3.5", 5, "35,3.5", 5],
+      ["36,2.5", 2, "40.5,7", 2],
+      ["6,6.5", 1, "10,6.5", 1],
+      ["8,6.5", 2, "10,6.5", 2],
+      ["10,6.5", 1, "17,6.5", 1],
+      ["15,6.5", 1, "17,6.5", 1],
+      ["15,6.5", 2, "17,6.5", 2]
+    ]
+  }
+}

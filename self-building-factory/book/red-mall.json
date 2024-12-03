@@ -3,7 +3,7 @@
   "blueprint": {
     "item": "blueprint",
     "label": "Red Mall",
-    "description": "This design is taken from\nhttps://factorioprints.com/view/-M2ZjQ7ClF06M3fvp684\nwith the following modifications:\n- updated for Factorio 2.x!\n- use advanced oil processing\n- autofill robot network\n- add missing inserters for rail signals\n\nAdded extra concrete (x2):\nhttps://www.reddit.com/r/factorio/comments/bb6bs0/updated_concrete_factory_i_made_for_you_guys/",
+    "description": "This design is taken from\nhttps://factorioprints.com/view/-M2ZjQ7ClF06M3fvp684\nwith the following modifications:\n- updated for Factorio 2.x!\n- use advanced oil processing\n- autofill robot network\n- wood disposal\n\nAdded extra concrete (x2):\nhttps://www.reddit.com/r/factorio/comments/bb6bs0/updated_concrete_factory_i_made_for_you_guys/",
     "absolute-snapping": true,
     "shift_x": -167,
     "shift_y": 53,
@@ -2215,12 +2215,7 @@
         "recipe_quality": "normal",
         "position": {"x": 196.5, "y": 91.5}
       },
-      {
-        "name": "assembling-machine-2",
-        "recipe": "stack-inserter",
-        "recipe_quality": "normal",
-        "position": {"x": 202.5, "y": 91.5}
-      },
+      {"name": "assembling-machine-2", "position": {"x": 202.5, "y": 91.5}},
       {
         "name": "assembling-machine-2",
         "recipe": "repair-pack",
@@ -3059,7 +3054,7 @@
       },
       {
         "name": "assembling-machine-2",
-        "recipe": "fusion-reactor-equipment",
+        "recipe": "fission-reactor-equipment",
         "recipe_quality": "normal",
         "position": {"x": 316.5, "y": 68.5}
       },
@@ -13293,8 +13288,7 @@
                     "quality": "normal"
                   },
                   {"name": "express-splitter", "comparator": "=", "count": 50, "index": 13, "quality": "normal"},
-                  {"name": "burner-inserter", "comparator": "=", "count": 0, "index": 14, "quality": "normal"},
-                  {"name": "stack-inserter", "comparator": "=", "count": 100, "index": 15, "quality": "normal"}
+                  {"name": "burner-inserter", "comparator": "=", "count": 0, "index": 14, "quality": "normal"}
                 ]
               }
             ]
@@ -20816,17 +20810,7 @@
         "position": {"x": 206.5, "y": 90.5}
       },
       {"name": "fast-inserter", "direction": 12, "position": {"x": 206.5, "y": 91.5}},
-      {
-        "name": "fast-inserter",
-        "direction": 8,
-        "control_behavior": {
-          "circuit_enabled": true,
-          "circuit_condition": {"comparator": ">", "constant": 10, "first_signal": {"name": "stack-inserter"}}
-        },
-        "position": {"x": 202.5, "y": 93.5}
-      },
       {"name": "fast-inserter", "position": {"x": 201.5, "y": 95.5}},
-      {"name": "fast-inserter", "direction": 8, "position": {"x": 202.5, "y": 95.5}},
       {
         "name": "fast-inserter",
         "direction": 12,
@@ -33855,6 +33839,7 @@
       {"name": "inserter", "direction": 12, "position": {"x": 164.5, "y": 14.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 168.5, "y": 14.5}},
       {"name": "inserter", "direction": 12, "position": {"x": 171.5, "y": 14.5}},
+      {"name": "inserter", "position": {"x": 316.5, "y": 66.5}},
       {"name": "inserter", "position": {"x": 310.5, "y": 113.5}},
       {"name": "inserter", "position": {"x": 313.5, "y": 113.5}},
       {"name": "inserter", "position": {"x": 316.5, "y": 113.5}},
@@ -36266,6 +36251,18 @@
       },
       {
         "name": "requester-chest",
+        "position": {"x": 316.5, "y": 65.5},
+        "request_filters": {
+          "sections": [
+            {
+              "index": 1,
+              "filters": [{"name": "uranium-fuel-cell", "comparator": "=", "count": 1, "index": 1, "quality": "normal"}]
+            }
+          ]
+        }
+      },
+      {
+        "name": "requester-chest",
         "position": {"x": 268.5, "y": 105.5},
         "request_filters": {
           "sections": [
@@ -36837,7 +36834,6 @@
       {"name": "steel-chest", "bar": 1, "position": {"x": 202.5, "y": 71.5}},
       {"name": "steel-chest", "bar": 1, "position": {"x": 205.5, "y": 69.5}},
       {"name": "steel-chest", "bar": 1, "position": {"x": 211.5, "y": 74.5}},
-      {"name": "steel-chest", "bar": 1, "position": {"x": 202.5, "y": 94.5}},
       {"name": "steel-chest", "bar": 1, "position": {"x": 238.5, "y": 71.5}},
       {"name": "steel-chest", "bar": 1, "position": {"x": 202.5, "y": 100.5}},
       {"name": "steel-chest", "position": {"x": 271.5, "y": 14.5}},

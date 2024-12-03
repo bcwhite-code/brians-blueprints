@@ -2,6 +2,14 @@
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.0.36
+
+- Bypass "finished" speaker for signal in Construction Site so will work even without it.
+- Replace Fusion with Fisson for personal in Red Mall.
+- Improve storage ability of ammo buffering in Hammerhead ship.
+- Remove "full rocket only" circuit in Rocketry Block that wasn't tested and caused problems.
+- Add recycling, train supply, and automall for Fulgora.
+
 ## v5.0.35
 
 - Removed extra blueprints that shouldn't have been there.

@@ -1,0 +1,2081 @@
+{
+  "index": 1,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "Fulgora Mall",
+    "description": "Plase this beside the Scrap Processing output and connect a red wire from the medium power pole here to the medium power pole across the track from that train-stop.",
+    "shift_x": 14,
+    "shift_y": 212,
+    "version": 562949954797573,
+    "entities": [
+      {"name": "accumulator", "position": {"x": 21, "y": -3}},
+      {"name": "accumulator", "position": {"x": 21, "y": -1}},
+      {"name": "accumulator", "position": {"x": 31, "y": -3}},
+      {"name": "accumulator", "position": {"x": 31, "y": -1}},
+      {"name": "accumulator", "position": {"x": 33, "y": -3}},
+      {"name": "accumulator", "position": {"x": 33, "y": -1}},
+      {"name": "accumulator", "position": {"x": 21, "y": 6}},
+      {"name": "accumulator", "position": {"x": 17, "y": 18}},
+      {"name": "accumulator", "position": {"x": 17, "y": 20}},
+      {"name": "accumulator", "position": {"x": 17, "y": 22}},
+      {"name": "accumulator", "position": {"x": 17, "y": 24}},
+      {"name": "accumulator", "position": {"x": 21, "y": 24}},
+      {"name": "accumulator", "position": {"x": 23, "y": 24}},
+      {"name": "accumulator", "position": {"x": 25, "y": 24}},
+      {"name": "accumulator", "position": {"x": 27, "y": 24}},
+      {"name": "accumulator", "position": {"x": 29, "y": 24}},
+      {"name": "accumulator", "position": {"x": 31, "y": 24}},
+      {"name": "accumulator", "position": {"x": 33, "y": 2}},
+      {"name": "accumulator", "position": {"x": 33, "y": 4}},
+      {"name": "accumulator", "position": {"x": 33, "y": 8}},
+      {"name": "accumulator", "position": {"x": 33, "y": 10}},
+      {"name": "accumulator", "position": {"x": 33, "y": 12}},
+      {"name": "accumulator", "position": {"x": 33, "y": 14}},
+      {"name": "accumulator", "position": {"x": 33, "y": 16}},
+      {"name": "accumulator", "position": {"x": 33, "y": 18}},
+      {"name": "accumulator", "position": {"x": 33, "y": 20}},
+      {"name": "accumulator", "position": {"x": 33, "y": 22}},
+      {
+        "name": "arithmetic-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "second_constant": 2047,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 24.5, "y": 1}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "AND",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "first_signal_networks": {"green": false, "red": true},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal_networks": {"green": true, "red": false}
+          }
+        },
+        "position": {"x": 25.5, "y": 1}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 8,
+        "player_description": "clamp range 0~63 (bin 11111)",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "first_signal_networks": {"green": true, "red": false},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "up-arrow", "type": "virtual"},
+            "second_signal_networks": {"green": false, "red": true}
+          }
+        },
+        "position": {"x": 28.5, "y": 1}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "AND",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "first_signal_networks": {"green": false, "red": true},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal_networks": {"green": true, "red": false}
+          }
+        },
+        "position": {"x": 25.5, "y": 5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "second_constant": -1,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 27.5, "y": 7}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 8,
+        "player_description": "clamp range 0~63 (bin 11111)",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "first_signal_networks": {"green": true, "red": false},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "up-arrow", "type": "virtual"},
+            "second_signal_networks": {"green": false, "red": true}
+          }
+        },
+        "position": {"x": 28.5, "y": 5}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "second_constant": -1,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 18.5, "y": 8}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 8,
+        "player_description": "substract crafted item, connect to product item inserter",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "second_constant": -1,
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"}
+          }
+        },
+        "position": {"x": 24.5, "y": 9}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "first_signal_networks": {"green": true, "red": false},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-X", "type": "virtual"},
+            "second_signal_networks": {"green": false, "red": true}
+          }
+        },
+        "position": {"x": 26.5, "y": 9}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "-",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "first_signal_networks": {"green": false, "red": true},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal_networks": {"green": true, "red": false}
+          }
+        },
+        "position": {"x": 27.5, "y": 9}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "-",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "first_signal_networks": {"green": true, "red": false},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal_networks": {"green": false, "red": true}
+          }
+        },
+        "position": {"x": 28.5, "y": 9}
+      },
+      {
+        "name": "assembling-machine-3",
+        "direction": 12,
+        "mirror": true,
+        "recipe": "holmium-plate",
+        "recipe_quality": "normal",
+        "items": [
+          {
+            "id": {"name": "efficiency-module-2"},
+            "items": {"in_inventory": [{"inventory": 4, "stack": 0}, {"inventory": 4, "stack": 1}]}
+          }
+        ],
+        "position": {"x": 7.5, "y": -2.5}
+      },
+      {
+        "name": "assembling-machine-3",
+        "direction": 12,
+        "mirror": true,
+        "control_behavior": {"read_ingredients": true, "set_recipe": true},
+        "items": [
+          {
+            "id": {"name": "efficiency-module-2"},
+            "items": {"in_inventory": [{"inventory": 4, "stack": 0}, {"inventory": 4, "stack": 1}]}
+          }
+        ],
+        "position": {"x": 20.5, "y": 8.5}
+      },
+      {
+        "name": "assembling-machine-3",
+        "direction": 12,
+        "mirror": true,
+        "control_behavior": {
+          "read_contents": true,
+          "read_working": true,
+          "set_recipe": true,
+          "working_signal": {"name": "signal-check", "type": "virtual"}
+        },
+        "items": [
+          {
+            "id": {"name": "speed-module-2"},
+            "items": {
+              "in_inventory": [
+                {"inventory": 4, "stack": 0},
+                {"inventory": 4, "stack": 1},
+                {"inventory": 4, "stack": 2},
+                {"inventory": 4, "stack": 3}
+              ]
+            }
+          }
+        ],
+        "position": {"x": 25.5, "y": 16.5}
+      },
+      {
+        "name": "buffer-chest",
+        "position": {"x": 25.5, "y": -5.5},
+        "request_filters": {
+          "sections": [
+            {
+              "index": 1,
+              "filters": [
+                {"name": "transport-belt", "comparator": "=", "count": 90, "index": 1, "quality": "normal"},
+                {"name": "splitter", "comparator": "=", "count": 40, "index": 2, "quality": "normal"},
+                {"name": "underground-belt", "comparator": "=", "count": 45, "index": 3, "quality": "normal"},
+                {"name": "fast-transport-belt", "comparator": "=", "count": 90, "index": 6, "quality": "normal"},
+                {"name": "fast-splitter", "comparator": "=", "count": 40, "index": 7, "quality": "normal"},
+                {"name": "fast-underground-belt", "comparator": "=", "count": 45, "index": 8, "quality": "normal"},
+                {"name": "express-transport-belt", "comparator": "=", "count": 90, "index": 11, "quality": "normal"},
+                {"name": "express-splitter", "comparator": "=", "count": 20, "index": 12, "quality": "normal"},
+                {
+                  "name": "express-underground-belt",
+                  "comparator": "=",
+                  "count": 40,
+                  "index": 13,
+                  "quality": "normal"
+                },
+                {"name": "inserter", "comparator": "=", "count": 90, "index": 21, "quality": "normal"},
+                {"name": "long-handed-inserter", "comparator": "=", "count": 40, "index": 22, "quality": "normal"},
+                {"name": "fast-inserter", "comparator": "=", "count": 90, "index": 23, "quality": "normal"},
+                {"name": "bulk-inserter", "comparator": "=", "count": 90, "index": 24, "quality": "normal"},
+                {"name": "medium-electric-pole", "comparator": "=", "count": 90, "index": 27, "quality": "normal"},
+                {"name": "big-electric-pole", "comparator": "=", "count": 40, "index": 28, "quality": "normal"},
+                {"name": "substation", "comparator": "=", "count": 20, "index": 29, "quality": "normal"},
+                {"name": "pipe", "comparator": "=", "count": 90, "index": 31, "quality": "normal"},
+                {"name": "pipe-to-ground", "comparator": "=", "count": 40, "index": 32, "quality": "normal"},
+                {"name": "pump", "comparator": "=", "count": 10, "index": 33, "quality": "normal"},
+                {"name": "logistic-robot", "comparator": "=", "count": 40, "index": 38, "quality": "normal"},
+                {"name": "construction-robot", "comparator": "=", "count": 40, "index": 39, "quality": "normal"},
+                {"name": "roboport", "comparator": "=", "count": 8, "index": 40, "quality": "normal"},
+                {"name": "small-lamp", "comparator": "=", "count": 40, "index": 41, "quality": "normal"},
+                {"name": "arithmetic-combinator", "comparator": "=", "count": 40, "index": 42, "quality": "normal"},
+                {"name": "decider-combinator", "comparator": "=", "count": 40, "index": 43, "quality": "normal"},
+                {"name": "selector-combinator", "comparator": "=", "count": 20, "index": 44, "quality": "normal"},
+                {"name": "constant-combinator", "comparator": "=", "count": 20, "index": 45, "quality": "normal"},
+                {"name": "power-switch", "comparator": "=", "count": 3, "index": 46, "quality": "normal"},
+                {"name": "programmable-speaker", "comparator": "=", "count": 4, "index": 47, "quality": "normal"},
+                {"name": "display-panel", "comparator": "=", "count": 8, "index": 48, "quality": "normal"}
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "name": "buffer-chest",
+        "position": {"x": 26.5, "y": -5.5},
+        "request_filters": {
+          "trash_not_requested": true,
+          "sections": [
+            {
+              "index": 1,
+              "filters": [
+                {"name": "iron-chest", "comparator": "=", "count": 120, "index": 1, "quality": "normal"},
+                {"name": "steel-chest", "comparator": "=", "count": 10, "index": 2, "quality": "normal"},
+                {"name": "passive-provider-chest", "comparator": "=", "count": 40, "index": 4, "quality": "normal"},
+                {"name": "storage-chest", "comparator": "=", "count": 40, "index": 5, "quality": "normal"},
+                {"name": "requester-chest", "comparator": "=", "count": 40, "index": 6, "quality": "normal"},
+                {"name": "buffer-chest", "comparator": "=", "count": 20, "index": 7, "quality": "normal"},
+                {"name": "active-provider-chest", "comparator": "=", "count": 20, "index": 8, "quality": "normal"}
+              ]
+            },
+            {
+              "index": 2,
+              "filters": [
+                {"name": "stone-brick", "comparator": "=", "count": 0, "index": 1, "quality": "normal"},
+                {"name": "concrete", "comparator": "=", "count": 0, "index": 2, "quality": "normal"},
+                {"name": "hazard-concrete", "comparator": "=", "count": 90, "index": 3, "quality": "normal"},
+                {"name": "refined-concrete", "comparator": "=", "count": 90, "index": 4, "quality": "normal"},
+                {"name": "refined-hazard-concrete", "comparator": "=", "count": 90, "index": 5, "quality": "normal"}
+              ]
+            },
+            {
+              "index": 3,
+              "filters": [
+                {"name": "rail", "comparator": "=", "count": 490, "index": 1, "quality": "normal"},
+                {"name": "rail-ramp", "comparator": "=", "count": 8, "index": 2, "quality": "normal"},
+                {"name": "rail-support", "comparator": "=", "count": 18, "index": 3, "quality": "normal"},
+                {"name": "train-stop", "comparator": "=", "count": 8, "index": 4, "quality": "normal"},
+                {"name": "rail-signal", "comparator": "=", "count": 40, "index": 5, "quality": "normal"},
+                {"name": "rail-chain-signal", "comparator": "=", "count": 40, "index": 6, "quality": "normal"},
+                {"name": "locomotive", "comparator": "=", "count": 2, "index": 7, "quality": "normal"},
+                {"name": "cargo-wagon", "comparator": "=", "count": 4, "index": 8, "quality": "normal"},
+                {"name": "fluid-wagon", "comparator": "=", "count": 1, "index": 9, "quality": "normal"}
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "name": "buffer-chest",
+        "position": {"x": 27.5, "y": -5.5},
+        "request_filters": {
+          "sections": [
+            {
+              "index": 1,
+              "filters": [
+                {"name": "repair-pack", "comparator": "=", "count": 90, "index": 1, "quality": "normal"},
+                {"name": "accumulator", "comparator": "=", "count": 40, "index": 2, "quality": "normal"},
+                {"name": "lightning-rod", "comparator": "=", "count": 20, "index": 3, "quality": "normal"},
+                {"name": "electric-mining-drill", "comparator": "=", "count": 40, "index": 5, "quality": "normal"},
+                {"name": "big-mining-drill", "comparator": "=", "count": 0, "index": 6, "quality": "normal"},
+                {"name": "offshore-pump", "comparator": "=", "count": 10, "index": 7, "quality": "normal"},
+                {"name": "pumpjack", "comparator": "=", "count": 0, "index": 8, "quality": "normal"},
+                {"name": "electric-furnace", "comparator": "=", "count": 10, "index": 9, "quality": "normal"},
+                {"name": "recycler", "comparator": "=", "count": 10, "index": 10, "quality": "normal"},
+                {"name": "assembling-machine-2", "comparator": "=", "count": 20, "index": 11, "quality": "normal"},
+                {"name": "assembling-machine-3", "comparator": "=", "count": 20, "index": 12, "quality": "normal"},
+                {"name": "oil-refinery", "comparator": "=", "count": 1, "index": 13, "quality": "normal"},
+                {"name": "chemical-plant", "comparator": "=", "count": 4, "index": 14, "quality": "normal"},
+                {"name": "electromagnetic-plant", "comparator": "=", "count": 1, "index": 15, "quality": "normal"},
+                {"name": "lab", "comparator": "=", "count": 1, "index": 16, "quality": "normal"},
+                {"name": "beacon", "comparator": "=", "count": 1, "index": 17, "quality": "normal"},
+                {"name": "speed-module-2", "comparator": "=", "count": 1, "index": 18, "quality": "normal"},
+                {"name": "efficiency-module-2", "comparator": "=", "count": 1, "index": 19, "quality": "normal"},
+                {"name": "productivity-module-2", "comparator": "=", "count": 1, "index": 20, "quality": "normal"}
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 4,
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_condition": {"comparator": "<", "constant": 20000, "first_signal": {"name": "water", "type": "fluid"}}
+        },
+        "position": {"x": 18.5, "y": 3.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 4,
+        "use_filters": true,
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_read_hand_contents": true,
+          "circuit_set_filters": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-A", "type": "virtual"}}
+        },
+        "filters": [{"name": "foundry", "comparator": "=", "index": 1, "quality": "normal"}],
+        "position": {"x": 23.5, "y": 15.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "direction": 8,
+        "use_filters": true,
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_read_hand_contents": true,
+          "circuit_set_filters": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-A", "type": "virtual"}}
+        },
+        "filters": [{"name": "foundry", "comparator": "=", "index": 1, "quality": "normal"}],
+        "position": {"x": 25.5, "y": 12.5}
+      },
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 24.5, "y": 13.5}},
+      {
+        "name": "bulk-inserter",
+        "direction": 4,
+        "control_behavior": {"circuit_hand_read_mode": 1, "circuit_read_hand_contents": true},
+        "position": {"x": 26.5, "y": 13.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_hand_read_mode": 1,
+          "circuit_read_hand_contents": true,
+          "circuit_condition": {"comparator": "=", "constant": 1, "first_signal": {"name": "shape-circle", "type": "virtual"}}
+        },
+        "position": {"x": 25.5, "y": 14.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "filter_mode": "blacklist",
+        "use_filters": true,
+        "control_behavior": {
+          "circuit_hand_read_mode": 1,
+          "circuit_read_hand_contents": true,
+          "circuit_set_filters": true,
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-A", "type": "virtual"}}
+        },
+        "filters": [{"name": "foundry", "comparator": "=", "index": 1, "quality": "normal"}],
+        "position": {"x": 24.5, "y": 18.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "use_filters": true,
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_read_hand_contents": true,
+          "circuit_set_filters": true,
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-A", "type": "virtual"}}
+        },
+        "filters": [{"name": "foundry", "comparator": "=", "index": 1, "quality": "normal"}],
+        "position": {"x": 25.5, "y": 18.5}
+      },
+      {
+        "name": "bulk-inserter",
+        "filter_mode": "blacklist",
+        "use_filters": true,
+        "control_behavior": {
+          "circuit_hand_read_mode": 1,
+          "circuit_read_hand_contents": true,
+          "circuit_set_filters": true,
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-A", "type": "virtual"}}
+        },
+        "filters": [{"name": "foundry", "comparator": "=", "index": 1, "quality": "normal"}],
+        "position": {"x": 26.5, "y": 18.5}
+      },
+      {
+        "name": "chemical-plant",
+        "direction": 4,
+        "recipe": "holmium-solution",
+        "recipe_quality": "normal",
+        "items": [
+          {
+            "id": {"name": "efficiency-module-2"},
+            "items": {"in_inventory": [{"inventory": 4, "stack": 0}, {"inventory": 4, "stack": 1}]}
+          }
+        ],
+        "position": {"x": 3.5, "y": -2.5}
+      },
+      {
+        "name": "chemical-plant",
+        "recipe": "light-oil-cracking",
+        "recipe_quality": "normal",
+        "items": [
+          {
+            "id": {"name": "efficiency-module-2"},
+            "items": {"in_inventory": [{"inventory": 4, "stack": 0}, {"inventory": 4, "stack": 1}]}
+          }
+        ],
+        "position": {"x": 10.5, "y": -1.5}
+      },
+      {
+        "name": "chemical-plant",
+        "direction": 8,
+        "recipe": "sulfur",
+        "recipe_quality": "normal",
+        "items": [
+          {
+            "id": {"name": "efficiency-module-2"},
+            "items": {"in_inventory": [{"inventory": 4, "stack": 0}, {"inventory": 4, "stack": 1}]}
+          }
+        ],
+        "position": {"x": 13.5, "y": -1.5}
+      },
+      {
+        "name": "chemical-plant",
+        "direction": 8,
+        "recipe": "heavy-oil-cracking",
+        "recipe_quality": "normal",
+        "items": [
+          {
+            "id": {"name": "efficiency-module-2"},
+            "items": {"in_inventory": [{"inventory": 4, "stack": 0}, {"inventory": 4, "stack": 1}]}
+          }
+        ],
+        "position": {"x": 18.5, "y": -1.5}
+      },
+      {
+        "name": "chemical-plant",
+        "recipe": "lubricant",
+        "recipe_quality": "normal",
+        "items": [
+          {
+            "id": {"name": "efficiency-module-2"},
+            "items": {"in_inventory": [{"inventory": 4, "stack": 0}, {"inventory": 4, "stack": 1}]}
+          }
+        ],
+        "position": {"x": 9.5, "y": 4.5}
+      },
+      {
+        "name": "chemical-plant",
+        "recipe": "sulfuric-acid",
+        "recipe_quality": "normal",
+        "items": [
+          {
+            "id": {"name": "efficiency-module-2"},
+            "items": {"in_inventory": [{"inventory": 4, "stack": 0}, {"inventory": 4, "stack": 1}]}
+          }
+        ],
+        "position": {"x": 12.5, "y": 4.5}
+      },
+      {
+        "name": "chemical-plant",
+        "recipe": "ice-melting",
+        "recipe_quality": "normal",
+        "items": [
+          {"id": {"name": "speed-module-2"}, "items": {"in_inventory": [{"inventory": 4, "stack": 0}]}},
+          {
+            "id": {"name": "efficiency-module-2"},
+            "items": {"in_inventory": [{"inventory": 4, "stack": 1}, {"inventory": 4, "stack": 2}]}
+          }
+        ],
+        "position": {"x": 16.5, "y": 4.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 4,
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "heavy-oil",
+                    "comparator": "=",
+                    "count": 1,
+                    "index": 1,
+                    "quality": "normal",
+                    "type": "fluid"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": -1.5, "y": 0.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 12,
+        "player_description": "Set whitelist here, value must be 1, anything in the whitelist will be allowed to craft in the system, including dependent ingredients. For example, if you want to craft [item=transport-belt] with only iron plate available, you should whitelist [item=iron-gear-wheel] as well. Do not include anything that is unacceptable for the assembler, it will deadlock the system (a manual reset is needed in this case).",
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {"name": "transport-belt", "comparator": "=", "count": 1, "index": 1, "quality": "normal"},
+                  {"name": "splitter", "comparator": "=", "count": 1, "index": 2, "quality": "normal"},
+                  {"name": "underground-belt", "comparator": "=", "count": 1, "index": 3, "quality": "normal"},
+                  {"name": "fast-transport-belt", "comparator": "=", "count": 1, "index": 6, "quality": "normal"},
+                  {"name": "fast-splitter", "comparator": "=", "count": 1, "index": 7, "quality": "normal"},
+                  {"name": "fast-underground-belt", "comparator": "=", "count": 1, "index": 8, "quality": "normal"},
+                  {"name": "express-transport-belt", "comparator": "=", "count": 1, "index": 11, "quality": "normal"},
+                  {"name": "express-splitter", "comparator": "=", "count": 1, "index": 12, "quality": "normal"},
+                  {
+                    "name": "express-underground-belt",
+                    "comparator": "=",
+                    "count": 1,
+                    "index": 13,
+                    "quality": "normal"
+                  },
+                  {"name": "speed-module", "comparator": "=", "count": 1, "index": 21, "quality": "normal"},
+                  {"name": "speed-module-2", "comparator": "=", "count": 1, "index": 22, "quality": "normal"},
+                  {"name": "efficiency-module", "comparator": "=", "count": 1, "index": 24, "quality": "normal"},
+                  {"name": "efficiency-module-2", "comparator": "=", "count": 1, "index": 25, "quality": "normal"},
+                  {"name": "productivity-module", "comparator": "=", "count": 1, "index": 27, "quality": "normal"},
+                  {"name": "productivity-module-2", "comparator": "=", "count": 1, "index": 28, "quality": "normal"},
+                  {"name": "small-lamp", "comparator": "=", "count": 1, "index": 31, "quality": "normal"},
+                  {"name": "arithmetic-combinator", "comparator": "=", "count": 1, "index": 32, "quality": "normal"},
+                  {"name": "decider-combinator", "comparator": "=", "count": 1, "index": 33, "quality": "normal"},
+                  {"name": "selector-combinator", "comparator": "=", "count": 1, "index": 34, "quality": "normal"},
+                  {"name": "constant-combinator", "comparator": "=", "count": 1, "index": 35, "quality": "normal"},
+                  {"name": "power-switch", "comparator": "=", "count": 1, "index": 36, "quality": "normal"},
+                  {"name": "programmable-speaker", "comparator": "=", "count": 1, "index": 37, "quality": "normal"},
+                  {"name": "display-panel", "comparator": "=", "count": 1, "index": 38, "quality": "normal"},
+                  {"name": "accumulator", "comparator": "=", "count": 1, "index": 41, "quality": "normal"},
+                  {"name": "electric-mining-drill", "comparator": "=", "count": 1, "index": 42, "quality": "normal"},
+                  {"name": "big-mining-drill", "comparator": "=", "count": 1, "index": 43, "quality": "normal"},
+                  {"name": "offshore-pump", "comparator": "=", "count": 1, "index": 44, "quality": "normal"},
+                  {"name": "steel-furnace", "comparator": "=", "count": 1, "index": 45, "quality": "normal"},
+                  {"name": "electric-furnace", "comparator": "=", "count": 1, "index": 46, "quality": "normal"},
+                  {"name": "foundry", "comparator": "=", "count": 0, "index": 47, "quality": "normal"},
+                  {"name": "recycler", "comparator": "=", "count": 1, "index": 48, "quality": "normal"},
+                  {"name": "assembling-machine-1", "comparator": "=", "count": 1, "index": 51, "quality": "normal"},
+                  {"name": "assembling-machine-2", "comparator": "=", "count": 1, "index": 52, "quality": "normal"},
+                  {"name": "assembling-machine-3", "comparator": "=", "count": 1, "index": 53, "quality": "normal"},
+                  {"name": "oil-refinery", "comparator": "=", "count": 1, "index": 54, "quality": "normal"},
+                  {"name": "chemical-plant", "comparator": "=", "count": 1, "index": 55, "quality": "normal"},
+                  {"name": "electromagnetic-plant", "comparator": "=", "count": 1, "index": 56, "quality": "normal"},
+                  {"name": "lab", "comparator": "=", "count": 1, "index": 57, "quality": "normal"},
+                  {"name": "beacon", "comparator": "=", "count": 1, "index": 58, "quality": "normal"},
+                  {"name": "passive-provider-chest", "comparator": "=", "count": 1, "index": 61, "quality": "normal"},
+                  {"name": "storage-chest", "comparator": "=", "count": 1, "index": 62, "quality": "normal"},
+                  {"name": "requester-chest", "comparator": "=", "count": 1, "index": 63, "quality": "normal"},
+                  {"name": "active-provider-chest", "comparator": "=", "count": 1, "index": 64, "quality": "normal"},
+                  {"name": "buffer-chest", "comparator": "=", "count": 1, "index": 65, "quality": "normal"},
+                  {"name": "logistic-robot", "comparator": "=", "count": 1, "index": 66, "quality": "normal"},
+                  {"name": "construction-robot", "comparator": "=", "count": 1, "index": 67, "quality": "normal"},
+                  {"name": "roboport", "comparator": "=", "count": 1, "index": 68, "quality": "normal"},
+                  {"name": "iron-chest", "comparator": "=", "count": 1, "index": 71, "quality": "normal"},
+                  {"name": "steel-chest", "comparator": "=", "count": 1, "index": 72, "quality": "normal"},
+                  {"name": "storage-tank", "comparator": "=", "count": 1, "index": 73, "quality": "normal"},
+                  {"name": "pipe", "comparator": "=", "count": 1, "index": 74, "quality": "normal"},
+                  {"name": "pipe-to-ground", "comparator": "=", "count": 1, "index": 75, "quality": "normal"},
+                  {"name": "pump", "comparator": "=", "count": 1, "index": 76, "quality": "normal"},
+                  {"name": "burner-inserter", "comparator": "=", "count": 1, "index": 81, "quality": "normal"},
+                  {"name": "inserter", "comparator": "=", "count": 1, "index": 82, "quality": "normal"},
+                  {"name": "long-handed-inserter", "comparator": "=", "count": 1, "index": 83, "quality": "normal"},
+                  {"name": "fast-inserter", "comparator": "=", "count": 1, "index": 84, "quality": "normal"},
+                  {"name": "bulk-inserter", "comparator": "=", "count": 1, "index": 85, "quality": "normal"},
+                  {"name": "small-electric-pole", "comparator": "=", "count": 1, "index": 87, "quality": "normal"},
+                  {"name": "medium-electric-pole", "comparator": "=", "count": 1, "index": 88, "quality": "normal"},
+                  {"name": "big-electric-pole", "comparator": "=", "count": 1, "index": 89, "quality": "normal"},
+                  {"name": "substation", "comparator": "=", "count": 1, "index": 90, "quality": "normal"},
+                  {"name": "rail", "comparator": "=", "count": 1, "index": 91, "quality": "normal"},
+                  {"name": "rail-ramp", "comparator": "=", "count": 1, "index": 92, "quality": "normal"},
+                  {"name": "rail-support", "comparator": "=", "count": 1, "index": 93, "quality": "normal"},
+                  {"name": "train-stop", "comparator": "=", "count": 1, "index": 94, "quality": "normal"},
+                  {"name": "rail-signal", "comparator": "=", "count": 1, "index": 95, "quality": "normal"},
+                  {"name": "rail-chain-signal", "comparator": "=", "count": 1, "index": 96, "quality": "normal"},
+                  {"name": "locomotive", "comparator": "=", "count": 1, "index": 98, "quality": "normal"},
+                  {"name": "cargo-wagon", "comparator": "=", "count": 1, "index": 99, "quality": "normal"},
+                  {"name": "fluid-wagon", "comparator": "=", "count": 1, "index": 100, "quality": "normal"},
+                  {"name": "lightning-rod", "comparator": "=", "count": 1, "index": 101, "quality": "normal"},
+                  {"name": "lightning-collector", "comparator": "=", "count": 0, "index": 102, "quality": "normal"}
+                ]
+              },
+              {
+                "index": 2,
+                "filters": [
+                  {"name": "iron-stick", "comparator": "=", "count": 1, "index": 1, "quality": "normal"},
+                  {"name": "barrel", "comparator": "=", "count": 1, "index": 2, "quality": "normal"},
+                  {"name": "engine-unit", "comparator": "=", "count": 1, "index": 3, "quality": "normal"},
+                  {"name": "electric-engine-unit", "comparator": "=", "count": 1, "index": 4, "quality": "normal"},
+                  {"name": "flying-robot-frame", "comparator": "=", "count": 1, "index": 5, "quality": "normal"},
+                  {"name": "refined-concrete", "comparator": "=", "count": 1, "index": 9, "quality": "normal"}
+                ]
+              },
+              {"index": 3}
+            ]
+          }
+        },
+        "position": {"x": 22.5, "y": 0.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 12,
+        "player_description": "set maximum network requests count allowed by adjusting [virtual-signal=up-arrow] number, for example, if you request 20[item=inserter], the system will process 10[item=inserter] each time due to the [virtual-signal=up-arrow]number is set 10",
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "group": "mall_request_upper_limit",
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "up-arrow",
+                    "comparator": "=",
+                    "count": 10,
+                    "index": 1,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 22.5, "y": 1.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 12,
+        "player_description": "set maximum ingrediant requests count allowed by adjusting [virtual-signal=up-arrow] number, for example, if you request 10[item=fast-underground-belt], which requires 200[item=iron-gear-wheel], the system will process 100[item=iron-gear-wheel] each batch due to the [virtual-signal=up-arrow] number is set as 100 here",
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "group": "mall_ingrediant_upper_limit",
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "up-arrow",
+                    "comparator": "=",
+                    "count": 100,
+                    "index": 1,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 22.5, "y": 2.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 12,
+        "player_description": "turn on and off this to reset, needed if anything unexpected is locked forever",
+        "control_behavior": {
+          "is_on": false,
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "signal-R",
+                    "comparator": "=",
+                    "count": 1,
+                    "index": 1,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 22.5, "y": 4.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 12,
+        "player_description": "pulse generator",
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "signal-C",
+                    "comparator": "=",
+                    "count": 1,
+                    "index": 1,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 27.5, "y": 2.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 12,
+        "player_description": "pulse generator",
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "signal-A",
+                    "comparator": "=",
+                    "count": -10000,
+                    "index": 1,
+                    "max_count": 4294957296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "signal-B",
+                    "comparator": "=",
+                    "count": -10000,
+                    "index": 2,
+                    "max_count": 4294957296,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 27.5, "y": 3.5}
+      },
+      {
+        "name": "decider-combinator",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "first_signal": {"name": "signal-each", "type": "virtual"},
+                "first_signal_networks": {"green": false, "red": true},
+                "second_signal": {"name": "signal-each", "type": "virtual"},
+                "second_signal_networks": {"green": true, "red": false}
+              },
+              {
+                "comparator": "≠",
+                "first_signal": {"name": "signal-dot", "type": "virtual"},
+                "first_signal_networks": {"green": false, "red": true}
+              }
+            ],
+            "outputs": [{"networks": {"green": true, "red": false}, "signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 11.5, "y": 8}
+      },
+      {
+        "name": "decider-combinator",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "comparator": "≥",
+                "first_signal": {"name": "signal-each", "type": "virtual"},
+                "first_signal_networks": {"green": false, "red": true},
+                "second_signal": {"name": "signal-each", "type": "virtual"},
+                "second_signal_networks": {"green": true, "red": false}
+              },
+              {
+                "comparator": "=",
+                "compare_type": "and",
+                "first_signal": {"name": "signal-dot", "type": "virtual"},
+                "first_signal_networks": {"green": false, "red": true}
+              }
+            ],
+            "outputs": [{"networks": {"green": false, "red": true}, "signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 12.5, "y": 8}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "player_description": "isolate signal/setter",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "compare_type": "and",
+                "constant": 1,
+                "first_signal": {"name": "signal-everything", "type": "virtual"},
+                "first_signal_networks": {"green": true, "red": false}
+              },
+              {
+                "comparator": ">",
+                "compare_type": "and",
+                "first_signal": {"name": "signal-each", "type": "virtual"},
+                "first_signal_networks": {"green": false, "red": true}
+              }
+            ],
+            "outputs": [{"networks": {"green": false, "red": true}, "signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 23.5, "y": 5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "player_description": "latch, green wire for locker requests, remember isolation",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "comparator": "=",
+                "first_signal": {"name": "signal-R", "type": "virtual"},
+                "first_signal_networks": {"green": false, "red": true}
+              },
+              {
+                "comparator": ">",
+                "compare_type": "and",
+                "first_signal": {"name": "signal-each", "type": "virtual"}
+              }
+            ],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 23.5, "y": 7}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "comparator": ">",
+                "first_signal": {"name": "signal-each", "type": "virtual"},
+                "first_signal_networks": {"green": true, "red": false}
+              },
+              {
+                "comparator": "≤",
+                "compare_type": "and",
+                "first_signal": {"name": "signal-each", "type": "virtual"},
+                "first_signal_networks": {"green": true, "red": false},
+                "second_signal": {"name": "up-arrow", "type": "virtual"},
+                "second_signal_networks": {"green": false, "red": true}
+              }
+            ],
+            "outputs": [{"networks": {"green": true, "red": false}, "signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 26.5, "y": 1}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "comparator": ">",
+                "first_signal": {"name": "signal-each", "type": "virtual"},
+                "first_signal_networks": {"green": true, "red": false},
+                "second_signal": {"name": "up-arrow", "type": "virtual"},
+                "second_signal_networks": {"green": false, "red": true}
+              }
+            ],
+            "outputs": [
+              {
+                "copy_count_from_input": false,
+                "networks": {"green": true, "red": false},
+                "signal": {"name": "signal-each", "type": "virtual"}
+              }
+            ]
+          }
+        },
+        "position": {"x": 27.5, "y": 1}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "player_description": "ingrediant requests",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "comparator": "=",
+                "constant": 5,
+                "first_signal": {"name": "signal-C", "type": "virtual"},
+                "first_signal_networks": {"green": true, "red": false}
+              },
+              {
+                "comparator": ">",
+                "compare_type": "and",
+                "first_signal": {"name": "signal-each", "type": "virtual"},
+                "first_signal_networks": {"green": false, "red": true}
+              }
+            ],
+            "outputs": [
+              {"networks": {"green": false, "red": true}, "signal": {"name": "signal-each", "type": "virtual"}},
+              {"networks": {"green": false, "red": true}, "signal": {"name": "signal-A", "type": "virtual"}}
+            ]
+          }
+        },
+        "position": {"x": 24.5, "y": 3}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "player_description": "ingrediant requests",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "comparator": "=",
+                "constant": 3,
+                "first_signal": {"name": "signal-C", "type": "virtual"},
+                "first_signal_networks": {"green": true, "red": false}
+              },
+              {
+                "comparator": ">",
+                "compare_type": "and",
+                "first_signal": {"name": "signal-each", "type": "virtual"},
+                "first_signal_networks": {"green": false, "red": true}
+              }
+            ],
+            "outputs": [
+              {"networks": {"green": false, "red": true}, "signal": {"name": "signal-each", "type": "virtual"}},
+              {"networks": {"green": false, "red": true}, "signal": {"name": "signal-B", "type": "virtual"}}
+            ]
+          }
+        },
+        "position": {"x": 25.5, "y": 3}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "player_description": "if tick at 1/60(C), has no enough resource(X) and assembler is not working (check = 0), reset",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {"comparator": "=", "constant": 1, "first_signal": {"name": "signal-C", "type": "virtual"}},
+              {
+                "comparator": "=",
+                "compare_type": "and",
+                "constant": 1,
+                "first_signal": {"name": "signal-deny", "type": "virtual"}
+              },
+              {
+                "comparator": "=",
+                "compare_type": "and",
+                "first_signal": {"name": "signal-check", "type": "virtual"}
+              }
+            ],
+            "outputs": [
+              {
+                "copy_count_from_input": false,
+                "networks": {"green": true, "red": false},
+                "signal": {"name": "signal-R", "type": "virtual"}
+              }
+            ]
+          }
+        },
+        "position": {"x": 26.5, "y": 3}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "player_description": "remove negative value in network",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 29.5, "y": 1}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "player_description": "remove negative value in network",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 30.5, "y": 1}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "player_description": "60 ticks counting",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"constant": 60, "first_signal": {"name": "signal-C", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-C", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 28.5, "y": 3}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "player_description": "isolation and delay, connect to output inserter",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 29.5, "y": 3}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "player_description": "remove negative value in network",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 30.5, "y": 3}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "comparator": ">",
+                "first_signal": {"name": "signal-each", "type": "virtual"},
+                "first_signal_networks": {"green": true, "red": false}
+              },
+              {
+                "comparator": "≤",
+                "compare_type": "and",
+                "first_signal": {"name": "signal-each", "type": "virtual"},
+                "first_signal_networks": {"green": true, "red": false},
+                "second_signal": {"name": "up-arrow", "type": "virtual"},
+                "second_signal_networks": {"green": false, "red": true}
+              }
+            ],
+            "outputs": [{"networks": {"green": true, "red": false}, "signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 26.5, "y": 5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "comparator": ">",
+                "first_signal": {"name": "signal-each", "type": "virtual"},
+                "first_signal_networks": {"green": true, "red": false},
+                "second_signal": {"name": "up-arrow", "type": "virtual"},
+                "second_signal_networks": {"green": false, "red": true}
+              }
+            ],
+            "outputs": [
+              {
+                "copy_count_from_input": false,
+                "networks": {"green": true, "red": false},
+                "signal": {"name": "signal-each", "type": "virtual"}
+              }
+            ]
+          }
+        },
+        "position": {"x": 27.5, "y": 5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "player_description": "isolation and delay",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 24.5, "y": 7}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "player_description": "isolation and delay, connect to output inserter",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 25.5, "y": 7}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 26.5, "y": 7}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-anything", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-deny", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 29.5, "y": 5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "player_description": "remove negative value in network",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 30.5, "y": 5}
+      },
+      {
+        "name": "decider-combinator",
+        "player_description": "network missing ingradient filter, negative means missing",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 28.5, "y": 7}
+      },
+      {
+        "name": "decider-combinator",
+        "player_description": "remove negative value in network",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 29.5, "y": 7}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "player_description": "remove negative value in network",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 30.5, "y": 7}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": "≠", "first_signal": {"name": "signal-anything", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "signal-dot", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 17.5, "y": 8}
+      },
+      {
+        "name": "decider-combinator",
+        "player_description": "substract crafted item",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "comparator": ">",
+                "first_signal": {"name": "signal-each", "type": "virtual"},
+                "first_signal_networks": {"green": false, "red": true}
+              }
+            ],
+            "outputs": [
+              {"networks": {"green": false, "red": true}, "signal": {"name": "signal-each", "type": "virtual"}},
+              {"networks": {"green": false, "red": true}, "signal": {"name": "signal-A", "type": "virtual"}},
+              {"networks": {"green": false, "red": true}, "signal": {"name": "signal-B", "type": "virtual"}}
+            ]
+          }
+        },
+        "position": {"x": 23.5, "y": 9}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-X", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 25.5, "y": 9}
+      },
+      {
+        "name": "decider-combinator",
+        "player_description": "get in assembling system items, and isloation",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 29.5, "y": 9}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 8,
+        "player_description": "remove negative value in network",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "comparator": ">",
+                "first_signal": {"name": "signal-anything", "type": "virtual"},
+                "first_signal_networks": {"green": false, "red": true}
+              },
+              {
+                "comparator": "=",
+                "compare_type": "and",
+                "first_signal": {"name": "signal-deny", "type": "virtual"}
+              }
+            ],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "shape-circle", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 30.5, "y": 9}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 24, "y": 14.5}
+      },
+      {
+        "name": "decider-combinator",
+        "player_description": "get assembler items, and isloation",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 27.5, "y": 15}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 23, "y": 17.5}
+      },
+      {
+        "name": "decider-combinator",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 27.5, "y": 17}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 4,
+        "player_description": "get assembler items, and isloation",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 30, "y": 16.5}
+      },
+      {
+        "name": "display-panel",
+        "always_show": true,
+        "direction": 12,
+        "text": "Whitelist",
+        "icon": {"name": "down-arrow", "type": "virtual"},
+        "position": {"x": 21.5, "y": 0.5}
+      },
+      {
+        "name": "display-panel",
+        "always_show": true,
+        "direction": 12,
+        "text": "network limits",
+        "icon": {"name": "down-arrow", "type": "virtual"},
+        "position": {"x": 21.5, "y": 1.5}
+      },
+      {
+        "name": "display-panel",
+        "always_show": true,
+        "direction": 12,
+        "text": "ingredient limits",
+        "icon": {"name": "down-arrow", "type": "virtual"},
+        "position": {"x": 21.5, "y": 2.5}
+      },
+      {
+        "name": "display-panel",
+        "always_show": true,
+        "direction": 12,
+        "show_in_chart": true,
+        "text": "ON",
+        "control_behavior": {
+          "parameters": [
+            {
+              "text": "OFF",
+              "condition": {"comparator": "=", "constant": 1, "first_signal": {"name": "signal-R", "type": "virtual"}},
+              "icon": {"name": "signal-red", "type": "virtual"}
+            },
+            {
+              "text": "ON",
+              "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}},
+              "icon": {"name": "signal-green", "type": "virtual"}
+            }
+          ]
+        },
+        "icon": {"name": "signal-green", "type": "virtual"},
+        "position": {"x": 22.5, "y": 3.5}
+      },
+      {
+        "name": "display-panel",
+        "always_show": true,
+        "direction": 12,
+        "text": "Reset",
+        "icon": {"name": "down-arrow", "type": "virtual"},
+        "position": {"x": 21.5, "y": 4.5}
+      },
+      {
+        "name": "display-panel",
+        "always_show": true,
+        "direction": 12,
+        "text": "ACTIVE",
+        "control_behavior": {
+          "parameters": [
+            {
+              "text": "IDLE",
+              "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "signal-everything", "type": "virtual"}},
+              "icon": {"name": "signal-dot", "type": "virtual"}
+            },
+            {
+              "text": "ACTIVE",
+              "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+              "icon": {"name": "signal-anything", "type": "virtual"}
+            }
+          ]
+        },
+        "icon": {"name": "express-transport-belt"},
+        "position": {"x": 22.5, "y": 5.5}
+      },
+      {
+        "name": "display-panel",
+        "always_show": true,
+        "direction": 12,
+        "show_in_chart": true,
+        "control_behavior": {
+          "parameters": [
+            {
+              "text": "MISSING\n",
+              "condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}},
+              "icon": {"name": "signal-anything", "type": "virtual"}
+            }
+          ]
+        },
+        "position": {"x": 22.5, "y": 7.5}
+      },
+      {
+        "name": "electromagnetic-plant",
+        "direction": 4,
+        "recipe": "electrolyte",
+        "recipe_quality": "normal",
+        "items": [
+          {
+            "id": {"name": "efficiency-module-2"},
+            "items": {
+              "in_inventory": [{"inventory": 4, "stack": 0}, {"inventory": 4, "stack": 1}, {"inventory": 4, "stack": 2}]
+            }
+          },
+          {
+            "id": {"name": "productivity-module-2"},
+            "items": {"in_inventory": [{"inventory": 4, "stack": 3}, {"inventory": 4, "stack": 4}]}
+          }
+        ],
+        "position": {"x": 4, "y": 4}
+      },
+      {"name": "fast-inserter", "direction": 8, "position": {"x": 4.5, "y": -0.5}},
+      {"name": "fast-inserter", "position": {"x": 4.5, "y": 1.5}},
+      {
+        "name": "fast-transport-belt",
+        "direction": 12,
+        "control_behavior": {"circuit_contents_read_mode": 2, "circuit_read_hand_contents": true},
+        "position": {"x": 27.5, "y": 13.5}
+      },
+      {"name": "fast-transport-belt", "direction": 12, "position": {"x": 28.5, "y": 13.5}},
+      {"name": "fast-transport-belt", "position": {"x": 28.5, "y": 14.5}},
+      {"name": "fast-transport-belt", "position": {"x": 28.5, "y": 15.5}},
+      {"name": "fast-transport-belt", "direction": 4, "position": {"x": 22.5, "y": 18.5}},
+      {"name": "fast-transport-belt", "position": {"x": 22.5, "y": 19.5}},
+      {"name": "fast-transport-belt", "direction": 12, "position": {"x": 23.5, "y": 19.5}},
+      {
+        "name": "fast-transport-belt",
+        "direction": 12,
+        "control_behavior": {"circuit_contents_read_mode": 2, "circuit_read_hand_contents": true},
+        "position": {"x": 24.5, "y": 19.5}
+      },
+      {"name": "fast-transport-belt", "direction": 4, "position": {"x": 25.5, "y": 19.5}},
+      {
+        "name": "fast-transport-belt",
+        "direction": 4,
+        "control_behavior": {"circuit_contents_read_mode": 0, "circuit_read_hand_contents": false},
+        "position": {"x": 26.5, "y": 19.5}
+      },
+      {"name": "fast-transport-belt", "direction": 4, "position": {"x": 27.5, "y": 19.5}},
+      {"name": "fast-transport-belt", "position": {"x": 28.5, "y": 16.5}},
+      {"name": "fast-transport-belt", "position": {"x": 28.5, "y": 17.5}},
+      {"name": "fast-transport-belt", "position": {"x": 28.5, "y": 18.5}},
+      {"name": "fast-transport-belt", "position": {"x": 28.5, "y": 19.5}},
+      {
+        "name": "fast-underground-belt",
+        "direction": 4,
+        "type": "input",
+        "position": {"x": 23.5, "y": 18.5}
+      },
+      {
+        "name": "fast-underground-belt",
+        "direction": 4,
+        "type": "output",
+        "position": {"x": 27.5, "y": 18.5}
+      },
+      {"name": "inserter", "position": {"x": 11.5, "y": 2.5}},
+      {
+        "name": "inserter",
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_condition": {"comparator": "<", "constant": 10, "first_signal": {"name": "sulfur"}}
+        },
+        "position": {"x": 13.5, "y": 0.5}
+      },
+      {"name": "lightning-rod", "position": {"x": -2.5, "y": -1.5}},
+      {"name": "lightning-rod", "position": {"x": 16.5, "y": -2.5}},
+      {"name": "lightning-rod", "position": {"x": -2.5, "y": 14.5}},
+      {"name": "lightning-rod", "position": {"x": 9.5, "y": 8.5}},
+      {"name": "lightning-rod", "position": {"x": 10.5, "y": 32.5}},
+      {
+        "name": "long-handed-inserter",
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_condition": {"comparator": "<", "constant": 5, "first_signal": {"name": "holmium-plate"}}
+        },
+        "position": {"x": 6.5, "y": 0.5}
+      },
+      {"name": "long-handed-inserter", "position": {"x": 12.5, "y": 1.5}},
+      {"name": "medium-electric-pole", "position": {"x": 31.5, "y": -4.5}},
+      {"name": "medium-electric-pole", "position": {"x": 22.5, "y": 8.5}},
+      {"name": "medium-electric-pole", "position": {"x": 22.5, "y": 9.5}},
+      {
+        "name": "passive-provider-chest",
+        "control_behavior": {"circuit_condition_enabled": false},
+        "position": {"x": 22.5, "y": 15.5}
+      },
+      {"name": "passive-provider-chest", "position": {"x": 25.5, "y": 11.5}},
+      {"name": "pipe", "position": {"x": 1.5, "y": -1.5}},
+      {"name": "pipe", "position": {"x": 0.5, "y": -0.5}},
+      {"name": "pipe", "position": {"x": 1.5, "y": -0.5}},
+      {"name": "pipe", "position": {"x": 5.5, "y": -1.5}},
+      {"name": "pipe", "position": {"x": 5.5, "y": -0.5}},
+      {"name": "pipe", "position": {"x": 7.5, "y": -0.5}},
+      {"name": "pipe", "position": {"x": 9.5, "y": -4.5}},
+      {"name": "pipe", "position": {"x": 15.5, "y": -4.5}},
+      {"name": "pipe", "position": {"x": 9.5, "y": -3.5}},
+      {"name": "pipe", "position": {"x": 11.5, "y": -3.5}},
+      {"name": "pipe", "position": {"x": 15.5, "y": -3.5}},
+      {"name": "pipe", "position": {"x": 15.5, "y": -2.5}},
+      {"name": "pipe", "position": {"x": 15.5, "y": -1.5}},
+      {"name": "pipe", "position": {"x": 15.5, "y": -0.5}},
+      {"name": "pipe", "position": {"x": 17.5, "y": -3.5}},
+      {"name": "pipe", "position": {"x": 0.5, "y": 0.5}},
+      {"name": "pipe", "position": {"x": 0.5, "y": 1.5}},
+      {"name": "pipe", "position": {"x": 2.5, "y": 0.5}},
+      {"name": "pipe", "position": {"x": 2.5, "y": 1.5}},
+      {"name": "pipe", "position": {"x": 3.5, "y": 1.5}},
+      {"name": "pipe", "position": {"x": 0.5, "y": 2.5}},
+      {"name": "pipe", "position": {"x": 0.5, "y": 3.5}},
+      {"name": "pipe", "position": {"x": 5.5, "y": 0.5}},
+      {"name": "pipe", "position": {"x": 5.5, "y": 1.5}},
+      {"name": "pipe", "position": {"x": 6.5, "y": 1.5}},
+      {"name": "pipe", "position": {"x": 6.5, "y": 3.5}},
+      {"name": "pipe", "position": {"x": 7.5, "y": 3.5}},
+      {"name": "pipe", "position": {"x": 0.5, "y": 4.5}},
+      {"name": "pipe", "position": {"x": 0.5, "y": 5.5}},
+      {"name": "pipe", "position": {"x": 0.5, "y": 6.5}},
+      {"name": "pipe", "position": {"x": 1.5, "y": 6.5}},
+      {"name": "pipe", "position": {"x": 2.5, "y": 6.5}},
+      {"name": "pipe", "position": {"x": 3.5, "y": 6.5}},
+      {"name": "pipe", "position": {"x": 7.5, "y": 4.5}},
+      {"name": "pipe", "position": {"x": 7.5, "y": 5.5}},
+      {"name": "pipe", "position": {"x": 4.5, "y": 6.5}},
+      {"name": "pipe", "position": {"x": 7.5, "y": 6.5}},
+      {"name": "pipe", "position": {"x": 8.5, "y": 0.5}},
+      {"name": "pipe", "position": {"x": 8.5, "y": 1.5}},
+      {"name": "pipe", "position": {"x": 11.5, "y": 0.5}},
+      {"name": "pipe", "position": {"x": 8.5, "y": 2.5}},
+      {"name": "pipe", "position": {"x": 12.5, "y": 0.5}},
+      {"name": "pipe", "position": {"x": 14.5, "y": 0.5}},
+      {"name": "pipe", "position": {"x": 15.5, "y": 0.5}},
+      {"name": "pipe", "position": {"x": 15.5, "y": 1.5}},
+      {"name": "pipe", "position": {"x": 13.5, "y": 2.5}},
+      {"name": "pipe", "position": {"x": 14.5, "y": 2.5}},
+      {"name": "pipe", "position": {"x": 15.5, "y": 2.5}},
+      {"name": "pipe", "position": {"x": 10.5, "y": 6.5}},
+      {"name": "pipe", "position": {"x": 13.5, "y": 6.5}},
+      {"name": "pipe", "position": {"x": 14.5, "y": 8.5}},
+      {"name": "pipe", "position": {"x": 15.5, "y": 8.5}},
+      {"name": "pipe", "position": {"x": 8.5, "y": 12.5}},
+      {"name": "pipe", "position": {"x": 9.5, "y": 12.5}},
+      {"name": "pipe", "position": {"x": 11.5, "y": 12.5}},
+      {"name": "pipe", "position": {"x": 8.5, "y": 15.5}},
+      {"name": "pipe", "position": {"x": 9.5, "y": 15.5}},
+      {"name": "pipe", "position": {"x": 10.5, "y": 15.5}},
+      {"name": "pipe", "position": {"x": 11.5, "y": 15.5}},
+      {"name": "pipe", "position": {"x": 12.5, "y": 12.5}},
+      {"name": "pipe", "position": {"x": 14.5, "y": 12.5}},
+      {"name": "pipe", "position": {"x": 15.5, "y": 12.5}},
+      {"name": "pipe", "position": {"x": 12.5, "y": 15.5}},
+      {"name": "pipe", "position": {"x": 13.5, "y": 15.5}},
+      {"name": "pipe", "position": {"x": 14.5, "y": 15.5}},
+      {"name": "pipe", "position": {"x": 15.5, "y": 15.5}},
+      {"name": "pipe", "position": {"x": 17.5, "y": 0.5}},
+      {"name": "pipe", "position": {"x": 19.5, "y": 0.5}},
+      {"name": "pipe", "position": {"x": 18.5, "y": 1.5}},
+      {"name": "pipe", "position": {"x": 19.5, "y": 1.5}},
+      {"name": "pipe", "position": {"x": 16.5, "y": 2.5}},
+      {"name": "pipe", "position": {"x": 17.5, "y": 2.5}},
+      {"name": "pipe", "position": {"x": 18.5, "y": 2.5}},
+      {"name": "pipe", "position": {"x": 16.5, "y": 6.5}},
+      {"name": "pipe", "position": {"x": 17.5, "y": 6.5}},
+      {"name": "pipe", "position": {"x": 17.5, "y": 12.5}},
+      {"name": "pipe", "position": {"x": 18.5, "y": 12.5}},
+      {"name": "pipe", "position": {"x": 16.5, "y": 15.5}},
+      {"name": "pipe", "position": {"x": 17.5, "y": 15.5}},
+      {"name": "pipe", "position": {"x": 18.5, "y": 15.5}},
+      {"name": "pipe", "position": {"x": 18.5, "y": 16.5}},
+      {"name": "pipe", "position": {"x": 19.5, "y": 16.5}},
+      {"name": "pipe", "position": {"x": 20.5, "y": 16.5}},
+      {"name": "pipe", "position": {"x": 21.5, "y": 16.5}},
+      {"name": "pipe", "position": {"x": 22.5, "y": 16.5}},
+      {"name": "pipe", "position": {"x": 23.5, "y": 16.5}},
+      {"name": "pipe-to-ground", "direction": 12, "position": {"x": 2.5, "y": -0.5}},
+      {"name": "pipe-to-ground", "direction": 4, "position": {"x": 6.5, "y": -0.5}},
+      {"name": "pipe-to-ground", "direction": 12, "position": {"x": 10.5, "y": -4.5}},
+      {"name": "pipe-to-ground", "direction": 4, "position": {"x": 14.5, "y": -4.5}},
+      {"name": "pipe-to-ground", "direction": 12, "position": {"x": 12.5, "y": -3.5}},
+      {"name": "pipe-to-ground", "direction": 4, "position": {"x": 16.5, "y": -3.5}},
+      {"name": "pipe-to-ground", "direction": 12, "position": {"x": -0.5, "y": 0.5}},
+      {"name": "pipe-to-ground", "direction": 4, "position": {"x": 1.5, "y": 0.5}},
+      {"name": "pipe-to-ground", "direction": 12, "position": {"x": 3.5, "y": 0.5}},
+      {"name": "pipe-to-ground", "direction": 4, "position": {"x": 7.5, "y": 0.5}},
+      {"name": "pipe-to-ground", "direction": 12, "position": {"x": 7.5, "y": 1.5}},
+      {"name": "pipe-to-ground", "direction": 12, "position": {"x": 9.5, "y": 0.5}},
+      {"name": "pipe-to-ground", "position": {"x": 14.5, "y": 1.5}},
+      {"name": "pipe-to-ground", "position": {"x": 15.5, "y": 6.5}},
+      {"name": "pipe-to-ground", "direction": 8, "position": {"x": 14.5, "y": 7.5}},
+      {"name": "pipe-to-ground", "direction": 8, "position": {"x": 15.5, "y": 7.5}},
+      {"name": "pipe-to-ground", "direction": 4, "position": {"x": 16.5, "y": 0.5}},
+      {"name": "pipe-to-ground", "direction": 4, "position": {"x": 17.5, "y": 1.5}},
+      {
+        "name": "pump",
+        "direction": 8,
+        "fluid_filter": "electrolyte",
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_condition": {"comparator": "<", "constant": 10000, "first_signal": {"name": "electrolyte", "type": "fluid"}}
+        },
+        "position": {"x": 7.5, "y": 8}
+      },
+      {
+        "name": "pump",
+        "direction": 8,
+        "fluid_filter": "lubricant",
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_condition": {"comparator": "<", "constant": 20000, "first_signal": {"name": "lubricant", "type": "fluid"}}
+        },
+        "position": {"x": 10.5, "y": 8}
+      },
+      {
+        "name": "pump",
+        "direction": 8,
+        "fluid_filter": "sulfuric-acid",
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_condition": {"comparator": "<", "constant": 20000, "first_signal": {"name": "sulfuric-acid", "type": "fluid"}}
+        },
+        "position": {"x": 13.5, "y": 8}
+      },
+      {
+        "name": "pump",
+        "fluid_filter": "electrolyte",
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "electrolyte", "type": "fluid"}}
+        },
+        "position": {"x": 8.5, "y": 14}
+      },
+      {
+        "name": "pump",
+        "direction": 8,
+        "fluid_filter": "electrolyte",
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "electrolyte", "type": "fluid"}}
+        },
+        "position": {"x": 9.5, "y": 14}
+      },
+      {
+        "name": "pump",
+        "fluid_filter": "lubricant",
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "lubricant", "type": "fluid"}}
+        },
+        "position": {"x": 11.5, "y": 14}
+      },
+      {
+        "name": "pump",
+        "direction": 8,
+        "fluid_filter": "lubricant",
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "lubricant", "type": "fluid"}}
+        },
+        "position": {"x": 12.5, "y": 14}
+      },
+      {
+        "name": "pump",
+        "fluid_filter": "sulfuric-acid",
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "sulfuric-acid", "type": "fluid"}}
+        },
+        "position": {"x": 14.5, "y": 14}
+      },
+      {
+        "name": "pump",
+        "direction": 8,
+        "fluid_filter": "sulfuric-acid",
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "sulfuric-acid", "type": "fluid"}}
+        },
+        "position": {"x": 15.5, "y": 14}
+      },
+      {
+        "name": "pump",
+        "direction": 8,
+        "fluid_filter": "water",
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_condition": {"comparator": "<", "constant": 10000, "first_signal": {"name": "water", "type": "fluid"}}
+        },
+        "position": {"x": 16.5, "y": 8}
+      },
+      {
+        "name": "pump",
+        "fluid_filter": "water",
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "water", "type": "fluid"}}
+        },
+        "position": {"x": 17.5, "y": 14}
+      },
+      {
+        "name": "pump",
+        "direction": 8,
+        "fluid_filter": "water",
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "water", "type": "fluid"}}
+        },
+        "position": {"x": 18.5, "y": 14}
+      },
+      {
+        "name": "requester-chest",
+        "position": {"x": 4.5, "y": 0.5},
+        "request_filters": {
+          "sections": [
+            {
+              "index": 1,
+              "filters": [
+                {"name": "stone", "comparator": "=", "count": 6, "index": 1, "quality": "normal"},
+                {"name": "holmium-ore", "comparator": "=", "count": 6, "index": 2, "quality": "normal"}
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "name": "requester-chest",
+        "position": {"x": 11.5, "y": 1.5},
+        "request_filters": {
+          "sections": [
+            {
+              "index": 1,
+              "filters": [{"name": "iron-plate", "comparator": "=", "count": 10, "index": 1, "quality": "normal"}]
+            }
+          ]
+        }
+      },
+      {
+        "name": "requester-chest",
+        "position": {"x": 19.5, "y": 3.5},
+        "request_filters": {
+          "sections": [
+            {
+              "index": 1,
+              "filters": [{"name": "ice", "comparator": "=", "count": 50, "index": 1, "quality": "normal"}]
+            }
+          ]
+        }
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 23.5, "y": 13.5},
+        "request_filters": {"request_from_buffers": true, "sections": [{"index": 1}]}
+      },
+      {
+        "name": "roboport",
+        "control_behavior": {"read_items_mode": 2},
+        "position": {"x": 24, "y": -2},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "roboport",
+        "position": {"x": 28, "y": -2},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "selector-combinator",
+        "direction": 8,
+        "control_behavior": {"operation": "quality-filter", "quality_filter": {"comparator": "=", "quality": "normal"}},
+        "position": {"x": 23.5, "y": 1}
+      },
+      {
+        "name": "selector-combinator",
+        "direction": 8,
+        "control_behavior": {"operation": "random", "random_update_interval": 60},
+        "position": {"x": 23.5, "y": 3}
+      },
+      {
+        "name": "selector-combinator",
+        "direction": 8,
+        "control_behavior": {"index_constant": 0, "operation": "select", "select_max": true},
+        "position": {"x": 24.5, "y": 5}
+      },
+      {"name": "steel-chest", "position": {"x": 25.5, "y": 13.5}},
+      {
+        "name": "storage-chest",
+        "control_behavior": {"circuit_condition_enabled": false},
+        "position": {"x": 6.5, "y": 2.5},
+        "request_filters": {
+          "sections": [
+            {
+              "index": 1,
+              "filters": [{"name": "holmium-plate", "comparator": "=", "count": 1, "index": 1, "quality": "normal"}]
+            }
+          ]
+        }
+      },
+      {
+        "name": "storage-chest",
+        "control_behavior": {"circuit_condition_enabled": false},
+        "position": {"x": 13.5, "y": 1.5},
+        "request_filters": {
+          "sections": [
+            {
+              "index": 1,
+              "filters": [{"name": "sulfur", "comparator": "=", "count": 1, "index": 1, "quality": "normal"}]
+            }
+          ]
+        }
+      },
+      {
+        "name": "storage-chest",
+        "position": {"x": 13.5, "y": 12.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "storage-chest",
+        "position": {"x": 13.5, "y": 13.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "storage-chest",
+        "position": {"x": 13.5, "y": 14.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "storage-chest",
+        "position": {"x": 16.5, "y": 12.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "storage-chest",
+        "position": {"x": 16.5, "y": 13.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "storage-chest",
+        "position": {"x": 16.5, "y": 14.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {"name": "storage-tank", "position": {"x": 8.5, "y": 10.5}},
+      {"name": "storage-tank", "position": {"x": 11.5, "y": 10.5}},
+      {"name": "storage-tank", "position": {"x": 14.5, "y": 10.5}},
+      {"name": "storage-tank", "position": {"x": 17.5, "y": 10.5}},
+      {"name": "substation", "position": {"x": 6, "y": 7}},
+      {"name": "substation", "position": {"x": 19, "y": 6}},
+      {"name": "substation", "position": {"x": 19, "y": 24}},
+      {"name": "substation", "position": {"x": 33, "y": 6}},
+      {"name": "substation", "position": {"x": 33, "y": 24}}
+    ],
+    "icons": [
+      {"index": 1, "signal": {"name": "signal-M", "type": "virtual"}},
+      {"index": 2, "signal": {"name": "fast-transport-belt"}}
+    ],
+    "wires": [
+      ["34,1", 1, "26.5,3.5", 1],
+      ["26.5,3.5", 2, "26,6.5", 2],
+      ["30.5,3.5", 2, "32,6.5", 2],
+      ["9,6", 2, "9,8", 2],
+      ["16,7", 2, "16,6", 2],
+      ["25,7", 1, "29,6.5", 1],
+      ["25,6", 2, "27,6.5", 2],
+      ["26,6.5", 3, "28,6.5", 1],
+      ["27,6.5", 4, "28,6.5", 2],
+      ["27,6.5", 4, "28,10.5", 2],
+      ["28,6.5", 4, "29,6.5", 2],
+      ["29,6.5", 1, "30,6.5", 1],
+      ["29,6.5", 2, "30,6.5", 2],
+      ["29,6.5", 3, "31,6.5", 3],
+      ["29,6.5", 3, "26,8.5", 1],
+      ["30,6.5", 1, "31,6.5", 1],
+      ["30,6.5", 4, "31,6.5", 2],
+      ["32,6.5", 4, "32,14.5", 4],
+      ["33,6.5", 1, "32,12.5", 3],
+      ["33,6.5", 3, "33,8.5", 1],
+      ["21,9", 2, "19,13.5", 2],
+      ["25,8", 1, "29,10.5", 1],
+      ["25,9", 1, "26,10.5", 3],
+      ["26,8.5", 3, "27,8.5", 1],
+      ["27,8.5", 2, "28,8.5", 2],
+      ["27,8.5", 3, "28,8.5", 3],
+      ["27,8.5", 3, "26,10.5", 1],
+      ["28,8.5", 1, "27,10.5", 3],
+      ["28,8.5", 2, "29,8.5", 2],
+      ["29,8.5", 1, "32,10.5", 3],
+      ["29,8.5", 2, "31,8.5", 4],
+      ["29,8.5", 2, "29,12.5", 4],
+      ["29,8.5", 3, "26,10.5", 3],
+      ["30,9", 2, "32,8.5", 4],
+      ["30,8", 2, "31,8.5", 2],
+      ["31,8.5", 2, "31,8.5", 4],
+      ["32,8.5", 2, "29,12.5", 2],
+      ["32,8.5", 4, "28,14.5", 2],
+      ["33,8.5", 3, "33,10.5", 1],
+      ["25,11", 2, "26,12.5", 2],
+      ["25,10", 1, "26,10.5", 3],
+      ["26,10.5", 2, "26,12.5", 2],
+      ["26,10.5", 3, "26,12.5", 1],
+      ["27,10.5", 1, "29,10.5", 3],
+      ["28,10.5", 1, "25,13", 1],
+      ["28,10.5", 1, "30,12.5", 3],
+      ["28,10.5", 4, "29,10.5", 2],
+      ["29,10.5", 1, "30,10.5", 1],
+      ["29,10.5", 2, "30,10.5", 2],
+      ["29,10.5", 3, "31,10.5", 3],
+      ["30,10.5", 1, "31,10.5", 1],
+      ["30,10.5", 4, "31,10.5", 2],
+      ["32,10.5", 1, "30,12.5", 3],
+      ["32,10.5", 4, "33,14.5", 2],
+      ["33,10.5", 3, "33,12.5", 1],
+      ["8.5,12.5", 5, "21.5,11.5", 5],
+      ["21.5,11.5", 5, "35.5,11.5", 5],
+      ["21.5,11.5", 5, "25,14", 5],
+      ["21.5,11.5", 5, "21.5,29.5", 5],
+      ["26,12.5", 2, "26,12.5", 4],
+      ["26,12.5", 2, "27,12.5", 2],
+      ["26,12.5", 4, "26,14.5", 2],
+      ["27,12.5", 2, "29,12.5", 2],
+      ["27,12.5", 4, "28,12.5", 2],
+      ["28,12.5", 3, "25,14", 1],
+      ["28,12.5", 4, "25,14", 2],
+      ["28,12.5", 4, "26,21", 2],
+      ["29,12.5", 3, "23,14", 1],
+      ["29,12.5", 4, "28,22", 2],
+      ["30,12.5", 2, "31,12.5", 4],
+      ["31,12.5", 2, "31,14.5", 4],
+      ["32,12.5", 1, "30,14.5", 1],
+      ["32,12.5", 3, "31,14.5", 1],
+      ["33,12.5", 3, "33,14.5", 1],
+      ["35.5,11.5", 5, "35.5,29.5", 5],
+      ["10,13.5", 2, "11,16", 2],
+      ["14,13.5", 1, "15,13.5", 1],
+      ["14,13.5", 2, "15,13.5", 2],
+      ["14,13.5", 3, "15,13.5", 3],
+      ["14,13.5", 4, "15,13.5", 4],
+      ["13,13.5", 2, "14,16", 2],
+      ["15,13.5", 1, "15,13.5", 3],
+      ["15,13.5", 1, "20,13.5", 3],
+      ["15,13.5", 2, "16,13.5", 2],
+      ["15,13.5", 4, "25,15", 2],
+      ["16,13.5", 2, "17,16", 2],
+      ["20,13.5", 1, "21,13.5", 1],
+      ["20,13.5", 2, "21,13.5", 4],
+      ["19,13.5", 2, "20,16", 2],
+      ["21,13.5", 1, "23,14", 1],
+      ["23,14", 2, "29,14.5", 2],
+      ["23,14", 2, "21,19.5", 2],
+      ["25,14", 2, "26,21", 2],
+      ["25,14", 5, "25,15", 5],
+      ["25,15", 2, "32,14.5", 4],
+      ["25,15", 2, "25,21", 2],
+      ["26,14.5", 1, "26,21", 1],
+      ["26,14.5", 2, "27,14.5", 4],
+      ["26,14.5", 4, "27,14.5", 2],
+      ["28,14.5", 3, "29,14.5", 1],
+      ["29,14.5", 3, "30,14.5", 1],
+      ["30,14.5", 2, "32,14.5", 2],
+      ["30,14.5", 4, "26,19", 2],
+      ["31,14.5", 2, "32,14.5", 4],
+      ["32,14.5", 2, "33,14.5", 4],
+      ["32,14.5", 2, "32.5,22", 4],
+      ["32,14.5", 4, "25,21", 2],
+      ["33,14.5", 3, "28,20", 1],
+      ["14,16", 1, "17,16", 1],
+      ["14,16", 2, "17,16", 2],
+      ["17,16", 1, "20,16", 1],
+      ["17,16", 2, "20,16", 2],
+      ["27,19", 2, "28,19", 2],
+      ["28,18", 1, "26,21", 1],
+      ["28,18", 2, "26,21", 2],
+      ["28,19", 2, "29,19", 2],
+      ["28,19", 2, "28,20", 2],
+      ["30,19", 2, "29,19", 2],
+      ["30,19", 2, "30,22.5", 4],
+      ["30,19", 2, "32.5,22", 2],
+      ["11,19.5", 2, "12,19.5", 2],
+      ["14,19.5", 2, "15,19.5", 2],
+      ["15,19.5", 2, "17,19.5", 2],
+      ["17,19.5", 2, "18,19.5", 2],
+      ["18,19.5", 2, "20,19.5", 2],
+      ["20,19.5", 2, "21,19.5", 2],
+      ["26,21", 1, "28,24", 1],
+      ["26,21", 2, "26.5,20", 2],
+      ["26,21", 2, "28,24", 2],
+      ["26.5,20", 3, "27,24", 1],
+      ["30,20.5", 1, "28,22", 1],
+      ["30,20.5", 4, "32.5,22", 4],
+      ["25.5,23", 2, "27,24", 2],
+      ["25.5,23", 4, "27,25", 2],
+      ["30,22.5", 2, "29,24", 2],
+      ["30,22.5", 4, "29,25", 2],
+      ["27,25", 2, "29,25", 2],
+      ["27,24", 1, "29,24", 1],
+      ["21.5,29.5", 5, "35.5,29.5", 5]
+    ]
+  }
+}

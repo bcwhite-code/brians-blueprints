@@ -1,0 +1,235 @@
+{
+  "index": 2,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "Fast Fulgora Mall",
+    "description": "Force-build this over the \"red\" version of the Fulgora mall to greatly increase its output speed.  And greatly increase its power consumption!",
+    "shift_x": 71,
+    "shift_y": 168,
+    "version": 562949954797573,
+    "entities": [
+      {
+        "name": "assembling-machine-3",
+        "mirror": true,
+        "control_behavior": {"read_ingredients": true, "set_recipe": true},
+        "items": [
+          {
+            "id": {"name": "efficiency-module-2"},
+            "items": {
+              "in_inventory": [
+                {"inventory": 4, "stack": 0},
+                {"inventory": 4, "stack": 1},
+                {"inventory": 4, "stack": 2},
+                {"inventory": 4, "stack": 3}
+              ]
+            }
+          }
+        ],
+        "position": {"x": 0.5, "y": -2.5}
+      },
+      {
+        "name": "assembling-machine-3",
+        "mirror": true,
+        "control_behavior": {
+          "read_contents": true,
+          "read_working": true,
+          "set_recipe": true,
+          "working_signal": {"name": "signal-check", "type": "virtual"}
+        },
+        "items": [
+          {
+            "id": {"name": "efficiency-module-2"},
+            "items": {
+              "in_inventory": [
+                {"inventory": 4, "stack": 0},
+                {"inventory": 4, "stack": 1},
+                {"inventory": 4, "stack": 2},
+                {"inventory": 4, "stack": 3}
+              ]
+            }
+          }
+        ],
+        "position": {"x": 5.5, "y": 5.5}
+      },
+      {
+        "name": "beacon",
+        "items": [
+          {
+            "id": {"name": "speed-module-2"},
+            "items": {"in_inventory": [{"inventory": 1, "stack": 0}, {"inventory": 1, "stack": 1}]}
+          }
+        ],
+        "position": {"x": 0.5, "y": 0.5}
+      },
+      {
+        "name": "beacon",
+        "items": [
+          {
+            "id": {"name": "speed-module-2"},
+            "items": {"in_inventory": [{"inventory": 1, "stack": 0}, {"inventory": 1, "stack": 1}]}
+          }
+        ],
+        "position": {"x": 3.5, "y": 0.5}
+      },
+      {
+        "name": "beacon",
+        "items": [
+          {
+            "id": {"name": "speed-module-2"},
+            "items": {"in_inventory": [{"inventory": 1, "stack": 0}, {"inventory": 1, "stack": 1}]}
+          }
+        ],
+        "position": {"x": 0.5, "y": 3.5}
+      },
+      {
+        "name": "beacon",
+        "items": [
+          {
+            "id": {"name": "speed-module-2"},
+            "items": {"in_inventory": [{"inventory": 1, "stack": 0}, {"inventory": 1, "stack": 1}]}
+          }
+        ],
+        "position": {"x": 7.5, "y": 0.5}
+      },
+      {
+        "name": "beacon",
+        "items": [
+          {
+            "id": {"name": "speed-module-2"},
+            "items": {"in_inventory": [{"inventory": 1, "stack": 0}, {"inventory": 1, "stack": 1}]}
+          }
+        ],
+        "position": {"x": 0.5, "y": 7.5}
+      },
+      {
+        "name": "beacon",
+        "items": [
+          {
+            "id": {"name": "speed-module-2"},
+            "items": {"in_inventory": [{"inventory": 1, "stack": 0}, {"inventory": 1, "stack": 1}]}
+          }
+        ],
+        "position": {"x": 10.5, "y": 0.5}
+      },
+      {
+        "name": "beacon",
+        "items": [
+          {
+            "id": {"name": "speed-module-2"},
+            "items": {"in_inventory": [{"inventory": 1, "stack": 0}, {"inventory": 1, "stack": 1}]}
+          }
+        ],
+        "position": {"x": 10.5, "y": 3.5}
+      },
+      {
+        "name": "beacon",
+        "items": [
+          {
+            "id": {"name": "speed-module-2"},
+            "items": {"in_inventory": [{"inventory": 1, "stack": 0}, {"inventory": 1, "stack": 1}]}
+          }
+        ],
+        "position": {"x": 10.5, "y": 7.5}
+      },
+      {
+        "name": "beacon",
+        "items": [
+          {
+            "id": {"name": "speed-module-2"},
+            "items": {"in_inventory": [{"inventory": 1, "stack": 0}, {"inventory": 1, "stack": 1}]}
+          }
+        ],
+        "position": {"x": 0.5, "y": 10.5}
+      },
+      {
+        "name": "beacon",
+        "items": [
+          {
+            "id": {"name": "speed-module-2"},
+            "items": {"in_inventory": [{"inventory": 1, "stack": 0}, {"inventory": 1, "stack": 1}]}
+          }
+        ],
+        "position": {"x": 3.5, "y": 10.5}
+      },
+      {
+        "name": "beacon",
+        "items": [
+          {
+            "id": {"name": "speed-module-2"},
+            "items": {"in_inventory": [{"inventory": 1, "stack": 0}, {"inventory": 1, "stack": 1}]}
+          }
+        ],
+        "position": {"x": 7.5, "y": 10.5}
+      },
+      {
+        "name": "beacon",
+        "items": [
+          {
+            "id": {"name": "speed-module-2"},
+            "items": {"in_inventory": [{"inventory": 1, "stack": 0}, {"inventory": 1, "stack": 1}]}
+          }
+        ],
+        "position": {"x": 10.5, "y": 10.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 4,
+        "player_description": "get assembler items, and isloation",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "signal-each", "type": "virtual"}}],
+            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 10, "y": 5.5}
+      },
+      {
+        "name": "express-transport-belt",
+        "direction": 12,
+        "control_behavior": {"circuit_contents_read_mode": 2, "circuit_read_hand_contents": true},
+        "position": {"x": 7.5, "y": 2.5}
+      },
+      {"name": "express-transport-belt", "direction": 4, "position": {"x": 2.5, "y": 7.5}},
+      {"name": "express-transport-belt", "direction": 12, "position": {"x": 8.5, "y": 2.5}},
+      {"name": "express-transport-belt", "position": {"x": 8.5, "y": 3.5}},
+      {"name": "express-transport-belt", "position": {"x": 8.5, "y": 4.5}},
+      {"name": "express-transport-belt", "position": {"x": 8.5, "y": 5.5}},
+      {"name": "express-transport-belt", "position": {"x": 8.5, "y": 6.5}},
+      {"name": "express-transport-belt", "position": {"x": 8.5, "y": 7.5}},
+      {"name": "express-transport-belt", "position": {"x": 2.5, "y": 8.5}},
+      {"name": "express-transport-belt", "direction": 12, "position": {"x": 3.5, "y": 8.5}},
+      {
+        "name": "express-transport-belt",
+        "direction": 12,
+        "control_behavior": {"circuit_contents_read_mode": 2, "circuit_read_hand_contents": true},
+        "position": {"x": 4.5, "y": 8.5}
+      },
+      {"name": "express-transport-belt", "direction": 4, "position": {"x": 5.5, "y": 8.5}},
+      {
+        "name": "express-transport-belt",
+        "direction": 4,
+        "control_behavior": {"circuit_contents_read_mode": 0, "circuit_read_hand_contents": false},
+        "position": {"x": 6.5, "y": 8.5}
+      },
+      {"name": "express-transport-belt", "direction": 4, "position": {"x": 7.5, "y": 8.5}},
+      {"name": "express-transport-belt", "position": {"x": 8.5, "y": 8.5}},
+      {
+        "name": "express-underground-belt",
+        "direction": 4,
+        "type": "input",
+        "position": {"x": 3.5, "y": 7.5}
+      },
+      {
+        "name": "express-underground-belt",
+        "direction": 4,
+        "type": "output",
+        "position": {"x": 7.5, "y": 7.5}
+      }
+    ],
+    "icons": [
+      {"index": 1, "signal": {"name": "signal-M", "type": "virtual"}},
+      {"index": 2, "signal": {"name": "express-transport-belt"}}
+    ],
+    "wires": [["9.5,8", 2, "7,5", 2], ["4,11", 2, "6,11", 2]]
+  }
+}
