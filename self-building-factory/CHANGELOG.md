@@ -2,6 +2,12 @@
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.0.37
+
+- Fix Supply station of Fulgora recycling.
+- Improve performance of Fulgoa mall.
+- Add buffering of science, activated with arrival of Space science, to Science block.
+
 ## v5.0.36
 
 - Bypass "finished" speaker for signal in Construction Site so will work even without it.
