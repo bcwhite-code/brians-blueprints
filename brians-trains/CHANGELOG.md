@@ -4,6 +4,12 @@ History, in brief.
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.0.31
+
+- Removed station configs from all "rail for stations".
+- Update Cybersyn requester headers to support multiple item requests.
+- Removed obsolete fueling hubs.
+
 ## v5.0.30
 
 - Change fuel station in Cybersyn Depot Hub to remove specialized fuel train.

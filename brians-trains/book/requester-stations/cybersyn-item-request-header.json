@@ -6,22 +6,8 @@
     "description": "1) Create a requester station body first.\n2) Then add Cybersyn head.\n3) Wire red & green from big power pole to train grid. (optional)\n4) Configure in the REQ combinator by changing the amount of the desired item type with the NEGATIVE maximum amount that should be held locally.\n\nThe requested amount must be such that a full request from empty cannot overload the tracks so set the amount to be no more than\n\n    item-stack-size * 40 * train-cars * (stacker-tracks + 2) - 1\n",
     "shift_x": -881,
     "shift_y": -181,
-    "version": 562949954404356,
+    "version": 562949954797573,
     "entities": [
-      {
-        "name": "arithmetic-combinator",
-        "direction": 4,
-        "player_description": "flip input, set filter",
-        "control_behavior": {
-          "arithmetic_conditions": {
-            "operation": "*",
-            "second_constant": -1,
-            "first_signal": {"name": "signal-each", "type": "virtual"},
-            "output_signal": {"name": "signal-each", "type": "virtual"}
-          }
-        },
-        "position": {"x": 7, "y": 2.5}
-      },
       {
         "name": "arithmetic-combinator",
         "control_behavior": {
@@ -86,6 +72,35 @@
         },
         "position": {"x": 4, "y": 2.5}
       },
+      {
+        "name": "decider-combinator",
+        "direction": 4,
+        "player_description": "Only unload valid requests.",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "first_signal": {"name": "signal-each", "type": "virtual"},
+                "first_signal_networks": {"green": false, "red": true}
+              },
+              {
+                "comparator": ">",
+                "compare_type": "and",
+                "first_signal": {"name": "signal-each", "type": "virtual"},
+                "first_signal_networks": {"green": true, "red": false}
+              }
+            ],
+            "outputs": [
+              {
+                "copy_count_from_input": false,
+                "networks": {"green": false, "red": true},
+                "signal": {"name": "signal-each", "type": "virtual"}
+              }
+            ]
+          }
+        },
+        "position": {"x": 7, "y": 2.5}
+      },
       {"name": "medium-electric-pole", "position": {"x": 3.5, "y": 0.5}},
       {"name": "medium-electric-pole", "position": {"x": 8.5, "y": 2.5}},
       {"name": "medium-electric-pole", "position": {"x": 8.5, "y": 5.5}},
@@ -123,6 +138,7 @@
       ["3.5,0.5", 2, "8.5,2.5", 2],
       ["3.5,0.5", 5, "8.5,2.5", 5],
       ["2,2", 1, "4,2.5", 3],
+      ["2,2", 2, "7,2.5", 2],
       ["4,2.5", 1, "4.5,1.5", 1],
       ["4,2.5", 1, "7,2.5", 1],
       ["4,2.5", 1, "5.5,6", 3],
