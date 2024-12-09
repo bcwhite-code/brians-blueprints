@@ -2,6 +2,12 @@
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.0.38
+
+- Updated Rocketry block with multiple cargo rockets (still WIP). Force-build will not update.
+- Add small requests for guns and lasers because they'll be needed for ships.
+- Add new ship: The UPS (Universal Pack Ship)
+
 ## v5.0.37
 
 - Fix Supply station of Fulgora recycling.
