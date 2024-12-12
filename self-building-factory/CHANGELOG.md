@@ -2,6 +2,12 @@
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.0.39
+
+- Fix stall of red science when yellow is behind in Science block.
+- Enable all weapons in Red Mall.
+- Add Vulcanus science rocket.
+
 ## v5.0.38
 
 - Updated Rocketry block with multiple cargo rockets (still WIP). Force-build will not update.
