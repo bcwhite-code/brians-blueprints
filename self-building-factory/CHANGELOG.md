@@ -2,6 +2,12 @@
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.0.40
+
+- Add requester chest for artillery to Red Mall.
+- Fix BOM for Refinery construction.
+- Fix Home to not completely exclude depleted nuclear fuel cell trains.
+
 ## v5.0.39
 
 - Fix stall of red science when yellow is behind in Science block.

@@ -957,6 +957,28 @@
       },
       {
         "name": "constant-combinator",
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "depleted-uranium-fuel-cell",
+                    "comparator": "=",
+                    "count": -1,
+                    "index": 1,
+                    "quality": "normal"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 43.5, "y": 124.5}
+      },
+      {
+        "name": "constant-combinator",
         "direction": 12,
         "control_behavior": {
           "sections": {
@@ -991,24 +1013,7 @@
       {
         "name": "constant-combinator",
         "direction": 8,
-        "control_behavior": {
-          "sections": {
-            "sections": [
-              {
-                "index": 1,
-                "filters": [
-                  {
-                    "name": "depleted-uranium-fuel-cell",
-                    "comparator": "=",
-                    "count": -2147483648,
-                    "index": 1,
-                    "quality": "normal"
-                  }
-                ]
-              }
-            ]
-          }
-        },
+        "control_behavior": {"sections": {"sections": [{"index": 1}]}},
         "position": {"x": 53.5, "y": 119.5}
       },
       {
@@ -4154,6 +4159,12 @@
         "enable_logistics_while_moving": false,
         "orientation": 0,
         "color": {"a": 0.49803921580314636, "b": 0, "g": 1, "r": 1},
+        "items": [
+          {
+            "id": {"name": "nuclear-fuel"},
+            "items": {"in_inventory": [{"inventory": 1, "stack": 1}, {"inventory": 1, "stack": 2}]}
+          }
+        ],
         "position": {"x": 12, "y": 95.00390625}
       },
       {
@@ -4169,6 +4180,19 @@
         "enable_logistics_while_moving": false,
         "orientation": 0,
         "color": {"a": 0.49803921580314636, "b": 0, "g": 1, "r": 1},
+        "items": [
+          {
+            "id": {"name": "nuclear-fuel"},
+            "items": {
+              "in_inventory": [
+                {"inventory": 1, "stack": 1},
+                {"inventory": 1, "stack": 2},
+                {"inventory": 1, "stack": 1},
+                {"inventory": 1, "stack": 2}
+              ]
+            }
+          }
+        ],
         "position": {"x": 12, "y": 130}
       },
       {"name": "long-handed-inserter", "direction": 12, "position": {"x": 183.5, "y": 25.5}},
@@ -8268,7 +8292,7 @@
         }
       },
       {
-        "locomotives": ["25.5,108.5", "25.5,143.5,9106"],
+        "locomotives": ["25.5,108.5", "25.5,143.5,430d"],
         "schedule": {
           "records": [
             {"station": "-Home-"},
@@ -8289,8 +8313,8 @@
       {"back": "25.5,122.5", "front": "25.5,108.5", "stock": "25.5,115.5,8d76"},
       {"back": "25.5,129.5,7a90", "front": "25.5,115.5,8d76", "stock": "25.5,122.5"},
       {"back": "25.5,136.5", "front": "25.5,122.5", "stock": "25.5,129.5,7a90"},
-      {"back": "25.5,143.5,9106", "front": "25.5,129.5,7a90", "stock": "25.5,136.5"},
-      {"front": "25.5,136.5", "stock": "25.5,143.5,9106"}
+      {"back": "25.5,143.5,430d", "front": "25.5,129.5,7a90", "stock": "25.5,136.5"},
+      {"front": "25.5,136.5", "stock": "25.5,143.5,430d"}
     ],
     "wires": [
       ["15.5,15.5", 1, "39.5,15.5", 1],
@@ -8840,6 +8864,7 @@
       ["99.5,136", 4, "101.5,136", 2],
       ["101.5,136", 1, "103.5,136", 1],
       ["101.5,136", 4, "103.5,136", 2],
+      ["57,138", 2, "58,138", 2],
       ["58,136.5", 2, "59,136.5", 4],
       ["58,136.5", 4, "58,138", 2],
       ["58,138", 2, "59,138", 2],
