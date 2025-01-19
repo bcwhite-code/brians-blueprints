@@ -2,6 +2,15 @@
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.0.41
+
+- Do request-exclusion in HOME a different way and tag different train lengths near speakers.
+- Fix some problems in the agricultural-science print, including bottlenecks and fuel output.
+- Removed unnecessary pumps from 10GW reactor.
+- Turn on crafting of turrets in Red Mall (since needed for space travel).
+- Update basic space science to support full 45/min.
+- Update The UPS (ship) to buffer more water, use less ammo, jettison spoilage, and schedules.
+
 ## v5.0.40
 
 - Add requester chest for artillery to Red Mall.

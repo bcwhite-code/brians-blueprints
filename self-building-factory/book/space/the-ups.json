@@ -3,12 +3,11 @@
   "blueprint": {
     "item": "blueprint",
     "label": "The UPS",
-    "description": "Universal Pack Ship\nFor delivering science packs from other inner planets.\nNuclear powered so it works even when far from the sun.",
+    "description": "Universal Pack Ship\nFor delivering science packs from other inner planets.\nNuclear powered so it works even when far from the sun.\n\nYou may need to postpone construction of the laser turrets until the reactor is operational.",
     "shift_x": -10,
     "shift_y": -17,
     "version": 562949955256321,
     "entities": [
-      {"name": "accumulator", "position": {"x": 0, "y": 14}},
       {"name": "accumulator", "position": {"x": 21, "y": 14}},
       {"name": "accumulator", "position": {"x": 0, "y": 16}},
       {"name": "accumulator", "position": {"x": 2, "y": 16}},
@@ -66,12 +65,28 @@
         "name": "chemical-plant",
         "recipe": "thruster-oxidizer",
         "recipe_quality": "normal",
+        "items": [
+          {
+            "id": {"name": "speed-module-2"},
+            "items": {
+              "in_inventory": [{"inventory": 4, "stack": 0}, {"inventory": 4, "stack": 1}, {"inventory": 4, "stack": 2}]
+            }
+          }
+        ],
         "position": {"x": 4.5, "y": 16.5}
       },
       {
         "name": "chemical-plant",
         "recipe": "thruster-fuel",
         "recipe_quality": "normal",
+        "items": [
+          {
+            "id": {"name": "speed-module-2"},
+            "items": {
+              "in_inventory": [{"inventory": 4, "stack": 0}, {"inventory": 4, "stack": 1}, {"inventory": 4, "stack": 2}]
+            }
+          }
+        ],
         "position": {"x": 16.5, "y": 16.5}
       },
       {
@@ -220,13 +235,13 @@
       {"name": "gun-turret", "position": {"x": 0, "y": 1}},
       {"name": "gun-turret", "position": {"x": 2, "y": 1}},
       {"name": "gun-turret", "position": {"x": 1, "y": 3}},
-      {"name": "gun-turret", "position": {"x": 4, "y": 1}},
       {"name": "gun-turret", "position": {"x": 6, "y": 1}},
+      {"name": "gun-turret", "position": {"x": 5, "y": 3}},
       {"name": "gun-turret", "position": {"x": 8, "y": 1}},
       {"name": "gun-turret", "position": {"x": 13, "y": 1}},
       {"name": "gun-turret", "position": {"x": 15, "y": 1}},
-      {"name": "gun-turret", "position": {"x": 17, "y": 1}},
       {"name": "gun-turret", "position": {"x": 19, "y": 1}},
+      {"name": "gun-turret", "position": {"x": 16, "y": 3}},
       {"name": "gun-turret", "position": {"x": 21, "y": 1}},
       {"name": "gun-turret", "position": {"x": 23, "y": 1}},
       {"name": "gun-turret", "position": {"x": 20, "y": 3}},
@@ -237,21 +252,27 @@
         "override_stack_size": 1,
         "use_filters": true,
         "control_behavior": {"circuit_set_filters": true},
+        "filters": [{"name": "oxide-asteroid-chunk", "comparator": "=", "index": 1, "quality": "normal"}],
         "position": {"x": -1.5, "y": 2.5}
       },
       {"name": "inserter", "direction": 8, "position": {"x": 0.5, "y": 4.5}},
+      {"name": "inserter", "direction": 8, "position": {"x": 4.5, "y": 4.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 4.5, "y": 6.5}},
       {
         "name": "inserter",
         "override_stack_size": 1,
         "use_filters": true,
         "control_behavior": {"circuit_set_filters": true},
+        "filters": [
+          {"name": "metallic-asteroid-chunk", "comparator": "=", "index": 1, "quality": "normal"},
+          {"name": "oxide-asteroid-chunk", "comparator": "=", "index": 2, "quality": "normal"}
+        ],
         "position": {"x": 10.5, "y": 2.5}
       },
       {"name": "inserter", "direction": 8, "position": {"x": 2.5, "y": 11.5}},
       {"name": "inserter", "direction": 12, "position": {"x": 4.5, "y": 8.5}},
       {"name": "inserter", "direction": 8, "position": {"x": 7.5, "y": 9.5}},
-      {"name": "inserter", "direction": 12, "position": {"x": 4.5, "y": 11.5}},
+      {"name": "inserter", "direction": 12, "position": {"x": 4.5, "y": 12.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 8.5, "y": 8.5}},
       {"name": "inserter", "direction": 8, "position": {"x": 15.5, "y": 9.5}},
       {"name": "inserter", "direction": 8, "position": {"x": 15.5, "y": 11.5}},
@@ -261,8 +282,10 @@
         "override_stack_size": 1,
         "use_filters": true,
         "control_behavior": {"circuit_set_filters": true},
+        "filters": [{"name": "oxide-asteroid-chunk", "comparator": "=", "index": 1, "quality": "normal"}],
         "position": {"x": 22.5, "y": 2.5}
       },
+      {"name": "inserter", "direction": 8, "position": {"x": 16.5, "y": 4.5}},
       {"name": "inserter", "direction": 8, "position": {"x": 20.5, "y": 4.5}},
       {
         "name": "inserter",
@@ -289,23 +312,29 @@
       },
       {"name": "inserter", "direction": 4, "position": {"x": 20.5, "y": 12.5}},
       {"name": "laser-turret", "position": {"x": -4, "y": 6}},
-      {"name": "laser-turret", "position": {"x": 5, "y": 3}},
-      {"name": "laser-turret", "position": {"x": 16, "y": 3}},
+      {"name": "laser-turret", "position": {"x": 4, "y": 1}},
+      {"name": "laser-turret", "position": {"x": 17, "y": 1}},
       {"name": "laser-turret", "position": {"x": 25, "y": 6}},
       {"name": "laser-turret", "position": {"x": 2, "y": 20}},
       {"name": "laser-turret", "position": {"x": 19, "y": 20}},
       {"name": "long-handed-inserter", "direction": 8, "position": {"x": -1.5, "y": 3.5}},
       {"name": "long-handed-inserter", "direction": 8, "position": {"x": -0.5, "y": 3.5}},
       {"name": "long-handed-inserter", "direction": 8, "position": {"x": 2.5, "y": 3.5}},
-      {"name": "long-handed-inserter", "direction": 8, "position": {"x": 3.5, "y": 3.5}},
       {"name": "long-handed-inserter", "direction": 8, "position": {"x": 6.5, "y": 3.5}},
       {"name": "long-handed-inserter", "direction": 8, "position": {"x": 7.5, "y": 3.5}},
       {"name": "long-handed-inserter", "direction": 8, "position": {"x": 13.5, "y": 3.5}},
       {"name": "long-handed-inserter", "direction": 8, "position": {"x": 14.5, "y": 3.5}},
       {"name": "long-handed-inserter", "direction": 4, "position": {"x": 12.5, "y": 7.5}},
       {"name": "long-handed-inserter", "direction": 8, "position": {"x": 15.5, "y": 6.5}},
+      {"name": "long-handed-inserter", "direction": 4, "position": {"x": 0.5, "y": 13.5}},
       {"name": "long-handed-inserter", "position": {"x": 3.5, "y": 13.5}},
-      {"name": "long-handed-inserter", "direction": 8, "position": {"x": 17.5, "y": 3.5}},
+      {
+        "name": "long-handed-inserter",
+        "direction": 4,
+        "use_filters": true,
+        "filters": [{"name": "spoilage", "comparator": "=", "index": 1, "quality": "normal"}],
+        "position": {"x": 4.5, "y": 13.5}
+      },
       {"name": "long-handed-inserter", "direction": 8, "position": {"x": 18.5, "y": 3.5}},
       {"name": "long-handed-inserter", "direction": 8, "position": {"x": 21.5, "y": 3.5}},
       {"name": "long-handed-inserter", "direction": 8, "position": {"x": 22.5, "y": 3.5}},
@@ -334,14 +363,27 @@
         },
         "position": {"x": 10.5, "y": 26.5}
       },
+      {"name": "pipe", "position": {"x": -0.5, "y": 13.5}},
+      {"name": "pipe", "position": {"x": -0.5, "y": 14.5}},
       {"name": "pipe", "position": {"x": -0.5, "y": 21.5}},
       {"name": "pipe", "position": {"x": -0.5, "y": 22.5}},
       {"name": "pipe", "position": {"x": -0.5, "y": 23.5}},
       {"name": "pipe", "position": {"x": -0.5, "y": 24.5}},
       {"name": "pipe", "position": {"x": -0.5, "y": 25.5}},
+      {"name": "pipe", "position": {"x": 1.5, "y": 11.5}},
+      {"name": "pipe", "position": {"x": 1.5, "y": 12.5}},
+      {"name": "pipe", "position": {"x": 1.5, "y": 13.5}},
+      {"name": "pipe", "position": {"x": 0.5, "y": 14.5}},
+      {"name": "pipe", "position": {"x": 1.5, "y": 14.5}},
+      {"name": "pipe", "position": {"x": 2.5, "y": 14.5}},
       {"name": "pipe", "position": {"x": 3.5, "y": 14.5}},
       {"name": "pipe", "position": {"x": 4.5, "y": 14.5}},
+      {"name": "pipe", "position": {"x": 11.5, "y": 9.5}},
+      {"name": "pipe", "position": {"x": 11.5, "y": 10.5}},
       {"name": "pipe", "position": {"x": 11.5, "y": 11.5}},
+      {"name": "pipe", "position": {"x": 8.5, "y": 12.5}},
+      {"name": "pipe", "position": {"x": 9.5, "y": 12.5}},
+      {"name": "pipe", "position": {"x": 10.5, "y": 12.5}},
       {"name": "pipe", "position": {"x": 11.5, "y": 12.5}},
       {"name": "pipe", "position": {"x": 12.5, "y": 12.5}},
       {"name": "pipe", "position": {"x": 13.5, "y": 12.5}},
@@ -352,6 +394,9 @@
       {"name": "pipe", "position": {"x": 16.5, "y": 13.5}},
       {"name": "pipe", "position": {"x": 17.5, "y": 13.5}},
       {"name": "pipe", "position": {"x": 18.5, "y": 13.5}},
+      {"name": "pipe", "position": {"x": 19.5, "y": 13.5}},
+      {"name": "pipe", "position": {"x": 16.5, "y": 14.5}},
+      {"name": "pipe", "position": {"x": 19.5, "y": 14.5}},
       {"name": "pipe", "position": {"x": 3.5, "y": 21.5}},
       {"name": "pipe", "position": {"x": 3.5, "y": 22.5}},
       {"name": "pipe", "position": {"x": 3.5, "y": 23.5}},
@@ -362,6 +407,7 @@
       {"name": "pipe", "position": {"x": 9.5, "y": 21.5}},
       {"name": "pipe", "position": {"x": 10.5, "y": 21.5}},
       {"name": "pipe", "position": {"x": 11.5, "y": 21.5}},
+      {"name": "pipe", "position": {"x": 8.5, "y": 23.5}},
       {"name": "pipe", "position": {"x": 12.5, "y": 21.5}},
       {"name": "pipe", "position": {"x": 13.5, "y": 21.5}},
       {"name": "pipe", "position": {"x": 14.5, "y": 21.5}},
@@ -376,6 +422,7 @@
       {"name": "pipe", "position": {"x": 17.5, "y": 21.5}},
       {"name": "pipe", "position": {"x": 16.5, "y": 22.5}},
       {"name": "pipe", "position": {"x": 16.5, "y": 23.5}},
+      {"name": "pipe", "position": {"x": 18.5, "y": 22.5}},
       {"name": "pipe", "position": {"x": 18.5, "y": 23.5}},
       {"name": "pipe", "position": {"x": 16.5, "y": 24.5}},
       {"name": "pipe", "position": {"x": 16.5, "y": 25.5}},
@@ -383,7 +430,6 @@
       {"name": "pipe", "position": {"x": 16.5, "y": 28.5}},
       {"name": "pipe", "position": {"x": 16.5, "y": 29.5}},
       {"name": "pipe-to-ground", "direction": 12, "position": {"x": 5.5, "y": 14.5}},
-      {"name": "pipe-to-ground", "direction": 4, "position": {"x": 10.5, "y": 12.5}},
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 14.5, "y": 14.5}},
       {"name": "pipe-to-ground", "position": {"x": 18.5, "y": 14.5}},
       {"name": "pipe-to-ground", "direction": 12, "position": {"x": 0.5, "y": 21.5}},
@@ -395,8 +441,8 @@
       {"name": "pipe-to-ground", "direction": 8, "position": {"x": 4.5, "y": 28.5}},
       {"name": "pipe-to-ground", "direction": 12, "position": {"x": 5.5, "y": 29.5}},
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 15.5, "y": 29.5}},
+      {"name": "pipe-to-ground", "direction": 8, "position": {"x": 18.5, "y": 21.5}},
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 17.5, "y": 23.5}},
-      {"name": "pipe-to-ground", "direction": 8, "position": {"x": 18.5, "y": 22.5}},
       {"name": "solar-panel", "position": {"x": 9.5, "y": 10.5}},
       {"name": "solar-panel", "position": {"x": 1.5, "y": 23.5}},
       {"name": "solar-panel", "position": {"x": 10.5, "y": 30.5}},
@@ -404,6 +450,7 @@
       {
         "name": "space-platform-hub",
         "request_missing_construction_materials": true,
+        "control_behavior": {"read_contents": false},
         "position": {"x": 10, "y": 17},
         "request_filters": {
           "request_from_buffers": true,
@@ -413,16 +460,58 @@
               "active": false,
               "index": 2,
               "filters": [
-                {"name": "repair-pack", "comparator": "=", "count": 50, "index": 1, "quality": "normal"},
-                {"name": "stone-wall", "comparator": "=", "count": 20, "index": 2, "quality": "normal"},
-                {"name": "gun-turret", "comparator": "=", "count": 5, "index": 3, "quality": "normal"},
-                {"name": "uranium-fuel-cell", "comparator": "=", "count": 4, "index": 9, "quality": "normal"}
+                {"name": "repair-pack", "comparator": "=", "count": 150, "index": 1, "quality": "normal"},
+                {"name": "stone-wall", "comparator": "=", "count": 100, "index": 2, "quality": "normal"},
+                {
+                  "name": "gun-turret",
+                  "comparator": "=",
+                  "count": 10,
+                  "index": 3,
+                  "minimum_delivery_count": 10,
+                  "quality": "normal"
+                },
+                {
+                  "name": "space-platform-foundation",
+                  "comparator": "=",
+                  "count": 20,
+                  "index": 4,
+                  "minimum_delivery_count": 30,
+                  "quality": "normal"
+                },
+                {"name": "uranium-fuel-cell", "comparator": "=", "count": 20, "index": 9, "quality": "normal"}
+              ]
+            },
+            {
+              "active": false,
+              "index": 3,
+              "filters": [
+                {
+                  "name": "electromagnetic-science-pack",
+                  "comparator": "=",
+                  "count": 1000,
+                  "index": 1,
+                  "quality": "normal"
+                },
+                {
+                  "name": "metallurgic-science-pack",
+                  "comparator": "=",
+                  "count": 1000,
+                  "index": 2,
+                  "quality": "normal"
+                },
+                {
+                  "name": "agricultural-science-pack",
+                  "comparator": "=",
+                  "count": 1000,
+                  "index": 3,
+                  "quality": "normal"
+                }
               ]
             }
           ]
         }
       },
-      {"name": "splitter", "direction": 12, "position": {"x": 2.5, "y": 7}},
+      {"name": "splitter", "direction": 12, "output_priority": "right", "position": {"x": 2.5, "y": 7}},
       {
         "name": "splitter",
         "direction": 8,
@@ -480,7 +569,11 @@
       {"name": "transport-belt", "direction": 4, "position": {"x": -2.5, "y": 5.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": -1.5, "y": 5.5}},
       {"name": "transport-belt", "direction": 4, "position": {"x": -0.5, "y": 5.5}},
-      {"name": "transport-belt", "position": {"x": -2.5, "y": 6.5}},
+      {
+        "name": "transport-belt",
+        "control_behavior": {"circuit_contents_read_mode": 1, "circuit_read_hand_contents": true},
+        "position": {"x": -2.5, "y": 6.5}
+      },
       {"name": "transport-belt", "position": {"x": -2.5, "y": 7.5}},
       {"name": "transport-belt", "direction": 8, "position": {"x": -1.5, "y": 6.5}},
       {"name": "transport-belt", "direction": 12, "position": {"x": -0.5, "y": 6.5}},
@@ -626,33 +719,149 @@
       {
         "locomotives": ["14.5,17.5"],
         "schedule": {
-          "records": [
+          "interrupts": [
             {
-              "station": "fulgora",
-              "wait_conditions": [
-                {"compare_type": "and", "ticks": 600, "type": "time"},
-                {"compare_type": "and", "type": "all_requests_satisfied"}
+              "name": "SBF:FetchFromVG",
+              "inside_interrupt": false,
+              "conditions": [
+                {"compare_type": "and", "type": "all_requests_satisfied"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {"comparator": ">", "constant": 4, "first_signal": {"name": "firearm-magazine"}}
+                },
+                {
+                  "compare_type": "and",
+                  "type": "item_count",
+                  "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "metallurgic-science-pack"}}
+                },
+                {
+                  "compare_type": "and",
+                  "type": "item_count",
+                  "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "agricultural-science-pack"}}
+                }
+              ],
+              "targets": [
+                {
+                  "station": "vulcanus",
+                  "wait_conditions": [
+                    {"compare_type": "and", "ticks": 600, "type": "time"},
+                    {"compare_type": "and", "type": "all_requests_satisfied"}
+                  ]
+                },
+                {
+                  "station": "gleba",
+                  "wait_conditions": [
+                    {"compare_type": "and", "ticks": 600, "type": "time"},
+                    {"compare_type": "and", "type": "all_requests_satisfied"}
+                  ]
+                },
+                {
+                  "station": "nauvis",
+                  "wait_conditions": [
+                    {"compare_type": "and", "ticks": 1800, "type": "time"},
+                    {"compare_type": "and", "type": "all_requests_satisfied"}
+                  ]
+                }
               ]
             },
             {
-              "station": "gleba",
-              "wait_conditions": [
-                {"compare_type": "and", "ticks": 600, "type": "time"},
-                {"compare_type": "and", "type": "all_requests_satisfied"}
+              "name": "SBF:FetchFromF",
+              "inside_interrupt": false,
+              "conditions": [
+                {"compare_type": "and", "type": "all_requests_satisfied"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {"comparator": ">", "constant": 4, "first_signal": {"name": "firearm-magazine"}}
+                },
+                {
+                  "compare_type": "and",
+                  "type": "item_count",
+                  "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "electromagnetic-science-pack"}}
+                }
+              ],
+              "targets": [
+                {
+                  "station": "fulgora",
+                  "wait_conditions": [
+                    {"compare_type": "and", "ticks": 600, "type": "time"},
+                    {"compare_type": "and", "type": "all_requests_satisfied"}
+                  ]
+                },
+                {
+                  "station": "nauvis",
+                  "wait_conditions": [
+                    {"compare_type": "and", "ticks": 1800, "type": "time"},
+                    {"compare_type": "and", "type": "all_requests_satisfied"}
+                  ]
+                }
               ]
             },
             {
-              "station": "vulcanus",
-              "wait_conditions": [
-                {"compare_type": "and", "ticks": 600, "type": "time"},
-                {"compare_type": "and", "type": "all_requests_satisfied"}
+              "name": "SBF:FetchFromG",
+              "inside_interrupt": false,
+              "conditions": [
+                {"compare_type": "and", "type": "all_requests_satisfied"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {"comparator": ">", "constant": 4, "first_signal": {"name": "firearm-magazine"}}
+                },
+                {
+                  "compare_type": "and",
+                  "type": "item_count",
+                  "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "agricultural-science-pack"}}
+                }
+              ],
+              "targets": [
+                {
+                  "station": "gleba",
+                  "wait_conditions": [
+                    {"compare_type": "and", "ticks": 600, "type": "time"},
+                    {"compare_type": "and", "type": "all_requests_satisfied"}
+                  ]
+                },
+                {
+                  "station": "nauvis",
+                  "wait_conditions": [
+                    {"compare_type": "and", "ticks": 1800, "type": "time"},
+                    {"compare_type": "and", "type": "all_requests_satisfied"}
+                  ]
+                }
               ]
             },
             {
-              "station": "nauvis",
-              "wait_conditions": [
-                {"compare_type": "and", "ticks": 1800, "type": "time"},
-                {"compare_type": "and", "type": "all_requests_satisfied"}
+              "name": "SBF:FetchFromV",
+              "inside_interrupt": false,
+              "conditions": [
+                {"compare_type": "and", "type": "all_requests_satisfied"},
+                {
+                  "compare_type": "and",
+                  "type": "circuit",
+                  "condition": {"comparator": ">", "constant": 4, "first_signal": {"name": "firearm-magazine"}}
+                },
+                {
+                  "compare_type": "and",
+                  "type": "item_count",
+                  "condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "metallurgic-science-pack"}}
+                }
+              ],
+              "targets": [
+                {
+                  "station": "vulcanus",
+                  "wait_conditions": [
+                    {"compare_type": "and", "ticks": 600, "type": "time"},
+                    {"compare_type": "and", "type": "all_requests_satisfied"}
+                  ]
+                },
+                {
+                  "station": "nauvis",
+                  "wait_conditions": [
+                    {"compare_type": "and", "ticks": 1800, "type": "time"},
+                    {"compare_type": "and", "type": "all_requests_satisfied"}
+                  ]
+                }
               ]
             }
           ]
@@ -1467,26 +1676,25 @@
     "wires": [
       ["15,1", 1, "11.5,3", 3],
       ["15,1", 2, "11.5,3", 2],
-      ["3,3", 1, "8,4", 1],
       ["11.5,3", 1, "18.5,3", 1],
       ["11.5,3", 1, "3.5,5", 1],
       ["15,3", 1, "18.5,3", 3],
-      ["15,3", 1, "8,4", 1],
-      ["15,3", 1, "22,4", 1],
       ["18.5,3", 1, "26.5,5", 1],
       ["18.5,3", 1, "19,7", 1],
       ["18.5,3", 2, "16,4", 2],
       ["18.5,3", 2, "28,7", 2],
-      ["27,3", 1, "22,4", 1],
       ["1,4", 1, "3.5,5", 3],
       ["1,4", 2, "3.5,5", 2],
       ["14,4", 2, "16,4", 2],
       ["26.5,5", 2, "29,4", 2],
       ["26.5,5", 3, "29,4", 1],
+      ["2,7", 2, "7,12", 2],
       ["28,7", 2, "28,9", 2],
-      ["28,9", 2, "27,9", 2],
+      ["27,9", 2, "28,9", 2],
       ["28,9", 2, "28,11", 2],
-      ["28,11", 2, "27,11", 2],
+      ["27,11", 2, "28,11", 2],
+      ["7,12", 2, "14.5,17.5", 2],
+      ["14.5,17.5", 2, "17.5,23", 2],
       ["13,23", 1, "17.5,23", 3],
       ["17.5,23", 2, "15,27", 2],
       ["15,27", 2, "18,31", 2]
