@@ -18020,6 +18020,16 @@
       },
       {
         "name": "decider-combinator",
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": ">", "first_signal": {"name": "spoilage"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "wood"}}]
+          }
+        },
+        "position": {"x": 312.5, "y": 104}
+      },
+      {
+        "name": "decider-combinator",
         "direction": 8,
         "control_behavior": {
           "decider_conditions": {
@@ -22397,9 +22407,10 @@
       {
         "name": "fast-inserter",
         "direction": 4,
+        "filter_mode": "blacklist",
+        "use_filters": true,
         "control_behavior": {
-          "circuit_enabled": true,
-          "connect_to_logistic_network": true,
+          "circuit_set_filters": true,
           "logistic_condition": {"comparator": ">", "constant": 1000, "first_signal": {"name": "wood"}}
         },
         "position": {"x": 310.5, "y": 105.5}
@@ -36261,12 +36272,16 @@
       },
       {
         "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false},
         "position": {"x": 311.5, "y": 105.5},
         "request_filters": {
           "sections": [
             {
               "index": 1,
-              "filters": [{"name": "wood", "comparator": "=", "count": 200, "index": 1, "quality": "normal"}]
+              "filters": [
+                {"name": "wood", "comparator": "=", "count": 200, "index": 1, "quality": "normal"},
+                {"name": "spoilage", "comparator": "=", "count": 1000, "index": 2, "quality": "normal"}
+              ]
             }
           ]
         }
@@ -50787,6 +50802,8 @@
       ["54,118", 2, "55,118", 2],
       ["53,118", 1, "53,119", 1],
       ["55,118", 1, "55,119", 1],
+      ["326,117.5", 2, "325,119", 2],
+      ["326,117.5", 3, "324,119", 1],
       ["442,117", 1, "443,117", 1],
       ["442,117", 2, "442,118", 2],
       ["442,118", 1, "443,118", 1],

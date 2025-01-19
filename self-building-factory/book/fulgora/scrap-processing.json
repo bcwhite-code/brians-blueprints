@@ -53,7 +53,7 @@
         "player_description": "Keep some of every item in the provider chest.",
         "control_behavior": {
           "arithmetic_conditions": {
-            "first_constant": 80,
+            "first_constant": 81,
             "operation": "-",
             "first_signal_networks": {"green": false, "red": true},
             "output_signal": {"name": "signal-each", "type": "virtual"},
@@ -173,6 +173,13 @@
         "direction": 8,
         "use_filters": true,
         "control_behavior": {"circuit_set_filters": true},
+        "filters": [
+          {"name": "stone-brick", "comparator": "=", "index": 1, "quality": "normal"},
+          {"name": "concrete", "comparator": "=", "index": 2, "quality": "normal"},
+          {"name": "stone", "comparator": "=", "index": 3, "quality": "normal"},
+          {"name": "iron-ore", "comparator": "=", "index": 4, "quality": "normal"},
+          {"name": "ice", "comparator": "=", "index": 5, "quality": "normal"}
+        ],
         "position": {"x": 3.5, "y": 3.5}
       },
       {
@@ -2814,6 +2821,7 @@
       ["4,4.5", 2, "3,4.5", 2],
       ["4,4.5", 3, "7,9", 1],
       ["3,4.5", 3, "4,9", 1],
+      ["3,6", 2, "8.5,7", 4],
       ["7,5.5", 2, "7,8", 2],
       ["8.5,5", 2, "8.5,6", 2],
       ["8.5,5", 2, "7,8", 2],

@@ -2,6 +2,11 @@
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.0.42
+
+- Fix Fulgora scrap recycling bootstrap of items provided to logistics network.
+- Add burning of spoilage to Red Mall.
+
 ## v5.0.41
 
 - Do request-exclusion in HOME a different way and tag different train lengths near speakers.
