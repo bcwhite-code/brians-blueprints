@@ -2,6 +2,10 @@
 
 Don't update to a new version that is different in the first or second digit when in the process of building a base. Though very similar, they are **not** compatible!
 
+## v2.3.3
+
+- Updated a phase#3 inserter to match the phase#4 version.
+
 ## v2.3.2
 
 - Restored two missing inserters for furnaces.
