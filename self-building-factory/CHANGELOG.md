@@ -2,6 +2,11 @@
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.0.43
+
+- Fix space science to filter some inserters. Also make it able to be rotated 90 degrees.
+- Fix filters for extraction from collectors on The UPS (ship).
+
 ## v5.0.42
 
 - Fix Fulgora scrap recycling bootstrap of items provided to logistics network.
