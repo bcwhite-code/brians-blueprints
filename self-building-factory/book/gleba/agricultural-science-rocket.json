@@ -25,6 +25,7 @@
         "name": "assembling-machine-2",
         "recipe": "low-density-structure",
         "recipe_quality": "normal",
+        "items": [{"id": {"name": "efficiency-module-2"}, "items": {"in_inventory": [{"inventory": 4, "stack": 0}]}}],
         "position": {"x": 20.5, "y": 31.5}
       },
       {
@@ -809,6 +810,7 @@
       {
         "name": "inserter",
         "direction": 8,
+        "override_stack_size": 1,
         "control_behavior": {
           "circuit_enabled": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "bioflux"}}
@@ -861,7 +863,7 @@
       {"name": "inserter", "direction": 12, "override_stack_size": 1, "position": {"x": 14.5, "y": 15.5}},
       {"name": "inserter", "direction": 8, "position": {"x": 18.5, "y": 0.5}},
       {"name": "inserter", "position": {"x": 16.5, "y": 3.5}},
-      {"name": "inserter", "direction": 8, "position": {"x": 16.5, "y": 7.5}},
+      {"name": "inserter", "direction": 8, "override_stack_size": 1, "position": {"x": 16.5, "y": 7.5}},
       {
         "name": "inserter",
         "direction": 12,
@@ -1039,7 +1041,15 @@
         "filters": [{"name": "spoilage", "comparator": "=", "index": 1, "quality": "normal"}],
         "position": {"x": 2.5, "y": 37.5}
       },
-      {"name": "inserter", "position": {"x": 5.5, "y": 36.5}},
+      {
+        "name": "inserter",
+        "override_stack_size": 1,
+        "filters": [
+          {"name": "bioflux", "comparator": "=", "index": 1, "quality": "normal"},
+          {"name": "jelly", "comparator": "=", "index": 2, "quality": "normal"}
+        ],
+        "position": {"x": 5.5, "y": 36.5}
+      },
       {
         "name": "inserter",
         "direction": 8,
@@ -1129,7 +1139,12 @@
         "filters": [{"name": "yumako-mash", "comparator": "=", "index": 1, "quality": "normal"}],
         "position": {"x": 6.5, "y": 14.5}
       },
-      {"name": "long-handed-inserter", "direction": 8, "position": {"x": 13.5, "y": 8.5}},
+      {
+        "name": "long-handed-inserter",
+        "direction": 8,
+        "override_stack_size": 1,
+        "position": {"x": 13.5, "y": 8.5}
+      },
       {
         "name": "long-handed-inserter",
         "direction": 12,
@@ -1145,7 +1160,12 @@
         "filters": [{"name": "copper-ore", "comparator": "=", "index": 1, "quality": "normal"}],
         "position": {"x": 18.5, "y": 2.5}
       },
-      {"name": "long-handed-inserter", "direction": 8, "position": {"x": 18.5, "y": 8.5}},
+      {
+        "name": "long-handed-inserter",
+        "direction": 8,
+        "override_stack_size": 1,
+        "position": {"x": 18.5, "y": 8.5}
+      },
       {
         "name": "long-handed-inserter",
         "direction": 12,
@@ -1229,7 +1249,12 @@
         },
         "position": {"x": 7.5, "y": 35.5}
       },
-      {"name": "long-handed-inserter", "position": {"x": 4.5, "y": 36.5}},
+      {
+        "name": "long-handed-inserter",
+        "override_stack_size": 1,
+        "filters": [{"name": "nutrients", "comparator": "=", "index": 1, "quality": "normal"}],
+        "position": {"x": 4.5, "y": 36.5}
+      },
       {
         "name": "long-handed-inserter",
         "direction": 12,
