@@ -5,7 +5,7 @@
     "label": "Agricultural Science Rocket",
     "shift_x": -204,
     "shift_y": -17,
-    "version": 562949955256321,
+    "version": 562949955387393,
     "entities": [
       {
         "name": "assembling-machine-2",
@@ -994,6 +994,17 @@
         "filters": [{"name": "spoilage", "comparator": "=", "index": 1, "quality": "normal"}],
         "position": {"x": 3.5, "y": 34.5}
       },
+      {
+        "name": "inserter",
+        "direction": 4,
+        "use_filters": true,
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_condition": {"comparator": ">", "constant": 1500, "first_signal": {"name": "sulfur"}}
+        },
+        "filters": [{"name": "spoilage", "comparator": "=", "index": 1, "quality": "normal"}],
+        "position": {"x": 2.5, "y": 37.5}
+      },
       {"name": "inserter", "position": {"x": 5.5, "y": 36.5}},
       {
         "name": "inserter",
@@ -1029,7 +1040,7 @@
       {"name": "laser-turret", "position": {"x": 12, "y": 9}},
       {"name": "laser-turret", "position": {"x": 28, "y": 0}},
       {"name": "laser-turret", "position": {"x": 33, "y": 24}},
-      {"name": "laser-turret", "position": {"x": 1, "y": 37}},
+      {"name": "laser-turret", "position": {"x": 0, "y": 37}},
       {"name": "laser-turret", "position": {"x": 14, "y": 43}},
       {"name": "laser-turret", "position": {"x": 32, "y": 40}},
       {
@@ -1194,7 +1205,6 @@
       {"name": "long-handed-inserter", "direction": 12, "position": {"x": 24.5, "y": 34.5}},
       {"name": "long-handed-inserter", "position": {"x": 24.5, "y": 39.5}},
       {"name": "long-handed-inserter", "direction": 4, "position": {"x": 21.5, "y": 42.5}},
-      {"name": "medium-electric-pole", "position": {"x": 3.5, "y": 33.5}},
       {
         "name": "passive-provider-chest",
         "control_behavior": {"circuit_condition_enabled": false},
@@ -1226,6 +1236,7 @@
       {"name": "pipe-to-ground", "position": {"x": 18.5, "y": 25.5}},
       {"name": "pipe-to-ground", "direction": 12, "position": {"x": 7.5, "y": 36.5}},
       {"name": "pipe-to-ground", "direction": 12, "position": {"x": 15.5, "y": 39.5}},
+      {"name": "pipe-to-ground", "direction": 4, "position": {"x": 5.5, "y": 40.5}},
       {"name": "pipe-to-ground", "position": {"x": 6.5, "y": 40.5}},
       {"name": "pipe-to-ground", "direction": 8, "position": {"x": 18.5, "y": 35.5}},
       {"name": "pipe-to-ground", "direction": 4, "position": {"x": 17.5, "y": 36.5}},
@@ -1253,7 +1264,6 @@
         "name": "rocket-silo",
         "recipe": "rocket-part",
         "recipe_quality": "normal",
-        "transitional_request_index": 0,
         "position": {"x": 13.5, "y": 28.5}
       },
       {
@@ -1282,7 +1292,8 @@
       {"name": "substation", "position": {"x": 28, "y": 9}},
       {"name": "substation", "position": {"x": 2, "y": 25}},
       {"name": "substation", "position": {"x": 20, "y": 25}},
-      {"name": "substation", "position": {"x": 16, "y": 42}},
+      {"name": "substation", "position": {"x": 4, "y": 41}},
+      {"name": "substation", "position": {"x": 18, "y": 42}},
       {"name": "substation", "position": {"x": 33, "y": 33}},
       {"name": "transport-belt", "direction": 8, "position": {"x": 3.5, "y": -0.5}},
       {"name": "transport-belt", "direction": 12, "position": {"x": 4.5, "y": -0.5}},
@@ -1500,6 +1511,8 @@
       {"name": "transport-belt", "direction": 8, "position": {"x": 4.5, "y": 34.5}},
       {"name": "transport-belt", "direction": 8, "position": {"x": 5.5, "y": 34.5}},
       {"name": "transport-belt", "direction": 8, "position": {"x": 5.5, "y": 35.5}},
+      {"name": "transport-belt", "position": {"x": 1.5, "y": 36.5}},
+      {"name": "transport-belt", "position": {"x": 1.5, "y": 37.5}},
       {
         "name": "transport-belt",
         "direction": 4,
@@ -1544,6 +1557,8 @@
       {"name": "transport-belt", "direction": 12, "position": {"x": 26.5, "y": 38.5}},
       {"name": "transport-belt", "position": {"x": 16.5, "y": 40.5}},
       {"name": "underground-belt", "type": "output", "position": {"x": -0.5, "y": 12.5}},
+      {"name": "underground-belt", "direction": 12, "type": "output", "position": {"x": -0.5, "y": 13.5}},
+      {"name": "underground-belt", "direction": 4, "type": "input", "position": {"x": -0.5, "y": 14.5}},
       {"name": "underground-belt", "type": "input", "position": {"x": -0.5, "y": 15.5}},
       {"name": "underground-belt", "direction": 8, "type": "input", "position": {"x": 3.5, "y": 4.5}},
       {"name": "underground-belt", "direction": 12, "type": "output", "position": {"x": 8.5, "y": 3.5}},
@@ -1625,15 +1640,17 @@
       ["3,26", 1, "1,27.5", 3],
       ["1,27.5", 2, "8,28", 2],
       ["2.5,28.5", 5, "20.5,28.5", 5],
-      ["2.5,28.5", 5, "4,37", 5],
+      ["2.5,28.5", 5, "4.5,44.5", 5],
       ["6,30", 2, "7,31", 2],
       ["20.5,28.5", 5, "33.5,36.5", 5],
-      ["20.5,28.5", 5, "16.5,45.5", 5],
+      ["20.5,28.5", 5, "18.5,45.5", 5],
       ["7,31", 2, "11,37", 2],
       ["4,38", 2, "11,37", 2],
       ["4,38", 2, "4,39", 2],
       ["11,37", 2, "13,40", 2],
-      ["13,40", 2, "10,41", 2]
+      ["4,39", 2, "3,41", 2],
+      ["13,40", 2, "10,41", 2],
+      ["4.5,44.5", 5, "18.5,45.5", 5]
     ]
   }
 }

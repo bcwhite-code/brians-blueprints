@@ -2,6 +2,11 @@
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.0.44
+
+- Fix space science so recycling of asteroid chunks doesn't clog.
+- Add extraction of spoilage from rocket-fuel chamber.
+
 ## v5.0.43
 
 - Fix space science to filter some inserters. Also make it able to be rotated 90 degrees.
