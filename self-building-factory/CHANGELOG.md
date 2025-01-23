@@ -2,6 +2,10 @@
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.0.46
+
+- Fix spoilage stalls in agricultural science.
+
 ## v5.0.45
 
 - Fix stall of nutrient feed to sulfur production in Gleba agricultural science.

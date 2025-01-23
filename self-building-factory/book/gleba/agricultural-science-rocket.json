@@ -293,10 +293,12 @@
       {
         "name": "bulk-inserter",
         "direction": 12,
+        "use_filters": true,
         "control_behavior": {
           "circuit_enabled": true,
           "circuit_condition": {"comparator": "<", "constant": 10, "first_signal": {"name": "yumako-mash"}}
         },
+        "filters": [{"name": "yumako-mash", "comparator": "=", "index": 1, "quality": "normal"}],
         "position": {"x": 6.5, "y": 15.5}
       },
       {"name": "bulk-inserter", "direction": 12, "position": {"x": 8.5, "y": 15.5}},
@@ -305,10 +307,12 @@
       {
         "name": "bulk-inserter",
         "direction": 12,
+        "use_filters": true,
         "control_behavior": {
           "circuit_enabled": true,
           "circuit_condition": {"comparator": "<", "constant": 10, "first_signal": {"name": "jelly"}}
         },
+        "filters": [{"name": "jelly", "comparator": "=", "index": 1, "quality": "normal"}],
         "position": {"x": 6.5, "y": 16.5}
       },
       {
@@ -834,7 +838,7 @@
         "position": {"x": 4.5, "y": 12.5}
       },
       {"name": "inserter", "position": {"x": 5.5, "y": 12.5}},
-      {"name": "inserter", "direction": 12, "position": {"x": 8.5, "y": 11.5}},
+      {"name": "inserter", "direction": 12, "override_stack_size": 1, "position": {"x": 8.5, "y": 11.5}},
       {
         "name": "inserter",
         "direction": 12,
@@ -842,7 +846,7 @@
         "filters": [{"name": "plastic-bar", "comparator": "=", "index": 1, "quality": "normal"}],
         "position": {"x": 12.5, "y": 11.5}
       },
-      {"name": "inserter", "direction": 8, "position": {"x": 11.5, "y": 14.5}},
+      {"name": "inserter", "direction": 8, "override_stack_size": 1, "position": {"x": 11.5, "y": 14.5}},
       {
         "name": "inserter",
         "direction": 12,
@@ -851,10 +855,10 @@
         "position": {"x": 12.5, "y": 12.5}
       },
       {"name": "inserter", "direction": 4, "position": {"x": 14.5, "y": 12.5}},
-      {"name": "inserter", "direction": 12, "position": {"x": 14.5, "y": 13.5}},
+      {"name": "inserter", "direction": 12, "override_stack_size": 1, "position": {"x": 14.5, "y": 13.5}},
       {"name": "inserter", "direction": 12, "position": {"x": 12.5, "y": 15.5}},
       {"name": "inserter", "direction": 4, "position": {"x": 14.5, "y": 14.5}},
-      {"name": "inserter", "direction": 12, "position": {"x": 14.5, "y": 15.5}},
+      {"name": "inserter", "direction": 12, "override_stack_size": 1, "position": {"x": 14.5, "y": 15.5}},
       {"name": "inserter", "direction": 8, "position": {"x": 18.5, "y": 0.5}},
       {"name": "inserter", "position": {"x": 16.5, "y": 3.5}},
       {"name": "inserter", "direction": 8, "position": {"x": 16.5, "y": 7.5}},
@@ -889,10 +893,22 @@
         "filters": [{"name": "jelly", "comparator": "=", "index": 1, "quality": "normal"}],
         "position": {"x": 4.5, "y": 19.5}
       },
+      {
+        "name": "inserter",
+        "direction": 12,
+        "use_filters": true,
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_condition": {"comparator": "=", "constant": 0, "first_signal": {"name": "nutrients"}}
+        },
+        "filters": [{"name": "spoilage", "comparator": "=", "index": 1, "quality": "normal"}],
+        "position": {"x": 0.5, "y": 21.5}
+      },
       {"name": "inserter", "direction": 12, "position": {"x": 8.5, "y": 17.5}},
       {
         "name": "inserter",
         "direction": 12,
+        "override_stack_size": 1,
         "control_behavior": {
           "circuit_enabled": true,
           "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "nutrients"}}
@@ -905,8 +921,8 @@
         "filters": [{"name": "spoilage", "comparator": "=", "index": 1, "quality": "normal"}],
         "position": {"x": 9.5, "y": 21.5}
       },
-      {"name": "inserter", "direction": 4, "position": {"x": 12.5, "y": 20.5}},
-      {"name": "inserter", "direction": 12, "position": {"x": 14.5, "y": 20.5}},
+      {"name": "inserter", "direction": 4, "override_stack_size": 1, "position": {"x": 12.5, "y": 20.5}},
+      {"name": "inserter", "direction": 12, "override_stack_size": 1, "position": {"x": 14.5, "y": 20.5}},
       {
         "name": "inserter",
         "direction": 4,
@@ -956,7 +972,7 @@
         "filters": [{"name": "spoilage", "comparator": "=", "index": 1, "quality": "normal"}],
         "position": {"x": 8.5, "y": 26.5}
       },
-      {"name": "inserter", "direction": 4, "position": {"x": 18.5, "y": 19.5}},
+      {"name": "inserter", "direction": 4, "override_stack_size": 1, "position": {"x": 18.5, "y": 19.5}},
       {"name": "inserter", "direction": 12, "position": {"x": 23.5, "y": 19.5}},
       {
         "name": "inserter",
@@ -1666,6 +1682,7 @@
       ["8,19", 2, "7,19", 2],
       ["5,23", 2, "8,23", 2],
       ["8,23", 2, "6,30", 2],
+      ["9,23", 2, "1,25", 2],
       ["9,23", 2, "14,25", 2],
       ["20,23", 2, "14,25", 2],
       ["1,26", 2, "1,27.5", 2],
