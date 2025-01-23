@@ -280,6 +280,7 @@
         "name": "biochamber",
         "recipe": "biosulfur",
         "recipe_quality": "normal",
+        "control_behavior": {"include_fuel": true, "include_in_crafting": false, "read_contents": true},
         "items": [
           {
             "id": {"name": "efficiency-module-2"},
@@ -326,6 +327,7 @@
         },
         "position": {"x": 2.5, "y": 22.5}
       },
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 2.5, "y": 23.5}},
       {"name": "bulk-inserter", "direction": 4, "position": {"x": 6.5, "y": 23.5}},
       {"name": "bulk-inserter", "direction": 12, "position": {"x": 8.5, "y": 16.5}},
       {"name": "bulk-inserter", "direction": 8, "position": {"x": 5.5, "y": 24.5}},
@@ -887,7 +889,6 @@
         "filters": [{"name": "jelly", "comparator": "=", "index": 1, "quality": "normal"}],
         "position": {"x": 4.5, "y": 19.5}
       },
-      {"name": "inserter", "direction": 12, "position": {"x": 2.5, "y": 23.5}},
       {"name": "inserter", "direction": 12, "position": {"x": 8.5, "y": 17.5}},
       {
         "name": "inserter",
@@ -906,8 +907,25 @@
       },
       {"name": "inserter", "direction": 4, "position": {"x": 12.5, "y": 20.5}},
       {"name": "inserter", "direction": 12, "position": {"x": 14.5, "y": 20.5}},
+      {
+        "name": "inserter",
+        "direction": 4,
+        "use_filters": true,
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_condition": {"comparator": ">", "constant": 1500, "first_signal": {"name": "sulfur"}}
+        },
+        "filters": [{"name": "spoilage", "comparator": "=", "index": 1, "quality": "normal"}],
+        "position": {"x": 2.5, "y": 27.5}
+      },
       {"name": "inserter", "direction": 12, "position": {"x": 2.5, "y": 28.5}},
-      {"name": "inserter", "direction": 4, "position": {"x": 2.5, "y": 29.5}},
+      {
+        "name": "inserter",
+        "direction": 4,
+        "use_filters": true,
+        "filters": [{"name": "nutrients", "comparator": "=", "index": 1, "quality": "normal"}],
+        "position": {"x": 2.5, "y": 29.5}
+      },
       {
         "name": "inserter",
         "use_filters": true,
@@ -989,7 +1007,7 @@
         "use_filters": true,
         "control_behavior": {
           "circuit_enabled": true,
-          "circuit_condition": {"comparator": ">", "constant": 1500, "first_signal": {"name": "sulfur"}}
+          "circuit_condition": {"comparator": "≤", "constant": 1, "first_signal": {"name": "nutrients"}}
         },
         "filters": [{"name": "spoilage", "comparator": "=", "index": 1, "quality": "normal"}],
         "position": {"x": 3.5, "y": 34.5}
@@ -1012,6 +1030,18 @@
         "use_filters": true,
         "filters": [{"name": "spoilage", "comparator": "=", "index": 1, "quality": "normal"}],
         "position": {"x": 9.5, "y": 33.5}
+      },
+      {"name": "inserter", "direction": 4, "position": {"x": 11.5, "y": 34.5}},
+      {
+        "name": "inserter",
+        "direction": 12,
+        "use_filters": true,
+        "control_behavior": {
+          "circuit_enabled": true,
+          "circuit_condition": {"comparator": "≤", "constant": 1, "first_signal": {"name": "nutrients"}}
+        },
+        "filters": [{"name": "spoilage", "comparator": "=", "index": 1, "quality": "normal"}],
+        "position": {"x": 11.5, "y": 35.5}
       },
       {"name": "inserter", "direction": 8, "position": {"x": 8.5, "y": 37.5}},
       {
@@ -1454,7 +1484,7 @@
       {"name": "transport-belt", "direction": 12, "position": {"x": 12.5, "y": 23.5}},
       {"name": "transport-belt", "direction": 12, "position": {"x": 13.5, "y": 23.5}},
       {"name": "transport-belt", "direction": 12, "position": {"x": 14.5, "y": 23.5}},
-      {"name": "transport-belt", "position": {"x": 1.5, "y": 28.5}},
+      {"name": "transport-belt", "direction": 4, "position": {"x": 1.5, "y": 28.5}},
       {"name": "transport-belt", "position": {"x": 1.5, "y": 29.5}},
       {"name": "transport-belt", "direction": 8, "position": {"x": 3.5, "y": 31.5}},
       {
@@ -1513,6 +1543,8 @@
       {"name": "transport-belt", "direction": 8, "position": {"x": 5.5, "y": 35.5}},
       {"name": "transport-belt", "position": {"x": 1.5, "y": 36.5}},
       {"name": "transport-belt", "position": {"x": 1.5, "y": 37.5}},
+      {"name": "transport-belt", "direction": 12, "position": {"x": 12.5, "y": 34.5}},
+      {"name": "transport-belt", "position": {"x": 12.5, "y": 35.5}},
       {
         "name": "transport-belt",
         "direction": 4,
@@ -1645,11 +1677,11 @@
       ["20.5,28.5", 5, "33.5,36.5", 5],
       ["20.5,28.5", 5, "18.5,45.5", 5],
       ["7,31", 2, "11,37", 2],
-      ["4,38", 2, "11,37", 2],
-      ["4,38", 2, "4,39", 2],
+      ["4,38", 2, "10,39", 2],
       ["11,37", 2, "13,40", 2],
       ["4,39", 2, "3,41", 2],
       ["13,40", 2, "10,41", 2],
+      ["3,41", 2, "10,41", 2],
       ["4.5,44.5", 5, "18.5,45.5", 5]
     ]
   }
