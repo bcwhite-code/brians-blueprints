@@ -4,6 +4,11 @@ History, in brief.
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.1
+
+* Stable release for Factorio 2.0!
+* Cybersyn support seems operational but isn't well tested.
+
 ## v5.0.31
 
 - Removed station configs from all "rail for stations".
