@@ -1,0 +1,177 @@
+{
+  "index": 1,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "LTN Item Provide Header",
+    "description": "1) Create a provider station body first.\n2) Remove existing train-stop then add LTN head.\n3) Calculate 3 * (S + 2) where S is the max number of stacker (i.e. train waiting) spaces.\n4) In the iron chest nearest the head, block off all but that number of slots.\n5) Wire red & green from big power pole to main rail poles.\n",
+    "shift_x": -847,
+    "shift_y": -359,
+    "version": 562949955518464,
+    "entities": [
+      {
+        "name": "arithmetic-combinator",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "+",
+            "second_constant": 0,
+            "first_signal": {"name": "signal-S", "type": "virtual"},
+            "output_signal": {"name": "ltn-provider-stack-threshold", "type": "virtual"}
+          }
+        },
+        "position": {"x": 1.5, "y": 0}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "+",
+            "second_constant": 0,
+            "first_signal": {"name": "signal-L", "type": "virtual"},
+            "output_signal": {"name": "ltn-max-train-length", "type": "virtual"}
+          }
+        },
+        "position": {"x": 2.5, "y": 0}
+      },
+      {
+        "name": "arithmetic-combinator",
+        "direction": 4,
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "-",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "first_signal_networks": {"green": true, "red": false},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal_networks": {"green": false, "red": true}
+          }
+        },
+        "position": {"x": 4, "y": 0.5}
+      },
+      {"name": "big-electric-pole", "position": {"x": -2, "y": -2}},
+      {
+        "name": "constant-combinator",
+        "direction": 8,
+        "player_description": "The \"request threshold\" is relative to a full train.  A NEGATIVE number will allow partial trains with up to that amount empty.  A positive number will delay calling a train until more buffer space is free so not really any use for it.  \n\nOr remove the two combinators to the left-side of the track and then the \"request threshold\" becomes an absolute amount.  Check the output of those combinators to know how much is in a full train; it's in items, not stacks.",
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "ltn-network-id",
+                    "comparator": "=",
+                    "count": 255,
+                    "index": 1,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "ltn-provider-priority",
+                    "comparator": "=",
+                    "count": 0,
+                    "index": 2,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "ltn-max-trains",
+                    "comparator": "=",
+                    "count": 1,
+                    "index": 5,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "ltn-min-train-length",
+                    "comparator": "=",
+                    "count": 2,
+                    "index": 6,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": -0.5, "y": -1.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [
+              {
+                "comparator": ">",
+                "first_signal": {"name": "signal-0", "type": "virtual"},
+                "first_signal_networks": {"green": false, "red": true}
+              }
+            ],
+            "outputs": [
+              {
+                "networks": {"green": true, "red": false},
+                "signal": {"name": "signal-everything", "type": "virtual"}
+              }
+            ]
+          }
+        },
+        "position": {"x": -2, "y": -0.5}
+      },
+      {
+        "name": "logistic-train-stop",
+        "direction": 12,
+        "station": "",
+        "color": {"a": 1, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
+        "position": {"x": 0, "y": 0}
+      },
+      {
+        "name": "logistic-train-stop-input",
+        "always_on": true,
+        "control_behavior": {
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
+        },
+        "position": {"x": -0.5, "y": -0.5}
+      },
+      {
+        "name": "logistic-train-stop-output",
+        "direction": 12,
+        "control_behavior": {"sections": {"sections": [{"index": 1}]}},
+        "position": {"x": -0.5, "y": 0.5}
+      },
+      {"name": "medium-electric-pole", "position": {"x": 1.5, "y": -1.5}},
+      {"name": "medium-electric-pole", "position": {"x": 6.5, "y": 0.5}},
+      {"name": "medium-electric-pole", "position": {"x": 6.5, "y": 3.5}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 0, "y": 2}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 2, "y": 2}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 4, "y": 2}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 6, "y": 2}}
+    ],
+    "icons": [
+      {"index": 1, "signal": {"name": "train-stop"}},
+      {"index": 2, "signal": {"name": "up-arrow", "type": "virtual"}}
+    ],
+    "wires": [
+      ["0,0", 1, "0,1.5", 1],
+      ["0,0", 2, "0,1.5", 4],
+      ["0,0", 5, "3.5,0.5", 5],
+      ["1.5,0.5", 1, "3.5,0.5", 1],
+      ["1.5,0.5", 1, "1.5,1.5", 1],
+      ["1.5,0.5", 1, "3.5,2", 3],
+      ["3.5,0.5", 2, "1.5,1.5", 2],
+      ["3.5,0.5", 2, "8.5,2.5", 2],
+      ["3.5,0.5", 5, "8.5,2.5", 5],
+      ["0,1.5", 2, "1.5,1.5", 2],
+      ["1.5,2.5", 1, "6,2.5", 1],
+      ["2,2", 2, "6,2.5", 2],
+      ["4.5,2", 1, "3.5,2", 1],
+      ["4.5,2", 1, "8.5,5.5", 1],
+      ["4.5,2", 3, "3.5,2", 3],
+      ["6,2.5", 3, "8.5,2.5", 1],
+      ["8.5,2.5", 5, "8.5,5.5", 5]
+    ]
+  }
+}

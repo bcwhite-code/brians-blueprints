@@ -1,56 +1,36 @@
 {
-  "index": 3,
+  "index": 1,
   "blueprint": {
     "item": "blueprint",
-    "label": "Vanilla Fluid Request Header",
-    "description": "Prepare for a \"vanilla\" FLUID requester station.   After mixing with the loading section...\n\n1) Configure in the REQ combinator by changing the X into the desired item type with the NEGATIVE maximum amount that should be held locally.\n\n3) Wire red & green from big power pole to main rail poles (if not already there).\n\nYou must have space for all trains that could come at once so\n\n        X / fluid-per-train - 1\n\nstacker spots.",
-    "shift_x": -947,
+    "label": "LTN Item Request Header",
+    "description": "1) Create a requester station body first.\n2) Remove train-stop then add LTN head.\n3) Wire red & green from big power pole to main rail poles. (optional)\n4) Configure in the REQ combinator by changing the amount of the desired item type with the NEGATIVE maximum amount that should be held locally.\n\nThe requested amount must be such that a full request from empty cannot overload the tracks so set the amount to be no more than\n\n    item-stack-size * 40 * train-cars * (stacker-tracks + 2) - 1\n",
+    "shift_x": -847,
     "shift_y": -181,
     "version": 562949955518464,
     "entities": [
       {
         "name": "arithmetic-combinator",
-        "direction": 8,
-        "player_description": "Code the train request according to the train-length.  The output is routed through the train-stop so that it can't go out until the train-stop exists.",
         "control_behavior": {
           "arithmetic_conditions": {
-            "operation": "*",
-            "first_signal": {"name": "signal-each", "type": "virtual"},
-            "first_signal_networks": {"green": true, "red": false},
-            "output_signal": {"name": "signal-each", "type": "virtual"},
-            "second_signal": {"name": "signal-M", "type": "virtual"},
-            "second_signal_networks": {"green": false, "red": true}
+            "operation": "+",
+            "second_constant": 0,
+            "first_signal": {"name": "signal-S", "type": "virtual"},
+            "output_signal": {"name": "ltn-requester-stack-threshold", "type": "virtual"}
           }
         },
-        "position": {"x": 1.5, "y": 0}
+        "position": {"x": 1.5, "y": 2}
       },
       {
         "name": "arithmetic-combinator",
-        "direction": 8,
         "control_behavior": {
           "arithmetic_conditions": {
-            "operation": "*",
-            "second_constant": 1,
-            "first_signal": {"name": "signal-each", "type": "virtual"},
-            "output_signal": {"name": "signal-L", "type": "virtual"}
+            "operation": "+",
+            "second_constant": 0,
+            "first_signal": {"name": "signal-L", "type": "virtual"},
+            "output_signal": {"name": "ltn-max-train-length", "type": "virtual"}
           }
         },
-        "position": {"x": 2.5, "y": 0}
-      },
-      {
-        "name": "arithmetic-combinator",
-        "direction": 8,
-        "control_behavior": {
-          "arithmetic_conditions": {
-            "operation": "/",
-            "first_signal": {"name": "signal-each", "type": "virtual"},
-            "first_signal_networks": {"green": true, "red": false},
-            "output_signal": {"name": "signal-each", "type": "virtual"},
-            "second_signal": {"name": "signal-G", "type": "virtual"},
-            "second_signal_networks": {"green": false, "red": true}
-          }
-        },
-        "position": {"x": 3.5, "y": 2}
+        "position": {"x": 2.5, "y": 2}
       },
       {
         "name": "arithmetic-combinator",
@@ -60,15 +40,73 @@
             "operation": "*",
             "second_constant": -1,
             "first_signal": {"name": "signal-each", "type": "virtual"},
+            "first_signal_networks": {"green": false, "red": true},
             "output_signal": {"name": "signal-each", "type": "virtual"}
           }
         },
-        "position": {"x": 7, "y": 2.5}
+        "position": {"x": 5, "y": 2.5}
       },
-      {"name": "big-electric-pole", "position": {"x": 0, "y": 0}},
+      {"name": "big-electric-pole", "position": {"x": -2, "y": 0}},
       {
         "name": "constant-combinator",
-        "direction": 12,
+        "direction": 8,
+        "player_description": "The \"request threshold\" is relative to a full train.  A NEGATIVE number will allow partial trains with up to that amount empty.  A positive number will delay calling a train until more buffer space is free so not really any use for it.  \n\nOr remove the two combinators to the left-side of the track and then the \"request threshold\" becomes an absolute amount.  Check the output of those combinators to know how much is in a full train; it's in items, not stacks.",
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "ltn-network-id",
+                    "comparator": "=",
+                    "count": 255,
+                    "index": 1,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "ltn-requester-priority",
+                    "comparator": "=",
+                    "count": 0,
+                    "index": 2,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "ltn-provider-stack-threshold",
+                    "comparator": "=",
+                    "count": 999999,
+                    "index": 3,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "ltn-max-trains",
+                    "comparator": "=",
+                    "count": 1,
+                    "index": 5,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "ltn-min-train-length",
+                    "comparator": "=",
+                    "count": 2,
+                    "index": 6,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": -0.5, "y": 0.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 8,
         "control_behavior": {
           "sections": {
             "sections": [
@@ -289,99 +327,71 @@
             ]
           }
         },
-        "position": {"x": 5.5, "y": 2.5}
+        "position": {"x": 3.5, "y": 0.5}
       },
       {
         "name": "decider-combinator",
-        "direction": 12,
-        "control_behavior": {
-          "decider_conditions": {
-            "conditions": [
-              {
-                "comparator": ">",
-                "first_signal": {"name": "signal-9", "type": "virtual"},
-                "first_signal_networks": {"green": false, "red": true}
-              }
-            ],
-            "outputs": [
-              {
-                "networks": {"green": true, "red": false},
-                "signal": {"name": "signal-everything", "type": "virtual"}
-              }
-            ]
-          }
-        },
-        "position": {"x": 0, "y": 1.5}
-      },
-      {
-        "name": "decider-combinator",
-        "direction": 12,
+        "direction": 8,
         "control_behavior": {
           "decider_conditions": {
             "conditions": [{"first_signal": {"name": "signal-each", "type": "virtual"}}],
             "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
           }
         },
-        "position": {"x": 5, "y": 0.5}
+        "position": {"x": 3.5, "y": 2}
       },
       {
-        "name": "decider-combinator",
-        "control_behavior": {
-          "decider_conditions": {
-            "conditions": [{"first_signal": {"name": "signal-each", "type": "virtual"}}],
-            "outputs": [{"signal": {"name": "signal-each", "type": "virtual"}}]
-          }
-        },
-        "position": {"x": 4.5, "y": 2}
-      },
-      {"name": "medium-electric-pole", "position": {"x": 3.5, "y": 0.5}},
-      {"name": "medium-electric-pole", "position": {"x": 8.5, "y": 2.5}},
-      {"name": "medium-electric-pole", "position": {"x": 8.5, "y": 5.5}},
-      {"name": "straight-rail", "direction": 4, "position": {"x": 2, "y": 4}},
-      {"name": "straight-rail", "direction": 4, "position": {"x": 4, "y": 4}},
-      {"name": "straight-rail", "direction": 4, "position": {"x": 6, "y": 4}},
-      {"name": "straight-rail", "direction": 4, "position": {"x": 8, "y": 4}},
-      {
-        "name": "train-stop",
+        "name": "logistic-train-stop",
         "direction": 12,
         "station": "",
-        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "color": {"a": 1, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
+        "position": {"x": 0, "y": 2}
+      },
+      {
+        "name": "logistic-train-stop-input",
+        "always_on": true,
         "control_behavior": {
-          "circuit_enabled": true,
-          "set_trains_limit": true,
-          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-L", "type": "virtual"}},
-          "train_stopped_signal": {"name": "signal-T", "type": "virtual"},
-          "trains_limit_signal": {"name": "signal-L", "type": "virtual"}
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
         },
-        "position": {"x": 2, "y": 2}
-      }
+        "position": {"x": -0.5, "y": 1.5}
+      },
+      {
+        "name": "logistic-train-stop-output",
+        "direction": 12,
+        "control_behavior": {"sections": {"sections": [{"index": 1}]}},
+        "position": {"x": -0.5, "y": 2.5}
+      },
+      {"name": "medium-electric-pole", "position": {"x": 1.5, "y": 0.5}},
+      {"name": "medium-electric-pole", "position": {"x": 6.5, "y": 2.5}},
+      {"name": "medium-electric-pole", "position": {"x": 6.5, "y": 5.5}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 0, "y": 4}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 2, "y": 4}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 4, "y": 4}},
+      {"name": "straight-rail", "direction": 4, "position": {"x": 6, "y": 4}}
     ],
     "icons": [
       {"index": 1, "signal": {"name": "train-stop"}},
-      {"index": 2, "signal": {"name": "down-right-arrow", "type": "virtual"}}
+      {"index": 2, "signal": {"name": "down-arrow", "type": "virtual"}}
     ],
     "wires": [
-      ["0,0", 1, "0,1.5", 1],
-      ["0,0", 2, "0,1.5", 4],
       ["0,0", 5, "3.5,0.5", 5],
-      ["1.5,0", 1, "3.5,0.5", 1],
-      ["1.5,0", 2, "2.5,0", 2],
-      ["1.5,0", 4, "2,2", 2],
-      ["2.5,0", 2, "3.5,2", 4],
-      ["2.5,0", 3, "2,2", 1],
-      ["3.5,0.5", 1, "8.5,5.5", 1],
-      ["3.5,0.5", 2, "5,0.5", 2],
-      ["3.5,0.5", 2, "8.5,2.5", 2],
+      ["1.5,0.5", 1, "3.5,0.5", 1],
+      ["1.5,0.5", 1, "1.5,1.5", 1],
+      ["1.5,0.5", 1, "3.5,2", 3],
+      ["3.5,0.5", 2, "1.5,1.5", 2],
       ["3.5,0.5", 5, "8.5,2.5", 5],
-      ["5,0.5", 1, "4.5,2", 3],
-      ["5,0.5", 4, "3.5,2", 2],
-      ["0,1.5", 2, "2,2", 2],
-      ["4.5,2", 1, "3.5,2", 1],
+      ["5.5,0.5", 2, "5.5,2", 2],
+      ["2,2", 2, "7,2.5", 2],
+      ["1.5,1.5", 2, "5.5,2", 4],
+      ["3.5,2", 1, "4.5,2", 1],
+      ["3.5,2", 3, "4.5,2", 3],
       ["4.5,2", 1, "7,2.5", 1],
-      ["4.5,2", 2, "5.5,2.5", 2],
-      ["8.5,2.5", 1, "7,2.5", 3],
-      ["8.5,2.5", 5, "8.5,5.5", 5],
-      ["7,2.5", 1, "8.5,5.5", 1]
+      ["5.5,2", 1, "7,2.5", 1],
+      ["7,2.5", 1, "8.5,5.5", 1],
+      ["7,2.5", 3, "8.5,2.5", 1],
+      ["8.5,2.5", 5, "8.5,5.5", 5]
     ]
   }
 }

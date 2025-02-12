@@ -4,6 +4,10 @@ History, in brief.
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.2
+
+* Add LTN station headers and support prints. (beta quality)
+
 ## v5.1
 
 * Stable release for Factorio 2.0!

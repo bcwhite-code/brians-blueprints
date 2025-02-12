@@ -1,0 +1,73 @@
+{
+  "index": 12,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "4-Car Train",
+    "shift_x": 0,
+    "shift_y": -17,
+    "version": 562949955518464,
+    "entities": [
+      {
+        "name": "cargo-wagon",
+        "enable_logistics_while_moving": false,
+        "inventory": null,
+        "orientation": 0.5,
+        "position": {"x": 0, "y": 6.5}
+      },
+      {
+        "name": "cargo-wagon",
+        "enable_logistics_while_moving": false,
+        "inventory": null,
+        "orientation": 0.5,
+        "position": {"x": 0, "y": 13.5}
+      },
+      {
+        "name": "cargo-wagon",
+        "enable_logistics_while_moving": false,
+        "inventory": null,
+        "orientation": 0.5,
+        "position": {"x": 0, "y": 20.5}
+      },
+      {
+        "name": "cargo-wagon",
+        "enable_logistics_while_moving": false,
+        "inventory": null,
+        "orientation": 0.5,
+        "position": {"x": 0, "y": 27.5}
+      },
+      {
+        "name": "locomotive",
+        "enable_logistics_while_moving": false,
+        "orientation": 0.5,
+        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "position": {"x": 0, "y": -0.5}
+      },
+      {
+        "name": "locomotive",
+        "enable_logistics_while_moving": false,
+        "orientation": 0.5,
+        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "position": {"x": 0, "y": 34.5}
+      }
+    ],
+    "icons": [
+      {"index": 1, "signal": {"name": "locomotive"}},
+      {"index": 2, "signal": {"name": "signal-4", "type": "virtual"}},
+      {"index": 3, "signal": {"name": "cargo-wagon"}},
+      {"index": 4, "signal": {"name": "signal-4", "type": "virtual"}}
+    ],
+    "schedules": [
+      {
+        "locomotives": ["0,0", "0,35"],
+        "schedule": {
+          "records": [
+            {
+              "station": "LTN Depot",
+              "wait_conditions": [{"compare_type": "and", "ticks": 300, "type": "inactivity"}]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

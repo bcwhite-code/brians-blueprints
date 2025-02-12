@@ -1,0 +1,2167 @@
+{
+  "index": 7,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "12-train LTN Depot Hub (fueled by logistics)",
+    "absolute-snapping": true,
+    "shift_x": 11,
+    "shift_y": -105,
+    "version": 562949955518464,
+    "entities": [
+      {
+        "name": "arithmetic-combinator",
+        "direction": 4,
+        "control_behavior": {
+          "arithmetic_conditions": {
+            "operation": "*",
+            "first_signal": {"name": "signal-each", "type": "virtual"},
+            "output_signal": {"name": "signal-each", "type": "virtual"},
+            "second_signal": {"name": "signal-X", "type": "virtual"}
+          }
+        },
+        "position": {"x": 42, "y": 49.5}
+      },
+      {"name": "big-electric-pole", "position": {"x": 16, "y": 90}},
+      {
+        "name": "buffer-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 43.5, "y": 49.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {"name": "bulk-inserter", "direction": 4, "position": {"x": 21.5, "y": 12.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 22.5, "y": 14.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 26.5, "y": 14.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 30.5, "y": 14.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 34.5, "y": 14.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 38.5, "y": 14.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 44.5, "y": 14.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 48.5, "y": 14.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 52.5, "y": 14.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 56.5, "y": 14.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 60.5, "y": 14.5}},
+      {"name": "bulk-inserter", "direction": 4, "position": {"x": 21.5, "y": 47.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 22.5, "y": 49.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 26.5, "y": 49.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 30.5, "y": 49.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 34.5, "y": 49.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 38.5, "y": 49.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 44.5, "y": 49.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 48.5, "y": 49.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 52.5, "y": 49.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 56.5, "y": 49.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 60.5, "y": 49.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 64.5, "y": 14.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 64.5, "y": 49.5}},
+      {"name": "bulk-inserter", "direction": 4, "position": {"x": 21.5, "y": 83.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 22.5, "y": 84.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 26.5, "y": 84.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 30.5, "y": 84.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 34.5, "y": 84.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 38.5, "y": 84.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 44.5, "y": 84.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 48.5, "y": 84.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 52.5, "y": 84.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 56.5, "y": 84.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 60.5, "y": 84.5}},
+      {"name": "bulk-inserter", "direction": 12, "position": {"x": 64.5, "y": 84.5}},
+      {
+        "name": "constant-combinator",
+        "direction": 8,
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {"name": "coal", "comparator": "=", "count": 0, "index": 1, "quality": "normal"},
+                  {"name": "solid-fuel", "comparator": "=", "count": 0, "index": 2, "quality": "normal"},
+                  {"name": "rocket-fuel", "comparator": "=", "count": 0, "index": 3, "quality": "normal"},
+                  {"name": "nuclear-fuel", "comparator": "=", "count": 0, "index": 4, "quality": "normal"},
+                  {
+                    "name": "signal-X",
+                    "comparator": "=",
+                    "count": 5,
+                    "index": 18,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 42.5, "y": 53.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "ltn-network-id",
+                    "comparator": "=",
+                    "count": 65535,
+                    "index": 1,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 17.5, "y": 86.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "ltn-network-id",
+                    "comparator": "=",
+                    "count": 65535,
+                    "index": 1,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 21.5, "y": 86.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "ltn-network-id",
+                    "comparator": "=",
+                    "count": 65535,
+                    "index": 1,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 25.5, "y": 86.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "ltn-network-id",
+                    "comparator": "=",
+                    "count": 65535,
+                    "index": 1,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 29.5, "y": 86.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "ltn-network-id",
+                    "comparator": "=",
+                    "count": 65535,
+                    "index": 1,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 33.5, "y": 86.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "ltn-network-id",
+                    "comparator": "=",
+                    "count": 65535,
+                    "index": 1,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 37.5, "y": 86.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "ltn-network-id",
+                    "comparator": "=",
+                    "count": 65535,
+                    "index": 1,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 43.5, "y": 86.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "ltn-network-id",
+                    "comparator": "=",
+                    "count": 65535,
+                    "index": 1,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 47.5, "y": 86.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "ltn-network-id",
+                    "comparator": "=",
+                    "count": 65535,
+                    "index": 1,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 51.5, "y": 86.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "ltn-network-id",
+                    "comparator": "=",
+                    "count": 65535,
+                    "index": 1,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 55.5, "y": 86.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "ltn-network-id",
+                    "comparator": "=",
+                    "count": 65535,
+                    "index": 1,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 59.5, "y": 86.5}
+      },
+      {
+        "name": "constant-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "sections": {
+            "sections": [
+              {
+                "index": 1,
+                "filters": [
+                  {
+                    "name": "ltn-network-id",
+                    "comparator": "=",
+                    "count": 65535,
+                    "index": 1,
+                    "quality": "normal",
+                    "type": "virtual"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "position": {"x": 63.5, "y": 86.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": "=", "first_signal": {"name": "signal-everything", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "ltn-depot", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 18, "y": 85.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": "=", "first_signal": {"name": "signal-everything", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "ltn-depot", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 22, "y": 85.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": "=", "first_signal": {"name": "signal-everything", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "ltn-depot", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 26, "y": 85.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": "=", "first_signal": {"name": "signal-everything", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "ltn-depot", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 30, "y": 85.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": "=", "first_signal": {"name": "signal-everything", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "ltn-depot", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 34, "y": 85.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": "=", "first_signal": {"name": "signal-everything", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "ltn-depot", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 38, "y": 85.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": "=", "first_signal": {"name": "signal-everything", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "ltn-depot", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 44, "y": 85.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": "=", "first_signal": {"name": "signal-everything", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "ltn-depot", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 48, "y": 85.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": "=", "first_signal": {"name": "signal-everything", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "ltn-depot", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 52, "y": 85.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": "=", "first_signal": {"name": "signal-everything", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "ltn-depot", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 56, "y": 85.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": "=", "first_signal": {"name": "signal-everything", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "ltn-depot", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 60, "y": 85.5}
+      },
+      {
+        "name": "decider-combinator",
+        "direction": 12,
+        "control_behavior": {
+          "decider_conditions": {
+            "conditions": [{"comparator": "=", "first_signal": {"name": "signal-everything", "type": "virtual"}}],
+            "outputs": [{"copy_count_from_input": false, "signal": {"name": "ltn-depot", "type": "virtual"}}]
+          }
+        },
+        "position": {"x": 64, "y": 85.5}
+      },
+      {"name": "legacy-curved-rail", "direction": 10, "position": {"x": -1, "y": 99}},
+      {"name": "legacy-curved-rail", "direction": 12, "position": {"x": -1, "y": 101}},
+      {"name": "legacy-curved-rail", "direction": 4, "position": {"x": -7, "y": 105}},
+      {"name": "legacy-curved-rail", "direction": 12, "position": {"x": 7, "y": 1}},
+      {"name": "legacy-curved-rail", "direction": 2, "position": {"x": 1, "y": 7}},
+      {"name": "legacy-curved-rail", "direction": 2, "position": {"x": 21, "y": 7}},
+      {"name": "legacy-curved-rail", "direction": 12, "position": {"x": 27, "y": 1}},
+      {"name": "legacy-curved-rail", "direction": 12, "position": {"x": 31, "y": 1}},
+      {"name": "legacy-curved-rail", "direction": 2, "position": {"x": 25, "y": 7}},
+      {"name": "legacy-curved-rail", "direction": 2, "position": {"x": 29, "y": 7}},
+      {"name": "legacy-curved-rail", "direction": 12, "position": {"x": 35, "y": 1}},
+      {"name": "legacy-curved-rail", "direction": 12, "position": {"x": 39, "y": 1}},
+      {"name": "legacy-curved-rail", "direction": 2, "position": {"x": 33, "y": 7}},
+      {"name": "legacy-curved-rail", "direction": 2, "position": {"x": 37, "y": 7}},
+      {"name": "legacy-curved-rail", "direction": 12, "position": {"x": 43, "y": 1}},
+      {"name": "legacy-curved-rail", "direction": 12, "position": {"x": 47, "y": 1}},
+      {"name": "legacy-curved-rail", "direction": 2, "position": {"x": 41, "y": 7}},
+      {"name": "legacy-curved-rail", "direction": 2, "position": {"x": 47, "y": 7}},
+      {"name": "legacy-curved-rail", "direction": 12, "position": {"x": 53, "y": 1}},
+      {"name": "legacy-curved-rail", "direction": 2, "position": {"x": 51, "y": 7}},
+      {"name": "legacy-curved-rail", "direction": 2, "position": {"x": 55, "y": 7}},
+      {"name": "legacy-curved-rail", "direction": 12, "position": {"x": 57, "y": 1}},
+      {"name": "legacy-curved-rail", "direction": 12, "position": {"x": 61, "y": 1}},
+      {"name": "legacy-curved-rail", "direction": 2, "position": {"x": 59, "y": 7}},
+      {"name": "legacy-curved-rail", "direction": 2, "position": {"x": 63, "y": 7}},
+      {"name": "legacy-curved-rail", "direction": 12, "position": {"x": 65, "y": 1}},
+      {"name": "legacy-curved-rail", "direction": 12, "position": {"x": 69, "y": 1}},
+      {"name": "legacy-curved-rail", "direction": 2, "position": {"x": 67, "y": 7}},
+      {"name": "legacy-curved-rail", "direction": 12, "position": {"x": 73, "y": 1}},
+      {"name": "legacy-curved-rail", "direction": 6, "position": {"x": 81, "y": 1}},
+      {"name": "legacy-curved-rail", "position": {"x": 87, "y": 7}},
+      {"name": "legacy-curved-rail", "direction": 10, "position": {"x": 19, "y": 93}},
+      {"name": "legacy-curved-rail", "direction": 10, "position": {"x": 23, "y": 93}},
+      {"name": "legacy-curved-rail", "direction": 10, "position": {"x": 27, "y": 93}},
+      {"name": "legacy-curved-rail", "direction": 10, "position": {"x": 31, "y": 93}},
+      {"name": "legacy-curved-rail", "direction": 10, "position": {"x": 35, "y": 93}},
+      {"name": "legacy-curved-rail", "direction": 10, "position": {"x": 39, "y": 93}},
+      {"name": "legacy-curved-rail", "direction": 10, "position": {"x": 45, "y": 93}},
+      {"name": "legacy-curved-rail", "direction": 10, "position": {"x": 49, "y": 93}},
+      {"name": "legacy-curved-rail", "direction": 10, "position": {"x": 53, "y": 93}},
+      {"name": "legacy-curved-rail", "direction": 10, "position": {"x": 57, "y": 93}},
+      {"name": "legacy-curved-rail", "direction": 10, "position": {"x": 61, "y": 93}},
+      {"name": "legacy-curved-rail", "direction": 4, "position": {"x": 13, "y": 99}},
+      {"name": "legacy-curved-rail", "direction": 4, "position": {"x": 17, "y": 99}},
+      {"name": "legacy-curved-rail", "direction": 4, "position": {"x": 21, "y": 99}},
+      {"name": "legacy-curved-rail", "direction": 4, "position": {"x": 25, "y": 99}},
+      {"name": "legacy-curved-rail", "direction": 4, "position": {"x": 29, "y": 99}},
+      {"name": "legacy-curved-rail", "direction": 4, "position": {"x": 33, "y": 99}},
+      {"name": "legacy-curved-rail", "direction": 4, "position": {"x": 39, "y": 99}},
+      {"name": "legacy-curved-rail", "direction": 4, "position": {"x": 43, "y": 99}},
+      {"name": "legacy-curved-rail", "direction": 4, "position": {"x": 47, "y": 99}},
+      {"name": "legacy-curved-rail", "direction": 4, "position": {"x": 51, "y": 99}},
+      {"name": "legacy-curved-rail", "direction": 4, "position": {"x": 55, "y": 99}},
+      {"name": "legacy-curved-rail", "direction": 4, "position": {"x": 59, "y": 99}},
+      {"name": "legacy-curved-rail", "direction": 10, "position": {"x": 65, "y": 93}},
+      {"name": "legacy-curved-rail", "direction": 8, "position": {"x": 89, "y": 99}},
+      {"name": "legacy-curved-rail", "direction": 14, "position": {"x": 95, "y": 105}},
+      {"name": "legacy-straight-rail", "direction": 6, "position": {"x": -4, "y": 102}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": -10, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": -8, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": -6, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": -4, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": -2, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 14, "position": {"x": 4, "y": 4}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 12, "y": 0}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 14, "y": 0}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 12}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 14}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 16, "y": 0}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 18, "y": 0}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 20, "y": 0}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 22, "y": 0}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 24, "y": 0}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 26, "y": 0}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 28, "y": 0}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 30, "y": 0}},
+      {"name": "legacy-straight-rail", "direction": 14, "position": {"x": 24, "y": 4}},
+      {"name": "legacy-straight-rail", "direction": 14, "position": {"x": 28, "y": 4}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 12}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 14}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 12}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 14}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 12}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 14}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 16}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 18}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 20}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 22}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 24}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 26}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 28}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 30}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 16}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 18}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 20}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 22}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 16}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 18}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 16}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 18}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 20}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 22}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 20}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 22}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 24}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 26}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 28}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 30}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 24}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 26}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 24}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 26}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 28}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 30}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 28}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 30}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 32, "y": 0}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 34, "y": 0}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 36, "y": 0}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 38, "y": 0}},
+      {"name": "legacy-straight-rail", "direction": 14, "position": {"x": 32, "y": 4}},
+      {"name": "legacy-straight-rail", "direction": 14, "position": {"x": 36, "y": 4}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 40, "y": 0}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 42, "y": 0}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 44, "y": 0}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 46, "y": 0}},
+      {"name": "legacy-straight-rail", "direction": 14, "position": {"x": 40, "y": 4}},
+      {"name": "legacy-straight-rail", "direction": 14, "position": {"x": 44, "y": 4}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 12}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 14}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 12}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 14}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 12}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 14}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 12}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 14}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 48, "y": 0}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 50, "y": 0}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 52, "y": 0}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 54, "y": 0}},
+      {"name": "legacy-straight-rail", "direction": 14, "position": {"x": 50, "y": 4}},
+      {"name": "legacy-straight-rail", "direction": 14, "position": {"x": 54, "y": 4}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 56, "y": 0}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 58, "y": 0}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 60, "y": 0}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 62, "y": 0}},
+      {"name": "legacy-straight-rail", "direction": 14, "position": {"x": 58, "y": 4}},
+      {"name": "legacy-straight-rail", "direction": 14, "position": {"x": 62, "y": 4}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 12}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 14}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 12}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 14}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 12}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 14}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 12}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 14}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 16}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 18}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 16}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 18}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 20}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 22}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 20}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 22}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 16}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 18}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 16}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 18}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 20}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 22}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 20}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 22}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 24}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 26}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 24}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 26}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 28}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 30}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 28}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 30}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 24}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 26}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 24}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 26}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 28}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 30}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 28}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 30}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 16}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 18}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 16}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 18}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 20}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 22}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 20}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 22}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 16}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 18}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 16}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 18}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 20}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 22}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 20}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 22}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 24}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 26}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 24}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 26}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 28}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 30}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 28}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 30}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 24}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 26}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 24}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 26}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 28}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 30}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 28}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 30}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 32}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 34}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 36}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 38}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 40}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 42}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 44}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 46}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 32}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 34}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 36}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 38}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 32}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 34}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 32}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 34}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 36}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 38}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 36}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 38}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 40}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 42}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 44}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 46}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 40}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 42}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 40}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 42}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 44}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 46}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 44}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 46}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 48}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 50}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 52}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 54}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 56}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 58}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 60}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 62}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 48}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 50}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 52}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 54}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 48}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 50}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 48}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 50}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 52}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 54}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 52}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 54}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 56}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 58}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 60}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 62}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 56}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 58}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 56}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 58}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 60}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 62}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 60}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 62}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 32}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 34}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 32}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 34}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 36}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 38}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 36}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 38}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 32}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 34}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 32}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 34}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 36}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 38}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 36}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 38}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 40}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 42}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 40}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 42}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 44}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 46}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 44}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 46}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 40}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 42}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 40}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 42}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 44}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 46}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 44}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 46}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 32}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 34}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 32}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 34}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 36}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 38}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 36}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 38}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 32}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 34}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 32}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 34}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 36}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 38}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 36}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 38}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 40}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 42}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 40}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 42}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 44}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 46}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 44}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 46}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 40}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 42}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 40}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 42}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 44}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 46}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 44}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 46}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 48}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 50}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 48}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 50}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 52}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 54}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 52}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 54}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 48}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 50}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 48}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 50}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 52}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 54}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 52}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 54}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 56}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 58}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 56}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 58}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 60}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 62}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 60}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 62}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 56}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 58}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 56}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 58}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 60}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 62}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 60}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 62}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 48}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 50}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 48}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 50}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 52}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 54}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 52}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 54}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 48}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 50}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 48}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 50}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 52}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 54}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 52}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 54}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 56}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 58}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 56}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 58}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 60}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 62}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 60}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 62}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 56}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 58}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 56}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 58}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 60}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 62}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 60}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 62}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 64, "y": 0}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 66, "y": 0}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 68, "y": 0}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 70, "y": 0}},
+      {"name": "legacy-straight-rail", "direction": 14, "position": {"x": 66, "y": 4}},
+      {"name": "legacy-straight-rail", "direction": 14, "position": {"x": 70, "y": 4}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 72, "y": 0}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 74, "y": 0}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 76, "y": 0}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 12}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 14}},
+      {"name": "legacy-straight-rail", "direction": 2, "position": {"x": 84, "y": 4}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 12}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 14}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 16}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 18}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 20}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 22}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 24}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 26}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 28}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 30}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 16}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 18}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 20}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 22}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 24}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 26}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 28}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 30}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 32}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 34}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 36}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 38}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 40}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 42}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 44}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 46}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 32}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 34}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 36}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 38}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 40}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 42}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 44}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 46}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 48}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 50}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 52}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 54}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 56}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 58}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 60}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 62}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 48}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 50}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 52}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 54}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 56}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 58}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 60}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 62}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 64}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 66}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 68}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 70}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 72}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 74}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 76}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 78}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 64}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 66}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 68}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 70}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 64}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 66}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 64}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 66}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 68}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 70}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 68}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 70}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 72}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 74}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 76}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 78}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 72}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 74}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 72}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 74}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 76}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 78}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 76}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 78}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 80}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 82}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 84}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 86}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 88}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 90}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 92}},
+      {"name": "legacy-straight-rail", "position": {"x": 0, "y": 94}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 80}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 82}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 84}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 86}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 80}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 82}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 80}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 82}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 84}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 86}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 84}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 86}},
+      {"name": "legacy-straight-rail", "position": {"x": 20, "y": 88}},
+      {"name": "legacy-straight-rail", "position": {"x": 24, "y": 88}},
+      {"name": "legacy-straight-rail", "position": {"x": 28, "y": 88}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 64}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 66}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 64}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 66}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 68}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 70}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 68}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 70}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 64}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 66}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 64}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 66}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 68}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 70}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 68}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 70}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 72}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 74}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 72}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 74}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 76}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 78}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 76}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 78}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 72}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 74}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 72}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 74}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 76}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 78}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 76}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 78}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 64}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 66}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 64}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 66}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 68}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 70}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 68}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 70}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 64}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 66}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 64}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 66}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 68}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 70}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 68}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 70}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 72}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 74}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 72}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 74}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 76}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 78}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 76}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 78}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 72}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 74}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 72}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 74}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 76}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 78}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 76}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 78}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 80}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 82}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 80}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 82}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 84}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 86}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 84}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 86}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 80}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 82}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 80}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 82}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 84}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 86}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 84}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 86}},
+      {"name": "legacy-straight-rail", "position": {"x": 32, "y": 88}},
+      {"name": "legacy-straight-rail", "position": {"x": 36, "y": 88}},
+      {"name": "legacy-straight-rail", "position": {"x": 40, "y": 88}},
+      {"name": "legacy-straight-rail", "position": {"x": 46, "y": 88}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 80}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 82}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 80}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 82}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 84}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 86}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 84}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 86}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 80}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 82}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 80}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 82}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 84}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 86}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 84}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 86}},
+      {"name": "legacy-straight-rail", "position": {"x": 50, "y": 88}},
+      {"name": "legacy-straight-rail", "position": {"x": 54, "y": 88}},
+      {"name": "legacy-straight-rail", "position": {"x": 58, "y": 88}},
+      {"name": "legacy-straight-rail", "position": {"x": 62, "y": 88}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 4, "y": 100}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 6, "y": 100}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 8, "y": 100}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 10, "y": 100}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 12, "y": 100}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 14, "y": 100}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 0, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 2, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 4, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 6, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 8, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 10, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 12, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 14, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 6, "position": {"x": 16, "y": 96}},
+      {"name": "legacy-straight-rail", "direction": 6, "position": {"x": 20, "y": 96}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 16, "y": 100}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 18, "y": 100}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 20, "y": 100}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 22, "y": 100}},
+      {"name": "legacy-straight-rail", "direction": 6, "position": {"x": 24, "y": 96}},
+      {"name": "legacy-straight-rail", "direction": 6, "position": {"x": 28, "y": 96}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 24, "y": 100}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 26, "y": 100}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 28, "y": 100}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 30, "y": 100}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 16, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 18, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 20, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 22, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 24, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 26, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 28, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 30, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 6, "position": {"x": 32, "y": 96}},
+      {"name": "legacy-straight-rail", "direction": 6, "position": {"x": 36, "y": 96}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 32, "y": 100}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 34, "y": 100}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 36, "y": 100}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 38, "y": 100}},
+      {"name": "legacy-straight-rail", "direction": 6, "position": {"x": 42, "y": 96}},
+      {"name": "legacy-straight-rail", "direction": 6, "position": {"x": 46, "y": 96}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 40, "y": 100}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 42, "y": 100}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 44, "y": 100}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 46, "y": 100}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 32, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 34, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 36, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 38, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 40, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 42, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 44, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 46, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 6, "position": {"x": 50, "y": 96}},
+      {"name": "legacy-straight-rail", "direction": 6, "position": {"x": 54, "y": 96}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 48, "y": 100}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 50, "y": 100}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 52, "y": 100}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 54, "y": 100}},
+      {"name": "legacy-straight-rail", "direction": 6, "position": {"x": 58, "y": 96}},
+      {"name": "legacy-straight-rail", "direction": 6, "position": {"x": 62, "y": 96}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 48, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 50, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 52, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 54, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 56, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 58, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 60, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 62, "y": 106}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 64}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 66}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 68}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 70}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 72}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 74}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 76}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 78}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 64}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 66}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 68}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 70}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 72}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 74}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 76}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 78}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 80}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 82}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 84}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 86}},
+      {"name": "legacy-straight-rail", "position": {"x": 66, "y": 88}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 80}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 82}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 84}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 86}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 88}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 90}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 92}},
+      {"name": "legacy-straight-rail", "position": {"x": 88, "y": 94}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 64, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 66, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 68, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 70, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 72, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 74, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 76, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 78, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 10, "position": {"x": 92, "y": 102}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 80, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 82, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 84, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 86, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 88, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 90, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 92, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 94, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 96, "y": 106}},
+      {"name": "legacy-straight-rail", "direction": 4, "position": {"x": 98, "y": 106}},
+      {
+        "name": "logistic-train-stop",
+        "direction": 8,
+        "manual_trains_limit": 1,
+        "station": "LTN Depot",
+        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
+        "position": {"x": 18, "y": 88}
+      },
+      {
+        "name": "logistic-train-stop",
+        "direction": 8,
+        "manual_trains_limit": 1,
+        "station": "LTN Depot",
+        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
+        "position": {"x": 22, "y": 88}
+      },
+      {
+        "name": "logistic-train-stop",
+        "direction": 8,
+        "manual_trains_limit": 1,
+        "station": "LTN Depot",
+        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
+        "position": {"x": 26, "y": 88}
+      },
+      {
+        "name": "logistic-train-stop",
+        "direction": 8,
+        "manual_trains_limit": 1,
+        "station": "LTN Depot",
+        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
+        "position": {"x": 30, "y": 88}
+      },
+      {
+        "name": "logistic-train-stop",
+        "direction": 8,
+        "manual_trains_limit": 1,
+        "station": "LTN Depot",
+        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
+        "position": {"x": 34, "y": 88}
+      },
+      {
+        "name": "logistic-train-stop",
+        "direction": 8,
+        "manual_trains_limit": 1,
+        "station": "LTN Depot",
+        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
+        "position": {"x": 38, "y": 88}
+      },
+      {
+        "name": "logistic-train-stop",
+        "direction": 8,
+        "manual_trains_limit": 1,
+        "station": "LTN Depot",
+        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
+        "position": {"x": 44, "y": 88}
+      },
+      {
+        "name": "logistic-train-stop",
+        "direction": 8,
+        "manual_trains_limit": 1,
+        "station": "LTN Depot",
+        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
+        "position": {"x": 48, "y": 88}
+      },
+      {
+        "name": "logistic-train-stop",
+        "direction": 8,
+        "manual_trains_limit": 1,
+        "station": "LTN Depot",
+        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
+        "position": {"x": 52, "y": 88}
+      },
+      {
+        "name": "logistic-train-stop",
+        "direction": 8,
+        "manual_trains_limit": 1,
+        "station": "LTN Depot",
+        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
+        "position": {"x": 56, "y": 88}
+      },
+      {
+        "name": "logistic-train-stop",
+        "direction": 8,
+        "manual_trains_limit": 1,
+        "station": "LTN Depot",
+        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
+        "position": {"x": 60, "y": 88}
+      },
+      {
+        "name": "logistic-train-stop",
+        "direction": 8,
+        "manual_trains_limit": 1,
+        "station": "LTN Depot",
+        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "control_behavior": {"read_from_train": true, "train_stopped_signal": {"name": "signal-T", "type": "virtual"}},
+        "position": {"x": 64, "y": 88}
+      },
+      {
+        "name": "logistic-train-stop-input",
+        "control_behavior": {
+          "circuit_enabled": true,
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
+        },
+        "position": {"x": 17.5, "y": 88.5}
+      },
+      {
+        "name": "logistic-train-stop-input",
+        "control_behavior": {
+          "circuit_enabled": true,
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
+        },
+        "position": {"x": 21.5, "y": 88.5}
+      },
+      {
+        "name": "logistic-train-stop-input",
+        "control_behavior": {
+          "circuit_enabled": true,
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
+        },
+        "position": {"x": 25.5, "y": 88.5}
+      },
+      {
+        "name": "logistic-train-stop-input",
+        "control_behavior": {
+          "circuit_enabled": true,
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
+        },
+        "position": {"x": 29.5, "y": 88.5}
+      },
+      {
+        "name": "logistic-train-stop-input",
+        "control_behavior": {
+          "circuit_enabled": true,
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
+        },
+        "position": {"x": 33.5, "y": 88.5}
+      },
+      {
+        "name": "logistic-train-stop-input",
+        "control_behavior": {
+          "circuit_enabled": true,
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
+        },
+        "position": {"x": 37.5, "y": 88.5}
+      },
+      {
+        "name": "logistic-train-stop-input",
+        "control_behavior": {
+          "circuit_enabled": true,
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
+        },
+        "position": {"x": 43.5, "y": 88.5}
+      },
+      {
+        "name": "logistic-train-stop-input",
+        "control_behavior": {
+          "circuit_enabled": true,
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
+        },
+        "position": {"x": 47.5, "y": 88.5}
+      },
+      {
+        "name": "logistic-train-stop-input",
+        "control_behavior": {
+          "circuit_enabled": true,
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
+        },
+        "position": {"x": 51.5, "y": 88.5}
+      },
+      {
+        "name": "logistic-train-stop-input",
+        "control_behavior": {
+          "circuit_enabled": true,
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
+        },
+        "position": {"x": 55.5, "y": 88.5}
+      },
+      {
+        "name": "logistic-train-stop-input",
+        "control_behavior": {
+          "circuit_enabled": true,
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
+        },
+        "position": {"x": 59.5, "y": 88.5}
+      },
+      {
+        "name": "logistic-train-stop-input",
+        "control_behavior": {
+          "circuit_enabled": true,
+          "use_colors": true,
+          "circuit_condition": {"comparator": ">", "constant": 0, "first_signal": {"name": "signal-anything", "type": "virtual"}}
+        },
+        "position": {"x": 63.5, "y": 88.5}
+      },
+      {
+        "name": "logistic-train-stop-output",
+        "direction": 8,
+        "control_behavior": {"sections": {"sections": [{"index": 1}]}},
+        "position": {"x": 18.5, "y": 88.5}
+      },
+      {
+        "name": "logistic-train-stop-output",
+        "direction": 8,
+        "control_behavior": {"sections": {"sections": [{"index": 1}]}},
+        "position": {"x": 22.5, "y": 88.5}
+      },
+      {
+        "name": "logistic-train-stop-output",
+        "direction": 8,
+        "control_behavior": {"sections": {"sections": [{"index": 1}]}},
+        "position": {"x": 26.5, "y": 88.5}
+      },
+      {
+        "name": "logistic-train-stop-output",
+        "direction": 8,
+        "control_behavior": {"sections": {"sections": [{"index": 1}]}},
+        "position": {"x": 30.5, "y": 88.5}
+      },
+      {
+        "name": "logistic-train-stop-output",
+        "direction": 8,
+        "control_behavior": {"sections": {"sections": [{"index": 1}]}},
+        "position": {"x": 34.5, "y": 88.5}
+      },
+      {
+        "name": "logistic-train-stop-output",
+        "direction": 8,
+        "control_behavior": {"sections": {"sections": [{"index": 1}]}},
+        "position": {"x": 38.5, "y": 88.5}
+      },
+      {
+        "name": "logistic-train-stop-output",
+        "direction": 8,
+        "control_behavior": {"sections": {"sections": [{"index": 1}]}},
+        "position": {"x": 44.5, "y": 88.5}
+      },
+      {
+        "name": "logistic-train-stop-output",
+        "direction": 8,
+        "control_behavior": {"sections": {"sections": [{"index": 1}]}},
+        "position": {"x": 48.5, "y": 88.5}
+      },
+      {
+        "name": "logistic-train-stop-output",
+        "direction": 8,
+        "control_behavior": {"sections": {"sections": [{"index": 1}]}},
+        "position": {"x": 52.5, "y": 88.5}
+      },
+      {
+        "name": "logistic-train-stop-output",
+        "direction": 8,
+        "control_behavior": {"sections": {"sections": [{"index": 1}]}},
+        "position": {"x": 56.5, "y": 88.5}
+      },
+      {
+        "name": "logistic-train-stop-output",
+        "direction": 8,
+        "control_behavior": {"sections": {"sections": [{"index": 1}]}},
+        "position": {"x": 60.5, "y": 88.5}
+      },
+      {
+        "name": "logistic-train-stop-output",
+        "direction": 8,
+        "control_behavior": {"sections": {"sections": [{"index": 1}]}},
+        "position": {"x": 64.5, "y": 88.5}
+      },
+      {"name": "medium-electric-pole", "position": {"x": 22.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 26.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 30.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 34.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 38.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 44.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 48.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 52.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 56.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 60.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 44.5, "y": 20.5}},
+      {"name": "medium-electric-pole", "position": {"x": 44.5, "y": 29.5}},
+      {"name": "medium-electric-pole", "position": {"x": 22.5, "y": 48.5}},
+      {"name": "medium-electric-pole", "position": {"x": 26.5, "y": 48.5}},
+      {"name": "medium-electric-pole", "position": {"x": 30.5, "y": 48.5}},
+      {"name": "medium-electric-pole", "position": {"x": 44.5, "y": 38.5}},
+      {"name": "medium-electric-pole", "position": {"x": 44.5, "y": 46.5}},
+      {"name": "medium-electric-pole", "position": {"x": 34.5, "y": 48.5}},
+      {"name": "medium-electric-pole", "position": {"x": 38.5, "y": 48.5}},
+      {"name": "medium-electric-pole", "position": {"x": 44.5, "y": 50.5}},
+      {"name": "medium-electric-pole", "position": {"x": 44.5, "y": 59.5}},
+      {"name": "medium-electric-pole", "position": {"x": 48.5, "y": 48.5}},
+      {"name": "medium-electric-pole", "position": {"x": 52.5, "y": 48.5}},
+      {"name": "medium-electric-pole", "position": {"x": 56.5, "y": 48.5}},
+      {"name": "medium-electric-pole", "position": {"x": 60.5, "y": 48.5}},
+      {"name": "medium-electric-pole", "position": {"x": 64.5, "y": 13.5}},
+      {"name": "medium-electric-pole", "position": {"x": 64.5, "y": 48.5}},
+      {"name": "medium-electric-pole", "position": {"x": 18.5, "y": 86.5}},
+      {"name": "medium-electric-pole", "position": {"x": 22.5, "y": 86.5}},
+      {"name": "medium-electric-pole", "position": {"x": 26.5, "y": 86.5}},
+      {"name": "medium-electric-pole", "position": {"x": 30.5, "y": 86.5}},
+      {"name": "medium-electric-pole", "position": {"x": 44.5, "y": 68.5}},
+      {"name": "medium-electric-pole", "position": {"x": 44.5, "y": 77.5}},
+      {"name": "medium-electric-pole", "position": {"x": 34.5, "y": 86.5}},
+      {"name": "medium-electric-pole", "position": {"x": 38.5, "y": 86.5}},
+      {"name": "medium-electric-pole", "position": {"x": 44.5, "y": 86.5}},
+      {"name": "medium-electric-pole", "position": {"x": 48.5, "y": 86.5}},
+      {"name": "medium-electric-pole", "position": {"x": 52.5, "y": 86.5}},
+      {"name": "medium-electric-pole", "position": {"x": 56.5, "y": 86.5}},
+      {"name": "medium-electric-pole", "position": {"x": 60.5, "y": 86.5}},
+      {"name": "medium-electric-pole", "position": {"x": 64.5, "y": 86.5}},
+      {
+        "name": "programmable-speaker",
+        "alert_parameters": {
+          "alert_message": "LTN Depot Train Not Empty",
+          "show_alert": true,
+          "show_on_map": true,
+          "icon_signal_id": {"name": "ltn-depot", "type": "virtual"}
+        },
+        "control_behavior": {
+          "circuit_condition": {"comparator": "≠", "constant": 1, "first_signal": {"name": "ltn-depot", "type": "virtual"}},
+          "circuit_parameters": {"instrument_id": 0, "note_id": 2, "signal_value_is_pitch": false}
+        },
+        "parameters": {"allow_polyphony": true, "playback_mode": "local", "playback_volume": 1},
+        "position": {"x": 17.5, "y": 89.5}
+      },
+      {
+        "name": "programmable-speaker",
+        "alert_parameters": {
+          "alert_message": "LTN Depot Train Not Empty",
+          "show_alert": true,
+          "show_on_map": true,
+          "icon_signal_id": {"name": "ltn-depot", "type": "virtual"}
+        },
+        "control_behavior": {
+          "circuit_condition": {"comparator": "≠", "constant": 1, "first_signal": {"name": "ltn-depot", "type": "virtual"}},
+          "circuit_parameters": {"instrument_id": 0, "note_id": 2, "signal_value_is_pitch": false}
+        },
+        "parameters": {"allow_polyphony": true, "playback_mode": "local", "playback_volume": 1},
+        "position": {"x": 21.5, "y": 89.5}
+      },
+      {
+        "name": "programmable-speaker",
+        "alert_parameters": {
+          "alert_message": "LTN Depot Train Not Empty",
+          "show_alert": true,
+          "show_on_map": true,
+          "icon_signal_id": {"name": "ltn-depot", "type": "virtual"}
+        },
+        "control_behavior": {
+          "circuit_condition": {"comparator": "≠", "constant": 1, "first_signal": {"name": "ltn-depot", "type": "virtual"}},
+          "circuit_parameters": {"instrument_id": 0, "note_id": 2, "signal_value_is_pitch": false}
+        },
+        "parameters": {"allow_polyphony": true, "playback_mode": "local", "playback_volume": 1},
+        "position": {"x": 25.5, "y": 89.5}
+      },
+      {
+        "name": "programmable-speaker",
+        "alert_parameters": {
+          "alert_message": "LTN Depot Train Not Empty",
+          "show_alert": true,
+          "show_on_map": true,
+          "icon_signal_id": {"name": "ltn-depot", "type": "virtual"}
+        },
+        "control_behavior": {
+          "circuit_condition": {"comparator": "≠", "constant": 1, "first_signal": {"name": "ltn-depot", "type": "virtual"}},
+          "circuit_parameters": {"instrument_id": 0, "note_id": 2, "signal_value_is_pitch": false}
+        },
+        "parameters": {"allow_polyphony": true, "playback_mode": "local", "playback_volume": 1},
+        "position": {"x": 29.5, "y": 89.5}
+      },
+      {
+        "name": "programmable-speaker",
+        "alert_parameters": {
+          "alert_message": "LTN Depot Train Not Empty",
+          "show_alert": true,
+          "show_on_map": true,
+          "icon_signal_id": {"name": "ltn-depot", "type": "virtual"}
+        },
+        "control_behavior": {
+          "circuit_condition": {"comparator": "≠", "constant": 1, "first_signal": {"name": "ltn-depot", "type": "virtual"}},
+          "circuit_parameters": {"instrument_id": 0, "note_id": 2, "signal_value_is_pitch": false}
+        },
+        "parameters": {"allow_polyphony": true, "playback_mode": "local", "playback_volume": 1},
+        "position": {"x": 33.5, "y": 89.5}
+      },
+      {
+        "name": "programmable-speaker",
+        "alert_parameters": {
+          "alert_message": "LTN Depot Train Not Empty",
+          "show_alert": true,
+          "show_on_map": true,
+          "icon_signal_id": {"name": "ltn-depot", "type": "virtual"}
+        },
+        "control_behavior": {
+          "circuit_condition": {"comparator": "≠", "constant": 1, "first_signal": {"name": "ltn-depot", "type": "virtual"}},
+          "circuit_parameters": {"instrument_id": 0, "note_id": 2, "signal_value_is_pitch": false}
+        },
+        "parameters": {"allow_polyphony": true, "playback_mode": "local", "playback_volume": 1},
+        "position": {"x": 37.5, "y": 89.5}
+      },
+      {
+        "name": "programmable-speaker",
+        "alert_parameters": {
+          "alert_message": "LTN Depot Train Not Empty",
+          "show_alert": true,
+          "show_on_map": true,
+          "icon_signal_id": {"name": "ltn-depot", "type": "virtual"}
+        },
+        "control_behavior": {
+          "circuit_condition": {"comparator": "≠", "constant": 1, "first_signal": {"name": "ltn-depot", "type": "virtual"}},
+          "circuit_parameters": {"instrument_id": 0, "note_id": 2, "signal_value_is_pitch": false}
+        },
+        "parameters": {"allow_polyphony": true, "playback_mode": "local", "playback_volume": 1},
+        "position": {"x": 43.5, "y": 89.5}
+      },
+      {
+        "name": "programmable-speaker",
+        "alert_parameters": {
+          "alert_message": "LTN Depot Train Not Empty",
+          "show_alert": true,
+          "show_on_map": true,
+          "icon_signal_id": {"name": "ltn-depot", "type": "virtual"}
+        },
+        "control_behavior": {
+          "circuit_condition": {"comparator": "≠", "constant": 1, "first_signal": {"name": "ltn-depot", "type": "virtual"}},
+          "circuit_parameters": {"instrument_id": 0, "note_id": 2, "signal_value_is_pitch": false}
+        },
+        "parameters": {"allow_polyphony": true, "playback_mode": "local", "playback_volume": 1},
+        "position": {"x": 47.5, "y": 89.5}
+      },
+      {
+        "name": "programmable-speaker",
+        "alert_parameters": {
+          "alert_message": "LTN Depot Train Not Empty",
+          "show_alert": true,
+          "show_on_map": true,
+          "icon_signal_id": {"name": "ltn-depot", "type": "virtual"}
+        },
+        "control_behavior": {
+          "circuit_condition": {"comparator": "≠", "constant": 1, "first_signal": {"name": "ltn-depot", "type": "virtual"}},
+          "circuit_parameters": {"instrument_id": 0, "note_id": 2, "signal_value_is_pitch": false}
+        },
+        "parameters": {"allow_polyphony": true, "playback_mode": "local", "playback_volume": 1},
+        "position": {"x": 51.5, "y": 89.5}
+      },
+      {
+        "name": "programmable-speaker",
+        "alert_parameters": {
+          "alert_message": "LTN Depot Train Not Empty",
+          "show_alert": true,
+          "show_on_map": true,
+          "icon_signal_id": {"name": "ltn-depot", "type": "virtual"}
+        },
+        "control_behavior": {
+          "circuit_condition": {"comparator": "≠", "constant": 1, "first_signal": {"name": "ltn-depot", "type": "virtual"}},
+          "circuit_parameters": {"instrument_id": 0, "note_id": 2, "signal_value_is_pitch": false}
+        },
+        "parameters": {"allow_polyphony": true, "playback_mode": "local", "playback_volume": 1},
+        "position": {"x": 55.5, "y": 89.5}
+      },
+      {
+        "name": "programmable-speaker",
+        "alert_parameters": {
+          "alert_message": "LTN Depot Train Not Empty",
+          "show_alert": true,
+          "show_on_map": true,
+          "icon_signal_id": {"name": "ltn-depot", "type": "virtual"}
+        },
+        "control_behavior": {
+          "circuit_condition": {"comparator": "≠", "constant": 1, "first_signal": {"name": "ltn-depot", "type": "virtual"}},
+          "circuit_parameters": {"instrument_id": 0, "note_id": 2, "signal_value_is_pitch": false}
+        },
+        "parameters": {"allow_polyphony": true, "playback_mode": "local", "playback_volume": 1},
+        "position": {"x": 59.5, "y": 89.5}
+      },
+      {
+        "name": "programmable-speaker",
+        "alert_parameters": {
+          "alert_message": "LTN Depot Train Not Empty",
+          "show_alert": true,
+          "show_on_map": true,
+          "icon_signal_id": {"name": "ltn-depot", "type": "virtual"}
+        },
+        "control_behavior": {
+          "circuit_condition": {"comparator": "≠", "constant": 1, "first_signal": {"name": "ltn-depot", "type": "virtual"}},
+          "circuit_parameters": {"instrument_id": 0, "note_id": 2, "signal_value_is_pitch": false}
+        },
+        "parameters": {"allow_polyphony": true, "playback_mode": "local", "playback_volume": 1},
+        "position": {"x": 63.5, "y": 89.5}
+      },
+      {"name": "radar", "position": {"x": 42.5, "y": 47.5}},
+      {"name": "rail-chain-signal", "position": {"x": -1.5, "y": 89.5}},
+      {"name": "rail-chain-signal", "direction": 2, "position": {"x": -5.5, "y": 102.5}},
+      {"name": "rail-chain-signal", "direction": 8, "position": {"x": 89.5, "y": 10.5}},
+      {"name": "rail-signal", "position": {"x": -1.5, "y": 11.5}},
+      {"name": "rail-signal", "position": {"x": 18.5, "y": 10.5}},
+      {"name": "rail-signal", "position": {"x": 22.5, "y": 10.5}},
+      {"name": "rail-signal", "position": {"x": 26.5, "y": 10.5}},
+      {"name": "rail-signal", "position": {"x": 30.5, "y": 10.5}},
+      {"name": "rail-signal", "position": {"x": 34.5, "y": 10.5}},
+      {"name": "rail-signal", "position": {"x": 38.5, "y": 10.5}},
+      {"name": "rail-signal", "position": {"x": 44.5, "y": 10.5}},
+      {"name": "rail-signal", "position": {"x": 48.5, "y": 10.5}},
+      {"name": "rail-signal", "position": {"x": 52.5, "y": 10.5}},
+      {"name": "rail-signal", "position": {"x": 56.5, "y": 10.5}},
+      {"name": "rail-signal", "position": {"x": 60.5, "y": 10.5}},
+      {"name": "rail-signal", "position": {"x": 64.5, "y": 10.5}},
+      {"name": "rail-signal", "position": {"x": 18.5, "y": 89.5}},
+      {"name": "rail-signal", "position": {"x": 22.5, "y": 89.5}},
+      {"name": "rail-signal", "position": {"x": 26.5, "y": 89.5}},
+      {"name": "rail-signal", "position": {"x": 30.5, "y": 89.5}},
+      {"name": "rail-signal", "position": {"x": 34.5, "y": 89.5}},
+      {"name": "rail-signal", "position": {"x": 38.5, "y": 89.5}},
+      {"name": "rail-signal", "position": {"x": 44.5, "y": 89.5}},
+      {"name": "rail-signal", "position": {"x": 48.5, "y": 89.5}},
+      {"name": "rail-signal", "position": {"x": 52.5, "y": 89.5}},
+      {"name": "rail-signal", "position": {"x": 56.5, "y": 89.5}},
+      {"name": "rail-signal", "position": {"x": 60.5, "y": 89.5}},
+      {"name": "rail-signal", "position": {"x": 64.5, "y": 89.5}},
+      {"name": "rail-signal", "direction": 6, "position": {"x": 92.5, "y": 101.5}},
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 22.5, "y": 12.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 21.5, "y": 14.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 25.5, "y": 14.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 29.5, "y": 14.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 33.5, "y": 14.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 37.5, "y": 14.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 43.5, "y": 14.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 47.5, "y": 14.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 51.5, "y": 14.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 55.5, "y": 14.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 59.5, "y": 14.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 63.5, "y": 14.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 22.5, "y": 47.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 21.5, "y": 49.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 25.5, "y": 49.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 29.5, "y": 49.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 33.5, "y": 49.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 37.5, "y": 49.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 47.5, "y": 49.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 51.5, "y": 49.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 55.5, "y": 49.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 59.5, "y": 49.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 63.5, "y": 49.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 22.5, "y": 83.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 21.5, "y": 84.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 25.5, "y": 84.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 29.5, "y": 84.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 33.5, "y": 84.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 37.5, "y": 84.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 43.5, "y": 84.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 47.5, "y": 84.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 51.5, "y": 84.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 55.5, "y": 84.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 59.5, "y": 84.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "requester-chest",
+        "control_behavior": {"circuit_condition_enabled": false, "circuit_mode_of_operation": 1},
+        "position": {"x": 63.5, "y": 84.5},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "roboport",
+        "position": {"x": 43, "y": 24},
+        "request_filters": {"sections": [{"index": 1}]}
+      },
+      {
+        "name": "roboport",
+        "position": {"x": 43, "y": 74},
+        "request_filters": {"sections": [{"index": 1}]}
+      }
+    ],
+    "icons": [{"index": 1, "signal": {"name": "train-stop"}}, {"index": 2, "signal": {"name": "roboport"}}],
+    "snap-to-grid": {"x": 110, "y": 2},
+    "wires": [
+      ["52,49.5", 1, "47.5,49.5", 1],
+      ["52,49.5", 1, "54.5,50.5", 1],
+      ["52,49.5", 3, "53.5,49.5", 1],
+      ["26,90", 5, "28.5,86.5", 5],
+      ["52.5,53.5", 1, "54.5,50.5", 1],
+      ["27.5,86.5", 1, "28,85.5", 3],
+      ["27.5,86.5", 1, "27.5,88.5", 1],
+      ["31.5,86.5", 1, "32,85.5", 3],
+      ["31.5,86.5", 1, "31.5,88.5", 1],
+      ["35.5,86.5", 1, "36,85.5", 3],
+      ["35.5,86.5", 1, "35.5,88.5", 1],
+      ["39.5,86.5", 1, "40,85.5", 3],
+      ["39.5,86.5", 1, "39.5,88.5", 1],
+      ["43.5,86.5", 1, "44,85.5", 3],
+      ["43.5,86.5", 1, "43.5,88.5", 1],
+      ["47.5,86.5", 1, "48,85.5", 3],
+      ["47.5,86.5", 1, "47.5,88.5", 1],
+      ["53.5,86.5", 1, "54,85.5", 3],
+      ["53.5,86.5", 1, "53.5,88.5", 1],
+      ["57.5,86.5", 1, "58,85.5", 3],
+      ["57.5,86.5", 1, "57.5,88.5", 1],
+      ["61.5,86.5", 1, "62,85.5", 3],
+      ["61.5,86.5", 1, "61.5,88.5", 1],
+      ["65.5,86.5", 1, "66,85.5", 3],
+      ["65.5,86.5", 1, "65.5,88.5", 1],
+      ["69.5,86.5", 1, "70,85.5", 3],
+      ["69.5,86.5", 1, "69.5,88.5", 1],
+      ["73.5,86.5", 1, "74,85.5", 3],
+      ["73.5,86.5", 1, "73.5,88.5", 1],
+      ["28,85.5", 1, "28,88", 1],
+      ["32,85.5", 1, "32,88", 1],
+      ["36,85.5", 1, "36,88", 1],
+      ["40,85.5", 1, "40,88", 1],
+      ["44,85.5", 1, "44,88", 1],
+      ["48,85.5", 1, "48,88", 1],
+      ["54,85.5", 1, "54,88", 1],
+      ["58,85.5", 1, "58,88", 1],
+      ["62,85.5", 1, "62,88", 1],
+      ["66,85.5", 1, "66,88", 1],
+      ["70,85.5", 1, "70,88", 1],
+      ["74,85.5", 1, "74,88", 1],
+      ["32.5,12.5", 1, "31.5,14.5", 1],
+      ["31.5,14.5", 1, "35.5,14.5", 1],
+      ["35.5,14.5", 1, "39.5,14.5", 1],
+      ["39.5,14.5", 1, "43.5,14.5", 1],
+      ["43.5,14.5", 1, "47.5,14.5", 1],
+      ["47.5,14.5", 1, "53.5,14.5", 1],
+      ["53.5,14.5", 1, "57.5,14.5", 1],
+      ["53.5,14.5", 1, "54.5,13.5", 1],
+      ["57.5,14.5", 1, "61.5,14.5", 1],
+      ["61.5,14.5", 1, "65.5,14.5", 1],
+      ["65.5,14.5", 1, "69.5,14.5", 1],
+      ["69.5,14.5", 1, "73.5,14.5", 1],
+      ["32.5,47.5", 1, "31.5,49.5", 1],
+      ["31.5,49.5", 1, "35.5,49.5", 1],
+      ["35.5,49.5", 1, "39.5,49.5", 1],
+      ["39.5,49.5", 1, "43.5,49.5", 1],
+      ["43.5,49.5", 1, "47.5,49.5", 1],
+      ["57.5,49.5", 1, "61.5,49.5", 1],
+      ["57.5,49.5", 1, "54.5,50.5", 1],
+      ["61.5,49.5", 1, "65.5,49.5", 1],
+      ["65.5,49.5", 1, "69.5,49.5", 1],
+      ["69.5,49.5", 1, "73.5,49.5", 1],
+      ["32.5,83.5", 1, "31.5,84.5", 1],
+      ["31.5,84.5", 1, "35.5,84.5", 1],
+      ["35.5,84.5", 1, "39.5,84.5", 1],
+      ["39.5,84.5", 1, "43.5,84.5", 1],
+      ["43.5,84.5", 1, "47.5,84.5", 1],
+      ["47.5,84.5", 1, "53.5,84.5", 1],
+      ["53.5,84.5", 1, "57.5,84.5", 1],
+      ["53.5,84.5", 1, "54.5,77.5", 1],
+      ["57.5,84.5", 1, "61.5,84.5", 1],
+      ["61.5,84.5", 1, "65.5,84.5", 1],
+      ["65.5,84.5", 1, "69.5,84.5", 1],
+      ["69.5,84.5", 1, "73.5,84.5", 1],
+      ["27.5,88.5", 1, "27.5,89.5", 1],
+      ["31.5,88.5", 1, "31.5,89.5", 1],
+      ["35.5,88.5", 1, "35.5,89.5", 1],
+      ["39.5,88.5", 1, "39.5,89.5", 1],
+      ["43.5,88.5", 1, "43.5,89.5", 1],
+      ["47.5,88.5", 1, "47.5,89.5", 1],
+      ["53.5,88.5", 1, "53.5,89.5", 1],
+      ["57.5,88.5", 1, "57.5,89.5", 1],
+      ["61.5,88.5", 1, "61.5,89.5", 1],
+      ["65.5,88.5", 1, "65.5,89.5", 1],
+      ["69.5,88.5", 1, "69.5,89.5", 1],
+      ["73.5,88.5", 1, "73.5,89.5", 1],
+      ["32.5,13.5", 5, "36.5,13.5", 5],
+      ["36.5,13.5", 5, "40.5,13.5", 5],
+      ["40.5,13.5", 5, "44.5,13.5", 5],
+      ["44.5,13.5", 5, "48.5,13.5", 5],
+      ["48.5,13.5", 5, "54.5,13.5", 5],
+      ["54.5,13.5", 1, "54.5,20.5", 1],
+      ["54.5,13.5", 5, "58.5,13.5", 5],
+      ["54.5,13.5", 5, "54.5,20.5", 5],
+      ["58.5,13.5", 5, "62.5,13.5", 5],
+      ["62.5,13.5", 5, "66.5,13.5", 5],
+      ["66.5,13.5", 5, "70.5,13.5", 5],
+      ["70.5,13.5", 5, "74.5,13.5", 5],
+      ["54.5,20.5", 1, "54.5,29.5", 1],
+      ["54.5,20.5", 5, "54.5,29.5", 5],
+      ["54.5,29.5", 1, "54.5,38.5", 1],
+      ["54.5,29.5", 5, "54.5,38.5", 5],
+      ["32.5,48.5", 5, "36.5,48.5", 5],
+      ["36.5,48.5", 5, "40.5,48.5", 5],
+      ["40.5,48.5", 5, "44.5,48.5", 5],
+      ["54.5,38.5", 1, "54.5,46.5", 1],
+      ["54.5,38.5", 5, "54.5,46.5", 5],
+      ["54.5,46.5", 1, "54.5,50.5", 1],
+      ["54.5,46.5", 5, "48.5,48.5", 5],
+      ["54.5,46.5", 5, "58.5,48.5", 5],
+      ["44.5,48.5", 5, "48.5,48.5", 5],
+      ["48.5,48.5", 5, "54.5,50.5", 5],
+      ["54.5,50.5", 1, "54.5,59.5", 1],
+      ["54.5,50.5", 5, "54.5,59.5", 5],
+      ["54.5,50.5", 5, "58.5,48.5", 5],
+      ["54.5,59.5", 1, "54.5,68.5", 1],
+      ["54.5,59.5", 5, "54.5,68.5", 5],
+      ["58.5,48.5", 5, "62.5,48.5", 5],
+      ["62.5,48.5", 5, "66.5,48.5", 5],
+      ["66.5,48.5", 5, "70.5,48.5", 5],
+      ["70.5,48.5", 5, "74.5,48.5", 5],
+      ["28.5,86.5", 5, "32.5,86.5", 5],
+      ["32.5,86.5", 5, "36.5,86.5", 5],
+      ["36.5,86.5", 5, "40.5,86.5", 5],
+      ["40.5,86.5", 5, "44.5,86.5", 5],
+      ["54.5,68.5", 1, "54.5,77.5", 1],
+      ["54.5,68.5", 5, "54.5,77.5", 5],
+      ["54.5,77.5", 5, "54.5,86.5", 5],
+      ["44.5,86.5", 5, "48.5,86.5", 5],
+      ["48.5,86.5", 5, "54.5,86.5", 5],
+      ["54.5,86.5", 5, "58.5,86.5", 5],
+      ["58.5,86.5", 5, "62.5,86.5", 5],
+      ["62.5,86.5", 5, "66.5,86.5", 5],
+      ["66.5,86.5", 5, "70.5,86.5", 5],
+      ["70.5,86.5", 5, "74.5,86.5", 5]
+    ]
+  }
+}

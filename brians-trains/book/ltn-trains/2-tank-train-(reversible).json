@@ -1,0 +1,57 @@
+{
+  "index": 11,
+  "blueprint": {
+    "item": "blueprint",
+    "label": "2-Tank Train (reversible)",
+    "shift_x": -79,
+    "shift_y": 80,
+    "version": 562949955518464,
+    "entities": [
+      {
+        "name": "fluid-wagon",
+        "enable_logistics_while_moving": false,
+        "orientation": 0,
+        "position": {"x": 0, "y": 7.46875}
+      },
+      {
+        "name": "fluid-wagon",
+        "enable_logistics_while_moving": false,
+        "orientation": 0,
+        "position": {"x": 0, "y": 14.46875}
+      },
+      {
+        "name": "locomotive",
+        "enable_logistics_while_moving": false,
+        "orientation": 0,
+        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "position": {"x": 0, "y": 0.46875}
+      },
+      {
+        "name": "locomotive",
+        "enable_logistics_while_moving": false,
+        "orientation": 0.5,
+        "color": {"a": 0.49803921580314636, "b": 1, "g": 0.49803921580314636, "r": 0},
+        "position": {"x": 0, "y": 21.46875}
+      }
+    ],
+    "icons": [
+      {"index": 1, "signal": {"name": "locomotive"}},
+      {"index": 2, "signal": {"name": "signal-2", "type": "virtual"}},
+      {"index": 3, "signal": {"name": "fluid-wagon"}},
+      {"index": 4, "signal": {"name": "signal-2", "type": "virtual"}}
+    ],
+    "schedules": [
+      {
+        "locomotives": ["0,0", "0,21"],
+        "schedule": {
+          "records": [
+            {
+              "station": "LTN Depot",
+              "wait_conditions": [{"compare_type": "and", "ticks": 300, "type": "inactivity"}]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
