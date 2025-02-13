@@ -2,6 +2,10 @@
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.0.49
+
+- Restored dropped red wire in .48 Science block.
+
 ## v5.0.48
 
 - Fix Science so additional labs will fit. Also improve sushi-belt cycling.
