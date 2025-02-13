@@ -2,6 +2,12 @@
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.0.48
+
+- Fix Science so additional labs will fit. Also improve sushi-belt cycling.
+- Move config of rail support & ramp in Red Mall to separate combinator so it doesn't break non-SA play.
+- Add missing efficiency modules to Solar Parts.
+
 ## v5.0.47
 
 - Still more spoilage-stall fixes to agricultural science.
