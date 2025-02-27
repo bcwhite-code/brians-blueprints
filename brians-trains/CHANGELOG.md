@@ -4,6 +4,11 @@ History, in brief.
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.4
+
+* Change all requester output inserters to use "set filters" instead of threshold.
+* Fix LTN requester accounting of current contents. (requires "set filters", above).
+
 ## v5.3
 
 * Add `L` signals (max train length) for all station body configurations.
