@@ -4,6 +4,13 @@ History, in brief.
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.5
+
+* Fix stall in new requesters should all chests be equal.
+* Improve requester unload with better splitter configurations.
+* Remove some extra green wire from 1-car requesters.
+* Fix descriptions of LTN config combinators.
+
 ## v5.4
 
 * Change all requester output inserters to use "set filters" instead of threshold.

@@ -9,10 +9,11 @@
     "entities": [
       {
         "name": "arithmetic-combinator",
+        "player_description": "Calculate the average number of items per chest.\nUsing only the first car because a short-train could leave it empty while later cars make the station think it has capacity.",
         "control_behavior": {
           "arithmetic_conditions": {
             "operation": "/",
-            "second_constant": -12,
+            "second_constant": -13,
             "first_signal": {"name": "signal-each", "type": "virtual"},
             "output_signal": {"name": "signal-each", "type": "virtual"}
           }
@@ -322,7 +323,12 @@
       {"name": "express-splitter", "direction": 12, "position": {"x": -1.5, "y": 4}},
       {"name": "express-splitter", "direction": 12, "position": {"x": 1.5, "y": 1}},
       {"name": "express-splitter", "direction": 12, "position": {"x": 1.5, "y": 3}},
-      {"name": "express-splitter", "direction": 4, "position": {"x": 6.5, "y": 15}},
+      {
+        "name": "express-splitter",
+        "direction": 4,
+        "output_priority": "left",
+        "position": {"x": 6.5, "y": 15}
+      },
       {"name": "express-transport-belt", "direction": 8, "position": {"x": -2.5, "y": -0.5}},
       {"name": "express-transport-belt", "direction": 12, "position": {"x": -5.5, "y": 2.5}},
       {"name": "express-transport-belt", "direction": 12, "position": {"x": -5.5, "y": 3.5}},
