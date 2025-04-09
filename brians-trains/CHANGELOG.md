@@ -4,6 +4,11 @@ History, in brief.
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.6
+
+* Update LTN depot hubs to new track and requester stations.
+* Saved from latest Factorio version.
+
 ## v5.5
 
 * Fix stall in new requesters should all chests be equal.
