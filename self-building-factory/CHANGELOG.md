@@ -2,6 +2,11 @@
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.0.50
+
+- Include "all required items" on med power pole of Construction Site.
+- Saved with latest Factorio version.
+
 ## v5.0.49
 
 - Restored dropped red wire in .48 Science block.
