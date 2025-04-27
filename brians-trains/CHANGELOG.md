@@ -4,6 +4,17 @@ History, in brief.
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.8
+
+* Fix chest wire connections in 2-car left-output requester body.
+* Fix comments for LTN headers.
+* Fix missing track segment in 8-track LTN depot hub.
+* Fix missing wires in 8-track LTN depot hub.
+
+## v5.7
+
+* Restored missing files.
+
 ## v5.6
 
 * Update LTN depot hubs to new track and requester stations.
