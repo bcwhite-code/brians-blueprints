@@ -2,6 +2,10 @@
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.0.51
+
+- Fix depot-hub wiring to not forward train-counting signals to train scheduling.
+
 ## v5.0.50
 
 - Include "all required items" on med power pole of Construction Site.
