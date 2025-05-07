@@ -4,6 +4,11 @@ History, in brief.
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## v5.9
+
+* Capture control wire in LTN bot depot.
+* Have fuel train wait at depot if it low on fuel.
+
 ## v5.8
 
 * Fix chest wire connections in 2-car left-output requester body.

@@ -4,8 +4,8 @@
     "item": "blueprint",
     "label": "Fuel Train",
     "description": "Create exactly ONE of these per surface using BT trains.  It will keep the various Depot Hubs fully fueled and thus able to recharge the trains that visit them.\n\nTo change the fuel for the entire surface, change the pick-up station to be one that provides the desired fuel type.",
-    "shift_x": -1197,
-    "shift_y": -847,
+    "shift_x": -969,
+    "shift_y": -859,
     "version": 562949956239363,
     "entities": [
       {
@@ -13,26 +13,27 @@
         "copy_color_from_train_stop": true,
         "enable_logistics_while_moving": false,
         "inventory": null,
-        "orientation": 0,
-        "position": {"x": 0, "y": 7.46875}
+        "orientation": 0.5,
+        "position": {"x": 0, "y": 0.53125}
       },
       {
         "name": "locomotive",
         "copy_color_from_train_stop": false,
         "enable_logistics_while_moving": false,
-        "orientation": 0,
+        "orientation": 0.5,
         "color": {"a": 1, "b": 0.16470588743686676, "g": 1, "r": 0.2549019753932953},
-        "position": {"x": 0, "y": 0.46875}
+        "position": {"x": 0, "y": 7.53125}
       },
       {"name": "straight-rail", "position": {"x": 0, "y": 0}},
       {"name": "straight-rail", "position": {"x": 0, "y": 2}},
       {"name": "straight-rail", "position": {"x": 0, "y": 4}},
-      {"name": "straight-rail", "position": {"x": 0, "y": 6}}
+      {"name": "straight-rail", "position": {"x": 0, "y": 6}},
+      {"name": "straight-rail", "position": {"x": 0, "y": 8}}
     ],
     "icons": [{"index": 1, "signal": {"name": "coal-liquefaction", "type": "recipe"}}],
     "schedules": [
       {
-        "locomotives": ["0,0.5"],
+        "locomotives": ["0,7.5"],
         "schedule": {
           "group": "BT:FuelTrain",
           "records": [
@@ -43,7 +44,31 @@
                 {"compare_type": "or", "ticks": 120, "type": "inactivity"}
               ]
             },
-            {"station": "BT Depot"},
+            {
+              "station": "BT Depot",
+              "wait_conditions": [
+                {
+                  "compare_type": "and",
+                  "type": "fuel_item_count_any",
+                  "condition": {"comparator": "≥", "constant": 50, "first_signal": {"name": "coal"}}
+                },
+                {
+                  "compare_type": "or",
+                  "type": "fuel_item_count_any",
+                  "condition": {"comparator": "≥", "constant": 50, "first_signal": {"name": "solid-fuel"}}
+                },
+                {
+                  "compare_type": "or",
+                  "type": "fuel_item_count_any",
+                  "condition": {"comparator": "≥", "constant": 20, "first_signal": {"name": "rocket-fuel"}}
+                },
+                {
+                  "compare_type": "or",
+                  "type": "fuel_item_count_any",
+                  "condition": {"comparator": "≥", "constant": 1, "first_signal": {"name": "nuclear-fuel"}}
+                }
+              ]
+            },
             {
               "station": "[virtual-signal=down-arrow][virtual-signal=signal-1][recipe=coal-liquefaction]",
               "wait_conditions": [
@@ -55,6 +80,6 @@
         }
       }
     ],
-    "stock_connections": [{"back": "0,7.5", "stock": "0,0.5"}, {"front": "0,0.5", "stock": "0,7.5"}]
+    "stock_connections": [{"front": "0,7.5", "stock": "0,0.5"}, {"back": "0,0.5", "stock": "0,7.5"}]
   }
 }
