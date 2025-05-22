@@ -3,7 +3,8 @@
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
 ## v5.0.52:
-* Fix depot-hub fix wiring to fix not forward of scheduling requests to other half.
+
+- Fix depot-hub fix wiring to fix not forward of scheduling requests to other half.
 
 ## v5.0.51
 
