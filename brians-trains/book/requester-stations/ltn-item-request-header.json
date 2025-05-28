@@ -6,7 +6,7 @@
     "description": "1) Create a requester station body first.\n2) Remove train-stop then add LTN head.\n3) Wire red & green from big power pole to main rail poles. (optional)\n4) Configure in the REQ combinator by changing the amount of the desired item type with the NEGATIVE maximum amount that should be held locally.\n\nThe requested amount must be AT LEAST AS MUCH AS A FULL TRAIN or nothing will ever be delivered. Then add more so the station doesn't run dry while waiting for a delivery.",
     "shift_x": -847,
     "shift_y": -181,
-    "version": 562949956239363,
+    "version": 562949956501504,
     "entities": [
       {
         "name": "arithmetic-combinator",
@@ -24,8 +24,8 @@
         "name": "arithmetic-combinator",
         "control_behavior": {
           "arithmetic_conditions": {
-            "operation": "+",
-            "second_constant": 0,
+            "operation": "-",
+            "second_constant": 1,
             "first_signal": {"name": "signal-L", "type": "virtual"},
             "output_signal": {"name": "ltn-max-train-length", "type": "virtual"}
           }
@@ -50,7 +50,7 @@
       {
         "name": "constant-combinator",
         "direction": 8,
-        "player_description": "This is the LTN configuration:\n- ID 255 matches networks 0-7 (binary 11111111)\n- Request Priority is 0\n- Provide threshold is huge (don't provide on overfill)\n- Max-trains defaults to 1 (increase if you have stackers)\n- Min-train-length is 2 (increase to only accept longer trains)\n\nMax-train-length is set automatically.",
+        "player_description": "This is the LTN configuration:\n- ID 255 matches networks 0-7 (binary 11111111)\n- Request Priority is 0\n- Provide threshold is huge (don't provide on overfill)\n- Max-trains defaults to 1 (increase if you have stackers)\n- Min-train-length is 2 (increase to only accept longer trains)\n- Max-train-length is 1 but has L-1 added to it externally. This prevents scheduling during power outages.",
         "control_behavior": {
           "sections": {
             "sections": [
@@ -94,6 +94,14 @@
                     "comparator": "=",
                     "count": 2,
                     "index": 6,
+                    "quality": "normal",
+                    "type": "virtual"
+                  },
+                  {
+                    "name": "ltn-max-train-length",
+                    "comparator": "=",
+                    "count": 1,
+                    "index": 7,
                     "quality": "normal",
                     "type": "virtual"
                   }

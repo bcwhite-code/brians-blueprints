@@ -4,6 +4,11 @@ History, in brief.
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+
+## v5.10
+
+* Make LTN stations fail-safe during power outages by preventing scheduling. This ensures that trains of arbitrary length don't get sent.
+
 ## v5.9
 
 * Capture control wire in LTN bot depot.
