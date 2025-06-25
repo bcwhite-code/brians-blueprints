@@ -4,6 +4,10 @@ History, in brief.
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## 5.11
+
+* Remove "read stopped train" from alternate stops in Vanilla Depot Hub.
+* Re-capture Cybersyn Depot Hub to update BT:1car group.
 
 ## v5.10
 
