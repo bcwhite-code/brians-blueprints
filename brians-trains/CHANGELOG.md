@@ -4,6 +4,10 @@ History, in brief.
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## 5.12
+
+* Add an L signal to LTN train-stops so force-place builds will have a signal value that doesn't disable the stations.
+
 ## 5.11
 
 * Remove "read stopped train" from alternate stops in Vanilla Depot Hub.
