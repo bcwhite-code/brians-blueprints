@@ -4,6 +4,11 @@ History, in brief.
 
 Download Blueprints from [here](https://github.com/bcwhite-code/brians-blueprints/releases/)
 
+## 5.13
+
+* Revert: Add an L signal to LTN train-stops so force-place builds will have a signal value that doesn't disable the stations. (It doesn't work.)
+* Use separate config combinators for depot station IDs on 8-train LTN Depot Hub.
+
 ## 5.12
 
 * Add an L signal to LTN train-stops so force-place builds will have a signal value that doesn't disable the stations.
